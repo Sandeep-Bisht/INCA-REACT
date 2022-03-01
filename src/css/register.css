@@ -1,0 +1,197 @@
+/* login css */
+
+a
+{
+    text-decoration: none;
+}
+.actual-form
+{
+    border: 2px solid #262626;
+    padding: 30px 40px;
+    border-radius: 6px;
+    margin-bottom: 50px;
+    display: block;
+}
+.form-wrapper
+{
+    display: flex;
+    justify-content: center;
+}
+.lgn
+{
+    text-align: center;
+    padding: 30px 40px;
+}
+.lgn h4
+{
+    font-size: 40px;
+}
+.login-form .form-wrap 
+{
+    position:relative;
+}
+.login-form .actual-form input
+{
+    border: 2px solid #afbdcf;
+    border-radius: 5px;
+    height: 47px;
+    width: 100%;
+    color: #262626;
+    font-size: 14px;
+    padding-left: 20px;
+    box-shadow: none;  
+}
+input:focus ~ label, input:valid ~ label
+{
+    font-size: 12px;
+    color: #afbdcf;
+    top: -5px;
+    left: 10px;
+    background: #ffffff;
+    padding: 0px 5px 0px 5px;
+}
+.input-wrap 
+{
+    width:auto; 
+    height:auto; 
+    position:relative;
+}
+.input-wrap label 
+{
+    font-family:arial;
+    font-size:16px;
+    color: #afbdcf;
+    padding: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+    pointer-events: none;
+  
+}
+
+input[type="text"]:focus 
+{
+    outline:none;
+}
+
+.form-wrap
+{
+    padding: 10px 20px;
+}
+
+.frgt-pw
+{
+    text-align: end;
+    padding: 10px;
+}
+
+.btn-wrapper
+{
+    padding: 10px;
+    text-align: center;
+}
+
+.btn-wrapper .btn
+{
+    padding: 15px 100px;
+}
+
+.end-wrap
+{
+    text-align: center;
+}
+
+
+/* register css */
+
+
+.actual-form-1
+{
+    border: 2px solid #262626;
+    padding: 30px 40px;
+    border-radius: 6px;
+    margin-bottom: 50px;
+    display: block;
+}
+.form-wrapper-1
+{
+    display: flex;
+    justify-content: center;
+}
+.rgstr
+{
+    text-align: center;
+    padding: 30px 40px;
+}
+.rgstr h4
+{
+    font-size: 40px;
+}
+.register-form .form-wrap
+{
+    position: relative;
+}
+.register-form .actual-form-1 input
+{
+    border: 2px solid #afbdcf;
+    border-radius: 5px;
+    height: 47px;
+    color: #262626;
+    font-size: 14px;
+    padding-left: 20px;
+    box-shadow: none;  
+}
+input:focus ~ label, input:valid ~ label
+{
+    font-size: 12px;
+    color: #afbdcf;
+    top: -5px;
+    left: 10px;
+    background: #ffffff;
+    padding: 0px 5px 0px 5px;
+}
+.input-wrap 
+{
+    width:auto; 
+    height:auto; 
+    position:relative;
+}
+.input-wrap label 
+{
+    font-family:arial;
+    font-size:16px;
+    color: #afbdcf;
+    padding: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+    pointer-events: none;
+  
+}  
+input[type="text"]:focus 
+{
+    outline:none;
+}
+.form-wrap
+{
+    padding: 10px 20px;
+}
+.btn-wrapper
+{
+    padding: 10px;
+    text-align: center;
+}
+.btn-wrapper .btn
+{
+    padding: 15px 100px;
+}
+.end-wrap
+{
+    text-align: center;
+}
