@@ -24,8 +24,6 @@ export const Login = () => {
     useEffect(() => {
         if(state && state.userLoginSuccess){
             navigate('/dashboard')
-           // setSuccessResponse(state.userLoginSuccess)   
-            //dispatch(ACTIONS.resetToInitialState())
         }
     }, [state.userLoginSuccess])
 

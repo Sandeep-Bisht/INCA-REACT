@@ -19,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
             };
         case CONSTANT.RESET_TO_INITIAL_STATE:
             return{
-                userRegisterSuccess:{}
+                userRegisterSuccess: ""
             };
             break;    
         default:

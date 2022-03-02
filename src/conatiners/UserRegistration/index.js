@@ -5,6 +5,7 @@ import * as ACTIONS from './action'
 import '../../css/register.css'
 
 export const UserRegistration = () => {
+    console.log('insaide this ')
 
     const [registrationPayload, setRegistrationPayload] = useState({
         userName: "",
@@ -25,6 +26,7 @@ export const UserRegistration = () => {
             const re = /^[0-9\b]+$/;
 
             if (e.target.value === "" || re.test(e.target.value)) {
+                console.log('inside this')
                 regitrationPayloadCopy[e.target.id] = e.target.value
                 setRegistrationPayload(regitrationPayloadCopy)
             }
@@ -48,10 +50,10 @@ export const UserRegistration = () => {
         }
     }, [state.userRegisterSuccess])
 
-    // useEffect(() => {
-    //     if(state.userRegisterFailure)
-    //     setSuccessResponse(state.userRegisterFailure)   
-    // }, [state.userRegisterFailure])
+    useEffect(() => {
+        if(state.userRegisterFailure)
+        setSuccessResponse(state.userRegisterFailure)   
+    }, [state.userRegisterFailure])
 
     return (
         <>
