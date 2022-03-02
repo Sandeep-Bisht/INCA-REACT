@@ -4,8 +4,8 @@
     background: linear-gradient(to left, #000000fa, #000000d1, #00000000);   
      padding: 120px 0;
      display: flex;
-     border-bottom-left-radius: 250px;
-     border-bottom-right-radius: 120px;
+     /* border-bottom-left-radius: 250px;
+     border-bottom-right-radius: 120px; */
     
     
 }
@@ -22,8 +22,8 @@
     content: '';
     width: 100%;
     z-index: -1;
-    border-bottom-left-radius: 250px;
-    border-bottom-right-radius: 120px;
+    /* border-bottom-left-radius: 250px;
+    border-bottom-right-radius: 120px; */
 }
 .home-banner .right .banner-title
 {
@@ -50,4 +50,37 @@
     font-size:55px;
     display:inline-block;
     margin-bottom:10px;
+}
+.home-banner .count
+{
+    position: absolute;
+    right: 0;
+    display: flex;
+    right: 100px;
+    bottom: -70px;
+    box-shadow: 0px 15px 15px -10px rgb(0 0 0 / 15%);
+    /* padding: 30px 20px 30px 20px; */
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 5px;
+
+}
+.home-banner .count .common-timer-box
+{
+    font-size: 60px;
+    font-weight: 700;
+}
+.home-banner .count .counter-wrapper
+{
+    padding: 10px 30px;
+    text-align: center;
+    line-height: 1;
+}
+.home-banner .count .timer-detail
+{
+    font-weight: 600;
+    font-size:15px;
+    color: #696A87;
+    font-family: 'Mulish', sans-serif;
+
 }
