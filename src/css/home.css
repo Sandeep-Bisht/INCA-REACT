@@ -1,0 +1,53 @@
+.home-banner
+{
+    position: relative;
+    background: linear-gradient(to left, #000000fa, #000000d1, #00000000);   
+     padding: 120px 0;
+     display: flex;
+     border-bottom-left-radius: 250px;
+     border-bottom-right-radius: 120px;
+    
+    
+}
+.home-banner::before{
+    position:absolute;
+    top:0;
+    display: block;
+    background: url(../images/slider.jpg);
+     background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    right:0;
+    height: 100%;
+    content: '';
+    width: 100%;
+    z-index: -1;
+    border-bottom-left-radius: 250px;
+    border-bottom-right-radius: 120px;
+}
+.home-banner .right .banner-title
+{
+   font-size: 70px;
+   font-weight:700;
+   margin-bottom:0;
+   text-transform:uppercase;
+   line-height: 62px; 
+}
+.home-banner .right .banner-title .banner-small
+{
+    font-size:40px;
+}
+.home-banner .banner-bottom
+{
+    width: 140px;
+    height: 4px;
+    background-color: #fff;
+    margin: 5px auto;
+    border-radius: 5px;
+}
+.home-banner .banner-last
+{
+    font-size:55px;
+    display:inline-block;
+    margin-bottom:10px;
+}
