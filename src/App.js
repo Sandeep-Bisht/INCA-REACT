@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { ApplicationRoutes } from './Routes';
+import './css/common.css'
 
 function App() {
   return (

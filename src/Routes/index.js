@@ -1,9 +1,11 @@
 import React, {} from 'react'
 import { Routes, Route } from "react-router-dom";
 import { Header } from '../components/Header'
+import { HomePage } from '../conatiners/HomePage'
 import { Login } from '../conatiners/Login';
 import { UserRegistration } from "../conatiners/UserRegistration"
 import { Dashboard } from '../conatiners/Dashboard'
+import { Footer } from '../components/Footer';
 
 export const ApplicationRoutes = () => {
     return(
@@ -13,7 +15,9 @@ export const ApplicationRoutes = () => {
             <Route path = "/" element={<UserRegistration />} />
             <Route path = "/login" element={<Login />} />
             <Route path = "/dashboard" element={<Dashboard />} />
+            <Route path = "/HomePage" element={<HomePage /> } />
          </Routes>
+         <Footer />
         </>
     )
 }
