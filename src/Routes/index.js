@@ -5,6 +5,7 @@ import { HomePage } from '../conatiners/HomePage'
 import { Login } from '../conatiners/Login';
 import { UserRegistration } from "../conatiners/UserRegistration"
 import { Dashboard } from '../conatiners/Dashboard'
+import { Footer } from '../components/Footer';
 
 export const ApplicationRoutes = () => {
     return(
@@ -16,6 +17,7 @@ export const ApplicationRoutes = () => {
             <Route path = "/login" element={<Login />} />
             <Route path = "/dashboard" element={<Dashboard />} />
          </Routes>
+         <Footer/>
         </>
     )
 }
