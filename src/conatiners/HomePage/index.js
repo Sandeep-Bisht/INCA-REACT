@@ -1,8 +1,20 @@
-import React, { } from 'react'
+import React, { useEffect } from 'react'
 import '../../css/home.css'
 
 
 export const HomePage = () => {
+    useEffect(() => {
+        let nav = document.querySelector(".header-wrapper");
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 20) {
+                nav.classList.add("header-scrolled");
+            }
+            else {
+                nav.classList.remove("header-scrolled");
+            }
+        }
+    }, [])
+
     return (
         <>
             <div className='home-banner'>
@@ -38,7 +50,7 @@ export const HomePage = () => {
                     </div>
                 </div>
             </div>
-           
+
         </>
     )
 }

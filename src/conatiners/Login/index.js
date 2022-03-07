@@ -27,10 +27,14 @@ export const Login = () => {
         }
     }, [state.userLoginSuccess])
 
+    let validateLoginForm = () => {
+        const isEmpty = Object.values(loginPayload).some(x => x === '');
+        return isEmpty
+    }
+
     let onSubmitLoginRequest = (e) => {
         e.preventDefault()
         dispatch(ACTIONS.appLogin(loginPayload))
-
     }
 
     return (
@@ -50,7 +54,7 @@ export const Login = () => {
                                 <div className="col-md-12">
                                     <div className="form-wrap">
                                         <div className="input-wrap">
-                                            <input type="emai" id="userEmail" onChange={(e) => loginOnChangeHandler(e)} required />
+                                            <input type="emai" id="userEmail" onChange={(e) => loginOnChangeHandler(e)}  />
                                             <label><i className="fa-solid fa-envelope me-2"></i>E-mail</label>
                                         </div>
                                     </div>
@@ -59,7 +63,7 @@ export const Login = () => {
                                 <div className="col-md-12">
                                     <div className="form-wrap">
                                         <div className="input-wrap">
-                                            <input type="password" id="password" onChange={(e) => loginOnChangeHandler(e)} required />
+                                            <input type="password" id="password" onChange={(e) => loginOnChangeHandler(e)}  />
                                             <label><i className="fa-solid far fa-eye-slash me-2"></i>Password</label>
                                         </div>
                                     </div>
@@ -73,7 +77,7 @@ export const Login = () => {
 
                                 <div className="col-md-12">
                                     <div className="btn-wrapper">
-                                        <button type="submit" className="btn btn-primary">Login</button>
+                                        <button type="submit" className="btn btn-primary" disabled={validateLoginForm()}>Login</button>
                                     </div>
                                 </div>
 
