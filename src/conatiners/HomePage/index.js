@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Footer } from '../../components/Footer';
 // import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import '../../css/home.css'
 import about1 from '../../images/about1.jpg'
@@ -1109,6 +1110,7 @@ export const HomePage = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
 
 
 

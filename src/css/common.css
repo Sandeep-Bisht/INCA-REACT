@@ -107,6 +107,24 @@ h1,h2,h3,h4,h5,h6
     background:#cfb211f7;
     border: 1px solid #cfb211f7;
 }
+.common-form-heading
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+    font-size: 20px;
+    text-transform:uppercase;
+    color:#212529;
+} 
+.form-submit
+{
+    background: #111b69;
+    padding: 6px 45px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-radius: 25px;
+    border: 0;
+}
 .header-scrolled
 {
 left: 0;
