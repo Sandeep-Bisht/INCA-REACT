@@ -141,6 +141,10 @@ z-index: 10;
 .header-wrapper.header-scrolled .nav-link {
     color: #cfb211f7;
 }
+.header-wrapper.header-scrolled .logo-text
+{
+    color:#cfb211f7;
+}
 
 .h5x {
     font-size: 24px!important;
@@ -198,7 +202,15 @@ z-index: 10;
 .h9 {
     font-size: 13px;
 }
+input,textarea
+{
+    width:100%;
+}
 
+:focus-visible 
+{
+    outline: none;
+}
 
 
 
