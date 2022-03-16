@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import * as ACTIONS from './action'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate,Link } from 'react-router-dom'
+import { Header } from '../../components/Header'
 import '../../css/register.css'
 
 export const Login = () => {
@@ -38,7 +39,9 @@ export const Login = () => {
     }
 
     return (
-        <> <section class="register-form">
+        <> 
+        <Header></Header>
+        <section class="register-form">
             <form className="login-form" onSubmit={(e) => onSubmitLoginRequest(e)}>
                 <div className="container">
                     <div className="row">

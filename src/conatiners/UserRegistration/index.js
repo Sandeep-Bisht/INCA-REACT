@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate,Link } from 'react-router-dom'
+import { Header } from '../../components/Header'
 import * as ACTIONS from './action'
 import '../../css/register.css'
 
@@ -60,6 +61,7 @@ export const UserRegistration = () => {
     return (
         <>
 
+            <Header></Header>
             <section class="register-form">
                 <div class="container">
                     <div class="row">

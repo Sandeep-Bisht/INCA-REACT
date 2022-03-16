@@ -206,10 +206,17 @@ input,textarea
 {
     width:100%;
 }
-
+textarea
+{
+    resize:none;
+}
 :focus-visible 
 {
     outline: none;
+}
+.form-control:focus,.form-select:focus
+{
+    box-shadow:none!important;
 }
 
 

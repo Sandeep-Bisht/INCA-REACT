@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header';
 // import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import '../../css/home.css'
 import about1 from '../../images/about1.jpg'
@@ -97,6 +98,7 @@ export const HomePage = () => {
 
     return (
         <>
+            <Header></Header>
             <div className='home-banner'>
                 <div className='container'>
                     <div className='row pb-5'>

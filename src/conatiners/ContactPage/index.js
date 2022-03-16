@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header'
 import '../../css/contact.css'
 
 
@@ -7,6 +8,7 @@ import '../../css/contact.css'
 export const Contact = () => {
  return (
         <>
+             <Header></Header>
                <div class="common-redirect-banner">
         <div class="container">
             <div class="row ">

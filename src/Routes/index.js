@@ -11,7 +11,7 @@ import { Footer } from '../components/Footer';
 export const ApplicationRoutes = () => {
     return(
         <>
-        <Header></Header>
+        {/* <Header></Header> */}
         <Routes>
             <Route path = "/" element={<HomePage />} />
             <Route path = "/register" element={<UserRegistration />} />

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Dashlogo from '../../images/logo.png'
 import User from '../../images/user-profile.png'
 import '../../css/dashboard.css'
+
 import {countries}  from '../../utils'
 
 let obj = {
@@ -43,7 +44,7 @@ export const Dashboard = () => {
     return (
         <>
             <div className='dash-wrapper'>
-                <header className='dashboard-header py-2 px-lg-5'>
+                <header className='dashboard-header '>
                     <nav className="navbar navbar-expand-lg py-0">
                         <div className="container-fluid">
                             <a className="navbar-brand" href="#">
@@ -58,15 +59,15 @@ export const Dashboard = () => {
                             <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                                 <form className="d-flex">
                                     <div className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle p-0 d-user-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a className="text-decoration-none dropdown-toggle p-0 d-user-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <img src={User} className="img-fluid  me-3 dash-user-pic" />
                                             <span className='user-text me-2'>User name</span>
                                         </a>
                                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li><a className="dropdown-item" href="#">Action</a></li>
                                             <li><a className="dropdown-item" href="#">Another action</a></li>
-                                            <li><hr className="dropdown-divider" /></li>
-                                            <li><a className="dropdown-item">Log Out</a></li>
+                                            
+                                            <li><a className="dropdown-item" href='#'>Log Out</a></li>
                                         </ul>
                                     </div>
                                 </form>
@@ -77,30 +78,30 @@ export const Dashboard = () => {
                 <section className='dash-body'>
                     <div className='container-fluid '>
                         <div className='row'>
-                            <div className='col-md-3 left-part col-lg-2'>
+                            <div className='col-md-3 left-part col-lg-2 px-0'>
                                 <aside>
                                     <ul className='ps-0 list-unstyled mt-4'>
                                         <li className='active-blue'>
-                                            <button className='common-blue'>
+                                            <button className='common-blue btn'>
                                                 Dashboard</button></li>
-                                        <li><button className='common-blue'
+                                        <li><button className='common-blue btn'
                                         >Create</button></li>
-                                        <li ><button className='common-blue'
+                                        <li ><button className='common-blue btn'
                                         >View</button></li>
                                     </ul>
                                     <div class="accordion" id="accordionExample">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="headingOne">
-                                                <button class="accordion-button common-blue" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <button class="accordion-button common-blue btn mb-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                     Menu
                                                 </button>
                                             </h2>
                                             <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body p-0">
-                                                    <ul className='ps-0 list-unstyled mt-4'>
-                                                        <li ><button className='common-blue'>Doctype</button></li>
-                                                        <li ><button className='common-blue'>Category</button></li>
-                                                        <li ><button className='common-blue'>Sub-Category</button></li>
+                                                    <ul className='ps-0 list-unstyled '>
+                                                        <li ><button className='common-blue btn'>Doctype</button></li>
+                                                        <li ><button className='common-blue btn'>Category</button></li>
+                                                        <li ><button className='common-blue btn'>Sub-Category</button></li>
                                                     </ul>
                                                 </div>
                                             </div>
