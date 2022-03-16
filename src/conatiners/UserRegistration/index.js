@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 import * as ACTIONS from './action'
 import '../../css/register.css'
 
@@ -17,14 +17,13 @@ export const UserRegistration = () => {
 
     let dispatch = useDispatch()
     let navigate = useNavigate()
-    
+
 
     let registrationPayloadOnChangeHandler = (e) => {
         let regitrationPayloadCopy = { ...registrationPayload }
         if (e.target.id == 'mobileNumber') {
             const re = /^[0-9\b]+$/;
-
-            if (e.target.value === "" || re.test(e.target.value)) {
+            if (re.test(e.target.value)) {
                 regitrationPayloadCopy[e.target.id] = e.target.value
                 setRegistrationPayload(regitrationPayloadCopy)
             }
@@ -33,7 +32,12 @@ export const UserRegistration = () => {
             regitrationPayloadCopy[e.target.id] = e.target.value
             setRegistrationPayload(regitrationPayloadCopy)
         }
+    }
 
+    let validateRegisterForm= () => {
+        const isEmpty = Object.values(registrationPayload).some(x => x === '');
+        console.log(isEmpty, 'ASDFSD')
+        return isEmpty
     }
 
     let registrationSubmitRequest = () => {
@@ -41,92 +45,76 @@ export const UserRegistration = () => {
     }
 
     useEffect(() => {
-        if(state && state.userRegisterSuccess){
+        if (state && state.userRegisterSuccess) {
             navigate('/login')
-            setSuccessResponse(state.userRegisterSuccess)   
+            setSuccessResponse(state.userRegisterSuccess)
             dispatch(ACTIONS.resetToInitialState())
         }
     }, [state.userRegisterSuccess])
 
-    // useEffect(() => {
-    //     if(state.userRegisterFailure)
-    //     setSuccessResponse(state.userRegisterFailure)   
-    // }, [state.userRegisterFailure])
+    useEffect(() => {
+        if (state.userRegisterFailure)
+            setSuccessResponse(state.userRegisterFailure)
+    }, [state.userRegisterFailure])
 
     return (
         <>
-            {/* <form className="row g-3 needs-validation" onSubmit={(e) => registrationSubmitRequest(e)} >
-                <div className="col-md-4">
-                    <label className="form-label">UserName</label>
-                    <input type="text" className="form-control " onChange={(e) => registrationPayloadOnChangeHandler(e)} id="userName" value={registrationPayload.userName} required />
-                </div>
-                <div className="col-md-4">
-                    <label className="form-label">Email</label>
-                    <input type="email" className="form-control " onChange={(e) => registrationPayloadOnChangeHandler(e)} id="userEmail" value={registrationPayload.userEmail} required />
-                </div>
-                <div className="col-md-4">
-                    <label className="form-label">Phone number</label>
-                    <input type="text" className="form-control " maxLength="10" value={registrationPayload.mobileNumber} onChange={(e) => registrationPayloadOnChangeHandler(e)} id="mobileNumber" required />
-                </div>
-                <div className="col-12">
-                    <button className="btn btn-primary" type="submit">Submit form</button>
-                </div>
-            </form> */}
+
             <section class="register-form">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto form-wrapper-1">
-                    <div class="row actual-form-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mx-auto form-wrapper-1">
+                            <div class="row actual-form-1">
 
-                        <div class="col-md-12">
-                            <div class="rgstr">
-                            <h4>Register</h4>
-                            </div>
-                        </div>
-        
-                        <div class="col-md-12">
-                            <div class="form-wrap">
-                                <div class="input-wrap">
-                                    {/* <input type="text" required /> */}
-                                    <input type="text" className="form-control " onChange={(e) => registrationPayloadOnChangeHandler(e)} id="userName" value={registrationPayload.userName} required />
-                                    <label><i class="fa-solid fa-person me-2"></i>Name</label>
+                                <div class="col-md-12">
+                                    <div class="rgstr">
+                                        <p className='common-form-heading '>Register</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-        
-                        <div class="col-md-12">
-                            <div class="form-wrap">
-                                <div class="input-wrap">
-                                <input type="email" className="form-control " onChange={(e) => registrationPayloadOnChangeHandler(e)} id="userEmail" value={registrationPayload.userEmail} required />
-                                    <label><i class="fa-solid far far fa-envelope me-2"></i>E-mail</label>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-md-12">
-                            <div class="form-wrap">
-                                <div class="input-wrap">
-                                    <input type="text" className="form-control " maxLength="10" value={registrationPayload.mobileNumber} onChange={(e) => registrationPayloadOnChangeHandler(e)} id="mobileNumber" required />
-                                    <label><i class="fa-solid far fas fa-phone me-2"></i>Phone Number</label>
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <div class="input-wrap">
+                                            {/* <input type="text" required /> */}
+                                            <input type="text" className="form-control " onChange={(e) => registrationPayloadOnChangeHandler(e)} id="userName" value={registrationPayload.userName} required />
+                                            <label><i class="fa-solid fa-person me-2"></i>Name</label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-        
-                        <div class="col-md-12">
-                            <div class="btn-wrapper">
-                                <button type="submit" class="btn btn-primary" onClick={() => registrationSubmitRequest()}>Submit</button>
-                            </div>
-                        </div>
-                        
-                        <div class="end-wrap mt-2">
-                        <p>Already have an Account? <a href="#">Login</a></p>
-                        </div>
 
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <div class="input-wrap">
+                                            <input type="email" className="form-control " onChange={(e) => registrationPayloadOnChangeHandler(e)} id="userEmail" value={registrationPayload.userEmail} required />
+                                            <label><i class="fa-solid far far fa-envelope me-2"></i>E-mail</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-wrap">
+                                        <div class="input-wrap">
+                                            <input type="text" className="form-control " maxLength="10" value={registrationPayload.mobileNumber} onChange={(e) => registrationPayloadOnChangeHandler(e)} id="mobileNumber" required />
+                                            <label><i class="fa-solid far fas fa-phone me-2"></i>Phone Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="btn-wrapper mt-3">
+                                        <button type="submit" class=" form-submit " onClick={() => registrationSubmitRequest()} disabled={validateRegisterForm()}>Submit</button>
+                                    </div>
+                                </div>
+
+                                <div class="end-wrap mt-2">
+                                    <p className='common-para mb-0 mt-3'>Already have an Account? <Link to="/login" className='ms-2 common-yellow-color fw-bold text-decoration-none'>Login</Link></p>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
         </>
     )
 }

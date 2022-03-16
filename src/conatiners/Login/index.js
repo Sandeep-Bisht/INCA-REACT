@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import * as ACTIONS from './action'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 import '../../css/register.css'
 
 export const Login = () => {
@@ -24,35 +24,37 @@ export const Login = () => {
     useEffect(() => {
         if(state && state.userLoginSuccess){
             navigate('/dashboard')
-           // setSuccessResponse(state.userLoginSuccess)   
-            //dispatch(ACTIONS.resetToInitialState())
         }
     }, [state.userLoginSuccess])
+
+    let validateLoginForm = () => {
+        const isEmpty = Object.values(loginPayload).some(x => x === '');
+        return isEmpty
+    }
 
     let onSubmitLoginRequest = (e) => {
         e.preventDefault()
         dispatch(ACTIONS.appLogin(loginPayload))
-
     }
 
     return (
-        <>
+        <> <section class="register-form">
             <form className="login-form" onSubmit={(e) => onSubmitLoginRequest(e)}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 mx-auto form-wrapper">
-                            <div className="row actual-form">
+                            <div className="row actual-form-1">
 
                                 <div className="col-md-12">
-                                    <div className="lgn">
-                                        <h4>Login</h4>
+                                    <div className="rgstr">
+                                    <p className='common-form-heading '>Login</p>
                                     </div>
                                 </div>
 
                                 <div className="col-md-12">
                                     <div className="form-wrap">
                                         <div className="input-wrap">
-                                            <input type="emai" id="userEmail" onChange={(e) => loginOnChangeHandler(e)} required />
+                                            <input type="email" id="userEmail" required className="form-control" onChange={(e) => loginOnChangeHandler(e)}  />
                                             <label><i className="fa-solid fa-envelope me-2"></i>E-mail</label>
                                         </div>
                                     </div>
@@ -61,7 +63,7 @@ export const Login = () => {
                                 <div className="col-md-12">
                                     <div className="form-wrap">
                                         <div className="input-wrap">
-                                            <input type="password" id="password" onChange={(e) => loginOnChangeHandler(e)} required />
+                                            <input type="password" required className="form-control" id="password" onChange={(e) => loginOnChangeHandler(e)}  />
                                             <label><i className="fa-solid far fa-eye-slash me-2"></i>Password</label>
                                         </div>
                                     </div>
@@ -69,18 +71,20 @@ export const Login = () => {
 
                                 <div className="col-md-12">
                                     <div className="frgt-pw">
-                                        <a href="#">Forgot Password?</a>
+                                        <a href="#" className='ms-2 common-yellow-color text-decoration-none'>Forgot Password?</a>
                                     </div>
                                 </div>
 
                                 <div className="col-md-12">
                                     <div className="btn-wrapper">
-                                        <button type="submit" className="btn btn-primary">Login</button>
+                                        <button type="submit" className=" form-submit " disabled={validateLoginForm()}>Login</button>
                                     </div>
                                 </div>
 
-                                <div className="end-wrap mt-2">
-                                    <p>Not a member yet? <a href="#">Register now</a></p>
+                                <div className="end-wrap mt-3">
+                                    <p className="common-para">Not a member yet? 
+                                    <Link to="/register" className='ms-2 common-yellow-color fw-bold text-decoration-none'>Register now</Link>
+                                    </p>
                                 </div>
 
                             </div>
@@ -88,6 +92,8 @@ export const Login = () => {
                     </div>
                 </div>
             </form>
+            </section>
+
         </>
     )
 }

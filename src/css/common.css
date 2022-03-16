@@ -64,8 +64,18 @@ h1,h2,h3,h4,h5,h6
     font-weight: 400;
     line-height: 20.11px;
     color: #696A87;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 20px;
+}
+.common-learn-more
+{
+    font-family: 'Mulish', sans-serif;
+    font-size:13px;
+    text-transform: uppercase;
+    font-weight:500;
+    color:#eac600f7;
+    text-decoration:none;
+       
 }
 .common-btn,.common-btn-transparent
 {
@@ -92,10 +102,47 @@ h1,h2,h3,h4,h5,h6
   background-color: transparent;
   border:1px solid #fff;
 }
-.common-btn-transparent:hover
-{
+.common-btn-transparent:hover{
     background:#cfb211f7;
     border: 1px solid #cfb211f7;
+}
+.common-form-heading
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+    font-size: 20px;
+    text-transform:uppercase;
+    color:#212529;
+} 
+.form-submit
+{
+    background: #111b69;
+    padding: 6px 45px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-radius: 25px;
+    border: 0;
+}
+.header-scrolled
+{
+left: 0;
+margin: auto;
+position: fixed;
+top: 0;
+width: 100%;
+background: #0d4469;
+box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+padding-bottom: 5px;
+z-index: 10;
+}
+
+.header-wrapper.header-scrolled .nav-link {
+    color: #cfb211f7;
+}
+.header-wrapper.header-scrolled .logo-text
+{
+    color:#cfb211f7;
 }
 
 .h5x {
@@ -154,3 +201,95 @@ h1,h2,h3,h4,h5,h6
 .h9 {
     font-size: 13px;
 }
+input,textarea
+{
+    width:100%;
+}
+
+:focus-visible 
+{
+    outline: none;
+}
+
+
+
+
+/*-------------------------header ----------------*/
+header
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+  
+     z-index: 5;
+
+}    
+header .logo-text
+{
+   font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-left: 5px;
+}   
+header .nav-link
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: .5px;
+    transition: .2s;
+} 
+header .nav-link:hover   
+{
+    color:#eac600f7;
+
+}  
+header .nav-link.active
+{
+    color:#fff;
+    border-bottom:3px solid #fff;
+    opacity:1;
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+.header-wrapper .navbar
+{
+    /*background-color: #fff;*/
+    transition: all .2s linear;
+}
+.header-scrolled
+{
+left: 0;
+margin: auto;
+position: fixed;
+top: 0;
+width: 100%;
+/* background:rgba(0,0,0,0.85); */
+box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+padding-bottom: 5px;
+z-index: 10;
+background-color:#fff;
+}
+.scrolled-link
+{
+    color:#eac600f7!important;
+}
+
+.header-wrapper .navbar-brand
+{
+    font-size: 26px;
+    font-weight: 600;
+    color: #212121;
+}
+.header-wrapper .navbar-brand
+{
+    width: 180px;
+}
+.header-wrapper .nav-item
+{
+    padding: 0 20px;
+}
+
+

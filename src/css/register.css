@@ -107,14 +107,37 @@ input[type="text"]:focus
 
 /* register css */
 
-
+.register-form
+{
+    background-image: url('../images/event-1.jpg.JPEG');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    position: relative;
+    padding: 120px 0 40px 0;
+    height: calc( 100vh - 0px);
+}
+.register-form::before{
+    display: block;
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0,0,0,0.75);
+}
 .actual-form-1
 {
-    border: 2px solid #262626;
-    padding: 30px 40px;
-    border-radius: 6px;
-    margin-bottom: 50px;
-    display: block;
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 10px 34px -15px rgb(0 0 0 / 24%);
+    -moz-box-shadow: 0 10px 34px -15px rgba(0,0,0,.24);
+    box-shadow: 0 10px 34px -15px rgb(0 0 0 / 24%);
+    width: 85%;
+    margin: auto;
+    padding: 40px 30px;
 }
 .form-wrapper-1
 {
@@ -124,7 +147,7 @@ input[type="text"]:focus
 .rgstr
 {
     text-align: center;
-    padding: 30px 40px;
+   
 }
 .rgstr h4
 {
@@ -136,9 +159,9 @@ input[type="text"]:focus
 }
 .register-form .actual-form-1 input
 {
-    border: 2px solid #afbdcf;
+    border: 1px solid #dedede;
     border-radius: 5px;
-    height: 47px;
+    height: 43px;
     color: #262626;
     font-size: 14px;
     padding-left: 20px;
@@ -162,12 +185,13 @@ input:focus ~ label, input:valid ~ label
 .input-wrap label 
 {
     font-family:arial;
-    font-size:16px;
+    font-size:14px;
     color: #afbdcf;
     padding: 14px;
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 0;
+    transform: translateY(-50%);
     transition:0.2s ease all; 
     -moz-transition:0.2s ease all; 
     -webkit-transition:0.2s ease all;
