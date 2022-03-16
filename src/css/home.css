@@ -388,6 +388,9 @@
 }
 .home-gallery .gallery-wrapper img{
     border-radius:25px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
 }
 /* -----------home-register-step----- */
 .home-register-step

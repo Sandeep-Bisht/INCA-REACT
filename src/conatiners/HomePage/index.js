@@ -56,6 +56,15 @@ import soilogo from '../../images/survey-of-India-logo.png';
 import firstcircular from '../../images/First-Circular.png';
 import secondcircular from '../../images/Second-Circular.png';
 import finalcircular from '../../images/final-Circular.jpg';
+import gallary1 from '../../images/gallery-1.jpg';
+import gallary2 from '../../images/gallery-2.jpg';
+import gallary3 from '../../images/gallery-3.jpg';
+import gallary4 from '../../images/gallery-4.jpg';
+import gallary5 from '../../images/gallery-5.jpg';
+import gallary6 from '../../images/gallery-6.jpg';
+import gallary7 from '../../images/gallery-7.jpg';
+import gallary8 from '../../images/gallery-8.jpg';
+import gallary9 from '../../images/gallery-9.jpg';
 
 export const HomePage = () => {
 
@@ -165,35 +174,33 @@ export const HomePage = () => {
       </div>
       <section className='section-padding home-about pb-lg-0'>
         <div className='container'>
-          <div className='row'>
+          <div className='row align-items-center'>
             <div className='col-lg-6'>
-              <div className='home-about-left pt-5'>
+              <div className='home-about-left'>
                 <div className='row'>
                   <div className='col-lg-6'>
                     <div className='one text-end'>
-                      <img src={about1} className="img-fluid" width={215}
-                        height={
-                          150
-                        }
+                      <img src={gallary1} className="img-fluid" width={215}
+                        height={150}
 
                       />
                     </div>
                     <div className='two py-3'>
-                      <img src={about2} className="img-fluid" /></div>
+                      <img src={gallary2} className="img-fluid" /></div>
                     <div className='three text-end'>
-                      <img src={about3} className="img-fluid" />
+                      <img src={gallary3} className="img-fluid w-75" />
                     </div>
                   </div>
                   <div className='col-lg-6'>
-                    <div className='four mt-3 pt-4'><img src={about4} className="img-fluid" /></div>
-                    <div className='five pt-3'><img src={about5} className="img-fluid" /></div>
+                    <div className='four mt-3 pt-4'><img src={gallary4} className="img-fluid w-75" /></div>
+                    <div className='five pt-3'><img src={gallary5} className="img-fluid" /></div>
                   </div>
                 </div>
               </div>
             </div>
             <div className='col-lg-6'>
 
-              <div className='home-about-right pt-lg-5 mt-lg-5'>
+              <div className='home-about-right pt-lg-5 mt-lg-5 ps-5'>
                 <p className='common-pre-heading'>Introduction</p>
                 <h1 className='common-heading'>
                   About INCA (Indian National Cartography Association)
@@ -786,35 +793,35 @@ Hyderabad, Indore, Jodhpur, Kerala, Odisha and Tamil Nadu.</p>
 
               <div className='gallery-wrapper mt-5 row'>
                 <div className='gallery-box col-lg-3'>
-                  <img src={gallery1} alt="" className='img-fluid' />
+                  <img src={gallary1} alt="" className='img-fluid' />
 
                 </div>
 
 
                 <div className='gallery-box col-lg-3'>
-                  <img src={gallery2} alt="" className='img-fluid' />
+                  <img src={gallary2} alt="" className='img-fluid' />
                 </div>
 
 
                 <div className='gallery-box col-lg-3'>
-                  <img src={gallery3} alt="" className='img-fluid' />
+                  <img src={gallary3} alt="" className='img-fluid' />
                 </div>
 
 
                 <div className='gallery-box col-lg-3'>
-                  <img src={gallery4} alt="" className='img-fluid' />
+                  <img src={gallary9} alt="" className='img-fluid' />
                 </div>
                 <div className='gallery-box col-lg-3'>
-                  <img src={gallery5} alt="" className='img-fluid' />
+                  <img src={gallary5} alt="" className='img-fluid' />
                 </div>
                 <div className='gallery-box col-lg-3'>
-                  <img src={gallery6} alt="" className='img-fluid' />
+                  <img src={gallary6} alt="" className='img-fluid' />
                 </div>
                 <div className='gallery-box col-lg-3'>
-                  <img src={gallery7} alt="" className='img-fluid' />
+                  <img src={gallary7} alt="" className='img-fluid' />
                 </div>
                 <div className='gallery-box col-lg-3'>
-                  <img src={gallery8} alt="" className='img-fluid' />
+                  <img src={gallary8} alt="" className='img-fluid' />
                 </div>
 
               </div>
