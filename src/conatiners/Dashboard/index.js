@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
-import Dashlogo from '../../images/logo.png'
+import { BrowserRouter as Router, Routes,Route} from 'react-router-dom';
+ import {useNavigate} from "react-router-dom";
+ import { CreateForm  } from '../Create';
+import Dashlogo from '../../images/logo.png';
+import { Outlet, Link  } from "react-router-dom";
+
+
 import User from '../../images/user-profile.png'
 import '../../css/dashboard.css'
 
@@ -30,7 +36,10 @@ let obj = {
 
 }
 
-export const Dashboard = () => {
+export const Dashboard = (props) => {
+    const navigate = useNavigate();
+    
+
     const [userInformation, setUserInformation] = useState(obj)
 
     let userInformationOnchangeHandler = (e) => {
@@ -48,8 +57,8 @@ export const Dashboard = () => {
                     <nav className="navbar navbar-expand-lg py-0">
                         <div className="container-fluid">
                             <a className="navbar-brand" href="#">
-                                {/* <img src={Dashlogo} className="img-fluid w-75" /> */}
-                                <h1 className='dashboard-title'><span>
+                                <img src={Dashlogo} className="img-fluid w-75" />
+                                <h1 className='dashboard-title d-none'><span>
 
                                 </span>INCA</h1>
                             </a>
@@ -67,7 +76,7 @@ export const Dashboard = () => {
                                             <li><a className="dropdown-item" href="#">Action</a></li>
                                             <li><a className="dropdown-item" href="#">Another action</a></li>
                                             
-                                            <li><a className="dropdown-item" href='#'>Log Out</a></li>
+                                            <li>< Link className="dropdown-item" to="/">Log Out</Link></li>
                                         </ul>
                                     </div>
                                 </form>
@@ -84,9 +93,9 @@ export const Dashboard = () => {
                                         <li className='active-blue'>
                                             <button className='common-blue btn'>
                                                 Dashboard</button></li>
-                                        <li><button className='common-blue btn'
-                                        >Create</button></li>
-                                        <li ><button className='common-blue btn'
+                                        <li><button className='common-blue btn' onClick={()=>navigate("/dashboard/create")}>Create</button></li>
+                                        
+                                        <li onClick={()=>navigate("/dashboard/test")} ><button className='common-blue btn'
                                         >View</button></li>
                                     </ul>
                                     <div class="accordion" id="accordionExample">
@@ -110,14 +119,9 @@ export const Dashboard = () => {
                                 </aside>
                             </div>
                             <div className='col-md-9 col-lg-10 right-part'>
-                                {/* <Switch>
-                            <Route exact path="/" component={Folder} {...props}/> 
-                            <Route path="/Create" component = {CreateForm} {...props}/>
-                            <Route path="/Dashboard" component = {Folder } {...props}/>
-                            <Route exact path="/View" component={ViewData} {...props}/> 
-                            <Route exact path="/viewData" component={ViewDataFile} {...props}/> 
-                        </Switch> */}
-                                <div className='main'>
+                            <Outlet />
+                                
+                                {/* <div className='main d-none'>
                                     <div className="form-section">
                                         <form>
                                             <div className="container">
@@ -284,7 +288,7 @@ export const Dashboard = () => {
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

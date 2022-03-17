@@ -7,6 +7,8 @@ import { Login } from '../conatiners/Login';
 import { UserRegistration } from "../conatiners/UserRegistration"
 import { Dashboard } from '../conatiners/Dashboard'
 import { Footer } from '../components/Footer';
+import {CreateForm} from '../conatiners/Create';
+import {Test} from '../conatiners/Test';
 
 export const ApplicationRoutes = () => {
     return(
@@ -16,9 +18,11 @@ export const ApplicationRoutes = () => {
             <Route path = "/" element={<HomePage />} />
             <Route path = "/register" element={<UserRegistration />} />
             <Route path = "/login" element={<Login />} />
-            <Route path = "/dashboard" element={<Dashboard />} />
+            <Route path = "/dashboard" element={<Dashboard />} >
+                <Route path = "/dashboard/create" element={<CreateForm />} />
+                <Route path = "/dashboard/test" element={<Test />} />
+            </Route>
             <Route path = "/contact" element={<Contact />} />
-            
          </Routes>
          {/* <Footer/> */}
         </>
