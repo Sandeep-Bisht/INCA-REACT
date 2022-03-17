@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import '../../css/footer.css'
+import giksfooterlogo from '../../images/giks-footer-logo.png';
 
 export const Footer = () =>
 {
@@ -11,9 +12,9 @@ export const Footer = () =>
                 <div className="col-md-3">
                     <div className="box-1">
                         <h2>Inca</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae id repellat,
-                            distinctio
-                            sint voluptate! Aperiam?</p>
+                        <p>The Indian National Cartographic Association
+(INCA) has evolved into one of the world's most prominent professional associations of its
+kind.</p>
                         <a href="#" target="_blank"><i className="fa-brands fa-facebook-f"></i></a>
                         <a href="#" target="_blank"><i className="fa-brands fa-twitter"></i></a>
                         <a href="#" target="_blank"><i className="fa-brands fa-instagram"></i></a>
@@ -26,10 +27,9 @@ export const Footer = () =>
                         <h5>Quick Links</h5>
                         <ul>
                             <li>About Us</li>
+                            <li>Contact Us</li>
                             <li>Event Details</li>
                             <li>News & Articles</li>
-                            <li>Credits</li>
-                            <li>Legal Notice</li>
                         </ul>
                     </div>
                 </div>
@@ -39,7 +39,6 @@ export const Footer = () =>
                         <h5>Other Pages</h5>
                         <ul>
                             <li>Help Center</li>
-                            <li>Contact Us</li>
                             <li>FAQ</li>
                             <li>Parent Community</li>
                             <li>Organiser</li>
@@ -50,10 +49,8 @@ export const Footer = () =>
                 <div className="col-md-3">
                     <div className="box-4">
                         <div className="box-wrap">
-                            <h5>JOIN OUR NEWSLETTER</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <input type="email" placeholder="Your Email.."/>
-                            <button>SUBSCRIBE NOW</button>
+                            <h5>OUR TECHNOLOGY PARTNER</h5>
+                            <img src={giksfooterlogo} alt='' className='img-fluid'/>
                         </div>
                     </div>
                 </div>

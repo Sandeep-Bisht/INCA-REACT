@@ -37,7 +37,6 @@ export const UserRegistration = () => {
 
     let validateRegisterForm= () => {
         const isEmpty = Object.values(registrationPayload).some(x => x === '');
-        console.log(isEmpty, 'ASDFSD')
         return isEmpty
     }
 
@@ -60,7 +59,6 @@ export const UserRegistration = () => {
 
     return (
         <>
-
             <Header></Header>
             <section class="register-form">
                 <div class="container">

@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes,Route} from 'react-router-dom';
  import {useNavigate} from "react-router-dom";
- import { CreateForm  } from '../Create';
 import Dashlogo from '../../images/logo.png';
 import { Outlet, Link  } from "react-router-dom";
-
-
 import User from '../../images/user-profile.png'
 import '../../css/dashboard.css'
 
-import {countries}  from '../../utils'
+import { countries }  from '../../utils'
 
 let obj = {
     name:"",
@@ -39,7 +35,6 @@ let obj = {
 export const Dashboard = (props) => {
     const navigate = useNavigate();
     
-
     const [userInformation, setUserInformation] = useState(obj)
 
     let userInformationOnchangeHandler = (e) => {
@@ -47,8 +42,6 @@ export const Dashboard = (props) => {
         userInformationCopy[e.target.id] = e.target.value
         setUserInformation(userInformationCopy)
     }
-
-    console.log(userInformation, 'userInformation')
 
     return (
         <>

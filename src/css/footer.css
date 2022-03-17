@@ -163,13 +163,23 @@
     position: relative;
 }
 
-.row .box-6
+.foot-wrapper .box-4 .box-wrap
+{
+    text-align: center;
+}
+
+.foot-wrapper .box-4 img
+{
+    height: 150px;
+}
+
+.foot-wrapper .box-6
 {
     text-align: start;
     position: relative;
 }
 
-.row .box-6 .move
+.foot-wrapper .box-6 .move
 {
     margin: 0 10px;
     padding: 0 10px;
@@ -177,13 +187,13 @@
     border-right: 2px solid #606e74;
 }
 
-.row .box-6 span:hover
+.foot-wrapper .box-6 span:hover
 {
     color: #eac600f7;
     cursor: pointer;
 }
 
-.row .box-7
+.foot-wrapper .box-7
 {
     text-align: end;
     position: relative;

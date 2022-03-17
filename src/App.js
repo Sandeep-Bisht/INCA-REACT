@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './css/common.css'
 
 import { ApplicationRoutes } from './Routes';
+import './css/common.css'
 
 function App() {
   return (

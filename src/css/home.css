@@ -30,7 +30,7 @@
    font-size: 70px;
    font-weight:700;
    margin-bottom:0;
-   text-transform:uppercase;
+   /* text-transform:uppercase; */
    line-height: 62px; 
 }
 .home-banner .right .banner-title .banner-small
@@ -215,10 +215,11 @@
     opacity: .10;
 }
 /* ------home-speakers----------- */
+
 .home-speakers .speaker-card
 {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     margin:15px;
 }
 .home-speakers .speaker-card img
@@ -232,7 +233,7 @@
 .home-speakers .speaker-card .speaker-detail
 {
     position:absolute;
-    bottom: 50px;
+    bottom: -50px;
     left:50%;
     transform: translateX(-50%);
     background-color: #fff;
@@ -241,6 +242,8 @@
     border-radius: 25px;
     width: 80%;
     text-align: center;
+    height: 140px;
+    box-shadow: 0 3px 6px rgb(25 25 25 / 10%);
 }
 .home-speakers .speaker-card .speaker-title,.home-register-step ul li h3
 {
@@ -385,6 +388,9 @@
 }
 .home-gallery .gallery-wrapper img{
     border-radius:25px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
 }
 /* -----------home-register-step----- */
 .home-register-step
@@ -400,14 +406,25 @@
     flex-wrap:wrap;
 }
 .home-register-step ul li{
-    text-align: center;
+    /* text-align: center;
     margin: 5px 10px;
     box-shadow: 0 0 5px 0 #b9b9b9;
     padding: 30px 10px;
     width: 200px;
     height:320px;
     background:#fff;
+    position: relative; */
+    text-align: center;
+    margin: 5px 10px;
+    box-shadow: 0 0 5px 0 #b9b9b9;
+    padding: 30px 10px;
+    width: 200px;
+    height: 320px;
+    background: #fff;
     position: relative;
+   
+    flex-grow: 1;
+    align-items: center;
 }
 .home-register-step ul li .reg-icon-box
 {
@@ -555,6 +572,14 @@ padding: 50px 40px;
     padding:20px;
 }
 
+.sponsers-area img
+{
+    height: 150px;
+    width: 160px;
+    object-fit: contain;
+    filter: grayscale(1);
+}
+
 .sponsers-area .sponser-box-1 , .sponser-box-2 , .sponser-box-3 , .sponser-box-4
 {
     border-right: 1px solid #74706b;
@@ -585,7 +610,7 @@ padding: 50px 40px;
 {
     height: 320px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .blog-area .blog-card .blog-card-content
@@ -676,6 +701,15 @@ padding: 50px 40px;
     border: 2px solid #eac600f7;
     border-radius: 50%;
     padding: 25px 30px;
+    color: #eac600f7;
+}
+
+.contact-area .contact-move .contact-icon-1 i
+{
+    font-size: 35px;
+    border: 2px solid #eac600f7;
+    border-radius: 50%;
+    padding: 24px 25px;
     color: #eac600f7;
 }
 
