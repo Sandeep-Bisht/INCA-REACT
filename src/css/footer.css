@@ -1,0 +1,200 @@
+.foot-wrapper
+{
+    background-image: url('../images/event-1.jpg.JPEG');
+    background-size: cover;
+    background-position: center;
+   
+    color: #fff;
+    position: relative;
+    padding: 120px 0 40px 0;
+}
+
+.foot-wrapper::before
+{
+    display: block;
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+}
+
+.foot-wrapper .box-1
+{
+    padding: 2px 40px;
+    text-align: start;
+    position: relative;
+}
+
+.foot-wrapper .box-1 p
+{
+    padding: 5px 0;
+    letter-spacing: 1px;
+}
+
+.foot-wrapper .box-1 h2
+{
+    font-size: 50px;
+}
+
+.foot-wrapper .box-1 a
+{
+    display: inline-block;
+    color: #fff;
+    border: none;
+    background-color: #111b69;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    line-height: 35px;
+    margin: 0 2px;
+}
+
+.foot-wrapper .box-1 a:hover
+{
+    cursor: pointer;
+    background-color: #eac600f7;
+    color: #212121;
+}
+
+.foot-wrapper .box-1 a i
+{
+    font-size: 18px;
+}
+
+.foot-wrapper .box-2
+{
+    padding: 10px;
+    text-align: start;
+    position: relative;
+}
+.foot-wrapper .box-2 ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+.foot-wrapper .box-2 ul li
+{
+    padding: 8px 0;
+}
+
+.foot-wrapper .box-2 ul li:hover
+{
+    color: #eac600f7;
+    cursor: pointer;
+}
+
+.foot-wrapper .box-3
+{
+    padding: 10px;
+    text-align: start;
+    position: relative;
+}
+
+.foot-wrapper .box-3 ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+.foot-wrapper .box-3 ul li
+{
+    padding: 8px 0;
+}
+
+.foot-wrapper .box-3 ul li:hover
+{
+    color: #eac600f7;
+    cursor: pointer;
+}
+
+.foot-wrapper .box-wrap
+{
+    border: 2px solid #606e74;
+    padding: 26px 18px 35px 18px;
+    border-radius: 15px;
+}
+
+.foot-wrapper .box-4
+{
+    position: relative;
+    bottom: 28px;
+}
+
+.foot-wrapper .box-wrap p
+{
+    padding: 10px;
+}
+
+.foot-wrapper .box-wrap h5
+{
+    padding-top: 6px;
+}
+
+.foot-wrapper .box-wrap input
+{
+    border-radius: 50px;
+    padding: 10px 8px;
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+.foot-wrapper .box-wrap button
+{
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin-top: 8px;
+    width: 100%;
+    background-color:#eac600f7;
+    border: none;
+    color: #fff;
+}
+
+.foot-wrapper .brdr
+{
+    border-bottom: 2px solid #606e74;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.foot-wrapper .box-4 .box-wrap
+{
+    text-align: center;
+}
+
+.foot-wrapper .box-4 img
+{
+    height: 150px;
+}
+
+.foot-wrapper .box-6
+{
+    text-align: start;
+    position: relative;
+}
+
+.foot-wrapper .box-6 .move
+{
+    margin: 0 10px;
+    padding: 0 10px;
+    border-left: 2px solid #606e74;
+    border-right: 2px solid #606e74;
+}
+
+.foot-wrapper .box-6 span:hover
+{
+    color: #eac600f7;
+    cursor: pointer;
+}
+
+.foot-wrapper .box-7
+{
+    text-align: end;
+    position: relative;
+}
