@@ -67,7 +67,7 @@ import gallary7 from '../../images/gallery-7.jpg';
 import gallary8 from '../../images/gallery-8.jpg';
 import gallary9 from '../../images/gallery-9.jpg';
 
-export const HomePage = () => {
+ const HomePage = () => {
 
   useEffect(() => {
     let nav = document.querySelector(".header-wrapper");
@@ -1155,3 +1155,5 @@ export const HomePage = () => {
     </>
   )
 }
+
+export default HomePage

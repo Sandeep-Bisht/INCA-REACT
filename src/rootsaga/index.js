@@ -1,6 +1,6 @@
 import {fork, all} from "redux-saga/effects";
-import RegistrationPageSaga from '../conatiners/UserRegistration/saga'
-import LoginSaga from '../conatiners/Login/saga'
+import RegistrationPageSaga from '../containers/UserRegistration/saga'
+import LoginSaga from '../containers/Login/saga'
 // import deviceManagementSaga from "./DeviceManagement/Saga"
 // import ClusterSaga  from "./Cluster/ClusterSaga";
 // import IAM_Saga from "./IAM/IAM_Saga";

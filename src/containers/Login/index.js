@@ -5,7 +5,7 @@ import { useNavigate,Link } from 'react-router-dom'
 import { Header } from '../../components/Header'
 import '../../css/register.css'
 
-export const Login = () => {
+ const Login = () => {
     const [loginPayload, setLoginPayload] = useState({
         userEmail: "",
         password: "",
@@ -74,7 +74,7 @@ export const Login = () => {
 
                                 <div className="col-md-12">
                                     <div className="frgt-pw">
-                                        <a href="#" className='ms-2 common-yellow-color text-decoration-none'>Forgot Password?</a>
+                                        <Link to="/forgot" className='ms-2 common-yellow-color text-decoration-none'>Forgot Password?</Link>
                                     </div>
                                 </div>
 
@@ -100,3 +100,5 @@ export const Login = () => {
         </>
     )
 }
+
+export default Login

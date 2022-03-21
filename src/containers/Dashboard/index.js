@@ -31,10 +31,8 @@ let obj = {
     dated:""
 
 }
-
-export const Dashboard = (props) => {
+const Dashboard = (props) => {
     const navigate = useNavigate();
-    
     const [userInformation, setUserInformation] = useState(obj)
 
     let userInformationOnchangeHandler = (e) => {
@@ -49,9 +47,9 @@ export const Dashboard = (props) => {
                 <header className='dashboard-header '>
                     <nav className="navbar navbar-expand-lg py-0">
                         <div className="container-fluid">
-                            <a className="navbar-brand" href="#">
+                            <a className="navbar-brand d-flex align-items-center" href="#">
                                 <img src={Dashlogo} className="img-fluid w-75" />
-                                <h1 className='dashboard-title d-none'><span>
+                                <h1 className='dashboard-title ms-2'><span>
 
                                 </span>INCA</h1>
                             </a>
@@ -290,3 +288,4 @@ export const Dashboard = (props) => {
         </>
     )
 }
+export default Dashboard

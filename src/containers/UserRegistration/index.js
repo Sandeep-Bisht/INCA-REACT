@@ -5,7 +5,7 @@ import { Header } from '../../components/Header'
 import * as ACTIONS from './action'
 import '../../css/register.css'
 
-export const UserRegistration = () => {
+const UserRegistration = () => {
 
     const [registrationPayload, setRegistrationPayload] = useState({
         userName: "",
@@ -118,6 +118,7 @@ export const UserRegistration = () => {
         </>
     )
 }
+export default UserRegistration
 
 
 
