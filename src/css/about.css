@@ -1,0 +1,53 @@
+.about-single1 .grand-event-left-pic img
+{
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.about-single1 .grand-event-right-pic img
+{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 10px solid #fff;
+}
+
+.about-single1 .grand-event-right-pic 
+{
+    width: 35%;
+    margin: 55px 0;
+    position: relative;
+    right: 58px;
+    overflow: hidden;
+}
+
+.about-single1 .grand-event-left-pic
+{
+    width: 65%;
+}
+
+.mission .aim
+{
+    margin: 50px 0;
+}
+
+.mission img
+{
+    padding: 50px 0;
+}
+
+.contact-single1 .boxes h3 , .box-2 h3
+{
+    margin: 16px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+.contact-single1 .boxes p , .box-2 p
+{
+    text-align: center;
+}
+

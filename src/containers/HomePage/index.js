@@ -1,46 +1,22 @@
 import React, { useEffect } from 'react'
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-// import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import '../../css/home.css'
-import about1 from '../../images/about1.jpg'
-import about2 from '../../images/about2.jpg'
-import about3 from '../../images/about3.jpg'
-import about4 from '../../images/about4.jpg'
-import about5 from '../../images/about5.jpg'
-import signature from '../../images/signature.png'
 import attend1 from '../../images/attend1.png'
 import attend2 from '../../images/attend2.png'
 import attend3 from '../../images/attend3.png'
 import attend4 from '../../images/attend4.png'
 import attend5 from '../../images/attend5.png'
 import attend6 from '../../images/attend6.png'
-import speaker1 from '../../images/speaker1.jpg'
 import organiser1 from '../../images/organiser1.jpg'
 import organiser2 from '../../images/organiser2.jpg'
 import organiser3 from '../../images/organiser3.jpg'
 import organiser4 from '../../images/organiser4.jpg'
-import gallery1 from '../../images/gallery1.jpg'
-import gallery2 from '../../images/gallery2.jpg'
-import gallery3 from '../../images/gallery3.jpg'
-import gallery4 from '../../images/gallery4.jpg'
-import gallery5 from '../../images/gallery5.jpg'
-import gallery6 from '../../images/gallery6.jpg'
-import gallery7 from '../../images/gallery7.jpg'
-import gallery8 from '../../images/gallery8.jpg'
-import reg1 from '../../images/reg1.png'
 import reg2 from '../../images/reg2.png'
 import reg3 from '../../images/reg3.png'
 import reg4 from '../../images/reg4.png'
 import reg5 from '../../images/reg5.png'
 import visitor1 from '../../images/visitor-1.jpg';
-import visitor2 from '../../images/visitor-2.jpg';
-import visitor3 from '../../images/visitor-3.jpg';
-import client1 from '../../images/client-1.png';
-import client2 from '../../images/client-2.png';
-import client3 from '../../images/client-3.png';
-import client4 from '../../images/client-4.png';
-import client5 from '../../images/client-5.png';
 import client6 from '../../images/client-6.png';
 import client7 from '../../images/client-7.png';
 import client8 from '../../images/client-8.png';
@@ -56,7 +32,6 @@ import gislogo from '../../images/gis-logo.png';
 import soilogo from '../../images/survey-of-India-logo.png';
 import firstcircular from '../../images/First-Circular.png';
 import secondcircular from '../../images/Second-Circular.png';
-import finalcircular from '../../images/final-Circular.jpg';
 import gallary1 from '../../images/gallery-1.jpg';
 import gallary2 from '../../images/gallery-2.jpg';
 import gallary3 from '../../images/gallery-3.jpg';
@@ -67,7 +42,7 @@ import gallary7 from '../../images/gallery-7.jpg';
 import gallary8 from '../../images/gallery-8.jpg';
 import gallary9 from '../../images/gallery-9.jpg';
 
- const HomePage = () => {
+const HomePage = () => {
 
   useEffect(() => {
     let nav = document.querySelector(".header-wrapper");
@@ -180,7 +155,6 @@ import gallary9 from '../../images/gallery-9.jpg';
                     <div className='one text-end'>
                       <img src={gallary1} className="img-fluid" width={215}
                         height={150}
-
                       />
                     </div>
                     <div className='two py-3'>
@@ -846,12 +820,6 @@ import gallary9 from '../../images/gallery-9.jpg';
           <div className='row mt-5'>
             <div className='col-md-12'>
               <ul className='ps-0 list-unstyled'>
-                {/* <li>
-                  <div className='reg-icon-box'><img src={reg1} className="img-fluid" alt="" /></div>
-                  <h3>Exhibitor</h3>
-                  <p> Exhibit at Convergence</p>
-                  <div className='btn-holder'><button className=" common-btn">Book Reservation</button></div>
-                </li> */}
                 <li>
                   <div className='reg-icon-box'><img src={reg2} className="img-fluid" alt="" /></div>
                   <h3> Sponsorship </h3>
@@ -878,7 +846,6 @@ import gallary9 from '../../images/gallery-9.jpg';
           </div>
         </div>
       </section>
-      {/* ------julesh----------- */}
       <section className='testimonial-area'>
         <div className='container'>
           <div className='row'>

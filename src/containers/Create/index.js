@@ -28,10 +28,8 @@ let obj = {
 }
 
 
-export const CreateForm = (props) => {
-
+const CreateForm = (props) => {
     const [userInformation, setUserInformation] = useState(obj)
-
     let userInformationOnchangeHandler = (e) => {
         let userInformationCopy = { ...userInformation }
         userInformationCopy[e.target.id] = e.target.value
@@ -209,3 +207,4 @@ export const CreateForm = (props) => {
         </div>
     )
 }
+export default CreateForm

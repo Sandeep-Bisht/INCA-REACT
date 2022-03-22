@@ -74,7 +74,7 @@ import '../../css/register.css'
 
                                 <div className="col-md-12">
                                     <div className="frgt-pw">
-                                        <Link to="/forgot" className='ms-2 common-yellow-color text-decoration-none'>Forgot Password?</Link>
+                                        <Link to="/forgot" className='ms-2 common-yellow-color text-decoration-none f2'>Forgot Password?</Link>
                                     </div>
                                 </div>
 
@@ -86,7 +86,7 @@ import '../../css/register.css'
 
                                 <div className="end-wrap mt-3">
                                     <p className="common-para">Not a member yet? 
-                                    <Link to="/register" className='ms-2 common-yellow-color fw-bold text-decoration-none'>Register now</Link>
+                                    <Link to="/register" className='ms-2 common-yellow-color f2 text-decoration-none'>Register now</Link>
                                     </p>
                                 </div>
 
