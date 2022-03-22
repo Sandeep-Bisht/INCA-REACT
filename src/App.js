@@ -1,8 +1,5 @@
-import logo from './logo.svg';
-// import './App.css';
-import './css/common.css'
-
 import { ApplicationRoutes } from './Routes';
+import './css/common.css'
 
 function App() {
   console.log('inside thisss')

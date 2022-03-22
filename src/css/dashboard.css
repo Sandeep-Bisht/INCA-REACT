@@ -1,0 +1,208 @@
+/* -----------custom dashboard css--------- */
+.dash-wrapper .navbar-brand img{
+  height:50px;
+}
+.accordion-button:focus,.btn-check:focus+.btn, .btn:focus{
+  box-shadow: none;
+}
+.dashboard-title
+{
+  font-family: 'Mulish', sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0;
+  
+  letter-spacing: 2px;
+  font-weight: 600;
+
+}
+.dashboard-header
+{
+  background:#152036;
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 1111;
+  padding:10px;
+  
+}
+.dashboard-header .user-text
+{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #fff;
+  letter-spacing: 0;
+}
+.d-user-toggle
+{
+  font-size: 13px;
+  color:#fff;
+}
+.d-user-toggle:hover{
+  color:#fff;
+}
+.dash-user-pic
+{
+  
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.50);
+  height: 43px!important;
+  width: 43px!important;
+  }
+  .dash-body .left-part{
+    
+    min-height: 100vh;
+    background:#1b2a47;
+}
+.dash-body .left-part .accordion-header{
+  background:#1b2a47;
+}
+.dash-body .left-part aside{
+  position: sticky;
+    top: 0;
+    z-index: 1020;
+    padding: 120px 0px 0px 0px;
+    
+}
+
+.dash-body .left-part aside .active-blue
+{
+  background: #152036!important;
+  
+}
+.dash-body .left-part aside .active-blue button{
+  color:#fff!important;
+}
+
+.dash-body .left-part aside ul li,.dash-body .left-part .accordion-button
+{
+  
+
+  margin:25px 0;
+  transition: .2s;
+}
+
+.dash-body .left-part .accordion-button::after
+{
+  background-image: url(../images/downward-arrow.png);
+  transform: rotate(0deg)!important;
+}
+.dash-body .left-part .accordion-button:not(.collapsed)::after
+{
+  background-image: url(../images/downward-arrow.png);
+  transform: rotate(
+-180deg
+)!important;
+}
+
+
+.dash-body .left-part aside ul li:hover,.dash-body .left-part .accordion-button:hover,
+.dashboard-header .dropdown-item:hover
+{
+  background:#152036!important;
+  color:#fff;
+}
+
+.dash-body .left-part aside ul li:hover button,.dash-body .left-part .accordion-button:hover{
+  color:#fff!important;
+}
+.dashboard-header .dropdown-menu
+{
+  background: #1b2a47;
+  padding:0;
+  border:0;
+}
+.dash-body .left-part aside ul li button,.dash-body .left-part .accordion-button,
+.dashboard-header .dropdown-item
+{
+   width: 100%;
+    background: transparent;
+    border:none;
+    text-align:left;
+    padding: 12px 20px!important;
+    font-size: 16px;
+    font-weight:500;
+    color:#fff;
+    box-shadow: none;
+}
+.dash-body .accordion .accordion-item
+{
+  border:0;
+  background: transparent;
+}
+
+.accordion-button:not(.collapsed)
+{
+  background:transparent;
+  box-shadow: none;
+}
+.accordion-button:focus
+{
+  box-shadow: none;
+}
+.dash-body .right-part
+{
+  padding: 90px 25px 50px 25px;
+  background: rgba(203, 203, 210, 0.15);
+  
+}
+.dash-body .right-part .form-label
+{
+  color: #152036;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dash-body .right-part .dash-card .dash-card-pic
+{
+  display:inline-block;
+}
+.dash-body .right-part .dash-card img
+{
+ 
+ object-fit:contain;
+ height:150px;
+
+}
+.dash-body .right-part .dash-card .card-number
+{
+   color:#fff;
+   font-size: 30px;
+   font-weight:700;
+   position: absolute;
+   top: 35%;
+   right:20%;
+}
+.dash-body .right-part .dash-card .card-title
+{
+  position:absolute;
+  color:#fff;
+  bottom:0px;
+  left:15px;
+}
+
+.form-section textarea
+{
+    height: 130px;
+}
+
+.form-section button
+{
+  color: #fff;
+  background-color: #1b2a47;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.form-section select , .form-section input #InputDated
+{
+    color: #6e6e6e;
+}
+
+
+

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-// import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import '../../css/home.css'
 import about1 from '../../images/about1.jpg'
 import about2 from '../../images/about2.jpg'
@@ -93,6 +92,7 @@ export const HomePage = () => {
     return (
         <>
             <div className='home-banner'>
+           
                 <div className='container'>
                     <div className='row pb-5'>
                         <div className='col-md-7'>
@@ -177,7 +177,6 @@ export const HomePage = () => {
                             </div>
                         </div>
                         <div className='col-lg-6'>
-
                             <div className='home-about-right pt-lg-5 mt-lg-5'>
                                 <p className='common-pre-heading'>Introduction</p>
                                 <h1 className='common-heading'>
