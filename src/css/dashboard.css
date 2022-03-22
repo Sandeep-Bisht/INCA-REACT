@@ -1,4 +1,7 @@
 /* -----------custom dashboard css--------- */
+.dash-wrapper .navbar-brand img{
+  height:50px;
+}
 .accordion-button:focus,.btn-check:focus+.btn, .btn:focus{
   box-shadow: none;
 }
@@ -16,7 +19,7 @@
 }
 .dashboard-header
 {
-  background: #1b2a47;
+  background:#152036;
   position: fixed;
   top:0;
   width: 100%;
@@ -64,6 +67,7 @@
     padding: 120px 0px 0px 0px;
     
 }
+
 .dash-body .left-part aside .active-blue
 {
   background: #152036!important;
@@ -84,12 +88,15 @@
 .dash-body .left-part .accordion-button::after
 {
   background-image: url(../images/downward-arrow.png);
-  transform: rotate(0deg);
+  transform: rotate(0deg)!important;
 }
-/* .dash-body .left-part .accordion-button:not(.collapsed)::after
+.dash-body .left-part .accordion-button:not(.collapsed)::after
 {
   background-image: url(../images/downward-arrow.png);
-} */
+  transform: rotate(
+-180deg
+)!important;
+}
 
 
 .dash-body .left-part aside ul li:hover,.dash-body .left-part .accordion-button:hover,
