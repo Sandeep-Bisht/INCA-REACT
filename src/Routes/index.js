@@ -1,5 +1,6 @@
 import React, {Suspense,lazy} from 'react'
 import { Routes, Route } from "react-router-dom";
+import * as Loader from "react-loader-spinner";
 //import { HomePage } from '../containers/HomePage'
 //import { Contact } from '../containers/ContactPage'
 //import { Login } from '../containers/Login';
@@ -21,10 +22,11 @@ const About = lazy(() => import ('../containers/AboutPage'))
 
 
 
-export const ApplicationRoutes = () => {
+export const ApplicationRoutes = ({path}) => {
+    
     return(
         <>
-         <Suspense fallback={<div>Loading.....</div>} >
+         <Suspense fallback={<div style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100vh"}}><Loader.ThreeDots /></div>} >
         <Routes>
            
             <Route path = "/" element={<HomePage />} />
@@ -48,7 +50,6 @@ export const ApplicationRoutes = () => {
             </Route>
             <Route path = "/contact" element={<Contact />} />
             <Route path='/forgot' element={<ForgotPassword />} /> */}
-           
          </Routes>
          </Suspense>
         </>
