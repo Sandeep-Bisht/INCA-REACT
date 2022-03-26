@@ -19,6 +19,7 @@ const CreateForm = lazy(() => import('../containers/Create'))
 const Test = lazy(() => import('../containers/Test'))
 const Contact = lazy(() => import('../containers/ContactPage'))
 const About = lazy(() => import ('../containers/AboutPage'))
+const Error = lazy(() => import ('../containers/Error'))
 
 
 
@@ -42,6 +43,7 @@ export const ApplicationRoutes = ({path}) => {
             </Route>
             <Route path = "/contact" element={<Contact />} />
             <Route path = "/about" element={<About />} />
+            <Route path = "*" element={<Error/>} />
            
 
             {/* <Route path = "/dashboard" element={<Dashboard />} >

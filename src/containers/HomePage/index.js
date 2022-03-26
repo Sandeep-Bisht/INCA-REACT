@@ -44,20 +44,7 @@ import gallary9 from '../../images/gallery-9.jpg';
 
 const HomePage = () => {
 
-  useEffect(() => {
-    let nav = document.querySelector(".header-wrapper");
-    let link = document.querySelector(".nav-link");
-    window.onscroll = function () {
-      if (document.documentElement.scrollTop > 20) {
-        nav.classList.add("header-scrolled");
-        link.classList.add("scrolled-link")
-      }
-      else {
-        nav.classList.remove("header-scrolled");
-        link.classList.remove("scrolled-link")
-      }
-    }
-  }, [])
+  
   useEffect(() => {
     var dest = new Date("nov 1, 2022 00:00:00").getTime();
 
@@ -91,7 +78,7 @@ const HomePage = () => {
       <Header></Header>
       <div className='home-banner'>
         <div className='container'>
-          <div className='row pb-5'>
+          <div className='row pb-md-5'>
             <div className='col-md-7'>
               <div className='left'></div>
             </div>
@@ -151,28 +138,28 @@ const HomePage = () => {
             <div className='col-lg-6'>
               <div className='home-about-left'>
                 <div className='row'>
-                  <div className='col-lg-6'>
-                    <div className='one text-end'>
+                  <div className='col-lg-6 col-6 '>
+                    <div className='one text-end set-img'>
                       <img src={gallary1} className="img-fluid" width={215}
                         height={150}
                       />
                     </div>
-                    <div className='two py-3'>
+                    <div className='two py-3 set-img'>
                       <img src={gallary2} className="img-fluid" /></div>
-                    <div className='three text-end'>
+                    <div className='three text-end set-img'>
                       <img src={gallary3} className="img-fluid w-75" />
                     </div>
                   </div>
-                  <div className='col-lg-6'>
-                    <div className='four mt-3 pt-4'><img src={gallary4} className="img-fluid w-75" /></div>
-                    <div className='five pt-3'><img src={gallary5} className="img-fluid" /></div>
+                  <div className='col-lg-6 col-6'>
+                    <div className='four mt-3 pt-4 set-img'><img src={gallary4} className="img-fluid w-75" /></div>
+                    <div className='five pt-3 set-img' ><img src={gallary5} className="img-fluid" /></div>
                   </div>
                 </div>
               </div>
             </div>
             <div className='col-lg-6'>
 
-              <div className='home-about-right pt-lg-5 mt-lg-5 ps-5'>
+              <div className='home-about-right pt-lg-5 mt-lg-5 ps-md-5'>
                 <p className='common-pre-heading'>Introduction</p>
                 <h1 className='common-heading'>
                   About INCA (Indian National Cartography Association)
@@ -217,18 +204,7 @@ const HomePage = () => {
 
                   </ul>
                 </div>
-                <div className='lower-box'>
-                  <figure class="figure">
-
-                    {/* <div className='fig-signature-box px-5'>
-                      <img src={signature} class=" img-fluid"
-                        alt="" /></div> */}
-
-                    <figcaption>
-                      <p className='event-manager'>MD WILLIAM HOUSTON</p>
-                      <p className='event-name'>Event Organiser</p></figcaption>
-                  </figure>
-                </div>
+               
               </div>
 
             </div>
@@ -264,27 +240,27 @@ const HomePage = () => {
         </div>
       </section>
       <section className='section-padding home-counter'>
-        <div className='container pt-5'>
-          <div className="row pt-5">
-            <div className='col-lg-3 py-4'>
+        <div className='container pt-md-5'>
+          <div className="row pt-md-5">
+            <div className='col-lg-3 py-4 col-6'>
               <div className='counter-card'>
                 <h2 className='counter-heading'>500+</h2>
                 <span className='counter-title'>Visitors</span>
               </div>
             </div>
-            <div className='col-lg-3 py-4'>
+            <div className='col-lg-3 py-4 col-6'>
               <div className='counter-card'>
                 <h2 className='counter-heading'>50+</h2>
                 <span className='counter-title f2'>EVENT SPEAKERS</span>
               </div>
             </div>
-            <div className='col-lg-3 py-4'>
+            <div className='col-lg-3 py-4 col-6'>
               <div className='counter-card'>
                 <h2 className='counter-heading'>25+</h2>
                 <span className='counter-title f2'>EVENT SESSIONS</span>
               </div>
             </div>
-            <div className='col-lg-3 py-4'>
+            <div className='col-lg-3 py-4 col-6'>
               <div className='counter-card border-0'>
                 <h2 className='counter-heading'>15+</h2>
                 <span className='counter-title f2'>SPONSERS & PARTNERS</span>
@@ -760,7 +736,7 @@ const HomePage = () => {
                 Hyderabad, Indore, Jodhpur, Kerala, Odisha and Tamil Nadu.</p>
             </div>
           </div>
-          <div className='row mt-5 '>
+          <div className='row mt-lg-5 '>
             <div className='col-md-12'>
 
               <div className='gallery-wrapper mt-5 row'>
@@ -955,15 +931,15 @@ const HomePage = () => {
 
           <div className='row position-relative'>
             <div className='col-md-1'></div>
-            <div className='col-md-2 px-0'>
+            <div className='col-md-2 px-0 sponsers-common'>
               <div className='sponser-box-1 common-sponsor-padding'>
                 <img src={gikslogo} alt='' className='img-fluid' />
               </div>
-              <div className='sponser-border-1 common-sponsor-padding'>
+              <div className='sponser-border-1 common-sponsor-padding '>
                 <img src={client6} alt='' className='img-fluid' />
               </div>
             </div>
-            <div className='col-md-2 px-0'>
+            <div className='col-md-2 px-0 sponsers-common'>
               <div className='sponser-box-2 common-sponsor-padding'>
                 <img src={soilogo} alt='' className='img-fluid' />
               </div>
@@ -971,7 +947,7 @@ const HomePage = () => {
                 <img src={client7} alt='' className='img-fluid' />
               </div>
             </div>
-            <div className='col-md-2 px-0'>
+            <div className='col-md-2 px-0 sponsers-common'>
               <div className='sponser-box-3 common-sponsor-padding'>
                 <img src={carislogo} alt='' className='img-fluid' />
               </div>
@@ -979,7 +955,7 @@ const HomePage = () => {
                 <img src={client8} alt='' className='img-fluid' />
               </div>
             </div>
-            <div className='col-md-2 px-0'>
+            <div className='col-md-2 px-0 sponsers-common'>
               <div className='sponser-box-4 common-sponsor-padding'>
                 <img src={nhologo} alt='' className='img-fluid' />
               </div>
@@ -987,7 +963,7 @@ const HomePage = () => {
                 <img src={client9} alt='' className='img-fluid' />
               </div>
             </div>
-            <div className='col-md-2 px-0'>
+            <div className='col-md-2 px-0 sponsers-common'>
               <div className='sponser-box-5 common-sponsor-padding'>
                 <img src={gislogo} alt='' className='img-fluid' />
               </div>
@@ -1094,20 +1070,20 @@ const HomePage = () => {
                 </div>
 
                 <div className="icon-text-movement">
-                  <div className="contact-icon-1">
+                  <div className="contact-icon">
                     <i class="fa-solid fa-envelope"></i>
                   </div>
-                  <div className="contact-address">
+                  <div className="contact-venue">
                     <h3>Email :</h3>
                     <p className="common-para mb-0">Dummy@gmail.com</p>
                   </div>
                 </div>
 
                 <div className="icon-text-movement">
-                  <div className="contact-icon-1">
+                  <div className="contact-icon">
                     <i class="fa-solid fa-phone"></i>
                   </div>
-                  <div className="contact-address">
+                  <div className="contact-venue">
                     <h3>Phone number :</h3>
                     <p className="common-para mb-0">+ 91 999-999-9999</p>
                   </div>

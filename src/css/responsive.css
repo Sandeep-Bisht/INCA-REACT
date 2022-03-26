@@ -1,0 +1,290 @@
+/*------------media query----------*/
+@media only screen and (max-width : 1400px) {
+    .common-heading {
+        font-size: 32px;
+    }
+
+    .common-para {
+        font-size: 14px;
+    }
+
+    .mobile-dropdown {
+        display: none;
+    }
+
+    .desktop-dropdown {
+        display: block;
+    }
+
+    .home-slider #carouselExampleCaptions .slider-title {
+        font-size: 45px;
+        padding: 0px 90px;
+    }
+
+    
+
+    .practice-area .practice-card h3 {
+        font-size: 22px;
+    }
+
+    .practice-area.choose-us {
+        background-position: 115% -90%;
+    }
+
+    .testimonial .carousel-item img {
+        height: 250px;
+    }
+
+    .expert-team .expert-card {
+        width: 100%;
+        margin: auto;
+    }
+
+    .expert-team .expert-card .expert-pic img {
+        height: 240px;
+    }
+
+}
+
+@media only screen and (max-width : 1200px) {
+
+    .common-button {
+        font-size: 14px;
+        padding: 5px 15px;
+    }
+
+    .common-heading {
+        font-size: 26px;
+        margin-bottom: 20px !important;
+    }
+
+    .common-para {
+        font-size: 14px;
+
+    }
+
+    .mobile-dropdown {
+        display: none;
+    }
+
+    .desktop-dropdown {
+        display: block;
+    }
+
+    /*br {*/
+    /*    display: none;*/
+    /*}*/
+    .common-redirect-banner-title {
+    font-size: 29px;
+   }
+
+    .navbar-brand {
+        margin-right: 0;
+    }
+
+    .navbar-nav .nav-item {
+        padding: 0 5px;
+    }
+
+    .navbar-nav li {
+        width: auto;
+    }
+
+    .navbar-brand img {
+        width: 160px;
+    }
+
+    .top-navbox .coverage {
+        margin-bottom: 0px;
+    }
+
+    .top-navbox .coverage a {
+        font-size: 13px;
+        margin: 2px 0;
+    }
+
+    header .top-navbox ul li a {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+        line-height: 30px;
+        background: var(--mainYellow);
+        color: var(--mainWhite);
+        border-radius: 50%;
+        margin-left: 6px;
+
+    }
+
+    header .top-navbox ul li:last-child {
+        border-right: 0;
+    }
+
+    header .top-navbox ul li a svg:not(:root).svg-inline--fa {
+        color: var(--mainWhite);
+    }
+
+    .top-info-wrapper {
+        justify-content: space-between !important;
+        padding: 8px 0;
+    }
+
+    .top-info-wrapper .left {
+        margin-bottom: 0px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 14px;
+
+    }
+
+    .home-slider #carouselExampleCaptions img {
+        height: 500px;
+    }
+
+    .home-slider #carouselExampleCaptions .slider-title {
+        font-size: 42px;
+        padding: 0 60px;
+    }
+
+    .home-slider .carousel-control-prev-icon,
+    .home-slider .carousel-control-next-icon,
+    .testimonial .carousel-control-prev-icon,
+    .testimonial .carousel-control-next-icon {
+        height: 30px;
+        width: 30px;
+        font-size: 18px;
+    }
+
+   
+
+    .about-single .about-img {
+        margin-left: 0;
+    }
+
+    .about-single .about-img img {
+        height: 350px;
+    }
+
+    .about-single .about-img::before {
+        display: none;
+    }
+
+    .practice-area .practice-card h3 {
+        font-size: 18px;
+    }
+
+    .practice-area.choose-us {
+        background-position: 130% -90%;
+    }
+
+    .counter .counter-box {
+        padding: 18px 0px;
+        margin: 0;
+    }
+
+    .counter .counter-box span {
+        font-size: 22px;
+    }
+
+    .counter .counter-box h4 {
+        font-size: 16px;
+    }
+
+
+
+    .expert-team .expert-card .expert-pic img {
+        height: 240px;
+    }
+
+    .expert-team .expert-card h3 {
+        font-size: 16px;
+    }
+
+    .testimonial .carousel-item img {
+        height: 300px;
+        padding: 3px;
+    }
+
+    .testimonial .carousel-control-next,
+    .testimonial .carousel-control-prev {
+        position: static;
+    }
+
+    .testimonial .button-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    footer a {
+        font-size: 12px;
+        margin: 5px 0;
+    }
+
+    footer .footer-title {
+        font-size: 16px;
+    }
+
+
+    .testimonial .carousel-control-next-icon {
+        position: static;
+    }
+
+    .testimonial .carousel-control-prev-icon {
+        position: static;
+    }
+
+    footer .footer-logo img {
+        height: 45px;
+    }
+
+}
+
+@media only screen and (max-width : 1199px) {
+    .expert-team .expert-card .expert-pic img {
+        height: 370px;
+    }
+
+    .expert-team.faculty .expert-card {
+        padding: 0;
+    }
+
+    .expert-team.faculty .expert-card .expert-pic img.extra-height {
+        height: 320px;
+    }
+
+    .expert-team.faculty .expert-card .expert-pic img {
+        height: 320px;
+    }
+
+    .student-review .row {
+        align-items: center;
+    }
+
+    .student-review .about-img img {
+        height: 300px;
+    }
+
+    .about-single .zig-zag {
+        padding: 100px 0;
+    }
+   .practice-detail h1 {
+        font-size: 21px;
+    }
+
+    .practice-detail h3 {
+        font-size: 17px;
+    }
+
+    .practice-detail h6 {
+        font-size: 15px;
+    }
+
+    .common-detail-page-table th {
+        font-size: 15px;
+    }
+    .common-redirect-banner-title {
+    font-size: 27px;
+   }
+
+}
+

@@ -31,7 +31,7 @@
 .foot-wrapper .box-1 p
 {
     padding: 5px 0;
-    letter-spacing: 1px;
+    letter-spacing: .7px;
 }
 
 .foot-wrapper .box-1 h2
@@ -79,7 +79,7 @@
 
 .foot-wrapper .box-2 ul li
 {
-    padding: 8px 0;
+    padding: 0px 0;
 }
 
 .foot-wrapper .box-2 ul li:hover
@@ -103,7 +103,7 @@
 
 .foot-wrapper .box-3 ul li
 {
-    padding: 8px 0;
+    padding: 0px 0;
 }
 
 .foot-wrapper .box-3 ul li:hover
@@ -197,4 +197,99 @@
 {
     text-align: end;
     position: relative;
+}
+/* -----common responsive css---- */
+@media only screen and (max-width : 1024px) {
+
+}
+
+@media only screen and (max-width :991px) {
+    
+}
+
+@media only screen and (max-width : 767px) {
+    
+}
+@media only screen and (max-width : 575px) {
+   
+/* ------footer----- */
+ .foot-wrapper
+    {
+        padding: 40px 20px;
+    }
+    .foot-wrapper .box-1
+    {
+        padding:2px 0;
+    }
+    .foot-wrapper .box-4 .box-wrap {
+        text-align: center;
+       
+        padding: 10px;
+        width: 80%;
+        margin: auto;
+    }
+    .foot-wrapper .box-wrap h5
+    {
+        font-size: 14px;
+    }
+    .foot-wrapper .box-4 img
+    {
+        height:80px;
+    }
+    .foot-wrapper .box-6{
+        margin-bottom:10px;
+    }
+    .foot-wrapper .box-6,.foot-wrapper .box-7
+    {
+        text-align:center;
+        font-size: 14px;
+    }
+
+
+}
+
+@media only screen and (max-width : 480px) {
+   
+    .foot-wrapper .box-6,.foot-wrapper .box-7
+    {
+        text-align:center;
+        font-size: 12px;
+    }
+
+}
+@media only screen and (max-width : 430px){
+    .foot-wrapper
+    {
+        font-size: 14px;
+    }
+    .foot-wrapper .box-1 h2
+    {
+        font-size:35px;
+    }
+   
+    .foot-wrapper .box-4 .box-wrap {
+        text-align: center;
+        padding: 10px;
+        width: 70%;
+        margin: auto;
+    }
+    .foot-wrapper .box-4 img
+    {
+        height:60px;
+    }
+    .foot-wrapper .box-wrap h5
+    {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width : 320px) {
+    .foot-wrapper .box-4 .box-wrap{
+        width: 80%;
+    }
+    .foot-wrapper .box-6,.foot-wrapper .box-7
+    {
+        text-align:center;
+        font-size: 11px;
+    }
 }

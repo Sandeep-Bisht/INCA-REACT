@@ -39,9 +39,10 @@ const Dashboard = (props) => {
         let userInformationCopy = {...userInformation}
         userInformationCopy[e.target.id] = e.target.value
         setUserInformation(userInformationCopy)
+        
     }
-
     return (
+
         <>
             <div className='dash-wrapper'>
                 <header className='dashboard-header '>

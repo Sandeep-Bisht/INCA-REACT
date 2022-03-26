@@ -35,7 +35,7 @@ const Contact = () => {
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-6">
                             <div class="boxes">
                                 <div class="box-1">
                                     <i class="fa-solid fa-house-chimney"></i>
@@ -44,7 +44,7 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-6">
                             <div class="boxes">
                                 <div class="box-2">
                                     <i class="fa-solid fa-file-lines"></i>
@@ -53,7 +53,7 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-6">
                             <div class="boxes">
                                 <div class="box-1">
                                     <i class="fa-solid fa-house-chimney"></i>

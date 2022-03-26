@@ -11,7 +11,7 @@ let obj = {
     country: "",
     phoneNumber: "",
     email: "",
-    conferenceMode: "",
+    conferenceMode: "online",
     participationType: '',
     title: "",
     journeyMode: "",
@@ -35,6 +35,7 @@ const CreateForm = (props) => {
         userInformationCopy[e.target.id] = e.target.value
         setUserInformation(userInformationCopy);
     }
+
     return (
 
         <div className='main '>
@@ -100,18 +101,20 @@ const CreateForm = (props) => {
                                         <label for="SelectMode" className="form-label">Mode of attending the conference</label>
                                         <select className="form-select" onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="conferenceMode">
                                             <option value="online">Online</option>
-                                            <option selected value="offline">Offline</option>
+                                            <option value="offline">Offline</option>
                                         </select>
                                     </div>
                                     <div className="col-md-12">
-                                        <label for="SelectJourney" className="form-label">Journey Mode</label>
-                                        <select className="form-select" onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="journeyMode">
-                                            <option selected>Please Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
+                                <label for="SelectCategory" className="form-label">Registration Category</label>
+                                <select className="form-select" onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="registrationCategory">
+                                    <option selected>Please Select</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                           
+                                    
                                 </div>
                             </div>
 
@@ -127,9 +130,10 @@ const CreateForm = (props) => {
                                         </select>
                                     </div>
                                     <div className="col-md-12">
-                                        <label for="InputArrival" className="form-label">Date of Arrival</label>
-                                        <input type="date" id="arrivalDate" onChange={(e) => userInformationOnchangeHandler(e)} className="form-control" />
-                                    </div>
+                                <label for="InputFee" className="form-label">Registration Fee</label>
+                                <input type="text" onChange={(e) => userInformationOnchangeHandler(e)} id="registrationFee" className="form-control" />
+                            </div>
+                                    
                                 </div>
                             </div>
                             <div className="col-md-4">
@@ -137,28 +141,49 @@ const CreateForm = (props) => {
                                 <textarea id="title" onChange={(e) => userInformationOnchangeHandler(e)} className="form-control"></textarea>
                             </div>
                         </div>
+                        {userInformation.conferenceMode == "offline" &&
+                        <>
+                            <div className="row mb-5">
+                               <div className="col-md-4">
+                                        <label for="InputArrival" className="form-label">Date of Arrival</label>
+                                        <input type="date" id="arrivalDate" onChange={(e) => userInformationOnchangeHandler(e)} className="form-control" />
+                                    </div>
+                                <div className="col-md-4">
+                                    <label for="InputDeparture" className="form-label">Date of Departure</label>
+                                    <input type="date" onChange={(e) => userInformationOnchangeHandler(e)} id="departureDate" className="form-control" />
+                                </div>
+                                <div className="col-md-4">
+                                        <label for="SelectJourney" className="form-label">Journey Mode</label>
+                                        <select className="form-select" onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="journeyMode">
+                                            <option selected>Please Select</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                
+                            </div>
+                            <div className='row'>
+                            <div className="col-md-4">
+                                    <label for="InputAccompanying" className="form-label">Accompanying Person, if any</label>
+                                    <input type="text" onChange={(e) => userInformationOnchangeHandler(e)} id="accompanyingPerson" className="form-control" />
+                                </div>
+                                <div className="col-md-4">
+                                    <label for="SelectAccomodation" className="form-label">Accomodation details</label>
+                                    <select className="form-select" onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="accomodationCategory">
+                                        <option selected>Please Select</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            </>
+                            
+                            }
 
-                        <div className="row mb-5">
-                            <div className="col-md-4">
-                                <label for="InputDeparture" className="form-label">Date of Departure</label>
-                                <input type="date" onChange={(e) => userInformationOnchangeHandler(e)} id="departureDate" className="form-control" />
-                            </div>
-                            <div className="col-md-4">
-                                <label for="InputAccompanying" className="form-label">Accompanying Person, if any</label>
-                                <input type="text" onChange={(e) => userInformationOnchangeHandler(e)} id="accompanyingPerson" className="form-control" />
-                            </div>
-                            <div className="col-md-4">
-                                <label for="SelectAccomodation" className="form-label">Accomodation details</label>
-                                <select className="form-select" onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="accomodationCategory">
-                                    <option selected>Please Select</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className="row mb-5">
+                        <div className="row mb-5 d-none">
                             <div className="col-md-4">
                                 <label for="SelectCategory" className="form-label">Registration Category</label>
                                 <select className="form-select" onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="registrationCategory">
@@ -172,13 +197,13 @@ const CreateForm = (props) => {
                                 <label for="InputFee" className="form-label">Registration Fee</label>
                                 <input type="text" onChange={(e) => userInformationOnchangeHandler(e)} id="registrationFee" className="form-control" />
                             </div>
-                            <div className="col-md-4">
+                            {/* <div className="col-md-4">
                                 <label for="InputTransaction" className="form-label">Transaction ID</label>
                                 <input type="text" onChange={(e) => userInformationOnchangeHandler(e)} id="transactionId" className="form-control" />
-                            </div>
+                            </div> */}
                         </div>
 
-                        <div className="row mb-5">
+                        {/* <div className="row mb-5">
                             <div className="col-md-4">
                                 <label for="SelectBank" className="form-label">Bank</label>
                                 <select className="form-select" onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="bank">
@@ -193,14 +218,14 @@ const CreateForm = (props) => {
                                 <input type="date" onChange={(e) => userInformationOnchangeHandler(e)} id="dated" className="form-control" />
                             </div>
                             <div className="col-md-4"></div>
-                        </div>
-
+                        </div> */}
+                        
                         <div className="row">
                             <div className="col-md-12 text-end">
-                                <button>Save & Submit</button>
+                            <button className='mx-3'>Save</button>
+                                <button>Save & Pay</button>
                             </div>
                         </div>
-
                     </div>
                 </form>
             </div>
