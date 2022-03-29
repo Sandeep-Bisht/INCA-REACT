@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import '../../css/home.css'
@@ -70,6 +71,8 @@ const HomePage = () => {
 
   }, [])
 
+  const navigation = useNavigate();
+
 
 
 
@@ -100,7 +103,7 @@ const HomePage = () => {
                   ridiculus. Quos laborum sunt facere primis magni cumque.
                 </p>
                 <div className='banner-btn-box pt-2'>
-                  <button className=' common-btn'>Register</button>
+                  <button className=' common-btn' onClick={() => navigation("/register")}>Register</button>
                   <button className='common-btn-transparent ms-3'>View Schedule</button>
                 </div>
 
@@ -800,22 +803,22 @@ const HomePage = () => {
                   <div className='reg-icon-box'><img src={reg2} className="img-fluid" alt="" /></div>
                   <h3> Sponsorship </h3>
                   <p> Become a Sponsor / Partner </p>
-                  <div className='btn-holder'><button className=" common-btn">Book Reservation</button></div>
+                  <div className='btn-holder'><button className=" common-btn" onClick={() => navigation("/sponserForm")}>Be a sponser</button></div>
                 </li>
                 <li>  <div className='reg-icon-box'><img src={reg3} className="img-fluid" alt="" /></div>
                   <h3>  Delegate  </h3>
                   <p>  Get your Conference Pass  </p>
-                  <div className='btn-holder'><button className=" common-btn">Book Reservation</button></div></li>
+                  <div className='btn-holder'><button className=" common-btn" onClick={() => navigation("/register")}>Registration</button></div></li>
                 <li>  <div className='reg-icon-box'><img src={reg4} className="img-fluid" alt="" /></div>
                   <h3>  Visitor  </h3>
                   <p>  Register Now for Free Entry  </p>
                   <div className='btn-holder'>
-                    <button className=" common-btn ">Book Reservation</button></div></li>
+                    <button className=" common-btn " onClick={() => navigation("/register")}>Registration</button></div></li>
                 <li>  <div className='reg-icon-box'><img src={reg5} className="img-fluid" alt="" /></div>
                   <h3> Media  </h3>
                   <p>  Be a Media Partner  </p>
                   <div className='btn-holder'>
-                    <button className=" common-btn ">Book Reservation</button>
+                    <button className=" common-btn " onClick={() => navigation("/sponserForm")}>Be a sponser</button>
                   </div></li>
               </ul>
             </div>
