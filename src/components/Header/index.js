@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
+
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo.png'
+
 
 export const Header = () => {
     useEffect(() => {
@@ -17,6 +19,9 @@ export const Header = () => {
           }
         }
       }, [])
+
+  
+
     return (
         <>
             {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">

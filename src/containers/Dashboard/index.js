@@ -94,15 +94,15 @@ const Dashboard = (props) => {
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="headingOne">
                                                 <button class="accordion-button common-blue btn mb-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    Menu
+                                                    User Managment
                                                 </button>
                                             </h2>
                                             <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body p-0">
                                                     <ul className='ps-0 list-unstyled '>
-                                                        <li ><button className='common-blue btn'>Doctype</button></li>
-                                                        <li ><button className='common-blue btn'>Category</button></li>
-                                                        <li ><button className='common-blue btn'>Sub-Category</button></li>
+                                                        <li ><button className='common-blue btn'>View</button></li>
+                                                        {/* <li ><button className='common-blue btn'>Category</button></li>
+                                                        <li ><button className='common-blue btn'>Sub-Category</button></li> */}
                                                     </ul>
                                                 </div>
                                             </div>
