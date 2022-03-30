@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+import "react-multi-carousel/lib/styles.css";
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import '../../css/home.css'
@@ -71,14 +75,35 @@ const HomePage = () => {
 
   }, [])
 
-  const navigation = useNavigate();
+  
 
+  const navigation = useNavigate(); 
+ 
 
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+    slidesToSlide: 3 // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    slidesToSlide: 2 // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1 // optional, default to 1.
+  }
+};
 
+const deviceType = "desktop"
 
   return (
     <>
       <Header></Header>
+      
       <div className='home-banner'>
         <div className='container'>
           <div className='row pb-md-5'>
@@ -286,7 +311,21 @@ const HomePage = () => {
             </div>
           </div>
           <div className='row position-relative mt-lg-5'>
-            <div className='col-lg-4'>
+          <Carousel
+              swipeable={false}
+              arrows={false}
+              draggable={false}
+              showDots={true}
+              responsive={responsive}              
+              infinite={true}               
+               autoPlay = {true}
+              ShowArrows = {false}
+              autoPlaySpeed={2000}
+              keyBoardControl={true}              
+              transitionDuration={500}             
+               itemClass="carousel-item-padding-40-px"
+            >
+            <div className='why-attend'>
               <div className='attend-card'>
                 <div className='upper'>
                   <div className='event-icon'>
@@ -302,7 +341,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className='col-lg-4'>
+            <div className='why-attend'>
               <div className='attend-card'>
                 <div className='upper'>
                   <div className='event-icon'>
@@ -318,7 +357,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className='col-lg-4'>
+            <div className='why-attend'>
               <div className='attend-card'>
                 <div className='upper'>
                   <div className='event-icon'>
@@ -334,7 +373,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className='col-lg-4'>
+            <div className='why-attend'>
               <div className='attend-card'>
                 <div className='upper'>
                   <div className='event-icon'>
@@ -350,7 +389,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className='col-lg-4'>
+            <div className='why-attend'>
               <div className='attend-card'>
                 <div className='upper'>
                   <div className='event-icon'>
@@ -366,7 +405,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className='col-lg-4'>
+            <div className='why-attend'>
               <div className='attend-card'>
                 <div className='upper'>
                   <div className='event-icon'>
@@ -382,6 +421,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+            </Carousel>;
           </div>
         </div>
       </section>
@@ -399,7 +439,27 @@ const HomePage = () => {
             </div>
           </div>
           <div className='row mt-5'>
-            <div className='col-lg-4'>
+          <Carousel
+              swipeable={false}
+              arrows={false}
+              draggable={false}
+              showDots={true}
+              responsive={responsive}
+              ssr={true} // means to render carousel on server-side.
+              infinite={true}
+              //  autoPlay={deviceType == "desktop" ? false : true}
+              autoPlay = {true}
+              autoPlaySpeed={2000}
+              keyBoardControl={true}
+              // customTransition="all .5"
+              transitionDuration={500}
+              // containerClass="carousel-container"
+              // removeArrowOnDeviceType={["tablet", "mobile"]}
+              // deviceType={this.props.deviceType}
+              // dotListClass="custom-dot-list-style"
+              // itemClass="carousel-item-padding-40-px"
+            >
+      <div className='member-profile'>
               <div className='speaker-card'>
                 <div className='speaker-pic'>
                   <img src={comittee2} className="img-fluid" alt='' />
@@ -420,7 +480,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className='col-lg-4'>
+            <div className='member-profile'>
               <div className='speaker-card'>
                 <div className='speaker-pic'>
                   <img src={comittee1} className="img-fluid" alt='' />
@@ -441,7 +501,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className='col-lg-4'>
+            <div className='member-profile'>
               <div className='speaker-card'>
                 <div className='speaker-pic'>
                   <img src={comittee3} className="img-fluid" alt='' />
@@ -462,6 +522,8 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+</Carousel>;
+            
             {/* <div className='col-lg-4'>
               <div className='speaker-card'>
                 <div className='speaker-pic'>
