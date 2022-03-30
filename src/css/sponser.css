@@ -1,4 +1,4 @@
-.sponser-form
+.sponser-form.register-form
 {
     background-image: url('../images/event-1.jpg.JPEG');
     background-size: cover;
@@ -6,7 +6,7 @@
     color: #fff;
     position: relative;
     padding: 120px 0 40px 0;
-    height: calc( 100vh - 0px);
+    height:auto;
 }
 .sponser-form::before{
     display: block;
