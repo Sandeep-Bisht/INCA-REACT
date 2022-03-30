@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
-import "react-multi-carousel/lib/styles.css";
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import '../../css/home.css'
