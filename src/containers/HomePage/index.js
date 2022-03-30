@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-
+import "react-multi-carousel/lib/styles.css";
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import '../../css/home.css'
@@ -86,12 +89,35 @@ const HomePage = () => {
 
   }, [])
 
+  
 
+  const navigation = useNavigate(); 
+ 
 
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+    slidesToSlide: 3 // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    slidesToSlide: 2 // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1 // optional, default to 1.
+  }
+};
+
+const deviceType = "desktop"
 
   return (
     <>
       <Header></Header>
+      
       <div className='home-banner'>
         <div className='container'>
           <div className='row pb-md-5'>
@@ -116,7 +142,7 @@ const HomePage = () => {
                   ridiculus. Quos laborum sunt facere primis magni cumque.
                 </p>
                 <div className='banner-btn-box pt-2'>
-                  <button className=' common-btn'>Register</button>
+                  <button className=' common-btn' onClick={() => navigation("/register")}>Register</button>
                   <button className='common-btn-transparent ms-3'>View Schedule</button>
                 </div>
 
@@ -285,7 +311,136 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className='section-padding home-attend-event'>
+      <section className='section-padding home-attend-event with-carousel'>
+        <div className='container'>
+          <div className='row position-relative'>
+            <div className='col-md-8 mx-auto text-center'>
+              {/* <p class="common-pre-heading">Introduction</p> */}
+              <h2 className='common-heading text-white'>
+                WHY ATTEND INCA 2022 EVENT?
+              </h2>
+              <p className='common-para text-white position-relative'>
+                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+              </p>
+            </div>
+          </div>
+          <div className='row position-relative mt-lg-5'>
+          <Carousel
+              swipeable={true}
+              arrows={true}
+              draggable={false}
+              showDots={false}
+              responsive={responsive}              
+              infinite={true}               
+               autoPlay = {true}
+              ShowArrows = {false}
+              autoPlaySpeed={2000}
+              keyBoardControl={true}              
+              transitionDuration={500}             
+               itemClass="carousel-item-padding-40-px"
+            >
+            <div className='why-attend'>
+              <div className='attend-card'>
+                <div className='upper'>
+                  <div className='event-icon'>
+                    <img src={attend1} alt="" className='img-fluid' />
+                  </div>
+                  <div className='event-number f1 '>01.</div>
+                </div>
+                <div className='lower'>
+                  <h3 className='attend-card-heading'>In  Person Networking</h3>
+                  <p className='common-para'>
+                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className='why-attend'>
+              <div className='attend-card'>
+                <div className='upper'>
+                  <div className='event-icon'>
+                    <img src={attend2} alt="" className='img-fluid' />
+                  </div>
+                  <div className='event-number f1 '>02.</div>
+                </div>
+                <div className='lower'>
+                  <h3 className='attend-card-heading'>BOOST CREATIVITY</h3>
+                  <p className='common-para'>
+                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className='why-attend'>
+              <div className='attend-card'>
+                <div className='upper'>
+                  <div className='event-icon'>
+                    <img src={attend3} alt="" className='img-fluid' />
+                  </div>
+                  <div className='event-number f1 '>03.</div>
+                </div>
+                <div className='lower'>
+                  <h3 className='attend-card-heading'>AFTER PARTY EVENT</h3>
+                  <p className='common-para'>
+                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className='why-attend'>
+              <div className='attend-card'>
+                <div className='upper'>
+                  <div className='event-icon'>
+                    <img src={attend4} alt="" className='img-fluid' />
+                  </div>
+                  <div className='event-number f1 '>04.</div>
+                </div>
+                <div className='lower'>
+                  <h3 className='attend-card-heading'>SPARK CREATIVITY</h3>
+                  <p className='common-para'>
+                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className='why-attend'>
+              <div className='attend-card'>
+                <div className='upper'>
+                  <div className='event-icon'>
+                    <img src={attend5} alt="" className='img-fluid' />
+                  </div>
+                  <div className='event-number f1 '>05.</div>
+                </div>
+                <div className='lower'>
+                  <h3 className='attend-card-heading'>TOP SPEAKERS</h3>
+                  <p className='common-para'>
+                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className='why-attend'>
+              <div className='attend-card'>
+                <div className='upper'>
+                  <div className='event-icon'>
+                    <img src={attend6} alt="" className='img-fluid' />
+                  </div>
+                  <div className='event-number f1 '>06.</div>
+                </div>
+                <div className='lower'>
+                  <h3 className='attend-card-heading'>POTENTIAL CLIENTS</h3>
+                  <p className='common-para'>
+                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                  </p>
+                </div>
+              </div>
+            </div>
+            </Carousel>;
+          </div>
+        </div>
+      </section>
+      {/* ----without carousel---- */}
+      <section className='section-padding home-attend-event without-carousel'>
         <div className='container'>
           <div className='row position-relative'>
             <div className='col-md-8 mx-auto text-center'>
@@ -398,7 +553,180 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className='section-padding home-speakers'>
+      {/* ----without carousel---- */}
+      <section className='section-padding home-speakers with-carousel'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-8 mx-auto text-center'>
+              <p class="common-pre-heading">Organising committee</p>
+              <h2 className='common-heading '>
+                OUR ORGANISING COMMITTEE
+              </h2>
+              <p className='common-para '>
+                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+              </p>
+            </div>
+          </div>
+          <div className='row mt-5'>
+          <Carousel
+              swipeable={true}
+              arrows={true}
+              draggable={false}
+              showDots={false}
+              responsive={responsive}
+              ssr={true} // means to render carousel on server-side.
+              infinite={true}
+              //  autoPlay={deviceType == "desktop" ? false : true}
+              autoPlay = {true}
+              autoPlaySpeed={2000}
+              keyBoardControl={true}
+              // customTransition="all .5"
+              transitionDuration={500}
+              // containerClass="carousel-container"
+              // removeArrowOnDeviceType={["tablet", "mobile"]}
+              // deviceType={this.props.deviceType}
+              // dotListClass="custom-dot-list-style"
+              // itemClass="carousel-item-padding-40-px"
+            >
+      <div className='member-profile'>
+              <div className='speaker-card'>
+                <div className='speaker-pic'>
+                  <img src={comittee2} className="img-fluid" alt='' />
+                </div>
+                <div className='speaker-detail'>
+                  <div className='upper'>
+                    <h3 className='speaker-title'>Vice Admiral Adhir Arora, NM ,C H to GoI</h3>
+                    <span className='speaker-post'>Chief Hydrographer & President INCA</span>
+                  </div>
+                  {/* <div className='lower'>
+                    <ul className='list-unstyled ps-0 d-flex justify-content-center'>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-facebook-f"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-twitter"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-instagram"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-linkedin-in"></i></span></a></li>
+                    </ul>
+                  </div> */}
+                </div>
+              </div>
+            </div>
+            <div className='member-profile'>
+              <div className='speaker-card'>
+                <div className='speaker-pic'>
+                  <img src={comittee1} className="img-fluid" alt='' />
+                </div>
+                <div className='speaker-detail'>
+                  <div className='upper'>
+                    <h3 className='speaker-title'>Shri Rajesh Kumar</h3>
+                    <span className='speaker-post'>Secretary - II, INCA</span>
+                  </div>
+                  {/* <div className='lower'>
+                    <ul className='list-unstyled ps-0 d-flex justify-content-center'>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-facebook-f"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-twitter"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-instagram"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-linkedin-in"></i></span></a></li>
+                    </ul>
+                  </div> */}
+                </div>
+              </div>
+            </div>
+            <div className='member-profile'>
+              <div className='speaker-card'>
+                <div className='speaker-pic'>
+                  <img src={comittee3} className="img-fluid" alt='' />
+                </div>
+                <div className='speaker-detail'>
+                  <div className='upper'>
+                    <h3 className='speaker-title'>Dr. Tapati Banerjee</h3>
+                    <span className='speaker-post'>Director NATMO & Past President INCA</span>
+                  </div>
+                  {/* <div className='lower'>
+                    <ul className='list-unstyled ps-0 d-flex justify-content-center'>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-facebook-f"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-twitter"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-instagram"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-linkedin-in"></i></span></a></li>
+                    </ul>
+                  </div> */}
+                </div>
+              </div>
+            </div>
+</Carousel>;
+            
+            {/* <div className='col-lg-4'>
+              <div className='speaker-card'>
+                <div className='speaker-pic'>
+                  <img src={speaker1} className="img-fluid" alt='' />
+                </div>
+                <div className='speaker-detail'>
+                  <div className='upper'>
+                    <h3 className='speaker-title'>William Hob</h3>
+                    <span className='speaker-post'>Chief Executive Officer</span>
+                  </div>
+                  <div className='lower'>
+                    <ul className='list-unstyled ps-0 d-flex justify-content-center'>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-facebook-f"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-twitter"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-instagram"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-linkedin-in"></i></span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='col-lg-4'>
+              <div className='speaker-card'>
+                <div className='speaker-pic'>
+                  <img src={speaker1} className="img-fluid" alt='' />
+                </div>
+                <div className='speaker-detail'>
+                  <div className='upper'>
+                    <h3 className='speaker-title'>William Hob</h3>
+                    <span className='speaker-post'>Chief Executive Officer</span>
+                  </div>
+                  <div className='lower'>
+                    <ul className='list-unstyled ps-0 d-flex justify-content-center'>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-facebook-f"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-twitter"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-instagram"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-linkedin-in"></i></span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='col-lg-4'>
+              <div className='speaker-card'>
+                <div className='speaker-pic'>
+                  <img src={speaker1} className="img-fluid" alt='' />
+                </div>
+                <div className='speaker-detail'>
+                  <div className='upper'>
+                    <h3 className='speaker-title'>William Hob</h3>
+                    <span className='speaker-post'>Chief Executive Officer</span>
+                  </div>
+                  <div className='lower'>
+                    <ul className='list-unstyled ps-0 d-flex justify-content-center'>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-facebook-f"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-twitter"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-instagram"></i></span></a></li>
+                      <li className='px-1'><a href='#'><span><i className="fa-brands fa-linkedin-in"></i></span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div> */}
+
+          </div>
+          <div className='row mt-5'>
+            <div className='col-md-12 mt-5 text-center'>
+              <button className=' common-btn'>View All Members</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ------ without carousel----*/}
+      <section className='section-padding home-speakers without-carousel'>
         <div className='container'>
           <div className='row'>
             <div className='col-md-8 mx-auto text-center'>
@@ -547,6 +875,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* -----without carousel----- */}
       <section className='section-padding home-schedule'>
         <div className='container'>
           <div className='row align-items-center'>
@@ -1182,22 +1512,22 @@ const HomePage = () => {
                   <div className='reg-icon-box'><img src={reg2} className="img-fluid" alt="" /></div>
                   <h3> Sponsorship </h3>
                   <p> Become a Sponsor / Partner </p>
-                  <div className='btn-holder'><button className=" common-btn">Book Reservation</button></div>
+                  <div className='btn-holder'><button className=" common-btn" onClick={() => navigation("/sponserForm")}>Be a sponser</button></div>
                 </li>
                 <li>  <div className='reg-icon-box'><img src={reg3} className="img-fluid" alt="" /></div>
                   <h3>  Delegate  </h3>
                   <p>  Get your Conference Pass  </p>
-                  <div className='btn-holder'><button className=" common-btn">Book Reservation</button></div></li>
+                  <div className='btn-holder'><button className=" common-btn" onClick={() => navigation("/register")}>Registration</button></div></li>
                 <li>  <div className='reg-icon-box'><img src={reg4} className="img-fluid" alt="" /></div>
                   <h3>  Visitor  </h3>
                   <p>  Register Now for Free Entry  </p>
                   <div className='btn-holder'>
-                    <button className=" common-btn ">Book Reservation</button></div></li>
+                    <button className=" common-btn " onClick={() => navigation("/register")}>Registration</button></div></li>
                 <li>  <div className='reg-icon-box'><img src={reg5} className="img-fluid" alt="" /></div>
                   <h3> Media  </h3>
                   <p>  Be a Media Partner  </p>
                   <div className='btn-holder'>
-                    <button className=" common-btn ">Book Reservation</button>
+                    <button className=" common-btn " onClick={() => navigation("/sponserForm")}>Be a sponser</button>
                   </div></li>
               </ul>
             </div>

@@ -217,7 +217,16 @@ textarea
 {
     box-shadow:none!important;
 }
-
+::placeholder{
+    font-size: 14px;
+    color: #afbdcf;
+}
+.with-carousel{
+    display:none;
+}
+.without-carousel{
+    display:block;
+}
 
 
 
@@ -383,6 +392,12 @@ background-color:#fff;
     .navbar-toggler:focus
     {
         box-shadow: none!important;
+    }
+    .with-carousel{
+        display:block;
+    }
+    .without-carousel{
+        display:none;
     }
     
 
