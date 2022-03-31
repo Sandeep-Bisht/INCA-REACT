@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -57,8 +57,10 @@ const HomePage = () => {
 
   const [showEvents, setShowEvents] = useState('1nov')
 
+
   let showEventsByDate = (val) => {
-    setShowEvents(val)
+    setShowEvents(val);
+
   }
 
 
@@ -87,35 +89,35 @@ const HomePage = () => {
 
   }, [])
 
-  
 
-  const navigation = useNavigate(); 
- 
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 3 // optional, default to 1.
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    slidesToSlide: 2 // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1 // optional, default to 1.
-  }
-};
+  const navigation = useNavigate();
 
-const deviceType = "desktop"
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 3 // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    }
+  };
+
+  const deviceType = "desktop"
 
   return (
     <>
       <Header></Header>
-      
+
       <div className='home-banner'>
         <div className='container'>
           <div className='row pb-md-5'>
@@ -323,116 +325,116 @@ const deviceType = "desktop"
             </div>
           </div>
           <div className='row position-relative mt-lg-5'>
-          <Carousel
+            <Carousel
               swipeable={true}
               arrows={true}
               draggable={false}
               showDots={false}
-              responsive={responsive}              
-              infinite={true}               
-               autoPlay = {true}
-              ShowArrows = {false}
+              responsive={responsive}
+              infinite={true}
+              autoPlay={true}
+              ShowArrows={false}
               autoPlaySpeed={2000}
-              keyBoardControl={true}              
-              transitionDuration={500}             
-               itemClass="carousel-item-padding-40-px"
+              keyBoardControl={true}
+              transitionDuration={500}
+              itemClass="carousel-item-padding-40-px"
             >
-            <div className='why-attend'>
-              <div className='attend-card'>
-                <div className='upper'>
-                  <div className='event-icon'>
-                    <img src={attend1} alt="" className='img-fluid' />
+              <div className='why-attend'>
+                <div className='attend-card'>
+                  <div className='upper'>
+                    <div className='event-icon'>
+                      <img src={attend1} alt="" className='img-fluid' />
+                    </div>
+                    <div className='event-number f1 '>01.</div>
                   </div>
-                  <div className='event-number f1 '>01.</div>
-                </div>
-                <div className='lower'>
-                  <h3 className='attend-card-heading'>In  Person Networking</h3>
-                  <p className='common-para'>
-                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
-                  </p>
+                  <div className='lower'>
+                    <h3 className='attend-card-heading'>In  Person Networking</h3>
+                    <p className='common-para'>
+                      Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='why-attend'>
-              <div className='attend-card'>
-                <div className='upper'>
-                  <div className='event-icon'>
-                    <img src={attend2} alt="" className='img-fluid' />
+              <div className='why-attend'>
+                <div className='attend-card'>
+                  <div className='upper'>
+                    <div className='event-icon'>
+                      <img src={attend2} alt="" className='img-fluid' />
+                    </div>
+                    <div className='event-number f1 '>02.</div>
                   </div>
-                  <div className='event-number f1 '>02.</div>
-                </div>
-                <div className='lower'>
-                  <h3 className='attend-card-heading'>BOOST CREATIVITY</h3>
-                  <p className='common-para'>
-                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
-                  </p>
+                  <div className='lower'>
+                    <h3 className='attend-card-heading'>BOOST CREATIVITY</h3>
+                    <p className='common-para'>
+                      Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='why-attend'>
-              <div className='attend-card'>
-                <div className='upper'>
-                  <div className='event-icon'>
-                    <img src={attend3} alt="" className='img-fluid' />
+              <div className='why-attend'>
+                <div className='attend-card'>
+                  <div className='upper'>
+                    <div className='event-icon'>
+                      <img src={attend3} alt="" className='img-fluid' />
+                    </div>
+                    <div className='event-number f1 '>03.</div>
                   </div>
-                  <div className='event-number f1 '>03.</div>
-                </div>
-                <div className='lower'>
-                  <h3 className='attend-card-heading'>AFTER PARTY EVENT</h3>
-                  <p className='common-para'>
-                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
-                  </p>
+                  <div className='lower'>
+                    <h3 className='attend-card-heading'>AFTER PARTY EVENT</h3>
+                    <p className='common-para'>
+                      Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='why-attend'>
-              <div className='attend-card'>
-                <div className='upper'>
-                  <div className='event-icon'>
-                    <img src={attend4} alt="" className='img-fluid' />
+              <div className='why-attend'>
+                <div className='attend-card'>
+                  <div className='upper'>
+                    <div className='event-icon'>
+                      <img src={attend4} alt="" className='img-fluid' />
+                    </div>
+                    <div className='event-number f1 '>04.</div>
                   </div>
-                  <div className='event-number f1 '>04.</div>
-                </div>
-                <div className='lower'>
-                  <h3 className='attend-card-heading'>SPARK CREATIVITY</h3>
-                  <p className='common-para'>
-                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
-                  </p>
+                  <div className='lower'>
+                    <h3 className='attend-card-heading'>SPARK CREATIVITY</h3>
+                    <p className='common-para'>
+                      Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='why-attend'>
-              <div className='attend-card'>
-                <div className='upper'>
-                  <div className='event-icon'>
-                    <img src={attend5} alt="" className='img-fluid' />
+              <div className='why-attend'>
+                <div className='attend-card'>
+                  <div className='upper'>
+                    <div className='event-icon'>
+                      <img src={attend5} alt="" className='img-fluid' />
+                    </div>
+                    <div className='event-number f1 '>05.</div>
                   </div>
-                  <div className='event-number f1 '>05.</div>
-                </div>
-                <div className='lower'>
-                  <h3 className='attend-card-heading'>TOP SPEAKERS</h3>
-                  <p className='common-para'>
-                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
-                  </p>
+                  <div className='lower'>
+                    <h3 className='attend-card-heading'>TOP SPEAKERS</h3>
+                    <p className='common-para'>
+                      Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='why-attend'>
-              <div className='attend-card'>
-                <div className='upper'>
-                  <div className='event-icon'>
-                    <img src={attend6} alt="" className='img-fluid' />
+              <div className='why-attend'>
+                <div className='attend-card'>
+                  <div className='upper'>
+                    <div className='event-icon'>
+                      <img src={attend6} alt="" className='img-fluid' />
+                    </div>
+                    <div className='event-number f1 '>06.</div>
                   </div>
-                  <div className='event-number f1 '>06.</div>
-                </div>
-                <div className='lower'>
-                  <h3 className='attend-card-heading'>POTENTIAL CLIENTS</h3>
-                  <p className='common-para'>
-                    Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
-                  </p>
+                  <div className='lower'>
+                    <h3 className='attend-card-heading'>POTENTIAL CLIENTS</h3>
+                    <p className='common-para'>
+                      Nemo cubilia non, exercitationem ridiculus modi faucibus nullam animi suspendie in porttitor.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
             </Carousel>;
           </div>
         </div>
@@ -566,7 +568,7 @@ const deviceType = "desktop"
             </div>
           </div>
           <div className='row mt-5'>
-          <Carousel
+            <Carousel
               swipeable={true}
               arrows={true}
               draggable={false}
@@ -575,28 +577,28 @@ const deviceType = "desktop"
               ssr={true} // means to render carousel on server-side.
               infinite={true}
               //  autoPlay={deviceType == "desktop" ? false : true}
-              autoPlay = {true}
+              autoPlay={true}
               autoPlaySpeed={2000}
               keyBoardControl={true}
               // customTransition="all .5"
               transitionDuration={500}
-              // containerClass="carousel-container"
-              // removeArrowOnDeviceType={["tablet", "mobile"]}
-              // deviceType={this.props.deviceType}
-              // dotListClass="custom-dot-list-style"
-              // itemClass="carousel-item-padding-40-px"
+            // containerClass="carousel-container"
+            // removeArrowOnDeviceType={["tablet", "mobile"]}
+            // deviceType={this.props.deviceType}
+            // dotListClass="custom-dot-list-style"
+            // itemClass="carousel-item-padding-40-px"
             >
-      <div className='member-profile'>
-              <div className='speaker-card'>
-                <div className='speaker-pic'>
-                  <img src={comittee2} className="img-fluid" alt='' />
-                </div>
-                <div className='speaker-detail'>
-                  <div className='upper'>
-                    <h3 className='speaker-title'>Vice Admiral Adhir Arora, NM ,C H to GoI</h3>
-                    <span className='speaker-post'>Chief Hydrographer & President INCA</span>
+              <div className='member-profile'>
+                <div className='speaker-card'>
+                  <div className='speaker-pic'>
+                    <img src={comittee2} className="img-fluid" alt='' />
                   </div>
-                  {/* <div className='lower'>
+                  <div className='speaker-detail'>
+                    <div className='upper'>
+                      <h3 className='speaker-title'>Vice Admiral Adhir Arora, NM ,C H to GoI</h3>
+                      <span className='speaker-post'>Chief Hydrographer & President INCA</span>
+                    </div>
+                    {/* <div className='lower'>
                     <ul className='list-unstyled ps-0 d-flex justify-content-center'>
                       <li className='px-1'><a href='#'><span><i className="fa-brands fa-facebook-f"></i></span></a></li>
                       <li className='px-1'><a href='#'><span><i className="fa-brands fa-twitter"></i></span></a></li>
@@ -604,20 +606,20 @@ const deviceType = "desktop"
                       <li className='px-1'><a href='#'><span><i className="fa-brands fa-linkedin-in"></i></span></a></li>
                     </ul>
                   </div> */}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='member-profile'>
-              <div className='speaker-card'>
-                <div className='speaker-pic'>
-                  <img src={comittee1} className="img-fluid" alt='' />
-                </div>
-                <div className='speaker-detail'>
-                  <div className='upper'>
-                    <h3 className='speaker-title'>Shri Rajesh Kumar</h3>
-                    <span className='speaker-post'>Secretary - II, INCA</span>
+              <div className='member-profile'>
+                <div className='speaker-card'>
+                  <div className='speaker-pic'>
+                    <img src={comittee1} className="img-fluid" alt='' />
                   </div>
-                  {/* <div className='lower'>
+                  <div className='speaker-detail'>
+                    <div className='upper'>
+                      <h3 className='speaker-title'>Shri Rajesh Kumar</h3>
+                      <span className='speaker-post'>Secretary - II, INCA</span>
+                    </div>
+                    {/* <div className='lower'>
                     <ul className='list-unstyled ps-0 d-flex justify-content-center'>
                       <li className='px-1'><a href='#'><span><i className="fa-brands fa-facebook-f"></i></span></a></li>
                       <li className='px-1'><a href='#'><span><i className="fa-brands fa-twitter"></i></span></a></li>
@@ -625,20 +627,20 @@ const deviceType = "desktop"
                       <li className='px-1'><a href='#'><span><i className="fa-brands fa-linkedin-in"></i></span></a></li>
                     </ul>
                   </div> */}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='member-profile'>
-              <div className='speaker-card'>
-                <div className='speaker-pic'>
-                  <img src={comittee3} className="img-fluid" alt='' />
-                </div>
-                <div className='speaker-detail'>
-                  <div className='upper'>
-                    <h3 className='speaker-title'>Dr. Tapati Banerjee</h3>
-                    <span className='speaker-post'>Director NATMO & Past President INCA</span>
+              <div className='member-profile'>
+                <div className='speaker-card'>
+                  <div className='speaker-pic'>
+                    <img src={comittee3} className="img-fluid" alt='' />
                   </div>
-                  {/* <div className='lower'>
+                  <div className='speaker-detail'>
+                    <div className='upper'>
+                      <h3 className='speaker-title'>Dr. Tapati Banerjee</h3>
+                      <span className='speaker-post'>Director NATMO & Past President INCA</span>
+                    </div>
+                    {/* <div className='lower'>
                     <ul className='list-unstyled ps-0 d-flex justify-content-center'>
                       <li className='px-1'><a href='#'><span><i className="fa-brands fa-facebook-f"></i></span></a></li>
                       <li className='px-1'><a href='#'><span><i className="fa-brands fa-twitter"></i></span></a></li>
@@ -646,11 +648,11 @@ const deviceType = "desktop"
                       <li className='px-1'><a href='#'><span><i className="fa-brands fa-linkedin-in"></i></span></a></li>
                     </ul>
                   </div> */}
+                  </div>
                 </div>
               </div>
-            </div>
-</Carousel>;
-            
+            </Carousel>;
+
             {/* <div className='col-lg-4'>
               <div className='speaker-card'>
                 <div className='speaker-pic'>
@@ -886,22 +888,30 @@ const deviceType = "desktop"
               <p className="common-para ">Quam amet tristique adipisicing incididunt arcu,
                 excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.</p>
             </div>
+           
             <div className='col-lg-6'>
-              <div className='schedule-circles'>
-                <div className='common-circle one common-yellow-bg' onClick={() => showEventsByDate("1nov")}>
-                  <p className='c-heading f1'>01 Nov </p>
-                  <p className='shedule-day f1'>Tuesday</p>
-                </div>
-                <div className='before-line'></div>
-                <div className='common-circle two' onClick={() => showEventsByDate("2nov")}>
-                  <p className='c-heading f1'>02 Nov </p>
-                  <p className='shedule-day f1'>Wednesday</p>
-                </div>
-                <div className='before-line'></div>
-                <div className='common-circle three common-blue-bg' onClick={() => showEventsByDate("3nov")}>
-                  <p className='c-heading f1'>03 Nov </p>
-                  <p className='shedule-day f1'>Thursday</p>
-                </div>
+              <div className= "schedule-circles ">
+                
+                  
+                    <div className={`${showEvents === "1nov" ? "common-circle  circleactive" : "common-circle "}`} onClick={() => showEventsByDate("1nov")}>
+                      <p className='c-heading f1'>01 Nov </p>
+                      <p className='shedule-day f1'>Tuesday</p>
+                    </div>
+                    <div className='before-line'></div>
+                    <div className={`${showEvents === "2nov" ? "common-circle  circleactive" : "common-circle "}`} onClick={() => showEventsByDate("2nov")}>
+                      <p className='c-heading f1'>02 Nov </p>
+                      <p className='shedule-day f1'>Wednesday</p>
+                    </div>
+
+                    <div className='before-line'></div>
+                    <div className={`${showEvents === "3nov" ? "common-circle  circleactive" : "common-circle "}`} onClick={() => showEventsByDate("3nov")}>
+                      <p className='c-heading f1'>03 Nov </p>
+                      <p className='shedule-day f1'>Thursday</p>
+                    </div>
+                  
+                
+
+
               </div>
             </div>
           </div>
@@ -1428,182 +1438,182 @@ const deviceType = "desktop"
               </div>
             </div>
           </div>
-         
+
           <div className='row '>
             {
               showEvents == "1nov" &&
               <>
-                 <Carousel
-              swipeable={true}
-              arrows={true}
-              draggable={false}
-              showDots={false}
-              responsive={responsive}              
-              infinite={true}               
-               autoPlay = {true}
-              ShowArrows = {false}
-              autoPlaySpeed={2000}
-              keyBoardControl={true}              
-              transitionDuration={500}             
-               itemClass="carousel-item-padding-40-px"
-            >
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left light'>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
+                <Carousel
+                  swipeable={true}
+                  arrows={true}
+                  draggable={false}
+                  showDots={false}
+                  responsive={responsive}
+                  infinite={true}
+                  autoPlay={true}
+                  ShowArrows={false}
+                  autoPlaySpeed={2000}
+                  keyBoardControl={true}
+                  transitionDuration={500}
+                  itemClass="carousel-item-padding-40-px"
+                >
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left light'>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
+                        <div className='col-lg-8 p-5 right'>
 
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info1</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser3} />
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info1</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+                                <a href='#' className='common-learn-more'>Learn More...</a>
                               </div>
-                              <div className='pic'>
-                                <img src={organiser4} />
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser3} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser4} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left '>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left '>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
+                        <div className='col-lg-8 p-5 right'>
 
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser1} />
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+                                <a href='#' className='common-learn-more'>Learn More...</a>
                               </div>
-                              <div className='pic'>
-                                <img src={organiser2} />
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser1} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser2} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left light'>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left light'>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
+                        <div className='col-lg-8 p-5 right'>
 
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser3} />
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+                                <a href='#' className='common-learn-more'>Learn More...</a>
                               </div>
-                              <div className='pic'>
-                                <img src={organiser4} />
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser3} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser4} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left '>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
-                        </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
-
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser1} />
-                              </div>
-                              <div className='pic'>
-                                <img src={organiser2} />
-                              </div>
-                            </div>
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left '>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
                           </div>
                         </div>
+                        <div className='col-lg-8 p-5 right'>
+
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+
+                                <a href='#' className='common-learn-more'>Learn More...</a>
+                              </div>
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser1} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser2} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
                 </Carousel>
               </>
 
@@ -1612,177 +1622,177 @@ const deviceType = "desktop"
             {
               showEvents == "2nov" &&
               <>
-              <Carousel
-              swipeable={true}
-              arrows={true}
-              draggable={false}
-              showDots={false}
-              responsive={responsive}              
-              infinite={true}               
-               autoPlay = {true}
-              ShowArrows = {false}
-              autoPlaySpeed={2000}
-              keyBoardControl={true}              
-              transitionDuration={500}             
-               itemClass="carousel-item-padding-40-px"
-            >
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left light'>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
+                <Carousel
+                  swipeable={true}
+                  arrows={true}
+                  draggable={false}
+                  showDots={false}
+                  responsive={responsive}
+                  infinite={true}
+                  autoPlay={true}
+                  ShowArrows={false}
+                  autoPlaySpeed={2000}
+                  keyBoardControl={true}
+                  transitionDuration={500}
+                  itemClass="carousel-item-padding-40-px"
+                >
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left light'>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
+                        <div className='col-lg-8 p-5 right'>
 
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info 2</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser3} />
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info 2</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+                                <a href='#' className='common-learn-more'>Learn More...</a>
                               </div>
-                              <div className='pic'>
-                                <img src={organiser4} />
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser3} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser4} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left '>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left '>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
+                        <div className='col-lg-8 p-5 right'>
 
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser1} />
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+                                <a href='#' className='common-learn-more'>Learn More...</a>
                               </div>
-                              <div className='pic'>
-                                <img src={organiser2} />
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser1} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser2} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left light'>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left light'>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
+                        <div className='col-lg-8 p-5 right'>
 
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser3} />
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+                                <a href='#' className='common-learn-more'>Learn More...</a>
                               </div>
-                              <div className='pic'>
-                                <img src={organiser4} />
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser3} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser4} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left '>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
-                        </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
-
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser1} />
-                              </div>
-                              <div className='pic'>
-                                <img src={organiser2} />
-                              </div>
-                            </div>
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left '>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
                           </div>
                         </div>
+                        <div className='col-lg-8 p-5 right'>
+
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+
+                                <a href='#' className='common-learn-more'>Learn More...</a>
+                              </div>
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser1} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser2} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
                 </Carousel>
               </>
             }
@@ -1790,182 +1800,182 @@ const deviceType = "desktop"
             {/* ----copy----- */}
             {showEvents == "3nov" &&
               <>
-              <Carousel
-              swipeable={true}
-              arrows={true}
-              draggable={false}
-              showDots={false}
-              responsive={responsive}              
-              infinite={true}               
-               autoPlay = {true}
-              ShowArrows = {false}
-              autoPlaySpeed={2000}
-              keyBoardControl={true}              
-              transitionDuration={500}             
-               itemClass="carousel-item-padding-40-px"
-            >
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left light'>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
+                <Carousel
+                  swipeable={true}
+                  arrows={true}
+                  draggable={false}
+                  showDots={false}
+                  responsive={responsive}
+                  infinite={true}
+                  autoPlay={true}
+                  ShowArrows={false}
+                  autoPlaySpeed={2000}
+                  keyBoardControl={true}
+                  transitionDuration={500}
+                  itemClass="carousel-item-padding-40-px"
+                >
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left light'>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
+                        <div className='col-lg-8 p-5 right'>
 
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info 3</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser3} />
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info 3</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+                                <a href='#' className='common-learn-more'>Learn More...</a>
                               </div>
-                              <div className='pic'>
-                                <img src={organiser4} />
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser3} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser4} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left '>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left '>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
+                        <div className='col-lg-8 p-5 right'>
 
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser1} />
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+                                <a href='#' className='common-learn-more'>Learn More...</a>
                               </div>
-                              <div className='pic'>
-                                <img src={organiser2} />
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser1} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser2} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left light'>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left light'>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
+                        <div className='col-lg-8 p-5 right'>
 
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser3} />
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+                                <a href='#' className='common-learn-more'>Learn More...</a>
                               </div>
-                              <div className='pic'>
-                                <img src={organiser4} />
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser3} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser4} />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
-                <div className='col-md-12'>
-                  <div className='schedule-long-card'>
-                    <div className='row '>
-                      <div className='col-lg-4'>
-                        <div className='left '>
-                          <p className='timing f2'>From 9:30 to 11:30</p>
-                          <p className='name f1'>
-                            BUSINESS LECTURE
-                          </p>
-                        </div>
-                      </div>
-                      <div className='col-lg-8 p-5 right'>
-
-                        <div className='row align-items-center'>
-                          <div className='col-lg-8'>
-                            <div className='organiser-info'>
-                              <h3>Business Managment Info</h3>
-                              <p className='common-para'>
-                                Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
-                              </p>
-
-                              <a href='#' className='common-learn-more'>Learn More...</a>
-                            </div>
-                          </div>
-                          <div className='col-lg-4'>
-                            <div className='schedule-pic-box'>
-                              <div className='pic'>
-                                <img src={organiser1} />
-                              </div>
-                              <div className='pic'>
-                                <img src={organiser2} />
-                              </div>
-                            </div>
+                  <div className='col-md-12'>
+                    <div className='schedule-long-card'>
+                      <div className='row '>
+                        <div className='col-lg-4'>
+                          <div className='left '>
+                            <p className='timing f2'>From 9:30 to 11:30</p>
+                            <p className='name f1'>
+                              BUSINESS LECTURE
+                            </p>
                           </div>
                         </div>
+                        <div className='col-lg-8 p-5 right'>
+
+                          <div className='row align-items-center'>
+                            <div className='col-lg-8'>
+                              <div className='organiser-info'>
+                                <h3>Business Managment Info</h3>
+                                <p className='common-para'>
+                                  Quam amet tristique adipisicing incididunt arcu, excepturi molestie turpis deserunt ducimus malesuada minus mauris veniam.
+                                </p>
+
+                                <a href='#' className='common-learn-more'>Learn More...</a>
+                              </div>
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className='schedule-pic-box'>
+                                <div className='pic'>
+                                  <img src={organiser1} />
+                                </div>
+                                <div className='pic'>
+                                  <img src={organiser2} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
+
                     </div>
-
                   </div>
-                </div>
                 </Carousel>
               </>}
             {/* -----paste---- */}
           </div>
-          
+
         </div>
       </section>
       {/* ------ without carousel----*/}
@@ -2027,35 +2037,35 @@ const deviceType = "desktop"
               </div>
               {/* -------GALLERY------ */}
               <div className="grid-wrapper">
-               
-                
+
+
                 <div className="tall">
-                <img src={gallary3} alt="" className='img-fluid' />
+                  <img src={gallary3} alt="" className='img-fluid' />
                 </div>
                 <div>
-                <img src={gallary2} alt="" className='img-fluid' />
+                  <img src={gallary2} alt="" className='img-fluid' />
                 </div>
                 <div className="wide">
-                <img src={gallary4} alt="" className='img-fluid' />
+                  <img src={gallary4} alt="" className='img-fluid' />
                 </div>
                 <div>
-                <img src={gallary5} alt="" className='img-fluid' />
+                  <img src={gallary5} alt="" className='img-fluid' />
                 </div>
-                
+
                 <div>
-                <img src={gallary1} alt="" className='img-fluid' />
+                  <img src={gallary1} alt="" className='img-fluid' />
                 </div>
                 <div className='tall'>
-                <img src={gallary8} alt="" className='img-fluid' />
+                  <img src={gallary8} alt="" className='img-fluid' />
                 </div>
                 <div className="big">
-                <img src={gallary7} alt="" className='img-fluid' />
+                  <img src={gallary7} alt="" className='img-fluid' />
                 </div>
                 <div className="wide">
-                <img src={gallary6} alt="" className='img-fluid' />
+                  <img src={gallary6} alt="" className='img-fluid' />
                 </div>
-                
-                
+
+
               </div>
               {/* ------GALLERY-------- */}
 
@@ -2380,15 +2390,15 @@ const deviceType = "desktop"
         </div>
       </section>
       <section className='owl-slider d-none'>
-       <div className='container'>
-         <div className='row'>
+        <div className='container'>
+          <div className='row'>
             <div className='col-md-12'>
-             {/* -----copy------- */}
-            
-             {/* ------paste----- */}
+              {/* -----copy------- */}
+
+              {/* ------paste----- */}
             </div>
-         </div>
-       </div>
+          </div>
+        </div>
       </section>
       <Footer />
     </>

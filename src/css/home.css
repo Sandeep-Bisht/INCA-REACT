@@ -309,7 +309,7 @@
     width: 140px;
     border-radius: 50%;
     text-align: center;
-    
+    background-color:#111b69;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -319,6 +319,10 @@
     cursor: pointer;
    
 }
+.circleactive{
+    background-color: #cfb211f7!important;
+}
+
 .home-schedule .common-circle .c-heading
 {
     font-size:20px;
