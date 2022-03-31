@@ -100,7 +100,7 @@ const Dashboard = (props) => {
                                             <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body p-0">
                                                     <ul className='ps-0 list-unstyled '>
-                                                        <li ><button className='common-blue btn'>View</button></li>
+                                                        <li ><button className='common-blue btn' onClick={()=>navigate("/dashboard/users")}>View</button></li>
                                                         {/* <li ><button className='common-blue btn'>Category</button></li>
                                                         <li ><button className='common-blue btn'>Sub-Category</button></li> */}
                                                     </ul>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import * as ACTIONS from './action'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate,Link } from 'react-router-dom'
+import * as ACTIONS from './action'
 import { Header } from '../../components/Header'
 import '../../css/register.css'
 
