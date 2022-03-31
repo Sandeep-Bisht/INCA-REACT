@@ -293,7 +293,16 @@
 {
     display: flex;
     justify-content:end;
+    align-items: center;
 }
+.home-schedule .schedule-circles .before-line{
+     display: block;
+     height:3px;
+     width: 80px;
+     background:#696a87;
+}
+
+
 .home-schedule .common-circle
 {
     height: 140px;
@@ -304,7 +313,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 0 -15px;
+    /* margin: 0 -15px; */
     justify-content: center;
     opacity: .9;
     cursor: pointer;
@@ -323,12 +332,13 @@
     font-weight:400;
     color:#fff;
     text-transform: uppercase;
+    margin-bottom: 0;
 }
 .home-schedule .common-circle.two
 {
-    background-color:#212121;
+    background-color:#111b69;
     position: relative;
-    bottom: 65px;
+    /* bottom: 65px; */
 }
 .home-schedule .schedule-long-card
 {

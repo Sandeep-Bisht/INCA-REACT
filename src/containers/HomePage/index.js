@@ -892,10 +892,12 @@ const deviceType = "desktop"
                   <p className='c-heading f1'>01 Nov </p>
                   <p className='shedule-day f1'>Tuesday</p>
                 </div>
+                <div className='before-line'></div>
                 <div className='common-circle two' onClick={() => showEventsByDate("2nov")}>
                   <p className='c-heading f1'>02 Nov </p>
                   <p className='shedule-day f1'>Wednesday</p>
                 </div>
+                <div className='before-line'></div>
                 <div className='common-circle three common-blue-bg' onClick={() => showEventsByDate("3nov")}>
                   <p className='c-heading f1'>03 Nov </p>
                   <p className='shedule-day f1'>Thursday</p>
