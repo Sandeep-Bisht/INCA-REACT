@@ -264,7 +264,7 @@
     }
     .foot-wrapper .box-1 h2
     {
-        font-size:35px;
+        font-size:26px;
     }
    
     .foot-wrapper .box-4 .box-wrap {
@@ -281,6 +281,17 @@
     {
         font-size: 13px;
     }
+
+.foot-wrapper .box-1 a i {
+    font-size: 13px;
+}
+
+    .foot-wrapper .box-1 a {
+        height: 23px;
+        width: 24px;
+        line-height: 22px;
+    }
+
 }
 
 @media only screen and (max-width : 320px) {
