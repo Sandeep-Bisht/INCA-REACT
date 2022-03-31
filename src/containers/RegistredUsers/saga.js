@@ -4,6 +4,7 @@ import axios from 'axios';
 
 
 export function* getAllUsers(action) {
+  console.log(action, 'action')
     let url = "http://localhost:4801/api/users";
     try {
       const response = yield call(axios.get, url);
