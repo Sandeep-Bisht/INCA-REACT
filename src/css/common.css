@@ -399,7 +399,20 @@ background-color:#fff;
     .without-carousel{
         display:none;
     }
-    
+    /* ------carousel btn style----------- */
+    .react-multiple-carousel__arrow{
+        min-width:30px!important;
+        min-height:30px!important;
+        background-color: #eac600f7!important;
+        z-index: 2!important;
+    }
+    .react-multiple-carousel__arrow::before{
+        font-size:12px!important;
+        font-weight:bold;
+    }
+
+
+    /* ------carousel btn style------------ */
 
 
 }

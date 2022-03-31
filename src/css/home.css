@@ -421,13 +421,13 @@
     position: relative; */
     text-align: center;
     margin: 5px 10px;
-    box-shadow: 0 0 5px 0 #b9b9b9;
+    /* box-shadow: 0 0 5px 0 #b9b9b9; */
     padding: 30px 10px;
     width: 200px;
     height: 320px;
     background: #fff;
     position: relative;
-   
+     border-radius: 10px;
     flex-grow: 1;
     align-items: center;
 }
