@@ -1082,6 +1082,7 @@ padding: 50px 40px;
     .home-about 
     {
         text-align: center!important;
+        margin-top:30px;
     }
     /* .home-about img
     {
@@ -1109,9 +1110,9 @@ padding: 50px 40px;
     }
     .home-about .home-about-event-card .left span
     {
-        font-size:30px;
-        padding: 10px 20px;
-        border-radius: 20px;
+        font-size: 26px;
+    padding: 5px 16px;
+    border-radius: 15px;
     }
     .home-counter .counter-card .counter-heading
     {
@@ -1161,7 +1162,7 @@ padding: 50px 40px;
     }
     .home-schedule .schedule-circles
     {
-        margin: 100px 0 50px 0;
+        margin: 30px 0 30px 0;
        justify-content: center;
     }
     .home-schedule .common-circle
@@ -1257,7 +1258,7 @@ padding: 50px 40px;
     /* -------contact area----- */
     .contact-area
     {
-        padding:80px 0;
+        padding:40px 0;
     }
     .contact-area form,.contact-move{
         padding:20px!important;
@@ -1289,8 +1290,17 @@ padding: 50px 40px;
 
 }
 @media only screen and (max-width : 430px)
-{
-  
+{ 
+    .common-btn, .common-btn-transparent {
+        padding: 3px 20px;
+        font-size: 12px;
+    }
+    .section-padding{
+        padding:40px 0;
+    }
+    .blog-area .blog-card .blog-card-pic img{
+        object-fit: contain;
+    }
     .home-banner .right .banner-title .banner-small
     {
         font-size: 28px;
@@ -1320,6 +1330,7 @@ padding: 50px 40px;
     .home-about .home-about-event-card .right .h2
     {
         font-size:18px!important;
+        margin-bottom:5px;
     }
     .home-about .home-about-event-card
     {
@@ -1332,15 +1343,17 @@ padding: 50px 40px;
         height: 170px;
     }
     .home-counter .counter-card{
-        padding:15px 10px;
+        padding:5px 5px;
+        line-height:.7;
     }
     .home-counter .counter-card .counter-heading
     {
-        font-size:30px;
+        font-size:20px;
+        margin-bottom: 0;
     }
     .home-counter .counter-card .counter-title
     {
-        font-size:12px;
+        font-size:10px;
     }
     .home-attend-event .attend-card{
         width:80%;
@@ -1356,8 +1369,8 @@ padding: 50px 40px;
         font-size:11px;
     }
     .home-schedule .common-circle {
-        width: 95px;
-        height: 95px;
+        width: 80px;
+        height: 80px;
     }
     .home-schedule .common-circle .c-heading {
         font-size: 14px;
@@ -1381,7 +1394,10 @@ padding: 50px 40px;
     }
     .sponsers-area img
     {
-        height:50px;
+        height:40px;
+    }
+    .sponsers-area .common-sponsor-padding{
+        padding: 10px;
     }
     .contact-area .contact-move .contact-icon i {
         font-size: 20px;
@@ -1391,6 +1407,45 @@ padding: 50px 40px;
     }
     .contact-area .contact-move .contact-venue h3
     {
+        font-size:18px;
+    }
+    .home-schedule .schedule-circles .before-line{
+        width:25px;
+    }
+    .home-schedule .common-circle .c-heading {
+        font-size: 12px;
+    }
+    .home-schedule .common-circle .shedule-day
+    {
+        font-size: 10px;
+    }
+    .home-schedule{
+        padding: 40px 0!important;
+    }
+    .grid-wrapper{
+        grid-auto-rows: auto;
+        
+    }
+    .grid-wrapper .tall,.grid-wrapper .wide{
+        height:160px;
+    }
+    .sponsers-area{
+        padding:40px 0;
+    }
+    .contact-area .contact-text input, .contact-email input, .contact-textarea textarea{
+        padding:5px 20px;
+        border-radius:8px;
+    }
+    .contact-textarea textarea{
+        height: 150px;
+    }
+    .contact-area .contact-btn button {
+        width: 50%;
+        border: none;
+        padding: 6px 0;
+        margin: auto;
+    }
+    .blog-area .blog-card .blog-card-content h3{
         font-size:18px;
     }
 }
@@ -1440,9 +1495,9 @@ padding: 50px 40px;
         border-radius: 12px;
        
     }
-    .home-about img{
+    /* .home-about img{
         height: 140px;
-    }
+    } */
     .testimonial-area .common-heading{
         font-size: 16px;
     }

@@ -174,7 +174,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <section className='section-padding home-about pb-lg-0'>
+      <section className='section-padding home-about pb-lg-0 without-carousel'>
         <div className='container'>
           <div className='row align-items-center'>
             <div className='col-lg-6'>
@@ -281,31 +281,150 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      {/* --------with carousel--------- */}
+      <section className='section-padding home-about pb-lg-0 with-carousel'>
+        <div className='container'>
+          <div className='row align-items-center'>
+            <div className='col-md-12'>
+              <div className='home-about-left'>
+                <div className='row'>
+                <Carousel
+              swipeable={true}
+              arrows={true}
+              draggable={false}
+              showDots={false}
+              responsive={responsive}
+              infinite={true}
+              autoPlay={true}
+              ShowArrows={false}
+              autoPlaySpeed={2000}
+              keyBoardControl={true}
+              transitionDuration={500}
+              itemClass="carousel-item-padding-40-px"
+            >
+                  
+                    
+                       <div className='col-md-12'><img src={gallary1} className="img-fluid" /></div>
+                       <div className='col-md-12'><img src={gallary2} className="img-fluid" /></div>
+                       <div className='col-md-12'><img src={gallary3} className="img-fluid " /></div>
+                       <div className='col-md-12'><img src={gallary4} className="img-fluid " /></div>
+                       <div className='col-md-12'><img src={gallary5} className="img-fluid" /></div>
+                    
+                    
+                
+                 
+                  </Carousel>
+                </div>
+              </div>
+            </div>
+            <div className='col-lg-6'>
+
+              <div className='home-about-right pt-lg-5 mt-lg-5 ps-md-5'>
+                <p className='common-pre-heading'>Introduction</p>
+                <h1 className='common-heading'>
+                  About INCA (Indian National Cartography Association)
+                </h1>
+                <p className='common-para'>INCA as an association provides an interface between academia, particularly geographers,
+                  geologists, earth scientists, technologists etc., and government institutions and geo-spatial
+                  industries involved in manufacturing of mapping and surveying tools and software, mapping
+                  and geo-spatial analysis.</p>
+              </div>
+              <div className='signature-box'>
+                <div className='upper-box'>
+                  <ul className='list-unstyled'>
+                    <li className='my-2 py-2'>
+                      <span className='me-2'>
+                        <i class="fa-solid fa-circle-check common-yellow-color"></i>
+
+                      </span>
+
+                      <span>To foster cartographic research in the country , To co-operate with professional organisations of cognate disciplines and to promote
+                        academic interaction within an inter-disciplinary frame.
+                      </span>
+                    </li>
+                    <li className='my-2 py-2'>
+                      <span className='me-2'><i class="fa-solid fa-circle-check common-yellow-color"></i>
+
+                      </span>
+
+                      <span>To co-operate with international organisations with similar objectives , To improve the teaching of cartography at all levels.
+                      </span>
+                    </li>
+
+                    <li className='my-2 py-2'>
+                      <span className='me-2'><i class="fa-solid fa-circle-check common-yellow-color"></i>
+
+                      </span>
+
+                      <span>To foster co-operation between Government and Quasi-Government organisations,
+                        Research Institutions for the advancement of cartography ,
+                        To hold a National Cartographic Conference, ordinarily, once in a year.
+                      </span>
+                    </li>
+
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-lg-6'>
+              <div className='home-about-event-card'>
+                <div className='left'>
+                  <span className='first common-yellow-bg'><i class="fa-solid fa-location-dot"></i></span>
+                </div>
+                <div className='right'>
+                  <h2 className='h2'>Where is the Event:</h2>
+                  <p className='common-para'>
+                    107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun, Uttarakhand 248001
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className='col-lg-6'>
+              <div className='home-about-event-card'>
+                <div className='left'>
+                  <span className='second common-blue-bg'><i class="fa-solid fa-calendar-days"></i></span>
+                </div>
+                <div className='right'>
+                  <h2 className='h2'>When is the Event:</h2>
+                  <p className='common-para'>
+                    ( Tuesday to Thursday ) 01 November 2022 to 03 November 2022.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* --------with carousel----------- */}
       <section className='section-padding home-counter'>
         <div className='container pt-md-5'>
           <div className="row pt-md-5">
-            <div className='col-lg-3 py-4 col-6'>
+            <div className='col-lg-3 py-4 col-3'>
               <div className='counter-card'>
                 <h2 className='counter-heading'>500+</h2>
                 <span className='counter-title'>Visitors</span>
               </div>
             </div>
-            <div className='col-lg-3 py-4 col-6'>
+            <div className='col-lg-3 py-4 col-3'>
               <div className='counter-card'>
                 <h2 className='counter-heading'>50+</h2>
                 <span className='counter-title f2'>EVENT SPEAKERS</span>
               </div>
             </div>
-            <div className='col-lg-3 py-4 col-6'>
+            <div className='col-lg-3 py-4 col-3'>
               <div className='counter-card'>
                 <h2 className='counter-heading'>25+</h2>
                 <span className='counter-title f2'>EVENT SESSIONS</span>
               </div>
             </div>
-            <div className='col-lg-3 py-4 col-6'>
+            <div className='col-lg-3 py-4 col-3'>
               <div className='counter-card border-0'>
                 <h2 className='counter-heading'>15+</h2>
-                <span className='counter-title f2'>SPONSERS & PARTNERS</span>
+                <span className='counter-title f2'>SPONSERS</span>
               </div>
             </div>
           </div>
@@ -567,7 +686,7 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          <div className='row mt-5'>
+          <div className='row mt-md-3 mt-lg-5'>
             <Carousel
               swipeable={true}
               arrows={true}
@@ -718,7 +837,7 @@ const HomePage = () => {
             </div> */}
 
           </div>
-          <div className='row mt-5'>
+          <div className='row mt-md-2 mt-lg-5'>
             <div className='col-md-12 mt-5 text-center'>
               <button className=' common-btn'>View All Members</button>
             </div>
@@ -1423,7 +1542,7 @@ const HomePage = () => {
             </div>
             <div className='col-lg-6'>
               <div className='schedule-circles'>
-                <div className='common-circle one common-yellow-bg' onClick={() => showEventsByDate("1nov")}>
+                {/* <div className='common-circle one common-yellow-bg' onClick={() => showEventsByDate("1nov")}>
                   <p className='c-heading f1'>01 Nov </p>
                   <p className='shedule-day f1'>Tuesday</p>
                 </div>
@@ -1434,7 +1553,23 @@ const HomePage = () => {
                 <div className='common-circle three common-blue-bg' onClick={() => showEventsByDate("3nov")}>
                   <p className='c-heading f1'>03 Nov </p>
                   <p className='shedule-day f1'>Thursday</p>
-                </div>
+                </div> */}
+
+      <div className={`${showEvents === "1nov" ? "common-circle  circleactive" : "common-circle "}`} onClick={() => showEventsByDate("1nov")}>
+                      <p className='c-heading f1'>01 Nov </p>
+                      <p className='shedule-day f1'>Tuesday</p>
+                    </div>
+                    <div className='before-line'></div>
+                    <div className={`${showEvents === "2nov" ? "common-circle  circleactive" : "common-circle "}`} onClick={() => showEventsByDate("2nov")}>
+                      <p className='c-heading f1'>02 Nov </p>
+                      <p className='shedule-day f1'>Wednesday</p>
+                    </div>
+
+                    <div className='before-line'></div>
+                    <div className={`${showEvents === "3nov" ? "common-circle  circleactive" : "common-circle "}`} onClick={() => showEventsByDate("3nov")}>
+                      <p className='c-heading f1'>03 Nov </p>
+                      <p className='shedule-day f1'>Thursday</p>
+                    </div>
               </div>
             </div>
           </div>
@@ -1452,7 +1587,7 @@ const HomePage = () => {
                   infinite={true}
                   autoPlay={true}
                   ShowArrows={false}
-                  autoPlaySpeed={2000}
+                  autoPlaySpeed={5000}
                   keyBoardControl={true}
                   transitionDuration={500}
                   itemClass="carousel-item-padding-40-px"
@@ -2271,7 +2406,7 @@ const HomePage = () => {
 
           <div className='row position-relative'>
             <div className='col-md-8 mx-auto text-center'>
-              <button className='common-btn my-5'>BECAME A SPONSER</button>
+              <button className='common-btn my-lg-5 my-2'>BECAME A SPONSER</button>
             </div>
           </div>
         </div>
