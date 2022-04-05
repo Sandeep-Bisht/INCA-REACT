@@ -23,6 +23,9 @@ const AllRegistration = () => {
       setIsLoading(false);
       setUsersInfo(state.userRegistrationInfoSuccess);
     }
+    // else if (state && state.userRegistrationInfoFailure) {
+    //     console.log(state.userRegistrationInfoFailure,"Failed")
+    // }
   }, [state.userRegistrationInfoSuccess]);
   console.log(state && state.userRegistrationInfoSuccess, 'state && state.userRegistrationInfoSuccessstate && state.userRegistrationInfoSuccess')
 
@@ -32,7 +35,7 @@ const AllRegistration = () => {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-12">
-                            <table class="table table-hover">
+                            <table className="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>S.no.</th>
@@ -58,9 +61,9 @@ const AllRegistration = () => {
                                                     <td>{item.participationType}</td>
                                                     <td>{item.phoneNumber}</td>
                                                     <td>{item.email}</td>                                                    
-                                                    <td><button ><i class="fa-solid fa-pen"></i></button>
+                                                    <td><button ><i className="fa-solid fa-pen"></i></button>
                                                         <button className="icons"><i className="fa-solid fa-trash-can icon"></i></button>
-                                                        <button onClick={()=>navigate("/dashboard/create", {state:item})}><i class="fa-solid fa-eye"></i></button></td>
+                                                        <button onClick={()=>navigate("/dashboard/create", {state:item})}><i className="fa-solid fa-eye"></i></button></td>
                                                 </tr>
                                             )
                                         }) : "No data item"
