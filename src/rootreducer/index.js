@@ -3,11 +3,13 @@
  import LoginReducer from '../containers/Login/reducer'
  import AllUsersReducer from  '../containers/RegistredUsers/reducer'
  import GetUserRegistrationInfoReducer from '../containers/Test/reducer'
+ import RegisteredUserInfoReducer from '../containers/Create/reducer'
 
 const rootReducer = combineReducers({
     RegisterReducer,
     LoginReducer,
     AllUsersReducer,
-    GetUserRegistrationInfoReducer
+    GetUserRegistrationInfoReducer,
+    RegisteredUserInfoReducer
 });
 export default rootReducer;
