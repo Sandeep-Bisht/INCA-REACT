@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { countries } from '../../utils'
+import * as ACTIONS from './action'
 
 
 let obj = {
@@ -32,6 +34,10 @@ let obj = {
 const CreateForm = (props) => {
     const [userInformation, setUserInformation] = useState(obj)
     const [value, setValue] = useState(undefined)
+    const state = useSelector(state => state.RegisteredUserInfoReducer)
+
+    let dispatch = useDispatch()
+
     let userInformationOnchangeHandler = (e) => {
         let userInformationCopy = { ...userInformation }
         userInformationCopy[e.target.id] = e.target.value
@@ -41,39 +47,45 @@ const CreateForm = (props) => {
     const getRegistrationFee = () => {
         let userInformationCopy = { ...userInformation }
         if (userInformationCopy.conferenceMode == "online" && userInformationCopy.registrationCategory == "Life Members") {
-            console.log('inside this methos')
             return "1000"
         }
          if (userInformationCopy.conferenceMode == "offline" && userInformationCopy.registrationCategory == "Life Members") {
-            
             return "2500"
         }
 
          if (userInformationCopy.conferenceMode == "online" && userInformationCopy.registrationCategory == "For Students (Indian) ") {
-            console.log('inside this methos')
             return "500"
         }
          if (userInformationCopy.conferenceMode == "offline" && userInformationCopy.registrationCategory == "For Students (Indian) ") {
-           
             return "1500"
         }
 
          if (userInformationCopy.conferenceMode == "online" && userInformationCopy.registrationCategory == "Others (participants/delegates/members)") {
-            
             return "1500"
         }
          if (userInformationCopy.conferenceMode == "offline" && userInformationCopy.registrationCategory == "Others (participants/delegates/members)") {
-            
             return "3000"
         }
 
     }
 
     useEffect(() => {
-        console.log('inside this use effect')
-        // value = getRegistrationFee()
         setValue(getRegistrationFee())
     }, [userInformation])
+
+    useEffect(() => {
+        if(state.saveRegisterUserInfoSuccess) {
+            console.log(state.saveRegisterUserInfoSuccess, 'state.saveRegisterUserInfoSuccessstate.saveRegisterUserInfoSuccess')
+        }
+    }, [state.saveRegisterUserInfoSuccess])
+
+    let submitRegisterUserInformation = (e) => {
+        e.preventDefault()
+        userInformation.registrationFee = value
+        dispatch(ACTIONS.saveRegisterdUserData(userInformation))
+    }
+
+
 
 
 
@@ -81,7 +93,7 @@ const CreateForm = (props) => {
 
         <div className='main '>
             <div className="form-section">
-                <form>
+                <form onSubmit={(e) => submitRegisterUserInformation(e)}>
                     <div className="container">
                         <div className="row mt-5 mb-5">
                             <div className="col-md-4">
@@ -121,7 +133,7 @@ const CreateForm = (props) => {
                                 <div className="row">
                                     <div className="col-md-12 mb-4">
                                         <label for="SelectCountry" className="form-label">Country</label>
-                                        <select className="form-select" onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="country">
+                                        <select className="form-select" disabled onChange={(e) => userInformationOnchangeHandler(e)} aria-label="Default select example" id="country">
                                             <option selected>Please Select</option>
                                             {countries.map(country => <option value={country}>{country}</option>)}
 
@@ -264,8 +276,8 @@ const CreateForm = (props) => {
 
                         <div className="row">
                             <div className="col-md-12 text-end">
-                                <button className='mx-3'>Save</button>
-                                <button>Save & Pay</button>
+                                <button className='mx-3' type="submit">Save</button>
+                                <button >Save & Pay</button>
                             </div>
                         </div>
                     </div>
