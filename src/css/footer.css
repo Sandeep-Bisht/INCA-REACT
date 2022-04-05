@@ -262,15 +262,15 @@
     {
         font-size: 14px;
     }
-    .foot-wrapper .box-1 h2
+    .foot-wrapper  h2,.foot-wrapper  h5
     {
-        font-size:26px;
+        font-size:18px!important;
     }
    
     .foot-wrapper .box-4 .box-wrap {
         text-align: center;
         padding: 10px;
-        width: 70%;
+        width: 90%;
         margin: auto;
     }
     .foot-wrapper .box-4 img
@@ -281,17 +281,19 @@
     {
         font-size: 13px;
     }
-
-.foot-wrapper .box-1 a i {
-    font-size: 13px;
-}
-
-    .foot-wrapper .box-1 a {
-        height: 23px;
-        width: 24px;
-        line-height: 22px;
+    .foot-wrapper .box-1 a{
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+    
     }
-
+    .foot-wrapper .box-1 a i{
+        font-size:12px;
+    }
+    .foot-wrapper .nav-link{
+        padding: 6px 0;
+    }
+   
 }
 
 @media only screen and (max-width : 320px) {
