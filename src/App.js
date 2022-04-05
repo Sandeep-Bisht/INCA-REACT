@@ -1,5 +1,6 @@
 import { ApplicationRoutes } from './Routes';
-import './css/common.css'
+import './css/common.css';
+
 
 function App() {
   console.log('inside thisss')

@@ -1,0 +1,10 @@
+.users-lists table th , td
+{
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+
+.users-lists table tbody .icons
+{
+    margin: 0 5px 0 5px;
+}

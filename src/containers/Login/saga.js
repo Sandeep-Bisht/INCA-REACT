@@ -1,11 +1,10 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import {  GetHeaders, getBaseUrl } from '../../utils';
 import * as CONSTANTS from "./constant"
 import axios from 'axios';
 
 
 export function* appLoginHandler(action) {
-    let url = "http://localhost:4801/api/login";
+    let url = "http://144.91.110.221:4801/api/login";
     try {
       const response = yield call(axios.post, url, action.payload);
       yield put({ type: CONSTANTS.APP_LOGIN_SUCCESS, response: response.data });

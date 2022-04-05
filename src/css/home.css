@@ -168,6 +168,10 @@
     font-weight:500;
 }
 /* ----------------home-attend-event-------------- */
+
+
+
+
 .home-attend-event
 {
     position: relative;
@@ -289,22 +293,36 @@
 {
     display: flex;
     justify-content:end;
+    align-items: center;
 }
+.home-schedule .schedule-circles .before-line{
+     display: block;
+     height:3px;
+     width: 80px;
+     background:#696a87;
+}
+
+
 .home-schedule .common-circle
 {
     height: 140px;
     width: 140px;
     border-radius: 50%;
     text-align: center;
-    line-height: 140p;
+    background-color:#111b69;
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 0 -15px;
+    /* margin: 0 -15px; */
     justify-content: center;
     opacity: .9;
+    cursor: pointer;
    
 }
+.circleactive{
+    background-color: #cfb211f7!important;
+}
+
 .home-schedule .common-circle .c-heading
 {
     font-size:20px;
@@ -318,12 +336,13 @@
     font-weight:400;
     color:#fff;
     text-transform: uppercase;
+    margin-bottom: 0;
 }
 .home-schedule .common-circle.two
 {
-    background-color:#212121;
+    background-color:#111b69;
     position: relative;
-    bottom: 65px;
+    /* bottom: 65px; */
 }
 .home-schedule .schedule-long-card
 {
@@ -416,13 +435,13 @@
     position: relative; */
     text-align: center;
     margin: 5px 10px;
-    box-shadow: 0 0 5px 0 #b9b9b9;
+    /* box-shadow: 0 0 5px 0 #b9b9b9; */
     padding: 30px 10px;
     width: 200px;
     height: 320px;
     background: #fff;
     position: relative;
-   
+     border-radius: 10px;
     flex-grow: 1;
     align-items: center;
 }
@@ -700,8 +719,13 @@ padding: 50px 40px;
     font-size: 35px;
     border: 2px solid #eac600f7;
     border-radius: 50%;
-    padding: 25px 30px;
+   
     color: #eac600f7;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
 }
 
 .contact-area .contact-move .contact-icon-1 i
@@ -725,4 +749,758 @@ padding: 50px 40px;
     padding-left: 20px;
 }
 
+/* ---------massonary gallery css-------- */
+.grid-wrapper > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.grid-wrapper > div > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.grid-wrapper {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-auto-rows: 200px;
+	grid-auto-flow: dense;
+}
+.grid-wrapper .wide {
+	grid-column: span 2;
+}
+.grid-wrapper .tall {
+	grid-row: span 2;
+}
+.grid-wrapper .big {
+	grid-column: span 2;
+	grid-row: span 2;
+}
+
+
+
+
+
+
+
+
+/* -----common responsive css---- */
+@media only screen and (max-width : 1024px) {
+
+}
+
+@media only screen and (max-width :991px) {
+    
+}
+
+@media only screen and (max-width : 767px) {
+    
+}
+@media only screen and (max-width : 575px) {
+    .home-banner .right .banner-title .banner-small
+    {
+        font-size:35px;
+    }
+    .home-banner .right .banner-title
+    {
+        font-size: 55px;
+        line-height:55px;
+    }
+    .home-banner .banner-last
+    {
+        font-size:45px ;
+    }
+    .home-banner .count
+    {
+        left: 0;
+        right: 0;
+        bottom: -39px;
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        margin: auto;
+    }
+    .home-banner .count .common-timer-box
+    {
+        font-size:40px;
+        margin-bottom:10px;
+    }
+    .home-banner .count .counter-wrapper
+    {
+        padding:8px 25px;
+    }
+    .home-banner .count .timer-detail
+    {
+        margin-bottom:0;
+    }
+    /* ----home about------ */
+    .home-about 
+    {
+        text-align: center!important;
+    }
+    .home-about img
+    {
+        width: 100%!important;
+        height: 170px;
+        object-fit: cover;
+        margin: 10px 0;
+        border-radius: 0;
+    }
+    .home-about .set-img
+    {
+        text-align:center!important;
+        padding:0px!important;
+        margin:0px!important;
+    }
+    .home-about .signature-box .upper-box
+    {
+        margin: 30px auto;
+    }
+    .home-about .home-about-event-card
+    {
+        top: 20px;
+        width:90%;
+        margin: 10px auto;
+    }
+    .home-about .home-about-event-card .left span
+    {
+        font-size:30px;
+        padding: 10px 20px;
+        border-radius: 20px;
+    }
+    .home-counter .counter-card .counter-heading
+    {
+        font-size:35px;
+    }
+    .home-counter .counter-card
+    {
+        border-right:none;
+    }
+    .home-attend-event .attend-card
+    {
+      width: 85%;
+      margin: 15px auto;
+      padding: 20px 40px;
+    }
+    .home-attend-event .attend-card .upper img
+    {
+        width:50%;
+    }
+    .home-attend-event .attend-card .attend-card-heading {
+       margin: 18px 0 10px 0;
+       line-height: 1;
+    }
+    .home-attend-event .attend-card .event-number
+    {
+        font-size:40px;
+    }
+    .home-speakers .speaker-card
+    {
+        width:75%;
+        margin:45px auto;
+    }
+    .home-speakers .speaker-card .speaker-title
+    {
+        font-size:18px;
+    }
+    .home-speakers .speaker-card .speaker-post 
+    {
+        font-size: 12px;
+       display: block;
+        margin-top: 8px!important;
+    }
+    .home-speakers .speaker-card .speaker-detail
+    {
+        padding: 25px 20px;
+        height: auto;
+    }
+    .home-schedule .schedule-circles
+    {
+        margin: 100px 0 50px 0;
+       justify-content: center;
+    }
+    .home-schedule .common-circle
+    {
+        width:110px;
+        height:110px;
+    }
+    .home-schedule .common-circle .c-heading
+    {
+        font-size: 16px;
+    }
+    .home-schedule .common-circle .shedule-day
+    {
+        font-size:12px;
+        margin-bottom:0;
+    }
+    .home-schedule .schedule-long-card {
+        width: 90% ;
+        margin: 20px auto;
+    }
+    .home-schedule .schedule-long-card .name
+    {
+        margin-bottom: 0;
+    }
+    .home-schedule .schedule-long-card .left
+    {
+        padding:15px 0;
+    }
+    .home-schedule .schedule-long-card .name
+    {
+        font-size:16px;
+    }
+    .home-schedule .schedule-long-card .timing
+    {
+        font-size:11px;
+    }
+    .home-schedule .schedule-long-card .right .schedule-pic-box
+    {
+        margin-top: 15px;
+    }
+    .home-gallery .gallery-box
+    {
+        width: 85%;
+        margin: 5px auto;
+    }
+    .home-register-step ul li
+    {
+        height:250px;
+        margin: 10px ;
+    }
+    .home-register-step ul li h3
+    {
+        font-size:18px;
+    }
+    .home-register-step ul li .common-btn
+    {
+        font-size: 11px;
+    }
+    /* -------home testimonial----- */
+    .testimonial-area .container .carousel-item .boxes
+    {
+        padding: 0;
+    }
+    /* -------home sponser------- */
+    .sponsers-area .sponsers-common
+    {
+        display:flex;
+    }
+    .sponsers-area .sponser-border-1, .sponser-border-2, .sponser-border-3, .sponser-border-4
+    {
+        border:none;
+    }
+    .sponsers-area .sponser-box-1, .sponser-box-2, .sponser-box-3, .sponser-box-4
+    {
+        border-right: none;
+    }
+    .sponsers-area .sponser-border-5
+    {
+        border-top:none;
+    }
+    .sponsers-area img {
+        height: 70px;
+        width: 180px;
+        
+    }
+    .blog-area .blog-card
+    {
+        width: 80%;
+        margin: 20px auto;
+        box-shadow: 0px 15px 25px rgb(0 4 74 / 4%);
+    }
+
+    /* -------contact area----- */
+    .contact-area
+    {
+        padding:80px 0;
+    }
+    .contact-area form,.contact-move{
+        padding:20px!important;
+    }
+    .contact-area .contact-text, .contact-email
+    {
+        display: block;
+        width:100%;
+    }
+    .contact-area .contact-move .contact-icon i {
+        font-size: 25px;
+        width: 65px;
+        height: 65px;
+        line-height: 65px;
+        
+    }
+    .contact-area .contact-move .contact-venue h3
+    {
+        font-size: 20px;
+        margin-bottom:0;
+    }
+
+
+}
+@media only screen and (max-width : 430px)
+{
+      .home-banner .right .banner-title .banner-small
+    {
+        font-size:35px;
+    }
+    .home-banner .right .banner-title
+    {
+        font-size: 55px;
+        line-height:55px;
+    }
+    .home-banner .banner-last
+    {
+        font-size:45px ;
+    }
+    .home-banner .count
+    {
+        left: 0;
+        right: 0;
+        bottom: -39px;
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        margin: auto;
+    }
+    .home-banner .count .common-timer-box
+    {
+        font-size:40px;
+        margin-bottom:10px;
+    }
+    .home-banner .count .counter-wrapper
+    {
+        padding:8px 25px;
+    }
+    .home-banner .count .timer-detail
+    {
+        margin-bottom:0;
+    }
+    /* ----home about------ */
+    .home-about 
+    {
+        text-align: center!important;
+        margin-top:30px;
+    }
+    /* .home-about img
+    {
+        width: 80%!important;
+        height: 170px!important;
+        object-fit: cover;
+        margin: 10px;
+        border-radius: 0;
+    }
+    .home-about .set-img
+    {
+        text-align:center!important;
+        padding:10px!important;
+        margin:10px!important;
+    } */
+    .home-about .signature-box .upper-box
+    {
+        margin: 30px auto;
+    }
+    .home-about .home-about-event-card
+    {
+        top: 20px;
+        width:90%;
+        margin: 10px auto;
+    }
+    .home-about .home-about-event-card .left span
+    {
+        font-size: 26px;
+    padding: 5px 16px;
+    border-radius: 15px;
+    }
+    .home-counter .counter-card .counter-heading
+    {
+        font-size:35px;
+    }
+    .home-counter .counter-card
+    {
+        border-right:none;
+    }
+    .home-attend-event .attend-card
+    {
+      width: 85%;
+      margin: 15px auto;
+      padding: 20px 40px;
+    }
+    .home-attend-event .attend-card .upper img
+    {
+        width:50%;
+    }
+    .home-attend-event .attend-card .attend-card-heading {
+       margin: 18px 0 10px 0;
+       line-height: 1;
+    }
+    .home-attend-event .attend-card .event-number
+    {
+        font-size:40px;
+    }
+    .home-speakers .speaker-card
+    {
+        width:75%;
+        margin:45px auto;
+    }
+    .home-speakers .speaker-card .speaker-title
+    {
+        font-size:18px;
+    }
+    .home-speakers .speaker-card .speaker-post 
+    {
+        font-size: 12px;
+       display: block;
+        margin-top: 8px!important;
+    }
+    .home-speakers .speaker-card .speaker-detail
+    {
+        padding: 25px 20px;
+        height: auto;
+    }
+    .home-schedule .schedule-circles
+    {
+        margin: 30px 0 30px 0;
+       justify-content: center;
+    }
+    .home-schedule .common-circle
+    {
+        width:110px;
+        height:110px;
+    }
+    .home-schedule .common-circle .c-heading
+    {
+        font-size: 16px;
+    }
+    .home-schedule .common-circle .shedule-day
+    {
+        font-size:12px;
+        margin-bottom:0;
+    }
+    .home-schedule .schedule-long-card {
+        width: 90% ;
+        margin: 20px auto;
+    }
+    .home-schedule .schedule-long-card .name
+    {
+        margin-bottom: 0;
+    }
+    .home-schedule .schedule-long-card .left
+    {
+        padding:15px 0;
+    }
+    .home-schedule .schedule-long-card .name
+    {
+        font-size:16px;
+    }
+    .home-schedule .schedule-long-card .timing
+    {
+        font-size:11px;
+    }
+    .home-schedule .schedule-long-card .right .schedule-pic-box
+    {
+        margin-top: 15px;
+    }
+    .home-gallery .gallery-box
+    {
+        width: 85%;
+        margin: 5px auto;
+    }
+    .home-register-step ul li
+    {
+        height:250px;
+        margin: 10px ;
+    }
+    .home-register-step ul li h3
+    {
+        font-size:18px;
+    }
+    .home-register-step ul li .common-btn
+    {
+        font-size: 11px;
+    }
+    /* -------home testimonial----- */
+    .testimonial-area .container .carousel-item .boxes
+    {
+        padding: 0;
+    }
+    /* -------home sponser------- */
+    .sponsers-area .sponsers-common
+    {
+        display:flex;
+    }
+    .sponsers-area .sponser-border-1, .sponser-border-2, .sponser-border-3, .sponser-border-4
+    {
+        border:none;
+    }
+    .sponsers-area .sponser-box-1, .sponser-box-2, .sponser-box-3, .sponser-box-4
+    {
+        border-right: none;
+    }
+    .sponsers-area .sponser-border-5
+    {
+        border-top:none;
+    }
+    .sponsers-area img {
+        height: 70px;
+        width: 180px;
+        
+    }
+    .blog-area .blog-card
+    {
+        width: 80%;
+        margin: 20px auto;
+        box-shadow: 0px 15px 25px rgb(0 4 74 / 4%);
+    }
+
+    /* -------contact area----- */
+    .contact-area
+    {
+        padding:40px 0;
+    }
+    .contact-area form,.contact-move{
+        padding:20px!important;
+    }
+    .contact-area .contact-text, .contact-email
+    {
+        display: block;
+        width:100%;
+    }
+    .contact-area .contact-move .contact-icon i {
+        font-size: 25px;
+        width: 65px;
+        height: 65px;
+        line-height: 65px;
+        
+    }
+    .contact-area .contact-move .contact-venue h3
+    {
+        font-size: 20px;
+        margin-bottom:0;
+    }
+
+}
+
+
+@media only screen and (max-width : 480px) {
+   
+
+
+}
+@media only screen and (max-width : 430px)
+{ 
+    .common-btn, .common-btn-transparent {
+        padding: 3px 20px;
+        font-size: 12px;
+    }
+    .section-padding{
+        padding:40px 0;
+    }
+    .blog-area .blog-card .blog-card-pic img{
+        object-fit: contain;
+    }
+    .home-banner .right .banner-title .banner-small
+    {
+        font-size: 28px;
+    }
+    .home-banner .right .banner-title {
+        font-size: 38px;
+        line-height: 42px;
+    }
+    .home-banner .banner-last {
+        font-size: 34px;
+        margin-bottom: 0;
+    }
+    .home-banner .count .counter-wrapper {
+        padding: 8px 15px;
+    }
+    .home-banner .count .common-timer-box {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+    .home-banner .count .timer-detail {
+        font-size:13px;
+    }
+    .home-about .signature-box ul li span
+    {
+        font-size:15px;
+    }
+    .home-about .home-about-event-card .right .h2
+    {
+        font-size:18px!important;
+        margin-bottom:5px;
+    }
+    .home-about .home-about-event-card
+    {
+        padding: 30px;
+    }
+    .home-about .home-about-event-card .common-para{
+        margin-bottom: 0;
+    }
+    .home-about img{
+        height: 170px;
+    }
+    .home-counter .counter-card{
+        padding:5px 5px;
+        line-height:.7;
+    }
+    .home-counter .counter-card .counter-heading
+    {
+        font-size:20px;
+        margin-bottom: 0;
+    }
+    .home-counter .counter-card .counter-title
+    {
+        font-size:10px;
+    }
+    .home-attend-event .attend-card{
+        width:80%;
+    }
+    .home-attend-event .attend-card .upper img
+    {
+        width:45%;
+    }
+    .home-attend-event .attend-card .attend-card-heading{
+        font-size: 16px;
+    }
+    .home-speakers .speaker-card .speaker-post{
+        font-size:11px;
+    }
+    .home-schedule .common-circle {
+        width: 80px;
+        height: 80px;
+    }
+    .home-schedule .common-circle .c-heading {
+        font-size: 14px;
+    }
+    .home-schedule .common-circle .shedule-day
+    {
+        font-size: 11px;
+    }
+    .home-schedule .schedule-long-card .right .organiser-info h3
+    {
+        font-size:16px;
+    }
+    .home-schedule .common-learn-more
+    {
+        font-size:11px;
+    }
+    .home-schedule .schedule-long-card .right .schedule-pic-box .pic img
+    {
+        height:60px;
+        width:60px;
+    }
+    .sponsers-area img
+    {
+        height:40px;
+    }
+    .sponsers-area .common-sponsor-padding{
+        padding: 10px;
+    }
+    .contact-area .contact-move .contact-icon i {
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+    .contact-area .contact-move .contact-venue h3
+    {
+        font-size:18px;
+    }
+    .home-schedule .schedule-circles .before-line{
+        width:25px;
+    }
+    .home-schedule .common-circle .c-heading {
+        font-size: 12px;
+    }
+    .home-schedule .common-circle .shedule-day
+    {
+        font-size: 10px;
+    }
+    .home-schedule{
+        padding: 40px 0!important;
+    }
+    .grid-wrapper{
+        grid-auto-rows: auto;
+        
+    }
+    .grid-wrapper .tall,.grid-wrapper .wide{
+        height:160px;
+    }
+    .sponsers-area{
+        padding:40px 0;
+    }
+    .contact-area .contact-text input, .contact-email input, .contact-textarea textarea{
+        padding:5px 20px;
+        border-radius:8px;
+    }
+    .contact-textarea textarea{
+        height: 150px;
+    }
+    .contact-area .contact-btn button {
+        width: 50%;
+        border: none;
+        padding: 6px 0;
+        margin: auto;
+    }
+    .blog-area .blog-card .blog-card-content h3{
+        font-size:18px;
+    }
+}
+
+@media only screen and (max-width : 320px) {
+
+    .home-banner .right .banner-title .banner-small{
+        font-size: 26px;
+    }
+    .home-banner .right .banner-title {
+        font-size: 35px;
+        line-height: 35px;
+    }
+    .home-banner .banner-last{
+        font-size: 30px;
+    }
+    .home-banner .count .counter-wrapper {
+        padding: 8px 10px;
+    }
+    .home-banner .count .common-timer-box{
+        font-size:26px;
+    }
+    .home-banner .count .timer-detail{
+        font-size:12px;
+    }
+    .home-speakers .speaker-card{
+        width: 90%;
+    }
+    .home-speakers .speaker-card img {
+        width: 100%;
+        object-fit: cover;
+        height: 340px;
+    }
+    .home-speakers .speaker-card .speaker-title{
+        font-size: 15px;
+    }
+    .home-speakers .speaker-card .speaker-post {
+        font-size: 10px;
+        line-height: 1.2;
+    }
+    .schedule-long-card .right {
+        padding: 20px 30px!important;
+    }
+    .home-about .home-about-event-card .left span {
+        font-size: 22px;
+        padding: 6px 15px;
+        border-radius: 12px;
+       
+    }
+    /* .home-about img{
+        height: 140px;
+    } */
+    .testimonial-area .common-heading{
+        font-size: 16px;
+    }
+ 
+}
 
