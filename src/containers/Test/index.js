@@ -5,7 +5,7 @@ import * as Loader from "react-loader-spinner";
 import * as ACTIONS from './action'
 import "../../css/registred.css";
 
-const Test = () => {  
+const AllRegistration = () => {  
 
   const navigate = useNavigate();
   let [usersInfo, setUsersInfo] = useState([])
@@ -76,4 +76,4 @@ const Test = () => {
    </>
   );
 };
-export default Test;
+export default AllRegistration;

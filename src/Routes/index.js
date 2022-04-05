@@ -16,7 +16,7 @@ const Login = lazy(() => import('../containers/Login'))
 const ForgotPassword = lazy(() => import('../containers/ForgetPassword'))
 const Dashboard  = lazy(() =>  import('../containers/Dashboard'))
 const CreateForm = lazy(() => import('../containers/Create'))
-const Test = lazy(() => import('../containers/Test'))
+const AllRegistration = lazy(() => import('../containers/AllRegistration'))
 const Contact = lazy(() => import('../containers/ContactPage'))
 const About = lazy(() => import ('../containers/AboutPage'))
 const Error = lazy(() => import ('../containers/Error'))
@@ -38,7 +38,7 @@ export const ApplicationRoutes = ({path}) => {
             <Route path = "/dashboard" element={<Dashboard />} > 
             
                 <Route path = "/dashboard/create" element={<CreateForm />} />
-                <Route path = "/dashboard/test" element={<Test />} />
+                <Route path = "/dashboard/allRegistration" element={<AllRegistration />} />
                 <Route path = '/dashboard/users' element={<RegisteredUser />} />
                 
             

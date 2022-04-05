@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 export function* getUserRegistrationInfo(action) {
-    let url = "http://localhost:4801/api/getregistreduserinfo";
+    let url = "http://144.91.110.221:4801/api/getregistreduserinfo";
     try {
       const response = yield call(axios.get, url);
       yield put({ type: CONSTANTS.GET_USER_REGISTRATION_INFO_SUCCESS, response: response.data});

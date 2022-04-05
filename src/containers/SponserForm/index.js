@@ -15,11 +15,13 @@ const SponsorForm = () => {
   const [greet, setGreet] = useState();
   const { name, email, number, company, sponsor, values } = sponsorForm;
 
-  const onSubmitForm = (e) => {
+  const onSubmitSponsorForm = (e) => {
     e.preventDefault();
+    // dispatch(ACTIONS.createSponsorUser(sponsorForm))
     setGreet(
       "Your details are registered for sponsor(provisionally) and will be reviewed by managing committie. Once confirmed, committie will communicate with you on your registered email. "
     );
+    
     console.log(sponsorForm, "values");
     setSponsorForm({
       name: "",
@@ -68,7 +70,7 @@ const SponsorForm = () => {
     <>
       <Header />
       <section className="sponser-form register-form">
-        <form className="submit-form  pt-0" onSubmit={(e) => onSubmitForm(e)}>
+        <form className="submit-form  pt-0" onSubmit={(e) => onSubmitSponsorForm(e)}>
           <div className="container">
             <div className="row">
               <div className="col-md-6 mx-auto form-wrapper-1">

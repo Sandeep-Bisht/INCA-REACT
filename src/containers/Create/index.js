@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useLocation} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { countries } from '../../utils'
 import * as ACTIONS from './action'
@@ -50,12 +51,13 @@ const CreateForm = (props) => {
     }
 
     let location = useLocation()
+    let navigate = useNavigate()
 
     useEffect(() => {                           // Setting value in fields on condition
         if(location.state){
             setUserInformation(location.state)
             setIsDisabled(true)
-            console.log(location,"location")
+            // console.log(location,"location")
             
         }
     }, [])
@@ -90,8 +92,9 @@ const CreateForm = (props) => {
     }, [userInformation])
 
     useEffect(() => {
-        if(state.saveRegisterUserInfoSuccess) {
-            console.log(state.saveRegisterUserInfoSuccess, 'state.saveRegisterUserInfoSuccessstate.saveRegisterUserInfoSuccess')
+        if(state.saveRegisterUserInfoSuccess) {  
+            navigate("/dashboard/test")
+            dispatch(ACTIONS.resetToInitialState())
         }
     }, [state.saveRegisterUserInfoSuccess])
 
@@ -99,11 +102,8 @@ const CreateForm = (props) => {
         e.preventDefault()
         userInformation.registrationFee = value
         dispatch(ACTIONS.saveRegisterdUserData(userInformation))
+
     }
-
-
-
-
 
     return (
 
@@ -201,7 +201,7 @@ const CreateForm = (props) => {
                                     <div className="col-md-12">
                                         <label for="InputFee" className="form-label">Registration Fee</label>
                                         {/* <input type="text" onChange={(e) => userInformationOnchangeHandler(e)} id="registrationFee" value={value} className="form-control" /> */}
-                                        <p>{value}</p>
+                                        <p>{isDisabled ? userInformation.registrationFee : value}</p>
                                     </div>
 
                                 </div>

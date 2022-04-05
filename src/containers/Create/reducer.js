@@ -17,6 +17,11 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 saveRegisterUserInfoFailure: action.error,
             };   
+         case CONSTANTS.RESET_TO_INITIAL_STATE:
+            return{
+                saveRegisterUserInfoSuccess: ""
+            };
+            break; 
         default:
             return state
     }

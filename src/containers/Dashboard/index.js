@@ -83,24 +83,38 @@ const Dashboard = (props) => {
                                 <aside>
                                     <ul className='ps-0 list-unstyled mt-4'>
                                         <li className='active-blue'>
-                                            <button className='common-blue btn'>
-                                                Dashboard</button></li>
-                                        <li><button className='common-blue btn' onClick={()=>navigate("/dashboard/create")}>Create</button></li>
-                                        
-                                        <li onClick={()=>navigate("/dashboard/test")} ><button className='common-blue btn'
-                                        >View</button></li>
-                                    </ul>
-                                    <div class="accordion" id="accordionExample">
+                                            <button className='common-blue btn'>Dashboard</button></li>
+
+                                            <div class="accordion" id="accordionExample1">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="headingOne">
                                                 <button class="accordion-button common-blue btn mb-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Event Registration
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample1">
+                                                <div class="accordion-body p-0">
+                                                    <ul className='ps-0 list-unstyled '>
+                                                    <li><button className='common-blue btn' onClick={()=>navigate("/dashboard/create")}>Registration</button></li>
+                                                    <li onClick={()=>navigate("/dashboard/allRegistration")} ><button className='common-blue btn'>All Registration</button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                
+                                       
+                                       
+                                     <div class="accordion" id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button common-blue btn mb-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
                                                     User Managment
                                                 </button>
                                             </h2>
-                                            <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div id="collapseTwo" class="accordion-collapse collapse " aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body p-0">
                                                     <ul className='ps-0 list-unstyled '>
-                                                        <li ><button className='common-blue btn' onClick={()=>navigate("/dashboard/users")}>View</button></li>
+                                                        <li ><button className='common-blue btn' onClick={()=>navigate("/dashboard/users")}>All Users</button></li>
                                                         {/* <li ><button className='common-blue btn'>Category</button></li>
                                                         <li ><button className='common-blue btn'>Sub-Category</button></li> */}
                                                     </ul>
@@ -108,6 +122,7 @@ const Dashboard = (props) => {
                                             </div>
                                         </div>
                                     </div>
+                                    </ul>
                                 </aside>
                             </div>
                             <div className='col-md-9 col-lg-10 right-part'>

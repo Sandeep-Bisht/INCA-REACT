@@ -2,7 +2,7 @@
  import RegisterReducer from "../containers/UserRegistration/reducer"
  import LoginReducer from '../containers/Login/reducer'
  import AllUsersReducer from  '../containers/RegistredUsers/reducer'
- import GetUserRegistrationInfoReducer from '../containers/Test/reducer'
+ import GetUserRegistrationInfoReducer from '../containers/AllRegistration/reducer'
  import RegisteredUserInfoReducer from '../containers/Create/reducer'
 
 const rootReducer = combineReducers({
