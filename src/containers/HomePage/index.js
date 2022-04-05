@@ -45,14 +45,6 @@ import gallary7 from '../../images/gallery-7.jpg';
 import gallary8 from '../../images/gallery-8.jpg';
 import gallary9 from '../../images/gallery-9.jpg';
 
-
-
-
-
-
-
-
-
 const HomePage = () => {
 
   const [showEvents, setShowEvents] = useState('1nov')

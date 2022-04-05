@@ -159,9 +159,7 @@ const SponsorForm = () => {
                         <option value="Strategic Sponsor">
                           Strategic Sponsor
                         </option>
-                        <option value="Platinium Sponsor">
-                          Platinium Sponsor
-                        </option>
+                        <option value="Platinium Sponsor">Platinium Sponsor</option>
                         <option value="Gold Sponsor">Gold Sponsor</option>
                         <option value="Silver Sponsor">Silver Sponsor</option>
                       </select>

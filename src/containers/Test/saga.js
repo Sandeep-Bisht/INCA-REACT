@@ -1,0 +1,19 @@
+import { call, put, takeLatest } from 'redux-saga/effects';
+import * as CONSTANTS from "./constant"
+import axios from 'axios';
+
+
+export function* getUserRegistrationInfo(action) {
+    let url = "http://localhost:4801/api/getregistreduserinfo";
+    try {
+      const response = yield call(axios.get, url);
+      yield put({ type: CONSTANTS.GET_USER_REGISTRATION_INFO_SUCCESS, response: response.data});
+    }
+    catch (error) {
+      yield put({ type: CONSTANTS.GET_USER_REGISTRATION_INFO_FAILURE, error: error.response.data });
+    }
+  }
+
+export default function* GetUserRegistrationInfoSaga() {
+    yield takeLatest(CONSTANTS.GET_USER_REGISTRATION_INFO,getUserRegistrationInfo);
+  }
