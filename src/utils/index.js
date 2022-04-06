@@ -5,7 +5,7 @@ export function GetHeaders() {
             'content-type': 'application/json'
         }
     };
-    // localStorage.token && (headers.headers["X-Authorization"] = `Bearer ${localStorage.token}`);
+     localStorage.token && (headers.headers["authorization"] = `Bearer ${localStorage.token}`);
     return headers
 }
 

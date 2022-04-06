@@ -24,6 +24,8 @@ import '../../css/register.css'
 
     useEffect(() => {
         if(state && state.userLoginSuccess){
+            console.log(state.userLoginSuccess, 'state.userLoginSuccess')
+            localStorage.setItem("token", state.userLoginSuccess.token,)
             navigate('/dashboard')
         }
     }, [state.userLoginSuccess])
