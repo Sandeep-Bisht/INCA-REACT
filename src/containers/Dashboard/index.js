@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
  import {useNavigate} from "react-router-dom";
+ 
+import jwt_decode from 'jwt-decode';
 import Dashlogo from '../../images/logo.png';
 import { Outlet, Link  } from "react-router-dom";
 import User from '../../images/user-profile.png'
@@ -34,6 +36,7 @@ let obj = {
 const Dashboard = (props) => {
     const navigate = useNavigate();
     const [userInformation, setUserInformation] = useState(obj)
+    const [userEmail, setUserEmail] = useState("")
 
     let userInformationOnchangeHandler = (e) => {
         let userInformationCopy = {...userInformation}
@@ -41,6 +44,14 @@ const Dashboard = (props) => {
         setUserInformation(userInformationCopy)
         
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+          let decodedToken = jwt_decode(localStorage.getItem('token'));
+         // console.log(decodedToken.user.user.userName, 'value token')
+            setUserEmail(decodedToken.user.user.userEmail)
+        }
+      }, [])
     return (
 
         <>
@@ -62,7 +73,7 @@ const Dashboard = (props) => {
                                     <div className="nav-item dropdown">
                                         <a className="text-decoration-none dropdown-toggle p-0 d-user-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <img src={User} className="img-fluid  me-3 dash-user-pic" />
-                                            <span className='user-text me-2'>User name</span>
+                                            <span className='user-text me-2'>{userEmail}</span>
                                         </a>
                                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li><a className="dropdown-item" href="#">Action</a></li>
