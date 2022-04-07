@@ -15,6 +15,7 @@ const About = lazy(() => import("../containers/AboutPage"));
 const Error = lazy(() => import("../containers/Error"));
 const SponserForm = lazy(() => import("../containers/SponserForm"));
 const RegisteredUser = lazy(() => import("../containers/RegistredUsers"));
+const AllSponsor = lazy(() => import("../containers/AllSponsor"))
 
 export const ApplicationRoutes = ({ path }) => {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -51,14 +52,15 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/register" element={<UserRegistration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot" element={<ForgotPassword />} />
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/dashboard" element={<Dashboard />} >
             <Route path="/dashboard/create" element={<CreateForm />} />
             <Route
               path="/dashboard/allRegistration"
               element={<AllRegistration />}
             />
             {loggedInUser.role == "admin" && (
-              <Route path="/dashboard/users" element={<RegisteredUser />} />
+              <><Route path="/dashboard/users" element={<RegisteredUser />} />
+              <Route path="/dashboard/allSponsor" element={<AllSponsor />} /></>
             )}
           </Route>
           <Route path="/contact" element={<Contact />} />

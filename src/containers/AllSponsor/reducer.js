@@ -3,21 +3,19 @@ export const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case CONSTANTS.SPONSOR_USER_SUCCESS :
+        case CONSTANTS.GET_SPONSOR_USER_SUCCESS :
             return {
                 ...state,
-                sponsorUserSuccess: action.response,
+                getSponsorUserSuccess: action.response,
               };
         
-            case CONSTANTS.SPONSOR_USER_FAILURE:
+            case CONSTANTS.GET_SPONSOR_USER_FAILURE:
               return {
                 ...state,
-                sponsorUserFailure: action.error,
+                getSponsorUserFailure: action.error,
               };
         
             default:
               return state;
           }
         };
-
-

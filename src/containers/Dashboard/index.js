@@ -112,11 +112,18 @@ const Dashboard = (props) => {
                       </button>
                     </li>
                     {loggedInUser.role == "admin" && (
+                      <>
+                      <li
+                        onClick={() => navigate("/dashboard/allSponsor")}
+                      >
+                        <button className="common-blue btn">All Sponsor</button>
+                      </li>
                       <li
                         onClick={() => navigate("/dashboard/allRegistration")}
                       >
                         <button className="common-blue btn">All Registration</button>
                       </li>
+                      </>
                     )}
                   </ul>
                   {loggedInUser.role == "admin" && (

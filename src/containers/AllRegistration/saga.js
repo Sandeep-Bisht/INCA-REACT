@@ -4,8 +4,8 @@ import axios from "axios";
 import { GetHeaders } from "../../utils";
 
 export function* getUserRegistrationInfo(action) {
-  let url = "http://144.91.110.221:4801/api/getregistreduserinfo";
-  // let url = "http://localhost:4801/api/getregistreduserinfo";
+  // let url = "http://144.91.110.221:4801/api/getregistreduserinfo";
+  let url = "http://localhost:4801/api/getregistreduserinfo";
   try {
     const response = yield call(axios.get, url, GetHeaders());
 

@@ -107,7 +107,7 @@ const CreateForm = (props) => {
 
   useEffect(() => {
     if (state.saveRegisterUserInfoSuccess) {
-      navigate("/dashboard/test");
+      navigate("/dashboard/allRegistration");
       dispatch(ACTIONS.resetToInitialState());
     }
   }, [state.saveRegisterUserInfoSuccess]);
