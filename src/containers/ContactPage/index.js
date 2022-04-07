@@ -77,71 +77,75 @@ const Contact = () => {
 
       <section className="contact-single2 section-padding pt-3">
         <div className="container">
-            <div className="row">
-          <div className="col-md-8">
-            <form>
-              <div className="row">
-                <div className="col-md-8 mx-auto">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <input
-                        className="form-movement"
-                        type="text"
-                        placeholder="Your Name.."
-                      />
+          <div className="row">
+            <div className="col-md-8">
+              <form>
+                <div className="row">
+                  <div className="col-md-8 mx-auto">
+                    <div className="row">
+                      <div className="col-md-6">
+                        <input
+                          className="form-movement"
+                          type="text"
+                          placeholder="Your Name.."
+                        />
+                      </div>
+
+                      <div className="col-md-6">
+                        <input
+                          className="form-movement"
+                          type="email"
+                          placeholder="Your Email.."
+                        />
+                      </div>
                     </div>
 
-                    <div className="col-md-6">
-                      <input
-                        className="form-movement"
-                        type="email"
-                        placeholder="Your Email.."
-                      />
-                    </div>
-                  </div>
+                    <div className="row">
+                      <div className="col-md-6">
+                        <input
+                          className="form-movement"
+                          type="number"
+                          placeholder="Your Number.."
+                        />
+                      </div>
 
-                  <div className="row">
-                    <div className="col-md-6">
-                      <input
-                        className="form-movement"
-                        type="number"
-                        placeholder="Your Number.."
-                      />
+                      <div className="col-md-6">
+                        <input
+                          className="form-movement"
+                          type="text"
+                          placeholder="Your Subject.."
+                        />
+                      </div>
                     </div>
 
-                    <div className="col-md-6">
-                      <input
-                        className="form-movement"
-                        type="text"
-                        placeholder="Your Subject.."
-                      />
+                    <div className="row">
+                      <div className="col-md-12">
+                        <textarea
+                          className="form-movement"
+                          cols="30"
+                          rows="7"
+                          placeholder="Enter Message.."
+                        ></textarea>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="row">
-                    <div className="col-md-12">
-                      <textarea
-                        className="form-movement"
-                        cols="30"
-                        rows="7"
-                        placeholder="Enter Message.."
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="col-md-12">
-                      <button className="common-btn">SUBMIT MESSAGE</button>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <button className="common-btn">SUBMIT MESSAGE</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
+            <div className="col-md-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7614.448732548774!2d78.560421!3d17.401017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x34ec55b0dbdd28dd!2sIndian%20National%20Cartographic%20Association!5e0!3m2!1sen!2sin!4v1648559358781!5m2!1sen!2sin"
+                width="450"
+                height="300"
+              ></iframe>
+            </div>
           </div>
-          <div className="col-md-4">             
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7614.448732548774!2d78.560421!3d17.401017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x34ec55b0dbdd28dd!2sIndian%20National%20Cartographic%20Association!5e0!3m2!1sen!2sin!4v1648559358781!5m2!1sen!2sin" width="450" height="300"  ></iframe>
-          </div>
-        </div>
         </div>
       </section>
       <Footer />

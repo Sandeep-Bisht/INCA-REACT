@@ -21,7 +21,7 @@ const SponsorForm = () => {
     setGreet(
       "Your details are registered for sponsor(provisionally) and will be reviewed by managing committie. Once confirmed, committie will communicate with you on your registered email. "
     );
-    
+
     console.log(sponsorForm, "values");
     setSponsorForm({
       name: "",
@@ -70,7 +70,10 @@ const SponsorForm = () => {
     <>
       <Header />
       <section className="sponser-form register-form">
-        <form className="submit-form  pt-0" onSubmit={(e) => onSubmitSponsorForm(e)}>
+        <form
+          className="submit-form  pt-0"
+          onSubmit={(e) => onSubmitSponsorForm(e)}
+        >
           <div className="container">
             <div className="row">
               <div className="col-md-6 mx-auto form-wrapper-1">
@@ -161,7 +164,9 @@ const SponsorForm = () => {
                         <option value="Strategic Sponsor">
                           Strategic Sponsor
                         </option>
-                        <option value="Platinium Sponsor">Platinium Sponsor</option>
+                        <option value="Platinium Sponsor">
+                          Platinium Sponsor
+                        </option>
                         <option value="Gold Sponsor">Gold Sponsor</option>
                         <option value="Silver Sponsor">Silver Sponsor</option>
                       </select>
