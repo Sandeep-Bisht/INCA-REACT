@@ -1,62 +1,72 @@
-import React, {Suspense,lazy} from 'react'
-import { Routes, Route } from "react-router-dom";
+import React, { useState, useEffect, Suspense, lazy } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import * as Loader from "react-loader-spinner";
-//import { HomePage } from '../containers/HomePage'
-//import { Contact } from '../containers/ContactPage'
-//import { Login } from '../containers/Login';
-//import { UserRegistration } from "../containers/UserRegistration"
-// import { Dashboard } from '../containers/Dashboard'
-// import {CreateForm} from '../containers/Create';
-// import {Test} from '../containers/Test';
-//import ForgotPassword from '../containers/ForgetPassword';
 
-const HomePage = lazy(() => import('../containers/HomePage'))
-const UserRegistration = lazy(() => import('../containers/UserRegistration'))
-const Login = lazy(() => import('../containers/Login'))
-const ForgotPassword = lazy(() => import('../containers/ForgetPassword'))
-const Dashboard  = lazy(() =>  import('../containers/Dashboard'))
-const CreateForm = lazy(() => import('../containers/Create'))
-const AllRegistration = lazy(() => import('../containers/AllRegistration'))
-const Contact = lazy(() => import('../containers/ContactPage'))
-const About = lazy(() => import ('../containers/AboutPage'))
-const Error = lazy(() => import ('../containers/Error'))
-const SponserForm = lazy(() => import('../containers/SponserForm'))
-const RegisteredUser = lazy(() => import('../containers/RegistredUsers'))
+const HomePage = lazy(() => import("../containers/HomePage"));
+const UserRegistration = lazy(() => import("../containers/UserRegistration"));
+const Login = lazy(() => import("../containers/Login"));
+const ForgotPassword = lazy(() => import("../containers/ForgetPassword"));
+const Dashboard = lazy(() => import("../containers/Dashboard"));
+const CreateForm = lazy(() => import("../containers/Create"));
+const AllRegistration = lazy(() => import("../containers/AllRegistration"));
+const Contact = lazy(() => import("../containers/ContactPage"));
+const About = lazy(() => import("../containers/AboutPage"));
+const Error = lazy(() => import("../containers/Error"));
+const SponserForm = lazy(() => import("../containers/SponserForm"));
+const RegisteredUser = lazy(() => import("../containers/RegistredUsers"));
 
+export const ApplicationRoutes = ({ path }) => {
+  const [loggedInUser, setLoggedInUser] = useState({});
 
-export const ApplicationRoutes = ({path}) => {
-    
-    return(
-        <>
-         <Suspense fallback={<div style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100vh"}}><Loader.ThreeDots /></div>} >
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      let decodedToken = jwt_decode(localStorage.getItem("token"));
+      setLoggedInUser(decodedToken.user.user);
+    } else {
+      navigate("/");
+    }
+  }, []);
+
+  return (
+    <>
+      <Suspense
+        fallback={
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100vh",
+            }}
+          >
+            <Loader.ThreeDots />
+          </div>
+        }
+      >
         <Routes>
-           
-            <Route path = "/" element={<HomePage />} />
-            <Route path = "/register" element={<UserRegistration />} />
-            <Route path = "/login" element={<Login />} />
-            <Route path='/forgot' element={<ForgotPassword />} />
-            <Route path = "/dashboard" element={<Dashboard />} > 
-            
-                <Route path = "/dashboard/create" element={<CreateForm />} />
-                <Route path = "/dashboard/allRegistration" element={<AllRegistration />} />
-                <Route path = '/dashboard/users' element={<RegisteredUser />} />
-                
-            
-            </Route>
-            <Route path = "/contact" element={<Contact />} />
-            <Route path = "/about" element={<About />} />
-            <Route path = "/sponserForm" element = {<SponserForm/>} />
-            <Route path = "*" element={<Error/>} />
-           
-
-            {/* <Route path = "/dashboard" element={<Dashboard />} >
-                <Route path = "/dashboard/create" element={<CreateForm />} />
-                <Route path = "/dashboard/test" element={<Test />} />
-            </Route>
-            <Route path = "/contact" element={<Contact />} />
-            <Route path='/forgot' element={<ForgotPassword />} /> */}
-         </Routes>
-         </Suspense>
-        </>
-    )
-}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<UserRegistration />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot" element={<ForgotPassword />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="/dashboard/create" element={<CreateForm />} />
+            <Route
+              path="/dashboard/allRegistration"
+              element={<AllRegistration />}
+            />
+            {loggedInUser.role == "admin" && (
+              <Route path="/dashboard/users" element={<RegisteredUser />} />
+            )}
+          </Route>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/sponserForm" element={<SponserForm />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Suspense>
+    </>
+  );
+};
