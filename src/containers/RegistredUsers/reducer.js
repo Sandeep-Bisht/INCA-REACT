@@ -16,7 +16,8 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 allUserFailure: action.error,
-            };   
+            };
+               
         default:
             return state
     }

@@ -29,7 +29,6 @@ let RegisteredUser = () => {
     }, [state.allUserSuccess])
 
     let editHandler = (id) => {
-        console.log(id, 'idddd')
         setShowModal(true)
 
     }

@@ -16,7 +16,12 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 userLoginFailure: action.error,
-            };   
+            }; 
+             
+        case CONSTANTS.RESET_TO_INITIAL_STATE:
+            return{
+                userLoginSuccess: ""
+            };       
         default:
             return state
     }

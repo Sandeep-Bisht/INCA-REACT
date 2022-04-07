@@ -1,5 +1,7 @@
-import React, {Suspense,lazy} from 'react'
-import { Routes, Route } from "react-router-dom";
+import React, {useState, useEffect, Suspense,lazy} from 'react'
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
 import * as Loader from "react-loader-spinner";
 //import { HomePage } from '../containers/HomePage'
 //import { Contact } from '../containers/ContactPage'
@@ -25,6 +27,20 @@ const RegisteredUser = lazy(() => import('../containers/RegistredUsers'))
 
 
 export const ApplicationRoutes = ({path}) => {
+
+    const [loggedInUser, setLoggedInUser] = useState({})
+
+    let navigate = useNavigate()
+
+    useEffect(() => {
+        if(localStorage.getItem('token')) {
+          let decodedToken = jwt_decode(localStorage.getItem('token'));
+         setLoggedInUser(decodedToken.user.user)
+        }
+        else{
+            navigate('/')
+        }
+    }, [])
     
     return(
         <>
@@ -36,25 +52,14 @@ export const ApplicationRoutes = ({path}) => {
             <Route path = "/login" element={<Login />} />
             <Route path='/forgot' element={<ForgotPassword />} />
             <Route path = "/dashboard" element={<Dashboard />} > 
-            
-                <Route path = "/dashboard/create" element={<CreateForm />} />
-                <Route path = "/dashboard/test" element={<Test />} />
-                <Route path = '/dashboard/users' element={<RegisteredUser />} />
-                
-            
+            <Route path = "/dashboard/create" element={<CreateForm />} />
+            <Route path = "/dashboard/test" element={<Test />} />
+            { loggedInUser.role == "admin" && <Route path = '/dashboard/users' element={<RegisteredUser />} />} 
             </Route>
             <Route path = "/contact" element={<Contact />} />
             <Route path = "/about" element={<About />} />
             <Route path = "/sponserForm" element = {<SponserForm/>} />
             <Route path = "*" element={<Error/>} />
-           
-
-            {/* <Route path = "/dashboard" element={<Dashboard />} >
-                <Route path = "/dashboard/create" element={<CreateForm />} />
-                <Route path = "/dashboard/test" element={<Test />} />
-            </Route>
-            <Route path = "/contact" element={<Contact />} />
-            <Route path='/forgot' element={<ForgotPassword />} /> */}
          </Routes>
          </Suspense>
         </>
