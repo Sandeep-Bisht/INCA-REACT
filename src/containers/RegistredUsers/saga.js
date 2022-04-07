@@ -4,9 +4,8 @@ import axios from "axios";
 import { GetHeaders } from "../../utils";
 
 export function* getAllUsers(action) {
-  console.log(action, "action");
-  // let url = "http://144.91.110.221:4801/api/users";
-  let url = "http://localhost:4801/api/users";
+  let url = "http://144.91.110.221:4801/api/users";
+  //let url = "http://localhost:4801/api/users";
   try {
     const response = yield call(axios.get, url, GetHeaders());
     yield put({

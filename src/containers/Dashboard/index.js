@@ -135,7 +135,7 @@ const Dashboard = (props) => {
                           </button>
                         </h2>
                         <div
-                          id="collapseTwo"
+                          id="collapseOne"
                           className="accordion-collapse collapse "
                           aria-labelledby="headingTwo"
                           data-bs-parent="#accordionExample"
