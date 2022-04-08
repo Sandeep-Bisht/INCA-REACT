@@ -4,7 +4,7 @@
  import AllUsersReducer from  '../containers/RegistredUsers/reducer'
  import GetUserRegistrationInfoReducer from '../containers/AllRegistration/reducer'
  import RegisteredUserInfoReducer from '../containers/Create/reducer'
- import SponsorUserReducer from '../containers/SponserForm/reducer'
+ import SponsorUserReducer from '../containers/SponsorForm/reducer'
  import AllSponsorReducer from '../containers/AllSponsor/reducer'
 
 const rootReducer = combineReducers({

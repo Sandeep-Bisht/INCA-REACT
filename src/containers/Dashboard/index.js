@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Dashlogo from "../../images/logo.png";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import User from "../../images/user-profile.png";
 import "../../css/dashboard.css";
 
@@ -102,59 +102,96 @@ const Dashboard = (props) => {
             <div className="row">
               <div className="col-md-3 left-part col-lg-2 px-0">
                 <aside>
-                  <ul className="ps-0 list-unstyled mt-4">
-                    <li>
-                      <button
-                        className="common-blue btn"
-                        onClick={() => navigate("/dashboard/create")}
-                      >
-                        User Registrations
-                      </button>
-                    </li>
-                    {loggedInUser.role == "admin" && (
-                      <>
-                      <li
-                        onClick={() => navigate("/dashboard/allSponsor")}
-                      >
-                        <button className="common-blue btn">All Sponsor</button>
-                      </li>
-                      <li
-                        onClick={() => navigate("/dashboard/allRegistration")}
-                      >
-                        <button className="common-blue btn">All Registration</button>
-                      </li>
-                      </>
-                    )}
-                  </ul>
-                  {loggedInUser.role == "admin" && (
-                    <div class="accordion" id="accordionExample">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                          <button
-                            class="accordion-button common-blue btn mb-0"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne"
-                            aria-expanded="true"
-                            aria-controls="collapseOne"
-                          >
-                            All Registred Users
-                          </button>
-                        </h2>
-                        <div
-                          id="collapseOne"
-                          className="accordion-collapse collapse "
-                          aria-labelledby="headingTwo"
-                          data-bs-parent="#accordionExample"
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button
+                          class="accordion-button common-blue btn mb-0"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
                         >
-                          <div className="accordion-body p-0">
-                            <ul className="ps-0 list-unstyled ">
+                          User Registration
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseOne"
+                        className="accordion-collapse collapse "
+                        aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div className="accordion-body p-0">
+                          <ul className="ps-0 list-unstyled ">
+                            <li>
+                              <button
+                                className="common-blue btn"
+                                onClick={() => navigate("/dashboard/create")}
+                              >
+                                Create User
+                              </button>
+                            </li>
+                            {loggedInUser.role == "admin" && (
                               <li>
                                 <button
                                   className="common-blue btn"
                                   onClick={() => navigate("/dashboard/users")}
                                 >
                                   All Users
+                                </button>
+                              </li>
+                            )}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul className="ps-0 list-unstyled mt-4">
+                    {loggedInUser.role == "admin" && (
+                      <>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() => navigate("/dashboard/allSponsor")}
+                          >
+                            All Sponsor
+                          </button>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                  {loggedInUser.role == "admin" && (
+                    <div class="accordion" id="accordionExample1">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                          <button
+                            class="accordion-button common-blue btn mb-0"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo"
+                            aria-expanded="true"
+                            aria-controls="collapseTwo"
+                          >
+                            All Registred Users
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseTwo"
+                          className="accordion-collapse collapse "
+                          aria-labelledby="headingTwo"
+                          data-bs-parent="#accordionExample1"
+                        >
+                          <div className="accordion-body p-0">
+                            <ul className="ps-0 list-unstyled ">
+                              <li>
+                                <button
+                                  className="common-blue btn"
+                                  onClick={() =>
+                                    navigate("/dashboard/allRegistration")
+                                  }
+                                >
+                                  All Registred Users
                                 </button>
                               </li>
                             </ul>

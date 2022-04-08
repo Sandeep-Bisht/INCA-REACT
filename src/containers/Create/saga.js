@@ -4,8 +4,8 @@ import axios from "axios";
 import { GetHeaders } from "../../utils";
 
 export function* saveRegisterUserData(action) {
-  let url = "http://144.91.110.221:4801/api/saveregistreduser";
-  //let url = "http://localhost:4801/api/saveregistreduser";
+  // let url = "http://144.91.110.221:4801/api/saveregistreduser";
+  let url = "http://localhost:4801/api/saveregistreduser";
   try {
     const response = yield call(axios.post, url, action.payload, GetHeaders());
     yield put({

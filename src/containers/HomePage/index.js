@@ -113,7 +113,7 @@ const HomePage = () => {
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
                   <span className="banner-small text-white">
-                    42<sup>nd</sup> INCA
+                    42<sup>nd</sup> Indian National Cartographic Association
                   </span>
                   <br />
                   <span className="common-yellow-color">
@@ -121,13 +121,13 @@ const HomePage = () => {
                     International Conference
                   </span>
                   <br />
-                  <span className="banner-last">Event-2022</span>
+                  {/* <span className="banner-last">Event-2022</span> */}
                 </p>
                 <div className="banner-bottom"></div>
-                <p className="common-para text-white mt-3">
+                {/* <p className="common-para text-white mt-3">
                   Animi ab libero! Blanditiis, luctus morbi eget esse,
                   ridiculus. Quos laborum sunt facere primis magni cumque.
-                </p>
+                </p> */}
                 <div className="banner-btn-box pt-2">
                   <button
                     className=" common-btn"
@@ -236,7 +236,7 @@ const HomePage = () => {
                   <ul className="list-unstyled">
                     <li className="my-2 py-2">
                       <span className="me-2">
-                        <i class="fa-solid fa-circle-check common-yellow-color"></i>
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
                       <span>
@@ -248,7 +248,7 @@ const HomePage = () => {
                     </li>
                     <li className="my-2 py-2">
                       <span className="me-2">
-                        <i class="fa-solid fa-circle-check common-yellow-color"></i>
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
                       <span>
@@ -260,7 +260,7 @@ const HomePage = () => {
 
                     <li className="my-2 py-2">
                       <span className="me-2">
-                        <i class="fa-solid fa-circle-check common-yellow-color"></i>
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
                       <span>
@@ -280,7 +280,7 @@ const HomePage = () => {
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="first common-yellow-bg">
-                    <i class="fa-solid fa-location-dot"></i>
+                    <i className="fa-solid fa-location-dot"></i>
                   </span>
                 </div>
                 <div className="right">
@@ -296,7 +296,7 @@ const HomePage = () => {
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="second common-blue-bg">
-                    <i class="fa-solid fa-calendar-days"></i>
+                    <i className="fa-solid fa-calendar-days"></i>
                   </span>
                 </div>
                 <div className="right">
@@ -371,7 +371,7 @@ const HomePage = () => {
                   <ul className="list-unstyled">
                     <li className="my-2 py-2">
                       <span className="me-2">
-                        <i class="fa-solid fa-circle-check common-yellow-color"></i>
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
                       <span>
@@ -383,7 +383,7 @@ const HomePage = () => {
                     </li>
                     <li className="my-2 py-2">
                       <span className="me-2">
-                        <i class="fa-solid fa-circle-check common-yellow-color"></i>
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
                       <span>
                         To co-operate with international organisations with
@@ -394,7 +394,7 @@ const HomePage = () => {
 
                     <li className="my-2 py-2">
                       <span className="me-2">
-                        <i class="fa-solid fa-circle-check common-yellow-color"></i>
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
                       <span>
@@ -414,7 +414,7 @@ const HomePage = () => {
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="first common-yellow-bg">
-                    <i class="fa-solid fa-location-dot"></i>
+                    <i className="fa-solid fa-location-dot"></i>
                   </span>
                 </div>
                 <div className="right">
@@ -430,7 +430,7 @@ const HomePage = () => {
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="second common-blue-bg">
-                    <i class="fa-solid fa-calendar-days"></i>
+                    <i className="fa-solid fa-calendar-days"></i>
                   </span>
                 </div>
                 <div className="right">
@@ -470,7 +470,7 @@ const HomePage = () => {
             <div className="col-lg-3 py-4 col-3">
               <div className="counter-card border-0">
                 <h2 className="counter-heading">15+</h2>
-                <span className="counter-title f2">SPONSERS</span>
+                <span className="counter-title f2">SPONSORS</span>
               </div>
             </div>
           </div>
@@ -2135,10 +2135,10 @@ const HomePage = () => {
                   <p> Become a Sponsor / Partner </p>
                   <div className="btn-holder">
                     <button
-                      className=" common-btn"
-                      onClick={() => navigation("/sponserForm")}
+                      className="common-btn"
+                      onClick={() => navigation("/sponsorForm")}
                     >
-                      Be a sponser
+                      Be a sponsor
                     </button>
                   </div>
                 </li>
@@ -2184,9 +2184,9 @@ const HomePage = () => {
                   <div className="btn-holder">
                     <button
                       className=" common-btn "
-                      onClick={() => navigation("/sponserForm")}
+                      onClick={() => navigation("/sponsorForm")}
                     >
-                      Be a sponser
+                      Be a sponsor
                     </button>
                   </div>
                 </li>
@@ -2317,7 +2317,7 @@ const HomePage = () => {
                     className="carousel-control-prev-icon circle"
                     aria-hidden="true"
                   >
-                    <i class="fa-solid fa-angle-left"></i>
+                    <i className="fa-solid fa-angle-left"></i>
                   </span>
                   <span className="visually-hidden">Previous</span>
                 </button>
@@ -2331,7 +2331,7 @@ const HomePage = () => {
                     className="carousel-control-next-icon circle"
                     aria-hidden="true"
                   >
-                    <i class="fa-solid fa-angle-right"></i>
+                    <i className="fa-solid fa-angle-right"></i>
                   </span>
                   <span className="visually-hidden">Next</span>
                 </button>
@@ -2340,12 +2340,12 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className="sponsers-area">
+      <section className="sponsors-area">
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
-              <p className="common-pre-heading">OUR SPONSERS</p>
-              <h2>SPONSERS AND PARTNERS</h2>
+              <p className="common-pre-heading">OUR SPONSORS</p>
+              <h2>SPONSORS AND PARTNERS</h2>
               <p className="mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -2355,43 +2355,43 @@ const HomePage = () => {
 
           <div className="row position-relative">
             <div className="col-md-1"></div>
-            <div className="col-md-2 px-0 sponsers-common">
-              <div className="sponser-box-1 common-sponsor-padding">
+            <div className="col-md-2 px-0 sponsors-common">
+              <div className="sponsor-box-1 common-sponsor-padding">
                 <img src={gikslogo} alt="" className="img-fluid" />
               </div>
-              <div className="sponser-border-1 common-sponsor-padding ">
+              <div className="sponsor-border-1 common-sponsor-padding ">
                 <img src={client6} alt="" className="img-fluid" />
               </div>
             </div>
-            <div className="col-md-2 px-0 sponsers-common">
-              <div className="sponser-box-2 common-sponsor-padding">
+            <div className="col-md-2 px-0 sponsors-common">
+              <div className="sponsor-box-2 common-sponsor-padding">
                 <img src={soilogo} alt="" className="img-fluid" />
               </div>
-              <div className="sponser-border-2 common-sponsor-padding">
+              <div className="sponsor-border-2 common-sponsor-padding">
                 <img src={client7} alt="" className="img-fluid" />
               </div>
             </div>
-            <div className="col-md-2 px-0 sponsers-common">
-              <div className="sponser-box-3 common-sponsor-padding">
+            <div className="col-md-2 px-0 sponsors-common">
+              <div className="sponsor-box-3 common-sponsor-padding">
                 <img src={carislogo} alt="" className="img-fluid" />
               </div>
-              <div className="sponser-border-3 common-sponsor-padding">
+              <div className="sponsor-border-3 common-sponsor-padding">
                 <img src={client8} alt="" className="img-fluid" />
               </div>
             </div>
-            <div className="col-md-2 px-0 sponsers-common">
-              <div className="sponser-box-4 common-sponsor-padding">
+            <div className="col-md-2 px-0 sponsors-common">
+              <div className="sponsor-box-4 common-sponsor-padding">
                 <img src={nhologo} alt="" className="img-fluid" />
               </div>
-              <div className="sponser-border-4 common-sponsor-padding">
+              <div className="sponsor-border-4 common-sponsor-padding">
                 <img src={client9} alt="" className="img-fluid" />
               </div>
             </div>
-            <div className="col-md-2 px-0 sponsers-common">
-              <div className="sponser-box-5 common-sponsor-padding">
+            <div className="col-md-2 px-0 sponsors-common">
+              <div className="sponsor-box-5 common-sponsor-padding">
                 <img src={gislogo} alt="" className="img-fluid" />
               </div>
-              <div className="sponser-border-5 common-sponsor-padding">
+              <div className="sponsor-border-5 common-sponsor-padding">
                 <img src={client10} alt="" className="img-fluid" />
               </div>
             </div>
@@ -2401,7 +2401,7 @@ const HomePage = () => {
           <div className="row position-relative">
             <div className="col-md-8 mx-auto text-center">
               <button className="common-btn my-lg-5 my-2">
-                BECAME A SPONSER
+                BECAME A SPONSOR
               </button>
             </div>
           </div>
@@ -2551,7 +2551,7 @@ const HomePage = () => {
 
                 <div className="icon-text-movement">
                   <div className="contact-icon">
-                    <i class="fa-solid fa-envelope"></i>
+                    <i className="fa-solid fa-envelope"></i>
                   </div>
                   <div className="contact-venue">
                     <h3>Email :</h3>
@@ -2561,7 +2561,7 @@ const HomePage = () => {
 
                 <div className="icon-text-movement">
                   <div className="contact-icon">
-                    <i class="fa-solid fa-phone"></i>
+                    <i className="fa-solid fa-phone"></i>
                   </div>
                   <div className="contact-venue">
                     <h3>Phone number :</h3>

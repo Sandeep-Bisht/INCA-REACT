@@ -35,7 +35,7 @@
 }
 .home-banner .right .banner-title .banner-small
 {
-    font-size:40px;
+    font-size:38px;
 }
 .home-banner .banner-bottom
 {
@@ -561,7 +561,7 @@ padding: 50px 40px;
 }
 
 /* ---------sponsor area css------------ */
-.sponsers-area
+.sponsors-area
 {
     background-image: url(../images/sponser.jpg);
     background-size: cover;
@@ -570,12 +570,12 @@ padding: 50px 40px;
     position: relative;
 }
 
-.sponsers-area h2 , p
+.sponsors-area h2 , p
 {
     color: #fff;
 }
 
-.sponsers-area::before
+.sponsors-area::before
 {
     display: block;
     content: '';
@@ -586,12 +586,12 @@ padding: 50px 40px;
     right: 0;
     background: rgba(0,0,0,0.75);
 }
-.sponsers-area .common-sponsor-padding
+.sponsors-area .common-sponsor-padding
 {
     padding:20px;
 }
 
-.sponsers-area img
+.sponsors-area img
 {
     height: 150px;
     width: 160px;
@@ -599,18 +599,18 @@ padding: 50px 40px;
     filter: grayscale(1);
 }
 
-.sponsers-area .sponser-box-1 , .sponser-box-2 , .sponser-box-3 , .sponser-box-4
+.sponsors-area .sponsor-box-1 , .sponsor-box-2 , .sponsor-box-3 , .sponsor-box-4
 {
     border-right: 1px solid #74706b;
 }
 
-.sponsers-area .sponser-border-1 , .sponser-border-2 , .sponser-border-3 , .sponser-border-4
+.sponsors-area .sponsor-border-1 , .sponsor-border-2 , .sponsor-border-3 , .sponsor-border-4
 {
     border-top: 1px solid #74706b;
     border-right: 1px solid #74706b;
 }
 
-.sponsers-area .sponser-border-5
+.sponsors-area .sponsor-border-5
 {
     border-top: 1px solid #74706b;
 }
@@ -983,24 +983,24 @@ padding: 50px 40px;
     {
         padding: 0;
     }
-    /* -------home sponser------- */
-    .sponsers-area .sponsers-common
+    /* -------home sponsor------- */
+    .sponsors-area .sponsors-common
     {
         display:flex;
     }
-    .sponsers-area .sponser-border-1, .sponser-border-2, .sponser-border-3, .sponser-border-4
+    .sponsors-area .sponsor-border-1, .sponsor-border-2, .sponsor-border-3, .sponsor-border-4
     {
         border:none;
     }
-    .sponsers-area .sponser-box-1, .sponser-box-2, .sponser-box-3, .sponser-box-4
+    .sponsors-area .sponsor-box-1, .sponsor-box-2, .sponsor-box-3, .sponsor-box-4
     {
         border-right: none;
     }
-    .sponsers-area .sponser-border-5
+    .sponsors-area .sponsor-border-5
     {
         border-top:none;
     }
-    .sponsers-area img {
+    .sponsors-area img {
         height: 70px;
         width: 180px;
         
@@ -1226,24 +1226,24 @@ padding: 50px 40px;
     {
         padding: 0;
     }
-    /* -------home sponser------- */
-    .sponsers-area .sponsers-common
+    /* -------home sponsor------- */
+    .sponsors-area .sponsors-common
     {
         display:flex;
     }
-    .sponsers-area .sponser-border-1, .sponser-border-2, .sponser-border-3, .sponser-border-4
+    .sponsors-area .sponsor-border-1, .sponsor-border-2, .sponsor-border-3, .sponsor-border-4
     {
         border:none;
     }
-    .sponsers-area .sponser-box-1, .sponser-box-2, .sponser-box-3, .sponser-box-4
+    .sponsors-area .sponsor-box-1, .sponsor-box-2, .sponsor-box-3, .sponsor-box-4
     {
         border-right: none;
     }
-    .sponsers-area .sponser-border-5
+    .sponsors-area .sponsor-border-5
     {
         border-top:none;
     }
-    .sponsers-area img {
+    .sponsors-area img {
         height: 70px;
         width: 180px;
         
@@ -1392,11 +1392,11 @@ padding: 50px 40px;
         height:60px;
         width:60px;
     }
-    .sponsers-area img
+    .sponsors-area img
     {
         height:40px;
     }
-    .sponsers-area .common-sponsor-padding{
+    .sponsors-area .common-sponsor-padding{
         padding: 10px;
     }
     .contact-area .contact-move .contact-icon i {
@@ -1429,7 +1429,7 @@ padding: 50px 40px;
     .grid-wrapper .tall,.grid-wrapper .wide{
         height:160px;
     }
-    .sponsers-area{
+    .sponsors-area{
         padding:40px 0;
     }
     .contact-area .contact-text input, .contact-email input, .contact-textarea textarea{

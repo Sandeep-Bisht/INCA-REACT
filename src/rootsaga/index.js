@@ -5,7 +5,7 @@ import AllUsersSaga from '../containers/RegistredUsers/saga'
 import  GetUserRegistrationInfoSaga from '../containers/AllRegistration/saga'
 // import deviceManagementSaga from "./DeviceManagement/Sag
 import CreateSaga from "../containers/Create/saga"
-import SponsorSaga from '../containers/SponserForm/saga'
+import SponsorSaga from '../containers/SponsorForm/saga'
 import AllSponsorSaga from "../containers/AllSponsor/saga";
 
 export function* rootSaga () {

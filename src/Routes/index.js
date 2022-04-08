@@ -13,7 +13,7 @@ const AllRegistration = lazy(() => import("../containers/AllRegistration"));
 const Contact = lazy(() => import("../containers/ContactPage"));
 const About = lazy(() => import("../containers/AboutPage"));
 const Error = lazy(() => import("../containers/Error"));
-const SponserForm = lazy(() => import("../containers/SponserForm"));
+const SponsorForm = lazy(() => import("../containers/SponsorForm"));
 const RegisteredUser = lazy(() => import("../containers/RegistredUsers"));
 const AllSponsor = lazy(() => import("../containers/AllSponsor"))
 
@@ -58,14 +58,14 @@ export const ApplicationRoutes = ({ path }) => {
               path="/dashboard/allRegistration"
               element={<AllRegistration />}
             />
-            {loggedInUser.role == "admin" && (
-              <><Route path="/dashboard/users" element={<RegisteredUser />} />
-              <Route path="/dashboard/allSponsor" element={<AllSponsor />} /></>
-            )}
+            {/* {loggedInUser.role == "admin" && ( */}
+              <Route path="/dashboard/users" element={<RegisteredUser />} />
+              <Route path="/dashboard/allSponsor" element={<AllSponsor />} />
+            {/* )} */}
           </Route>
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/sponserForm" element={<SponserForm />} />
+          <Route path="/sponsorForm" element={<SponsorForm />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>

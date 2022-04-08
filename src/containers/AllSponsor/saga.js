@@ -6,8 +6,8 @@ import { GetHeaders } from "../../utils";
 
 export function* getSponsorForm(action) {
     
-//   let url = "http://144.91.110.221:4801/api/savesponsor";
-  let url = "http://localhost:4801/api/sponsor";
+  let url = "http://144.91.110.221:4801/api/sponsor";
+  // let url = "http://localhost:4801/api/sponsor";
   try {
     const response = yield call(axios.get, url, GetHeaders());
     yield put({

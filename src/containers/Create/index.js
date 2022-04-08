@@ -29,9 +29,7 @@ let obj = {
   dated: "",
 };
 
-//let value=""
-
-const CreateForm = (props) => {
+  const CreateForm = (props) => {
   const [userInformation, setUserInformation] = useState(obj);
   const [isDisabled, setIsDisabled] = useState(false);
   const [value, setValue] = useState(undefined);
@@ -53,7 +51,6 @@ const CreateForm = (props) => {
     if (location.state) {
       setUserInformation(location.state);
       setIsDisabled(true);
-      
     }
   }, []);
 
@@ -319,9 +316,8 @@ const CreateForm = (props) => {
                     <label for="InputFee" className="form-label">
                       Registration Fee
                     </label>
-                    <p>
-                      {isDisabled ? userInformation.registrationFee : value}
-                    </p>
+                    { isDisabled &&  <input disabled={isDisabled}  value = {  userInformation.registrationFee } /> }
+                   {!isDisabled && value && <input disabled={value}  value = {  value } /> }
                   </div>
                 </div>
               </div>

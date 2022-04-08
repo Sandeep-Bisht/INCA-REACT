@@ -3,7 +3,7 @@ import * as ACTIONS from "./action";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import "../../css/sponser.css";
+import "../../css/sponsor.css";
 
 const SponsorForm = () => {
   const [sponsorForm, setSponsorForm] = useState({
@@ -24,7 +24,7 @@ const SponsorForm = () => {
     if (state.sponsorUserSuccess) {
       // navigate("/dashboard/allRegistration");
       // dispatch(ACTIONS.resetToInitialState()); // it will empty the state
-      console.log("response",state.sponsorUserSuccess);
+      // console.log("response",state.sponsorUserSuccess);
       emptySponsorForm();      
       setGreet(
         "Your details are registered for sponsor(provisionally) and will be reviewed by managing committie. Once confirmed, committie will communicate with you on your registered email. "
@@ -66,28 +66,28 @@ const SponsorForm = () => {
   }
 
   const onInputChange = (e) => {
-    let sponserFormCopy = { ...sponsorForm };
+    let sponsorFormCopy = { ...sponsorForm };
     //console.log(e.target.value)
     if (e.target.value == "Strategic Sponsor") {
-      sponserFormCopy.amount = "7.5 lakh";
-      sponserFormCopy[e.target.name] = e.target.value;
+      sponsorFormCopy.amount = "₹7.5 lakhs (with free registration of 7 delegates & Logo display)";
+      sponsorFormCopy[e.target.name] = e.target.value;
       //  setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value });
     } else if (e.target.value == "Platinium Sponsor") {
-      sponserFormCopy.amount = "5lakh";
-      sponserFormCopy[e.target.name] = e.target.value;
+      sponsorFormCopy.amount = "₹5.0 lakhs (with free registration of 5 delegates & Logo display)";
+      sponsorFormCopy[e.target.name] = e.target.value;
 
       //  setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value });
     } else if (e.target.value == "Gold Sponsor") {
-      sponserFormCopy.valamountues = "3.5lakh";
-      sponserFormCopy[e.target.name] = e.target.value;
+      sponsorFormCopy.valamountues = "₹3.5 lakhs (with free registration of 3 delegates & Logo display)";
+      sponsorFormCopy[e.target.name] = e.target.value;
 
       //  setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value });
     } else {
-      sponserFormCopy.amount = "2.5lakh";
-      sponserFormCopy[e.target.name] = e.target.value;
+      sponsorFormCopy.amount = "₹2.5 lakhs (with free registration of 2 delegates & Logo display)";
+      sponsorFormCopy[e.target.name] = e.target.value;
     }
 
-    setSponsorForm(sponserFormCopy);
+    setSponsorForm(sponsorFormCopy);
 
     //setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value }); // using spread opretar for holding the previous values
   };
@@ -95,7 +95,7 @@ const SponsorForm = () => {
   return (
     <>
       <Header />
-      <section className="sponser-form register-form">
+      <section className="sponsor-form register-form">
         <form
           className="submit-form  pt-0"
           onSubmit={(e) => onSubmitSponsorForm(e)}
@@ -106,7 +106,7 @@ const SponsorForm = () => {
                 <div className="row actual-form-1">
                   <div className="col-md-12">
                     <div className="rgstr">
-                      <p className="common-form-heading ">Become A Sponser</p>
+                      <p className="common-form-heading ">Become A Sponsor</p>
                     </div>
                   </div>
 
@@ -199,18 +199,17 @@ const SponsorForm = () => {
                     </div>
                   </div>
 
-                  {sponsorForm.sponsor !== "" && (
+                  {sponsorForm.sponsorType !== "" && (
                     <>
                       <div className="col-md-12">
                         <div className="form-wrap">
                           <div className="input-wrap">
-                            <input
+                            <textarea
                               type="text"
                               className="form-control "
                               name="amount"
-                              value={amount}
-                              readOnly
-                              //  onChange={(e) => onInputChange(e)}
+                              value={amount}                            
+                              readOnly                              
                             />
                           </div>
                         </div>

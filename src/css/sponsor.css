@@ -1,4 +1,4 @@
-.sponser-form.register-form
+.sponsor-form.register-form
 {
     background-image: url('../images/event-1.jpg.JPEG');
     background-size: cover;
@@ -8,7 +8,7 @@
     padding: 120px 0 40px 0;
     height:auto;
 }
-.sponser-form::before{
+.sponsor-form::before{
     display: block;
     content: '';
     height: 100%;
@@ -50,11 +50,11 @@
 {
     font-size: 40px;
 }
-.sponser-form .form-wrap
+.sponsor-form .form-wrap
 {
     position: relative;
 }
-.sponser-form .actual-form-1 input
+.sponsor-form .actual-form-1 input
 {
     border: 1px solid #dedede;
     border-radius: 5px;
