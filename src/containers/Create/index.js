@@ -26,8 +26,8 @@ let obj = {
   registrationCategory: "",
   registrationFee: "",
   transactionId: "",
-  bank: "",
-  dated: "",
+  // bank: "",
+  // dated: "",
 };
 
 const CreateForm = (props) => {
@@ -41,7 +41,6 @@ const CreateForm = (props) => {
   let navigate = useNavigate();
 
   let userInformationOnchangeHandler = (e) => {
-    console.log(e)
     let userInformationCopy = { ...userInformation };
     userInformationCopy[e.target.id] = e.target.value;
     setUserInformation(userInformationCopy);
@@ -50,14 +49,18 @@ const CreateForm = (props) => {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
-      // console.log("token",decodedToken)
-      setUserInformation(decodedToken.user.user);
-      // console.log("local Storage",decodedToken.user.user.userName)
+      if(decodedToken.user.user.role !== "admin"){
+        let userInformationCopy = { ...userInformation };
+        userInformationCopy.name = decodedToken.user.user.userName
+        userInformationCopy.email = decodedToken.user.user.userEmail
+        userInformationCopy.phoneNumber = decodedToken.user.user.mobileNumber
+        console.log(userInformationCopy, 'userInformationuserInformation')
+        setUserInformation(userInformationCopy);
+      }
     }
   }, []);
 
   useEffect(() => {
-    // console.log(location.state, location.from, 'valueeeee')
     if (location && location.state && location.state.mode === "view") {
       setUserInformation(location.state);
       setIsDisabled(true);
@@ -127,6 +130,7 @@ const CreateForm = (props) => {
     userInformation.registrationFee = value;
     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
   };
+  console.log(userInformation, 'value')
 
   return (
     <div className="main ">
@@ -142,7 +146,7 @@ const CreateForm = (props) => {
                   type="text"
                   onChange={(e) => userInformationOnchangeHandler(e)}
                   className="form-control"
-                  value={userInformation.userName}
+                  value={userInformation.name}
                   disabled={isDisabled}
                   id="name"
                 />
@@ -438,9 +442,9 @@ const CreateForm = (props) => {
                       className="form-select"
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       aria-label="Default select example"
-                      value={userInformation.accomodationCategory}
+                      value={userInformation.accomodationDetail}
                       disabled={isDisabled}
-                      id="accomodationCategory"
+                      id="accomodationDetail"
                     >
                       <option defaultValue hidden>Please Select</option>
                       <option value="1">Hotel</option>
