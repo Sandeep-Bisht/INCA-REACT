@@ -7,7 +7,7 @@ const ForgotPassword = () => {
   return (
     <>
       <Header></Header>
-      <section class="register-form">
+      <section className="register-form">
         <form className="login-form">
           <div className="container">
             <div className="row">

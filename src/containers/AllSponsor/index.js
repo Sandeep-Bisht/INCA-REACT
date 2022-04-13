@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import DataTable from 'react-data-table-component'
 import { useDispatch, useSelector } from "react-redux";
 import * as Loader from "react-loader-spinner";
 import * as ACTIONS from "./action";
@@ -6,8 +7,7 @@ import "../../css/registred.css";
 
 let AllSponsor = () => {
   let [sponsor, setSponsor] = useState([]);
-  let [isLoading, setIsLoading] = useState(true);
-  // let [showModal, setShowModal] = useState(false);
+  let [isLoading, setIsLoading] = useState(true); 
 
   const state = useSelector((state) => state.AllSponsorReducer);
 
@@ -23,59 +23,26 @@ let AllSponsor = () => {
       setSponsor(state.getSponsorUserSuccess);
     }
   }, [state.getSponsorUserSuccess]);
-
-  // let editHandler = (id) => {
-  //   setShowModal(true);
-  // };
-
-  // let createPopModal = () => {
-  //   return (
-  //     <div className="modal d-block " tabindex="-1">
-  //       <div className="modal-dialog">
-  //         <div className="modal-content">
-  //           <div className="modal-header">
-  //             <h5 className="modal-title">Modal title</h5>
-  //             <button type="button" className="btn-close">
-  //               X
-  //             </button>
-  //           </div>
-  //           <div className="modal-body">
-  //             <p>Modal body text goes here.</p>
-  //           </div>
-  //           <div className="modal-footer">
-  //             <button
-  //               type="button"
-  //               className="btn btn-secondary"
-  //               data-bs-dismiss="modal"
-  //               onClick={() => setShowModal(false)}
-  //             >
-  //               Close
-  //             </button>
-  //             <button type="button" className="btn btn-primary">
-  //               Save changes
-  //             </button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
+  
 
   return (
     <>
+    {/* <h1>React Table</h1> */}
       <section className="users-lists">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <table class="table table-hover">
+              <table className="table table-hover">
                 <thead>
                   <tr>
                     <th>S.no.</th>
                     <th>Sponsor Name</th>
                     <th>Mobile No.</th>
                     <th>E-mail</th>
-                    <th>companyName</th>
-                    <th>sponsorType</th>
-                    <th>amount</th>
+                    <th>company Name</th>
+                    <th>Sponsor Type</th>
+                    <th>Amount</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
 
@@ -94,7 +61,7 @@ let AllSponsor = () => {
                   ) : sponsor.length > 0 ? (
                     sponsor.map((item, i) => {
                       return (
-                        <tr>
+                        <tr key={i}>
                           <td>{i + 1}</td>
                           <td>{item.name}</td>
                           <td>{item.mobile}</td>
@@ -103,15 +70,12 @@ let AllSponsor = () => {
                           <td>{item.sponsorType}</td>
                           <td>{item.amount}</td>
                           <td>
-                            <button >
-                              <i class="fa-solid fa-pen"></i>
+                            <button  >
+                              <i className="fa-solid fa-pen"></i>
                             </button>
                             <button className="icons">
                               <i className="fa-solid fa-trash-can icon"></i>
-                            </button>
-                            <button>
-                              <i class="fa-solid fa-eye"></i>
-                            </button>
+                            </button>                            
                           </td>
                         </tr>
                       );

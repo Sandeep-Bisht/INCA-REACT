@@ -5,7 +5,7 @@ import * as Loader from "react-loader-spinner";
 import * as ACTIONS from "./action";
 import "../../css/registred.css";
 
-const AllRegistration = () => {
+  const AllRegistration = () => {
   const navigate = useNavigate();
   let [usersInfo, setUsersInfo] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
@@ -23,10 +23,15 @@ const AllRegistration = () => {
       setUsersInfo(state.userRegistrationInfoSuccess);
     }
   }, [state.userRegistrationInfoSuccess]);
-  console.log(
-    state && state.userRegistrationInfoSuccess,
-    "state && state.userRegistrationInfoSuccessstate && state.userRegistrationInfoSuccess"
-  );
+  // console.log(
+  //   state && state.userRegistrationInfoSuccess,
+  //   "state && state.userRegistrationInfoSuccessstate && state.userRegistrationInfoSuccess"
+  // );
+
+  let redirectToCretePage = (item, from) => {
+    item.mode = from 
+    navigate("/dashboard/create", { state: item } )
+  }
 
   return (
     <>
@@ -70,15 +75,18 @@ const AllRegistration = () => {
                           <td>{item.phoneNumber}</td>
                           <td>{item.email}</td>
                           <td>
-                            <button>
+                            <button
+                              onClick={() => redirectToCretePage(item, "edit")}
+                              
+                              
+                            >
                               <i className="fa-solid fa-pen"></i>
                             </button>
                             <button className="icons">
                               <i className="fa-solid fa-trash-can icon"></i>
                             </button>
                             <button
-                              onClick={() =>
-                                navigate("/dashboard/create", { state: item })
+                              onClick={() => redirectToCretePage(item, "view")                               
                               }
                             >
                               <i className="fa-solid fa-eye"></i>

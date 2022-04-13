@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../../css/footer.css";
 import giksfooterlogo from "../../images/giks-footer-logo.png";
 import { Link } from "react-router-dom";

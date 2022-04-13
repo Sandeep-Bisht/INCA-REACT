@@ -37,15 +37,6 @@ const SponsorForm = () => {
     e.preventDefault();    
     dispatch(ACTIONS.createSponsorUser(sponsorForm))    
 
-    // console.log(sponsorForm, "values");
-    // setSponsorForm({
-    //   name: "",
-    //   email: "",
-    //   mobile: "",
-    //   companyName: "",
-    //   sponsorType: "",
-    // });
-    // emptyMessage();
   };
 
   let emptyMessage = () => {
@@ -186,7 +177,7 @@ const SponsorForm = () => {
                         value={sponsorType}
                         onChange={(e) => onInputChange(e)}
                       >
-                        <option selected hidden>Select Sponsorship Types</option>
+                        <option defaultValue hidden>Select Sponsorship Types</option>
                         <option amount="Strategic Sponsor">
                           Strategic Sponsor
                         </option>
