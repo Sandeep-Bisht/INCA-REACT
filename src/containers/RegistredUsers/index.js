@@ -6,6 +6,7 @@ import "../../css/registred.css";
 
 let RegisteredUser = () => {
   let [users, setUsers] = useState([]);
+  let [password, setPassword] = useState();
   let [isLoading, setIsLoading] = useState(true);
   let [showModal, setShowModal] = useState(false);
 
@@ -28,19 +29,34 @@ let RegisteredUser = () => {
     setShowModal(true);
   };
 
+  const passwordOnChangeHandler = (e) =>
+  {
+    e.preventDefault(); 
+    setPassword(e.target.value);
+  }
+
   let createPopModal = () => {
     return (
-      <div className="modal d-block " tabindex="-1">
-        <div className="modal-dialog">
+      <div className="modal d-block " tabindex="-1" >
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Modal title</h5>
-              <button type="button" className="btn-close">
+              <h5 className="modal-title">Change Password</h5>
+              {/* <button type="button" className="btn-close">
                 X
-              </button>
+              </button> */}
             </div>
             <div className="modal-body">
-              <p>Modal body text goes here.</p>
+            <div className="col-md-12">                
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Enter New Password"
+                  onChange={(e) => passwordOnChangeHandler(e)}
+                  value={password}                  
+                  id="password"
+                />
+              </div>
             </div>
             <div className="modal-footer">
               <button
@@ -52,7 +68,7 @@ let RegisteredUser = () => {
                 Close
               </button>
               <button type="button" className="btn btn-primary">
-                Save changes
+               Change Password
               </button>
             </div>
           </div>
@@ -67,7 +83,7 @@ let RegisteredUser = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <table class="table table-hover">
+              <table className="table table-hover">
                 <thead>
                   <tr>
                     <th>S.no.</th>
@@ -100,13 +116,13 @@ let RegisteredUser = () => {
                           <td>{item.userEmail}</td>
                           <td>
                             <button onClick={() => editHandler(item._id)}>
-                              <i class="fa-solid fa-pen"></i>
+                              <i className="fa-solid fa-pen"></i>
                             </button>
                             <button className="icons">
                               <i className="fa-solid fa-trash-can icon"></i>
                             </button>
                             <button>
-                              <i class="fa-solid fa-eye"></i>
+                              <i className="fa-solid fa-eye"></i>
                             </button>
                           </td>
                         </tr>

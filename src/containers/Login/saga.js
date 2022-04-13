@@ -7,7 +7,8 @@ export function* appLoginHandler(action) {
   //let url = "http://localhost:4801/api/login";
   try {
     const response = yield call(axios.post, url, action.payload);
-    yield put({ type: CONSTANTS.APP_LOGIN_SUCCESS, response: response.data });
+    yield put({ type: CONSTANTS.APP_LOGIN_SUCCESS, 
+    response: response.data });
   } catch (error) {
     yield put({
       type: CONSTANTS.APP_LOGIN_FAILURE,

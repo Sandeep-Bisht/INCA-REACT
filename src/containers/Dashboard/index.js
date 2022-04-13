@@ -102,18 +102,18 @@ const Dashboard = (props) => {
             <div className="row">
               <div className="col-md-3 left-part col-lg-2 px-0">
                 <aside>
-                  <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
+                  <div className="accordion" id="accordionExample">
+                    <div className="accordion-item">
+                      <h2 className="accordion-header" id="headingOne">
                         <button
-                          class="accordion-button common-blue btn mb-0"
+                          className="accordion-button common-blue btn mb-0"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#collapseOne"
                           aria-expanded="true"
                           aria-controls="collapseOne"
                         >
-                          User Registration
+                          Registration
                         </button>
                       </h2>
                       <div
@@ -129,16 +129,16 @@ const Dashboard = (props) => {
                                 className="common-blue btn"
                                 onClick={() => navigate("/dashboard/create")}
                               >
-                                Create User
+                                New Registration
                               </button>
                             </li>
                             {loggedInUser.role == "admin" && (
                               <li>
                                 <button
                                   className="common-blue btn"
-                                  onClick={() => navigate("/dashboard/users")}
+                                  onClick={() => navigate("/dashboard/allRegistration")}
                                 >
-                                  All Users
+                                  All Registration
                                 </button>
                               </li>
                             )}
@@ -155,51 +155,28 @@ const Dashboard = (props) => {
                             className="common-blue btn"
                             onClick={() => navigate("/dashboard/allSponsor")}
                           >
-                            All Sponsor
+                            Sponsors
                           </button>
                         </li>
                       </>
                     )}
-                  </ul>
-                  {loggedInUser.role == "admin" && (
-                    <div class="accordion" id="accordionExample1">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                          <button
-                            class="accordion-button common-blue btn mb-0"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo"
-                            aria-expanded="true"
-                            aria-controls="collapseTwo"
-                          >
-                            All Registred Users
-                          </button>
-                        </h2>
-                        <div
-                          id="collapseTwo"
-                          className="accordion-collapse collapse "
-                          aria-labelledby="headingTwo"
-                          data-bs-parent="#accordionExample1"
-                        >
-                          <div className="accordion-body p-0">
-                            <ul className="ps-0 list-unstyled ">
-                              <li>
+
+                    {loggedInUser.role == "admin" && (
+                      <>
+                        <li>
                                 <button
                                   className="common-blue btn"
                                   onClick={() =>
-                                    navigate("/dashboard/allRegistration")
+                                    navigate("/dashboard/users")
                                   }
                                 >
-                                  All Registred Users
+                                   Users
                                 </button>
                               </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                      </>
+                    )}
+                  </ul>
+                  
                 </aside>
               </div>
               <div className="col-md-9 col-lg-10 right-part">
