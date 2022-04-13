@@ -11,11 +11,11 @@ const About = () => {
   return (
     <>
       <Header></Header>
-      <div class="common-redirect-banner">
-        <div class="container">
-          <div class="row ">
-            <div class="col-md-12 text-center">
-              <p class="common-redirect-banner-title">About Us</p>
+      <div className="common-redirect-banner">
+        <div className="container">
+          <div className="row ">
+            <div className="col-md-12 text-center">
+              <p className="common-redirect-banner-title">About Us</p>
               <nav aria-label="breadcrumb"></nav>
             </div>
           </div>
@@ -110,18 +110,18 @@ const About = () => {
                 ipsam, incidunt cras.
               </p>
 
-              <div class="aim">
-                <h3 class="h2">LEARN FROM THE BEST IN INDUSTRY</h3>
-                <p class="common-para">
+              <div className="aim">
+                <h3 className="h2">LEARN FROM THE BEST IN INDUSTRY</h3>
+                <p className="common-para">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Reiciendis impedit doloribus dolorum nemo nesciunt magni
                   aperiam perspiciatis placeat maxime quo!
                 </p>
               </div>
 
-              <div class="aim">
-                <h3 class="h2">LEARN FROM THE BEST IN INDUSTRY</h3>
-                <p class="common-para">
+              <div className="aim">
+                <h3 className="h2">LEARN FROM THE BEST IN INDUSTRY</h3>
+                <p className="common-para">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Reiciendis impedit doloribus dolorum nemo nesciunt magni
                   aperiam perspiciatis placeat maxime quo!

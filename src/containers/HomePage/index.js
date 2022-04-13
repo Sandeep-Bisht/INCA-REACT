@@ -480,7 +480,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-8 mx-auto text-center">
-              {/* <p class="common-pre-heading">Introduction</p> */}
+              {/* <p className="common-pre-heading">Introduction</p> */}
               <h2 className="common-heading text-white">
                 WHY ATTEND INCA 2022 EVENT?
               </h2>
@@ -619,7 +619,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-8 mx-auto text-center">
-              {/* <p class="common-pre-heading">Introduction</p> */}
+              {/* <p className="common-pre-heading">Introduction</p> */}
               <h2 className="common-heading text-white">
                 WHY ATTEND INCA 2022 EVENT?
               </h2>
@@ -740,7 +740,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
-              <p class="common-pre-heading">Organising committee</p>
+              <p className="common-pre-heading">Organising committee</p>
               <h2 className="common-heading ">OUR ORGANISING COMMITTEE</h2>
               <p className="common-para ">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
@@ -821,7 +821,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
-              <p class="common-pre-heading">Organising committee</p>
+              <p className="common-pre-heading">Organising committee</p>
               <h2 className="common-heading ">OUR ORGANISING COMMITTEE</h2>
               <p className="common-para ">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
@@ -2029,8 +2029,8 @@ const HomePage = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
-              <p class="common-pre-heading">INCA Events</p>
-              <h2 class="common-heading ">
+              <p className="common-pre-heading">INCA Events</p>
+              <h2 className="common-heading ">
                 GALLERY OF PREVIOUS INCA CONFERENCE
               </h2>
             </div>
@@ -2116,8 +2116,8 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
-              <p class="common-pre-heading">register</p>
-              <h2 class="common-heading ">Quick Links</h2>
+              <p className="common-pre-heading">register</p>
+              <h2 className="common-heading ">Quick Links</h2>
               <p className="common-para">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.

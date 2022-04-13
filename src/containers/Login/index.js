@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <>
       <Header></Header>
-      <section class="register-form">
+      <section className="register-form">
         <form className="login-form" onSubmit={(e) => onSubmitLoginRequest(e)}>
           <div className="container">
             <div className="row">

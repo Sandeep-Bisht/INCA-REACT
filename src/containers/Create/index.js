@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { countries } from "../../utils";
 import * as ACTIONS from "./action";
@@ -14,7 +15,7 @@ let obj = {
   country: "",
   phoneNumber: "",
   email: "",
-  conferenceMode: "online",
+  conferenceMode: "",
   participationType: "",
   title: "",
   journeyMode: "",
@@ -29,28 +30,40 @@ let obj = {
   dated: "",
 };
 
-  const CreateForm = (props) => {
+const CreateForm = (props) => {
   const [userInformation, setUserInformation] = useState(obj);
   const [isDisabled, setIsDisabled] = useState(false);
   const [value, setValue] = useState(undefined);
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
 
   let dispatch = useDispatch();
+  let location = useLocation();
+  let navigate = useNavigate();
 
   let userInformationOnchangeHandler = (e) => {
+    console.log(e)
     let userInformationCopy = { ...userInformation };
     userInformationCopy[e.target.id] = e.target.value;
     setUserInformation(userInformationCopy);
   };
 
-  let location = useLocation();
-  let navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      let decodedToken = jwt_decode(localStorage.getItem("token"));
+      // console.log("token",decodedToken)
+      setUserInformation(decodedToken.user.user);
+      // console.log("local Storage",decodedToken.user.user.userName)
+    }
+  }, []);
 
   useEffect(() => {
-    // Setting value in fields on condition
-    if (location.state) {
+    // console.log(location.state, location.from, 'valueeeee')
+    if (location && location.state && location.state.mode === "view") {
       setUserInformation(location.state);
       setIsDisabled(true);
+    } else if (location && location.state && location.state.mode === "edit") {
+      setUserInformation(location.state);
+      setIsDisabled(false);
     }
   }, []);
 
@@ -122,20 +135,20 @@ let obj = {
           <div className="container">
             <div className="row mt-5 mb-5">
               <div className="col-md-4">
-                <label for="InputName" className="form-label">
+                <label htmlFor="InputName" className="form-label">
                   Name
                 </label>
                 <input
                   type="text"
                   onChange={(e) => userInformationOnchangeHandler(e)}
                   className="form-control"
-                  value={userInformation.name}
+                  value={userInformation.userName}
                   disabled={isDisabled}
                   id="name"
                 />
               </div>
               <div className="col-md-4">
-                <label for="InputPosition" className="form-label">
+                <label htmlFor="InputPosition" className="form-label">
                   Designation/Position
                 </label>
                 <input
@@ -148,7 +161,7 @@ let obj = {
                 />
               </div>
               <div className="col-md-4">
-                <label for="InputAffiliation" className="form-label">
+                <label htmlFor="InputAffiliation" className="form-label">
                   Affiliation
                 </label>
                 <input
@@ -164,7 +177,7 @@ let obj = {
 
             <div className="row mb-5">
               <div className="col-md-4">
-                <label for="InputAddress" className="form-label">
+                <label htmlFor="InputAddress" className="form-label">
                   Address
                 </label>
                 <textarea
@@ -179,7 +192,7 @@ let obj = {
               <div className="col-md-4">
                 <div className="row">
                   <div className="col-md-12 mb-4">
-                    <label for="InputPincode" className="form-label">
+                    <label htmlFor="InputPincode" className="form-label">
                       PIN Code
                     </label>
                     <input
@@ -192,7 +205,7 @@ let obj = {
                     />
                   </div>
                   <div className="col-md-12">
-                    <label for="InputPhone" className="form-label">
+                    <label htmlFor="InputPhone" className="form-label">
                       Phone
                     </label>
                     <input
@@ -210,7 +223,7 @@ let obj = {
               <div className="col-md-4">
                 <div className="row">
                   <div className="col-md-12 mb-4">
-                    <label for="SelectCountry" className="form-label">
+                    <label htmlFor="SelectCountry" className="form-label">
                       Country
                     </label>
                     <select
@@ -221,14 +234,14 @@ let obj = {
                       disabled={isDisabled}
                       id="country"
                     >
-                      <option selected>Please Select</option>
+                      <option defaultValue hidden>Please Select</option>
                       {countries.map((country) => (
                         <option value={country}>{country}</option>
                       ))}
                     </select>
                   </div>
                   <div className="col-md-12">
-                    <label for="InputEmail" className="form-label">
+                    <label htmlFor="InputEmail" className="form-label">
                       Email
                     </label>
                     <input
@@ -248,7 +261,7 @@ let obj = {
               <div className="col-md-4">
                 <div className="row">
                   <div className="col-md-12 mb-4">
-                    <label for="SelectMode" className="form-label">
+                    <label htmlFor="SelectMode" className="form-label">
                       Mode of attending the conference
                     </label>
                     <select
@@ -259,12 +272,15 @@ let obj = {
                       disabled={isDisabled}
                       id="conferenceMode"
                     >
+                      <option defaultValue hidden>
+                        Please Select The Mode
+                      </option>
                       <option value="online">Online</option>
                       <option value="offline">Offline</option>
                     </select>
                   </div>
                   <div className="col-md-12">
-                    <label for="SelectCategory" className="form-label">
+                    <label htmlFor="SelectCategory" className="form-label">
                       Registration Category
                     </label>
                     <select
@@ -275,7 +291,9 @@ let obj = {
                       disabled={isDisabled}
                       id="registrationCategory"
                     >
-                      <option selected>Please Select</option>
+                      <option defaultValue hidden>
+                        Please Select
+                      </option>
                       <option value="Life Members">Life Members</option>
                       <option value="For Students (Indian) ">
                         For Students (Indian){" "}
@@ -291,7 +309,7 @@ let obj = {
               <div className="col-md-4">
                 <div className="row">
                   <div className="col-md-12 mb-4">
-                    <label for="SelectWish" className="form-label">
+                    <label htmlFor="SelectWish" className="form-label">
                       I wish to participate in the conference for
                     </label>
                     <select
@@ -302,7 +320,9 @@ let obj = {
                       disabled={isDisabled}
                       id="participationType"
                     >
-                      <option selected>Please Select</option>
+                      <option defaultValue hidden>
+                        Please Select
+                      </option>
                       <option value="Research Paper Presentation">
                         Research Paper Presentation
                       </option>
@@ -313,16 +333,30 @@ let obj = {
                     </select>
                   </div>
                   <div className="col-md-12">
-                    <label for="InputFee" className="form-label">
-                      Registration Fee
-                    </label>
-                    { isDisabled &&  <input disabled={isDisabled}  value = {  userInformation.registrationFee } /> }
-                   {!isDisabled && value && <input disabled={value}  value = {  value } /> }
+                    {isDisabled && (
+                      <>
+                        <label htmlFor="InputFee" className="form-label">
+                          Registration Fee
+                        </label>
+                        <input
+                          disabled={isDisabled}
+                          value={userInformation.registrationFee}
+                        />{" "}
+                      </>
+                    )}
+                    {!isDisabled && value && (
+                      <>
+                        <label htmlFor="InputFee" className="form-label">
+                          Registration Fee
+                        </label>{" "}
+                        <input disabled={value} value={value} className="form-control"/>{" "}
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
               <div className="col-md-4">
-                <label for="InputTitle" className="form-label">
+                <label htmlFor="InputTitle" className="form-label">
                   Title of the paper/poster
                 </label>
                 <textarea
@@ -338,7 +372,7 @@ let obj = {
               <>
                 <div className="row mb-5">
                   <div className="col-md-4">
-                    <label for="InputArrival" className="form-label">
+                    <label htmlFor="InputArrival" className="form-label">
                       Date of Arrival
                     </label>
                     <input
@@ -351,7 +385,7 @@ let obj = {
                     />
                   </div>
                   <div className="col-md-4">
-                    <label for="InputDeparture" className="form-label">
+                    <label htmlFor="InputDeparture" className="form-label">
                       Date of Departure
                     </label>
                     <input
@@ -364,7 +398,7 @@ let obj = {
                     />
                   </div>
                   <div className="col-md-4">
-                    <label for="SelectJourney" className="form-label">
+                    <label htmlFor="SelectJourney" className="form-label">
                       Journey Mode
                     </label>
                     <select
@@ -375,7 +409,7 @@ let obj = {
                       value={userInformation.journeyMode}
                       id="journeyMode"
                     >
-                      <option selected>Please Select</option>
+                      <option defaultValue hidden>Please Select</option>
                       <option value="1">Cab</option>
                       <option value="2">Train</option>
                       <option value="3">Flight</option>
@@ -384,7 +418,7 @@ let obj = {
                 </div>
                 <div className="row">
                   <div className="col-md-4">
-                    <label for="InputAccompanying" className="form-label">
+                    <label htmlFor="InputAccompanying" className="form-label">
                       Accompanying Person, if any
                     </label>
                     <input
@@ -397,7 +431,7 @@ let obj = {
                     />
                   </div>
                   <div className="col-md-4">
-                    <label for="SelectAccomodation" className="form-label">
+                    <label htmlFor="SelectAccomodation" className="form-label">
                       Accomodation details
                     </label>
                     <select
@@ -408,7 +442,7 @@ let obj = {
                       disabled={isDisabled}
                       id="accomodationCategory"
                     >
-                      <option selected>Please Select</option>
+                      <option defaultValue hidden>Please Select</option>
                       <option value="1">Hotel</option>
                       <option value="2">Hostel</option>
                       <option value="3">Guest House</option>
@@ -420,7 +454,7 @@ let obj = {
 
             <div className="row mb-5 d-none">
               <div className="col-md-4">
-                <label for="SelectCategory" className="form-label">
+                <label htmlFor="SelectCategory" className="form-label">
                   Registration Category
                 </label>
                 <select
@@ -439,7 +473,7 @@ let obj = {
                 </select>
               </div>
               <div className="col-md-4">
-                <label for="InputFee" className="form-label">
+                <label htmlFor="InputFee" className="form-label">
                   Registration Fee
                 </label>
                 <input

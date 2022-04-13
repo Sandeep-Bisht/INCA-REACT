@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 
 export const Header = () => {
-  useEffect(() => {
+  useEffect(() => {   
+    
     let nav = document.querySelector(".header-wrapper");
     let link = document.querySelector(".nav-link");
     window.onscroll = function () {
+      
       if (document.documentElement.scrollTop > 20) {
         nav.classList.add("header-scrolled");
         link.classList.add("scrolled-link");
