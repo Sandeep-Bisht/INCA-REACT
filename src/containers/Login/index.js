@@ -24,6 +24,7 @@ const Login = () => {
 
   useEffect(() => {
     if (state && state.userLoginSuccess) {
+      console.log(state && state.userLoginSuccess, 'state && state.userLoginSuccess')
       localStorage.setItem("token", state.userLoginSuccess.token);
       navigate("/dashboard");
       dispatch(ACTIONS.resetToInitialState());

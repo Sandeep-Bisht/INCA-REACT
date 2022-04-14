@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import DataTable from 'react-data-table-component'
+// import DataTable from 'react-data-table-component'
 import { useDispatch, useSelector } from "react-redux";
 import * as Loader from "react-loader-spinner";
 import * as ACTIONS from "./action";
+
 import "../../css/registred.css";
 
 let AllSponsor = () => {

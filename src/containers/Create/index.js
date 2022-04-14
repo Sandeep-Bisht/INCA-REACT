@@ -26,15 +26,15 @@ let obj = {
   registrationCategory: "",
   registrationFee: "",
   transactionId: "",
-  // bank: "",
-  // dated: "",
 };
 
 const CreateForm = (props) => {
   const [userInformation, setUserInformation] = useState(obj);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [message, setMessage] = useState('')
   const [value, setValue] = useState(undefined);
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
+  
 
   let dispatch = useDispatch();
   let location = useLocation();
@@ -54,8 +54,9 @@ const CreateForm = (props) => {
         userInformationCopy.name = decodedToken.user.user.userName
         userInformationCopy.email = decodedToken.user.user.userEmail
         userInformationCopy.phoneNumber = decodedToken.user.user.mobileNumber
-        console.log(userInformationCopy, 'userInformationuserInformation')
+        userInformationCopy.userId = decodedToken.user.user._id
         setUserInformation(userInformationCopy);
+       // setIsDisabled(true);
       }
     }
   }, []);
@@ -120,17 +121,28 @@ const CreateForm = (props) => {
 
   useEffect(() => {
     if (state.saveRegisterUserInfoSuccess) {
-      navigate("/dashboard/allRegistration");
-      dispatch(ACTIONS.resetToInitialState());
+      if (localStorage.getItem("token")) {
+        let decodedToken = jwt_decode(localStorage.getItem("token"));
+        if(decodedToken.user.user.role !== "admin"){
+          setMessage("your information saved successfully")
+        }
+        else{
+          navigate("/dashboard/allRegistration");
+          dispatch(ACTIONS.resetToInitialState())
+        }
+      }
+     ;
     }
   }, [state.saveRegisterUserInfoSuccess]);
 
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
     userInformation.registrationFee = value;
+    console.log(userInformation, 'vaue')
     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
   };
-  console.log(userInformation, 'value')
+
+
 
   return (
     <div className="main ">
@@ -489,7 +501,7 @@ const CreateForm = (props) => {
                 />
               </div>
             </div>
-
+              {message && <p>{message}</p>}
             <div className="row">
               <div className="col-md-12 text-end">
                 <button className="mx-3" type="submit">
