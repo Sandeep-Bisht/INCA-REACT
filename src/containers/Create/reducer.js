@@ -3,6 +3,20 @@ export const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+
+    case CONSTANTS.GET_LOGGEDID_USER_SUCCESS :
+      return {
+        ...state,
+        loggedInUserSuccess: action.response,
+      }
+
+      case CONSTANTS.GET_LOGGEDID_USER_FAILURE :
+        return {
+          ...state,
+          loggedInUserFailure: action.response, 
+        }
+
+
     case CONSTANTS.SAVE_REGISTER_USER_DATA_SUCCESS:
       return {
         ...state,
