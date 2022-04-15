@@ -83,9 +83,15 @@ const SponsorForm = () => {
     //setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value }); // using spread opretar for holding the previous values
   };
 
+ 
+
+
+
   return (
     <>
-      <Header />
+      <Header /> 
+
+
       <section className="sponsor-form register-form">
         <form
           className="submit-form  pt-0"
