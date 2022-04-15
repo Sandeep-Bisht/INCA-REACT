@@ -202,8 +202,8 @@ const Dashboard = (props) => {
                
               </div>
               <div className="col-md-9 col-lg-10 right-part">
-              {location.pathname === '/dashboard' && <Card data = {data} />}
-              {location.pathname === "/dashboard" && <PieChart data ={data} />}
+              {location.pathname === '/dashboard' &&  <Card data = {data} />}
+              {location.pathname === "/dashboard" &&  <PieChart data ={data} />}
                 <Outlet />
               </div>
             </div>

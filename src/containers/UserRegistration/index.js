@@ -38,7 +38,7 @@ const UserRegistration = () => {
   };
 
   let registrationSubmitRequest = (e) => {
-    e.prevent.default()
+    e.preventDefault();
     dispatch(ACTIONS.appRegistration(registrationPayload));
   };
 
@@ -59,7 +59,7 @@ const UserRegistration = () => {
     <>
       <Header></Header>
       <section className="register-form">
-        <form className="login-form">
+        <form className="login-form" onSubmit={(e) => registrationSubmitRequest(e)}>
           <div className="container">
             <div className="row">
               <div className="col-md-6 mx-auto form-wrapper-1">
@@ -72,7 +72,7 @@ const UserRegistration = () => {
 
                   <div className="col-md-12">
                     <div className="form-wrap">
-                      <div className="input-wrap" onSubmit={(e) => registrationSubmitRequest(e)}>
+                      <div className="input-wrap" >
                         {/* <input type="text" required /> */}
                         <input
                           type="text"

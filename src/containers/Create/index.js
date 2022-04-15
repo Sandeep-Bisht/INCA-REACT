@@ -52,7 +52,6 @@ const CreateForm = (props) => {
         userInformationCopy.userId = decodedToken.user.user._id;
         setUserInformation(userInformationCopy);
         dispatch(ACTIONS.getLoggedInUser(logedInId));
-        
       }
     }
   }, []);
@@ -90,7 +89,7 @@ const CreateForm = (props) => {
   }, [state.updateUserInfoSuccess]);
 
   useEffect(() => {
-    if (state && state.loggedInUserSuccess) {
+    if (state && state.loggedInUserSuccess && state.loggedInUserSuccess.length > 0) {
       setIsDisabled(true);
       setIsHidden(true);
       setUserInformation(state.loggedInUserSuccess[0]);
@@ -162,15 +161,14 @@ const CreateForm = (props) => {
 
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
-    console.log("I am from Save")
     userInformation.registrationFee = value;
     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
   };
 
   let updateRegisterUserInfo =(e) => {
-    let id = location.state._id
     e.preventDefault();
-    console.log("I am from Update",userInformation)
+    let id = location.state._id
+    userInformation.registrationFee = value;
     dispatch(ACTIONS.updateRegistredUser(userInformation,id));
   }
 
