@@ -12,3 +12,18 @@ export function resetToInitialState() {
     type: CONSTANTS.RESET_TO_INITIAL_STATE,
   };
 }
+
+export const getLoggedInUser = (id) => {
+  return {
+    type: CONSTANTS.GET_LOGGEDID_USER,
+    id,
+  }
+}
+
+export const updateRegistredUser = (payload) => {
+  return {
+    type: CONSTANTS.UPDATE_REGISTERED_USER,
+    payload,
+  }
+
+}
