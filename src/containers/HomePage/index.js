@@ -52,30 +52,30 @@ const HomePage = () => {
     setShowEvents(val);
   };
 
-  // useEffect(() => {
-  //   var dest = new Date("nov 1, 2022 00:00:00").getTime();
+  useEffect(() => {
+    var dest = new Date("nov 1, 2022 00:00:00").getTime();
 
-  //   var x = setInterval(function () {
+    var x = setInterval(function () {
 
-  //     var now = new Date().getTime();
+      var now = new Date().getTime();
 
-  //     var diff = dest - now;
+      var diff = dest - now;
 
-  //     var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-  //     var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-  //     var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-  //     var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-  //     document.getElementById("day").innerHTML = days;
-  //     document.getElementById("hours").innerHTML = hours;
-  //     document.getElementById("minutes").innerHTML = minutes;
-  //     document.getElementById("seconds").innerHTML = seconds;
-  //   }, 1000);
+      document.getElementById("day").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+    }, 1000);
 
-  // }, [])
+  }, [])
 
   const navigation = useNavigate();
 
