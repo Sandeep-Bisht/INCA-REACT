@@ -20,6 +20,24 @@ export function* saveRegisterUserData(action) {
   }
 }
 
+export function* getLoggedInUser(action) {
+  let url = `http://localhost:4801/api/getsaveregistreduserinfo/${action.id}`;
+  try {
+    const response = yield call(axios.get, url, GetHeaders());
+    console.log(response, 'response')
+    yield put({
+      type: CONSTANTS.GET_LOGGEDID_USER_SUCCESS,
+      response: response.data,
+    });
+  } catch (error) {
+    yield put({
+      type: CONSTANTS.GET_LOGGEDID_USER_FAILURE,
+      error: error.response.data,
+    });
+  }
+}
+
 export default function* CreateSaga() {
   yield takeLatest(CONSTANTS.SAVE_REGISTER_USER_DATA, saveRegisterUserData);
+  yield takeLatest(CONSTANTS.GET_LOGGEDID_USER, getLoggedInUser);
 }
