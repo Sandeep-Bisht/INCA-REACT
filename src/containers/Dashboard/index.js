@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import {PieChart} from '../../components/PieChart'
+import {Card} from '../../components/Card'
 import Dashlogo from "../../images/logo.png";
 import { Outlet } from "react-router-dom";
 import User from "../../images/user-profile.png";
@@ -16,6 +18,10 @@ const Dashboard = (props) => {
       setLoggedInUser(decodedToken.user.user);
     }
   }, []);
+
+  console.log(useLocation(), 'navigate')
+
+  const location = useLocation()
 
   let logoutUser = () => {
     localStorage.removeItem("token");
@@ -178,8 +184,11 @@ const Dashboard = (props) => {
                   </ul>
                   
                 </aside>
+               
               </div>
               <div className="col-md-9 col-lg-10 right-part">
+              {location.pathname === '/dashboard' && <Card />}
+              {location.pathname === "/dashboard" && <PieChart />}
                 <Outlet />
               </div>
             </div>
