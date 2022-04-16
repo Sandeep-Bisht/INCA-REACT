@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import {PieChart} from '../../components/PieChart'
+import * as ACTIONS from './action'
 import {Card} from '../../components/Card'
 import Dashlogo from "../../images/logo.png";
 import { Outlet } from "react-router-dom";
@@ -11,6 +13,11 @@ import "../../css/dashboard.css";
 const Dashboard = (props) => {
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState({});
+  let [data, setData] = useState([])
+
+  const state = useSelector((state) => state.DashboardCounterReducer);
+
+  let dispatch = useDispatch()
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -19,7 +26,16 @@ const Dashboard = (props) => {
     }
   }, []);
 
-  console.log(useLocation(), 'navigate')
+  useEffect(() => {
+    dispatch(ACTIONS.getUserSCounters())
+  }, [])
+
+  useEffect(() => {
+    if(state && state.counterSuccess){
+      setData(state.counterSuccess.response)
+    }
+  }, [state.counterSuccess])
+
 
   const location = useLocation()
 
@@ -186,8 +202,8 @@ const Dashboard = (props) => {
                
               </div>
               <div className="col-md-9 col-lg-10 right-part">
-              {location.pathname === '/dashboard' && <Card />}
-              {location.pathname === "/dashboard" && <PieChart />}
+              {location.pathname === '/dashboard' &&  <Card data = {data} />}
+              {location.pathname === "/dashboard" &&  <PieChart data ={data} />}
                 <Outlet />
               </div>
             </div>

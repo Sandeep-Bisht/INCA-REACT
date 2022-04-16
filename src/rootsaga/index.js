@@ -7,6 +7,7 @@ import  GetUserRegistrationInfoSaga from '../containers/AllRegistration/saga'
 import CreateSaga from "../containers/Create/saga"
 import SponsorSaga from '../containers/SponsorForm/saga'
 import AllSponsorSaga from "../containers/AllSponsor/saga";
+import Countersaga from '../containers/Dashboard/saga'
 
 export function* rootSaga () {
     yield all([
@@ -16,6 +17,7 @@ export function* rootSaga () {
         fork(GetUserRegistrationInfoSaga),
         fork(CreateSaga),
         fork(SponsorSaga),
-        fork(AllSponsorSaga)
+        fork(AllSponsorSaga),
+        fork(Countersaga)
     ]);
 }

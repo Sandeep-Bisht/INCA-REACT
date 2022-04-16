@@ -52,7 +52,6 @@ const CreateForm = (props) => {
         userInformationCopy.userId = decodedToken.user.user._id;
         setUserInformation(userInformationCopy);
         dispatch(ACTIONS.getLoggedInUser(logedInId));
-        // setIsDisabled(true);
       }
     }
   }, []);
@@ -76,20 +75,37 @@ const CreateForm = (props) => {
   }, [state.saveRegisterUserInfoSuccess]);
 
   useEffect(() => {
-    if (state && state.loggedInUserSuccess) {
+    if (state.updateUserInfoSuccess) {
+      // if (localStorage.getItem("token")) {
+      //   let decodedToken = jwt_decode(localStorage.getItem("token"));
+      //   if (decodedToken.user.user.role !== "admin") {
+      //     setMessage("your information saved successfully");
+      //   } else {
+          navigate("/dashboard/allRegistration");
+           dispatch(ACTIONS.resetToInitialState());
+        // }
+      // }
+    }
+  }, [state.updateUserInfoSuccess]);
+
+  useEffect(() => {
+    if (state && state.loggedInUserSuccess && state.loggedInUserSuccess.length > 0) {
       setIsDisabled(true);
       setIsHidden(true);
       setUserInformation(state.loggedInUserSuccess[0]);
     }
   }, [state.loggedInUserSuccess]);
 
-  useEffect(() => {
+  useEffect(() => {    
+    //  let LoggedInId = location.state._id
+    //  console.log("i am logged in user", LoggedInId)
     if (location && location.state && location.state.mode === "view") {
       setUserInformation(location.state);
       setIsDisabled(true);
     } else if (location && location.state && location.state.mode === "edit") {
       setUserInformation(location.state);
       setIsDisabled(false);
+      // setIsHidden(true);
     }
   }, []);
 
@@ -149,10 +165,17 @@ const CreateForm = (props) => {
     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
   };
 
+  let updateRegisterUserInfo =(e) => {
+    e.preventDefault();
+    let id = location.state._id
+    userInformation.registrationFee = value;
+    dispatch(ACTIONS.updateRegistredUser(userInformation,id));
+  }
+
   return (
     <div className="main ">
       <div className="form-section">
-        <form onSubmit={(e) => submitRegisterUserInformation(e)}>
+        <form onSubmit={(e) => { (location && location.state && location.state.mode === "edit") ? updateRegisterUserInfo(e) : submitRegisterUserInformation(e) }}>
           <div className="container">
             <div className="row mt-5 mb-5">
               <div className="col-md-4">
@@ -531,14 +554,21 @@ const CreateForm = (props) => {
               </div>
             </div>
             {message && <p>{message}</p>}
+
             <div className="row">
-              <div className="col-md-12 text-end">
-                <button className="mx-3" type="submit" hidden={isHidden}>
-                  Save
-                </button>
-                <button className="mx-3" type="submit" hidden={isHidden}>
-                  Update
-                </button>
+              <div className="col-md-12 text-end">            
+                  
+                  <button className="mx-3" type="submit" hidden={isHidden}>
+                  { (location && location.state && location.state.mode === "edit")  ?
+
+                    "Update"                  
+                    : 
+                     "Save"
+                  }                   
+                  
+                </button>            
+                
+                
                 <button>Save & Pay</button>
               </div>
             </div>

@@ -16,6 +16,18 @@ export default (state = INITIAL_STATE, action) => {
           loggedInUserFailure: action.response, 
         }
 
+      case CONSTANTS.UPDATE_REGISTERED_USER_SUCCESS :
+        return {
+          ...state,
+          updateUserInfoSuccess : action.response,
+        }
+
+        case CONSTANTS.UPDATE_REGISTERED_USER_FAILURE :
+        return {
+          ...state,
+          updateUserInfoFailure : action.response,
+        }
+
 
     case CONSTANTS.SAVE_REGISTER_USER_DATA_SUCCESS:
       return {
