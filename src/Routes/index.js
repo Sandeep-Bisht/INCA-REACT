@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import * as Loader from "react-loader-spinner";
 
+
 const HomePage = lazy(() => import("../containers/HomePage"));
 const UserRegistration = lazy(() => import("../containers/UserRegistration"));
 const Login = lazy(() => import("../containers/Login"));
@@ -15,7 +16,8 @@ const About = lazy(() => import("../containers/AboutPage"));
 const Error = lazy(() => import("../containers/Error"));
 const SponsorForm = lazy(() => import("../containers/SponsorForm"));
 const RegisteredUser = lazy(() => import("../containers/RegistredUsers"));
-const AllSponsor = lazy(() => import("../containers/AllSponsor"))
+const AllSponsor = lazy(() => import("../containers/AllSponsor"));
+const AbstractUpload = lazy(() => import("../containers/AbstractUpload"))
 
 export const ApplicationRoutes = ({ path }) => {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -61,6 +63,7 @@ export const ApplicationRoutes = ({ path }) => {
             {/* {loggedInUser.role == "admin" && ( */}
               <Route path="/dashboard/users" element={<RegisteredUser />} />
               <Route path="/dashboard/allSponsor" element={<AllSponsor />} />
+              <Route path="/dashboard/upload" element={<AbstractUpload />} />
             {/* )} */}
           </Route>
           <Route path="/contact" element={<Contact />} />
