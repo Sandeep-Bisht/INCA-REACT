@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
-import {PieChart} from '../../components/PieChart'
-import * as ACTIONS from './action'
-import {Card} from '../../components/Card'
+import * as ACTIONS from './action';
+import { Card } from '../../components/Card'
+import { PieChart } from '../../components/PieChart'
 import Dashlogo from "../../images/logo.png";
 import { Outlet } from "react-router-dom";
 import User from "../../images/user-profile.png";
@@ -185,21 +185,26 @@ const Dashboard = (props) => {
                     {loggedInUser.role == "admin" && (
                       <>
                         <li>
-                                <button
-                                  className="common-blue btn"
-                                  onClick={() =>
-                                    navigate("/dashboard/users")
-                                  }
-                                >
-                                   Users
-                                </button>
-                              </li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() =>
+                              navigate("/dashboard/users")
+                            }
+                          >
+                            Users
+                          </button>
+                        </li>
                       </>
                     )}
+                    <li>
+                      <button className="common-blue btn" onClick={() =>
+                        navigate("/dashboard/upload")
+                      }>Abstract</button>
+                    </li>
                   </ul>
-                  
+
                 </aside>
-               
+
               </div>
               <div className="col-md-9 col-lg-10 right-part">
               {location.pathname === '/dashboard' &&  <Card data = {data} />}
