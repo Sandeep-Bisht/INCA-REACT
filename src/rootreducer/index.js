@@ -7,6 +7,7 @@
  import SponsorUserReducer from '../containers/SponsorForm/reducer'
  import AllSponsorReducer from '../containers/AllSponsor/reducer'
  import DashboardCounterReducer from '../containers/Dashboard/reducer'
+ import AbstractUploadReducer from '../containers/AbstractUpload/reducer'
 
 const rootReducer = combineReducers({
     RegisterReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
     RegisteredUserInfoReducer,
     SponsorUserReducer,
     AllSponsorReducer,
-    DashboardCounterReducer
+    DashboardCounterReducer,
+    AbstractUploadReducer
 });
 export default rootReducer;

@@ -1,20 +1,57 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import * as ACTIONS from './action'
+
+let obj = {
+  abstractPaperName:"",
+  abstractPaperDescription:"",
+  mimetype:"",
+  abstractFileUrl:""
+}
 
 const AbstractUpload = () => {
-  const [abstract, setAbstract] = useState({});
+  const [abstractDocumentPayload, setAbstractDocumentPayload] = useState(obj);
 
-  const paperUploadHandler = (e) => {
-    e.preventDefault();
+  const state = useSelector((state) => state.AbstractUploadReducer);
+  let dispatch = useDispatch()
+  
+ 
+  useEffect(() => {
+    if(state.abstractFileUploadSuccess && state.abstractFileUploadSuccess.data){
+      let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
+      abstractDocumentPayloadCopy.mimetype = state.abstractFileUploadSuccess.data.mimetype;
+      abstractDocumentPayloadCopy.abstractFileUrl = state.abstractFileUploadSuccess.data.filename;
+      setAbstractDocumentPayload(abstractDocumentPayloadCopy)
+    }
+  }, [state.abstractFileUploadSuccess])
+
+  
+
+  const abstarctOnChangeHandler = (e) => {
+    let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
+        if(e.target.id == 'file'){
+          let formData = new FormData();
+          formData.append('file', e.target.files[0])
+          dispatch(ACTIONS.abstratcFileUpload(formData))
+        }
+        else {
+          abstractDocumentPayloadCopy[e.target.id] = e.target.value
+          setAbstractDocumentPayload(abstractDocumentPayloadCopy)
+        }
   };
 
-  const onChangeHandler = (e) => {
-    let abstractCopy = { ...abstract };
-  };
+  console.log(abstractDocumentPayload, 'abstrapayload')
+
+  let abstractPaperSubmitHandler = (e) => {
+      e.preventDefault();
+      dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
+  }
 
   return (
     <>
       <section className="abstract-form">
-        <form onSubmit={(e) => paperUploadHandler(e)}>
+        <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
           <div className="container">
             <div className="row">
               <div className="col-md-12">
@@ -23,10 +60,10 @@ const AbstractUpload = () => {
                     Paper Name
                   </label>
                   <input
-                    onChange={(e) => onChangeHandler(e)}
+                    onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
-                    id="inputName"
+                    id="abstractPaperName"
                   />
                 </div>
               </div>
@@ -36,10 +73,12 @@ const AbstractUpload = () => {
                     Abstract Upload
                   </label>
                   <input
+
                     type="file"
                     className="form-control"
+                    onChange={(e) => abstarctOnChangeHandler(e)}
                     aria-label="file example"
-                    id="inputFile"
+                    id="file"
                     required
                   />
                 </div>
@@ -50,9 +89,9 @@ const AbstractUpload = () => {
                     Brief Description
                   </label>
                   <textarea
-                    onChange={(e) => onChangeHandler(e)}
+                    onChange={(e) => abstarctOnChangeHandler(e)}
                     className="form-control"
-                    id="validationTextarea"
+                    id="abstractPaperDescription"
                     placeholder="Required description.."
                     required
                   ></textarea>
