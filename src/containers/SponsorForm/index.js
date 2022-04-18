@@ -3,6 +3,7 @@ import * as ACTIONS from "./action";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { minMaxLength, validEmail} from "validations"
 import "../../css/sponsor.css";
 
 const SponsorForm = () => {
@@ -15,16 +16,15 @@ const SponsorForm = () => {
     amount: "",
   });
 
+  const [formErrors, setFormErrors] = useState({})
+  const [isSubmit, setIsSubmit] = useState(false)
   const dispatch = useDispatch();
   const state = useSelector((state) => state.SponsorUserReducer);
   const [greet, setGreet] = useState();
   const { name, email, mobile, companyName, sponsorType, amount } = sponsorForm;
 
   useEffect(() => {
-    if (state.sponsorUserSuccess) {
-      // navigate("/dashboard/allRegistration");
-      // dispatch(ACTIONS.resetToInitialState()); // it will empty the state
-      // console.log("response",state.sponsorUserSuccess);
+    if (state.sponsorUserSuccess) {    
       emptySponsorForm();      
       setGreet(
         "Your details are registered for sponsor(provisionally) and will be reviewed by managing committie. Once confirmed, committie will communicate with you on your registered email. "
@@ -33,11 +33,6 @@ const SponsorForm = () => {
     }
   }, [state.sponsorUserSuccess]);
 
-  const onSubmitSponsorForm = (e) => {
-    e.preventDefault();    
-    dispatch(ACTIONS.createSponsorUser(sponsorForm))    
-
-  };
 
   let emptyMessage = () => {
     setTimeout(() => {
@@ -55,9 +50,82 @@ const SponsorForm = () => {
       amount:""
     })
   }
+  const onSubmitSponsorForm = (e) => {
+    e.preventDefault();   
+    // setFormErrors(validator(sponsorForm)) 
+    setIsSubmit(true)
+    dispatch(ACTIONS.createSponsorUser(sponsorForm))    
+
+  };
+
+  // useEffect (() =>{
+  //   if(Object.keys(formErrors).length === 0 && isSubmit) {
+
+  //   }
+
+  // },[formErrors])
+
+  // const validator = (values) =>{
+  //   const errors = {}
+  //   const regex = "^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$";
+  //   if(!values.name) {
+  //     errors.name = "Name is Required!"
+  //   }
+  //   if(!values.email) {
+  //     errors.email = "Email is Required!"
+  //   }
+  //   if(!values.mobile) {
+  //     errors.mobile = "Mobile is Required!"
+  //   }
+  //   if(!values.companyName) {
+  //     errors.companyName = "Company Name is Required!"
+  //   }
+  //   if(!values.sponsorType) {
+  //     errors.sponsorType = "Sponsor Type is Required!"
+  //   }
+  //   return errors;
+    
+  // }
 
   const onInputChange = (e) => {
+    // const { name, email, mobile, companyName, sponsorType, amount } = e.target;
     let sponsorFormCopy = { ...sponsorForm };
+    const { name, value} = e.target;
+    let formErrors = this.state.formErrors;
+    switch (name) {
+      case 'name':
+        sponsorFormCopy({ ...sponsorForm, firstName: value });                  
+        break;
+     
+      case 'email':
+        sponsorFormCopy({ ...sponsorForm, email: value });                  
+        break;
+
+        case 'name':
+          sponsorFormCopy({ ...sponsorForm, firstName: value });                  
+        break;
+      
+      
+      default:
+        break;
+    }
+
+     function minMaxLength(text, minLength, maxLength) {
+      let result = !text || text.length < minLength;
+      if(maxLength)
+          result = result || text.length < minLength;
+      return result;
+  }
+   
+   function validEmail(text) {
+      const regex = RegExp(
+          /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+        );
+       
+      return !regex.test(text);
+  }
+
+    // let sponsorFormCopy = { ...sponsorForm };
     //console.log(e.target.value)
     if (e.target.value == "Strategic Sponsor") {
       sponsorFormCopy.amount = "₹7.5 lakhs (with free registration of 7 delegates & Logo display)";
@@ -82,11 +150,7 @@ const SponsorForm = () => {
 
     //setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value }); // using spread opretar for holding the previous values
   };
-
- 
-
-
-
+  
   return (
     <>
       <Header /> 
@@ -114,14 +178,14 @@ const SponsorForm = () => {
                           type="text"
                           className="form-control "
                           name="name"
-                          value={name}
-                          required
+                          value={name}                          
                           placeholder="Your Name.."
                           onChange={(e) => onInputChange(e)}
                         />
                       </div>
                     </div>
                   </div>
+                  <p style={{color :"red"}}>{ name }</p>
 
                   <div className="col-md-12">
                     <div className="form-wrap">
@@ -131,13 +195,15 @@ const SponsorForm = () => {
                           className="form-control "
                           name="email"
                           value={email}
-                          required
+                          
                           placeholder="Your Email.."
                           onChange={(e) => onInputChange(e)}
                         />
                       </div>
                     </div>
                   </div>
+
+                  <p style={{color :"red"}}>{ email }</p>
 
                   <div className="col-md-12">
                     <div className="form-wrap">
@@ -148,7 +214,7 @@ const SponsorForm = () => {
                           maxLength="12"
                           name="mobile"
                           value={mobile}
-                          required
+                          required                          
                           placeholder="Your Mobile Number.."
                           onChange={(e) => onInputChange(e)}
                         />
@@ -156,16 +222,16 @@ const SponsorForm = () => {
                     </div>
                   </div>
 
+                  <p style={{color :"red"}}>{ mobile }</p>
+
                   <div className="col-md-12">
                     <div className="form-wrap">
                       <div className="input-wrap">
                         <input
                           type="text"
-                          className="form-control "
-                          maxLength="10"
+                          className="form-control"                          
                           name="companyName"
-                          value={companyName}
-                          required
+                          value={companyName}                          
                           placeholder="Your Company Name.."
                           onChange={(e) => onInputChange(e)}
                         />
@@ -173,13 +239,14 @@ const SponsorForm = () => {
                     </div>
                   </div>
 
+                  <p style={{color :"red"}}>{ companyName }</p>
+
                   <div className="col-md-12">
                     <div className="form-wrap">
                       <select
                         className="form-select"
                         aria-label="Default select example"
-                        name="sponsorType"
-                        required
+                        name="sponsorType"                        
                         value={sponsorType}
                         onChange={(e) => onInputChange(e)}
                       >
@@ -195,6 +262,8 @@ const SponsorForm = () => {
                       </select>
                     </div>
                   </div>
+
+                  <p style={{color :"red"}}>{ sponsorType}</p>
 
                   {sponsorForm.sponsorType !== "" && (
                     <>
