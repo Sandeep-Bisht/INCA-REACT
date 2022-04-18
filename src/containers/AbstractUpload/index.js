@@ -33,7 +33,7 @@ const AbstractUpload = () => {
         if(e.target.id == 'file'){
           let formData = new FormData();
           formData.append('file', e.target.files[0])
-          dispatch(ACTIONS.abstratcFileUpload(formData))
+          dispatch(ACTIONS.abstratcFileUpload(formData)) //saga wali me gaya
         }
         else {
           abstractDocumentPayloadCopy[e.target.id] = e.target.value

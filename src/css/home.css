@@ -103,8 +103,9 @@
 /* -------home about------------- */
 .home-about-left img{
     border-radius: 25px;
-    height:200px;
+    height: 180px;
     object-fit: cover;
+    width: 100%!important;
 }
 .home-about .signature-box .upper-box
 {
@@ -808,10 +809,66 @@ padding: 50px 40px;
 
 /* -----common responsive css---- */
 @media only screen and (max-width : 1399px){
-  
-}
-@media only screen and (max-width : 1024px) {
+    .home-banner .right .banner-title .banner-small{
+        font-size:33px;
+    }
+    .home-banner .right .banner-title{
+        font-size:60px;
+    }
+    .home-speakers .speaker-card .speaker-title{
+        font-size:18px;
+    }
+    .home-speakers .speaker-card .speaker-post{
+        font-size: 12px;
+        line-height: 1.5;
+        display: block;
+    }
+    /* .grid-wrapper .tall {
+        grid-row: span 1;
+    }
+    .grid-wrapper .wide {
+        grid-column: span 1;
+    }
+    .grid-wrapper .big {
+        grid-column: span 1;
+        grid-row: span 1;
+    } */
+    .grid-wrapper .big {
+        grid-column: auto;
+        grid-row: auto;
+    }
 
+}
+@media only screen and (max-width : 1199px)
+{
+     .grid-wrapper .tall {
+        grid-row: span 1;
+    }
+    .grid-wrapper .wide {
+        grid-column: span 1;
+    }
+    .grid-wrapper .big {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width : 1024px) {
+    .home-speakers .speaker-card .speaker-detail{
+        padding:10px;
+    }
+    .home-speakers .speaker-card .speaker-title{
+        font-size:17px;
+    }
+    .home-speakers .speaker-card .speaker-post{
+        font-size: 11px;
+        line-height: 1.5;
+        display: block;
+    }
 }
 
 @media only screen and (max-width :991px) {
