@@ -55,9 +55,7 @@ const AbstractDocumentList = () => {
 
   const onGlobalFilterChange1 = (e) => {
     const value = e.target.value;
-    // console.log("I am value",value)
     let _filters1 = { ...filters1 };
-    console.log("I am _filters1", _filters1);
     _filters1["global"].value = value;
 
     setFilters1(_filters1);
