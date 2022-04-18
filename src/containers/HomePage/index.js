@@ -115,12 +115,12 @@ const HomePage = () => {
                   <span className="banner-small text-white">
                     42<sup>nd</sup> Indian National Cartographic Association
                   </span>
-                  <br />
+               
                   <span className="common-yellow-color">
-                    {" "}
+                
                     International Conference
                   </span>
-                  <br />
+               
                   {/* <span className="banner-last">Event-2022</span> */}
                 </p>
                 <div className="banner-bottom"></div>
@@ -135,9 +135,12 @@ const HomePage = () => {
                   >
                     Register
                   </button>
-                  <button className="common-btn-transparent ms-3">
+                  <a className="common-btn-transparent ms-3 home-schedule-desk" href="#home-schedule-desk">
                     View Schedule
-                  </button>
+                  </a>
+                  <a className="common-btn-transparent ms-3 home-schedule-mob" href="#home-schedule-mob">
+                    View Schedule
+                  </a>
                 </div>
               </div>
             </div>
@@ -885,7 +888,7 @@ const HomePage = () => {
       </section>
 
       {/* -----without carousel----- */}
-      <section className="section-padding home-schedule without-carousel">
+      <section className="section-padding home-schedule without-carousel" id="home-schedule-desk">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
@@ -1432,7 +1435,7 @@ const HomePage = () => {
         </div>
       </section>
       {/* ------ without carousel----*/}
-      <section className="section-padding home-schedule with-carousel">
+      <section className="section-padding home-schedule with-carousel" id="home-schedule-mob">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">

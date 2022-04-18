@@ -9,6 +9,10 @@
     
     
 }
+.home-banner a:hover{
+  color: #fff;
+}
+
 .home-banner::before{
     position:absolute;
     top:0;
@@ -35,7 +39,10 @@
 }
 .home-banner .right .banner-title .banner-small
 {
-    font-size:38px;
+    font-size: 38px;
+    display: block;
+    line-height: 45px;
+    margin-bottom: 14px;
 }
 .home-banner .banner-bottom
 {
@@ -50,6 +57,9 @@
     font-size:55px;
     display:inline-block;
     margin-bottom:10px;
+}
+.home-banner .banner-btn-box{
+    margin-top:30px;
 }
 .home-banner .count
 {
@@ -84,10 +94,17 @@
     font-family: 'Mulish', sans-serif;
 
 }
-
+.home-banner .home-schedule-mob{
+    display: none;
+}
+.home-banner .home-schedule-desk{
+  display:inline-block;
+}
 /* -------home about------------- */
 .home-about-left img{
     border-radius: 25px;
+    height:200px;
+    object-fit: cover;
 }
 .home-about .signature-box .upper-box
 {
@@ -143,6 +160,8 @@
    
     margin-right: 20px;
 }
+
+
 /* -------home-counter css-------------- */
 .home-counter
 {
@@ -788,6 +807,9 @@ padding: 50px 40px;
 
 
 /* -----common responsive css---- */
+@media only screen and (max-width : 1399px){
+  
+}
 @media only screen and (max-width : 1024px) {
 
 }
@@ -1037,7 +1059,12 @@ padding: 50px 40px;
         font-size: 20px;
         margin-bottom:0;
     }
-
+    .home-banner .home-schedule-mob{
+        display:inline-block;
+    }
+    .home-banner .home-schedule-desk{
+      display:none;
+    }
 
 }
 @media only screen and (max-width : 430px)
