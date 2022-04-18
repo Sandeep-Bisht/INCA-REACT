@@ -33,7 +33,7 @@ const Login = () => {
       dispatch(ACTIONS.resetToInitialState());
     }
     else {
-      if (state && state.userLoginSuccess) {
+      if (state && state.userLoginSuccess  && state.userLoginSuccess.token == "") {
         setLoginLoder(false)
         setLoginMessage(state.userLoginSuccess.message)
       }
@@ -46,9 +46,9 @@ const Login = () => {
     return isEmpty;
   };
 
-  setTimeout(() => {
-    setLoginMessage('')
-  }, 10000)
+  // setTimeout(() => {
+  //   setLoginMessage('')
+  // }, 10000)
 
   let onSubmitLoginRequest = (e) => {
     e.preventDefault();

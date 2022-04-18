@@ -233,11 +233,8 @@ const CreateForm = (props) => {
 
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
-    if(validateForm()) {
-      console.log("I am from Save")
     userInformation.registrationFee = value;
     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
-    }
   };
 
   let updateRegisterUserInfo =(e) => {
