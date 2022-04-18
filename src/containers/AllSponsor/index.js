@@ -52,10 +52,6 @@ let AllSponsor = () => {
   const [filters2, setFilters2] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    "country.name": { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    // 'representative': { value: null, matchMode: FilterMatchMode.IN },
-    // 'status': { value: null, matchMode: FilterMatchMode.EQUALS },
-    // 'verified': { value: null, matchMode: FilterMatchMode.EQUALS }
   });
 
   const clearFilter1 = () => {
@@ -89,13 +85,7 @@ let AllSponsor = () => {
         constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
       },
 
-      // 'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-      // 'representative': { value: null, matchMode: FilterMatchMode.IN },
-      // 'date': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
-      // 'balance': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-      // 'status': { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-      // 'activity': { value: null, matchMode: FilterMatchMode.BETWEEN },
-      // 'verified': { value: null, matchMode: FilterMatchMode.EQUALS }
+      
     });
     setGlobalFilterValue1("");
   };
@@ -147,7 +137,7 @@ let AllSponsor = () => {
             filterDisplay="menu"
             value={sponsor}
             responsiveLayout="scroll"
-            globalFilterFields={["name", "email", "companyName"]}
+            globalFilterFields={["name"]}
             header={header1}
           >
             {dynamicColumns}

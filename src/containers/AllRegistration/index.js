@@ -24,7 +24,6 @@ const AllRegistration = () => {
   }, []);
 
   const actionBodyTemplate = (node, column) => {
-    console.log("inside Action template",)
     return (
       <>
         <button onClick={() => redirectToCretePage(node, "edit")}>
@@ -72,9 +71,9 @@ const AllRegistration = () => {
   const [filters2, setFilters2] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    "country.name": { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    representative: { value: null, matchMode: FilterMatchMode.IN },
-    status: { value: null, matchMode: FilterMatchMode.EQUALS },
+    email: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    designation: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    participationType: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
     verified: { value: null, matchMode: FilterMatchMode.EQUALS },
   });
 

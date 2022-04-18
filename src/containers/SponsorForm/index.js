@@ -3,7 +3,7 @@ import * as ACTIONS from "./action";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { minMaxLength, validEmail} from "validations"
+// import { minMaxLength, validEmail} from "validations"
 import "../../css/sponsor.css";
 
 const SponsorForm = () => {
@@ -27,7 +27,7 @@ const SponsorForm = () => {
     if (state.sponsorUserSuccess) {    
       emptySponsorForm();      
       setGreet(
-        "Your details are registered for sponsor(provisionally) and will be reviewed by managing committie. Once confirmed, committie will communicate with you on your registered email. "
+        "Your details are registered for sponsor(provisionally) and will be reviewed by managing committiee. Once confirmed, committie will communicate with you on your registered email. "
       );
       emptyMessage();
     }
