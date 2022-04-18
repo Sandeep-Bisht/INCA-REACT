@@ -143,6 +143,7 @@ const initFilters1 = () => {
       // 'verified': { value: null, matchMode: FilterMatchMode.EQUALS }
   });
   setGlobalFilterValue1('');
+  
 }
 
 
