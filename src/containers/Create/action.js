@@ -20,10 +20,11 @@ export const getLoggedInUser = (id) => {
   }
 }
 
-export const updateRegistredUser = (payload) => {
+export const updateRegistredUser = (payload,id) => {
   return {
     type: CONSTANTS.UPDATE_REGISTERED_USER,
     payload,
+    id
   }
 
 }

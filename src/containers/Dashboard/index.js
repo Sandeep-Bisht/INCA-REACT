@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
-import {PieChart} from '../../components/PieChart'
+import * as ACTIONS from './action';
+import { Card } from '../../components/Card'
+import { PieChart } from '../../components/PieChart'
 import Dashlogo from "../../images/logo.png";
 import { Outlet } from "react-router-dom";
 import User from "../../images/user-profile.png";
@@ -10,6 +13,11 @@ import "../../css/dashboard.css";
 const Dashboard = (props) => {
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState({});
+  let [data, setData] = useState([])
+
+  const state = useSelector((state) => state.DashboardCounterReducer);
+
+  let dispatch = useDispatch()
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -18,7 +26,16 @@ const Dashboard = (props) => {
     }
   }, []);
 
-  console.log(useLocation(), 'navigate')
+  useEffect(() => {
+    dispatch(ACTIONS.getUserSCounters())
+  }, [])
+
+  useEffect(() => {
+    if(state && state.counterSuccess){
+      setData(state.counterSuccess.response)
+    }
+  }, [state.counterSuccess])
+
 
   const location = useLocation()
 
@@ -168,24 +185,35 @@ const Dashboard = (props) => {
                     {loggedInUser.role == "admin" && (
                       <>
                         <li>
-                                <button
-                                  className="common-blue btn"
-                                  onClick={() =>
-                                    navigate("/dashboard/users")
-                                  }
-                                >
-                                   Users
-                                </button>
-                              </li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() =>
+                              navigate("/dashboard/users")
+                            }
+                          >
+                            Users
+                          </button>
+                        </li>
                       </>
                     )}
+                   {loggedInUser.role !== "admin" && ( <li>
+                      <button className="common-blue btn" onClick={() =>
+                        navigate("/dashboard/upload")
+                      }>Abstract</button>
+                    </li>)}
+                    {loggedInUser.role == "admin" && ( <li>
+                      <button className="common-blue btn" onClick={() =>
+                        navigate("/dashboard/abstract")
+                      }>Abstract List</button>
+                    </li>)}
                   </ul>
-                  
+
                 </aside>
-               
+
               </div>
               <div className="col-md-9 col-lg-10 right-part">
-              {location.pathname === "/dashboard" && <PieChart />}
+              {loggedInUser.role == "admin" && location.pathname === '/dashboard' &&  <Card data = {data} />}
+              {loggedInUser.role == "admin" && location.pathname === "/dashboard" &&  <PieChart data ={data} />}
                 <Outlet />
               </div>
             </div>
