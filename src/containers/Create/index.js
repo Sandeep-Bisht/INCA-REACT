@@ -133,9 +133,7 @@ const CreateForm = (props) => {
     if (!userInformation?.registrationCategory) {
       formIsValid = false;
       errors["registrationCategoryError"] = "*Registration Category is required.";
-    }
-
-  
+    } 
 
     setErrors(errors)
     
@@ -243,8 +241,9 @@ const CreateForm = (props) => {
 
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
+    console.log(validateForm(), 'gfdhgf')
     if(validateForm()) {
-      console.log("I am from Save")
+      // console.log("I am from Save")
     userInformation.registrationFee = value;
     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
@@ -253,7 +252,7 @@ const CreateForm = (props) => {
   let updateRegisterUserInfo =(e) => {
     let id = location.state._id
     e.preventDefault();
-    console.log("I am from Update",userInformation)
+    // console.log("I am from Update",userInformation)
     dispatch(ACTIONS.updateRegistredUser(userInformation,id));
   }
 
