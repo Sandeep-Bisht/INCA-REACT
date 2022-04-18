@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import jwt_decode from "jwt-decode";
 
 import * as ACTIONS from './action'
 
@@ -12,9 +13,14 @@ let obj = {
 
 const AbstractUpload = () => {
   const [abstractDocumentPayload, setAbstractDocumentPayload] = useState(obj);
+  const [abstractDataSavedMessage, setAbstractDataSavemessage] = useState('')
 
   const state = useSelector((state) => state.AbstractUploadReducer);
   let dispatch = useDispatch()
+
+  useEffect(() => {
+    
+  }, [])
   
  
   useEffect(() => {
@@ -26,7 +32,14 @@ const AbstractUpload = () => {
     }
   }, [state.abstractFileUploadSuccess])
 
-  
+  useEffect(() => {
+    if(state && state.abstractDataSaveSuccess){
+      setAbstractDataSavemessage("Your file submitted successfully. we will update you on email after verification")
+      setTimeout(() => {
+        setAbstractDataSavemessage('')
+      }, 10000)
+    }
+  }, [state.abstractDataSaveSuccess])
 
   const abstarctOnChangeHandler = (e) => {
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
@@ -41,11 +54,13 @@ const AbstractUpload = () => {
         }
   };
 
-  console.log(abstractDocumentPayload, 'abstrapayload')
-
   let abstractPaperSubmitHandler = (e) => {
       e.preventDefault();
-      dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
+      if (localStorage.getItem("token")) {
+        let decodedToken = jwt_decode(localStorage.getItem("token"));
+        abstractDocumentPayload.userId = decodedToken.user.user._id
+        dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
+      }
   }
 
   return (
@@ -106,6 +121,7 @@ const AbstractUpload = () => {
                   </div>
                 </div>
               </div>
+              {abstractDataSavedMessage && <p>{abstractDataSavedMessage}</p>}
             </div>
           </div>
         </form>

@@ -141,7 +141,7 @@ const UserRegistration = () => {
                         className=" form-submit "                        
                         disabled={validateRegisterForm()}
                       >
-                        Submit
+                         Submit
                       </button>
                     </div>
                   </div>

@@ -22,9 +22,6 @@ const SponsorForm = () => {
 
   useEffect(() => {
     if (state.sponsorUserSuccess) {
-      // navigate("/dashboard/allRegistration");
-      // dispatch(ACTIONS.resetToInitialState()); // it will empty the state
-      // console.log("response",state.sponsorUserSuccess);
       emptySponsorForm();      
       setGreet(
         "Your details are registered for sponsor(provisionally) and will be reviewed by managing committie. Once confirmed, committie will communicate with you on your registered email. "
@@ -58,21 +55,15 @@ const SponsorForm = () => {
 
   const onInputChange = (e) => {
     let sponsorFormCopy = { ...sponsorForm };
-    //console.log(e.target.value)
     if (e.target.value == "Strategic Sponsor") {
       sponsorFormCopy.amount = "₹7.5 lakhs (with free registration of 7 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
-      //  setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value });
     } else if (e.target.value == "Platinium Sponsor") {
       sponsorFormCopy.amount = "₹5.0 lakhs (with free registration of 5 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
-
-      //  setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value });
     } else if (e.target.value == "Gold Sponsor") {
       sponsorFormCopy.valamountues = "₹3.5 lakhs (with free registration of 3 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
-
-      //  setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value });
     } else {
       sponsorFormCopy.amount = "₹2.5 lakhs (with free registration of 2 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;

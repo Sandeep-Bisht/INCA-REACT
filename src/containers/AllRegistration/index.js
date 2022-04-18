@@ -23,10 +23,6 @@ import "../../css/registred.css";
       setUsersInfo(state.userRegistrationInfoSuccess);
     }
   }, [state.userRegistrationInfoSuccess]);
-  // console.log(
-  //   state && state.userRegistrationInfoSuccess,
-  //   "state && state.userRegistrationInfoSuccessstate && state.userRegistrationInfoSuccess"
-  // );
 
   let redirectToCretePage = (item, from) => {
     item.mode = from 

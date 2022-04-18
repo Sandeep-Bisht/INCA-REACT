@@ -21,7 +21,6 @@ export const getLoggedInUser = (id) => {
 }
 
 export const updateRegistredUser = (payload,id) => {
-  // console.log("I am i action from create",LoggedInId)
   return {
     type: CONSTANTS.UPDATE_REGISTERED_USER,
     payload,

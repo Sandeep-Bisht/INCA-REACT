@@ -97,15 +97,12 @@ const CreateForm = (props) => {
   }, [state.loggedInUserSuccess]);
 
   useEffect(() => {    
-    //  let LoggedInId = location.state._id
-    //  console.log("i am logged in user", LoggedInId)
     if (location && location.state && location.state.mode === "view") {
       setUserInformation(location.state);
       setIsDisabled(true);
     } else if (location && location.state && location.state.mode === "edit") {
       setUserInformation(location.state);
       setIsDisabled(false);
-      // setIsHidden(true);
     }
   }, []);
 

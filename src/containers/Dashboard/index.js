@@ -196,19 +196,24 @@ const Dashboard = (props) => {
                         </li>
                       </>
                     )}
-                    <li>
+                   {loggedInUser.role !== "admin" && ( <li>
                       <button className="common-blue btn" onClick={() =>
                         navigate("/dashboard/upload")
                       }>Abstract</button>
-                    </li>
+                    </li>)}
+                    {loggedInUser.role == "admin" && ( <li>
+                      <button className="common-blue btn" onClick={() =>
+                        navigate("/dashboard/abstract")
+                      }>Abstract List</button>
+                    </li>)}
                   </ul>
 
                 </aside>
 
               </div>
               <div className="col-md-9 col-lg-10 right-part">
-              {location.pathname === '/dashboard' &&  <Card data = {data} />}
-              {location.pathname === "/dashboard" &&  <PieChart data ={data} />}
+              {loggedInUser.role == "admin" && location.pathname === '/dashboard' &&  <Card data = {data} />}
+              {loggedInUser.role == "admin" && location.pathname === "/dashboard" &&  <PieChart data ={data} />}
                 <Outlet />
               </div>
             </div>

@@ -18,6 +18,7 @@ const SponsorForm = lazy(() => import("../containers/SponsorForm"));
 const RegisteredUser = lazy(() => import("../containers/RegistredUsers"));
 const AllSponsor = lazy(() => import("../containers/AllSponsor"));
 const AbstractUpload = lazy(() => import("../containers/AbstractUpload"))
+const AbstractDocumentList = lazy(() => import('../containers/AbstractDocumentList'))
 
 export const ApplicationRoutes = ({ path }) => {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -55,7 +56,7 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/login" element={<Login />} />
           <Route path="/forgot" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} >
-            <Route path="/dashboard/create" element={<CreateForm />} />
+          <Route path="/dashboard/create" element={<CreateForm />} />
             <Route
               path="/dashboard/allRegistration"
               element={<AllRegistration />}
@@ -64,11 +65,13 @@ export const ApplicationRoutes = ({ path }) => {
               <Route path="/dashboard/users" element={<RegisteredUser />} />
               <Route path="/dashboard/allSponsor" element={<AllSponsor />} />
               <Route path="/dashboard/upload" element={<AbstractUpload />} />
+              <Route path= "/dashboard/abstract" element={<AbstractDocumentList />}/>
             {/* )} */}
           </Route>
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/sponsorForm" element={<SponsorForm />} />
+          
           <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>
