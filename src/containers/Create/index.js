@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+  import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
@@ -34,6 +34,7 @@ const CreateForm = (props) => {
   const [isHidden, setIsHidden] = useState(false);
   const [message, setMessage] = useState("");
   const [value, setValue] = useState(undefined);
+  const [errors, setErrors] = useState(undefined);
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
 
   let dispatch = useDispatch();
@@ -59,6 +60,80 @@ const CreateForm = (props) => {
   useEffect(() => {
     setValue(getRegistrationFee());
   }, [userInformation]);
+
+  const validateForm = () => {
+    let errors = {};
+    let formIsValid = true;
+
+    if (!userInformation?.name) {
+      formIsValid = false;
+      errors["nameError"] = "*Name is required.";
+    }
+
+    if (!userInformation?.pinCode) {
+      formIsValid = false;
+      errors["pincodeError"] = "*PinCode is required.";
+    }
+
+    if (!userInformation?.country) {
+      formIsValid = false;
+      errors["countryError"] = "*Country is required.";
+    }
+
+    if (!userInformation?.address) {
+      formIsValid = false;
+      errors["addressError"] = "*Address is required.";
+    }
+
+    if (!userInformation?.phone) {
+      formIsValid = false;
+      errors["phoneError"] = "*Phone is required.";
+    }
+
+    if (!userInformation?.email) {
+      formIsValid = false;
+      errors["emailError"] = "*Email is required.";
+    }else if (typeof userInformation?.email !== "undefined") {
+      var pattern = new RegExp(
+        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+      );
+      if (!pattern.test(userInformation?.email)) {
+        formIsValid = false;
+        errors["emailError"] = "*Please enter valid email-ID.";
+      }
+    }
+
+    if (!userInformation?.conferenceMode) {
+      formIsValid = false;
+      errors["conferenceError"] = "*Mode of Attending the Conference is required.";
+    }
+    if (!userInformation?.conferenceMode === 'offline') {
+      if (!userInformation?.arrivalDate) {
+        formIsValid = false;
+        errors["arrivalDateError"] = "*Arrival Date is required.";
+      }
+  
+      if (!userInformation?.departureDate) {
+        formIsValid = false;
+        errors["departureDateError"] = "*Departure Date is required.";
+      }
+      if (!userInformation?.journeyMode) {
+        formIsValid = false;
+        errors["journeyModeError"] = "*Journey Mode is required.";
+      }
+    }
+
+    if (!userInformation?.registrationCategory) {
+      formIsValid = false;
+      errors["registrationCategoryError"] = "*Registration Category is required.";
+    }
+
+    
+
+    setErrors(errors)
+    
+    return formIsValid;
+  };
 
   useEffect(() => {
     if (state.saveRegisterUserInfoSuccess) {
@@ -158,8 +233,11 @@ const CreateForm = (props) => {
 
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
+    if(validateForm()) {
+      console.log("I am from Save")
     userInformation.registrationFee = value;
     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
+    }
   };
 
   let updateRegisterUserInfo =(e) => {
@@ -187,6 +265,7 @@ const CreateForm = (props) => {
                   disabled={isDisabled}
                   id="name"
                 />
+                <p>{errors?.nameError}</p>
               </div>
               <div className="col-md-4">
                 <label htmlFor="InputPosition" className="form-label">
