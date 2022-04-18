@@ -88,7 +88,7 @@ const CreateForm = (props) => {
 
     if (!userInformation?.phone) {
       formIsValid = false;
-      errors["phoneError"] = "*Phone is required.";
+      errors["phoneError"] = "*Phone is required."; 
     }
 
     if (!userInformation?.email) {
@@ -108,13 +108,19 @@ const CreateForm = (props) => {
       formIsValid = false;
       errors["conferenceError"] = "*Mode of Attending the Conference is required.";
     }
+
+    if (!userInformation?.participationType) {
+      formIsValid = false;
+      errors["participationError"] = "* Participate in the conference for is required.";
+    }
     if (!userInformation?.conferenceMode === 'offline') {
       if (!userInformation?.arrivalDate) {
         formIsValid = false;
         errors["arrivalDateError"] = "*Arrival Date is required.";
       }
+      
   
-      if (!userInformation?.departureDate) {
+      if (!userInformation?.departureDate) { 
         formIsValid = false;
         errors["departureDateError"] = "*Departure Date is required.";
       }
@@ -129,7 +135,7 @@ const CreateForm = (props) => {
       errors["registrationCategoryError"] = "*Registration Category is required.";
     }
 
-    
+  
 
     setErrors(errors)
     
@@ -282,7 +288,8 @@ const CreateForm = (props) => {
                   value={userInformation && userInformation.designation}
                   disabled={isDisabled}
                   id="designation"
-                />
+                />   
+                 
               </div>
               <div className="col-md-4">
                 <label htmlFor="InputAffiliation" className="form-label">
@@ -296,9 +303,9 @@ const CreateForm = (props) => {
                   disabled={isDisabled}
                   id="affilation"
                 />
-              </div>
+              </div>             
             </div>
-
+           
             <div className="row mb-5">
               <div className="col-md-4">
                 <label htmlFor="InputAddress" className="form-label">
@@ -311,6 +318,7 @@ const CreateForm = (props) => {
                   disabled={isDisabled}
                   id="address"
                 ></textarea>
+                 <p>{errors?.addressError}</p>
               </div>
 
               <div className="col-md-4">
@@ -327,6 +335,7 @@ const CreateForm = (props) => {
                       disabled={isDisabled}
                       id="pinCode"
                     />
+                     <p>{errors?.pincodeError}</p>
                   </div>
                   <div className="col-md-12">
                     <label htmlFor="InputPhone" className="form-label">
@@ -340,6 +349,7 @@ const CreateForm = (props) => {
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       className="form-control"
                     />
+                     <p>{errors?.phoneError}</p>
                   </div>
                 </div>
               </div>
@@ -367,6 +377,7 @@ const CreateForm = (props) => {
                         </option>
                       ))}
                     </select>
+                    <p>{errors?.countryError}</p>      
                   </div>
                   <div className="col-md-12">
                     <label htmlFor="InputEmail" className="form-label">
@@ -380,6 +391,7 @@ const CreateForm = (props) => {
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       className="form-control"
                     />
+                     <p>{errors?.emailError}</p>
                   </div>
                 </div>
               </div>
@@ -406,6 +418,7 @@ const CreateForm = (props) => {
                       <option value="online">Online</option>
                       <option value="offline">Offline</option>
                     </select>
+                    <p>{errors?.conferenceError}</p> 
                   </div>
                   <div className="col-md-12">
                     <label htmlFor="SelectCategory" className="form-label">
@@ -420,7 +433,7 @@ const CreateForm = (props) => {
                       }
                       disabled={isDisabled}
                       id="registrationCategory"
-                    >
+                    > 
                       <option defaultValue hidden>
                         Please Select
                       </option>
@@ -431,7 +444,8 @@ const CreateForm = (props) => {
                       <option value="Others (participants/delegates/members)">
                         Others (participants/delegates/members)
                       </option>
-                    </select>
+                    </select>                    
+                    <p>{errors?.registrationCategoryError}</p> 
                   </div>
                 </div>
               </div>
@@ -463,6 +477,7 @@ const CreateForm = (props) => {
                       </option>
                       <option value="Both">Both</option>
                     </select>
+                    <p>{errors?.participationType}</p>                      
                   </div>
                   <div className="col-md-12">
                     {isDisabled && (
@@ -504,6 +519,7 @@ const CreateForm = (props) => {
                   onChange={(e) => userInformationOnchangeHandler(e)}
                   className="form-control"
                 ></textarea>
+                 
               </div>
             </div>
             {userInformation && userInformation.conferenceMode == "offline" && (
@@ -521,6 +537,7 @@ const CreateForm = (props) => {
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       className="form-control"
                     />
+                     <p>{errors?.arrivalDateError}</p>
                   </div>
                   <div className="col-md-4">
                     <label htmlFor="InputDeparture" className="form-label">
@@ -534,6 +551,7 @@ const CreateForm = (props) => {
                       id="departureDate"
                       className="form-control"
                     />
+                     <p>{errors?.departureDateError}</p> 
                   </div>
                   <div className="col-md-4">
                     <label htmlFor="SelectJourney" className="form-label">
@@ -554,6 +572,7 @@ const CreateForm = (props) => {
                       <option value="2">Train</option>
                       <option value="3">Flight</option>
                     </select>
+                    <p>{errors?.journeyModeError}</p>   
                   </div>
                 </div>
                 <div className="row">
@@ -571,6 +590,7 @@ const CreateForm = (props) => {
                       id="accompanyingPerson"
                       className="form-control"
                     />
+                     
                   </div>
                   <div className="col-md-4">
                     <label htmlFor="SelectAccomodation" className="form-label">
@@ -593,6 +613,7 @@ const CreateForm = (props) => {
                       <option value="2">Hostel</option>
                       <option value="3">Guest House</option>
                     </select>
+                    
                   </div>
                 </div>
               </>
@@ -619,6 +640,7 @@ const CreateForm = (props) => {
                   <option value="3">Foreign Delegate</option>
                   <option value="4">Others</option>
                 </select>
+               
               </div>
               <div className="col-md-4">
                 <label htmlFor="InputFee" className="form-label">
@@ -631,6 +653,7 @@ const CreateForm = (props) => {
                   id="registrationFee"
                   className="form-control"
                 />
+               
               </div>
             </div>
             {message && <p>{message}</p>}
