@@ -191,7 +191,7 @@ const HomePage = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="home-about-left">
-                <div className="row">
+                <div className="row pt-5">
                   <div className="col-lg-6 col-6 ">
                     <div className="one text-end set-img">
                       <img
@@ -209,7 +209,7 @@ const HomePage = () => {
                     </div>
                   </div>
                   <div className="col-lg-6 col-6">
-                    <div className="four mt-3 pt-4 set-img">
+                    <div className="four  set-img">
                       <img src={gallary4} className="img-fluid w-75" />
                     </div>
                     <div className="five pt-3 set-img">
