@@ -1,6 +1,8 @@
   import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { countries } from "../../utils";
@@ -13,7 +15,7 @@ let obj = {
   address: "",
   pinCode: "",
   country: "",
-  phoneNumber: "",
+  //phoneNumber: "",
   email: "",
   conferenceMode: "",
   participationType: "",
@@ -37,6 +39,8 @@ const CreateForm = (props) => {
   const [errors, setErrors] = useState(undefined);
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
 
+  const [phoneNumber, setPhoneNumber] = useState('')
+
   let dispatch = useDispatch();
   let location = useLocation();
   let navigate = useNavigate();
@@ -49,9 +53,10 @@ const CreateForm = (props) => {
         let userInformationCopy = { ...userInformation };
         userInformationCopy.name = decodedToken.user.user.userName;
         userInformationCopy.email = decodedToken.user.user.userEmail;
-        userInformationCopy.phoneNumber = decodedToken.user.user.mobileNumber;
+        //userInformationCopy.phoneNumber = decodedToken.user.user.mobileNumber;
         userInformationCopy.userId = decodedToken.user.user._id;
         setUserInformation(userInformationCopy);
+        setPhoneNumber(decodedToken.user.user.mobileNumber)
         dispatch(ACTIONS.getLoggedInUser(logedInId));
       }
     }
@@ -234,6 +239,7 @@ const CreateForm = (props) => {
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
     userInformation.registrationFee = value;
+    userInformation.phoneNumber = phoneNumber;
     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
   };
 
@@ -243,6 +249,10 @@ const CreateForm = (props) => {
     userInformation.registrationFee = value;
     dispatch(ACTIONS.updateRegistredUser(userInformation,id));
   }
+
+  let phoneNumberInputHandler = (phone) => {
+    setPhoneNumber(phone)
+}
 
   return (
     <div className="main ">
@@ -322,7 +332,12 @@ const CreateForm = (props) => {
                     />
                   </div>
                   <div className="col-md-12">
-                    <label htmlFor="InputPhone" className="form-label">
+                  <PhoneInput
+                          country={'in'}
+                          value={phoneNumber}
+                          onChange={(phone) => phoneNumberInputHandler(phone)}
+                        />
+                    {/* <label htmlFor="InputPhone" className="form-label">
                       Phone
                     </label>
                     <input
@@ -332,7 +347,7 @@ const CreateForm = (props) => {
                       value={userInformation && userInformation.phoneNumber}
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       className="form-control"
-                    />
+                    /> */}
                   </div>
                 </div>
               </div>

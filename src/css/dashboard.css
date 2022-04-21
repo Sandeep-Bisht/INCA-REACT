@@ -203,6 +203,11 @@
 {
     color: #6e6e6e;
 }
+.form-section .form-label::after
+{
+  color: red;
+  content: '*';
+}
 
 
 

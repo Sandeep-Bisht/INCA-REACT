@@ -65,27 +65,27 @@ const SponsorForm = () => {
 
   // },[formErrors])
 
-  // const validator = (values) =>{
-  //   const errors = {}
-  //   const regex = "^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$";
-  //   if(!values.name) {
-  //     errors.name = "Name is Required!"
-  //   }
-  //   if(!values.email) {
-  //     errors.email = "Email is Required!"
-  //   }
-  //   if(!values.mobile) {
-  //     errors.mobile = "Mobile is Required!"
-  //   }
-  //   if(!values.companyName) {
-  //     errors.companyName = "Company Name is Required!"
-  //   }
-  //   if(!values.sponsorType) {
-  //     errors.sponsorType = "Sponsor Type is Required!"
-  //   }
-  //   return errors;
+  const validateForm = (values) =>{
+    const errors = {}
+    const regex = "^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$";
+    if(!values.name) {
+      errors.name = "Name is Required!"
+    }
+    if(!values.email) {
+      errors.email = "Email is Required!"
+    }
+    if(!values.mobile) {
+      errors.mobile = "Mobile is Required!"
+    }
+    if(!values.companyName) {
+      errors.companyName = "Company Name is Required!"
+    }
+    if(!values.sponsorType) {
+      errors.sponsorType = "Sponsor Type is Required!"
+    }
+    return errors;
     
-  // }
+  }
 
   const onInputChange = (e) => {
     // const { name, email, mobile, companyName, sponsorType, amount } = e.target;
