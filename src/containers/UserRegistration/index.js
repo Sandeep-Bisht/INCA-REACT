@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 import { Header } from "../../components/Header";
 import * as ACTIONS from "./action";
 import "../../css/register.css";
@@ -9,27 +11,22 @@ const UserRegistration = () => {
   const [registrationPayload, setRegistrationPayload] = useState({
     userName: "",
     userEmail: "",
-    mobileNumber: "",
   });
+
+
 
   const state = useSelector((state) => state.RegisterReducer);
   const [successResponse, setSuccessResponse] = useState({});
+
+  const [phoneNumber, setPhoneNumber] = useState('')
 
   let dispatch = useDispatch();
   let navigate = useNavigate();
 
   let registrationPayloadOnChangeHandler = (e) => {
     let regitrationPayloadCopy = { ...registrationPayload };
-    if (e.target.id == "mobileNumber") {
-      const re = /^[0-9\b]+$/;
-      if (re.test(e.target.value)) {
-        regitrationPayloadCopy[e.target.id] = e.target.value;
-        setRegistrationPayload(regitrationPayloadCopy);
-      }
-    } else {
       regitrationPayloadCopy[e.target.id] = e.target.value;
       setRegistrationPayload(regitrationPayloadCopy);
-    }
   };
 
   let validateRegisterForm = () => {
@@ -39,6 +36,7 @@ const UserRegistration = () => {
 
   let registrationSubmitRequest = (e) => {
     e.preventDefault();
+    registrationPayload.mobileNumber = phoneNumber
     dispatch(ACTIONS.appRegistration(registrationPayload));
   };
 
@@ -55,10 +53,15 @@ const UserRegistration = () => {
       setSuccessResponse(state.userRegisterFailure);
   }, [state.userRegisterFailure]);
 
+  let phoneNumberInputHandler = (phone) => {
+      setPhoneNumber(phone)
+  }
+
   return (
     <>
       <Header></Header>
       <section className="register-form">
+
         <form className="login-form" onSubmit={(e) => registrationSubmitRequest(e)}>
           <div className="container">
             <div className="row">
@@ -115,7 +118,7 @@ const UserRegistration = () => {
                   <div className="col-md-12">
                     <div className="form-wrap">
                       <div className="input-wrap">
-                        <input
+                        {/* <input
                           type="text"
                           className="form-control "
                           maxLength="10"
@@ -125,11 +128,17 @@ const UserRegistration = () => {
                           }
                           id="mobileNumber"
                           required
+                        /> */}
+                        <PhoneInput
+                          country={'in'}
+                          value={phoneNumber}
+                          onChange={(phone) => phoneNumberInputHandler(phone)}
+                          className="padding-left"
                         />
-                        <label>
+                        {/* <label>
                           <i className="fa-solid far fas fa-phone me-2"></i>
                           Phone Number
-                        </label>
+                        </label> */}
                       </div>
                     </div>
                   </div>
@@ -138,10 +147,10 @@ const UserRegistration = () => {
                     <div className="btn-wrapper mt-3">
                       <button
                         type="submit"
-                        className=" form-submit "                        
+                        className=" form-submit "
                         disabled={validateRegisterForm()}
                       >
-                         Submit
+                        Submit
                       </button>
                     </div>
                   </div>
