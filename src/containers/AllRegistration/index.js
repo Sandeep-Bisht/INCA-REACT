@@ -156,7 +156,9 @@ const AllRegistration = () => {
   return (
     <>
       <div>
-        <button onClick={() => downloadStudentDataExcel()} >Download</button>
+        <div className="moving-box mb-2">
+        <button onClick={() => downloadStudentDataExcel()}  >Download Excel</button>
+        </div>
         <div className="card">
           <DataTable
             paginator
