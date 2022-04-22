@@ -157,6 +157,7 @@ const header1 = renderHeader1();
       <div>
         <div className="card">
           <DataTable
+          loading={isLoading}
             paginator
             rows={10}
             dataKey="id"
