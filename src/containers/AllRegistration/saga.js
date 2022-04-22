@@ -21,6 +21,7 @@ export function* getUserRegistrationInfo(action) {
   }
 }
 
+
 export default function* GetUserRegistrationInfoSaga() {
   yield takeLatest(
     CONSTANTS.GET_USER_REGISTRATION_INFO,

@@ -7,6 +7,7 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import * as Loader from "react-loader-spinner";
 import * as ACTIONS from "./action";
+
 import "../../css/registred.css";
 
 let RegisteredUser = () => {

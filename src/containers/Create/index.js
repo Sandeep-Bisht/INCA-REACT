@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { countries } from "../../utils";
@@ -13,7 +15,7 @@ const obj = {
   address: "",
   pinCode: "",
   country: "",
-  phoneNumber: "",
+  //phoneNumber: "",
   email: "",
   conferenceMode: "",
   participationType: "",
@@ -54,9 +56,11 @@ const CreateForm = (props) => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [message, setMessage] = useState("");
+  const [mode, setMode] = useState('')
   const [value, setValue] = useState(undefined);
-  // const [errors, setErrors] = useState(undefined);
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
+
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   let dispatch = useDispatch();
   let location = useLocation();
@@ -70,9 +74,10 @@ const CreateForm = (props) => {
         let userInformationCopy = { ...userInformation };
         userInformationCopy.name = decodedToken.user.user.userName;
         userInformationCopy.email = decodedToken.user.user.userEmail;
-        userInformationCopy.phoneNumber = decodedToken.user.user.mobileNumber;
+        //userInformationCopy.phoneNumber = decodedToken.user.user.mobileNumber;
         userInformationCopy.userId = decodedToken.user.user._id;
         setUserInformation(userInformationCopy);
+        setPhoneNumber(decodedToken.user.user.mobileNumber);
         dispatch(ACTIONS.getLoggedInUser(logedInId));
       }
     }
@@ -125,10 +130,14 @@ const CreateForm = (props) => {
   useEffect(() => {
     if (location && location.state && location.state.mode === "view") {
       setUserInformation(location.state);
+      setPhoneNumber(location.state.phoneNumber.toString());
+      setMode(location.state.mode)
       setIsDisabled(true);
     } else if (location && location.state && location.state.mode === "edit") {
       setUserInformation(location.state);
+      setPhoneNumber(location.state.phoneNumber.toString());
       setIsDisabled(false);
+      setMode(location.state.mode)
     }
   }, []);
 
@@ -184,74 +193,84 @@ const CreateForm = (props) => {
   // const pinCode = RegExp();
   const { isError } = userInformation;
 
-  const formValid = ({ isError, ...rest }) => {
-    Object.values(rest).every((val) => {
-      console.log(val, 'val')
-      // val !== ""
-    });
-    return false;
-  };
+ 
 
   let userInformationOnchangeHandler = (e) => {
     let userInformationCopy = { ...userInformation };
-    userInformationCopy[e.target.id] = e.target.value;
     const { id, value } = e.target;
+    userInformationCopy[id] = value;
+    setUserInformation(userInformationCopy);
     switch (id) {
       case "name":
         userInformationCopy.isError.name = nameRegExp.test(value)
           ? ""
           : "Name should be in correct form";
+          
+      setUserInformation(userInformationCopy);
         break;
       case "address":
         userInformationCopy.isError.address =
           value.length < 0 ? "Address is Required " : "";
+          
+      setUserInformation(userInformationCopy);
         break;
       case "pinCode":
         userInformationCopy.isError.pinCode =
           value.length <= 5 ? "Atleast 6 characaters Required" : "";
+          setUserInformation(userInformationCopy);
         break;
       case "country":
         userInformationCopy.isError.country =
           value.length < 0 ? "Country Field is required" : "";
+          setUserInformation(userInformationCopy);
         break;
       case "phoneNumber":
         userInformationCopy.isError.phoneNumber = phoneRegExp.test(value)
           ? ""
           : "phoneNumber  is invalid";
+          setUserInformation(userInformationCopy);
         break;
       case "email":
         userInformationCopy.isError.email = regExp.test(value)
           ? ""
           : "Email address is invalid";
+          setUserInformation(userInformationCopy);
         break;
       case "conferenceMode":
         userInformationCopy.isError.conferenceMode =
           value.length < 0 ? "Conference Mode is Required" : "";
+          setUserInformation(userInformationCopy);
         break;
       case "participationType":
         userInformationCopy.isError.participationType =
           value.length < 0 ? "Participation Type is Required" : "";
+          setUserInformation(userInformationCopy);
         break;
       case "journeyMode":
         userInformationCopy.isError.journeyMode =
           value.length < 0 ? "Journey Mode Required" : "";
+          setUserInformation(userInformationCopy);
         break;
       case "arrivalDate":
         userInformationCopy.isError.arrivalDate =
           value.length < 0 ? "Arrival Date  Required" : "";
+          setUserInformation(userInformationCopy);
         break;
       case "departureDate":
         userInformationCopy.isError.departureDate =
           value.length < 0 ? "Departure Date  Required" : "";
+          setUserInformation(userInformationCopy);
         break;
 
       case "accomodationDetail":
         userInformationCopy.isError.accomodationDetail =
           value.length < 0 ? "Accomodation Detail  Required" : "";
+          setUserInformation(userInformationCopy);
         break;
       case "registrationCategory":
         userInformationCopy.isError.registrationCategory =
           value.length < 0 ? "Registration Category  Required" : "";
+          setUserInformation(userInformationCopy);
         break;
       // case "transactionId":
       //   userInformationCopy.isError.transactionId = value.length < 4 ? "Atleast 4 characaters required" : "";
@@ -260,12 +279,16 @@ const CreateForm = (props) => {
       default:
         break;
     }
-    console.log(userInformationCopy,"inside on change")
-    setUserInformation(userInformationCopy);
+
+    
+    
+    
+
+    
+   
   };
 
   const validateForm = () => {
-    
     let formIsValid = true;
 
     if (!userInformation?.name) {
@@ -284,13 +307,13 @@ const CreateForm = (props) => {
       formIsValid = false;
     }
 
-    if (!userInformation?.phoneNumber) {
-      formIsValid = false;
-    }
+    // if (!userInformation?.phoneNumber) {
+    //   formIsValid = false;
+    // }
 
     if (!userInformation?.email) {
       formIsValid = false;
-    }else if (typeof userInformation?.email !== "undefined") {
+    } else if (typeof userInformation?.email !== "undefined") {
       var pattern = new RegExp(
         /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
       );
@@ -302,7 +325,7 @@ const CreateForm = (props) => {
     if (!userInformation?.conferenceMode) {
       formIsValid = false;
     }
-    if (userInformation?.conferenceMode === 'offline') {
+    if (userInformation?.conferenceMode === "offline") {
       if (!userInformation?.arrivalDate) {
         formIsValid = false;
       }
@@ -327,15 +350,41 @@ const CreateForm = (props) => {
     checkValidation();
     if (validateForm()) {
       userInformation.registrationFee = value;
-      console.log(userInformation,isError.name,isError,"inside submit")  
-      delete userInformation.isError;         
+      userInformation.phoneNumber = phoneNumber;
+      delete userInformation.isError;
       dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
   };
 
   const checkValidation = () => {
-    let userInformationCopy = {...userInformation} ;
-      Object.keys(userInformationCopy).map((item) => {
+    console.log('asfdsa validateo')
+    let userInformationCopy = { ...userInformation };
+
+    console.log(userInformationCopy, 'userInformationsdfsad')
+    if(mode == "edit"){
+      userInformationCopy.isError = {
+        name: "",
+        designation: "",
+        affilation: "",
+        address: "",
+        pinCode: "",
+        country: "",
+        phoneNumber: "",
+        email: "",
+        conferenceMode: "",
+        participationType: "",
+        title: "",
+        journeyMode: "",
+        arrivalDate: "",
+        departureDate: "",
+        accompanyingPerson: "",
+        accomodationDetail: "",
+        registrationCategory: "",
+        registrationFee: "",
+        transactionId: "",
+      }
+    }
+    Object.keys(userInformationCopy).map((item) => {
       switch (item) {
         case "name":
           userInformationCopy.isError.name = userInformationCopy.name
@@ -357,10 +406,10 @@ const CreateForm = (props) => {
             ? ""
             : " Field is required";
           break;
-        case "phoneNumber":
-          userInformationCopy.isError.phoneNumber =
-            userInformationCopy.phoneNumber ? "" : " Field is required";
-          break;
+        // case "phoneNumber":
+        //   userInformationCopy.isError.phoneNumber =
+        //     userInformationCopy.phoneNumber ? "" : " Field is required";
+        //   break;
         case "email":
           userInformationCopy.isError.email = userInformationCopy.email
             ? ""
@@ -376,49 +425,47 @@ const CreateForm = (props) => {
           break;
         // case "title":
         // userInformationCopy.isError.title = userInformationCopy.title ? "" :  " Pls field the required field" ;
-        // break;          
-        
+        // break;
+
         case "journeyMode":
-        if( userInformationCopy.conferenceMode === 'offline') {
-          userInformationCopy.isError.journeyMode =
-          userInformationCopy.journeyMode ? "" : "Field is required";
-        } else {
-          userInformationCopy.isError.journeyMode = '';
-        }
+          if (userInformationCopy.conferenceMode === "offline") {
+            userInformationCopy.isError.journeyMode =
+              userInformationCopy.journeyMode ? "" : "Field is required";
+          } else {
+            userInformationCopy.isError.journeyMode = "";
+          }
           break;
         case "arrivalDate":
-          if( userInformationCopy.conferenceMode === 'offline') {
-          userInformationCopy.isError.arrivalDate =
-            userInformationCopy.arrivalDate ? "" : "Field is required";
+          if (userInformationCopy.conferenceMode === "offline") {
+            userInformationCopy.isError.arrivalDate =
+              userInformationCopy.arrivalDate ? "" : "Field is required";
           } else {
-            userInformationCopy.isError.arrivalDate = '';
+            userInformationCopy.isError.arrivalDate = "";
           }
           break;
         case "departureDate":
-          if( userInformationCopy.conferenceMode === 'offline') {
-          userInformationCopy.isError.departureDate =
-            userInformationCopy.departureDate ? "" : "Field is required";
+          if (userInformationCopy.conferenceMode === "offline") {
+            userInformationCopy.isError.departureDate =
+              userInformationCopy.departureDate ? "" : "Field is required";
           } else {
-            userInformationCopy.isError.departureDate = '';
+            userInformationCopy.isError.departureDate = "";
           }
           break;
         case "accomodationDetail":
-          if( userInformationCopy.conferenceMode === 'offline') {
-          userInformationCopy.isError.accomodationDetail =
-            userInformationCopy.accomodationDetail ? "" : "Field is required";
+          if (userInformationCopy.conferenceMode === "offline") {
+            userInformationCopy.isError.accomodationDetail =
+              userInformationCopy.accomodationDetail ? "" : "Field is required";
           } else {
-            userInformationCopy.isError.accomodationDetail = '';
+            userInformationCopy.isError.accomodationDetail = "";
           }
         case "registrationCategory":
-          if( userInformationCopy.conferenceMode === 'offline') {
-            console.log('else part has added the error')
-
-          userInformationCopy.isError.registrationCategory =
-            userInformationCopy.registrationCategory
-              ? ""
-              : "Field is required";
+          if (userInformationCopy.conferenceMode === "offline") {
+            userInformationCopy.isError.registrationCategory =
+              userInformationCopy.registrationCategory
+                ? ""
+                : "Field is required";
           } else {
-            userInformationCopy.isError.registrationCategory = '';
+            userInformationCopy.isError.registrationCategory = "";
           }
           break;
         // case "transactionId":
@@ -430,15 +477,24 @@ const CreateForm = (props) => {
       }
     });
     // userInformation.registrationFee = value;
-    
+
     setUserInformation(userInformationCopy);
-  }
+  };
 
   let updateRegisterUserInfo = (e) => {
+    console.log('sdfasdfadfasdfsdaf')
     e.preventDefault();
+    checkValidation();
+    if (validateForm()) {
     let id = location.state._id;
     userInformation.registrationFee = value;
+    userInformation.phoneNumber = phoneNumber;
     dispatch(ACTIONS.updateRegistredUser(userInformation, id));
+    }
+  };
+
+  let phoneNumberInputHandler = (phone) => {
+    setPhoneNumber(phone);
   };
 
   return (
@@ -461,12 +517,18 @@ const CreateForm = (props) => {
                 <input
                   type="text"
                   onChange={(e) => userInformationOnchangeHandler(e)}
-                  className={ isError && isError.name.length > 0 ? "is-invalid form-control" : "form-control"}
+                  className={
+                    isError && isError.name.length > 0
+                      ? "is-invalid form-control"
+                      : "form-control"
+                  }
                   value={userInformation && userInformation.name}
                   disabled={isDisabled}
                   id="name"
                 />
-                {isError && isError.name && <p className="text-danger">{isError.name}</p>}
+                {isError && isError.name && (
+                  <p className="text-danger">{isError.name}</p>
+                )}
               </div>
               <div className="col-md-4">
                 <label htmlFor="InputPosition" className="form-label">
@@ -549,7 +611,13 @@ const CreateForm = (props) => {
                     <label htmlFor="InputPhone" className="form-label">
                       Phone
                     </label>
-                    <input
+                    <PhoneInput
+                      country={"in"}
+                      value={phoneNumber}
+                      onChange={(phone) => phoneNumberInputHandler(phone)}
+                    />
+
+                    {/* <input
                       type="text"
                       id="phoneNumber"
                       disabled={isDisabled}
@@ -564,6 +632,8 @@ const CreateForm = (props) => {
                     {isError && isError.phoneNumber && (
                       <p className="text-danger">{isError.phoneNumber}</p>
                     )}
+                      className="form-control"
+                    /> */}
                   </div>
                 </div>
               </div>

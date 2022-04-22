@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DataTable } from "primereact/datatable";
+import axios from 'axios';
 import { Column } from "primereact/column";
-import * as Loader from "react-loader-spinner";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
@@ -50,13 +50,30 @@ const AllRegistration = () => {
     navigate("/dashboard/create", { state: item });
   };
 
+  let downloadStudentDataExcel = () => {
+    try {
+       axios({
+        url: 'http://localhost:4801/api/downloadexcel',
+        method: 'GET',
+        responseType: 'blob', 
+      }).then((response) => {
+         const url = window.URL.createObjectURL(new Blob([response.data]));
+         const link = document.createElement('a');
+         link.href = url;
+         link.setAttribute('download', 'registreduser.xlsx'); 
+         document.body.appendChild(link);
+         link.click();
+      });
+    } catch (error) {
+        console.error(error);
+    }         
+  }
+
   const columns = [
-    // {field: 'code', header: 'S.no'},
     { field: "name", header: "Name" },
     { field: "email", header: "E-mail" },
     { field: "designation", header: "Designation" },
     { field: "participationType", header: "Participation Type" },
-    // {field: actionBodyTemplate(), header:"Actions"}
   ];
 
   const dynamicColumns = columns.map((col, i) => {
@@ -108,23 +125,9 @@ const AllRegistration = () => {
         operator: FilterOperator.AND,
         constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
       },
-
-      // 'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-      // 'representative': { value: null, matchMode: FilterMatchMode.IN },
-      // 'date': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
-      // 'balance': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-      // 'status': { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-      // 'activity': { value: null, matchMode: FilterMatchMode.BETWEEN },
-      // 'verified': { value: null, matchMode: FilterMatchMode.EQUALS }
     });
     setGlobalFilterValue1("");
   };
-
-  // useEffect(() => {
-  //   customerService.getCustomersLarge().then(data => { setCustomers1(getCustomers(data)); setLoading1(false) });
-  //   customerService.getCustomersLarge().then(data => { setCustomers2(getCustomers(data)); setLoading2(false) });
-  //   initFilters1();
-  // }, []);
 
   const renderHeader1 = () => {
     return (
@@ -153,6 +156,9 @@ const AllRegistration = () => {
   return (
     <>
       <div>
+        <div className="moving-box mb-2">
+        <button onClick={() => downloadStudentDataExcel()}  >Download Excel</button>
+        </div>
         <div className="card">
           <DataTable
             paginator
@@ -179,75 +185,6 @@ const AllRegistration = () => {
           </DataTable>
         </div>
       </div>
-
-      {/* <section className="users-lists">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12">
-              <table className="table table-hover">
-                <thead>
-                  <tr>
-                    <th>S.no.</th>
-                    <th>Name</th>
-                    <th>Designation</th>
-                    <th>Participation Type</th>
-                    <th>Mobile No.</th>
-                    <th>E-mail</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {isLoading ? (
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        height: "100vh",
-                      }}
-                    >
-                      <Loader.ThreeDots />
-                    </div>
-                  ) : usersInfo.length > 0 ? (
-                    usersInfo.map((item, i) => {
-                      return (
-                        <tr>
-                          <td>{i + 1}</td>
-                          <td>{item.name}</td>
-                          <td>{item.designation}</td>
-                          <td>{item.participationType}</td>
-                          <td>{item.phoneNumber}</td>
-                          <td>{item.email}</td>
-                          <td>
-                            <button
-                              onClick={() => redirectToCretePage(item, "edit")}                             
-                              
-                            >
-                              <i className="fa-solid fa-pen"></i>
-                            </button>
-                            <button className="icons">
-                              <i className="fa-solid fa-trash-can icon"></i>
-                            </button>
-                            <button
-                              onClick={() => redirectToCretePage(item, "view")                               
-                              }
-                            >
-                              <i className="fa-solid fa-eye"></i>
-                            </button>
-                          </td>
-                        </tr>
-                      );
-                    })
-                  ) : (
-                    "No data item"
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </>
   );
 };
