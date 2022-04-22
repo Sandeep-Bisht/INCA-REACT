@@ -1,6 +1,7 @@
 import * as CONSTANTS from "./constant";
 
 export const saveRegisterdUserData = (payload) => {
+  console.log("Iam inside action,",payload)
   return {
     type: CONSTANTS.SAVE_REGISTER_USER_DATA,
     payload,
@@ -21,7 +22,6 @@ export const getLoggedInUser = (id) => {
 }
 
 export const updateRegistredUser = (payload,id) => {
-  // console.log("I am i action from create",LoggedInId)
   return {
     type: CONSTANTS.UPDATE_REGISTERED_USER,
     payload,

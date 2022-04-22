@@ -5,7 +5,9 @@ import { GetHeaders } from "../../utils";
 
 export function* saveRegisterUserData(action) {
   let url = "http://144.91.110.221:4801/api/saveregistreduser";
-  // let url = "http://localhost:4801/api/saveregistreduser";
+  //  let url = "http://localhost:4801/api/saveregistreduser";
+
+   console.log("i am inside saga", action.payload)
   
   try {
     const response = yield call(axios.post, url, action.payload, GetHeaders());
@@ -22,8 +24,7 @@ export function* saveRegisterUserData(action) {
 }
 
 export function* updateRegisteredUser(action) {
-  console.log("I am header",GetHeaders())
-  let url = `http://localhost:4801/api/updateregisteruserinfo/${action.id}`;
+  let url = `http://144.91.110.221:4801/api/updateregisteruserinfo/${action.id}`;
   // let url = "http://localhost:4801/api/saveregistreduser";
   try {
     const response = yield call(axios.put, url, action.payload, GetHeaders());
@@ -41,10 +42,9 @@ export function* updateRegisteredUser(action) {
 
 export function* getLoggedInUser(action) {
   
-  let url = `http://localhost:4801/api/getsaveregistreduserinfo/${action.id}`;
+  let url = `http://144.91.110.221:4801/api/getsaveregistreduserinfo/${action.id}`;
   try {
     const response = yield call(axios.get, url, GetHeaders());
-    console.log(response, 'response')
     yield put({
       type: CONSTANTS.GET_LOGGEDID_USER_SUCCESS,
       response: response.data,

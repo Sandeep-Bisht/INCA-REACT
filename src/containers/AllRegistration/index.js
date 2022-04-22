@@ -24,7 +24,6 @@ const AllRegistration = () => {
   }, []);
 
   const actionBodyTemplate = (node, column) => {
-    console.log("inside Action template",)
     return (
       <>
         <button onClick={() => redirectToCretePage(node, "edit")}>
@@ -45,13 +44,8 @@ const AllRegistration = () => {
       initFilters1();
     }
   }, [state.userRegistrationInfoSuccess]);
-  // console.log(
-  //   state && state.userRegistrationInfoSuccess,
-  //   "state && state.userRegistrationInfoSuccessstate && state.userRegistrationInfoSuccess"
-  // );
 
   let redirectToCretePage = (item, from) => {
-    console.log(item, 'value')
     item.mode = from;
     navigate("/dashboard/create", { state: item });
   };
@@ -76,9 +70,9 @@ const AllRegistration = () => {
   const [filters2, setFilters2] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    "country.name": { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    representative: { value: null, matchMode: FilterMatchMode.IN },
-    status: { value: null, matchMode: FilterMatchMode.EQUALS },
+    email: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    designation: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    participationType: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
     verified: { value: null, matchMode: FilterMatchMode.EQUALS },
   });
 
@@ -88,9 +82,7 @@ const AllRegistration = () => {
 
   const onGlobalFilterChange1 = (e) => {
     const value = e.target.value;
-    console.log("I am value", value);
     let _filters1 = { ...filters1 };
-    console.log("I am _filters1", _filters1);
     _filters1["global"].value = value;
 
     setFilters1(_filters1);

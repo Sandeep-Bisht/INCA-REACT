@@ -52,30 +52,30 @@ const HomePage = () => {
     setShowEvents(val);
   };
 
-  useEffect(() => {
-    var dest = new Date("nov 1, 2022 00:00:00").getTime();
+  // useEffect(() => {
+  //   var dest = new Date("nov 1, 2022 00:00:00").getTime();
 
-    var x = setInterval(function () {
+  //   var x = setInterval(function () {
 
-      var now = new Date().getTime();
+  //     var now = new Date().getTime();
 
-      var diff = dest - now;
+  //     var diff = dest - now;
 
-      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  //     var days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  //     var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-      var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  //     var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-      var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  //     var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.getElementById("day").innerHTML = days;
-      document.getElementById("hours").innerHTML = hours;
-      document.getElementById("minutes").innerHTML = minutes;
-      document.getElementById("seconds").innerHTML = seconds;
-    }, 1000);
+  //     document.getElementById("day").innerHTML = days;
+  //     document.getElementById("hours").innerHTML = hours;
+  //     document.getElementById("minutes").innerHTML = minutes;
+  //     document.getElementById("seconds").innerHTML = seconds;
+  //   }, 1000);
 
-  }, [])
+  // }, [])
 
   const navigation = useNavigate();
 
@@ -115,12 +115,12 @@ const HomePage = () => {
                   <span className="banner-small text-white">
                     42<sup>nd</sup> Indian National Cartographic Association
                   </span>
-                  <br />
+               
                   <span className="common-yellow-color">
-                    {" "}
+                
                     International Conference
                   </span>
-                  <br />
+               
                   {/* <span className="banner-last">Event-2022</span> */}
                 </p>
                 <div className="banner-bottom"></div>
@@ -135,9 +135,12 @@ const HomePage = () => {
                   >
                     Register
                   </button>
-                  <button className="common-btn-transparent ms-3">
+                  <a className="common-btn-transparent ms-3 home-schedule-desk" href="#home-schedule-desk">
                     View Schedule
-                  </button>
+                  </a>
+                  <a className="common-btn-transparent ms-3 home-schedule-mob" href="#home-schedule-mob">
+                    View Schedule
+                  </a>
                 </div>
               </div>
             </div>
@@ -188,7 +191,7 @@ const HomePage = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="home-about-left">
-                <div className="row">
+                <div className="row pt-5">
                   <div className="col-lg-6 col-6 ">
                     <div className="one text-end set-img">
                       <img
@@ -206,7 +209,7 @@ const HomePage = () => {
                     </div>
                   </div>
                   <div className="col-lg-6 col-6">
-                    <div className="four mt-3 pt-4 set-img">
+                    <div className="four  set-img">
                       <img src={gallary4} className="img-fluid w-75" />
                     </div>
                     <div className="five pt-3 set-img">
@@ -885,7 +888,7 @@ const HomePage = () => {
       </section>
 
       {/* -----without carousel----- */}
-      <section className="section-padding home-schedule without-carousel">
+      <section className="section-padding home-schedule without-carousel" id="home-schedule-desk">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
@@ -1432,7 +1435,7 @@ const HomePage = () => {
         </div>
       </section>
       {/* ------ without carousel----*/}
-      <section className="section-padding home-schedule with-carousel">
+      <section className="section-padding home-schedule with-carousel" id="home-schedule-mob">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">

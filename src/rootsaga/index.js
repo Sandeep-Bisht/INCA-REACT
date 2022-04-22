@@ -7,6 +7,9 @@ import  GetUserRegistrationInfoSaga from '../containers/AllRegistration/saga'
 import CreateSaga from "../containers/Create/saga"
 import SponsorSaga from '../containers/SponsorForm/saga'
 import AllSponsorSaga from "../containers/AllSponsor/saga";
+import Countersaga from '../containers/Dashboard/saga';
+import abstractUploadFile from '../containers/AbstractUpload/saga'
+import getAbstractData from '../containers/AbstractDocumentList/saga'
 
 export function* rootSaga () {
     yield all([
@@ -16,6 +19,9 @@ export function* rootSaga () {
         fork(GetUserRegistrationInfoSaga),
         fork(CreateSaga),
         fork(SponsorSaga),
-        fork(AllSponsorSaga)
+        fork(AllSponsorSaga),
+        fork(Countersaga),
+        fork(abstractUploadFile),
+        fork(getAbstractData)
     ]);
 }

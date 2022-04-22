@@ -83,14 +83,10 @@ let RegisteredUser = () => {
   };
 
   const columns = [
-    // {field: 'code', header: 'S.no'}, "userName", "userEmail", "mobileNumber"
     {field: 'userName', header: 'Member Name'},  
     {field: 'userEmail', header: 'Email'},  
     {field: 'mobileNumber', header: 'Mobile No'},
-    
 ];
-
-
 
 const dynamicColumns = columns.map((col,i) => {
   return <Column key={col.field} field={col.field} header={col.header} sortable   />;
@@ -100,26 +96,17 @@ const dynamicColumns = columns.map((col,i) => {
   const [filters1, setFilters1] = useState(null);
   const [filters2, setFilters2] = useState({ 
     'global': { value: null, matchMode: FilterMatchMode.CONTAINS },
-    'name': { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    'country.name': { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    'representative': { value: null, matchMode: FilterMatchMode.IN },
-    'status': { value: null, matchMode: FilterMatchMode.EQUALS },
-    'verified': { value: null, matchMode: FilterMatchMode.EQUALS }
+    'userName': { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    'userEmail': { value: null, matchMode: FilterMatchMode.STARTS_WITH },
 });
-
 
   const clearFilter1 = () => {
     initFilters1();
 }
 
-
-
-
 const onGlobalFilterChange1 = (e) => {
   const value = e.target.value;
-  console.log("I am value",value)
   let _filters1 = { ...filters1 };
-  console.log("I am _filters1",_filters1)
   _filters1['global'].value = value;
 
   setFilters1(_filters1);
@@ -133,20 +120,9 @@ const initFilters1 = () => {
       'userEmail': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
       'mobileNumber': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
       
-
-      // 'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-      // 'representative': { value: null, matchMode: FilterMatchMode.IN },
-      // 'date': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
-      // 'balance': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-      // 'status': { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-      // 'activity': { value: null, matchMode: FilterMatchMode.BETWEEN },
-      // 'verified': { value: null, matchMode: FilterMatchMode.EQUALS }
   });
-  setGlobalFilterValue1('');
-  
+  setGlobalFilterValue1('');  
 }
-
-
 
   const renderHeader1 = () => {
     return (
@@ -170,13 +146,13 @@ const header1 = renderHeader1();
         <div className="card">
           <DataTable
             paginator
-            rows={10}
+            rows={5}
             dataKey="id"
             filters={filters1}
             filterDisplay="menu"
             value={users}
             responsiveLayout="scroll"
-            globalFilterFields={["userName", "userEmail", "mobileNumber"]}
+            globalFilterFields={["userName", "userEmail"]}
             header={header1}
           >
             {dynamicColumns}
