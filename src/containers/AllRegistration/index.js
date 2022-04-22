@@ -8,7 +8,6 @@ import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import * as ACTIONS from "./action";
-
 import "../../css/registred.css";
 
 const AllRegistration = () => {
@@ -166,6 +165,7 @@ const AllRegistration = () => {
         </div>
         <div className="card">
           <DataTable
+          loading={isLoading}
             paginator
             rows={10}
             dataKey="id"

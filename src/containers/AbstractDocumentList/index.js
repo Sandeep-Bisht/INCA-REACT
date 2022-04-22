@@ -110,6 +110,7 @@ const AbstractDocumentList = () => {
         <div>
         <div className="card">
           <DataTable
+           loading={isLoading}
             paginator
             rows={10}
             dataKey="id"
