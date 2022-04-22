@@ -111,7 +111,7 @@ const SponsorForm = () => {
   };
 
   const checkValidation = () => {
-    console.log("CHeck validation");
+    
     let sponsorFormCopy = { ...sponsorForm };
     Object.keys(sponsorFormCopy).map((item) => {
       switch (item) {

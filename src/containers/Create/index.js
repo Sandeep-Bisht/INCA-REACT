@@ -351,10 +351,10 @@ const CreateForm = (props) => {
   };
 
   const checkValidation = () => {
-    console.log('asfdsa validateo')
+    
     let userInformationCopy = { ...userInformation };
 
-    console.log(userInformationCopy, 'userInformationsdfsad')
+    
     if(mode == "edit"){
       userInformationCopy.isError = {
         name: "",
@@ -476,7 +476,7 @@ const CreateForm = (props) => {
   };
 
   let updateRegisterUserInfo = (e) => {
-    console.log('sdfasdfadfasdfsdaf')
+    
     e.preventDefault();
     checkValidation();
     if (validateForm()) {
