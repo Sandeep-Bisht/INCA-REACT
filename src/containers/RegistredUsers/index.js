@@ -127,12 +127,27 @@ const initFilters1 = () => {
 
   const renderHeader1 = () => {
     return (
-        <div className="flex justify-content-between">
-            <Button type="button" icon="pi pi-filter-slash" label="Clear" className="p-button-outlined" onClick={clearFilter1} />
-            <span className="p-input-icon-left">
-                <i className="pi pi-search" />
-                <InputText value={globalFilterValue1} onChange={onGlobalFilterChange1} placeholder="Keyword Search" />
-            </span>
+        <div className="d-flex justify-content-between">
+           <div>
+        <Button
+          type="button"
+          icon="pi pi-filter-slash"
+          label="Clear"
+          className="p-button-outlined"
+          onClick={clearFilter1}
+        />
+        </div>
+
+        <div>
+        <span className="p-input-icon-left">
+          <i className="pi pi-search" />
+          <InputText
+            value={globalFilterValue1}
+            onChange={onGlobalFilterChange1}
+            placeholder="Keyword Search"
+          />
+        </span>
+        </div>
         </div>
     )
 }
@@ -147,7 +162,7 @@ const header1 = renderHeader1();
         <div className="card">
           <DataTable
             paginator
-            rows={5}
+            rows={10}
             dataKey="id"
             filters={filters1}
             filterDisplay="menu"

@@ -280,13 +280,7 @@ const CreateForm = (props) => {
         break;
     }
 
-    
-    
-    
-
-    
-   
-  };
+   };
 
   const validateForm = () => {
     let formIsValid = true;
