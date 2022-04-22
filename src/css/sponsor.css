@@ -3,7 +3,7 @@
     background-image: url('../images/event-1.jpg.JPEG');
     background-size: cover;
     background-position: center;
-    color: #fff;
+    /* color: #fff; */
     position: relative;
     padding: 120px 0 40px 0;
     height:auto;
@@ -111,4 +111,10 @@ input[type="text"]:focus
 .btn-wrapper .btn
 {
     padding: 15px 100px;
+}
+
+.sponsor-form.register-form .country-flag-input input
+{
+    padding-left: 45px;
+    width: 100%;
 }

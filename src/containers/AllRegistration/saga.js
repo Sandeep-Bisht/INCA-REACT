@@ -12,6 +12,7 @@ export function* getUserRegistrationInfo(action) {
     yield put({
       type: CONSTANTS.GET_USER_REGISTRATION_INFO_SUCCESS,
       response: response.data,
+      
     });
   } catch (error) {
     yield put({

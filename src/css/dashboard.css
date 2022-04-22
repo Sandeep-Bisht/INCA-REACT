@@ -88,14 +88,15 @@
 .dash-body .left-part .accordion-button::after
 {
   background-image: url(../images/downward-arrow.png);
-  transform: rotate(0deg)!important;
+  
 }
 .dash-body .left-part .accordion-button:not(.collapsed)::after
 {
   background-image: url(../images/downward-arrow.png);
-  transform: rotate(
--180deg
-)!important;
+ 
+} 
+.dash-body .left-part .accordion-button[aria-expanded="false"]::after{
+  transform: rotate(0deg)!important;
 }
 
 
@@ -202,6 +203,11 @@
 .form-section select , .form-section input #InputDated
 {
     color: #6e6e6e;
+}
+.form-section .form-label::after
+{
+  color: red;
+  content: '*';
 }
 
 

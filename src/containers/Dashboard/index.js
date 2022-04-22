@@ -5,6 +5,7 @@ import jwt_decode from "jwt-decode";
 import * as ACTIONS from './action';
 import { Card } from '../../components/Card'
 import { PieChart } from '../../components/PieChart'
+import CreateForm from "../Create";
 import Dashlogo from "../../images/logo.png";
 import { Outlet } from "react-router-dom";
 import User from "../../images/user-profile.png";
@@ -123,6 +124,26 @@ const Dashboard = (props) => {
             <div className="row">
               <div className="col-md-3 left-part col-lg-2 px-0">
                 <aside>
+                  <ul className="ps-0 list-unstyled ">
+                  {loggedInUser.role == "admin" && (
+                      <>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() => navigate("/dashboard")}
+                          >
+                           <span className="me-2"><i class="fa-solid fa-house"></i></span>Dashboard
+                          </button>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                  {loggedInUser.role !== "admin" && (<ul className="ps-0 list-unstyled"> <li>
+                      <button className="common-blue btn" onClick={() =>
+                        navigate("/dashboard")
+                      }><span><i class="fa-solid fa-user me-2"></i></span>New Registration</button>
+                    </li></ul>)}
+                    {loggedInUser.role == "admin" && (
                   <div className="accordion" id="accordionExample">
                     <div className="accordion-item">
                       <h2 className="accordion-header" id="headingOne">
@@ -131,10 +152,10 @@ const Dashboard = (props) => {
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#collapseOne"
-                          aria-expanded="true"
+                          aria-expanded="false"
                           aria-controls="collapseOne"
                         >
-                          Registration
+                         <span className="me-2"><i class="fa-solid fa-user"></i></span> Registration
                         </button>
                       </h2>
                       <div
@@ -150,7 +171,7 @@ const Dashboard = (props) => {
                                 className="common-blue btn"
                                 onClick={() => navigate("/dashboard/create")}
                               >
-                                New Registration
+                              <span className="me-2"><i class="fa-solid fa-user-check"></i></span> New Registration
                               </button>
                             </li>
                             {loggedInUser.role == "admin" && (
@@ -159,7 +180,7 @@ const Dashboard = (props) => {
                                   className="common-blue btn"
                                   onClick={() => navigate("/dashboard/allRegistration")}
                                 >
-                                  All Registration
+                                 <span className="me-2"><i class="fa-solid fa-user-group"></i></span> All Registration
                                 </button>
                               </li>
                             )}
@@ -168,7 +189,9 @@ const Dashboard = (props) => {
                       </div>
                     </div>
                   </div>
+                    )}
                   <ul className="ps-0 list-unstyled mt-4">
+                  
                     {loggedInUser.role == "admin" && (
                       <>
                         <li>
@@ -176,7 +199,7 @@ const Dashboard = (props) => {
                             className="common-blue btn"
                             onClick={() => navigate("/dashboard/allSponsor")}
                           >
-                            Sponsors
+                           <span className="me-2"><i class="fa-brands fa-elementor"></i></span> Sponsors
                           </button>
                         </li>
                       </>
@@ -191,7 +214,7 @@ const Dashboard = (props) => {
                               navigate("/dashboard/users")
                             }
                           >
-                            Users
+                            <span className="me-2"><i class="fa-solid fa-users"></i></span>Users
                           </button>
                         </li>
                       </>
@@ -199,12 +222,12 @@ const Dashboard = (props) => {
                    {loggedInUser.role !== "admin" && ( <li>
                       <button className="common-blue btn" onClick={() =>
                         navigate("/dashboard/upload")
-                      }>Abstract</button>
+                      }><span className="me-2"><i class="fa-solid fa-file-export"></i></span>Abstract</button>
                     </li>)}
                     {loggedInUser.role == "admin" && ( <li>
                       <button className="common-blue btn" onClick={() =>
                         navigate("/dashboard/abstract")
-                      }>Abstract List</button>
+                      }><span className="me-2"><i class="fa-solid fa-file-export"></i></span>Abstracts</button>
                     </li>)}
                   </ul>
 
@@ -213,7 +236,8 @@ const Dashboard = (props) => {
               </div>
               <div className="col-md-9 col-lg-10 right-part">
               {loggedInUser.role == "admin" && location.pathname === '/dashboard' &&  <Card data = {data} />}
-              {loggedInUser.role == "admin" && location.pathname === "/dashboard" &&  <PieChart data ={data} />}
+              {loggedInUser.role == "admin" && location.pathname === "/dashboard" &&  <PieChart data ={data}/>}
+              {loggedInUser.role !== "admin" && location.pathname === "/dashboard" &&  <CreateForm />}
                 <Outlet />
               </div>
             </div>
@@ -224,3 +248,4 @@ const Dashboard = (props) => {
   );
 };
 export default Dashboard;
+ 
