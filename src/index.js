@@ -10,6 +10,7 @@ import { store } from "./store";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
