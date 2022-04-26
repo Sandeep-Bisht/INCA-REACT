@@ -238,6 +238,7 @@ const Dashboard = (props) => {
               {loggedInUser.role == "admin" && location.pathname === '/dashboard' &&  <Card data = {data} />}
               {loggedInUser.role == "admin" && location.pathname === "/dashboard" &&  <PieChart data ={data}/>}
               {loggedInUser.role !== "admin" && location.pathname === "/dashboard" &&  <CreateForm />}
+            
                 <Outlet />
               </div>
             </div>

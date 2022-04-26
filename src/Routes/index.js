@@ -54,7 +54,7 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<UserRegistration />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/forgot" element={<ForgotPassword />} />
+          <Route path="/forgot" element={<ForgotPassword />} />          
           <Route path="/dashboard" element={<Dashboard />} >
           <Route path="/dashboard/create" element={<CreateForm />} />
             <Route
@@ -65,7 +65,7 @@ export const ApplicationRoutes = ({ path }) => {
               <Route path="/dashboard/users" element={<RegisteredUser />} />
               <Route path="/dashboard/allSponsor" element={<AllSponsor />} />
               <Route path="/dashboard/upload" element={<AbstractUpload />} />
-              <Route path= "/dashboard/abstract" element={<AbstractDocumentList />}/>
+              <Route path= "/dashboard/abstract" element={<AbstractDocumentList />}/>              
             {/* )} */}
           </Route>
           <Route path="/contact" element={<Contact />} />

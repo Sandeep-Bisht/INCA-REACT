@@ -219,8 +219,16 @@ const CreateForm = (props) => {
 
   const userInformationOnchangeHandler = (e) => {
     let userInformationCopy = { ...userInformation };
-    
     const { id, value } = e.target;
+    if(e.target.id == "country"){
+      let res = value.split(' ')
+       userInformationCopy[id] = res[1];
+       setPhoneNumber(res[0])
+    }
+  
+
+    console.log(JSON.stringify(value), 'sadasdasdasd')
+
     userInformationCopy[id] = value;
     setUserInformation(userInformationCopy);
     
@@ -680,8 +688,8 @@ const CreateForm = (props) => {
                         Please Select
                       </option>
                       {countries.map((country, i) => (
-                        <option key={i} value={country}>
-                          {country}
+                        <option key={i} value={`${country.code} ${country.name}`}>
+                          {country.name}
                         </option>
                       ))}
                     </select>
