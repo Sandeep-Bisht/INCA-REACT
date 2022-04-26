@@ -152,7 +152,7 @@ const Dashboard = (props) => {
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#collapseOne"
-                          aria-expanded="true"
+                          aria-expanded="false"
                           aria-controls="collapseOne"
                         >
                          <span className="me-2"><i class="fa-solid fa-user"></i></span> Registration
@@ -171,7 +171,7 @@ const Dashboard = (props) => {
                                 className="common-blue btn"
                                 onClick={() => navigate("/dashboard/create")}
                               >
-                                New Registration
+                              <span className="me-2"><i class="fa-solid fa-user-check"></i></span> New Registration
                               </button>
                             </li>
                             {loggedInUser.role == "admin" && (
@@ -180,7 +180,7 @@ const Dashboard = (props) => {
                                   className="common-blue btn"
                                   onClick={() => navigate("/dashboard/allRegistration")}
                                 >
-                                  All Registration
+                                 <span className="me-2"><i class="fa-solid fa-user-group"></i></span> All Registration
                                 </button>
                               </li>
                             )}
@@ -227,7 +227,7 @@ const Dashboard = (props) => {
                     {loggedInUser.role == "admin" && ( <li>
                       <button className="common-blue btn" onClick={() =>
                         navigate("/dashboard/abstract")
-                      }><span className="me-2"><i class="fa-solid fa-file-export"></i></span>Abstract List</button>
+                      }><span className="me-2"><i class="fa-solid fa-file-export"></i></span>Abstracts</button>
                     </li>)}
                   </ul>
 

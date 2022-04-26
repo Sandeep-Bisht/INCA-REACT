@@ -121,29 +121,33 @@ const initFilters1 = () => {
       'userEmail': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
       'mobileNumber': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
       
-
-      // 'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-      // 'representative': { value: null, matchMode: FilterMatchMode.IN },
-      // 'date': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
-      // 'balance': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-      // 'status': { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-      // 'activity': { value: null, matchMode: FilterMatchMode.BETWEEN },
-      // 'verified': { value: null, matchMode: FilterMatchMode.EQUALS }
   });
-  setGlobalFilterValue1('');
-  
+  setGlobalFilterValue1('');  
 }
-
-
 
   const renderHeader1 = () => {
     return (
-        <div className="flex justify-content-between">
-            <Button type="button" icon="pi pi-filter-slash" label="Clear" className="p-button-outlined" onClick={clearFilter1} />
-            <span className="p-input-icon-left">
-                <i className="pi pi-search" />
-                <InputText value={globalFilterValue1} onChange={onGlobalFilterChange1} placeholder="Keyword Search" />
-            </span>
+        <div className="d-flex justify-content-between">
+           <div>
+        <Button
+          type="button"
+          icon="pi pi-filter-slash"
+          label="Clear"
+          className="p-button-outlined"
+          onClick={clearFilter1}
+        />
+        </div>
+
+        <div>
+        <span className="p-input-icon-left">
+          <i className="pi pi-search" />
+          <InputText
+            value={globalFilterValue1}
+            onChange={onGlobalFilterChange1}
+            placeholder="Keyword Search"
+          />
+        </span>
+        </div>
         </div>
     )
 }
@@ -157,6 +161,7 @@ const header1 = renderHeader1();
       <div>
         <div className="card">
           <DataTable
+          loading={isLoading}
             paginator
             rows={10}
             dataKey="id"

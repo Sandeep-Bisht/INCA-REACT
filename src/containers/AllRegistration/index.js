@@ -8,7 +8,6 @@ import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import * as ACTIONS from "./action";
-
 import "../../css/registred.css";
 
 const AllRegistration = () => {
@@ -131,7 +130,8 @@ const AllRegistration = () => {
 
   const renderHeader1 = () => {
     return (
-      <div className="flex justify-content-between">
+      <div className="d-flex justify-content-between">
+        <div>
         <Button
           type="button"
           icon="pi pi-filter-slash"
@@ -139,6 +139,9 @@ const AllRegistration = () => {
           className="p-button-outlined"
           onClick={clearFilter1}
         />
+        </div>
+
+        <div>
         <span className="p-input-icon-left">
           <i className="pi pi-search" />
           <InputText
@@ -147,6 +150,7 @@ const AllRegistration = () => {
             placeholder="Keyword Search"
           />
         </span>
+        </div>
       </div>
     );
   };
@@ -161,6 +165,7 @@ const AllRegistration = () => {
         </div>
         <div className="card">
           <DataTable
+          loading={isLoading}
             paginator
             rows={10}
             dataKey="id"

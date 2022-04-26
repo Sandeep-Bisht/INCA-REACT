@@ -177,9 +177,10 @@ input[type="text"]:focus
     padding-left: 20px;
     box-shadow: none;  
 }
-.register-form .actual-form-1 .padding-left input
+.register-form .actual-form-1 .country-flag-input input
 {
-    padding-left: 40px;
+    padding-left: 45px;
+    width: 100%;
 }
 input:focus ~ label, input:valid ~ label
 {
