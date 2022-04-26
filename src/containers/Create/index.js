@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { QRCodeSVG } from 'qrcode.react';
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { countries } from "../../utils";
@@ -59,8 +60,13 @@ const CreateForm = (props) => {
   const [mode, setMode] = useState("");
   const [value, setValue] = useState(undefined);
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
+  const buttonState = {
+    button: 0
+  };
 
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState('in')
+
+  let [qrInfo, setQrInfo] = useState(undefined)
 
   let dispatch = useDispatch();
   let location = useLocation();
@@ -167,42 +173,42 @@ const CreateForm = (props) => {
   const getRegistrationFee = () => {
     let userInformationCopy = { ...userInformation };
     if (
-      userInformationCopy.conferenceMode == "online" &&
-      userInformationCopy.registrationCategory == "Life Members"
+      userInformationCopy.conferenceMode === "online" &&
+      userInformationCopy.registrationCategory ==="Life Members"
     ) {
       return "1000";
     }
     if (
-      userInformationCopy.conferenceMode == "offline" &&
-      userInformationCopy.registrationCategory == "Life Members"
+      userInformationCopy.conferenceMode === "offline" &&
+      userInformationCopy.registrationCategory === "Life Members"
     ) {
       return "2500";
     }
 
     if (
-      userInformationCopy.conferenceMode == "online" &&
-      userInformationCopy.registrationCategory == "For Students (Indian) "
+      userInformationCopy.conferenceMode === "online" &&
+      userInformationCopy.registrationCategory === "For Students (Indian) "
     ) {
       return "500";
     }
     if (
-      userInformationCopy.conferenceMode == "offline" &&
-      userInformationCopy.registrationCategory == "For Students (Indian) "
+      userInformationCopy.conferenceMode === "offline" &&
+      userInformationCopy.registrationCategory === "For Students (Indian) "
     ) {
       return "1500";
     }
 
     if (
-      userInformationCopy.conferenceMode == "online" &&
-      userInformationCopy.registrationCategory ==
-        "Others (participants/delegates/members)"
+      userInformationCopy.conferenceMode === "online" &&
+      userInformationCopy.registrationCategory ===
+      "Others (participants/delegates/members)"
     ) {
       return "1500";
     }
     if (
-      userInformationCopy.conferenceMode == "offline" &&
-      userInformationCopy.registrationCategory ==
-        "Others (participants/delegates/members)"
+      userInformationCopy.conferenceMode === "offline" &&
+      userInformationCopy.registrationCategory ===
+      "Others (participants/delegates/members)"
     ) {
       return "3000";
     }
@@ -371,17 +377,27 @@ const CreateForm = (props) => {
 
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
-    checkValidation();
+    if (buttonState.button === 1) {
+      
+      checkValidation();
     if (validateForm()) {
       userInformation.registrationFee = value;
       userInformation.phoneNumber = phoneNumber;
       delete userInformation.isError;
       dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
+    }
+    if (buttonState.button === 2) {
+      checkValidation();
+      if (validateForm()) {
+        generateQr();
+      }
+    }
+    
   };
 
   const checkValidation = () => {
-    
+
     let userInformationCopy = { ...userInformation };
 
     if (mode == "edit") {
@@ -521,6 +537,14 @@ const CreateForm = (props) => {
     setPhoneNumber(phone);
   };
 
+  let generateQr = () => {
+    buttonState.button = 2;
+    if(userInformation.name && userInformation.email && userInformation.participationType && value){
+      let res = userInformation.name + " " + userInformation.email + " " + userInformation.participationType + " " + value
+      setQrInfo(res)
+    }
+  }
+
   return (
     <div className="main">
       <div className="form-section">
@@ -632,7 +656,12 @@ const CreateForm = (props) => {
                     )}
                   </div>
                   <div className="col-md-12">
-                    <label htmlFor="InputPhone" className="form-label asterisk">
+                    <PhoneInput
+                      country={phoneNumber}
+                      value={phoneNumber}
+                      onChange={(phone) => phoneNumberInputHandler(phone)}
+                    />
+                    {/* <label htmlFor="InputPhone" className="form-label">
                       Phone
                     </label>
                     <PhoneInput
@@ -1020,15 +1049,16 @@ const CreateForm = (props) => {
 
             <div className="row">
               <div className="col-md-12 text-end">
-                <button className="mx-3" type="submit" hidden={isHidden}>
+                <button className="mx-3" name="save" value = "save" type="submit" onClick={() => (buttonState.button = 1) } hidden={isHidden}>
                   {location && location.state && location.state.mode === "edit"
                     ? "Update"
                     : "Save"}
                 </button>
 
-                <button>Save & Pay</button>
+                <button type="submit" name="saveAndPay" value= "saveAndPay" onClick={() => generateQr()}>Save & Pay</button>
               </div>
             </div>
+           {  qrInfo !== undefined  ?  <QRCodeSVG value={qrInfo} /> : "" }
           </div>
         </form>
       </div>

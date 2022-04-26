@@ -219,6 +219,21 @@ const Dashboard = (props) => {
                         </li>
                       </>
                     )}
+                    {loggedInUser.role == "admin" && (
+                      <>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() =>
+                              navigate("/dashboard/paymentStatus")
+                            }
+                          >
+                            <span className="me-2"><i class="fa-solid fa-users"></i></span>Payment Status
+                          </button>
+                        </li>
+                      </>
+                    )}
+
                    {loggedInUser.role !== "admin" && ( <li>
                       <button className="common-blue btn" onClick={() =>
                         navigate("/dashboard/upload")

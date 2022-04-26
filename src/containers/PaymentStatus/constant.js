@@ -1,0 +1,3 @@
+export const GET_PAYMENT_STATUS = "app/GetPaymentStatus/GET_PAYMENT_STATUS";
+export const GET_PAYMENT_STATUS_SUCCESS = "app/GetPaymentStatus/GET_PAYMENT_STATUS_SUCCESS";
+export const GET_PAYMENT_STATUS_FAILURE = "app/GetPaymentStatus/GET_PAYMENT_STATUS_FAILURE";

@@ -18,7 +18,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         userRegisterSuccess: "",
       };
-      break;
+     
     default:
       return state;
   }

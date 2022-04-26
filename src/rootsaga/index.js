@@ -10,6 +10,7 @@ import AllSponsorSaga from "../containers/AllSponsor/saga";
 import Countersaga from '../containers/Dashboard/saga';
 import abstractUploadFile from '../containers/AbstractUpload/saga'
 import getAbstractData from '../containers/AbstractDocumentList/saga'
+import PaymentStatusSaga from "../containers/PaymentStatus/saga";
 
 export function* rootSaga () {
     yield all([
@@ -22,6 +23,7 @@ export function* rootSaga () {
         fork(AllSponsorSaga),
         fork(Countersaga),
         fork(abstractUploadFile),
-        fork(getAbstractData)
+        fork(getAbstractData),
+        fork(PaymentStatusSaga)
     ]);
 }

@@ -9,6 +9,7 @@
  import DashboardCounterReducer from '../containers/Dashboard/reducer'
  import AbstractUploadReducer from '../containers/AbstractUpload/reducer'
  import AbstractListReducer from '../containers/AbstractDocumentList/reducer'
+ import PaymentStatusReducer from "../containers/PaymentStatus/reducer";
 
 const rootReducer = combineReducers({
     RegisterReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     AllSponsorReducer,
     DashboardCounterReducer,
     AbstractUploadReducer,
-    AbstractListReducer
+    AbstractListReducer,
+    PaymentStatusReducer
 });
 export default rootReducer;
