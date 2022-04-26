@@ -39,7 +39,7 @@ const CreateForm = (props) => {
   const [errors, setErrors] = useState(undefined);
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
 
-  const [phoneNumber, setPhoneNumber] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('in')
 
   let dispatch = useDispatch();
   let location = useLocation();
@@ -333,7 +333,7 @@ const CreateForm = (props) => {
                   </div>
                   <div className="col-md-12">
                   <PhoneInput
-                          country={'in'}
+                          country={phoneNumber}
                           value={phoneNumber}
                           onChange={(phone) => phoneNumberInputHandler(phone)}
                         />
