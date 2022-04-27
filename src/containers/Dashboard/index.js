@@ -235,7 +235,8 @@ const Dashboard = (props) => {
 
               </div>
               <div className="col-md-9 col-lg-10 right-part">
-              {loggedInUser.role == "admin" && location.pathname === '/dashboard' &&  <Card data = {data} />}
+              {loggedInUser.role == "admin" && location.pathname === '/dashboard' && 
+               <Card data = {data} />}
               {loggedInUser.role == "admin" && location.pathname === "/dashboard" &&  <PieChart data ={data}/>}
               {loggedInUser.role !== "admin" && location.pathname === "/dashboard" &&  <CreateForm />}
                 <Outlet />
