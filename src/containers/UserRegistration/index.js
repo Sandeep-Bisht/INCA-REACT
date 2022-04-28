@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+git import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import PhoneInput from 'react-phone-input-2'
@@ -133,7 +133,7 @@ const UserRegistration = () => {
                           country={'in'}
                           value={phoneNumber}
                           onChange={(phone) => phoneNumberInputHandler(phone)}
-                          className="country-flag-input"
+                          className="padding-left "
                         />
                         {/* <label>
                           <i className="fa-solid far fas fa-phone me-2"></i>
