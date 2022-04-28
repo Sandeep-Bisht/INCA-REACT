@@ -10,7 +10,7 @@ const ForgotPassword = lazy(() => import("../containers/ForgetPassword"));
 const Dashboard = lazy(() => import("../containers/Dashboard"));
 const CreateForm = lazy(() => import("../containers/Create"));
 const AllRegistration = lazy(() => import("../containers/AllRegistration"));
-const PaymentStatus = lazy(() => import("../containers/PaymentStatus"));
+const AttendanceStatus = lazy(() => import("../containers/AttendanceStatus"));
 const Contact = lazy(() => import("../containers/ContactPage"));
 const About = lazy(() => import("../containers/AboutPage"));
 const Error = lazy(() => import("../containers/Error"));
@@ -63,7 +63,7 @@ export const ApplicationRoutes = ({ path }) => {
             />
             {/* {loggedInUser.role == "admin" && ( */}
               <Route path="/dashboard/users" element={<RegisteredUser />} />
-              <Route path="/dashboard/paymentStatus" element={<PaymentStatus />} />
+              <Route path="/dashboard/paymentStatus" element={<AttendanceStatus />} />
               <Route path="/dashboard/allSponsor" element={<AllSponsor />} />
               <Route path="/dashboard/upload" element={<AbstractUpload />} />
               <Route path= "/dashboard/abstract" element={<AbstractDocumentList />}/>              

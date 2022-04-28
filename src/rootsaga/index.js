@@ -10,7 +10,7 @@ import AllSponsorSaga from "../containers/AllSponsor/saga";
 import Countersaga from '../containers/Dashboard/saga';
 import abstractUploadFile from '../containers/AbstractUpload/saga'
 import getAbstractData from '../containers/AbstractDocumentList/saga'
-import PaymentStatusSaga from "../containers/PaymentStatus/saga";
+import PaymentStatusSaga from "../containers/AttendanceStatus/saga";
 
 export function* rootSaga () {
     yield all([

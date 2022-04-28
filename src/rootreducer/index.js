@@ -9,7 +9,7 @@
  import DashboardCounterReducer from '../containers/Dashboard/reducer'
  import AbstractUploadReducer from '../containers/AbstractUpload/reducer'
  import AbstractListReducer from '../containers/AbstractDocumentList/reducer'
- import PaymentStatusReducer from "../containers/PaymentStatus/reducer";
+ import PaymentStatusReducer from "../containers/AttendanceStatus/reducer";
 
 const rootReducer = combineReducers({
     RegisterReducer,
