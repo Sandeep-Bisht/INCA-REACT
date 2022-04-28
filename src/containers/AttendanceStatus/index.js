@@ -40,21 +40,28 @@ const PaymentStatus = () => {
         }
       }, [state.getPaymentStatusSuccess, paymentStatus]); 
 
+      let markAttendanceStatus = (node) => {
+        console.log(node, 'nodeeee')
+        dispatch(ACTIONS.markUserAttendance(node._id))
+      }
+
     const dynamicColumns = columns.map((col, i) => {
         return (
           <Column key={col.field} field={col.field} header={col.header} sortable />
         );
       });
 
+
+
       const actionBodyTemplate = (node, column) => {
         return (
           <>
-            <button onClick={() => redirectToCretePage(node, "edit")}>
-              <i className="fa-solid fa-pen"></i>
+            <button onClick={() =>markAttendanceStatus(node)}>
+              present
             </button>
             
-            <button onClick={() => redirectToCretePage(node, "view")}>
-              <i className="fa-solid fa-eye"></i>
+            <button>
+             absent
             </button>
           </>
         );
