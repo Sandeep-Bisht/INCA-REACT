@@ -133,7 +133,7 @@ const UserRegistration = () => {
                           country={'in'}
                           value={phoneNumber}
                           onChange={(phone) => phoneNumberInputHandler(phone)}
-                          className="country-flag-input"
+                          className="padding-left "
                         />
                         {/* <label>
                           <i className="fa-solid far fas fa-phone me-2"></i>
