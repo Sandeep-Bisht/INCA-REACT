@@ -1,7 +1,7 @@
 import * as CONSTANTS from "./constant";
-export function getPaymentStatus() {
+export function getAttendanceStatus() {
   return {
-    type: CONSTANTS.GET_PAYMENT_STATUS,
+    type: CONSTANTS.GET_ATTENDANCE_STATUS,
 
   };
 }

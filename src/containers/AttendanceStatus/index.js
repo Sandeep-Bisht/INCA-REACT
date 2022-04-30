@@ -8,10 +8,10 @@ import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 
-const PaymentStatus = () => {
+const AttendanceStatus = () => {
 
     let [isLoading, setIsLoading] = useState(true); 
-    const [paymentStatus, setPaymentStatus] = useState([])
+    const [attendanceStatus, setAttendanceStatus] = useState([])
     const [globalFilterValue1, setGlobalFilterValue1] = useState("");
     const [filters1, setFilters1] = useState(null);
 
@@ -25,23 +25,23 @@ const PaymentStatus = () => {
       ];
 
     let dispatch = useDispatch();
-    const state = useSelector((state) => state.PaymentStatusReducer);
+    const state = useSelector((state) => state.AttendenceStatusReducer);
 
     useEffect(() => {
-        console.log("ready to action")
-        dispatch(ACTIONS.getPaymentStatus());
+        dispatch(ACTIONS.getAttendanceStatus());
       }, []);
 
       useEffect(() => {
-        if (state && state.getPaymentStatusSuccess) {
+        if (state && state.getAttendanceStatusSuccess) {
           setIsLoading(false);
-          setPaymentStatus(state.getPaymentStatusSuccess);
+          setAttendanceStatus(state.getAttendanceStatusSuccess);
            initFilters1();
         }
-      }, [state.getPaymentStatusSuccess, paymentStatus]); 
+      }, [state.getAttendanceStatusSuccess, attendanceStatus]); 
+
+
 
       let markAttendanceStatus = (node) => {
-        console.log(node, 'nodeeee')
         dispatch(ACTIONS.markUserAttendance(node._id))
       }
 
@@ -133,6 +133,7 @@ const PaymentStatus = () => {
     const header1 = renderHeader1();
   return (
     <div>
+      
         <div className="card">
           <DataTable
             loading={isLoading}
@@ -141,7 +142,7 @@ const PaymentStatus = () => {
             dataKey="id"
             filters={filters1}
             filterDisplay="menu"
-            value={paymentStatus}
+            value={attendanceStatus}
             responsiveLayout="scroll"
             globalFilterFields={["name"]}
             header={header1}
@@ -158,4 +159,4 @@ const PaymentStatus = () => {
   )
 }
 
-export default PaymentStatus
+export default AttendanceStatus

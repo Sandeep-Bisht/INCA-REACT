@@ -28,7 +28,7 @@ const Dashboard = (props) => {
   }, []);
 
   useEffect(() => {
-    dispatch(ACTIONS.getUserSCounters())
+    dispatch(ACTIONS.getUsersCounters())
   }, [])
 
   useEffect(() => {
@@ -225,10 +225,10 @@ const Dashboard = (props) => {
                           <button
                             className="common-blue btn"
                             onClick={() =>
-                              navigate("/dashboard/paymentStatus")
+                              navigate("/dashboard/attendancestatus")
                             }
                           >
-                            <span className="me-2"><i class="fa-solid fa-users"></i></span>Payment Status
+                            <span className="me-2"><i class="fa-solid fa-users"></i></span>Attendance Status
                           </button>
                         </li>
                       </>

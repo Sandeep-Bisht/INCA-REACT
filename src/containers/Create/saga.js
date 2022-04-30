@@ -9,10 +9,12 @@ export function* saveRegisterUserData(action) {
    
   
   try {
+    console.log("inside saga", response)
     const response = yield call(axios.post, url, action.payload, GetHeaders());
     yield put({
       type: CONSTANTS.SAVE_REGISTER_USER_DATA_SUCCESS,
       response: response.data,
+      
     });
   } catch (error) {
     yield put({

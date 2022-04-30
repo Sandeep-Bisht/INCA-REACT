@@ -539,10 +539,11 @@ const CreateForm = (props) => {
 
   let generateQr = () => {
     buttonState.button = 2;
-    if(userInformation.name && userInformation.email && userInformation.participationType && value){
-      let res = userInformation.name + " " + userInformation.email + " " + userInformation.participationType + " " + value
-      setQrInfo(res)
-    }
+    let pageUrl = "http:192.168.29.231:3000/eventattendance/626cd86113327e34781a4340";
+     if(userInformation.name && userInformation.email && userInformation.participationType && value){
+    setQrInfo(pageUrl) 
+  }   
+  
   }
 
   return (
@@ -1049,7 +1050,7 @@ const CreateForm = (props) => {
 
             <div className="row">
               <div className="col-md-12 text-end">
-                <button className="mx-3" name="save" value = "save" type="submit" onClick={() => (buttonState.button = 1) } hidden={isHidden}>
+                <button className="mx-3" name="save" value ="save" type="submit" onClick={() => (buttonState.button = 1) } hidden={isHidden}>
                   {location && location.state && location.state.mode === "edit"
                     ? "Update"
                     : "Save"}

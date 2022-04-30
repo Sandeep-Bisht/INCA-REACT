@@ -3,16 +3,16 @@ export const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case CONSTANTS.GET_PAYMENT_STATUS_SUCCESS :
+        case CONSTANTS.GET_ATTENDANCE_STATUS_SUCCESS :
             return {
                 ...state,
-                getPaymentStatusSuccess: action.response,
+                getAttendanceStatusSuccess: action.response,
               };
         
-            case CONSTANTS.GET_PAYMENT_STATUS_FAILURE:
+            case CONSTANTS.GET_ATTENDANCE_STATUS_FAILURE:
               return {
                 ...state,
-                getPaymentStatusFailure: action.error,
+                getAttendanceStatusFailure: action.error,
               };
         
             default:
