@@ -1,7 +1,7 @@
 import * as CONSTANTS from './constant';
 
 export function getUserInformation(id){
-    // console.log(id, 'dsfsadfdsfdsaf')
+     console.log(id, 'dsfsadfdsfdsaf')
     return {
         type : CONSTANTS.GET_USER_DATA_FOR_ATTENDANCE,
         id        

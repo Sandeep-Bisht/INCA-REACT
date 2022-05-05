@@ -15,7 +15,7 @@ const EventAttendance = () => {
 
   const state = useSelector((state) => state.UserAttendanceReducer);
 
-  //console.log(param.id,"from event Attend")
+ 
 
   useEffect(() => {
     dispatch(ACTIONS.getUserInformation("626cd86113327e34781a4340"));
@@ -27,14 +27,12 @@ const EventAttendance = () => {
       state.userAttendanceSuccess &&
       state.userAttendanceSuccess.length > 0
     ) {
-      console.log("inside use state", state.userAttendanceSuccess);
-      setAttendance(state.userAttendanceSuccess[0]);
+           setAttendance(state.userAttendanceSuccess[0]);
     }
   }, [state.userAttendanceSuccess]);
 
   useEffect(() => {
-    if(state && state.markAttendanceSuccess){
-      console.log("from mark Attendance",state.markAttendanceSuccess)
+    if(state && state.markAttendanceSuccess){      
       setMessage(state.markAttendanceSuccess.message)
     }
   }, [state.markAttendanceSuccess])
@@ -45,16 +43,14 @@ const EventAttendance = () => {
     markAttendanceCopy[e.target.id] = e.target.value;
     setMarkAttendance(markAttendanceCopy)
   }
-   console.log("after on Change",markAttendance)
+   
 
   const onClickHandler = () => {    
     markAttendance.id = attendance._id;
-    //console.log("after on click",markAttendance)
     dispatch(ACTIONS.markAttendance(markAttendance))
   }
   
 
-  // console.log("attendence", attendance);
   return (
     <>
       <div className="container">

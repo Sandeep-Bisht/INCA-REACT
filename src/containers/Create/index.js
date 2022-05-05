@@ -539,7 +539,8 @@ const CreateForm = (props) => {
 
   let generateQr = () => {
     buttonState.button = 2;
-    let pageUrl = "http:192.168.29.231:3000/eventattendance/626cd86113327e34781a4340";
+    let pageUrl = "http:192.168.29.230:3000/eventattendance/626cd86113327e34781a4340";
+    // let pageUrl = "facebook.com"
      if(userInformation.name && userInformation.email && userInformation.participationType && value){
     setQrInfo(pageUrl) 
   }   

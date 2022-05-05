@@ -23,7 +23,7 @@ export function* getUserInformation(action) {
 }
 
 export function* markAttendance(action) {
-  let url = "http://localhost:4801/api/markattendances";
+  let url = "http://144.91.110.221:4801/api/markattendances";
 
   try {
     const response = yield call(axios.post, url, action.payload, GetHeaders());
