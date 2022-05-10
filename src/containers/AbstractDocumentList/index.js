@@ -5,6 +5,7 @@ import { Column } from 'primereact/column';
 import * as ACTIONS from './action'
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
+import { useNavigate } from 'react-router-dom';
 import { Button } from "primereact/button";
 import * as Loader from "react-loader-spinner";
 
@@ -15,7 +16,8 @@ const AbstractDocumentList = () => {
     let [abstractList, setAbstractList] = useState([])
     let [isLoading, setIsLoading] = useState(true)
     
-    let dispatch = useDispatch()
+    let dispatch = useDispatch();
+    let navigate = useNavigate();
 
     const columns = [
         
@@ -102,8 +104,8 @@ const AbstractDocumentList = () => {
   const actionBodyTemplate = () => {
     return (
       <>
-        <button>
-          <i className="fa-solid fa-pen"></i>
+        <button onClick={() =>navigate("/dashboard/previewPaper")}>
+        <i class="fa-solid fa-file-pdf"></i>
         </button>
       </>
     );

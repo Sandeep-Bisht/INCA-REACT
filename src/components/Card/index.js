@@ -3,7 +3,6 @@ import '../../css/card.css'
 
 export const Card = (props) => {
     const { data } = props
-    console.log(data,"data value")
     return (
         <>
             <div className="default-dashboard-view">

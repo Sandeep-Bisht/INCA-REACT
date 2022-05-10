@@ -9,27 +9,26 @@ const EventAttendance = () => {
   useEffect(() => {}, []);
 
   const dispatch = useDispatch();
-  const [attendance, setAttendance] = useState([]);
+  const [attendance, setAttendance] = useState({});
   const [message, setMessage] = useState("");
   const [markAttendance, setMarkAttendance] = useState({});
 
   const state = useSelector((state) => state.UserAttendanceReducer);
-
  
 
   useEffect(() => {
-    dispatch(ACTIONS.getUserInformation("626cd86113327e34781a4340"));
+    dispatch(ACTIONS.getUserInformation(param.id));
   }, []);
 
   useEffect(() => {
     if (
       state &&
-      state.userAttendanceSuccess &&
-      state.userAttendanceSuccess.length > 0
+      state.userAttendanceSuccess 
     ) {
-           setAttendance(state.userAttendanceSuccess[0]);
+      setAttendance(state.userAttendanceSuccess);
     }
   }, [state.userAttendanceSuccess]);
+  
 
   useEffect(() => {
     if(state && state.markAttendanceSuccess){      

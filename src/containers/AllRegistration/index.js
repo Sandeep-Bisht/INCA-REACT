@@ -64,7 +64,6 @@ const AllRegistration = () => {
          link.click();
       });
     } catch (error) {
-        console.error(error);
     }         
   }
 

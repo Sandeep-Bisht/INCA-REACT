@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation, } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
-import * as ACTIONS from './action';
-import { Card } from '../../components/Card'
-import { PieChart } from '../../components/PieChart'
+import * as ACTIONS from "./action";
+import { Card } from "../../components/Card";
+import { PieChart } from "../../components/PieChart";
 import CreateForm from "../Create";
 import Dashlogo from "../../images/logo.png";
 import { Outlet } from "react-router-dom";
@@ -14,11 +14,11 @@ import "../../css/dashboard.css";
 const Dashboard = (props) => {
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState({});
-  let [data, setData] = useState([])
+  let [data, setData] = useState([]);
 
   const state = useSelector((state) => state.DashboardCounterReducer);
 
-  let dispatch = useDispatch()
+  let dispatch = useDispatch();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -28,17 +28,16 @@ const Dashboard = (props) => {
   }, []);
 
   useEffect(() => {
-    dispatch(ACTIONS.getUsersCounters())
-  }, [])
+    dispatch(ACTIONS.getUsersCounters());
+  }, []);
 
   useEffect(() => {
-    if(state && state.counterSuccess){
-      setData(state.counterSuccess.response)
+    if (state && state.counterSuccess) {
+      setData(state.counterSuccess.response);
     }
-  }, [state.counterSuccess])
+  }, [state.counterSuccess]);
 
-
-  const location = useLocation()
+  const location = useLocation();
 
   let logoutUser = () => {
     localStorage.removeItem("token");
@@ -125,73 +124,96 @@ const Dashboard = (props) => {
               <div className="col-md-3 left-part col-lg-2 px-0">
                 <aside>
                   <ul className="ps-0 list-unstyled ">
-                  {loggedInUser.role == "admin" && (
+                    {loggedInUser.role == "admin" && (
                       <>
                         <li>
                           <button
                             className="common-blue btn"
                             onClick={() => navigate("/dashboard")}
                           >
-                           <span className="me-2"><i class="fa-solid fa-house"></i></span>Dashboard
+                            <span className="me-2">
+                              <i class="fa-solid fa-house"></i>
+                            </span>
+                            Dashboard
                           </button>
                         </li>
                       </>
                     )}
                   </ul>
-                  {loggedInUser.role !== "admin" && (<ul className="ps-0 list-unstyled"> <li>
-                      <button className="common-blue btn" onClick={() =>
-                        navigate("/dashboard")
-                      }><span><i class="fa-solid fa-user me-2"></i></span>New Registration</button>
-                    </li></ul>)}
-                    {loggedInUser.role == "admin" && (
-                  <div className="accordion" id="accordionExample">
-                    <div className="accordion-item">
-                      <h2 className="accordion-header" id="headingOne">
+                  {loggedInUser.role !== "admin" && (
+                    <ul className="ps-0 list-unstyled">
+                      <li>
                         <button
-                          className="accordion-button common-blue btn mb-0"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseOne"
-                          aria-expanded="false"
-                          aria-controls="collapseOne"
+                          className="common-blue btn"
+                          onClick={() => navigate("/dashboard")}
                         >
-                         <span className="me-2"><i class="fa-solid fa-user"></i></span> Registration
+                          <span>
+                            <i class="fa-solid fa-user me-2"></i>
+                          </span>
+                          New Registration
                         </button>
-                      </h2>
-                      <div
-                        id="collapseOne"
-                        className="accordion-collapse collapse "
-                        aria-labelledby="headingTwo"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div className="accordion-body p-0">
-                          <ul className="ps-0 list-unstyled ">
-                            <li>
-                              <button
-                                className="common-blue btn"
-                                onClick={() => navigate("/dashboard/create")}
-                              >
-                              <span className="me-2"><i class="fa-solid fa-user-check"></i></span> New Registration
-                              </button>
-                            </li>
-                            {loggedInUser.role == "admin" && (
+                      </li>
+                    </ul>
+                  )}
+                  {loggedInUser.role == "admin" && (
+                    <div className="accordion" id="accordionExample">
+                      <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingOne">
+                          <button
+                            className="accordion-button common-blue btn mb-0"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne"
+                            aria-expanded="false"
+                            aria-controls="collapseOne"
+                          >
+                            <span className="me-2">
+                              <i class="fa-solid fa-user"></i>
+                            </span>{" "}
+                            Registration
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseOne"
+                          className="accordion-collapse collapse "
+                          aria-labelledby="headingTwo"
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div className="accordion-body p-0">
+                            <ul className="ps-0 list-unstyled ">
                               <li>
                                 <button
                                   className="common-blue btn"
-                                  onClick={() => navigate("/dashboard/allRegistration")}
+                                  onClick={() => navigate("/dashboard/create")}
                                 >
-                                 <span className="me-2"><i class="fa-solid fa-user-group"></i></span> All Registration
+                                  <span className="me-2">
+                                    <i class="fa-solid fa-user-check"></i>
+                                  </span>{" "}
+                                  New Registration
                                 </button>
                               </li>
-                            )}
-                          </ul>
+                              {loggedInUser.role == "admin" && (
+                                <li>
+                                  <button
+                                    className="common-blue btn"
+                                    onClick={() =>
+                                      navigate("/dashboard/allRegistration")
+                                    }
+                                  >
+                                    <span className="me-2">
+                                      <i class="fa-solid fa-user-group"></i>
+                                    </span>{" "}
+                                    All Registration
+                                  </button>
+                                </li>
+                              )}
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                    )}
+                  )}
                   <ul className="ps-0 list-unstyled mt-4">
-                  
                     {loggedInUser.role == "admin" && (
                       <>
                         <li>
@@ -199,7 +221,10 @@ const Dashboard = (props) => {
                             className="common-blue btn"
                             onClick={() => navigate("/dashboard/allSponsor")}
                           >
-                           <span className="me-2"><i class="fa-brands fa-elementor"></i></span> Sponsors
+                            <span className="me-2">
+                              <i class="fa-brands fa-elementor"></i>
+                            </span>{" "}
+                            Sponsors
                           </button>
                         </li>
                       </>
@@ -210,11 +235,12 @@ const Dashboard = (props) => {
                         <li>
                           <button
                             className="common-blue btn"
-                            onClick={() =>
-                              navigate("/dashboard/users")
-                            }
+                            onClick={() => navigate("/dashboard/users")}
                           >
-                            <span className="me-2"><i class="fa-solid fa-users"></i></span>Users
+                            <span className="me-2">
+                              <i class="fa-solid fa-users"></i>
+                            </span>
+                            Users
                           </button>
                         </li>
                       </>
@@ -228,33 +254,105 @@ const Dashboard = (props) => {
                               navigate("/dashboard/attendancestatus")
                             }
                           >
-                            <span className="me-2"><i class="fa-solid fa-users"></i></span>Attendance Status
+                            <span className="me-2">
+                              <i class="fa-solid fa-users"></i>
+                            </span>
+                            Attendance Status
                           </button>
                         </li>
                       </>
                     )}
 
-                   {loggedInUser.role !== "admin" && ( <li>
-                      <button className="common-blue btn" onClick={() =>
-                        navigate("/dashboard/upload")
-                      }><span className="me-2"><i class="fa-solid fa-file-export"></i></span>Abstract</button>
-                    </li>)}
-                    {loggedInUser.role == "admin" && ( <li>
-                      <button className="common-blue btn" onClick={() =>
-                        navigate("/dashboard/abstract")
-                      }><span className="me-2"><i class="fa-solid fa-file-export"></i></span>Abstracts</button>
-                    </li>)}
+                    {loggedInUser.role !== "admin" && (
+                      <>
+                        <li>
+                          <div className="accordion" id="accordionExample">
+                            <div className="accordion-item">
+                              <h2 className="accordion-header" id="headingOne">
+                                <button
+                                  className="accordion-button common-blue btn mb-0"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#collapseOne"
+                                  aria-expanded="false"
+                                  aria-controls="collapseOne"
+                                >
+                                  <span className="me-2">
+                                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                                  </span>{" "}
+                                  Paper Submisson
+                                </button>
+                              </h2>
+                              <div
+                                id="collapseOne"
+                                className="accordion-collapse collapse "
+                                aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample"
+                              >
+                                <div className="accordion-body p-0">
+                                  <ul className="ps-0 list-unstyled ">
+                                    <li>
+                                      <button
+                                        className="common-blue btn"
+                                        onClick={() =>
+                                          navigate("/dashboard/upload")
+                                        }
+                                      >
+                                        <span className="me-2">
+                                          <i class="fa-solid fa-file-export"></i>
+                                        </span>
+                                        Abstract
+                                      </button>
+                                    </li>
+
+                                    <li>
+                                      <button
+                                        className="common-blue btn"
+                                        onClick={() =>
+                                          navigate("/dashboard/fullPaper")
+                                        }
+                                      >
+                                        <span className="me-2">
+                                          <i class="fa-solid fa-file-export"></i>
+                                        </span>
+                                        Full Papers
+                                      </button>
+                                    </li>                                    
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </>
+                    )}
+                    {loggedInUser.role == "admin" && (
+                                      <li>
+                                        <button
+                                          className="common-blue btn"
+                                          onClick={() => navigate("/dashboard/abstract")
+                                          }
+                                        >
+                                          <span className="me-2">
+                                            <i class="fa-solid fa-file-export"></i>
+                                          </span>
+                                          Abstracts
+                                        </button>
+                                      </li>
+                                    )}
                   </ul>
-
                 </aside>
-
               </div>
               <div className="col-md-9 col-lg-10 right-part">
-              {loggedInUser.role == "admin" && location.pathname === '/dashboard' && 
-               <Card data = {data} />}
-              {loggedInUser.role == "admin" && location.pathname === "/dashboard" &&  <PieChart data ={data}/>}
-              {loggedInUser.role !== "admin" && location.pathname === "/dashboard" &&  <CreateForm />}
-            
+                {loggedInUser.role == "admin" &&
+                  location.pathname === "/dashboard" && <Card data={data} />}
+                {loggedInUser.role == "admin" &&
+                  location.pathname === "/dashboard" && (
+                    <PieChart data={data} />
+                  )}
+                {loggedInUser.role !== "admin" &&
+                  location.pathname === "/dashboard" && <CreateForm />}
+
                 <Outlet />
               </div>
             </div>
@@ -265,4 +363,3 @@ const Dashboard = (props) => {
   );
 };
 export default Dashboard;
- 

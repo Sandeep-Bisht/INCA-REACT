@@ -5,14 +5,12 @@ import { GetHeaders } from "../../utils";
 
 
 export function* getUserInformation(action) {
-  // console.log(action, 'sdfdsgdf inside saga')
-  let url = `http://144.91.110.221:4801/api/getsaveregistreduserinfo/${action.id}`;
-  //let url =  `http://144.91.110.221:4801/api/getsaveregistreduserinfo/62662efd13327e34781a42ff`
+  let url =  `http://localhost:4801/api/getuserinfoforattendance/${action.id}`;
   try {
     const response = yield call(axios.get, url, GetHeaders());
     yield put({
       type: CONSTANT.GET_USER_DATA_FOR_ATTENDANCE_SUCCESS,
-      response: response.data,
+      response: response.data.data[0],
     });
   } catch (error) {
     yield put({

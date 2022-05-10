@@ -64,8 +64,9 @@ const CreateForm = (props) => {
     button: 0
   };
 
-  const [phoneNumber, setPhoneNumber] = useState('in')
+  const [phoneNumber, setPhoneNumber] = useState('')
 
+  let userId;
   let [qrInfo, setQrInfo] = useState(undefined)
 
   let dispatch = useDispatch();
@@ -130,6 +131,7 @@ const CreateForm = (props) => {
       setIsDisabled(true);
       setIsHidden(true);
       setUserInformation(state.loggedInUserSuccess[0]);
+      userId = state.loggedInUserSuccess[0]._id;
     }
   }, [state.loggedInUserSuccess]);
 
@@ -213,6 +215,7 @@ const CreateForm = (props) => {
       return "3000";
     }
   };
+
 
 
   const regExp = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
@@ -377,8 +380,8 @@ const CreateForm = (props) => {
 
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
-    if (buttonState.button === 1) {
-      
+   
+    if (buttonState.button == 1) {          
       checkValidation();
     if (validateForm()) {
       userInformation.registrationFee = value;
@@ -387,7 +390,7 @@ const CreateForm = (props) => {
       dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
     }
-    if (buttonState.button === 2) {
+    if (buttonState.button == 2) {
       checkValidation();
       if (validateForm()) {
         generateQr();
@@ -539,7 +542,7 @@ const CreateForm = (props) => {
 
   let generateQr = () => {
     buttonState.button = 2;
-    let pageUrl = "http:192.168.29.230:3000/eventattendance/626cd86113327e34781a4340";
+    let pageUrl = `http:192.168.29.230:3000/eventattendance/${userId}`;
     // let pageUrl = "facebook.com"
      if(userInformation.name && userInformation.email && userInformation.participationType && value){
     setQrInfo(pageUrl) 
@@ -658,14 +661,15 @@ const CreateForm = (props) => {
                     )}
                   </div>
                   <div className="col-md-12">
+                  <label htmlFor="InputPhone" className="form-label">
+                      Phone
+                    </label>
                     <PhoneInput
-                      country={phoneNumber}
+                     // country={phoneNumber}
                       value={phoneNumber}
                       onChange={(phone) => phoneNumberInputHandler(phone)}
                     />
-                    {/* <label htmlFor="InputPhone" className="form-label">
-                      Phone
-                    </label>
+                    {/* 
                     <PhoneInput
                       country={"in"}
                       value={phoneNumber}
@@ -848,6 +852,7 @@ const CreateForm = (props) => {
                         </label>
                         <input
                           disabled={isDisabled}
+                          className="form-control"
                           value={
                             userInformation && userInformation.registrationFee
                           }

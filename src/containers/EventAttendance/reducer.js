@@ -2,7 +2,6 @@ import * as CONSTANT from "./constant";
 export const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
- // console.log("inside reducer",action)
   switch (action.type) {
     case CONSTANT.GET_USER_DATA_FOR_ATTENDANCE_SUCCESS:
       return {
