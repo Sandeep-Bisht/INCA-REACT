@@ -20,8 +20,6 @@ import reg3 from "../../images/reg3.png";
 import reg4 from "../../images/reg4.png";
 import reg5 from "../../images/reg5.png";
 import visitor1 from "../../images/visitor-1.jpg";
-import client6 from "../../images/client-6.png";
-import client7 from "../../images/client-7.png";
 import client8 from "../../images/client-8.png";
 import client9 from "../../images/client-9.png";
 import client10 from "../../images/client-10.png";
@@ -44,6 +42,12 @@ import gallary6 from "../../images/gallery-6.jpg";
 import gallary7 from "../../images/gallery-7.jpg";
 import gallary8 from "../../images/gallery-8.jpg";
 import gallary9 from "../../images/gallery-9.jpg";
+import idelimage from "../../images/idel-image.png";
+import esrilogo from "../../images/esri-logo.png";
+import iiclogo from "../../images/iic-logo.png";
+import isrologo from "../../images/isro-logo.png";
+import natmologo from "../../images/natmo-logo.png";
+import incalogo from "../../images/logo.png";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -115,12 +119,11 @@ const HomePage = () => {
                   <span className="banner-small text-white">
                     42<sup>nd</sup> Indian National Cartographic Association
                   </span>
-               
+
                   <span className="common-yellow-color">
-                
                     International Conference
                   </span>
-               
+
                   {/* <span className="banner-last">Event-2022</span> */}
                 </p>
                 <div className="banner-bottom"></div>
@@ -135,10 +138,16 @@ const HomePage = () => {
                   >
                     Register
                   </button>
-                  <a className="common-btn-transparent ms-3 home-schedule-desk" href="#home-schedule-desk">
+                  <a
+                    className="common-btn-transparent ms-3 home-schedule-desk"
+                    href="#home-schedule-desk"
+                  >
                     View Schedule
                   </a>
-                  <a className="common-btn-transparent ms-3 home-schedule-mob" href="#home-schedule-mob">
+                  <a
+                    className="common-btn-transparent ms-3 home-schedule-mob"
+                    href="#home-schedule-mob"
+                  >
                     View Schedule
                   </a>
                 </div>
@@ -192,7 +201,7 @@ const HomePage = () => {
             <div className="col-lg-6">
               <div className="home-about-left">
                 <div className="row pt-5">
-                  <div className="col-lg-6 col-6 ">
+                  <div className="col-lg-7 col-6 ">
                     <div className="one text-end set-img">
                       <img
                         src={gallary1}
@@ -204,18 +213,23 @@ const HomePage = () => {
                     <div className="two py-3 set-img">
                       <img src={gallary2} className="img-fluid" />
                     </div>
-                    <div className="three text-end set-img">
-                      <img src={gallary3} className="img-fluid w-75" />
-                    </div>
                   </div>
-                  <div className="col-lg-6 col-6">
+                  <div className="col-lg-5 col-6">
                     <div className="four  set-img">
                       <img src={gallary4} className="img-fluid w-75" />
                     </div>
+                    
                     <div className="five pt-3 set-img">
                       <img src={gallary5} className="img-fluid" />
                     </div>
-                  </div>
+                </div>
+                <div className="row p-0">
+                      <div className="col-lg-12 ps-4 pe-0">
+                      <div className="three text-end set-img">
+                      <img src={gallary3} className="img-fluid w-75 h-25" />
+                    </div>
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -305,7 +319,7 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    ( Tuesday to Thursday ) 01 November 2022 to 03 November
+                    ( Wednesday to Friday ) 09 November 2022 to 11 November
                     2022.
                   </p>
                 </div>
@@ -439,7 +453,7 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    ( Tuesday to Thursday ) 01 November 2022 to 03 November
+                    ( Wednesday to Friday ) 09 November 2022 to 11 November
                     2022.
                   </p>
                 </div>
@@ -487,10 +501,10 @@ const HomePage = () => {
               <h2 className="common-heading text-white">
                 WHY ATTEND INCA 2022 EVENT?
               </h2>
-              <p className="common-para text-white position-relative">
+              {/* <p className="common-para text-white position-relative">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="row position-relative mt-lg-5">
@@ -520,10 +534,10 @@ const HomePage = () => {
                     <h3 className="attend-card-heading">
                       In Person Networking
                     </h3>
-                    <p className="common-para">
+                    {/* <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -537,10 +551,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">BOOST CREATIVITY</h3>
-                    <p className="common-para">
+                    {/* <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -554,10 +568,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">AFTER PARTY EVENT</h3>
-                    <p className="common-para">
+                    {/* <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -571,10 +585,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">SPARK CREATIVITY</h3>
-                    <p className="common-para">
+                    {/* <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -588,10 +602,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">TOP SPEAKERS</h3>
-                    <p className="common-para">
+                    {/* <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -605,10 +619,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">POTENTIAL CLIENTS</h3>
-                    <p className="common-para">
+                    {/* <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -626,10 +640,10 @@ const HomePage = () => {
               <h2 className="common-heading text-white">
                 WHY ATTEND INCA 2022 EVENT?
               </h2>
-              <p className="common-para text-white position-relative">
+              {/* <p className="common-para text-white position-relative">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="row position-relative mt-lg-5">
@@ -643,10 +657,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">In Person Networking</h3>
-                  <p className="common-para">
+                  {/* <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -660,10 +674,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">BOOST CREATIVITY</h3>
-                  <p className="common-para">
+                  {/* <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -677,10 +691,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">AFTER PARTY EVENT</h3>
-                  <p className="common-para">
+                  {/* <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -694,10 +708,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">SPARK CREATIVITY</h3>
-                  <p className="common-para">
+                  {/* <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -711,10 +725,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">TOP SPEAKERS</h3>
-                  <p className="common-para">
+                  {/* <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -728,10 +742,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">POTENTIAL CLIENTS</h3>
-                  <p className="common-para">
+                  {/* <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -739,16 +753,16 @@ const HomePage = () => {
         </div>
       </section>
       {/* ----without carousel---- */}
-      <section className="section-padding home-speakers with-carousel">
+      <section className="section-padding home-speakers with-carousel" id="home-speaker">
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
               <p className="common-pre-heading">Organising committee</p>
               <h2 className="common-heading ">OUR ORGANISING COMMITTEE</h2>
-              <p className="common-para ">
+              {/* <p className="common-para ">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="row mt-md-3 mt-lg-5">
@@ -785,12 +799,14 @@ const HomePage = () => {
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={comittee1} className="img-fluid" alt="" />
+                    <img src={idelimage} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
-                      <h3 className="speaker-title">Shri Rajesh Kumar</h3>
-                      <span className="speaker-post">Secretary - II, INCA</span>
+                      <h3 className="speaker-title">
+                        Retired Admiral Lochan singh pathania
+                      </h3>
+                      <span className="speaker-post">JCH / Patron</span>
                     </div>
                   </div>
                 </div>
@@ -798,13 +814,66 @@ const HomePage = () => {
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={comittee3} className="img-fluid" alt="" />
+                    <img src={idelimage} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
-                      <h3 className="speaker-title">Dr. Tapati Banerjee</h3>
+                      <h3 className="speaker-title">
+                        Chairman-cmde Peush Pawsey
+                      </h3>
                       <span className="speaker-post">
-                        Director NATMO & Past President INCA
+                        CMDE (H) - CB & Press
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="member-profile">
+                <div className="speaker-card">
+                  <div className="speaker-pic">
+                    <img src={idelimage} className="img-fluid" alt="" />
+                  </div>
+                  <div className="speaker-detail">
+                    <div className="upper">
+                      <h3 className="speaker-title">
+                        Captain Kuldeep Singh Capt (h) - HP
+                      </h3>
+                      <span className="speaker-post">
+                        Organising Director
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="member-profile">
+                <div className="speaker-card">
+                  <div className="speaker-pic">
+                    <img src={idelimage} className="img-fluid" alt="" />
+                  </div>
+                  <div className="speaker-detail">
+                    <div className="upper">
+                      <h3 className="speaker-title">
+                        Dr. R A Prasad DYCCHO
+                      </h3>
+                      <span className="speaker-post">
+                        Chief Coordinator
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="member-profile">
+                <div className="speaker-card">
+                  <div className="speaker-pic">
+                    <img src={idelimage} className="img-fluid" alt="" />
+                  </div>
+                  <div className="speaker-detail">
+                    <div className="upper">
+                      <h3 className="speaker-title">
+                        Dr. B K Ram Prasad ACCHO
+                      </h3>
+                      <span className="speaker-post">
+                        Editor
                       </span>
                     </div>
                   </div>
@@ -814,13 +883,13 @@ const HomePage = () => {
           </div>
           <div className="row mt-md-2 mt-lg-5">
             <div className="col-md-12 mt-5 text-center">
-              <button className=" common-btn">View All Members</button>
+              {/* <button className=" common-btn">View All Members</button> */}
             </div>
           </div>
         </div>
       </section>
       {/* ------ without carousel----*/}
-      <section className="section-padding home-speakers without-carousel">
+      {/* <section className="section-padding home-speakers without-carousel ">
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
@@ -853,12 +922,14 @@ const HomePage = () => {
             <div className="col-lg-4">
               <div className="speaker-card">
                 <div className="speaker-pic">
-                  <img src={comittee1} className="img-fluid" alt="" />
+                  <img src={idelimage} className="img-fluid" alt="" />
                 </div>
                 <div className="speaker-detail">
                   <div className="upper">
-                    <h3 className="speaker-title">Shri Rajesh Kumar</h3>
-                    <span className="speaker-post">Secretary - II, INCA</span>
+                    <h3 className="speaker-title">
+                      Retired Admiral Lochan singh pathania
+                    </h3>
+                    <span className="speaker-post">JCH / Patron</span>
                   </div>
                 </div>
               </div>
@@ -866,14 +937,35 @@ const HomePage = () => {
             <div className="col-lg-4">
               <div className="speaker-card">
                 <div className="speaker-pic">
-                  <img src={comittee3} className="img-fluid" alt="" />
+                  <img src={idelimage} className="img-fluid" alt="" />
                 </div>
                 <div className="speaker-detail">
                   <div className="upper">
-                    <h3 className="speaker-title">Dr. Tapati Banerjee</h3>
-                    <span className="speaker-post">
-                      Director NATMO & Past President INCA
-                    </span>
+                    <h3 className="speaker-title">
+                      Chairman-cmde Peush Pawsey
+                    </h3>
+                    <span className="speaker-post">CMDE (H) - CB & Press</span>
+                  </div>
+                </div>
+                <div className="speaker-detail">
+                  <div className="upper">
+                    <h3 className="speaker-title">
+                      Capt. Kuldeep Singh capt (H)-HP
+                    </h3>
+                    <span className="speaker-post">Organising Secretary</span>
+                  </div>
+                </div>
+                <div className="speaker-detail">
+                  <div className="upper">
+                    <h3 className="speaker-title">Dr. RA Prasad 
+                    DYCCHO</h3>
+                    <span className="speaker-post">Chief Coordinator</span>
+                  </div>
+                </div>
+                <div className="speaker-detail">
+                  <div className="upper">
+                    <h3 className="speaker-title">Dr. BK Ram Prasad ACCHO</h3>
+                    <span className="speaker-post">Editor</span>
                   </div>
                 </div>
               </div>
@@ -885,68 +977,71 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* -----without carousel----- */}
-      <section className="section-padding home-schedule without-carousel" id="home-schedule-desk">
+      <section
+        className="section-padding home-schedule without-carousel"
+        id="home-schedule-desk"
+      >
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
               <p className="common-pre-heading">SCHEDULE DETAILS</p>
               <h2 className="common-heading ">
-                INFORMATION OF EVENT SCHEDULE !
+                SCHEDULE WILL BE PUBLISHED ONCE FINALISED BY THE COMPANY
               </h2>
-              <p className="common-para ">
+              {/* <p className="common-para ">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p>
+              </p> */}
             </div>
 
             <div className="col-lg-6">
               <div className="schedule-circles ">
                 <div
                   className={`${
-                    showEvents === "1nov"
+                    showEvents === "9nov"
                       ? "common-circle  circleactive"
                       : "common-circle "
                   }`}
-                  onClick={() => showEventsByDate("1nov")}
+                  // onClick={() => showEventsByDate("9nov")}
                 >
-                  <p className="c-heading f1">01 Nov </p>
-                  <p className="shedule-day f1">Tuesday</p>
+                  <p className="c-heading f1">09 Nov </p>
+                  <p className="shedule-day f1">Wednesday</p>
                 </div>
                 <div className="before-line"></div>
                 <div
                   className={`${
-                    showEvents === "2nov"
+                    showEvents === "10nov"
                       ? "common-circle  circleactive"
                       : "common-circle "
                   }`}
-                  onClick={() => showEventsByDate("2nov")}
+                  // onClick={() => showEventsByDate("10nov")}
                 >
-                  <p className="c-heading f1">02 Nov </p>
-                  <p className="shedule-day f1">Wednesday</p>
+                  <p className="c-heading f1">10 Nov </p>
+                  <p className="shedule-day f1">Thursday</p>
                 </div>
 
                 <div className="before-line"></div>
                 <div
                   className={`${
-                    showEvents === "3nov"
+                    showEvents === "11nov"
                       ? "common-circle  circleactive"
                       : "common-circle "
                   }`}
-                  onClick={() => showEventsByDate("3nov")}
+                  // onClick={() => showEventsByDate("11nov")}
                 >
-                  <p className="c-heading f1">03 Nov </p>
-                  <p className="shedule-day f1">Thursday</p>
+                  <p className="c-heading f1">11 Nov </p>
+                  <p className="shedule-day f1">Friday</p>
                 </div>
               </div>
             </div>
           </div>
           <div className="row mt-lg-5">
-            {showEvents == "1nov" && (
+            {showEvents == "9nov" && (
               <>
-                <div className="col-md-12">
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -984,8 +1079,8 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1023,8 +1118,8 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1062,8 +1157,8 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1102,13 +1197,13 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </>
             )}
             {/* ----copy----- */}
-            {showEvents == "2nov" && (
+            {showEvents == "10nov" && (
               <>
-                <div className="col-md-12">
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1146,8 +1241,8 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1185,8 +1280,8 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1224,8 +1319,8 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1264,14 +1359,14 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </>
             )}
             {/* -----paste---- */}
             {/* ----copy----- */}
-            {showEvents == "3nov" && (
+            {showEvents == "11nov" && (
               <>
-                <div className="col-md-12">
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1309,8 +1404,8 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1348,8 +1443,8 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1387,8 +1482,8 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1427,7 +1522,7 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </>
             )}
             {/* -----paste---- */}
@@ -1435,7 +1530,10 @@ const HomePage = () => {
         </div>
       </section>
       {/* ------ without carousel----*/}
-      <section className="section-padding home-schedule with-carousel" id="home-schedule-mob">
+      <section
+        className="section-padding home-schedule with-carousel"
+        id="home-schedule-mob"
+      >
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
@@ -1452,38 +1550,38 @@ const HomePage = () => {
               <div className="schedule-circles">
                 <div
                   className={`${
-                    showEvents === "1nov"
+                    showEvents === "9nov"
                       ? "common-circle  circleactive"
                       : "common-circle "
                   }`}
-                  onClick={() => showEventsByDate("1nov")}
+                  onClick={() => showEventsByDate("9nov")}
                 >
-                  <p className="c-heading f1">01 Nov </p>
+                  <p className="c-heading f1">09 Nov </p>
                   <p className="shedule-day f1">Tuesday</p>
                 </div>
                 <div className="before-line"></div>
                 <div
                   className={`${
-                    showEvents === "2nov"
+                    showEvents === "10nov"
                       ? "common-circle  circleactive"
                       : "common-circle "
                   }`}
-                  onClick={() => showEventsByDate("2nov")}
+                  onClick={() => showEventsByDate("10nov")}
                 >
-                  <p className="c-heading f1">02 Nov </p>
+                  <p className="c-heading f1">10 Nov </p>
                   <p className="shedule-day f1">Wednesday</p>
                 </div>
 
                 <div className="before-line"></div>
                 <div
                   className={`${
-                    showEvents === "3nov"
+                    showEvents === "11nov"
                       ? "common-circle  circleactive"
                       : "common-circle "
                   }`}
-                  onClick={() => showEventsByDate("3nov")}
+                  onClick={() => showEventsByDate("11nov")}
                 >
-                  <p className="c-heading f1">03 Nov </p>
+                  <p className="c-heading f1">11 Nov </p>
                   <p className="shedule-day f1">Thursday</p>
                 </div>
               </div>
@@ -1491,7 +1589,7 @@ const HomePage = () => {
           </div>
 
           <div className="row ">
-            {showEvents == "1nov" && (
+            {showEvents == "9nov" && (
               <>
                 <Carousel
                   swipeable={true}
@@ -1507,7 +1605,7 @@ const HomePage = () => {
                   transitionDuration={500}
                   itemClass="carousel-item-padding-40-px"
                 >
-                  <div className="col-md-12">
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1545,8 +1643,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
+                  </div> */}
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1584,8 +1682,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
+                  </div> */}
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1623,8 +1721,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
+                  </div> */}
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1663,12 +1761,12 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </Carousel>
               </>
             )}
             {/* ----copy----- */}
-            {showEvents == "2nov" && (
+            {showEvents == "10nov" && (
               <>
                 <Carousel
                   swipeable={true}
@@ -1684,7 +1782,7 @@ const HomePage = () => {
                   transitionDuration={500}
                   itemClass="carousel-item-padding-40-px"
                 >
-                  <div className="col-md-12">
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1722,8 +1820,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
+                  </div> */}
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1761,8 +1859,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
+                  </div> */}
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1800,8 +1898,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
+                  </div> */}
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1840,13 +1938,13 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </Carousel>
               </>
             )}
             {/* -----paste---- */}
             {/* ----copy----- */}
-            {showEvents == "3nov" && (
+            {showEvents == "11nov" && (
               <>
                 <Carousel
                   swipeable={true}
@@ -1862,7 +1960,7 @@ const HomePage = () => {
                   transitionDuration={500}
                   itemClass="carousel-item-padding-40-px"
                 >
-                  <div className="col-md-12">
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1900,8 +1998,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
+                  </div> */}
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1939,8 +2037,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
+                  </div> */}
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1978,8 +2076,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
+                  </div> */}
+                  {/* <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -2018,7 +2116,7 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </Carousel>
               </>
             )}
@@ -2028,131 +2126,51 @@ const HomePage = () => {
       </section>
       {/* ------ without carousel----*/}
 
-      <section className="section-padding home-gallery">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-md-6">
-              <p className="common-pre-heading">INCA Events</p>
-              <h2 className="common-heading ">
-                GALLERY OF PREVIOUS INCA CONFERENCE
-              </h2>
-            </div>
-            <div className="col-md-6">
-              <p className="common-para">
-                Founded on 7th August 1979 at Hyderabad, the Indian National
-                Cartographic Association (INCA) has evolved into one of the
-                world's most prominent professional associations of its kind.
-                From a modest beginning with 79 members on its role initially,
-                today it is a professional body with more than 3000 Life Members
-                and 84 Institutional Life Members. It has branches functioning
-                at Bengaluru, Mumbai, Kolkata, Chandigarh, Dehra Dun, Delhi,
-                Gujarat, Hyderabad, Indore, Jodhpur, Kerala, Odisha and Tamil
-                Nadu.
-              </p>
-            </div>
-          </div>
-          <div className="row mt-lg-5 ">
-            <div className="col-md-12">
-              <div className="gallery-wrapper mt-5 row d-none">
-                <div className="gallery-box col-lg-3">
-                  <img src={gallary1} alt="" className="img-fluid" />
-                </div>
-
-                <div className="gallery-box col-lg-3">
-                  <img src={gallary2} alt="" className="img-fluid" />
-                </div>
-
-                <div className="gallery-box col-lg-3">
-                  <img src={gallary3} alt="" className="img-fluid" />
-                </div>
-
-                <div className="gallery-box col-lg-3">
-                  <img src={gallary9} alt="" className="img-fluid" />
-                </div>
-                <div className="gallery-box col-lg-3">
-                  <img src={gallary5} alt="" className="img-fluid" />
-                </div>
-                <div className="gallery-box col-lg-3">
-                  <img src={gallary6} alt="" className="img-fluid" />
-                </div>
-                <div className="gallery-box col-lg-3">
-                  <img src={gallary7} alt="" className="img-fluid" />
-                </div>
-                <div className="gallery-box col-lg-3">
-                  <img src={gallary8} alt="" className="img-fluid" />
-                </div>
-              </div>
-              {/* -------GALLERY------ */}
-              <div className="grid-wrapper">
-                <div className="tall">
-                  <img src={gallary3} alt="" className="img-fluid" />
-                </div>
-                <div>
-                  <img src={gallary2} alt="" className="img-fluid" />
-                </div>
-                <div className="wide">
-                  <img src={gallary4} alt="" className="img-fluid" />
-                </div>
-                <div>
-                  <img src={gallary5} alt="" className="img-fluid" />
-                </div>
-
-                <div>
-                  <img src={gallary1} alt="" className="img-fluid" />
-                </div>
-                <div className="tall">
-                  <img src={gallary8} alt="" className="img-fluid" />
-                </div>
-                <div className="big">
-                  <img src={gallary7} alt="" className="img-fluid" />
-                </div>
-                <div className="wide">
-                  <img src={gallary6} alt="" className="img-fluid" />
-                </div>
-              </div>
-              {/* ------GALLERY-------- */}
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="section-padding home-register-step">
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
               <p className="common-pre-heading">register</p>
               <h2 className="common-heading ">Quick Links</h2>
-              <p className="common-para">
+              {/* <p className="common-para">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="row mt-5">
             <div className="col-md-12">
               <ul className="ps-0 list-unstyled">
+              <div className="row">
+                <div className="col-md-6">
                 <li>
                   <div className="reg-icon-box">
-                    <img src={reg2} className="img-fluid" alt="" />
-                  </div>
-                  <h3> Sponsorship </h3>
-                  <p> Become a Sponsor / Partner </p>
-                  <div className="btn-holder">
-                    <button
-                      className="common-btn"
-                      onClick={() => navigation("/sponsorForm")}
-                    >
-                      Be a sponsor
-                    </button>
+                    <div>
+                      <img src={reg2} className="img-fluid" alt="" />
+                    </div>
+                    <div className="ps-5">
+                    <h3> Sponsorship </h3>
+                      <p> Become a Sponsor / Partner </p>
+                      <button
+                        className="common-btn"
+                        onClick={() => navigation("/sponsorForm")}
+                      >
+                        Be a sponsor
+                      </button>
+                    </div>
                   </div>
                 </li>
+                </div>
+                <div className="col-md-6">
                 <li>
                   {" "}
                   <div className="reg-icon-box">
-                    <img src={reg3} className="img-fluid" alt="" />
-                  </div>
+                    <div>
+                    <img src={reg4} className="img-fluid" alt="" />
+                    </div>
+                  <div className="ps-5">
                   <h3> Delegate </h3>
                   <p> Get your Conference Pass </p>
-                  <div className="btn-holder">
                     <button
                       className=" common-btn"
                       onClick={() => navigation("/register")}
@@ -2160,8 +2178,12 @@ const HomePage = () => {
                       Registration
                     </button>
                   </div>
+                  </div>
                 </li>
-                <li>
+                </div>
+                </div>
+                </ul>
+                {/* <li>
                   {" "}
                   <div className="reg-icon-box">
                     <img src={reg4} className="img-fluid" alt="" />
@@ -2176,8 +2198,8 @@ const HomePage = () => {
                       Registration
                     </button>
                   </div>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   {" "}
                   <div className="reg-icon-box">
                     <img src={reg5} className="img-fluid" alt="" />
@@ -2192,13 +2214,12 @@ const HomePage = () => {
                       Be a sponsor
                     </button>
                   </div>
-                </li>
-              </ul>
+                </li> */}
             </div>
           </div>
         </div>
       </section>
-      <section className="testimonial-area">
+      {/* <section className="testimonial-area">
         <div className="container">
           <div className="row">
             <div className="col-md-12 mx-auto">
@@ -2206,21 +2227,55 @@ const HomePage = () => {
                 id="carouselExampleControls1"
                 className="carousel slide"
                 data-bs-ride="carousel"
-              >
+                >
                 <div className="carousel-inner">
                   <div className="carousel-item active">
                     <div className="boxes">
                       <div className="upper">
-                        <p className="common-pre-heading">Testimonial</p>
-                        <h2 className="common-heading">
+                      <p className="common-pre-heading">Testimonial</p>
+                      <h2 className="common-heading">
                           SEE WHAT OUR PREVIOUS CONFERENCE VISITORS HAS TO SAY
                           ABOUT INTERNATIONAL EVENT
                         </h2>
                         <p className="common-para my-3">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Aliquid quasi tenetur, eligendi dolorem
+                          laboriosam voluptatum!
+                        </p>
+                        </div>
+                      <div className="middle">
+                      <div className="image">
+                          <img src={visitor1} alt="" />
+                        </div>
+                        <div className="lower">
+                          <p className="common-para fst-italic">
+                            "Habitant facilisis proident! Modi irure, modi
+                            blanditiis culpa! Soluta magnam maiores augue rutrum
+                            quia accumsan torquent venenatis. Facilis vel harum
+                            aspernatur orci, sit eleifend praesent, cupiditate,
+                            dignissimos sit proident, possimus proident
+                            distinctio wisi, odio quo."{" "}
+                            </p>
+                            <span className="blk">Petey Cruiser</span>
+                            <span className="blk-wht">Visitor</span>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div className="carousel-item">
+                  <div className="boxes">
+                      <div className="upper">
+                        <p className="common-pre-heading">Testimonial</p>
+                        <h2 className="common-heading">
+                          SEE WHAT OUR PREVIOUS CONFERENCE VISITORS HAS TO SAY
+                          ABOUT INTERNATIONAL EVENT
+                          </h2>
+                          <p className="common-para my-3">
                           Lorem ipsum, dolor sit amet consectetur adipisicing
                           elit. Aliquid quasi tenetur, eligendi dolorem
                           laboriosam voluptatum!
-                        </p>
+                          </p>
                       </div>
                       <div className="middle">
                         <div className="image">
@@ -2234,15 +2289,15 @@ const HomePage = () => {
                             aspernatur orci, sit eleifend praesent, cupiditate,
                             dignissimos sit proident, possimus proident
                             distinctio wisi, odio quo."{" "}
-                          </p>
-                          <span className="blk">Petey Cruiser</span>
-                          <span className="blk-wht">Visitor</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                            </p>
+                            <span className="blk">Petey Cruiser</span>
+                            <span className="blk-wht">Visitor</span>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
 
-                  <div className="carousel-item">
+                            <div className="carousel-item">
                     <div className="boxes">
                       <div className="upper">
                         <p className="common-pre-heading">Testimonial</p>
@@ -2254,9 +2309,9 @@ const HomePage = () => {
                           Lorem ipsum, dolor sit amet consectetur adipisicing
                           elit. Aliquid quasi tenetur, eligendi dolorem
                           laboriosam voluptatum!
-                        </p>
-                      </div>
-                      <div className="middle">
+                          </p>
+                          </div>
+                          <div className="middle">
                         <div className="image">
                           <img src={visitor1} alt="" />
                         </div>
@@ -2271,47 +2326,13 @@ const HomePage = () => {
                           </p>
                           <span className="blk">Petey Cruiser</span>
                           <span className="blk-wht">Visitor</span>
-                        </div>
+                          </div>
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="carousel-item">
-                    <div className="boxes">
-                      <div className="upper">
-                        <p className="common-pre-heading">Testimonial</p>
-                        <h2 className="common-heading">
-                          SEE WHAT OUR PREVIOUS CONFERENCE VISITORS HAS TO SAY
-                          ABOUT INTERNATIONAL EVENT
-                        </h2>
-                        <p className="common-para my-3">
-                          Lorem ipsum, dolor sit amet consectetur adipisicing
-                          elit. Aliquid quasi tenetur, eligendi dolorem
-                          laboriosam voluptatum!
-                        </p>
                       </div>
-                      <div className="middle">
-                        <div className="image">
-                          <img src={visitor1} alt="" />
-                        </div>
-                        <div className="lower">
-                          <p className="common-para fst-italic">
-                            "Habitant facilisis proident! Modi irure, modi
-                            blanditiis culpa! Soluta magnam maiores augue rutrum
-                            quia accumsan torquent venenatis. Facilis vel harum
-                            aspernatur orci, sit eleifend praesent, cupiditate,
-                            dignissimos sit proident, possimus proident
-                            distinctio wisi, odio quo."{" "}
-                          </p>
-                          <span className="blk">Petey Cruiser</span>
-                          <span className="blk-wht">Visitor</span>
-                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <button
-                  className="carousel-control-prev"
+                      </div>
+                      <button
+                      className="carousel-control-prev"
                   type="button"
                   data-bs-target="#carouselExampleControls1"
                   data-bs-slide="prev"
@@ -2325,34 +2346,34 @@ const HomePage = () => {
                   <span className="visually-hidden">Previous</span>
                 </button>
                 <button
-                  className="carousel-control-next"
+                className="carousel-control-next"
                   type="button"
                   data-bs-target="#carouselExampleControls1"
                   data-bs-slide="next"
-                >
-                  <span
-                    className="carousel-control-next-icon circle"
-                    aria-hidden="true"
                   >
-                    <i className="fa-solid fa-angle-right"></i>
+                  <span
+                  className="carousel-control-next-icon circle"
+                  aria-hidden="true"
+                  >
+                  <i className="fa-solid fa-angle-right"></i>
                   </span>
                   <span className="visually-hidden">Next</span>
                 </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                </div>
+                </div>
+                </div>
+                </div>
+              </section> */}
       <section className="sponsors-area">
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
               <p className="common-pre-heading">OUR SPONSORS</p>
               <h2>SPONSORS AND PARTNERS</h2>
-              <p className="mb-5">
+              {/* <p className="mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -2360,10 +2381,10 @@ const HomePage = () => {
             <div className="col-md-1"></div>
             <div className="col-md-2 px-0 sponsors-common">
               <div className="sponsor-box-1 common-sponsor-padding">
-                <img src={gikslogo} alt="" className="img-fluid" />
+                <img src={gislogo} alt="" className="img-fluid" />
               </div>
               <div className="sponsor-border-1 common-sponsor-padding ">
-                <img src={client6} alt="" className="img-fluid" />
+                <img src={esrilogo} alt="" className="img-fluid" />
               </div>
             </div>
             <div className="col-md-2 px-0 sponsors-common">
@@ -2371,7 +2392,7 @@ const HomePage = () => {
                 <img src={soilogo} alt="" className="img-fluid" />
               </div>
               <div className="sponsor-border-2 common-sponsor-padding">
-                <img src={client7} alt="" className="img-fluid" />
+                <img src={iiclogo} alt="" className="img-fluid" />
               </div>
             </div>
             <div className="col-md-2 px-0 sponsors-common">
@@ -2379,7 +2400,7 @@ const HomePage = () => {
                 <img src={carislogo} alt="" className="img-fluid" />
               </div>
               <div className="sponsor-border-3 common-sponsor-padding">
-                <img src={client8} alt="" className="img-fluid" />
+                <img src={isrologo} alt="" className="img-fluid" />
               </div>
             </div>
             <div className="col-md-2 px-0 sponsors-common">
@@ -2387,15 +2408,15 @@ const HomePage = () => {
                 <img src={nhologo} alt="" className="img-fluid" />
               </div>
               <div className="sponsor-border-4 common-sponsor-padding">
-                <img src={client9} alt="" className="img-fluid" />
+                <img src={natmologo} alt="" className="img-fluid" />
               </div>
             </div>
             <div className="col-md-2 px-0 sponsors-common">
               <div className="sponsor-box-5 common-sponsor-padding">
-                <img src={gislogo} alt="" className="img-fluid" />
+                <img src={gikslogo} alt="" className="img-fluid" />
               </div>
               <div className="sponsor-border-5 common-sponsor-padding">
-                <img src={client10} alt="" className="img-fluid" />
+                <img src={incalogo} alt="" className="img-fluid" />
               </div>
             </div>
             <div className="col-md-1"></div>
@@ -2415,11 +2436,11 @@ const HomePage = () => {
           <div className="row">
             <div className="col-md-12">
               <p className="common-pre-heading">RECENT BLOG</p>
-              <h2 className="common-heading">LATEST NEWS AND BLOG</h2>
-              <p className="common-para mb-5">
+              <h2 className="common-heading">LATEST NEWS</h2>
+              {/* <p className="common-para mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -2437,7 +2458,7 @@ const HomePage = () => {
                     <span>Demoteam </span>{" "}
                     <span className="blog-border px-1 mx-1">
                       {" "}
-                      November 01, 2022{" "}
+                      November 09, 2022{" "}
                     </span>{" "}
                     <span> No Comments</span>
                   </div>
@@ -2463,7 +2484,7 @@ const HomePage = () => {
                   <div className="blog-box">
                     <span>Demoteam</span>{" "}
                     <span className="blog-border px-1 mx-1">
-                      November 02, 2022
+                      November 10, 2022
                     </span>{" "}
                     <span>No Comments</span>
                   </div>
@@ -2488,7 +2509,7 @@ const HomePage = () => {
                   <div className="blog-box">
                     <span>Demoteam</span>{" "}
                     <span className="blog-border px-1 mx-1">
-                      November 03, 2022
+                      November 11, 2022
                     </span>{" "}
                     <span>No Comments</span>
                   </div>
@@ -2503,7 +2524,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
       <section className="contact-area">
         <div className="container">
           <div className="row">
@@ -2558,7 +2578,7 @@ const HomePage = () => {
                   </div>
                   <div className="contact-venue">
                     <h3>Email :</h3>
-                    <p className="common-para mb-0">Dummy@gmail.com</p>
+                    <p className="common-para mb-0">info@42inca.org</p>
                   </div>
                 </div>
 
@@ -2587,6 +2607,93 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+              <section className="section-padding home-gallery">
+                <div className="container">
+                  <div className="row align-items-center">
+                    <div className="col-md-6">
+                      <p className="common-pre-heading">INCA Events</p>
+                      <h2 className="common-heading ">
+                        GALLERY OF PREVIOUS INCA CONFERENCE
+                      </h2>
+                    </div>
+                    <div className="col-md-6">
+                      <p className="common-para">
+                        Founded on 7th August 1979 at Hyderabad, the Indian National
+                        Cartographic Association (INCA) has evolved into one of the
+                        world's most prominent professional associations of its kind.
+                        From a modest beginning with 79 members on its role initially,
+                        today it is a professional body with more than 3000 Life Members
+                        and 84 Institutional Life Members. It has branches functioning
+                        at Bengaluru, Mumbai, Kolkata, Chandigarh, Dehra Dun, Delhi,
+                        Gujarat, Hyderabad, Indore, Jodhpur, Kerala, Odisha and Tamil
+                        Nadu.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="row mt-lg-5 ">
+                    <div className="col-md-12">
+                      <div className="gallery-wrapper mt-5 row d-none">
+                        <div className="gallery-box col-lg-3">
+                          <img src={gallary1} alt="" className="img-fluid" />
+                        </div>
+        
+                        <div className="gallery-box col-lg-3">
+                          <img src={gallary2} alt="" className="img-fluid" />
+                        </div>
+        
+                        <div className="gallery-box col-lg-3">
+                          <img src={gallary3} alt="" className="img-fluid" />
+                        </div>
+        
+                        <div className="gallery-box col-lg-3">
+                          <img src={gallary9} alt="" className="img-fluid" />
+                        </div>
+                        <div className="gallery-box col-lg-3">
+                          <img src={gallary5} alt="" className="img-fluid" />
+                        </div>
+                        <div className="gallery-box col-lg-3">
+                          <img src={gallary6} alt="" className="img-fluid" />
+                        </div>
+                        <div className="gallery-box col-lg-3">
+                          <img src={gallary7} alt="" className="img-fluid" />
+                        </div>
+                        <div className="gallery-box col-lg-3">
+                          <img src={gallary8} alt="" className="img-fluid" />
+                        </div>
+                      </div>
+                      {/* -------GALLERY------ */}
+                      <div className="grid-wrapper">
+                        <div className="tall">
+                          <img src={gallary3} alt="" className="img-fluid" />
+                        </div>
+                        <div>
+                          <img src={gallary2} alt="" className="img-fluid" />
+                        </div>
+                        <div className="wide">
+                          <img src={gallary4} alt="" className="img-fluid" />
+                        </div>
+                        <div>
+                          <img src={gallary5} alt="" className="img-fluid" />
+                        </div>
+        
+                        <div>
+                          <img src={gallary1} alt="" className="img-fluid" />
+                        </div>
+                        <div className="tall">
+                          <img src={gallary8} alt="" className="img-fluid" />
+                        </div>
+                        <div className="big">
+                          <img src={gallary7} alt="" className="img-fluid" />
+                        </div>
+                        <div className="wide">
+                          <img src={gallary6} alt="" className="img-fluid" />
+                        </div>
+                      </div>
+                      {/* ------GALLERY-------- */}
+                    </div>
+                  </div>
+                </div>
+              </section>
       <Footer />
     </>
   );
