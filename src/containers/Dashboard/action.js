@@ -1,6 +1,6 @@
 import * as CONSTANTS from './constant'
 
-export const getUserSCounters = () => {
+export const getUsersCounters = () => {
     return{
         type:CONSTANTS.GET_COUNTERS
     }

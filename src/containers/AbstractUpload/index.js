@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 
@@ -11,17 +11,15 @@ let obj = {
   abstractFileUrl:""
 }
 
+
 const AbstractUpload = () => {
   const [abstractDocumentPayload, setAbstractDocumentPayload] = useState(obj);
   const [abstractDataSavedMessage, setAbstractDataSavemessage] = useState('')
-
-  const state = useSelector((state) => state.AbstractUploadReducer);
+  const [loading, setLoading] = useState(false)
+  const state = useSelector((state) => state.AbstractUploadReducer); //state me response aata h
   let dispatch = useDispatch()
+  const ref = useRef()
 
-  useEffect(() => {
-    
-  }, [])
-  
  
   useEffect(() => {
     if(state.abstractFileUploadSuccess && state.abstractFileUploadSuccess.data){
@@ -33,7 +31,9 @@ const AbstractUpload = () => {
   }, [state.abstractFileUploadSuccess])
 
   useEffect(() => {
-    if(state && state.abstractDataSaveSuccess){
+    if(state && state.abstractDataSaveSuccess){  // data succesful save k case me
+      setLoading(false)
+      emptyFormField()
       setAbstractDataSavemessage("Your file submitted successfully. we will update you on email after verification")
       setTimeout(() => {
         setAbstractDataSavemessage('')
@@ -46,22 +46,38 @@ const AbstractUpload = () => {
         if(e.target.id == 'file'){
           let formData = new FormData();
           formData.append('file', e.target.files[0])
+          abstractDocumentPayloadCopy.abstractFileUrl = e.target.files[0].name
+          setAbstractDocumentPayload(abstractDocumentPayloadCopy)
           dispatch(ACTIONS.abstratcFileUpload(formData)) //saga wali me gaya
         }
         else {
           abstractDocumentPayloadCopy[e.target.id] = e.target.value
           setAbstractDocumentPayload(abstractDocumentPayloadCopy)
         }
+        
   };
 
   let abstractPaperSubmitHandler = (e) => {
       e.preventDefault();
+      setLoading(true)
       if (localStorage.getItem("token")) {
         let decodedToken = jwt_decode(localStorage.getItem("token"));
         abstractDocumentPayload.userId = decodedToken.user.user._id
         dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
       }
+
   }
+
+  let emptyFormField = () => {
+    let abstractDocumentPayloadCopy = {...abstractDocumentPayload}
+        ref.current.value = "";
+        abstractDocumentPayloadCopy.abstractFileUrl = ""
+        abstractDocumentPayloadCopy.filename = ""
+        abstractDocumentPayloadCopy.abstractPaperName = ""
+        abstractDocumentPayloadCopy.abstractPaperDescription = ""
+        setAbstractDocumentPayload(abstractDocumentPayloadCopy)
+  }
+  
 
   return (
     <>
@@ -79,6 +95,7 @@ const AbstractUpload = () => {
                     type="text"
                     className="form-control"
                     id="abstractPaperName"
+                    value={abstractDocumentPayload.abstractPaperName}
                   />
                 </div>
               </div>
@@ -87,15 +104,18 @@ const AbstractUpload = () => {
                   <label for="inputFile" className="form-label">
                     Abstract Upload
                   </label>
-                  <input
-
+                 <input 
+                    
                     type="file"
                     className="form-control"
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     aria-label="file example"
                     id="file"
+                    ref={ref}
                     required
+                 
                   />
+                  {abstractDocumentPayload.abstractFileUrl && <p>{abstractDocumentPayload.abstractFileUrl}</p>}
                 </div>
               </div>
               <div className="col-md-12">
@@ -109,19 +129,20 @@ const AbstractUpload = () => {
                     id="abstractPaperDescription"
                     placeholder="Required description.."
                     required
+                    value={abstractDocumentPayload.abstractPaperDescription}
                   ></textarea>
                 </div>
               </div>
               <div className="row">
                 <div className="col-md-12">
                   <div className="mb-3">
-                    <button className="btn btn-primary" type="submit">
-                      Submit
+                    <button className="btn btn-primary" type="submit" disabled = {loading}>
+                    {loading ? "uploading" :  "Submit"}
                     </button>
                   </div>
                 </div>
               </div>
-              {abstractDataSavedMessage && <p>{abstractDataSavedMessage}</p>}
+              {abstractDataSavedMessage && <p className="text-success">{abstractDataSavedMessage}</p>}
             </div>
           </div>
         </form>

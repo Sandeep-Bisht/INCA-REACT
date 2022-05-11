@@ -5,6 +5,7 @@ import "primeicons/primeicons.css";                                //icons
 import './css/common.css';
 
 
+
 function App() {
   let path = window.location.pathname
   return (

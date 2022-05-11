@@ -11,9 +11,9 @@ export const Card = (props) => {
 
                         {
                             data && data.length > 0 &&
-                            data.map((item, i) => {
+                            data.slice(0,3).map((item, i) => {
                                 return (
-                                    <div className="col-md-3">
+                                    <div className="col-md-4">
                                         {/* <div className=" "> */}
                                         <div className={`${item.type == "user" ? "conter-card one" : item.type === "sponser" ? "conter-card two" : item.type === "registred" ? "conter-card three" : "conter-card four"}`}>
                                             <div className="left"><i className={`${item.type == "user" ? "fa-solid fa-users" : item.type === "sponser" ? "fa-brands fa-elementor" : item.type === "registred" ? "fa-solid fa-user-check" : "fa-solid fa-file-export"}`}></i></div>
@@ -26,7 +26,7 @@ export const Card = (props) => {
                                 )
                             })
                         }
-                        {
+                        {/* {
                         data && data.length > 0 &&
                          <div className="col-md-3">
                         <div className="conter-card four">
@@ -38,7 +38,7 @@ export const Card = (props) => {
                         </div>
                         </div>
                         }
-
+ */}
 
                     </div>
 

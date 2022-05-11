@@ -23,8 +23,9 @@
 .default-dashboard-view .conter-card.three i{
     color: #03a9f3;
 }
-.default-dashboard-view .conter-card.four i{
-    color:#fb9678;
+
+.default-dashboard-view .conter-card.five i{
+    color:#ed558e;
 }
 .default-dashboard-view .conter-card .counter-card-number{
     color: #455a64;

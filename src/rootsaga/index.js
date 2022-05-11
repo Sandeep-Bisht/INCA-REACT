@@ -10,6 +10,8 @@ import AllSponsorSaga from "../containers/AllSponsor/saga";
 import Countersaga from '../containers/Dashboard/saga';
 import abstractUploadFile from '../containers/AbstractUpload/saga'
 import getAbstractData from '../containers/AbstractDocumentList/saga'
+import AttendenceStatusSaga from "../containers/AttendanceStatus/saga";
+import UserAttendanceSaga from "../containers/EventAttendance/saga";
 
 export function* rootSaga () {
     yield all([
@@ -22,6 +24,8 @@ export function* rootSaga () {
         fork(AllSponsorSaga),
         fork(Countersaga),
         fork(abstractUploadFile),
-        fork(getAbstractData)
+        fork(getAbstractData),
+        fork(AttendenceStatusSaga),
+        fork(UserAttendanceSaga)
     ]);
 }

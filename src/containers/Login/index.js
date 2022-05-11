@@ -22,6 +22,7 @@ const Login = () => {
   let loginOnChangeHandler = (e) => {
     let loginPayloadCopy = { ...loginPayload };
     loginPayloadCopy[e.target.id] = e.target.value;
+    setLoginMessage("")
     setLoginPayload(loginPayloadCopy);
   };
 
@@ -39,6 +40,13 @@ const Login = () => {
       }
     }
   }, [state.userLoginSuccess]);
+
+  useEffect(() => {
+    if(state.userLoginFailure){
+      setLoginLoder(false)
+      setLoginMessage(state.userLoginFailure.message)
+    }
+  }, [state.userLoginFailure])
 
 
   let validateLoginForm = () => {
