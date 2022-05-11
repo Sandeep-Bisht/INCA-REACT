@@ -47,6 +47,7 @@ import esrilogo from "../../images/esri-logo.png";
 import iiclogo from "../../images/iic-logo.png";
 import isrologo from "../../images/isro-logo.png";
 import natmologo from "../../images/natmo-logo.png";
+import incalogo from "../../images/logo.png";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -2415,7 +2416,7 @@ const HomePage = () => {
                 <img src={gikslogo} alt="" className="img-fluid" />
               </div>
               <div className="sponsor-border-5 common-sponsor-padding">
-                {/* <img src={} alt="" className="img-fluid" /> */}
+                <img src={incalogo} alt="" className="img-fluid" />
               </div>
             </div>
             <div className="col-md-1"></div>
