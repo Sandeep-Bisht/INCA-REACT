@@ -5,7 +5,7 @@ import { GetHeaders } from "../../utils";
 
 
 export function* getUserInformation(action) {
-  let url =  `http://localhost:4801/api/getuserinfoforattendance/${action.id}`;
+  let url =  `http://144.91.110.221:4801/api/getuserinfoforattendance/${action.id}`;
   try {
     const response = yield call(axios.get, url, GetHeaders());
     yield put({
