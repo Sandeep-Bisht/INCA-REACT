@@ -256,12 +256,22 @@
 }
 .home-speakers .speaker-card .speaker-detail
 {
-    position:absolute;
+    /* position:absolute;
     bottom: -50px;
     left:50%;
     transform: translateX(-50%);
     background-color: #fff;
-  
+    padding: 20px;
+    border-radius: 25px;
+    width: 80%;
+    text-align: center;
+    height: 140px;
+    box-shadow: 0 3px 6px rgb(25 25 25 / 10%); */
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
     padding: 20px;
     border-radius: 25px;
     width: 80%;
@@ -302,6 +312,9 @@
  background-color: #111b69;
  color: #fff;
  font-size: 14px;
+}
+#home-speaker{
+    display: block!important;
 }
 /* ----------home-schedule-------------- */
 .home-schedule
@@ -453,31 +466,38 @@
     height:320px;
     background:#fff;
     position: relative; */
-    text-align: center;
+    /* text-align: center; */
     margin: 5px 10px;
     /* box-shadow: 0 0 5px 0 #b9b9b9; */
-    padding: 30px 10px;
-    width: 200px;
-    height: 320px;
+    padding: 50px 10px;
+    width: 530px;
+    /* height: 320px; */
     background: #fff;
     position: relative;
      border-radius: 10px;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     align-items: center;
+    display: flex;
 }
 .home-register-step ul li .reg-icon-box
 {
-    width: 100px;
+    /* width: 100px;
     height: 100px;
     margin: 0 auto;
-    text-align: center;
+    text-align: center; */
     margin-bottom: 15px;
+    display: flex;
+}
+.home-register-step ul li .reg-icon-box img
+{
+    width: 120px;
 }
 .home-register-step ul li p{
+    color: #212121;
     font-weight:500;
     font-size: 16px;
     line-height: 1;
-    margin-top: 10px;
+    margin-top: 30px;
     font-family: 'Poppins', sans-serif;
 }
 .home-register-step ul li .btn-holder
@@ -493,9 +513,7 @@
 .home-register-step ul li .common-btn
 {
     padding: 5px 15px;
-    font-size:13px;
-
-    
+    font-size:13px; 
 }
 
 /* ------julesh css start---------- */
@@ -813,7 +831,7 @@ padding: 50px 40px;
         font-size:33px;
     }
     .home-banner .right .banner-title{
-        font-size:60px;
+        font-size:46px;
     }
     .home-speakers .speaker-card .speaker-title{
         font-size:18px;
