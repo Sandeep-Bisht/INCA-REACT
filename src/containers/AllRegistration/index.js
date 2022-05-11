@@ -52,7 +52,7 @@ const AllRegistration = () => {
   let downloadStudentDataExcel = () => {
     try {
        axios({
-        url: 'http://localhost:4801/api/downloadexcel',
+        url: 'http://144.91.110.221:4801/api/downloadexcel',
         method: 'GET',
         responseType: 'blob', 
       }).then((response) => {
