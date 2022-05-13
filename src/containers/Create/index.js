@@ -216,13 +216,9 @@ const CreateForm = (props) => {
     }
   };
 
-
-
   const regExp = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
   const nameRegExp = RegExp(/^[A-Za-z ]+$/);
-  const phoneRegExp = RegExp(
-    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
-  );
+  const phoneRegExp = RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
   // const pinCode = RegExp();
   const { isError } = userInformation;
 
@@ -233,10 +229,7 @@ const CreateForm = (props) => {
     //   let res = value.split(' ')
     //    userInformationCopy[id] = res[1];
     //    setPhoneNumber(res[0])
-    // }
-  
-
-    
+    // }  
 
     userInformationCopy[id] = value;
     setUserInformation(userInformationCopy);
@@ -246,7 +239,6 @@ const CreateForm = (props) => {
         userInformationCopy.isError.name = nameRegExp.test(value)
           ? ""
           : "Name should be in correct form";
-
         setUserInformation(userInformationCopy);
         break;
       case "address":
@@ -379,8 +371,7 @@ const CreateForm = (props) => {
   };
 
   let submitRegisterUserInformation = (e) => {
-    e.preventDefault();
-   
+    e.preventDefault();   
     if (buttonState.button == 1) {          
       checkValidation();
     if (validateForm()) {
@@ -389,11 +380,21 @@ const CreateForm = (props) => {
       delete userInformation.isError;
       dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
+    else{
+      let userInformationCopy = {...userInformation}
+      userInformationCopy.isError.email = "Email is invalid"
+      setUserInformation(userInformationCopy)
+    }
     }
     if (buttonState.button == 2) {
       checkValidation();
       if (validateForm()) {
         generateQr();
+      }
+      else{
+        let userInformationCopy = {...userInformation}
+      userInformationCopy.isError.email = "Email is invalid"
+      setUserInformation(userInformationCopy)
       }
     }
     
@@ -665,8 +666,10 @@ const CreateForm = (props) => {
                       Phone
                     </label>
                     <PhoneInput
-                     // country={phoneNumber}
+                     country="in"
                       value={phoneNumber}
+                      
+                      placeholder=""
                       onChange={(phone) => phoneNumberInputHandler(phone)}
                     />
                     {/* 
@@ -737,6 +740,7 @@ const CreateForm = (props) => {
                     <input
                       type="email"
                       id="email"
+                     
                       disabled={isDisabled}
                       value={userInformation && userInformation.email}
                       onChange={(e) => userInformationOnchangeHandler(e)}
