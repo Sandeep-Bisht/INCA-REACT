@@ -2554,11 +2554,11 @@ const HomePage = () => {
                 <h2 className="common-heading">
                   YOU CAN REACH US WITH FOLLOWING DETAILS
                 </h2>
-                <p className="common-para my-4">
+                {/* <p className="common-para my-4">
                   Quam amet tristique adipisicing incididunt arcu, excepturi
                   molestie turpis deserunt ducimus malesuada minus mauris
                   veniam.
-                </p>
+                </p> */}
                 <div className="icon-text-movement">
                   <div className="contact-icon">
                     <i className="fa-solid fa-building"></i>
