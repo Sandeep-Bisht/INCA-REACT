@@ -4,7 +4,7 @@ import axios from "axios";
 
 export function* appRegistrationHandler(action) {
   let url = "http://144.91.110.221:4801/api/signup";
-  //let url = "http://localhost:4801/api/signup";
+ // let url = "http://localhost:4801/api/signup";
   try {
     const response = yield call(axios.post, url, action.payload);
     yield put({

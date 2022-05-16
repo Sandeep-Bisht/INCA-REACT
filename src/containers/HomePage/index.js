@@ -2422,13 +2422,13 @@ const HomePage = () => {
             <div className="col-md-1"></div>
           </div>
 
-          <div className="row position-relative">
+          {/* <div className="row position-relative">
             <div className="col-md-8 mx-auto text-center">
               <button className="common-btn my-lg-5 my-2">
                 BECAME A SPONSOR
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="blog-area section-padding">

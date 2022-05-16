@@ -21,8 +21,8 @@ const UserRegistration = () => {
   const [successResponse, setSuccessResponse] = useState({});
 
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [message, setMessage] = useState(undefined);
-  const [isHidden, setIsHidden] = useState(true);
+  const [message, setMessage] = useState('user is already registered with this email');
+  const [isHidden, setIsHidden] = useState(false);
 
   let dispatch = useDispatch();
   let navigate = useNavigate();
@@ -118,19 +118,8 @@ const UserRegistration = () => {
 
   useEffect(() => {
     if (state && state.userRegisterSuccess) {
-      // if(state.userRegisterSuccess.message == "user is already registered with this email"){
-      //   setMessage(state.userRegisterSuccess.message)
-      // }
-      // else{
-      //   setIsHidden(false);
-      //   setMessage(
-      //     "You are Successfully Registred, please check your registred email for Credentials."
-      //   );
-      // }
-      setIsHidden(false);
-      setMessage(
-        "You are Successfully Registred, please check your registred email for Credentials."
-      );
+      setIsHidden(true);
+      setMessage(state.userRegisterSuccess.message);
       dispatch(ACTIONS.resetToInitialState());
     }
   }, [state.userRegisterSuccess]);
@@ -147,7 +136,8 @@ const UserRegistration = () => {
   return (
     <>
       <Header></Header>
-      {isHidden ? (
+      { message == "user is already registered with this email"  ?
+(
         <section className="register-form">
           <form
             className="login-form"
@@ -253,8 +243,7 @@ const UserRegistration = () => {
                     <div className="col-md-12">
                       <div className="form-wrap">
                         <div className="input-wrap">
-                          <p className="text-danger">{message}</p>
-                        </div>
+                          {isHidden && <p className="text-danger">{message}</p>}
                       </div>
                     </div>
 
@@ -272,6 +261,7 @@ const UserRegistration = () => {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </form>
         </section>
