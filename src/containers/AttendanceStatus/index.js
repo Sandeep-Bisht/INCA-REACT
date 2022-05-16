@@ -46,6 +46,7 @@ const AttendanceStatus = () => {
       }
 
     const dynamicColumns = columns.map((col, i) => {
+      
         return (
           <Column key={col.field} field={col.field} header={col.header} sortable />
         );
@@ -54,15 +55,20 @@ const AttendanceStatus = () => {
 
 
       const actionBodyTemplate = (node, column) => {
+        let checkBoxId = Math.random();
         return (
           <>
-            <button onClick={() =>markAttendanceStatus(node)}>
+          <div className='toggle-btn'>
+            <input onClick={() =>markAttendanceStatus(node)} type="checkbox" id={checkBoxId}></input>
+            <label for={checkBoxId}></label>
+          </div>
+            {/* <button onClick={() =>markAttendanceStatus(node)}>
               present
             </button>
             
             <button>
              absent
-            </button>
+            </button> */}
           </>
         );
       };
