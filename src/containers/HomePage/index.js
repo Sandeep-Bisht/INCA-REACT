@@ -2422,13 +2422,13 @@ const HomePage = () => {
             <div className="col-md-1"></div>
           </div>
 
-          <div className="row position-relative">
+          {/* <div className="row position-relative">
             <div className="col-md-8 mx-auto text-center">
               <button className="common-btn my-lg-5 my-2">
                 BECAME A SPONSOR
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="blog-area section-padding">
@@ -2554,11 +2554,11 @@ const HomePage = () => {
                 <h2 className="common-heading">
                   YOU CAN REACH US WITH FOLLOWING DETAILS
                 </h2>
-                <p className="common-para my-4">
+                {/* <p className="common-para my-4">
                   Quam amet tristique adipisicing incididunt arcu, excepturi
                   molestie turpis deserunt ducimus malesuada minus mauris
                   veniam.
-                </p>
+                </p> */}
                 <div className="icon-text-movement">
                   <div className="contact-icon">
                     <i className="fa-solid fa-building"></i>

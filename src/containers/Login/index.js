@@ -89,7 +89,7 @@ const Login = () => {
                         <input
                           type="email"
                           id="userEmail"
-                          required
+                          //required
                           className="form-control"
                           onChange={(e) => loginOnChangeHandler(e)}
                         />
@@ -105,7 +105,7 @@ const Login = () => {
                       <div className="input-wrap">
                         <input
                           type="password"
-                          required
+                          //required
                           className="form-control"
                           id="password"
                           onChange={(e) => loginOnChangeHandler(e)}

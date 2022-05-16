@@ -41,47 +41,47 @@ let RegisteredUser = () => {
     setPassword(e.target.value);
   };
 
-  let createPopModal = () => {
-    return (
-      <div className="modal d-block " tabindex="-1">
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Change Password</h5>
-              {/* <button type="button" className="btn-close">
-                X
-              </button> */}
-            </div>
-            <div className="modal-body">
-              <div className="col-md-12">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Enter New Password"
-                  onChange={(e) => passwordOnChangeHandler(e)}
-                  value={password}
-                  id="password"
-                />
-              </div>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-                onClick={() => setShowModal(false)}
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Change Password
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  // let createPopModal = () => {
+  //   return (
+  //     <div className="modal d-block " tabindex="-1">
+  //       <div className="modal-dialog modal-dialog-centered">
+  //         <div className="modal-content">
+  //           <div className="modal-header">
+  //             <h5 className="modal-title">Change Password</h5>
+  //             {/* <button type="button" className="btn-close">
+  //               X
+  //             </button> */}
+  //           </div>
+  //           <div className="modal-body">
+  //             <div className="col-md-12">
+  //               <input
+  //                 type="password"
+  //                 className="form-control"
+  //                 placeholder="Enter New Password"
+  //                 onChange={(e) => passwordOnChangeHandler(e)}
+  //                 value={password}
+  //                 id="password"
+  //               />
+  //             </div>
+  //           </div>
+  //           <div className="modal-footer">
+  //             <button
+  //               type="button"
+  //               className="btn btn-secondary"
+  //               data-bs-dismiss="modal"
+  //               onClick={() => setShowModal(false)}
+  //             >
+  //               Close
+  //             </button>
+  //             <button type="button" className="btn btn-primary">
+  //               Change Password
+  //             </button>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   const columns = [
     {field: 'userName', header: 'Member Name'},  

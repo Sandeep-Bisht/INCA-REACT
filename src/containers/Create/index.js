@@ -51,7 +51,7 @@ const obj = {
     transactionId: "",
   },
 };
-
+let userId;
 const CreateForm = (props) => {
   const [userInformation, setUserInformation] = useState(obj);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -59,6 +59,7 @@ const CreateForm = (props) => {
   const [message, setMessage] = useState("");
   const [mode, setMode] = useState("");
   const [value, setValue] = useState(undefined);
+  const [systemRole, setSystemRole] = useState('')
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
   const buttonState = {
     button: 0
@@ -66,7 +67,7 @@ const CreateForm = (props) => {
 
   const [phoneNumber, setPhoneNumber] = useState('')
 
-  let userId;
+ 
   let [qrInfo, setQrInfo] = useState(undefined)
 
   let dispatch = useDispatch();
@@ -86,6 +87,9 @@ const CreateForm = (props) => {
         setUserInformation(userInformationCopy);
         setPhoneNumber(decodedToken.user.user.mobileNumber);
         dispatch(ACTIONS.getLoggedInUser(logedInId));
+      }
+      else {
+        setSystemRole(decodedToken.user.user.role )
       }
     }
   }, []);
@@ -131,7 +135,8 @@ const CreateForm = (props) => {
       setIsDisabled(true);
       setIsHidden(true);
       setUserInformation(state.loggedInUserSuccess[0]);
-      userId = state.loggedInUserSuccess[0]._id;
+
+      // userId = state.loggedInUserSuccess[0]._id;
     }
   }, [state.loggedInUserSuccess]);
 
@@ -141,6 +146,7 @@ const CreateForm = (props) => {
       setPhoneNumber(location.state.phoneNumber.toString());
       setMode(location.state.mode);
       setIsDisabled(true);
+     
     } else if (location && location.state && location.state.mode === "edit") {
       location.state.isError = {
         name: "",
@@ -164,7 +170,8 @@ const CreateForm = (props) => {
         transactionId: "",
     
     }
-   
+    console.log(location.state._id, 'location.state._id;location.state._id;')
+      userId = location.state._id;
       setUserInformation(location.state);
       setPhoneNumber(location.state.phoneNumber.toString());
       setIsDisabled(false);
@@ -216,13 +223,9 @@ const CreateForm = (props) => {
     }
   };
 
-
-
   const regExp = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
   const nameRegExp = RegExp(/^[A-Za-z ]+$/);
-  const phoneRegExp = RegExp(
-    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
-  );
+  const phoneRegExp = RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
   // const pinCode = RegExp();
   const { isError } = userInformation;
 
@@ -233,10 +236,7 @@ const CreateForm = (props) => {
     //   let res = value.split(' ')
     //    userInformationCopy[id] = res[1];
     //    setPhoneNumber(res[0])
-    // }
-  
-
-    
+    // }  
 
     userInformationCopy[id] = value;
     setUserInformation(userInformationCopy);
@@ -246,7 +246,6 @@ const CreateForm = (props) => {
         userInformationCopy.isError.name = nameRegExp.test(value)
           ? ""
           : "Name should be in correct form";
-
         setUserInformation(userInformationCopy);
         break;
       case "address":
@@ -379,8 +378,10 @@ const CreateForm = (props) => {
   };
 
   let submitRegisterUserInformation = (e) => {
-    e.preventDefault();
-   
+    e.preventDefault();   
+    if(systemRole == "admin"){
+      userInformation.systemRole = systemRole
+    }
     if (buttonState.button == 1) {          
       checkValidation();
     if (validateForm()) {
@@ -389,11 +390,21 @@ const CreateForm = (props) => {
       delete userInformation.isError;
       dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
+    else{
+      let userInformationCopy = {...userInformation}
+      userInformationCopy.isError.email = "Email is invalid"
+      setUserInformation(userInformationCopy)
+    }
     }
     if (buttonState.button == 2) {
       checkValidation();
       if (validateForm()) {
         generateQr();
+      }
+      else{
+        let userInformationCopy = {...userInformation}
+      userInformationCopy.isError.email = "Email is invalid"
+      setUserInformation(userInformationCopy)
       }
     }
     
@@ -542,7 +553,10 @@ const CreateForm = (props) => {
 
   let generateQr = () => {
     buttonState.button = 2;
-    let pageUrl = `http:192.168.29.230:3000/eventattendance/${userId}`;
+    console.log(userId, 'asddasdsad')
+    let pageUrl = `http://144.91.110.221:5360/eventattendance/${userId}`;
+    //let pageUrl = `http://144.91.110.221:5360/eventattendance/6281fd6dfbce5a096cf0a864}`;
+    // 6281fd6dfbce5a096cf0a864
     // let pageUrl = "facebook.com"
      if(userInformation.name && userInformation.email && userInformation.participationType && value){
     setQrInfo(pageUrl) 
@@ -665,8 +679,10 @@ const CreateForm = (props) => {
                       Phone
                     </label>
                     <PhoneInput
-                     // country={phoneNumber}
+                     country="in"
                       value={phoneNumber}
+                      
+                      placeholder=""
                       onChange={(phone) => phoneNumberInputHandler(phone)}
                     />
                     {/* 
@@ -737,6 +753,7 @@ const CreateForm = (props) => {
                     <input
                       type="email"
                       id="email"
+                     
                       disabled={isDisabled}
                       value={userInformation && userInformation.email}
                       onChange={(e) => userInformationOnchangeHandler(e)}
