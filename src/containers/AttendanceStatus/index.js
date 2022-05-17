@@ -46,7 +46,7 @@ const AttendanceStatus = () => {
 
       let markAttendanceStatus = (node) => {
         dispatch(ACTIONS.markUserAttendance(node._id))
-        navigate("/dashboard");
+        // navigate("/dashboard");
       }
 
     const dynamicColumns = columns.map((col, i) => {
