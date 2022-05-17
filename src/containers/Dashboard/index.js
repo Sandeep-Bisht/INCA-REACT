@@ -80,11 +80,15 @@ const Dashboard = (props) => {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img
+                      <span className="user-icon">
+                      <i class="fa-solid fa-user"></i>
+                      </span>
+                      
+                      {/* <img
                         src={User}
                         className="img-fluid  me-3 dash-user-pic"
-                      />
-                      <span className="user-text me-2">
+                      /> */}
+                      <span className="user-text me-2">                      
                         {loggedInUser.userEmail}
                       </span>
                     </a>
@@ -92,23 +96,13 @@ const Dashboard = (props) => {
                       className="dropdown-menu"
                       aria-labelledby="navbarDropdown"
                     >
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Action
-                        </a>
-                      </li>
-                      {/* <li>
-                        <a className="dropdown-item" href="#">
-                          Another action
-                        </a>
-                      </li> */}
-                      <li>
+                    <li>
                         <button
                           onClick={() => logoutUser()}
                           className="dropdown-item"
                           to="/"
                         >
-                          LogOut
+                          Logout
                         </button>
                       </li>
                     </ul>
@@ -148,7 +142,7 @@ const Dashboard = (props) => {
                           onClick={() => navigate("/dashboard")}
                         >
                           <span>
-                            <i class="fa-solid fa-user me-2"></i>
+                          <i class="fa-solid fa-user-plus"></i>
                           </span>
                           New Registration
                         </button>
@@ -187,7 +181,7 @@ const Dashboard = (props) => {
                                   onClick={() => navigate("/dashboard/create")}
                                 >
                                   <span className="me-2">
-                                    <i class="fa-solid fa-user-check"></i>
+                                  <i class="fa-solid fa-user-plus"></i>
                                   </span>{" "}
                                   New Registration
                                 </button>

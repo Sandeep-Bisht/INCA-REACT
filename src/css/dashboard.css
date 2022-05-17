@@ -103,7 +103,7 @@
 .dash-body .left-part aside ul li:hover,.dash-body .left-part .accordion-button:hover,
 .dashboard-header .dropdown-item:hover
 {
-  background:#152036!important;
+  /* background:#362515!important; */
   color:#fff;
 }
 
@@ -113,8 +113,11 @@
 .dashboard-header .dropdown-menu
 {
   background: #1b2a47;
-  padding:0;
-  border:0;
+  width: 100%;
+  margin-top: 24px;
+  margin-left: 14px;
+  padding: 1px 60px!important;
+
 }
 .dash-body .left-part aside ul li button,.dash-body .left-part .accordion-button,
 .dashboard-header .dropdown-item
@@ -203,6 +206,20 @@
 .form-section select , .form-section input #InputDated
 {
     color: #6e6e6e;
+}
+
+.user-icon {
+    font-size: 20px;
+    /* padding-right: 8px; */
+    display: inline-block;
+    width: 44px;
+    height: 43px;
+    BACKGROUND: rgba(255,255,255,.2);
+    border-radius: 50%;
+    /* display: flex; */
+    line-height: 40px;
+    text-align: center;
+    margin-right: 10px;
 }
 
 

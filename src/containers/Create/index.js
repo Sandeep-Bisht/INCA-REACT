@@ -103,7 +103,7 @@ const CreateForm = (props) => {
       if (localStorage.getItem("token")) {
         let decodedToken = jwt_decode(localStorage.getItem("token"));
         if (decodedToken.user.user.role !== "admin") {
-          setMessage("your information saved successfully");
+          setMessage("Your information saved successfully");
         } else {
           navigate("/dashboard/allRegistration");
           dispatch(ACTIONS.resetToInitialState());
@@ -146,6 +146,7 @@ const CreateForm = (props) => {
       setPhoneNumber(location.state.phoneNumber.toString());
       setMode(location.state.mode);
       setIsDisabled(true);
+      setIsHidden(true);
      
     } else if (location && location.state && location.state.mode === "edit") {
       location.state.isError = {
@@ -286,27 +287,27 @@ const CreateForm = (props) => {
           value.length < 0 ? "Participation Type is Required" : "";
         setUserInformation(userInformationCopy);
         break;
-      case "journeyMode":
-        userInformationCopy.isError.journeyMode =
-          value.length < 0 ? "Journey Mode Required" : "";
-        setUserInformation(userInformationCopy);
-        break;
-      case "arrivalDate":
-        userInformationCopy.isError.arrivalDate =
-          value.length < 0 ? "Arrival Date  Required" : "";
-        setUserInformation(userInformationCopy);
-        break;
-      case "departureDate":
-        userInformationCopy.isError.departureDate =
-          value.length < 0 ? "Departure Date  Required" : "";
-        setUserInformation(userInformationCopy);
-        break;
+      // case "journeyMode":
+      //   userInformationCopy.isError.journeyMode =
+      //     value.length < 0 ? "Journey Mode Required" : "";
+      //   setUserInformation(userInformationCopy);
+      //   break;
+      // case "arrivalDate":
+      //   userInformationCopy.isError.arrivalDate =
+      //     value.length < 0 ? "Arrival Date  Required" : "";
+      //   setUserInformation(userInformationCopy);
+      //   break;
+      // case "departureDate":
+      //   userInformationCopy.isError.departureDate =
+      //     value.length < 0 ? "Departure Date  Required" : "";
+      //   setUserInformation(userInformationCopy);
+      //   break;
 
-      case "accomodationDetail":
-        userInformationCopy.isError.accomodationDetail =
-          value.length < 0 ? "Accomodation Detail  Required" : "";
-        setUserInformation(userInformationCopy);
-        break;
+      // case "accomodationDetail":
+      //   userInformationCopy.isError.accomodationDetail =
+      //     value.length < 0 ? "Accomodation Detail  Required" : "";
+      //   setUserInformation(userInformationCopy);
+      //   break;
       case "registrationCategory":
         userInformationCopy.isError.registrationCategory =
           value.length < 0 ? "Registration Category  Required" : "";
@@ -357,22 +358,22 @@ const CreateForm = (props) => {
     if (!userInformation?.conferenceMode) {
       formIsValid = false;
     }
-    if (userInformation?.conferenceMode === "offline") {
-      if (!userInformation?.arrivalDate) {
-        formIsValid = false;
-      }
+    // if (userInformation?.conferenceMode === "offline") {
+    //   if (!userInformation?.arrivalDate) {
+    //     formIsValid = false;
+    //   }
 
-      if (!userInformation?.departureDate) {
-        formIsValid = false;
-      }
-      if (!userInformation?.journeyMode) {
-        formIsValid = false;
-      }
+    //   if (!userInformation?.departureDate) {
+    //     formIsValid = false;
+    //   }
+    //   if (!userInformation?.journeyMode) {
+    //     formIsValid = false;
+    //   }
 
-      if (!userInformation?.registrationCategory) {
-        formIsValid = false;
-      }
-    }
+    //   if (!userInformation?.registrationCategory) {
+    //     formIsValid = false;
+    //   }
+    // }
 
     return formIsValid;
   };
@@ -480,47 +481,47 @@ const CreateForm = (props) => {
         // userInformationCopy.isError.title = userInformationCopy.title ? "" :  " Pls field the required field" ;
         // break;
 
-        case "journeyMode":
-          if (userInformationCopy.conferenceMode === "offline") {
-            userInformationCopy.isError.journeyMode =
-              userInformationCopy.journeyMode ? "" : "Field is required";
-          } else {
-            userInformationCopy.isError.journeyMode = "";
-          }
-          break;
-        case "arrivalDate":
-          if (userInformationCopy.conferenceMode === "offline") {
-            userInformationCopy.isError.arrivalDate =
-              userInformationCopy.arrivalDate ? "" : "Field is required";
-          } else {
-            userInformationCopy.isError.arrivalDate = "";
-          }
-          break;
-        case "departureDate":
-          if (userInformationCopy.conferenceMode === "offline") {
-            userInformationCopy.isError.departureDate =
-              userInformationCopy.departureDate ? "" : "Field is required";
-          } else {
-            userInformationCopy.isError.departureDate = "";
-          }
-          break;
-        case "accomodationDetail":
-          if (userInformationCopy.conferenceMode === "offline") {
-            userInformationCopy.isError.accomodationDetail =
-              userInformationCopy.accomodationDetail ? "" : "Field is required";
-          } else {
-            userInformationCopy.isError.accomodationDetail = "";
-          }
-        case "registrationCategory":
-          if (userInformationCopy.conferenceMode === "offline") {
-            userInformationCopy.isError.registrationCategory =
-              userInformationCopy.registrationCategory
-                ? ""
-                : "Field is required";
-          } else {
-            userInformationCopy.isError.registrationCategory = "";
-          }
-          break;
+        // case "journeyMode":
+        //   if (userInformationCopy.conferenceMode === "offline") {
+        //     userInformationCopy.isError.journeyMode =
+        //       userInformationCopy.journeyMode ? "" : "Field is required";
+        //   } else {
+        //     userInformationCopy.isError.journeyMode = "";
+        //   }
+        //   break;
+        // case "arrivalDate":
+        //   if (userInformationCopy.conferenceMode === "offline") {
+        //     userInformationCopy.isError.arrivalDate =
+        //       userInformationCopy.arrivalDate ? "" : "Field is required";
+        //   } else {
+        //     userInformationCopy.isError.arrivalDate = "";
+        //   }
+        //   break;
+        // case "departureDate":
+        //   if (userInformationCopy.conferenceMode === "offline") {
+        //     userInformationCopy.isError.departureDate =
+        //       userInformationCopy.departureDate ? "" : "Field is required";
+        //   } else {
+        //     userInformationCopy.isError.departureDate = "";
+        //   }
+        //   break;
+        // case "accomodationDetail":
+        //   if (userInformationCopy.conferenceMode === "offline") {
+        //     userInformationCopy.isError.accomodationDetail =
+        //       userInformationCopy.accomodationDetail ? "" : "Field is required";
+        //   } else {
+        //     userInformationCopy.isError.accomodationDetail = "";
+        //   }
+        // case "registrationCategory":
+        //   if (userInformationCopy.conferenceMode === "offline") {
+        //     userInformationCopy.isError.registrationCategory =
+        //       userInformationCopy.registrationCategory
+        //         ? ""
+        //         : "Field is required";
+        //   } else {
+        //     userInformationCopy.isError.registrationCategory = "";
+        //   }
+        //   break;
         // case "transactionId":
         //   userInformationCopy.isError.transactionId =  userInformationCopy.transactionId ? "" : "Atleast 4 characaters required";
         //   break;
@@ -554,7 +555,7 @@ const CreateForm = (props) => {
   let generateQr = () => {
     buttonState.button = 2;
     console.log(userId, 'asddasdsad')
-    let pageUrl = `http://144.91.110.221:5360/eventattendance/${userId}`;
+    let pageUrl = `http://144.91.110.221:4801/eventattendance/${userId}`;
     //let pageUrl = `http://144.91.110.221:5360/eventattendance/6281fd6dfbce5a096cf0a864}`;
     // 6281fd6dfbce5a096cf0a864
     // let pageUrl = "facebook.com"
@@ -590,7 +591,8 @@ const CreateForm = (props) => {
                       : "form-control"
                   }
                   value={userInformation && userInformation.name}
-                  disabled={isDisabled}
+                  //disabled={isDisabled}
+              disabled={userInformation && userInformation.name}
                   id="name"
                 />
                 {isError && isError.name && (
@@ -679,37 +681,13 @@ const CreateForm = (props) => {
                       Phone
                     </label>
                     <PhoneInput
-                     country="in"
+                     country="in"                     
                       value={phoneNumber}
-                      
+                      disabled={userInformation && phoneNumber}                      
                       placeholder=""
                       onChange={(phone) => phoneNumberInputHandler(phone)}
                     />
-                    {/* 
-                    <PhoneInput
-                      country={"in"}
-                      value={phoneNumber}
-                      disabled={isDisabled}
-                      onChange={(phone) => phoneNumberInputHandler(phone)}
-                    />
-
-                    {/* <input
-                      type="text"
-                      id="phoneNumber"
-                      disabled={isDisabled}
-                      value={userInformation && userInformation.phoneNumber}
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      className={
-                        isError && isError.phoneNumber.length > 0
-                          ? "is-invalid form-control"
-                          : "form-control"
-                      }
-                    />
-                    {isError && isError.phoneNumber && (
-                      <p className="text-danger">{isError.phoneNumber}</p>
-                    )}
-                      className="form-control"
-                    /> */}
+                   
                   </div>
                 </div>
               </div>
@@ -739,8 +717,7 @@ const CreateForm = (props) => {
                         Please Select
                       </option>
                       {countries.map((country, i) => (
-                        <option key={i} value={country}>     
-                        {/* {`${country.code} ${country}`}> */}
+                        <option key={i} value={country}>
                           {country}
                         </option>
                       ))}
@@ -752,9 +729,8 @@ const CreateForm = (props) => {
                     </label>
                     <input
                       type="email"
-                      id="email"
-                     
-                      disabled={isDisabled}
+                      id="email"                     
+                      disabled={userInformation && userInformation.email}
                       value={userInformation && userInformation.email}
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       className={
@@ -911,7 +887,7 @@ const CreateForm = (props) => {
                 )}
               </div>
             </div>
-            {userInformation && userInformation.conferenceMode == "offline" && (
+            {/* {userInformation && userInformation.conferenceMode == "offline" && (
               <>
                 <div className="row mb-5">
                   <div className="col-md-4">
@@ -998,10 +974,7 @@ const CreateForm = (props) => {
                       disabled={isDisabled}
                       id="accompanyingPerson"
                       className={"form-control"}
-                    />
-                    {/* {
-                  isError  && isError.accompanyingPerson && <p className="text-danger">{isError.accompanyingPerson }</p>
-                } */}
+                    />                  
                   </div>
                   <div className="col-md-4">
                     <label htmlFor="SelectAccomodation" className="form-label asterisk">
@@ -1032,7 +1005,7 @@ const CreateForm = (props) => {
                   </div>
                 </div>
               </>
-            )}
+            )} */}
 
             <div className="row mb-5 d-none">
               <div className="col-md-4">
@@ -1069,7 +1042,7 @@ const CreateForm = (props) => {
                 />
               </div>
             </div>
-            {message && <p>{message}</p>}
+            {message && <p className="text-success">{message}</p>}
 
             <div className="row">
               <div className="col-md-12 text-end">
@@ -1079,7 +1052,7 @@ const CreateForm = (props) => {
                     : "Save"}
                 </button>
 
-                <button type="submit" name="saveAndPay" value= "saveAndPay" onClick={() => generateQr()}>Save & Pay</button>
+                <button type="submit" name="saveAndPay" hidden={isHidden} value= "saveAndPay" onClick={() => generateQr()}>Save & Pay</button>
               </div>
             </div>
            {  qrInfo !== undefined  ?  <QRCodeSVG value={qrInfo} /> : "" }

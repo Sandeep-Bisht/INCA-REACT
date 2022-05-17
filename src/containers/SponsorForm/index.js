@@ -279,7 +279,7 @@ const SponsorForm = () => {
                         <input
                           type="email"
                           className={
-                            isError && isError.name.length > 0
+                            isError && isError.email.length > 0
                               ? "is-invalid form-control"
                               : "form-control"
                           }
@@ -305,19 +305,7 @@ const SponsorForm = () => {
                       className="country-flag-input"
                       onChange={(phone) => phoneNumberInputHandler(phone)}
                     />
-                        {/* {isError && isError.mobile && (
-                  <p className="text-danger">{isError.mobile}</p>
-                )} */}
-                        {/* <input
-                          type="text"
-                          className="form-control"
-                          maxLength="12"
-                          name="mobile"
-                          value={mobile}
-                          required                          
-                          placeholder="Your Mobile Number.."
-                          onChange={(e) => onInputChange(e)}
-                        /> */}
+                   
                       </div>
                     </div>
                   </div>
@@ -328,7 +316,7 @@ const SponsorForm = () => {
                         <input
                           type="text"
                           className={
-                            isError && isError.name.length > 0
+                            isError && isError.companyName.length > 0
                               ? "is-invalid form-control"
                               : "form-control"
                           }
@@ -348,7 +336,7 @@ const SponsorForm = () => {
                     <div className="form-wrap">
                       <select
                         className={
-                          isError && isError.name.length > 0
+                          isError && isError.sponsorType.length > 0
                             ? "is-invalid form-control"
                             : "form-select"
                         }
@@ -404,7 +392,8 @@ const SponsorForm = () => {
                   <div className="col-md-12">
                     <div className="form-wrap">
                       <div className="input-wrap">
-                        <div className="register-form">
+                        {/* <div className="register-form"> */}
+                        <div>
                           <p className="text-success">{greet}</p>
                         </div>
                       </div>

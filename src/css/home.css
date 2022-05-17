@@ -891,6 +891,10 @@ padding: 50px 40px;
         line-height: 1.5;
         display: block;
     }
+
+    .home-register-step ul li{
+        width: auto;
+    }
 }
 
 @media only screen and (max-width :991px) {
