@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { DataTable } from "primereact/datatable";
 import * as ACTIONS from "./action";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +8,7 @@ import { Column } from "primereact/column";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
+import { Navigate } from 'react-router-dom';
 
 const AttendanceStatus = () => {
 
@@ -14,6 +16,7 @@ const AttendanceStatus = () => {
     const [attendanceStatus, setAttendanceStatus] = useState([])
     const [globalFilterValue1, setGlobalFilterValue1] = useState("");
     const [filters1, setFilters1] = useState(null);
+    const navigate = useNavigate();
 
     const columns = [
         // {field: 'code', header: 'S.no'},
@@ -43,6 +46,7 @@ const AttendanceStatus = () => {
 
       let markAttendanceStatus = (node) => {
         dispatch(ACTIONS.markUserAttendance(node._id))
+        navigate("/dashboard");
       }
 
     const dynamicColumns = columns.map((col, i) => {

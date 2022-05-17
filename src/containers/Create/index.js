@@ -591,8 +591,8 @@ const CreateForm = (props) => {
                       : "form-control"
                   }
                   value={userInformation && userInformation.name}
-                  //disabled={isDisabled}
-              disabled={userInformation && userInformation.name}
+                  disabled={isDisabled}
+              // disabled={userInformation && userInformation.name}
                   id="name"
                 />
                 {isError && isError.name && (
@@ -683,7 +683,7 @@ const CreateForm = (props) => {
                     <PhoneInput
                      country="in"                     
                       value={phoneNumber}
-                      disabled={userInformation && phoneNumber}                      
+                      // disabled={userInformation && phoneNumber}                      
                       placeholder=""
                       onChange={(phone) => phoneNumberInputHandler(phone)}
                     />
@@ -730,7 +730,8 @@ const CreateForm = (props) => {
                     <input
                       type="email"
                       id="email"                     
-                      disabled={userInformation && userInformation.email}
+                      // disabled={userInformation && userInformation.email}
+                      disabled={isDisabled}
                       value={userInformation && userInformation.email}
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       className={
