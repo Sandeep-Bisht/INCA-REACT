@@ -1052,7 +1052,7 @@ const CreateForm = (props) => {
                     : "Save"}
                 </button>
 
-                <button type="submit" name="saveAndPay" hidden={isHidden} value= "saveAndPay" onClick={() => generateQr()}>Save & Pay</button>
+                <button type="submit" name="saveAndPay"  value= "saveAndPay" onClick={() => generateQr()}>Save & Pay</button>
               </div>
             </div>
            {  qrInfo !== undefined  ?  <QRCodeSVG value={qrInfo} /> : "" }

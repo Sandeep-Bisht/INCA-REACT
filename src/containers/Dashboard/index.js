@@ -141,7 +141,7 @@ const Dashboard = (props) => {
                           className="common-blue btn"
                           onClick={() => navigate("/dashboard")}
                         >
-                          <span>
+                          <span className="me-2">
                           <i class="fa-solid fa-user-plus"></i>
                           </span>
                           New Registration
@@ -175,7 +175,7 @@ const Dashboard = (props) => {
                         >
                           <div className="accordion-body p-0">
                             <ul className="ps-0 list-unstyled ">
-                              <li>
+                              <li className="ps-3">
                                 <button
                                   className="common-blue btn"
                                   onClick={() => navigate("/dashboard/create")}
@@ -187,7 +187,7 @@ const Dashboard = (props) => {
                                 </button>
                               </li>
                               {loggedInUser.role == "admin" && (
-                                <li>
+                                <li className="ps-3">
                                   <button
                                     className="common-blue btn"
                                     onClick={() =>
@@ -271,9 +271,9 @@ const Dashboard = (props) => {
                                   aria-expanded="false"
                                   aria-controls="collapseOne"
                                 >
-                                  <span className="me-2">
-                                  <i class="fa-solid fa-cloud-arrow-up"></i>
-                                  </span>{" "}
+                                  <span className="me-2 ">
+                                  <i class="fa-solid fa-cloud-arrow-up"></i>                                  
+                                  </span>
                                   Paper Submisson
                                 </button>
                               </h2>
@@ -285,7 +285,7 @@ const Dashboard = (props) => {
                               >
                                 <div className="accordion-body p-0">
                                   <ul className="ps-0 list-unstyled ">
-                                    <li>
+                                    <li className="ps-3">
                                       <button
                                         className="common-blue btn"
                                         onClick={() =>
@@ -299,7 +299,7 @@ const Dashboard = (props) => {
                                       </button>
                                     </li>
 
-                                    <li>
+                                    <li className="ps-3">
                                       <button
                                         className="common-blue btn"
                                         onClick={() =>
