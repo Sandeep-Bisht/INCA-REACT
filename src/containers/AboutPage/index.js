@@ -259,10 +259,9 @@ const About = () => {
               <div className="boxes">
                 <div className="box-1">
                   <i className="fa-solid fa-lightbulb"></i>
-                  <h3 className="h2">WHAT WE DO?</h3>
+                  <h3 className="h2">ABOUT INCA</h3>
                   <p className="common-para">
-                    Habitant porta viverra voluptatum facilisi. Dolor mi sit!
-                    Recusandae, nisl, habitasse justo architecto viverra volupt.
+                  Founded on 7th August, 1979 at Hyderabad, the Indian National Cartographic Association (INCA) has evolved into one of the biggest organizations of its kind in the world.
                   </p>
                 </div>
               </div>
@@ -271,10 +270,9 @@ const About = () => {
               <div className="boxes">
                 <div className="box-2">
                   <i className="fa-solid fa-user-plus"></i>
-                  <h3 className="h2">WHAT WE ARE?</h3>
+                  <h3 className="h2">OUR ACTIVITIES</h3>
                   <p className="common-para">
-                    Habitant porta viverra voluptatum facilisi. Dolor mi sit!
-                    Recusandae, nisl, habitasse justo architecto viverra volupt.
+                  In order to achieve the above objectives, INCA organizes several programmes. It has so far conducted Twenty five National / International conferences at various places in India.
                   </p>
                 </div>
               </div>
@@ -285,8 +283,9 @@ const About = () => {
                   <i className="fa-solid fa-rocket"></i>
                   <h3 className="h2">OUR AIM & MISSION</h3>
                   <p className="common-para">
-                    Habitant porta viverra voluptatum facilisi. Dolor mi sit!
-                    Recusandae, nisl, habitasse justo architecto viverra volupt.
+                  To foster cartographic research in the country.
+                  To improve the teaching of cartography at all levels.
+                  To co-operate with international organizations with similar objectives.
                   </p>
                 </div>
               </div>
