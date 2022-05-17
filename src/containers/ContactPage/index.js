@@ -42,9 +42,10 @@ const Contact = () => {
               <div className="boxes">
                 <div className="box-1">
                   <i className="fa-solid fa-house-chimney"></i>
-                  <h3 className="h2">CONFERENCE HALL</h3>
-                  <p clclassNameass="common-para">
-                    Riverside Building, County Hall London Eye, London, USA
+                  <h3 className="h2">ADDRESS</h3>
+                  <p className="common-para">
+                  National Hydrographic Office
+107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun, Uttarakhand 248001
                   </p>
                 </div>
               </div>
@@ -53,9 +54,9 @@ const Contact = () => {
               <div className="boxes">
                 <div className="box-2">
                   <i className="fa-solid fa-file-lines"></i>
-                  <h3 className="h2">TICKET BOOKING</h3>
+                  <h3 className="h2">CONTACT</h3>
                   <p className="common-para">
-                    Phone No: 002-345-9870 Email: event@yourmail.com
+                    Phone No: +91 937-1633-699 Email: info@42inca.org
                   </p>
                 </div>
               </div>
@@ -64,9 +65,9 @@ const Contact = () => {
               <div className="boxes">
                 <div className="box-1">
                   <i className="fa-solid fa-house-chimney"></i>
-                  <h3 className="h2">EVENT SCHEDULES</h3>
+                  <h3 className="h2">EVENT DETAILS</h3>
                   <p className="common-para">
-                    Sept 12 - 14 Sept 2021 Starts 09:00am to 06:00 pm
+                    09 November - 11 November 2022 Starts 09:00am to 06:00 pm
                   </p>
                 </div>
               </div>
