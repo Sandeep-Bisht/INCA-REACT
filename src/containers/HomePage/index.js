@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -52,9 +52,49 @@ import incalogo from "../../images/logo.png";
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
 
+  const [countdownDays, setCountdownDays] = useState('00')
+  const [countdownHours, setCountdownHours] = useState('00')
+  const [countdownMinutes, setCountdownMinutes] = useState('00')
+  const [countdownSec, setCountdownSec] = useState('00')
+
+  let interval = useRef();
+
   let showEventsByDate = (val) => {
     setShowEvents(val);
   };
+
+  const startTimer = () =>{
+    const countdownDate = new Date('nov 9, 2022 00:00:00').getTime();
+
+      interval = setInterval(() =>{
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24)) ;
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) ;
+      const minutes = Math.floor((distance % (1000 * 60 * 60 )) / (1000 * 60 )) ;
+      const seconds = Math.floor((distance % (1000 * 60  )) / ( 1000 )) ;
+
+      if (distance < 0) {
+        // Stop the timer
+        clearInterval(interval.current);
+
+      }else{
+        //Continue Timer
+        setCountdownDays(days);
+        setCountdownHours(hours);
+        setCountdownMinutes(minutes);
+        setCountdownSec(seconds);
+      }
+
+    },1000);
+  }
+
+  useEffect(() => {
+    startTimer();
+    return () =>{
+      clearInterval(interval.current);
+    }
+  })
 
   // useEffect(() => {
   //   var dest = new Date("nov 1, 2022 00:00:00").getTime();
@@ -159,7 +199,7 @@ const HomePage = () => {
               <div className="count">
                 <div className="counter-wrapper">
                   <p id="day" className="common-timer-box common-yellow-color">
-                    245
+                   {countdownDays}
                   </p>
                   <p className="timer-detail">Days</p>
                 </div>
@@ -168,7 +208,7 @@ const HomePage = () => {
                     id="hours"
                     className="common-timer-box common-yellow-color"
                   >
-                    20
+                   {countdownHours}
                   </p>
                   <p className="timer-detail">Hours</p>
                 </div>
@@ -177,7 +217,7 @@ const HomePage = () => {
                     id="minutes"
                     className="common-timer-box common-yellow-color"
                   >
-                    1
+                    {countdownMinutes}
                   </p>
                   <p className="timer-detail">Minutes</p>
                 </div>
@@ -186,7 +226,7 @@ const HomePage = () => {
                     id="seconds"
                     className="common-timer-box common-yellow-color"
                   >
-                    5
+                    {countdownSec}
                   </p>
                   <p className="timer-detail">Seconds</p>
                 </div>
@@ -2588,7 +2628,7 @@ const HomePage = () => {
                   </div>
                   <div className="contact-venue">
                     <h3>Phone number :</h3>
-                    <p className="common-para mb-0">+ 91 999-999-9999</p>
+                    <p className="common-para mb-0">+91 937-1633-699</p>
                   </div>
                 </div>
               </div>

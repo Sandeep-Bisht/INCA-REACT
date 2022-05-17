@@ -720,12 +720,16 @@ padding: 50px 40px;
 
 .contact-area .contact-text input, .contact-email input , .contact-textarea textarea
 {
-    background-color: #fff;
+    background: #f4f0f0eb;
     padding: 20px;
-    border: none;
+    border: 1px solid #bebbbb;
     border-radius: 30px;
     margin-bottom: 20px;
     outline: none;
+}
+.contact-area .contact-text input::placeholder, .contact-email input::placeholder , .contact-textarea textarea::placeholder
+{
+    color: #bebbbb;
 }
 
 .contact-area .contact-text 
@@ -890,6 +894,10 @@ padding: 50px 40px;
         font-size: 11px;
         line-height: 1.5;
         display: block;
+    }
+
+    .home-register-step ul li{
+        width: auto;
     }
 }
 

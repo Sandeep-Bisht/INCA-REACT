@@ -28,12 +28,12 @@ const Contact = () => {
               </h2>
             </div>
             <div className="col-md-6">
-              <p className="common-para">
+              {/* <p className="common-para">
                 Magnam corporis rem commodi dolore possimus varius justo litora
                 ipsum suspendisse dignissimos. Odit, dolor, minima. Diam
                 facilisis dignissimos metus, id delectus fuga doloribus qui,
                 explicabo.{" "}
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -42,9 +42,10 @@ const Contact = () => {
               <div className="boxes">
                 <div className="box-1">
                   <i className="fa-solid fa-house-chimney"></i>
-                  <h3 className="h2">CONFERENCE HALL</h3>
-                  <p clclassNameass="common-para">
-                    Riverside Building, County Hall London Eye, London, USA
+                  <h3 className="h2">ADDRESS</h3>
+                  <p className="common-para">
+                    National Hydrographic Office 107-A, Rajpur Rd, Hathibarkala
+                    Salwala, Dehradun, Uttarakhand 248001
                   </p>
                 </div>
               </div>
@@ -53,9 +54,9 @@ const Contact = () => {
               <div className="boxes">
                 <div className="box-2">
                   <i className="fa-solid fa-file-lines"></i>
-                  <h3 className="h2">TICKET BOOKING</h3>
+                  <h3 className="h2">CONTACT</h3>
                   <p className="common-para">
-                    Phone No: 002-345-9870 Email: event@yourmail.com
+                    Phone No: +91 937-1633-699 <br /> Email: info@42inca.org
                   </p>
                 </div>
               </div>
@@ -64,9 +65,9 @@ const Contact = () => {
               <div className="boxes">
                 <div className="box-1">
                   <i className="fa-solid fa-house-chimney"></i>
-                  <h3 className="h2">EVENT SCHEDULES</h3>
+                  <h3 className="h2">EVENT DETAILS</h3>
                   <p className="common-para">
-                    Sept 12 - 14 Sept 2021 Starts 09:00am to 06:00 pm
+                    09 November - 11 November 2022 Starts 09:00am to 06:00 pm
                   </p>
                 </div>
               </div>
@@ -138,10 +139,10 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4">             
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7614.448732548774!2d78.560421!3d17.401017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x34ec55b0dbdd28dd!2sIndian%20National%20Cartographic%20Association!5e0!3m2!1sen!2sin!4v1648559358781!5m2!1sen!2sin"
-                width="450"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.16881580721!2d78.05518931445123!3d30.34615181121301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390929d6271a7c35%3A0x2880aa511432cf59!2sNational%20Hydrographic%20Office!5e0!3m2!1sen!2sin!4v1652774657786!5m2!1sen!2sin"
+                width="100%"
                 height="300"
               ></iframe>
             </div>
