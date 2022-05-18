@@ -61,14 +61,18 @@
 }
 
 
-
 .contact-single2 .form-movement
 {
     padding: 15px;
     border-radius: 25px;
     border: none;
-    background: #f8f8f8;
+    background: #f4f0f0eb;
     margin: 20px 0;
+    border: 1px solid #bebbbb;
+}
+.contact-single2 .form-movement::placeholder
+{
+    color: #212121;
 }
 
 .contact-single2 input::placeholder , .contact-single2 textarea::placeholder

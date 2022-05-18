@@ -46,7 +46,7 @@ export const Footer = () => {
                       Contact Us
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link className="nav-link text-white ps-0" to="/">
                       Event Details
                     </Link>
@@ -55,7 +55,7 @@ export const Footer = () => {
                     <Link className="nav-link text-white ps-0" to="/">
                       News & Articles
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

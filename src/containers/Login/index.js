@@ -11,6 +11,9 @@ const Login = () => {
     password: "",
   });
 
+  const [message, setLoginMessage] = useState('')
+  const [loginLoder, setLoginLoder] = useState(false)
+
   const state = useSelector((state) => state.LoginReducer);
 
   let dispatch = useDispatch();
@@ -19,31 +22,56 @@ const Login = () => {
   let loginOnChangeHandler = (e) => {
     let loginPayloadCopy = { ...loginPayload };
     loginPayloadCopy[e.target.id] = e.target.value;
+    setLoginMessage("")
     setLoginPayload(loginPayloadCopy);
   };
 
   useEffect(() => {
-    if (state && state.userLoginSuccess) {
+    if (state && state.userLoginSuccess && state.userLoginSuccess.token) {
       localStorage.setItem("token", state.userLoginSuccess.token);
       navigate("/dashboard");
+      setLoginLoder(false)
       dispatch(ACTIONS.resetToInitialState());
     }
+    else {
+      if (state && state.userLoginSuccess  && state.userLoginSuccess.token == "") {
+        setLoginLoder(false)
+        setLoginMessage(state.userLoginSuccess.message)
+      }
+    }
   }, [state.userLoginSuccess]);
+
+  useEffect(() => {
+    if(state.userLoginFailure){
+      setLoginLoder(false)
+      setLoginMessage(state.userLoginFailure.message)
+    }
+  }, [state.userLoginFailure])
+
 
   let validateLoginForm = () => {
     const isEmpty = Object.values(loginPayload).some((x) => x === "");
     return isEmpty;
   };
 
+  // setTimeout(() => {
+  //   setLoginMessage('')
+  // }, 10000)
+
   let onSubmitLoginRequest = (e) => {
     e.preventDefault();
+    setLoginLoder(true)
     dispatch(ACTIONS.appLogin(loginPayload));
   };
+
+
 
   return (
     <>
       <Header></Header>
+
       <section className="register-form">
+
         <form className="login-form" onSubmit={(e) => onSubmitLoginRequest(e)}>
           <div className="container">
             <div className="row">
@@ -61,7 +89,7 @@ const Login = () => {
                         <input
                           type="email"
                           id="userEmail"
-                          required
+                          //required
                           className="form-control"
                           onChange={(e) => loginOnChangeHandler(e)}
                         />
@@ -77,7 +105,7 @@ const Login = () => {
                       <div className="input-wrap">
                         <input
                           type="password"
-                          required
+                          //required
                           className="form-control"
                           id="password"
                           onChange={(e) => loginOnChangeHandler(e)}
@@ -107,11 +135,15 @@ const Login = () => {
                         type="submit"
                         className=" form-submit "
                         disabled={validateLoginForm()}
+
                       >
-                        Login
+                        {loginLoder ? "verifying" : "Login"}
                       </button>
                     </div>
                   </div>
+
+                  {message && <p className="text-danger">{message}</p>}
+
 
                   <div className="end-wrap mt-3">
                     <p className="common-para">

@@ -9,6 +9,10 @@
     
     
 }
+.home-banner a:hover{
+  color: #fff;
+}
+
 .home-banner::before{
     position:absolute;
     top:0;
@@ -35,7 +39,10 @@
 }
 .home-banner .right .banner-title .banner-small
 {
-    font-size:38px;
+    font-size: 38px;
+    display: block;
+    line-height: 45px;
+    margin-bottom: 14px;
 }
 .home-banner .banner-bottom
 {
@@ -50,6 +57,9 @@
     font-size:55px;
     display:inline-block;
     margin-bottom:10px;
+}
+.home-banner .banner-btn-box{
+    margin-top:30px;
 }
 .home-banner .count
 {
@@ -84,10 +94,18 @@
     font-family: 'Mulish', sans-serif;
 
 }
-
+.home-banner .home-schedule-mob{
+    display: none;
+}
+.home-banner .home-schedule-desk{
+  display:inline-block;
+}
 /* -------home about------------- */
 .home-about-left img{
     border-radius: 25px;
+    height: 180px;
+    object-fit: cover;
+    width: 100%!important;
 }
 .home-about .signature-box .upper-box
 {
@@ -143,6 +161,12 @@
    
     margin-right: 20px;
 }
+
+.react-multiple-carousel__arrow  {
+    z-index: 2!important;
+}
+
+
 /* -------home-counter css-------------- */
 .home-counter
 {
@@ -236,12 +260,22 @@
 }
 .home-speakers .speaker-card .speaker-detail
 {
-    position:absolute;
+    /* position:absolute;
     bottom: -50px;
     left:50%;
     transform: translateX(-50%);
     background-color: #fff;
-  
+    padding: 20px;
+    border-radius: 25px;
+    width: 80%;
+    text-align: center;
+    height: 140px;
+    box-shadow: 0 3px 6px rgb(25 25 25 / 10%); */
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
     padding: 20px;
     border-radius: 25px;
     width: 80%;
@@ -282,6 +316,9 @@
  background-color: #111b69;
  color: #fff;
  font-size: 14px;
+}
+#home-speaker{
+    display: block!important;
 }
 /* ----------home-schedule-------------- */
 .home-schedule
@@ -433,31 +470,38 @@
     height:320px;
     background:#fff;
     position: relative; */
-    text-align: center;
+    /* text-align: center; */
     margin: 5px 10px;
     /* box-shadow: 0 0 5px 0 #b9b9b9; */
-    padding: 30px 10px;
-    width: 200px;
-    height: 320px;
+    padding: 50px 10px;
+    width: 530px;
+    /* height: 320px; */
     background: #fff;
     position: relative;
      border-radius: 10px;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     align-items: center;
+    display: flex;
 }
 .home-register-step ul li .reg-icon-box
 {
-    width: 100px;
+    /* width: 100px;
     height: 100px;
     margin: 0 auto;
-    text-align: center;
+    text-align: center; */
     margin-bottom: 15px;
+    display: flex;
+}
+.home-register-step ul li .reg-icon-box img
+{
+    width: 120px;
 }
 .home-register-step ul li p{
+    color: #212121;
     font-weight:500;
     font-size: 16px;
     line-height: 1;
-    margin-top: 10px;
+    margin-top: 30px;
     font-family: 'Poppins', sans-serif;
 }
 .home-register-step ul li .btn-holder
@@ -473,9 +517,7 @@
 .home-register-step ul li .common-btn
 {
     padding: 5px 15px;
-    font-size:13px;
-
-    
+    font-size:13px; 
 }
 
 /* ------julesh css start---------- */
@@ -678,12 +720,16 @@ padding: 50px 40px;
 
 .contact-area .contact-text input, .contact-email input , .contact-textarea textarea
 {
-    background-color: #fff;
+    background: #f4f0f0eb;
     padding: 20px;
-    border: none;
+    border: 1px solid #bebbbb;
     border-radius: 30px;
     margin-bottom: 20px;
     outline: none;
+}
+.contact-area .contact-text input::placeholder, .contact-email input::placeholder , .contact-textarea textarea::placeholder
+{
+    color: #bebbbb;
 }
 
 .contact-area .contact-text 
@@ -788,8 +834,71 @@ padding: 50px 40px;
 
 
 /* -----common responsive css---- */
-@media only screen and (max-width : 1024px) {
+@media only screen and (max-width : 1399px){
+    .home-banner .right .banner-title .banner-small{
+        font-size:33px;
+    }
+    .home-banner .right .banner-title{
+        font-size:46px;
+    }
+    .home-speakers .speaker-card .speaker-title{
+        font-size:18px;
+    }
+    .home-speakers .speaker-card .speaker-post{
+        font-size: 12px;
+        line-height: 1.5;
+        display: block;
+    }
+    /* .grid-wrapper .tall {
+        grid-row: span 1;
+    }
+    .grid-wrapper .wide {
+        grid-column: span 1;
+    }
+    .grid-wrapper .big {
+        grid-column: span 1;
+        grid-row: span 1;
+    } */
+    .grid-wrapper .big {
+        grid-column: auto;
+        grid-row: auto;
+    }
 
+}
+@media only screen and (max-width : 1199px)
+{
+     .grid-wrapper .tall {
+        grid-row: span 1;
+    }
+    .grid-wrapper .wide {
+        grid-column: span 1;
+    }
+    .grid-wrapper .big {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width : 1024px) {
+    .home-speakers .speaker-card .speaker-detail{
+        padding:10px;
+    }
+    .home-speakers .speaker-card .speaker-title{
+        font-size:17px;
+    }
+    .home-speakers .speaker-card .speaker-post{
+        font-size: 11px;
+        line-height: 1.5;
+        display: block;
+    }
+
+    .home-register-step ul li{
+        width: auto;
+    }
 }
 
 @media only screen and (max-width :991px) {
@@ -1011,6 +1120,18 @@ padding: 50px 40px;
         margin: 20px auto;
         box-shadow: 0px 15px 25px rgb(0 4 74 / 4%);
     }
+    .home-register-step ul li{
+        width: auto;
+        height: auto;
+        padding: 20px;
+    }
+    .home-register-step ul li p{
+        margin: 18px 0;
+        font-size: 14px;
+    }
+    .home-register-step ul li .reg-icon-box img{
+        width: 90px;
+    }
 
     /* -------contact area----- */
     .contact-area
@@ -1037,7 +1158,12 @@ padding: 50px 40px;
         font-size: 20px;
         margin-bottom:0;
     }
-
+    .home-banner .home-schedule-mob{
+        display:inline-block;
+    }
+    .home-banner .home-schedule-desk{
+      display:none;
+    }
 
 }
 @media only screen and (max-width : 430px)
@@ -1210,7 +1336,7 @@ padding: 50px 40px;
     }
     .home-register-step ul li
     {
-        height:250px;
+        height:auto;
         margin: 10px ;
     }
     .home-register-step ul li h3

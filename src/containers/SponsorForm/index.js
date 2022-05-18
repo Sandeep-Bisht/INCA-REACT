@@ -3,89 +3,239 @@ import * as ACTIONS from "./action";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import "../../css/sponsor.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
+const errorObj = {
+  name: "",
+  email: "",
+  //mobile: "",
+  companyName: "",
+  sponsorType: "",
+  amount: "",
+};
 const SponsorForm = () => {
   const [sponsorForm, setSponsorForm] = useState({
     name: "",
     email: "",
-    mobile: "",
+    //mobile: "",
     companyName: "",
     sponsorType: "",
     amount: "",
+    isError: errorObj,
   });
 
+  const navigate = useNavigate()
+  const [mobile, setMobile] = useState("");
   const dispatch = useDispatch();
   const state = useSelector((state) => state.SponsorUserReducer);
-  const [greet, setGreet] = useState();
-  const { name, email, mobile, companyName, sponsorType, amount } = sponsorForm;
+  const [greet, setGreet] = useState(undefined);
+  const { name, email, companyName, sponsorType, amount } = sponsorForm;
 
   useEffect(() => {
     if (state.sponsorUserSuccess) {
-      // navigate("/dashboard/allRegistration");
-      // dispatch(ACTIONS.resetToInitialState()); // it will empty the state
-      // console.log("response",state.sponsorUserSuccess);
-      emptySponsorForm();      
+      emptySponsorForm();
       setGreet(
-        "Your details are registered for sponsor(provisionally) and will be reviewed by managing committie. Once confirmed, committie will communicate with you on your registered email. "
+        "Your details are registered for sponsor(provisionally) and will be reviewed by managing committiee. Once confirmed, committie will communicate with you on your registered email. "
       );
       emptyMessage();
+     
     }
   }, [state.sponsorUserSuccess]);
-
-  const onSubmitSponsorForm = (e) => {
-    e.preventDefault();    
-    dispatch(ACTIONS.createSponsorUser(sponsorForm))    
-
-  };
 
   let emptyMessage = () => {
     setTimeout(() => {
       setGreet("");
-    }, 10000);
+     // navigate("/");
+    }, 5000);
+    
   };
+  // useEffect(() => {
+  //   if(greet == ""){
+  //     navigate("/");
+  //   }
+  // }, [])
+
+
 
   const emptySponsorForm = () => {
+    setMobile('+91')
     setSponsorForm({
       name: "",
       email: "",
-      mobile: "",
       companyName: "",
-      sponsorType:"",
-      amount:""
-    })
-  }
+      sponsorType: "",
+      amount: "",
+    });
+  };
+
+  const regExp = RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/);
+  const nameRegExp = RegExp(/^[A-Za-z ]+$/);
+  const phoneRegExp = RegExp(
+    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+  );
+  const { isError } = sponsorForm;
+
+  const validateForm = () => {
+    let formIsValid = true;
+
+    if (!sponsorForm?.name) {
+      formIsValid = false;
+    }
+    // if (!userInformation?.phoneNumber) {
+    //   formIsValid = false;
+    // }
+
+    if (!sponsorForm?.email) {
+      formIsValid = false;
+    } else if (typeof sponsorForm?.email !== "undefined") {
+      var pattern = new RegExp(
+        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+      );
+      if (!pattern.test(sponsorForm?.email)) {
+        formIsValid = false;
+      }
+
+      if (!sponsorForm?.companyName) {
+        formIsValid = false;
+      }
+
+      if (!sponsorForm?.sponsorType) {
+        formIsValid = false;
+      }
+    }
+
+    return formIsValid;
+  };
+
+  const checkValidation = () => {
+    
+    let sponsorFormCopy = { ...sponsorForm };
+    Object.keys(sponsorFormCopy).map((item) => {
+      switch (item) {
+        case "name":
+          sponsorFormCopy.isError.name = sponsorFormCopy.name
+            ? ""
+            : "Field is Required";
+          break;
+
+        // case "phoneNumber":
+        //   userInformationCopy.isError.phoneNumber =
+        //     userInformationCopy.phoneNumber ? "" : " Field is required";
+        //   break;
+        case "email":
+          sponsorFormCopy.isError.email = sponsorFormCopy.email
+            ? ""
+            : "Field is required";
+          break;
+
+        case "companyName":
+          sponsorFormCopy.isError.companyName = sponsorFormCopy.companyName
+            ? ""
+            : "Field is Required";
+          break;
+
+        case "sponsorType":
+          sponsorFormCopy.isError.sponsorType = sponsorFormCopy.sponsorType
+            ? ""
+            : "Field is Required";
+          break;
+
+        default:
+          break;
+      }
+    });
+
+    setSponsorForm(sponsorFormCopy);
+  };
+
+  const onSubmitSponsorForm = (e) => {
+    e.preventDefault();
+    checkValidation();
+    if (validateForm()) {
+      sponsorForm.mobile = mobile;
+      delete sponsorForm.isError;
+      dispatch(ACTIONS.createSponsorUser(sponsorForm));
+    }
+  };
 
   const onInputChange = (e) => {
+    // const { name, email, mobile, companyName, sponsorType, amount } = e.target;
     let sponsorFormCopy = { ...sponsorForm };
-    //console.log(e.target.value)
     if (e.target.value == "Strategic Sponsor") {
-      sponsorFormCopy.amount = "₹7.5 lakhs (with free registration of 7 delegates & Logo display)";
+      sponsorFormCopy.amount =
+        "₹7.5 lakhs (with free registration of 7 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
-      //  setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value });
     } else if (e.target.value == "Platinium Sponsor") {
-      sponsorFormCopy.amount = "₹5.0 lakhs (with free registration of 5 delegates & Logo display)";
+      sponsorFormCopy.amount =
+        "₹5.0 lakhs (with free registration of 5 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
-
-      //  setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value });
     } else if (e.target.value == "Gold Sponsor") {
-      sponsorFormCopy.valamountues = "₹3.5 lakhs (with free registration of 3 delegates & Logo display)";
+      sponsorFormCopy.valamountues =
+        "₹3.5 lakhs (with free registration of 3 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
-
-      //  setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value });
     } else {
-      sponsorFormCopy.amount = "₹2.5 lakhs (with free registration of 2 delegates & Logo display)";
+      sponsorFormCopy.amount =
+        "₹2.5 lakhs (with free registration of 2 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
     }
 
+    const { name, value } = e.target;
+    sponsorFormCopy[name] = value;
     setSponsorForm(sponsorFormCopy);
+    switch (name) {
+      case "name":
+        sponsorFormCopy.isError.name = nameRegExp.test(value)
+          ? ""
+          : "Name should be in correct form";
 
-    //setSponsorForm({ ...sponsorForm, [e.target.name]: e.target.value }); // using spread opretar for holding the previous values
+          setSponsorForm(sponsorFormCopy);
+        break;
+
+      case "email":
+        sponsorFormCopy.isError.email = regExp.test(value)
+          ? ""
+          : "Email address is invalid";
+          setSponsorForm(sponsorFormCopy);
+        break;
+
+      case "mobile":
+        sponsorFormCopy.isError.mobile = phoneRegExp.test(value)
+          ? ""
+          : "Mobile Number  is invalid";
+          setSponsorForm(sponsorFormCopy);
+        break;
+        case "companyName":
+          sponsorFormCopy.isError.companyName =
+            value.length < 0 ? "Company Name is Required " : "";
+            
+            setSponsorForm(sponsorFormCopy);
+          break;
+
+          case "sponsorType":
+            sponsorFormCopy.isError.sponsorType =
+          value.length < 0 ? "Sponsor Type is Required " : "";
+          
+          setSponsorForm(sponsorFormCopy);
+        break;
+
+      default:
+        break;
+    }
+
+    setSponsorForm(sponsorFormCopy);
+  };
+
+  let phoneNumberInputHandler = (mobile) => {
+    setMobile(mobile);
   };
 
   return (
     <>
       <Header />
+
       <section className="sponsor-form register-form">
         <form
           className="submit-form  pt-0"
@@ -106,13 +256,19 @@ const SponsorForm = () => {
                       <div className="input-wrap">
                         <input
                           type="text"
-                          className="form-control "
+                          className={
+                            isError && isError.name.length > 0
+                              ? "is-invalid form-control"
+                              : "form-control"
+                          }
                           name="name"
                           value={name}
-                          required
                           placeholder="Your Name.."
                           onChange={(e) => onInputChange(e)}
                         />
+                        {isError && isError.name && (
+                  <p className="text-danger">{isError.name}</p>
+                )}
                       </div>
                     </div>
                   </div>
@@ -122,13 +278,34 @@ const SponsorForm = () => {
                       <div className="input-wrap">
                         <input
                           type="email"
-                          className="form-control "
+                          className={
+                            isError && isError.email.length > 0
+                              ? "is-invalid form-control"
+                              : "form-control"
+                          }
                           name="email"
                           value={email}
-                          required
                           placeholder="Your Email.."
                           onChange={(e) => onInputChange(e)}
                         />
+                        {isError && isError.email && (
+                  <p className="text-danger">{isError.email}</p>
+                )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-md-12">
+                    <div className="form-wrap">
+                      <div className="input-wrap">                      
+
+                      <PhoneInput
+                      country={"in"}
+                      value={mobile}
+                      className="country-flag-input"
+                      onChange={(phone) => phoneNumberInputHandler(phone)}
+                    />
+                   
                       </div>
                     </div>
                   </div>
@@ -138,31 +315,19 @@ const SponsorForm = () => {
                       <div className="input-wrap">
                         <input
                           type="text"
-                          className="form-control"
-                          maxLength="12"
-                          name="mobile"
-                          value={mobile}
-                          required
-                          placeholder="Your Mobile Number.."
-                          onChange={(e) => onInputChange(e)}
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-md-12">
-                    <div className="form-wrap">
-                      <div className="input-wrap">
-                        <input
-                          type="text"
-                          className="form-control "
-                          maxLength="10"
+                          className={
+                            isError && isError.companyName.length > 0
+                              ? "is-invalid form-control"
+                              : "form-control"
+                          }
                           name="companyName"
                           value={companyName}
-                          required
                           placeholder="Your Company Name.."
                           onChange={(e) => onInputChange(e)}
                         />
+                        {isError && isError.companyName && (
+                  <p className="text-danger">{isError.companyName}</p>
+                )}
                       </div>
                     </div>
                   </div>
@@ -170,14 +335,19 @@ const SponsorForm = () => {
                   <div className="col-md-12">
                     <div className="form-wrap">
                       <select
-                        className="form-select"
+                        className={
+                          isError && isError.sponsorType.length > 0
+                            ? "is-invalid form-control"
+                            : "form-select"
+                        }
                         aria-label="Default select example"
                         name="sponsorType"
-                        required
                         value={sponsorType}
                         onChange={(e) => onInputChange(e)}
                       >
-                        <option defaultValue hidden>Select Sponsorship Types</option>
+                        <option defaultValue hidden>
+                          Select Sponsorship Types
+                        </option>
                         <option amount="Strategic Sponsor">
                           Strategic Sponsor
                         </option>
@@ -187,6 +357,9 @@ const SponsorForm = () => {
                         <option amount="Gold Sponsor">Gold Sponsor</option>
                         <option amount="Silver Sponsor">Silver Sponsor</option>
                       </select>
+                      {isError && isError.sponsorType && (
+                  <p className="text-danger">{isError.sponsorType}</p>
+                )}
                     </div>
                   </div>
 
@@ -199,8 +372,8 @@ const SponsorForm = () => {
                               type="text"
                               className="form-control "
                               name="amount"
-                              value={amount}                            
-                              readOnly                              
+                              value={amount}
+                              readOnly
                             />
                           </div>
                         </div>
@@ -219,7 +392,8 @@ const SponsorForm = () => {
                   <div className="col-md-12">
                     <div className="form-wrap">
                       <div className="input-wrap">
-                        <div className="register-form">
+                        {/* <div className="register-form"> */}
+                        <div>
                           <p className="text-success">{greet}</p>
                         </div>
                       </div>

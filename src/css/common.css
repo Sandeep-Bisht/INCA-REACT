@@ -227,6 +227,11 @@ textarea
 .without-carousel{
     display:block;
 }
+.asterisk::after
+{
+  color: red;
+  content: '*';
+}
 
 
 
@@ -452,4 +457,3 @@ background-color:#fff;
         font-size: 12px;
     }
 }
-
