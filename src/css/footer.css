@@ -30,13 +30,14 @@
 
 .foot-wrapper .box-1 p
 {
-    padding: 5px 0;
+    font-size: 13px;
     letter-spacing: .7px;
 }
 
 .foot-wrapper .box-1 h2
 {
-    font-size: 50px;
+    font-size: 40px;
+    text-transform: uppercase;
 }
 
 .foot-wrapper .box-1 a

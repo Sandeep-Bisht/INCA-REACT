@@ -56,7 +56,7 @@ const Contact = () => {
                   <i className="fa-solid fa-file-lines"></i>
                   <h3 className="h2">CONTACT</h3>
                   <p className="common-para">
-                    Phone No: +91 937-1633-699 Email: info@42inca.org
+                    Phone No: +91 937-1633-699 <br/> Email: info@42inca.org
                   </p>
                 </div>
               </div>
