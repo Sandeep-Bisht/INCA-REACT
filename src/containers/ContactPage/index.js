@@ -44,7 +44,7 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">ADDRESS</h3>
                   <p className="common-para">
-                    National Hydrographic Office 107-A, Rajpur Rd, Hathibarkala
+                    National Hydrographic Office <br/> 107-A, Rajpur Rd, Hathibarkala
                     Salwala, Dehradun, Uttarakhand 248001
                   </p>
                 </div>
