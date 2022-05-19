@@ -46,16 +46,16 @@ export const Footer = () => {
                       Contact Us
                     </Link>
                   </li>
-                  {/* <li>
-                    <Link className="nav-link text-white ps-0" to="/">
-                      Event Details
+                  <li>
+                    <Link className="nav-link text-white ps-0" to="/login">
+                      Login
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link text-white ps-0" to="/">
-                      News & Articles
+                    <Link className="nav-link text-white ps-0" to="/register">
+                      Registration
                     </Link>
-                  </li> */}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -65,25 +65,16 @@ export const Footer = () => {
                 <h5>Other Pages</h5>
                 <ul>
                   <li>
-                    <Link className="nav-link text-white ps-0" to="/">
-                      Help Center
+                    <Link className="nav-link text-white ps-0" to="/register">
+                      Delegate Registration
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link text-white ps-0" to="/">
-                      FAQ
+                    <Link className="nav-link text-white ps-0" to="/sponsorForm">
+                      Sponsor Registration
                     </Link>
                   </li>
-                  <li>
-                    <Link className="nav-link text-white ps-0" to="/">
-                      Parent Community
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="nav-link text-white ps-0" to="/">
-                      Organiser
-                    </Link>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -99,15 +90,15 @@ export const Footer = () => {
           </div>
 
           <div className="row">
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
               <div className="box-6">
                 <span>PRIVACY POLICY</span>
                 <span className="move">TERMS & CONDITION</span>
                 <span>SUPPORT</span>
               </div>
-            </div>
+            </div> */}
 
-            <div className="col-md-6">
+            <div className="col-md-12">
               <div className="box-7">
                 <span>Copyright © 2022 INCA. All rights reserved.</span>
               </div>

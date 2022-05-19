@@ -66,6 +66,7 @@ const CreateForm = (props) => {
   };
 
   const [phoneNumber, setPhoneNumber] = useState('')
+  const [loggedInUser, setLoggedInUser] = useState(false)
 
  
   let [qrInfo, setQrInfo] = useState(undefined)
@@ -79,6 +80,7 @@ const CreateForm = (props) => {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
       let logedInId = decodedToken.user.user._id;
       if (decodedToken.user.user.role !== "admin") {
+        setLoggedInUser(true)
         let userInformationCopy = { ...userInformation };
         userInformationCopy.name = decodedToken.user.user.userName;
         userInformationCopy.email = decodedToken.user.user.userEmail;
@@ -93,7 +95,7 @@ const CreateForm = (props) => {
       }
     }
   }, []);
-
+  
   useEffect(() => {
     setValue(getRegistrationFee());
   }, [userInformation]);
@@ -171,7 +173,6 @@ const CreateForm = (props) => {
         transactionId: "",
     
     }
-    console.log(location.state._id, 'location.state._id;location.state._id;')
       userId = location.state._id;
       setUserInformation(location.state);
       setPhoneNumber(location.state.phoneNumber.toString());
@@ -554,7 +555,6 @@ const CreateForm = (props) => {
 
   let generateQr = () => {
     buttonState.button = 2;
-    console.log(userId, 'asddasdsad')
     let pageUrl = `http://144.91.110.221:4801/eventattendance/${userId}`;
     //let pageUrl = `http://144.91.110.221:5360/eventattendance/6281fd6dfbce5a096cf0a864}`;
     // 6281fd6dfbce5a096cf0a864
@@ -591,8 +591,8 @@ const CreateForm = (props) => {
                       : "form-control"
                   }
                   value={userInformation && userInformation.name}
-                  disabled={isDisabled}
-              // disabled={userInformation && userInformation.name}
+                  //disabled={isDisabled}
+               disabled={loggedInUser && userInformation && userInformation.name}
                   id="name"
                 />
                 {isError && isError.name && (
@@ -683,7 +683,7 @@ const CreateForm = (props) => {
                     <PhoneInput
                      country="in"                     
                       value={phoneNumber}
-                      // disabled={userInformation && phoneNumber}                      
+                       disabled={loggedInUser && userInformation && phoneNumber}                      
                       placeholder=""
                       onChange={(phone) => phoneNumberInputHandler(phone)}
                     />
@@ -730,8 +730,8 @@ const CreateForm = (props) => {
                     <input
                       type="email"
                       id="email"                     
-                      // disabled={userInformation && userInformation.email}
-                      disabled={isDisabled}
+                       disabled={loggedInUser && userInformation && userInformation.email}
+                      //disabled={isDisabled}
                       value={userInformation && userInformation.email}
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       className={

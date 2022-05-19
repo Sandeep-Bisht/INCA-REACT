@@ -47,7 +47,6 @@ const AttendanceStatus = () => {
           return item
         })
       }
-      //console.log(res, 'asfsdfsd')
       setIsLoading(false);
       setAttendanceStatus(state.getAttendanceStatusSuccess);
       initFilters1();
@@ -73,7 +72,6 @@ const AttendanceStatus = () => {
 
 
   const actionBodyTemplate = (node, column) => {
-    console.log(node.markAttendanceStatus, 'asdfsdfd')
     let checkBoxId = Math.random();
     return (
       <>

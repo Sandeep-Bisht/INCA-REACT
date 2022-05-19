@@ -126,7 +126,7 @@ const HomePage = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
       slidesToSlide: 3, // optional, default to 1.
     },
     tablet: {
@@ -809,17 +809,17 @@ const HomePage = () => {
           </div>
           <div className="row mt-md-3 mt-lg-5">
             <Carousel
-              swipeable={true}
+              //swipeable={true}
               arrows={true}
               draggable={false}
               showDots={false}
               responsive={responsive}
-              ssr={true}
-              infinite={true}
-              autoPlay={true}
-              autoPlaySpeed={2000}
-              keyBoardControl={true}
-              transitionDuration={500}
+              //ssr={true}
+              //infinite={true}
+              autoPlay={false}
+              autoPlaySpeed={50000}
+              //keyBoardControl={true}
+              //transitionDuration={500}
             >
               <div className="member-profile">
                 <div className="speaker-card">
