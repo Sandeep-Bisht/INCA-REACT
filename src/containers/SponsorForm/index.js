@@ -173,7 +173,7 @@ const SponsorForm = () => {
         "₹5.0 lakhs (with free registration of 5 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
     } else if (e.target.value == "Gold Sponsor") {
-      sponsorFormCopy.valamountues =
+      sponsorFormCopy.amount =
         "₹3.5 lakhs (with free registration of 3 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
     } else {
@@ -348,14 +348,14 @@ const SponsorForm = () => {
                         <option defaultValue hidden>
                           Select Sponsorship Types
                         </option>
-                        <option amount="Strategic Sponsor">
+                        <option value="Strategic Sponsor">
                           Strategic Sponsor
                         </option>
-                        <option amount="Platinium Sponsor">
+                        <option value="Platinium Sponsor">
                           Platinium Sponsor
                         </option>
-                        <option amount="Gold Sponsor">Gold Sponsor</option>
-                        <option amount="Silver Sponsor">Silver Sponsor</option>
+                        <option value="Gold Sponsor">Gold Sponsor</option>
+                        <option value="Silver Sponsor">Silver Sponsor</option>
                       </select>
                       {isError && isError.sponsorType && (
                   <p className="text-danger">{isError.sponsorType}</p>
