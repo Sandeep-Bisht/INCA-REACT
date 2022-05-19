@@ -10,7 +10,7 @@ const ContentChanges = () => {
             <div className="row">
               <div className="col-md-12">
                 <div className="mb-3">
-                  <label for="inputName" className="form-label">
+                  <label htmlFor="inputName" className="form-label">
                     Name
                   </label>
                   <input
@@ -22,7 +22,7 @@ const ContentChanges = () => {
               </div>
               <div className="col-md-12">
                 <div className="mb-3">
-                  <label for="inputFile" className="form-label">
+                  <label htmlFor="inputFile" className="form-label">
                     Image Upload
                   </label>
                   <input
@@ -36,7 +36,7 @@ const ContentChanges = () => {
               </div>
               <div className="col-md-12">
                 <div className="mb-3">
-                  <label for="validationTextarea" className="form-label">
+                  <label htmlFor="validationTextarea" className="form-label">
                     Brief Description
                   </label>
                   <textarea

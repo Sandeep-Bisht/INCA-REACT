@@ -126,7 +126,7 @@ const HomePage = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
       slidesToSlide: 3, // optional, default to 1.
     },
     tablet: {
@@ -277,7 +277,7 @@ const HomePage = () => {
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
                 <p className="common-pre-heading">Introduction</p>
                 <h1 className="common-heading">
-                  About INCA (Indian National Cartography Association)
+                  About INCA (Indian National Cartographic Association)
                 </h1>
                 <p className="common-para">
                   INCA as an association provides an interface between academia,
@@ -343,6 +343,7 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">Where is the Event:</h2>
                   <p className="common-para">
+                 <b> National Hydrographic Office </b> <br/>
                     107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun,
                     Uttarakhand 248001
                   </p>
@@ -412,7 +413,7 @@ const HomePage = () => {
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
                 <p className="common-pre-heading">Introduction</p>
                 <h1 className="common-heading">
-                  About INCA (Indian National Cartography Association)
+                  About INCA (Indian National Cartographic Association)
                 </h1>
                 <p className="common-para">
                   INCA as an association provides an interface between academia,
@@ -477,6 +478,7 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">Where is the Event:</h2>
                   <p className="common-para">
+                 <b> National Hydrographic Office </b> <br/>
                     107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun,
                     Uttarakhand 248001
                   </p>
@@ -807,17 +809,17 @@ const HomePage = () => {
           </div>
           <div className="row mt-md-3 mt-lg-5">
             <Carousel
-              swipeable={true}
+              // swipeable={true}
               arrows={true}
               draggable={false}
               showDots={false}
               responsive={responsive}
-              ssr={true}
-              infinite={true}
-              autoPlay={true}
-              autoPlaySpeed={2000}
-              keyBoardControl={true}
-              transitionDuration={500}
+              // ssr={true}
+              // infinite={true}
+              autoPlay={false}
+              autoPlaySpeed={50000}
+              // keyBoardControl={true}
+              // transitionDuration={500}
             >
               <div className="member-profile">
                 <div className="speaker-card">
@@ -827,7 +829,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Vice Admiral Adhir Arora, NM ,C H to GoI
+                        Vice Admiral Adhir Arora <br/> NM , GOI
                       </h3>
                       <span className="speaker-post">
                         Chief Hydrographer & President INCA
@@ -844,7 +846,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Retired Admiral Lochan singh pathania
+                     Rear Admiral Lochan Singh Pathania
                       </h3>
                       <span className="speaker-post">JCH / Patron</span>
                     </div>
@@ -859,10 +861,10 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Chairman-cmde Peush Pawsey
+                        CMDE Peush Pawsey <br/> CB & Press 
                       </h3>
                       <span className="speaker-post">
-                        CMDE (H) - CB & Press
+                        Chairman
                       </span>
                     </div>
                   </div>
@@ -876,10 +878,10 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Captain Kuldeep Singh Capt (h) - HP
+                        Captain Kuldeep Singh <br/> Capt (H) - HP
                       </h3>
                       <span className="speaker-post">
-                        Organising Director
+                        Organising Secretary
                       </span>
                     </div>
                   </div>
@@ -893,10 +895,10 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. R A Prasad DYCCHO
+                        Rajesh Kumar <br/> CCHO
                       </h3>
                       <span className="speaker-post">
-                        Chief Coordinator
+                        LOC Member
                       </span>
                     </div>
                   </div>
@@ -910,15 +912,33 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. B K Ram Prasad ACCHO
+                        Dr. R A Prasad <br/> DYCCHO
                       </h3>
                       <span className="speaker-post">
-                        Editor
+                        LOC Member
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
+              <div className="member-profile">
+                <div className="speaker-card">
+                  <div className="speaker-pic">
+                    <img src={idelimage} className="img-fluid" alt="" />
+                  </div>
+                  <div className="speaker-detail">
+                    <div className="upper">
+                      <h3 className="speaker-title">
+                        Dr. B K Ram Prasad <br/> ACCHO
+                      </h3>
+                      <span className="speaker-post">
+                        LOC Member
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
             </Carousel>
           </div>
           <div className="row mt-md-2 mt-lg-5">
@@ -1029,7 +1049,7 @@ const HomePage = () => {
             <div className="col-lg-6">
               <p className="common-pre-heading">SCHEDULE DETAILS</p>
               <h2 className="common-heading ">
-                SCHEDULE WILL BE PUBLISHED ONCE FINALISED BY THE COMPANY
+                SCHEDULE WILL BE PUBLISHED ONCE FINALISED
               </h2>
               {/* <p className="common-para ">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
@@ -2606,6 +2626,7 @@ const HomePage = () => {
                   <div className="contact-venue">
                     <h3>EVENT VENUE :</h3>
                     <p className="common-para mb-0">
+                   <b> National Hydrographic Office </b> <br/>
                       107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun,
                       Uttarakhand 248001
                     </p>

@@ -81,7 +81,7 @@ const Dashboard = (props) => {
                       aria-expanded="false"
                     >
                       <span className="user-icon">
-                      <i class="fa-solid fa-user"></i>
+                      <i className="fa-solid fa-user"></i>
                       </span>
                       
                       {/* <img
@@ -126,7 +126,7 @@ const Dashboard = (props) => {
                             onClick={() => navigate("/dashboard")}
                           >
                             <span className="me-2">
-                              <i class="fa-solid fa-house"></i>
+                              <i className="fa-solid fa-house"></i>
                             </span>
                             Dashboard
                           </button>
@@ -142,7 +142,7 @@ const Dashboard = (props) => {
                           onClick={() => navigate("/dashboard")}
                         >
                           <span className="me-2">
-                          <i class="fa-solid fa-user-plus"></i>
+                          <i className="fa-solid fa-user-plus"></i>
                           </span>
                           New Registration
                         </button>
@@ -162,7 +162,7 @@ const Dashboard = (props) => {
                             aria-controls="collapseOne"
                           >
                             <span className="me-2">
-                              <i class="fa-solid fa-user"></i>
+                              <i className="fa-solid fa-user"></i>
                             </span>{" "}
                             Registration
                           </button>
@@ -181,7 +181,7 @@ const Dashboard = (props) => {
                                   onClick={() => navigate("/dashboard/create")}
                                 >
                                   <span className="me-2">
-                                  <i class="fa-solid fa-user-plus"></i>
+                                  <i className="fa-solid fa-user-plus"></i>
                                   </span>{" "}
                                   New Registration
                                 </button>
@@ -195,7 +195,7 @@ const Dashboard = (props) => {
                                     }
                                   >
                                     <span className="me-2">
-                                      <i class="fa-solid fa-user-group"></i>
+                                      <i className="fa-solid fa-user-group"></i>
                                     </span>{" "}
                                     All Registration
                                   </button>
@@ -216,7 +216,7 @@ const Dashboard = (props) => {
                             onClick={() => navigate("/dashboard/allSponsor")}
                           >
                             <span className="me-2">
-                              <i class="fa-brands fa-elementor"></i>
+                              <i className="fa-brands fa-elementor"></i>
                             </span>{" "}
                             Sponsors
                           </button>
@@ -232,7 +232,7 @@ const Dashboard = (props) => {
                             onClick={() => navigate("/dashboard/users")}
                           >
                             <span className="me-2">
-                              <i class="fa-solid fa-users"></i>
+                              <i className="fa-solid fa-users"></i>
                             </span>
                             Users
                           </button>
@@ -249,7 +249,7 @@ const Dashboard = (props) => {
                             }
                           >
                             <span className="me-2">
-                              <i class="fa-solid fa-users"></i>
+                              <i className="fa-solid fa-users"></i>
                             </span>
                             Attendance Status
                           </button>
@@ -272,7 +272,7 @@ const Dashboard = (props) => {
                                   aria-controls="collapseOne"
                                 >
                                   <span className="me-2 ">
-                                  <i class="fa-solid fa-cloud-arrow-up"></i>                                  
+                                  <i className="fa-solid fa-cloud-arrow-up"></i>                                  
                                   </span>
                                   Paper Submisson
                                 </button>
@@ -293,7 +293,7 @@ const Dashboard = (props) => {
                                         }
                                       >
                                         <span className="me-2">
-                                          <i class="fa-solid fa-file-export"></i>
+                                          <i className="fa-solid fa-file-export"></i>
                                         </span>
                                         Abstract
                                       </button>
@@ -307,7 +307,7 @@ const Dashboard = (props) => {
                                         }
                                       >
                                         <span className="me-2">
-                                          <i class="fa-solid fa-file-export"></i>
+                                          <i className="fa-solid fa-file-export"></i>
                                         </span>
                                         Full Papers
                                       </button>
@@ -328,7 +328,7 @@ const Dashboard = (props) => {
                                           }
                                         >
                                           <span className="me-2">
-                                            <i class="fa-solid fa-file-export"></i>
+                                            <i className="fa-solid fa-file-export"></i>
                                           </span>
                                           Abstracts
                                         </button>

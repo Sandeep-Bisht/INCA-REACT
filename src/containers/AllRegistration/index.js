@@ -25,13 +25,19 @@ const AllRegistration = () => {
   const actionBodyTemplate = (node, column) => {
     return (
       <>
-        <button onClick={() => redirectToCretePage(node, "edit")}>
-          <i className="fa-solid fa-pen"></i>
+      <div className="d-flex">
+        <div >
+        <button className="text-primary" onClick={() => redirectToCretePage(node, "edit")}>
+          <i className="fa-solid fa-pen "></i>
         </button>
+        </div>
         
-        <button onClick={() => redirectToCretePage(node, "view")}>
-          <i className="fa-solid fa-eye"></i>
+        <div className="ps-2">
+        <button className="text-primary" onClick={() => redirectToCretePage(node, "view")}>
+          <i className="fa-solid fa-eye "></i>
         </button>
+        </div>
+        </div>
       </>
     );
   };
