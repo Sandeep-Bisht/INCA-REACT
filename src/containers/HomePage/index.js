@@ -809,17 +809,17 @@ const HomePage = () => {
           </div>
           <div className="row mt-md-3 mt-lg-5">
             <Carousel
-              //swipeable={true}
+              // swipeable={true}
               arrows={true}
               draggable={false}
               showDots={false}
               responsive={responsive}
-              //ssr={true}
-              //infinite={true}
+              // ssr={true}
+              // infinite={true}
               autoPlay={false}
               autoPlaySpeed={50000}
-              //keyBoardControl={true}
-              //transitionDuration={500}
+              // keyBoardControl={true}
+              // transitionDuration={500}
             >
               <div className="member-profile">
                 <div className="speaker-card">
@@ -829,7 +829,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Vice Admiral Adhir Arora, NM ,C H to GoI
+                        Vice Admiral Adhir Arora <br/> NM , GOI
                       </h3>
                       <span className="speaker-post">
                         Chief Hydrographer & President INCA
@@ -846,9 +846,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                     Lochan Singh Pathania
+                     Rear Admiral Lochan Singh Pathania
                       </h3>
-                      <span className="speaker-post">LOC Member</span>
+                      <span className="speaker-post">JCH / Patron</span>
                     </div>
                   </div>
                 </div>
@@ -861,7 +861,41 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Chairman-Cmde Peush Pawsey
+                        CMDE Peush Pawsey <br/> CB & Press 
+                      </h3>
+                      <span className="speaker-post">
+                        Chairman
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="member-profile">
+                <div className="speaker-card">
+                  <div className="speaker-pic">
+                    <img src={idelimage} className="img-fluid" alt="" />
+                  </div>
+                  <div className="speaker-detail">
+                    <div className="upper">
+                      <h3 className="speaker-title">
+                        Captain Kuldeep Singh <br/> Capt (H) - HP
+                      </h3>
+                      <span className="speaker-post">
+                        Organising Secretary
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="member-profile">
+                <div className="speaker-card">
+                  <div className="speaker-pic">
+                    <img src={idelimage} className="img-fluid" alt="" />
+                  </div>
+                  <div className="speaker-detail">
+                    <div className="upper">
+                      <h3 className="speaker-title">
+                        Rajesh Kumar <br/> CCHO
                       </h3>
                       <span className="speaker-post">
                         LOC Member
@@ -878,7 +912,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Captain Kuldeep Singh Capt (h) - HP
+                        Dr. R A Prasad <br/> DYCCHO
                       </h3>
                       <span className="speaker-post">
                         LOC Member
@@ -895,7 +929,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. R A Prasad DYCCHO
+                        Dr. B K Ram Prasad <br/> ACCHO
                       </h3>
                       <span className="speaker-post">
                         LOC Member
@@ -904,40 +938,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="member-profile">
-                <div className="speaker-card">
-                  <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
-                  </div>
-                  <div className="speaker-detail">
-                    <div className="upper">
-                      <h3 className="speaker-title">
-                        Dr. B K Ram Prasad ACCHO
-                      </h3>
-                      <span className="speaker-post">
-                        LOC Member
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="member-profile">
-                <div className="speaker-card">
-                  <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
-                  </div>
-                  <div className="speaker-detail">
-                    <div className="upper">
-                      <h3 className="speaker-title">
-                        Rajesh Kumar
-                      </h3>
-                      <span className="speaker-post">
-                        LOC Member
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
             </Carousel>
           </div>
           <div className="row mt-md-2 mt-lg-5">
