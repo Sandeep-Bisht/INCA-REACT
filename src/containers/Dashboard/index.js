@@ -41,6 +41,7 @@ const Dashboard = (props) => {
 
   let logoutUser = () => {
     localStorage.removeItem("token");
+    navigate('/')
   };
 
   return (
@@ -99,8 +100,7 @@ const Dashboard = (props) => {
                     <li>
                         <button
                           onClick={() => logoutUser()}
-                          className="dropdown-item"
-                          to="/"
+                          className="dropdown-item"                         
                         >
                           Logout
                         </button>
@@ -296,6 +296,20 @@ const Dashboard = (props) => {
                                           <i className="fa-solid fa-file-export"></i>
                                         </span>
                                         Abstract
+                                      </button>
+                                    </li>
+
+                                    <li className="ps-3">
+                                      <button
+                                        className="common-blue btn"
+                                        onClick={() =>
+                                          navigate("/dashboard/userabstractlist")
+                                        }
+                                      >
+                                        <span className="me-2">
+                                          <i className="fa-solid fa-file-export"></i>
+                                        </span>
+                                        Abstract List
                                       </button>
                                     </li>
 

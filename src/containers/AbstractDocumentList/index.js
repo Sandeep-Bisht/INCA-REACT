@@ -10,8 +10,8 @@ import { Button } from "primereact/button";
 import * as Loader from "react-loader-spinner";
 
 const AbstractDocumentList = () => {
-    const state = useSelector((state) => state.AbstractListReducer);
-   
+    
+  const state = useSelector((state) => state.AbstractListReducer);   
     
     let [abstractList, setAbstractList] = useState([])
     let [isLoading, setIsLoading] = useState(true)
@@ -37,7 +37,7 @@ const AbstractDocumentList = () => {
     }, [])
 
     useEffect(() => {
-        if(state && state.getAbstractDocSuccess !== abstractList){
+        if(state && state.getAbstractDocSuccess){
             setIsLoading(false)
            setAbstractList(state.getAbstractDocSuccess)
            initFilters1();
@@ -101,10 +101,17 @@ const AbstractDocumentList = () => {
       </div>
     );
   };
-  const actionBodyTemplate = () => {
+
+  let redirectToPaperPreviewPage = (item) => {
+    navigate("/dashboard/previewPaper", { state: item });
+  }
+
+  const actionBodyTemplate = (node, column) => {
     return (
       <>
-        <button onClick={() =>navigate("/dashboard/previewPaper")}>
+        {/* <button onClick={() =>navigate("/dashboard/previewPaper")}> */}
+        
+        <button onClick={() => redirectToPaperPreviewPage(node)} >
         <i className="fa-solid fa-file-pdf"></i>
         </button>
       </>
@@ -114,7 +121,6 @@ const AbstractDocumentList = () => {
 
     return(
         <>
-        <div>
         <div className="card">
           <DataTable
            loading={isLoading}
@@ -136,7 +142,7 @@ const AbstractDocumentList = () => {
             ></Column>
           </DataTable>
         </div>
-      </div>
+      
 
         {/* <section className="users-lists">
         <div className="container-fluid">

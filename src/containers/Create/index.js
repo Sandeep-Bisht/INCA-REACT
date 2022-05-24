@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
+import axios from 'axios';
 import "react-phone-input-2/lib/style.css";
 import { QRCodeSVG } from 'qrcode.react';
 import jwt_decode from "jwt-decode";
@@ -21,11 +22,6 @@ const obj = {
   conferenceMode: "",
   participationType: "",
   title: "",
-  journeyMode: "",
-  arrivalDate: "",
-  departureDate: "",
-  accompanyingPerson: "",
-  accomodationDetail: "",
   registrationCategory: "",
   //registrationFee: "",
   //transactionId: "",
@@ -41,11 +37,6 @@ const obj = {
     conferenceMode: "",
     participationType: "",
     title: "",
-    journeyMode: "",
-    arrivalDate: "",
-    departureDate: "",
-    accompanyingPerson: "",
-    accomodationDetail: "",
     registrationCategory: "",
     registrationFee: "",
     transactionId: "",
@@ -60,20 +51,15 @@ const CreateForm = (props) => {
   const [mode, setMode] = useState("");
   const [value, setValue] = useState(undefined);
   const [systemRole, setSystemRole] = useState('')
-  const state = useSelector((state) => state.RegisteredUserInfoReducer);
-  const buttonState = {
-    button: 0
-  };
+  const state = useSelector((state) => state.RegisteredUserInfoReducer);  
 
   const [phoneNumber, setPhoneNumber] = useState('')
   const [loggedInUser, setLoggedInUser] = useState(false)
-
- 
-  let [qrInfo, setQrInfo] = useState(undefined)
+  let [qrInfo, setQrInfo] = useState(undefined)  
 
   let dispatch = useDispatch();
   let location = useLocation();
-  let navigate = useNavigate();
+  let navigate = useNavigate(); 
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -162,12 +148,7 @@ const CreateForm = (props) => {
         email: "",
         conferenceMode: "",
         participationType: "",
-        title: "",
-        journeyMode: "",
-        arrivalDate: "",
-        departureDate: "",
-        accompanyingPerson: "",
-        accomodationDetail: "",
+        title: "",        
         registrationCategory: "",
         registrationFee: "",
         transactionId: "",
@@ -180,6 +161,8 @@ const CreateForm = (props) => {
       setMode(location.state.mode);
     }
   }, []);
+
+ 
 
   const getRegistrationFee = () => {
     let userInformationCopy = { ...userInformation };
@@ -225,6 +208,9 @@ const CreateForm = (props) => {
     }
   };
 
+  const buttonState = {
+           button: 0
+            };
   const regExp = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
   const nameRegExp = RegExp(/^[A-Za-z ]+$/);
   const phoneRegExp = RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
@@ -288,30 +274,10 @@ const CreateForm = (props) => {
           value.length < 0 ? "Participation Type is Required" : "";
         setUserInformation(userInformationCopy);
         break;
-      // case "journeyMode":
-      //   userInformationCopy.isError.journeyMode =
-      //     value.length < 0 ? "Journey Mode Required" : "";
-      //   setUserInformation(userInformationCopy);
-      //   break;
-      // case "arrivalDate":
-      //   userInformationCopy.isError.arrivalDate =
-      //     value.length < 0 ? "Arrival Date  Required" : "";
-      //   setUserInformation(userInformationCopy);
-      //   break;
-      // case "departureDate":
-      //   userInformationCopy.isError.departureDate =
-      //     value.length < 0 ? "Departure Date  Required" : "";
-      //   setUserInformation(userInformationCopy);
-      //   break;
-
-      // case "accomodationDetail":
-      //   userInformationCopy.isError.accomodationDetail =
-      //     value.length < 0 ? "Accomodation Detail  Required" : "";
-      //   setUserInformation(userInformationCopy);
-      //   break;
+     
       case "registrationCategory":
         userInformationCopy.isError.registrationCategory =
-          value.length < 0 ? "Registration Category  Required" : "";
+          value.length < 0 ? "Registration Category is Required" : "";
         setUserInformation(userInformationCopy);
         break;
       // case "transactionId":
@@ -342,10 +308,6 @@ const CreateForm = (props) => {
       formIsValid = false;
     }
 
-    // if (!userInformation?.phoneNumber) {
-    //   formIsValid = false;
-    // }
-
     if (!userInformation?.email) {
       
       formIsValid = false;
@@ -359,22 +321,11 @@ const CreateForm = (props) => {
     if (!userInformation?.conferenceMode) {
       formIsValid = false;
     }
-    // if (userInformation?.conferenceMode === "offline") {
-    //   if (!userInformation?.arrivalDate) {
-    //     formIsValid = false;
-    //   }
 
-    //   if (!userInformation?.departureDate) {
-    //     formIsValid = false;
-    //   }
-    //   if (!userInformation?.journeyMode) {
-    //     formIsValid = false;
-    //   }
-
-    //   if (!userInformation?.registrationCategory) {
-    //     formIsValid = false;
-    //   }
-    // }
+    if (!userInformation?.registrationCategory) {
+      formIsValid = false;
+    }
+    
 
     return formIsValid;
   };
@@ -394,18 +345,18 @@ const CreateForm = (props) => {
     }
     else{
       let userInformationCopy = {...userInformation}
-      userInformationCopy.isError.email = "Email is invalid"
+      //userInformationCopy.isError.email = "Email is invalid"
       setUserInformation(userInformationCopy)
     }
     }
     if (buttonState.button == 2) {
       checkValidation();
       if (validateForm()) {
-        generateQr();
+       // makePayment();       
       }
       else{
         let userInformationCopy = {...userInformation}
-      userInformationCopy.isError.email = "Email is invalid"
+      //userInformationCopy.isError.email = "Email is invalid"
       setUserInformation(userInformationCopy)
       }
     }
@@ -429,11 +380,6 @@ const CreateForm = (props) => {
         conferenceMode: "",
         participationType: "",
         title: "",
-        journeyMode: "",
-        arrivalDate: "",
-        departureDate: "",
-        accompanyingPerson: "",
-        accomodationDetail: "",
         registrationCategory: "",
         registrationFee: "",
         transactionId: "",
@@ -461,10 +407,7 @@ const CreateForm = (props) => {
             ? ""
             : " Field is required";
           break;
-        // case "phoneNumber":
-        //   userInformationCopy.isError.phoneNumber =
-        //     userInformationCopy.phoneNumber ? "" : " Field is required";
-        //   break;
+        
         case "email":
           userInformationCopy.isError.email = userInformationCopy.email
             ? ""
@@ -478,54 +421,11 @@ const CreateForm = (props) => {
           userInformationCopy.isError.participationType =
             userInformationCopy.participationType ? "" : "Field is required";
           break;
-        // case "title":
-        // userInformationCopy.isError.title = userInformationCopy.title ? "" :  " Pls field the required field" ;
-        // break;
-
-        // case "journeyMode":
-        //   if (userInformationCopy.conferenceMode === "offline") {
-        //     userInformationCopy.isError.journeyMode =
-        //       userInformationCopy.journeyMode ? "" : "Field is required";
-        //   } else {
-        //     userInformationCopy.isError.journeyMode = "";
-        //   }
-        //   break;
-        // case "arrivalDate":
-        //   if (userInformationCopy.conferenceMode === "offline") {
-        //     userInformationCopy.isError.arrivalDate =
-        //       userInformationCopy.arrivalDate ? "" : "Field is required";
-        //   } else {
-        //     userInformationCopy.isError.arrivalDate = "";
-        //   }
-        //   break;
-        // case "departureDate":
-        //   if (userInformationCopy.conferenceMode === "offline") {
-        //     userInformationCopy.isError.departureDate =
-        //       userInformationCopy.departureDate ? "" : "Field is required";
-        //   } else {
-        //     userInformationCopy.isError.departureDate = "";
-        //   }
-        //   break;
-        // case "accomodationDetail":
-        //   if (userInformationCopy.conferenceMode === "offline") {
-        //     userInformationCopy.isError.accomodationDetail =
-        //       userInformationCopy.accomodationDetail ? "" : "Field is required";
-        //   } else {
-        //     userInformationCopy.isError.accomodationDetail = "";
-        //   }
-        // case "registrationCategory":
-        //   if (userInformationCopy.conferenceMode === "offline") {
-        //     userInformationCopy.isError.registrationCategory =
-        //       userInformationCopy.registrationCategory
-        //         ? ""
-        //         : "Field is required";
-        //   } else {
-        //     userInformationCopy.isError.registrationCategory = "";
-        //   }
-        //   break;
-        // case "transactionId":
-        //   userInformationCopy.isError.transactionId =  userInformationCopy.transactionId ? "" : "Atleast 4 characaters required";
-        //   break;
+        case "registrationCategory":
+            userInformationCopy.isError.registrationCategory =
+              userInformationCopy.registrationCategory ? "" : "Field is required";
+            break;
+        
 
         default:
           break;
@@ -555,15 +455,57 @@ const CreateForm = (props) => {
 
   let generateQr = () => {
     buttonState.button = 2;
-    let pageUrl = `http://144.91.110.221:4801/eventattendance/${userId}`;
-    //let pageUrl = `http://144.91.110.221:5360/eventattendance/6281fd6dfbce5a096cf0a864}`;
-    // 6281fd6dfbce5a096cf0a864
-    // let pageUrl = "facebook.com"
-     if(userInformation.name && userInformation.email && userInformation.participationType && value){
-    setQrInfo(pageUrl) 
-  }   
+      makePayment();
   
   }
+
+  const initializeRazorpay = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+
+      document.body.appendChild(script);
+    });
+  };
+
+
+  const makePayment = async () => {
+    const res = await initializeRazorpay();
+
+    if (!res) {
+      alert("Razorpay SDK Failed to load");
+      return;
+    }
+
+    // Make API call to the serverless API
+    let url = "http://localhost:4801/api/payments"
+    let data = await axios.post(url);
+    
+    console.log(data);
+    var options = {
+      key: "rzp_test_fXDarHzcgxICzG", // Enter the Key ID generated from the Dashboard
+      name: "42 inca ",
+      currency: data.currency,
+      amount: 1500*100,
+      order_id: data.id,
+      handler: function (response) {
+        // Validate payment at server - using webhooks is a better idea.
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature);
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
 
   return (
     <div className="main">
@@ -709,10 +651,7 @@ const CreateForm = (props) => {
                       value={userInformation && userInformation.country}
                       disabled={isDisabled}
                       id="country"
-                    >
-                      {isError && isError.country && (
-                        <p className="text-danger">{isError.country}</p>
-                      )}
+                    >                      
                       <option defaultValue hidden>
                         Please Select
                       </option>
@@ -722,7 +661,11 @@ const CreateForm = (props) => {
                         </option>
                       ))}
                     </select>
+                    {isError && isError.country && (
+                        <p className="text-danger">{isError.country}</p>
+                      )}
                   </div>
+
                   <div className="col-md-12">
                     <label htmlFor="InputEmail" className="form-label asterisk">
                       Email
@@ -766,14 +709,17 @@ const CreateForm = (props) => {
                       <option defaultValue hidden>
                         Please Select The Mode
                       </option>
-                      <option value="online">Online</option>
-                      <option value="offline">Offline</option>
+                      {/* <option value="online">Online</option> */}
+                      <option value="offline">Physical</option>
                     </select>
                     {isError && isError.conferenceMode && (
                       <p className="text-danger">{isError.conferenceMode}</p>
                     )}
                   </div>
-                  <div className="col-md-12">
+
+            {/* Registration Category */}
+
+            <div className="col-md-12">
                     <label htmlFor="SelectCategory" className="form-label asterisk">
                       Registration Category
                     </label>
@@ -791,12 +737,8 @@ const CreateForm = (props) => {
                         Please Select
                       </option>
                       <option value="Life Members">Life Members</option>
-                      <option value="For Students (Indian) ">
-                        For Students (Indian){" "}
-                      </option>
-                      <option value="Others (participants/delegates/members)">
-                        Others (participants/delegates/members)
-                      </option>
+                      <option value="For Students (Indian) ">For Students (Indian)</option>
+                      <option value="Others (participants/delegates/members)">Others (participants/delegates/members)</option>
                     </select>
                     {isError && isError.registrationCategory && (
                       <p className="text-danger">
@@ -825,6 +767,9 @@ const CreateForm = (props) => {
                     >
                       <option defaultValue hidden>
                         Please Select
+                      </option>
+                      <option value="deligate">
+                      Deligate
                       </option>
                       <option value="Research Paper Presentation">
                         Research Paper Presentation
@@ -882,167 +827,10 @@ const CreateForm = (props) => {
                       ? "is-invalid form-control"
                       : "form-control"
                   }
-                ></textarea>
-                {isError && isError.title && (
-                  <p className="text-danger">{isError.title}</p>
-                )}
+                ></textarea>                
               </div>
-            </div>
-            {/* {userInformation && userInformation.conferenceMode == "offline" && (
-              <>
-                <div className="row mb-5">
-                  <div className="col-md-4">
-                    <label htmlFor="InputArrival" className="form-label asterisk">
-                      Date of Arrival
-                    </label>                   
-                    <input
-                        type="date"
-                        value={userInformation && userInformation.arrivalDate}
-                        disabled={isDisabled}                        
-                        id="arrivalDate"
-                        min={new Date().toISOString().split('T')[0]}
-                        onChange={(e) => userInformationOnchangeHandler(e)}
-                        className={
-                          isError && isError.arrivalDate.length > 0
-                            ? "is-invalid form-control"
-                            : "form-control"
-                        }
-                    />
-                    {isError && isError.arrivalDate && (
-                      <p className="text-danger">{isError.arrivalDate}</p>
-                    )}
-                  </div>
-                  <div className="col-md-4">
-                    <label htmlFor="InputDeparture" className="form-label asterisk">
-                      Date of Departure
-                    </label>
-                    <input
-                      type="date"
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      value={userInformation && userInformation.departureDate}
-                      disabled={isDisabled}
-                      min={userInformation.arrivalDate ? userInformation.arrivalDate :  new Date().toISOString().split('T')[0]}
-                      id="departureDate"
-                      className={
-                        isError && isError.departureDate.length > 0
-                          ? "is-invalid form-control"
-                          : "form-control"
-                      }
-                    />
-                    {isError && isError.departureDate && (
-                      <p className="text-danger">{isError.departureDate}</p>
-                    )}
-                  </div>
-                  <div className="col-md-4">
-                    <label htmlFor="SelectJourney" className="form-label asterisk">
-                      Journey Mode
-                    </label>
-                    <select
-                      className={
-                        isError && isError.journeyMode.length > 0
-                          ? "is-invalid form-control"
-                          : "form-control"
-                      }
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      aria-label="Default select example"
-                      disabled={isDisabled}
-                      value={userInformation && userInformation.journeyMode}
-                      id="journeyMode"
-                    >
-                      <option defaultValue hidden>
-                        Please Select
-                      </option>
-                      <option value="Cab">Cab</option>
-                      <option value="Train">Train</option>
-                      <option value="Flight">Flight</option>
-                    </select>
-                    {isError && isError.journeyMode && (
-                      <p className="text-danger">{isError.journeyMode}</p>
-                    )}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-4">
-                    <label htmlFor="InputAccompanying" className="form-label">
-                      Accompanying Person, if any
-                    </label>
-                    <input
-                      type="text"
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      value={
-                        userInformation && userInformation.accompanyingPerson
-                      }
-                      disabled={isDisabled}
-                      id="accompanyingPerson"
-                      className={"form-control"}
-                    />                  
-                  </div>
-                  <div className="col-md-4">
-                    <label htmlFor="SelectAccomodation" className="form-label asterisk">
-                      Accomodation details
-                    </label>
-                    <select
-                      className="form-select"
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      aria-label="Default select example"
-                      value={
-                        userInformation && userInformation.accomodationDetail
-                      }
-                      disabled={isDisabled}
-                      id="accomodationDetail"
-                    >
-                      <option defaultValue hidden>
-                        Please Select
-                      </option>
-                      <option value="Hotel">Hotel</option>
-                      <option value="Hostel">Hostel</option>
-                      <option value="Guest House">Guest House</option>
-                    </select>
-                    {isError && isError.accomodationDetail && (
-                      <p className="text-danger">
-                        {isError.accomodationDetail}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </>
-            )} */}
+            </div>            
 
-            <div className="row mb-5 d-none">
-              <div className="col-md-4">
-                <label htmlFor="SelectCategory" className="form-label asterisk">
-                  Registration Category
-                </label>
-                <select
-                  className="form-select"
-                  disabled={isDisabled}
-                  onChange={(e) => userInformationOnchangeHandler(e)}
-                  aria-label="Default select example"
-                  value={
-                    userInformation && userInformation.registrationCategory
-                  }
-                  id="registrationCategory"
-                >
-                  <option>Please Select</option>
-                  <option value="INCA-Life-Member">INCA-Life-Member</option>
-                  <option value="Student">Student</option>
-                  <option value="Foreign Delegate">Foreign Delegate</option>
-                  <option value="Others">Others</option>
-                </select>
-              </div>
-              <div className="col-md-4">
-                <label htmlFor="InputFee" className="form-label">
-                  Registration Fee
-                </label>
-                <input
-                  type="text"
-                  onChange={(e) => userInformationOnchangeHandler(e)}
-                  disabled={isDisabled}
-                  id="registrationFee"
-                  className="form-control"
-                />
-              </div>
-            </div>
             {message && <p className="text-success">{message}</p>}
 
             <div className="row">
