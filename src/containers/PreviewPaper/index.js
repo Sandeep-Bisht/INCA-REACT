@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
-
 import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import * as ACTIONS from './action';
+import jwt_decode from "jwt-decode";
 
 // Import the main component
 import { Button, Viewer } from "@react-pdf-viewer/core"; // install this library
@@ -17,15 +19,31 @@ const PreviewPaper = () => {
 
   // for submit event
   const [viewPdf, setViewPdf] = useState("");
+  const [approveDocs, setApproveDocs] = useState({
+    paperApproveStatus : false,
+    userId : "",
+    docsId : ""
+  })
 
   let location = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if(location && location.state){
-      console.log(location && location.state && location.state, 'asdzfsadf')
+    if(location && location.state){      
       setViewPdf(location.state.abstractFileUrl)
+      approveDocs.userId = location.state.userId;
+      approveDocs.docsId = location.state._id;      
+      setApproveDocs(approveDocs);
     }
-  }, [location])
+  }, [location])  
+  
+
+  const approvefilesubmissionHandler = (status) => {   
+    approveDocs.paperApproveStatus = status;  
+    dispatch(ACTIONS.approveFileSubmission(approveDocs));
+    
+  }
+  console.log(approveDocs,"approveDocs approveDocs")
 
   return (
     <>
@@ -42,12 +60,12 @@ const PreviewPaper = () => {
       {!viewPdf && <>No pdf file selected</>}
       <div className="row">
         <div className="col-md-1">
-          <button type="button" className="btn btn-success">
+          <button type="button" className="btn btn-success" onClick={() => approvefilesubmissionHandler(true)}>
             Accept
           </button>
         </div>
         <div className="col-md-1">
-          <button type="button" className="btn btn-danger">
+          <button type="button" className="btn btn-danger" onClick={() => approvefilesubmissionHandler(false)}>
             Reject
           </button>
         </div>

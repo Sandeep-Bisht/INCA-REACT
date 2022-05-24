@@ -11,7 +11,8 @@ import abstractUploadFile from '../containers/AbstractUpload/saga'
 import getAbstractData from '../containers/AbstractDocumentList/saga'
 import AttendenceStatusSaga from "../containers/AttendanceStatus/saga";
 import UserAttendanceSaga from "../containers/EventAttendance/saga";
-import UserAbstractListByIdSaga from "../containers/UserAbstractList/saga"
+import UserAbstractListByIdSaga from "../containers/UserAbstractList/saga";
+import ApproveFileSubmissionSaga from "../containers/PreviewPaper/saga";
 
 export function* rootSaga () {
     yield all([
@@ -27,6 +28,7 @@ export function* rootSaga () {
         fork(getAbstractData),
         fork(AttendenceStatusSaga),
         fork(UserAttendanceSaga),
-        fork(UserAbstractListByIdSaga)
+        fork(UserAbstractListByIdSaga),
+        fork(ApproveFileSubmissionSaga)
     ]);
 }
