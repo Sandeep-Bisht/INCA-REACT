@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
+import nhologo from "../../images/NHO-logo.png";
+import Amritlogo from "../../images/logoamrit.png";
 
 export const Header = () => {
   useEffect(() => {   
@@ -28,7 +30,7 @@ export const Header = () => {
               <nav className="navbar navbar-expand-lg">
                 <a className="navbar-brand p-0 m-0" href="#">
                   <img src={logo} className="img-fluid" />
-                  <span className="logo-text f2">Inca 2022</span>
+                  {/* <span className="logo-text f2">Inca 2022</span> */}
                 </a>
                 <button
                   className="navbar-toggler"
@@ -44,7 +46,7 @@ export const Header = () => {
                   </span>
                 </button>
                 <div
-                  className="collapse navbar-collapse justify-content-end"
+                  className="collapse navbar-collapse justify-content-center"
                   id="navbarNav"
                 >
                   <ul className="navbar-nav menu-navbar-nav">
@@ -56,6 +58,16 @@ export const Header = () => {
                     <li className="nav-item">
                       <Link className="nav-link" to="/about">
                         About
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/importantdates">
+                       Schedule
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/Theme">
+                        Theme
                       </Link>
                     </li>
                     <li className="nav-item d-none">
@@ -80,6 +92,16 @@ export const Header = () => {
                       </Link>
                     </li>
                   </ul>
+                </div>
+                <div className="nav-display-1">
+                <a className="navbar-brand p-0 m-0" href="#">
+                  <img src={Amritlogo} className="img-fluid" />
+                </a>
+                </div>
+                <div className="nav-display">
+                <a className="navbar-brand p-0 m-0" href="#">
+                  <img src={nhologo} className="img-fluid" />
+                </a>
                 </div>
               </nav>
             </div>

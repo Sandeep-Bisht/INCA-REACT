@@ -41,6 +41,7 @@ const Dashboard = (props) => {
 
   let logoutUser = () => {
     localStorage.removeItem("token");
+    navigate('/')
   };
 
   return (
@@ -106,7 +107,6 @@ const Dashboard = (props) => {
                         <button
                           onClick={() => logoutUser()}
                           className="dropdown-item"
-                          to="/"
                         >
                           LogOut
                         </button>

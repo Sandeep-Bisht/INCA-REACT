@@ -11,10 +11,6 @@ import attend3 from "../../images/attend3.png";
 import attend4 from "../../images/attend4.png";
 import attend5 from "../../images/attend5.png";
 import attend6 from "../../images/attend6.png";
-import organiser1 from "../../images/organiser1.jpg";
-import organiser2 from "../../images/organiser2.jpg";
-import organiser3 from "../../images/organiser3.jpg";
-import organiser4 from "../../images/organiser4.jpg";
 import reg2 from "../../images/reg2.png";
 import reg3 from "../../images/reg3.png";
 import reg4 from "../../images/reg4.png";
@@ -24,8 +20,7 @@ import client8 from "../../images/client-8.png";
 import client9 from "../../images/client-9.png";
 import client10 from "../../images/client-10.png";
 import comittee1 from "../../images/Raj1.jpg";
-import comittee2 from "../../images/CH-Adhir Arora.png";
-import comittee3 from "../../images/TAPATI-BANERJEE.jpg";
+import comittee2 from "../../images/CH-Adhir-Arora.png";
 import gikslogo from "../../images/Giks-logo.png";
 import nhologo from "../../images/NHO-logo.png";
 import carislogo from "../../images/Caris-logo.png";
@@ -48,6 +43,15 @@ import iiclogo from "../../images/iic-logo.png";
 import isrologo from "../../images/isro-logo.png";
 import natmologo from "../../images/natmo-logo.png";
 import incalogo from "../../images/logo.png";
+import inca1 from "../../images/inca-image-1.JPG";
+import inca2 from "../../images/inca-image-2.JPG";
+import inca3 from "../../images/inca-image-3.JPG";
+import inca4 from "../../images/inca-image-4.JPG";
+import inca5 from "../../images/inca-image-5.JPG";
+import inca6 from "../../images/inca-image-6.JPG";
+import inca7 from "../../images/inca-image-7.jpg";
+import inca8 from "../../images/inca-image-8.JPG";
+import inca9 from "../../images/inca-image-9.jpg";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -110,18 +114,18 @@ const HomePage = () => {
       <div className="home-banner">
         <div className="container">
           <div className="row pb-md-5">
-            <div className="col-md-7">
+            <div className="col-md-5">
               <div className="left"></div>
             </div>
-            <div className="col-md-5">
+            <div className="col-md-7">
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
                   <span className="banner-small text-white">
-                    42<sup>nd</sup> Indian National Cartographic Association
+                    42<sup>nd</sup> INCA International Conference
                   </span>
 
-                  <span className="common-yellow-color">
-                    International Conference
+                  <span className="theme-color">
+                  Theme : "Digital Cartography To Harness Blue Economy"
                   </span>
 
                   {/* <span className="banner-last">Event-2022</span> */}
@@ -142,13 +146,13 @@ const HomePage = () => {
                     className="common-btn-transparent ms-3 home-schedule-desk"
                     href="#home-schedule-desk"
                   >
-                    View Schedule
+                    Abstract Submission
                   </a>
                   <a
                     className="common-btn-transparent ms-3 home-schedule-mob"
                     href="#home-schedule-mob"
                   >
-                    View Schedule
+                    Abstract Submission
                   </a>
                 </div>
               </div>
@@ -195,105 +199,43 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <section className="section-padding home-about pb-lg-0 without-carousel">
+
+      <div className="Welcome-page">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <div className="home-about-left">
-                <div className="row pt-5">
-                  <div className="col-lg-7 col-6 ">
-                    <div className="one text-end set-img">
-                      <img
-                        src={gallary1}
-                        className="img-fluid"
-                        width={215}
-                        height={150}
-                      />
-                    </div>
-                    <div className="two py-3 set-img">
-                      <img src={gallary2} className="img-fluid" />
-                    </div>
-                  </div>
-                  <div className="col-lg-5 col-6">
-                    <div className="four  set-img">
-                      <img src={gallary4} className="img-fluid w-75" />
-                    </div>
-                    
-                    <div className="five pt-3 set-img">
-                      <img src={gallary5} className="img-fluid" />
-                    </div>
-                </div>
-                <div className="row p-0">
-                      <div className="col-lg-12 ps-4 pe-0">
-                      <div className="three text-end set-img">
-                      <img src={gallary3} className="img-fluid w-75 h-25" />
-                    </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="adhir-arora-image">
+                      <div className="adhir-pic">
+                      <img src={comittee2} alt="" className="img-fluid"/>
+                      </div>
+                      <div className="adhir-image-title">
+                        <p className="common-para">Vice Admiral Adhir Arora </p>
+                        <p className="common-para">NM , GOI</p>
+                        <p className="common-para">CHIEF HYDROGRAPHER & PRESIDENT INCA</p>
                       </div>
                     </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="welcome-text">
+                      <h3 className="h1">WELCOME TO 42<sup>nd</sup> INCA International Conference</h3>
+                      <h4 className="h2">Dear Participants,</h4>
+                      <p className="common-para">It gives me immense pleasure to welcome all presenters and participants to the Indian National Cartographic Association (INCA) Thematic Conference 2022 on the theme "Digital Cartography To Harness Blue Economy" which will be organized by the Department of INCA (India) on November 09-11, 2022.
+
+Now, I cordially invite all the eminent speakers and distinguished guests from around the world and various parts of the country to join us and share their extensive knowledge and expertise.
+<br/>
+In this conference renowned national and international scholars, scientists, academicians, planners will take part among others to share their expertise and experiences which will enrich our knowledge. It shall be profoundly advantageous for all the participants including the students.
+<br/>
+Let us all come together to achieve the goals and success of this mega-event.</p>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
-                <p className="common-pre-heading">Introduction</p>
-                <h1 className="common-heading">
-                  About INCA (Indian National Cartographic Association)
-                </h1>
-                <p className="common-para">
-                  INCA as an association provides an interface between academia,
-                  particularly geographers, geologists, earth scientists,
-                  technologists etc., and government institutions and
-                  geo-spatial industries involved in manufacturing of mapping
-                  and surveying tools and software, mapping and geo-spatial
-                  analysis.
-                </p>
-              </div>
-              <div className="signature-box">
-                <div className="upper-box">
-                  <ul className="list-unstyled">
-                    <li className="my-2 py-2">
-                      <span className="me-2">
-                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
-                      </span>
-
-                      <span>
-                        To foster cartographic research in the country , To
-                        co-operate with professional organisations of cognate
-                        disciplines and to promote academic interaction within
-                        an inter-disciplinary frame.
-                      </span>
-                    </li>
-                    <li className="my-2 py-2">
-                      <span className="me-2">
-                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
-                      </span>
-
-                      <span>
-                        To co-operate with international organisations with
-                        similar objectives , To improve the teaching of
-                        cartography at all levels.
-                      </span>
-                    </li>
-
-                    <li className="my-2 py-2">
-                      <span className="me-2">
-                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
-                      </span>
-
-                      <span>
-                        To foster co-operation between Government and
-                        Quasi-Government organisations, Research Institutions
-                        for the advancement of cartography , To hold a National
-                        Cartographic Conference, ordinarily, once in a year.
-                      </span>
-                    </li>
-                  </ul>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-6">
+      </div>
+      </div>
+
+      <section className="section-padding home-about pb-lg-0 without-carousel">
+        <div className="container">
+          <div className="row py-4 mt-3">
+            <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="first common-yellow-bg">
@@ -310,7 +252,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="second common-blue-bg">
@@ -320,8 +262,22 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    ( Wednesday to Friday ) 09 November 2022 to 11 November
-                    2022.
+                  09 November 2022 to <br/> 11 November 2022.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="home-about-event-card">
+                <div className="left">
+                  <span className="second common-blue-bg">
+                    <i className="fa-solid fa-calendar-days"></i>
+                  </span>
+                </div>
+                <div className="right">
+                  <h2 className="h2">Schedule of the Event</h2>
+                  <p className="common-para">
+                  Schedule will be published once finalised
                   </p>
                 </div>
               </div>
@@ -332,103 +288,8 @@ const HomePage = () => {
       {/* --------with carousel--------- */}
       <section className="section-padding home-about pb-lg-0 with-carousel">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-md-12">
-              <div className="home-about-left">
-                <div className="row">
-                  <Carousel
-                    swipeable={true}
-                    arrows={true}
-                    draggable={false}
-                    showDots={false}
-                    responsive={responsive}
-                    infinite={true}
-                    autoPlay={true}
-                    ShowArrows={false}
-                    autoPlaySpeed={2000}
-                    keyBoardControl={true}
-                    transitionDuration={500}
-                    itemClass="carousel-item-padding-40-px"
-                  >
-                    <div className="col-md-12">
-                      <img src={gallary1} className="img-fluid" />
-                    </div>
-                    <div className="col-md-12">
-                      <img src={gallary2} className="img-fluid" />
-                    </div>
-                    <div className="col-md-12">
-                      <img src={gallary3} className="img-fluid " />
-                    </div>
-                    <div className="col-md-12">
-                      <img src={gallary4} className="img-fluid " />
-                    </div>
-                    <div className="col-md-12">
-                      <img src={gallary5} className="img-fluid" />
-                    </div>
-                  </Carousel>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
-                <p className="common-pre-heading">Introduction</p>
-                <h1 className="common-heading">
-                  About INCA (Indian National Cartographic Association)
-                </h1>
-                <p className="common-para">
-                  INCA as an association provides an interface between academia,
-                  particularly geographers, geologists, earth scientists,
-                  technologists etc., and government institutions and
-                  geo-spatial industries involved in manufacturing of mapping
-                  and surveying tools and software, mapping and geo-spatial
-                  analysis.
-                </p>
-              </div>
-              <div className="signature-box">
-                <div className="upper-box">
-                  <ul className="list-unstyled">
-                    <li className="my-2 py-2">
-                      <span className="me-2">
-                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
-                      </span>
-
-                      <span>
-                        To foster cartographic research in the country , To
-                        co-operate with professional organisations of cognate
-                        disciplines and to promote academic interaction within
-                        an inter-disciplinary frame.
-                      </span>
-                    </li>
-                    <li className="my-2 py-2">
-                      <span className="me-2">
-                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
-                      </span>
-                      <span>
-                        To co-operate with international organisations with
-                        similar objectives , To improve the teaching of
-                        cartography at all levels.
-                      </span>
-                    </li>
-
-                    <li className="my-2 py-2">
-                      <span className="me-2">
-                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
-                      </span>
-
-                      <span>
-                        To foster co-operation between Government and
-                        Quasi-Government organisations, Research Institutions
-                        for the advancement of cartography , To hold a National
-                        Cartographic Conference, ordinarily, once in a year.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="first common-yellow-bg">
@@ -445,7 +306,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="second common-blue-bg">
@@ -455,8 +316,22 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    ( Wednesday to Friday ) 09 November 2022 to 11 November
-                    2022.
+                  09 November 2022 to <br/> 11 November 2022.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="home-about-event-card">
+                <div className="left">
+                  <span className="second common-blue-bg">
+                    <i className="fa-solid fa-calendar-days"></i>
+                  </span>
+                </div>
+                <div className="right">
+                  <h2 className="h2">Schedule of the Event</h2>
+                  <p className="common-para">
+                  Schedule will be published once finalised
                   </p>
                 </div>
               </div>
@@ -465,7 +340,7 @@ const HomePage = () => {
         </div>
       </section>
       {/* --------with carousel----------- */}
-      <section className="section-padding home-counter">
+      {/* <section className="section-padding home-counter">
         <div className="container pt-md-5">
           <div className="row pt-md-5">
             <div className="col-lg-3 py-4 col-3">
@@ -494,19 +369,19 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
-      <section className="section-padding home-attend-event with-carousel">
+      </section> */}
+      {/* <section className="section-padding home-attend-event with-carousel">
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-8 mx-auto text-center">
-              {/* <p className="common-pre-heading">Introduction</p> */}
+              <p className="common-pre-heading">Introduction</p>
               <h2 className="common-heading text-white">
                 WHY ATTEND INCA 2022 EVENT?
               </h2>
-              {/* <p className="common-para text-white position-relative">
+              <p className="common-para text-white position-relative">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p> */}
+              </p>
             </div>
           </div>
           <div className="row position-relative mt-lg-5">
@@ -536,10 +411,10 @@ const HomePage = () => {
                     <h3 className="attend-card-heading">
                       In Person Networking
                     </h3>
-                    {/* <p className="common-para">
+                    <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p> */}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -553,10 +428,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">BOOST CREATIVITY</h3>
-                    {/* <p className="common-para">
+                    <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p> */}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -570,10 +445,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">AFTER PARTY EVENT</h3>
-                    {/* <p className="common-para">
+                    <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p> */}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -587,10 +462,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">SPARK CREATIVITY</h3>
-                    {/* <p className="common-para">
+                    <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p> */}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -604,10 +479,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">TOP SPEAKERS</h3>
-                    {/* <p className="common-para">
+                    <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p> */}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -621,10 +496,10 @@ const HomePage = () => {
                   </div>
                   <div className="lower">
                     <h3 className="attend-card-heading">POTENTIAL CLIENTS</h3>
-                    {/* <p className="common-para">
+                    <p className="common-para">
                       Nemo cubilia non, exercitationem ridiculus modi faucibus
                       nullam animi suspendie in porttitor.
-                    </p> */}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -632,20 +507,20 @@ const HomePage = () => {
             ;
           </div>
         </div>
-      </section>
+      </section> */}
       {/* ----without carousel---- */}
-      <section className="section-padding home-attend-event without-carousel">
+      {/* <section className="section-padding home-attend-event without-carousel">
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-8 mx-auto text-center">
-              {/* <p className="common-pre-heading">Introduction</p> */}
+              <p className="common-pre-heading">Introduction</p>
               <h2 className="common-heading text-white">
                 WHY ATTEND INCA 2022 EVENT?
               </h2>
-              {/* <p className="common-para text-white position-relative">
+              <p className="common-para text-white position-relative">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p> */}
+              </p>
             </div>
           </div>
           <div className="row position-relative mt-lg-5">
@@ -659,10 +534,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">In Person Networking</h3>
-                  {/* <p className="common-para">
+                  <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p> */}
+                  </p>
                 </div>
               </div>
             </div>
@@ -676,10 +551,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">BOOST CREATIVITY</h3>
-                  {/* <p className="common-para">
+                  <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p> */}
+                  </p>
                 </div>
               </div>
             </div>
@@ -693,10 +568,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">AFTER PARTY EVENT</h3>
-                  {/* <p className="common-para">
+                  <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p> */}
+                  </p>
                 </div>
               </div>
             </div>
@@ -710,10 +585,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">SPARK CREATIVITY</h3>
-                  {/* <p className="common-para">
+                  <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p> */}
+                  </p>
                 </div>
               </div>
             </div>
@@ -727,10 +602,10 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">TOP SPEAKERS</h3>
-                  {/* <p className="common-para">
+                  <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p> */}
+                  </p>
                 </div>
               </div>
             </div>
@@ -744,22 +619,22 @@ const HomePage = () => {
                 </div>
                 <div className="lower">
                   <h3 className="attend-card-heading">POTENTIAL CLIENTS</h3>
-                  {/* <p className="common-para">
+                  <p className="common-para">
                     Nemo cubilia non, exercitationem ridiculus modi faucibus
                     nullam animi suspendie in porttitor.
-                  </p> */}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* ----without carousel---- */}
       <section className="section-padding home-speakers with-carousel" id="home-speaker">
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
-              <p className="common-pre-heading">Organising committee</p>
+              {/* <p className="common-pre-heading">Organising committee</p> */}
               <h2 className="common-heading ">OUR ORGANISING COMMITTEE</h2>
               {/* <p className="common-para ">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
@@ -789,10 +664,10 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Vice Admiral Adhir Arora <br/> NM , GOI
+                        Vice Admiral <br/> Adhir Arora , NM 
                       </h3>
                       <span className="speaker-post">
-                        Chief Hydrographer & President INCA
+                        Chief Hydrographer to the Govt. of India
                       </span>
                     </div>
                   </div>
@@ -806,9 +681,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                     Rear Admiral Lochan Singh Pathania
+                     Rear Admiral <br/> Lochan Singh Pathania
                       </h3>
-                      <span className="speaker-post">JCH / Patron</span>
+                      <span className="speaker-post">Joint Chief Hydrographer</span>
                     </div>
                   </div>
                 </div>
@@ -855,7 +730,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Rajesh Kumar <br/> CCHO
+                        Rajesh Kumar Khatri <br/> CCHO
                       </h3>
                       <span className="speaker-post">
                         LOC Member
@@ -1000,21 +875,21 @@ const HomePage = () => {
       </section> */}
 
       {/* -----without carousel----- */}
-      <section
+      {/* <section
         className="section-padding home-schedule without-carousel"
         id="home-schedule-desk"
-      >
-        <div className="container">
-          <div className="row align-items-center">
+      > */}
+        {/* <div className="container"> */}
+          {/* <div className="row align-items-center">
             <div className="col-lg-6">
               <p className="common-pre-heading">SCHEDULE DETAILS</p>
               <h2 className="common-heading ">
                 SCHEDULE WILL BE PUBLISHED ONCE FINALISED
               </h2>
-              {/* <p className="common-para ">
+              <p className="common-para ">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p> */}
+              </p>
             </div>
 
             <div className="col-lg-6">
@@ -1025,7 +900,7 @@ const HomePage = () => {
                       ? "common-circle  circleactive"
                       : "common-circle "
                   }`}
-                  // onClick={() => showEventsByDate("9nov")}
+                  onClick={() => showEventsByDate("9nov")}
                 >
                   <p className="c-heading f1">09 Nov </p>
                   <p className="shedule-day f1">Wednesday</p>
@@ -1037,7 +912,7 @@ const HomePage = () => {
                       ? "common-circle  circleactive"
                       : "common-circle "
                   }`}
-                  // onClick={() => showEventsByDate("10nov")}
+                  onClick={() => showEventsByDate("10nov")}
                 >
                   <p className="c-heading f1">10 Nov </p>
                   <p className="shedule-day f1">Thursday</p>
@@ -1050,15 +925,15 @@ const HomePage = () => {
                       ? "common-circle  circleactive"
                       : "common-circle "
                   }`}
-                  // onClick={() => showEventsByDate("11nov")}
+                  onClick={() => showEventsByDate("11nov")}
                 >
                   <p className="c-heading f1">11 Nov </p>
                   <p className="shedule-day f1">Friday</p>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row mt-lg-5">
+          </div> */}
+          <div className="row mt-lg-5 ">
             {showEvents == "9nov" && (
               <>
                 {/* <div className="col-md-12">
@@ -1382,8 +1257,8 @@ const HomePage = () => {
                 </div> */}
               </>
             )}
-            {/* -----paste---- */}
-            {/* ----copy----- */}
+            {/* -----paste----
+            ----copy----- */}
             {showEvents == "11nov" && (
               <>
                 {/* <div className="col-md-12">
@@ -1547,15 +1422,15 @@ const HomePage = () => {
             )}
             {/* -----paste---- */}
           </div>
-        </div>
-      </section>
-      {/* ------ without carousel----*/}
+        {/* </div> */}
+      {/* </section> */}
+      {/* ------ without carousel---- */}
       <section
         className="section-padding home-schedule with-carousel"
         id="home-schedule-mob"
       >
         <div className="container">
-          <div className="row align-items-center">
+          {/* <div className="row align-items-center">
             <div className="col-lg-6">
               <p className="common-pre-heading">SCHEDULE DETAILS</p>
               <h2 className="common-heading ">
@@ -1606,12 +1481,12 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="row ">
             {showEvents == "9nov" && (
               <>
-                <Carousel
+                {/* <Carousel
                   swipeable={true}
                   arrows={true}
                   draggable={false}
@@ -1625,7 +1500,7 @@ const HomePage = () => {
                   transitionDuration={500}
                   itemClass="carousel-item-padding-40-px"
                 >
-                  {/* <div className="col-md-12">
+                  <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1663,8 +1538,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div> */}
-                  {/* <div className="col-md-12">
+                  </div>
+                  <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1702,8 +1577,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div> */}
-                  {/* <div className="col-md-12">
+                  </div>
+                  <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1741,8 +1616,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div> */}
-                  {/* <div className="col-md-12">
+                  </div>
+                  <div className="col-md-12">
                     <div className="schedule-long-card">
                       <div className="row ">
                         <div className="col-lg-4">
@@ -1781,8 +1656,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div> */}
-                </Carousel>
+                  </div>
+                </Carousel> */}
               </>
             )}
             {/* ----copy----- */}
@@ -2150,7 +2025,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
-              <p className="common-pre-heading">register</p>
+              {/* <p className="common-pre-heading">register</p> */}
               <h2 className="common-heading ">Quick Links</h2>
               {/* <p className="common-para">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
@@ -2239,6 +2114,207 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      <section className="section-padding home-about pb-lg-0 without-carousel">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6">
+              <div className="home-about-left">
+                <div className="row pt-5">
+                  <div className="col-lg-7 col-6 ">
+                    <div className="one text-end set-img">
+                      <img
+                        src={gallary1}
+                        className="img-fluid"
+                        width={215}
+                        height={150}
+                      />
+                    </div>
+                    <div className="two py-3 set-img">
+                      <img src={gallary2} className="img-fluid" />
+                    </div>
+                  </div>
+                  <div className="col-lg-5 col-6">
+                    <div className="four  set-img">
+                      <img src={gallary4} className="img-fluid w-75" />
+                    </div>
+                    
+                    <div className="five pt-3 set-img">
+                      <img src={gallary5} className="img-fluid" />
+                    </div>
+                </div>
+                <div className="row p-0">
+                      <div className="col-lg-12 ps-4 pe-0">
+                      <div className="three text-end set-img">
+                      <img src={gallary3} className="img-fluid w-75 h-25" />
+                    </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
+                {/* <p className="common-pre-heading">Introduction</p> */}
+                <h1 className="common-heading">
+                  About INCA (Indian National Cartographic Association)
+                </h1>
+                <p className="common-para">
+                  INCA as an association provides an interface between academia,
+                  particularly geographers, geologists, earth scientists,
+                  technologists etc., and government institutions and
+                  geo-spatial industries involved in manufacturing of mapping
+                  and surveying tools and software, mapping and geo-spatial
+                  analysis.
+                </p>
+              </div>
+              <div className="signature-box">
+                <div className="upper-box">
+                  <ul className="list-unstyled">
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+
+                      <span>
+                        To foster cartographic research in the country , To
+                        co-operate with professional organisations of cognate
+                        disciplines and to promote academic interaction within
+                        an inter-disciplinary frame.
+                      </span>
+                    </li>
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+
+                      <span>
+                        To co-operate with international organisations with
+                        similar objectives , To improve the teaching of
+                        cartography at all levels.
+                      </span>
+                    </li>
+
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+
+                      <span>
+                        To foster co-operation between Government and
+                        Quasi-Government organisations, Research Institutions
+                        for the advancement of cartography , To hold a National
+                        Cartographic Conference, ordinarily, once in a year.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </section>
+
+          <section className="section-padding home-about pb-lg-0 with-carousel">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-12">
+              <div className="home-about-left">
+                <div className="row">
+                  <Carousel
+                    swipeable={true}
+                    arrows={true}
+                    draggable={false}
+                    showDots={false}
+                    responsive={responsive}
+                    infinite={true}
+                    autoPlay={true}
+                    ShowArrows={false}
+                    autoPlaySpeed={2000}
+                    keyBoardControl={true}
+                    transitionDuration={500}
+                    itemClass="carousel-item-padding-40-px"
+                  >
+                    <div className="col-md-12">
+                      <img src={gallary1} className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary2} className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary3} className="img-fluid " />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary4} className="img-fluid " />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary5} className="img-fluid" />
+                    </div>
+                  </Carousel>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
+                {/* <p className="common-pre-heading">Introduction</p> */}
+                <h1 className="common-heading">
+                  About INCA (Indian National Cartographic Association)
+                </h1>
+                <p className="common-para">
+                  INCA as an association provides an interface between academia,
+                  particularly geographers, geologists, earth scientists,
+                  technologists etc., and government institutions and
+                  geo-spatial industries involved in manufacturing of mapping
+                  and surveying tools and software, mapping and geo-spatial
+                  analysis.
+                </p>
+              </div>
+              <div className="signature-box">
+                <div className="upper-box">
+                  <ul className="list-unstyled">
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+
+                      <span>
+                        To foster cartographic research in the country , To
+                        co-operate with professional organisations of cognate
+                        disciplines and to promote academic interaction within
+                        an inter-disciplinary frame.
+                      </span>
+                    </li>
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+                      <span>
+                        To co-operate with international organisations with
+                        similar objectives , To improve the teaching of
+                        cartography at all levels.
+                      </span>
+                    </li>
+
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+
+                      <span>
+                        To foster co-operation between Government and
+                        Quasi-Government organisations, Research Institutions
+                        for the advancement of cartography , To hold a National
+                        Cartographic Conference, ordinarily, once in a year.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </section>
+
       {/* <section className="testimonial-area">
         <div className="container">
           <div className="row">
@@ -2388,7 +2464,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
-              <p className="common-pre-heading">OUR SPONSORS</p>
+              {/* <p className="common-pre-heading">OUR SPONSORS</p> */}
               <h2>SPONSORS AND PARTNERS</h2>
               {/* <p className="mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
@@ -2417,7 +2493,7 @@ const HomePage = () => {
             </div>
             <div className="col-md-2 px-0 sponsors-common">
               <div className="sponsor-box-3 common-sponsor-padding">
-                <img src={carislogo} alt="" className="img-fluid" />
+                <img src={esrilogo} alt="" className="img-fluid" />
               </div>
               <div className="sponsor-border-3 common-sponsor-padding">
                 <img src={isrologo} alt="" className="img-fluid" />
@@ -2455,8 +2531,8 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <p className="common-pre-heading">RECENT BLOG</p>
-              <h2 className="common-heading">LATEST NEWS</h2>
+              {/* <p className="common-pre-heading">RECENT BLOG</p> */}
+              <h2 className="common-heading">Event Announcement</h2>
               {/* <p className="common-para mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -2570,7 +2646,7 @@ const HomePage = () => {
             </div>
             <div className="col-md-6">
               <div className="contact-move">
-                <p className="common-pre-heading">GET IN TOUCH</p>
+                {/* <p className="common-pre-heading">GET IN TOUCH</p> */}
                 <h2 className="common-heading">
                   YOU CAN REACH US WITH FOLLOWING DETAILS
                 </h2>
@@ -2628,17 +2704,17 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-              <section className="section-padding home-gallery">
+              <section className="section-padding home-gallery mb-5">
                 <div className="container">
                   <div className="row align-items-center">
                     <div className="col-md-6">
-                      <p className="common-pre-heading">INCA Events</p>
+                      {/* <p className="common-pre-heading">INCA Events</p> */}
                       <h2 className="common-heading ">
                         GALLERY OF PREVIOUS INCA CONFERENCE
                       </h2>
                     </div>
                     <div className="col-md-6">
-                      <p className="common-para">
+                      {/* <p className="common-para">
                         Founded on 7th August 1979 at Hyderabad, the Indian National
                         Cartographic Association (INCA) has evolved into one of the
                         world's most prominent professional associations of its kind.
@@ -2648,66 +2724,66 @@ const HomePage = () => {
                         at Bengaluru, Mumbai, Kolkata, Chandigarh, Dehra Dun, Delhi,
                         Gujarat, Hyderabad, Indore, Jodhpur, Kerala, Odisha and Tamil
                         Nadu.
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                   <div className="row mt-lg-5 ">
                     <div className="col-md-12">
                       <div className="gallery-wrapper mt-5 row d-none">
                         <div className="gallery-box col-lg-3">
-                          <img src={gallary1} alt="" className="img-fluid" />
+                          <img src={inca1} alt="" className="img-fluid" />
                         </div>
         
                         <div className="gallery-box col-lg-3">
-                          <img src={gallary2} alt="" className="img-fluid" />
+                          <img src={inca2} alt="" className="img-fluid" />
                         </div>
         
                         <div className="gallery-box col-lg-3">
-                          <img src={gallary3} alt="" className="img-fluid" />
+                          <img src={inca3} alt="" className="img-fluid" />
                         </div>
         
                         <div className="gallery-box col-lg-3">
-                          <img src={gallary9} alt="" className="img-fluid" />
+                          <img src={inca9} alt="" className="img-fluid" />
                         </div>
                         <div className="gallery-box col-lg-3">
-                          <img src={gallary5} alt="" className="img-fluid" />
+                          <img src={inca5} alt="" className="img-fluid" />
                         </div>
                         <div className="gallery-box col-lg-3">
-                          <img src={gallary6} alt="" className="img-fluid" />
+                          <img src={inca6} alt="" className="img-fluid" />
                         </div>
                         <div className="gallery-box col-lg-3">
-                          <img src={gallary7} alt="" className="img-fluid" />
+                          <img src={inca7} alt="" className="img-fluid" />
                         </div>
                         <div className="gallery-box col-lg-3">
-                          <img src={gallary8} alt="" className="img-fluid" />
+                          <img src={inca8} alt="" className="img-fluid" />
                         </div>
                       </div>
                       {/* -------GALLERY------ */}
                       <div className="grid-wrapper">
                         <div className="tall">
-                          <img src={gallary3} alt="" className="img-fluid" />
+                          <img src={inca3} alt="" className="img-fluid" />
                         </div>
                         <div>
-                          <img src={gallary2} alt="" className="img-fluid" />
+                          <img src={inca2} alt="" className="img-fluid" />
                         </div>
                         <div className="wide">
-                          <img src={gallary4} alt="" className="img-fluid" />
+                          <img src={inca4} alt="" className="img-fluid" />
                         </div>
                         <div>
-                          <img src={gallary5} alt="" className="img-fluid" />
+                          <img src={inca5} alt="" className="img-fluid" />
                         </div>
         
                         <div>
-                          <img src={gallary1} alt="" className="img-fluid" />
+                          <img src={inca1} alt="" className="img-fluid" />
                         </div>
                         <div className="tall">
-                          <img src={gallary8} alt="" className="img-fluid" />
+                          <img src={inca8} alt="" className="img-fluid" />
                         </div>
                         <div className="big">
-                          <img src={gallary7} alt="" className="img-fluid" />
+                          <img src={inca7} alt="" className="img-fluid" />
                         </div>
                         <div className="wide">
-                          <img src={gallary6} alt="" className="img-fluid" />
+                          <img src={inca6} alt="" className="img-fluid" />
                         </div>
                       </div>
                       {/* ------GALLERY-------- */}

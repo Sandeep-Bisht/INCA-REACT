@@ -18,6 +18,7 @@ import hotel1 from "../../images/sarovar-portico-dehradun.jpg";
 import hotel2 from "../../images/marbella.jpg";
 import hotel3 from "../../images/hotel-madhuban.jpg";
 import hotel4 from "../../images/hotel-boulevard.jpg";
+import NHOBuilding from "../../images/NHO-building.jpg";
 
 const About = () => {
   return (
@@ -29,6 +30,25 @@ const About = () => {
             <div className="col-md-12 text-center">
               <p className="common-redirect-banner-title">About Us</p>
               <nav aria-label="breadcrumb"></nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="about-doon">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 pe-4">
+              <h2 className="pb-2">ABOUT NHO</h2>
+              <p className="common-para">
+              The Indian Naval Hydrographic Department (INHD) functions under the Chief Hydrographer to the Government of India.  The Department, being the nodal agency for Hydrographic surveys and Nautical charting in India, has a very well established organizational setup.  INHD has seven indigenously built modern survey ships including one Catamaran Hull Survey Vessel (CHSV) fitted with state-of-the-art surveying equipment and a well established ‘National Institute of Hydrography’ which is the Centre for imparting training in Hydrography accredited by International Hydrographic Organisation for National and International trainees.<br/>
+              The Chief Hydrographer to the Government of India is the NAVAREA VIII coordinator and is also the National Coordinator for NAVTEX services along Indian coast.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <div className="nho-pics">
+                    <img src={NHOBuilding} alt="" className="img-fluid"/>
+              </div>
             </div>
           </div>
         </div>
@@ -146,7 +166,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="doon-hotels">
+      {/* <div className="doon-hotels">
         <div className="container">
           <div className="row">
             <h3 className="pb-3">Nearby Hotels</h3>
@@ -156,10 +176,6 @@ const About = () => {
                   <img src={hotel1} class="card-img-top" alt="..." />
                   <div class="card-body">
                     <h5 class="card-title">Sarovar Portico Hotel</h5>
-                    {/* <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p> */}
                     <button type="button" className="common-btn"><a href="#">
                       Visit the Website
                     </a></button>
@@ -173,10 +189,6 @@ const About = () => {
                   <img src={hotel2} class="card-img-top" alt="..." />
                   <div class="card-body">
                     <h5 class="card-title">Marbella Hotel</h5>
-                    {/* <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p> */}
                      <button type="button" className="common-btn"><a href="#">
                       Visit the Website
                     </a></button>
@@ -190,10 +202,6 @@ const About = () => {
                   <img src={hotel3} class="card-img-top" alt="..." />
                   <div class="card-body">
                     <h5 class="card-title">Hotel Madhuban</h5>
-                    {/* <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p> */}
                      <button type="button" className="common-btn"><a href="#">
                       Visit the Website
                     </a></button>
@@ -207,10 +215,6 @@ const About = () => {
                   <img src={hotel4} class="card-img-top" alt="..." />
                   <div class="card-body">
                     <h5 class="card-title">Hotel Boulevard</h5>
-                    {/* <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p> */}
                      <button type="button" className="common-btn"><a href="#">
                       Visit the Website
                     </a></button>
@@ -220,7 +224,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div className="row pb-4 align-items-center">
             <div className="col-md-6">

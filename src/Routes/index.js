@@ -24,6 +24,8 @@ const AllSponsor = lazy(() => import("../containers/AllSponsor"));
 const AbstractUpload = lazy(() => import("../containers/AbstractUpload"))
 const FullPaper = lazy(() => import("../containers/FullPaper"))
 const AbstractDocumentList = lazy(() => import('../containers/AbstractDocumentList'))
+const Theme = lazy(() => import('../containers/ThemePage'))
+const ImportantDates = lazy(() => import('../containers/ImportantDates'))
 
 export const ApplicationRoutes = ({ path }) => {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -32,19 +34,18 @@ export const ApplicationRoutes = ({ path }) => {
   let location = useLocation();
 
   useEffect(() => {
-    location.pathname.includes('/eventattendance')
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
       setLoggedInUser(decodedToken.user.user);
     }
-    else {
-      if(location.pathname.includes('/eventattendance')){
+    else if(location.pathname.includes('/eventattendance')){
       navigate("/eventattendance/kjgjh");
     }
     else {
-      navigate("/");
+      navigate(`${location.pathname}`);
     }
-  }
+    
+  
   }, []);
 
   return (
@@ -66,11 +67,14 @@ export const ApplicationRoutes = ({ path }) => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<UserRegistration />} />
+          <Route path="/theme" element={<Theme />} />
+          <Route path="/importantdates" element={<ImportantDates />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot" element={<ForgotPassword />} />  
           <Route path="/eventattendance/:id" element={<EventAttendance />} />                
           <Route path="/dashboard" element={<Dashboard />} >
           <Route path="/dashboard/create" element={<CreateForm />} />
+          
           
 
             <Route
