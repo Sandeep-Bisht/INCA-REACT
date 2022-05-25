@@ -10,7 +10,7 @@ import * as ACTIONS from './action'
 const UserAbstractList = () => {
 
   const [isLoading, setIsLoading] = useState(true);
-  const [ userAbstractList,setUserAbstractList] = useState();
+  const [ userAbstractList,setUserAbstractList] = useState([]);
   const state = useSelector((state) => state.UserAbstractListReducer); 
 
   let dispatch = useDispatch();
@@ -33,7 +33,7 @@ const UserAbstractList = () => {
 
   }, [state.getUserAbstractListSuccess])
 
-
+  console.log(userAbstractList,"userAbstractList set after page load", state.getUserAbstractListSuccess, "state")
 
   const columns = [        
     { field: "abstractPaperName", header: "Paper Name" },

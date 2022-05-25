@@ -20,7 +20,7 @@ const PreviewPaper = () => {
   // for submit event
   const [viewPdf, setViewPdf] = useState("");
   const [approveDocs, setApproveDocs] = useState({
-    paperApproveStatus : false,
+    paperApproveStatus : null,
     userId : "",
     docsId : ""
   })
@@ -36,10 +36,12 @@ const PreviewPaper = () => {
       setApproveDocs(approveDocs);
     }
   }, [location])  
+  console.log(approveDocs,"approveDocs approveDocs")
   
 
   const approvefilesubmissionHandler = (status) => {   
     approveDocs.paperApproveStatus = status;  
+    console.log(approveDocs,"approveDocs after biutto\n click")
     dispatch(ACTIONS.approveFileSubmission(approveDocs));
     
   }
