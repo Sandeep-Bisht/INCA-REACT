@@ -174,7 +174,7 @@ input[type="text"]:focus
     height: 43px;
     color: #262626;
     font-size: 14px;
-    padding-left: 42px;
+    /* padding-left: 42px; */
     box-shadow: none;  
 }
 .register-form .actual-form-1 .country-flag-input input

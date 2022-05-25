@@ -3,7 +3,6 @@ import RegistrationPageSaga from '../containers/UserRegistration/saga'
 import LoginSaga from '../containers/Login/saga'
 import AllUsersSaga from '../containers/RegistredUsers/saga'
 import  GetUserRegistrationInfoSaga from '../containers/AllRegistration/saga'
-// import deviceManagementSaga from "./DeviceManagement/Sag
 import CreateSaga from "../containers/Create/saga"
 import SponsorSaga from '../containers/SponsorForm/saga'
 import AllSponsorSaga from "../containers/AllSponsor/saga";
@@ -12,6 +11,8 @@ import abstractUploadFile from '../containers/AbstractUpload/saga'
 import getAbstractData from '../containers/AbstractDocumentList/saga'
 import AttendenceStatusSaga from "../containers/AttendanceStatus/saga";
 import UserAttendanceSaga from "../containers/EventAttendance/saga";
+import UserAbstractListByIdSaga from "../containers/UserAbstractList/saga";
+import ApproveFileSubmissionSaga from "../containers/PreviewPaper/saga";
 
 export function* rootSaga () {
     yield all([
@@ -26,6 +27,8 @@ export function* rootSaga () {
         fork(abstractUploadFile),
         fork(getAbstractData),
         fork(AttendenceStatusSaga),
-        fork(UserAttendanceSaga)
+        fork(UserAttendanceSaga),
+        fork(UserAbstractListByIdSaga),
+        fork(ApproveFileSubmissionSaga)
     ]);
 }

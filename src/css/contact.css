@@ -1,8 +1,8 @@
 .common-redirect-banner {
-    background-image: url(../images/common-redirect.jpg);
+    background-image: url(../images/NHO-background.jpg);
     background-size: cover;
     position: relative;
-    padding: 170px 0;
+    padding: 125px 0;
     display: flex;
     align-items: center;
 }
@@ -14,7 +14,7 @@
     width: 100%;
     display: block;
     content: '';
-    background: rgba(0, 0, 0, .50);
+    background: rgba(0, 0, 0, .70);
 }
 .common-redirect-banner .common-redirect-banner-title
 {

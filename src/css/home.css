@@ -2,7 +2,7 @@
 {
     position: relative;
     background: linear-gradient(to left, #000000fa, #000000d1, #00000000);   
-     padding: 120px 0;
+     padding: 168px 0;
      display: flex;
      /* border-bottom-left-radius: 250px;
      border-bottom-right-radius: 120px; */
@@ -17,7 +17,7 @@
     position:absolute;
     top:0;
     display: block;
-    background: url(../images/slider.jpg);
+    background: url(../images/ship-2.jpg);
      background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
@@ -37,6 +37,13 @@
    /* text-transform:uppercase; */
    line-height: 62px; 
 }
+.home-banner .right .theme-color
+{
+    color: #0096FF;
+    font-size: 21px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
 .home-banner .right .banner-title .banner-small
 {
     font-size: 38px;
@@ -44,21 +51,74 @@
     line-height: 45px;
     margin-bottom: 14px;
 }
-.home-banner .banner-bottom
+/* .home-banner .banner-bottom
 {
     width: 140px;
     height: 4px;
     background-color: #fff;
     margin: 5px auto;
     border-radius: 5px;
+} */
+
+/* Welcome Css */
+
+.Welcome-page
+{
+    padding-top: 100px;
 }
+.Welcome-page .welcome-text p
+{
+    line-height: 30px;
+}
+.Welcome-page .welcome-text h3
+{
+    font-weight: 700;
+}
+.Welcome-page .welcome-text h4
+{
+    font-weight: 600;
+}
+.Welcome-page .adhir-arora-image
+{
+    position: relative;
+}
+.Welcome-page .adhir-arora-image .adhir-pic
+{
+    display: flex;
+    justify-content: center;
+}
+.Welcome-page .adhir-arora-image .adhir-pic img
+{
+    border-radius: 25px;
+}
+.Welcome-page .adhir-image-title
+{
+   
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 1px;
+    right: 106px;
+    background: rgba(0,0,0,.65);
+}
+.Welcome-page .adhir-image-title .common-para
+{
+    color: #ffffffe3;
+    margin: 0;
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+
 .home-banner .banner-last
 {
     font-size:55px;
     display:inline-block;
     margin-bottom:10px;
 }
-.home-banner .banner-btn-box{
+.home-banner .banner-btn-box
+{
     margin-top:30px;
 }
 .home-banner .count
@@ -77,12 +137,12 @@
 }
 .home-banner .count .common-timer-box
 {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 700;
 }
 .home-banner .count .counter-wrapper
 {
-    padding: 10px 30px;
+    padding: 6px 25px;
     text-align: center;
     line-height: 1;
 }
@@ -112,7 +172,7 @@
     padding: 30px;
     border-style: solid;
     border-width: 0px 0px 3px 0px;
-    border-radius: 25px;
+    border-radius: 20px;
     border-color: #eac600f7;
     background-color: #f8f8f8;
     width: 90%;
@@ -135,12 +195,11 @@
 }
 .home-about .home-about-event-card
 {
-    padding: 40px 50px 40px 50px;
+    padding: 30px 30px 30px 30px;
     border-radius: 25px 25px 25px 25px;
     display: flex;
     margin-top: 10px;
-   
-    top: 90px;
+    min-height: 210px;
     background-color: #fff;
     position: relative;
     box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 10%);
@@ -154,11 +213,10 @@
 .home-about .home-about-event-card .left span
 {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 10px 20px;
     border-radius: 25px;
     color: #fff;
-    font-size: 40px;
-   
+    font-size: 25px;
     margin-right: 20px;
 }
 
@@ -856,6 +914,25 @@ padding: 50px 40px;
 }
 @media only screen and (max-width : 1199px)
 {
+    .home-banner .right .banner-title .banner-small {
+        font-size: 29px;
+    }
+    .home-banner .right .theme-color {
+        font-size: 17px;
+    }
+    .home-about .home-about-event-card {
+        min-height: 226px;
+        padding: 15px;
+    }
+    .common-heading {
+        font-size: 29px;
+    }
+    .home-about .signature-box .upper-box {
+        padding: 10px;
+    }
+    .home-register-step ul li {
+        width: 460px;
+    }
      .grid-wrapper .tall {
         grid-row: span 1;
     }
@@ -873,6 +950,13 @@ padding: 50px 40px;
 
 
 @media only screen and (max-width : 1024px) {
+
+    .Welcome-page .adhir-image-title {
+        right: 59px;
+    }
+    .Welcome-page .welcome-text p {
+        line-height: 26px;
+    }
     .home-speakers .speaker-card .speaker-detail{
         padding:10px;
     }
@@ -891,16 +975,107 @@ padding: 50px 40px;
 }
 
 @media only screen and (max-width :991px) {
-    
+   
+    .home-banner .right .theme-color {
+        font-size: 13px;
+    }
+    .home-banner .right .banner-title .banner-small {
+        font-size: 21px;
+    }
+    .Welcome-page .adhir-image-title {
+        right: 0px;
+    }
+    .Welcome-page .welcome-text p {
+        line-height: 19px;
+    }
+    .home-about .home-about-event-card {
+        min-height: 160px;
+        padding: 10px;
+    }
+    .common-heading {
+        padding-top: 20px;
+    }
+    .home-about .signature-box .upper-box {
+        margin-left: 46px;
+        margin-bottom: 30px;
+    }
+    .home-register-step ul li {
+        width: 350px;
+        padding: 20px;
+    }
+    .contact-area .contact-move {
+        padding-left: 50px;
+    }
+    .contact-area .contact-move .contact-venue h3{
+        font-size: 21px;
+    }
+    .common-heading {
+        padding-top: 0;
+        font-size: 27px;
+    }
+    .header-wrapper .navbar .nav-display 
+    {
+        display: none;
+    }
+    .header-wrapper .navbar .nav-display-1
+    {
+        display: none;
+    }
 }
 
 @media only screen and (max-width : 767px) {
     
+    .home-banner .count
+    {
+        right: 165px;
+    }
+    .Welcome-page .adhir-image-title {
+        right: 90px;
+    }
+    .Welcome-page .welcome-text
+    {
+        padding-left: 48px;
+    }
+    .common-heading {
+        padding-top: 20px;
+    }
+    .home-about .signature-box .upper-box {
+        margin-left: 0px;
+    }
+    .home-register-step ul li {
+        width: 450px;
+    }
+    .sponsors-area img {
+        margin-left: 50px;
+    }
+    .sponsors-area .sponsor-border-1, .sponsor-border-2, .sponsor-border-3, .sponsor-border-4 {
+        border-top: 0;
+        border-right: 0;
+    }
+    .sponsors-area .sponsor-box-1, .sponsor-box-2, .sponsor-box-3, .sponsor-box-4 {
+        border-right: 0;
+    }
+    .sponsors-area .sponsor-border-5 {
+        border-top: 0;
+    }
+    .contact-area .contact-move {
+        padding-left: 10px;
+    }
 }
 @media only screen and (max-width : 575px) {
     .home-banner .right .banner-title .banner-small
     {
-        font-size:35px;
+        font-size:30px;
+    }
+    .Welcome-page .adhir-image-title {
+        right: 115px;
+    }
+    .Welcome-page .welcome-text {
+        padding-left: 70px;
+        padding-top: 20px;
+    }
+    .Welcome-page .welcome-text p {
+        line-height: 22px;
     }
     .home-banner .right .banner-title
     {
@@ -957,11 +1132,11 @@ padding: 50px 40px;
     {
         margin: 30px auto;
     }
-    .home-about .home-about-event-card
-    {
-        top: 20px;
-        width:90%;
-        margin: 10px auto;
+    .home-about .home-about-event-card {
+        top: 0;
+        width: 80%;
+        margin-left: 70px;
+        margin-bottom: 16px;
     }
     .home-about .home-about-event-card .left span
     {
@@ -1401,6 +1576,17 @@ padding: 50px 40px;
 
 @media only screen and (max-width : 480px) {
    
+    .home-banner .right .banner-title .banner-small {
+        font-size: 25px;
+    }
+    .Welcome-page .adhir-image-title {
+        right: 60px;
+        padding: 10px 10px;
+    }
+    .Welcome-page .welcome-text {
+        padding-left: 50px;
+        padding-top: 20px;
+    }
 
 
 }
@@ -1416,9 +1602,11 @@ padding: 50px 40px;
     .blog-area .blog-card .blog-card-pic img{
         object-fit: contain;
     }
-    .home-banner .right .banner-title .banner-small
-    {
-        font-size: 28px;
+    .home-banner .right .banner-title .banner-small {
+        font-size: 22px;
+    }
+    .Welcome-page .adhir-image-title {
+        right: 35px;
     }
     .home-banner .right .banner-title {
         font-size: 38px;
@@ -1567,8 +1755,14 @@ padding: 50px 40px;
 
 @media only screen and (max-width : 320px) {
 
-    .home-banner .right .banner-title .banner-small{
-        font-size: 26px;
+    .home-banner .right .banner-title .banner-small {
+        font-size: 16px;
+    }
+    .home-banner .right .theme-color {
+        font-size: 9px;
+    }
+    .Welcome-page .adhir-image-title {
+        right: 0;
     }
     .home-banner .right .banner-title {
         font-size: 35px;

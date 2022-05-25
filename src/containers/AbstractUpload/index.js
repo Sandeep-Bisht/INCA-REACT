@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 
@@ -8,17 +8,22 @@ let obj = {
   abstractPaperName:"",
   abstractPaperDescription:"",
   mimetype:"",
-  abstractFileUrl:""
-}
+  abstractFileUrl:"",
+  paperApproveStatus: null
 
+}
 
 const AbstractUpload = () => {
   const [abstractDocumentPayload, setAbstractDocumentPayload] = useState(obj);
   const [abstractDataSavedMessage, setAbstractDataSavemessage] = useState('')
   const [loading, setLoading] = useState(false)
   const state = useSelector((state) => state.AbstractUploadReducer); //state me response aata h
+
   let dispatch = useDispatch()
   const ref = useRef()
+
+  console.log(abstractDocumentPayload,"abstractDocumentPayload 111")
+
 
  
   useEffect(() => {
@@ -62,7 +67,10 @@ const AbstractUpload = () => {
       setLoading(true)
       if (localStorage.getItem("token")) {
         let decodedToken = jwt_decode(localStorage.getItem("token"));
-        abstractDocumentPayload.userId = decodedToken.user.user._id
+        abstractDocumentPayload.userId = decodedToken.user.user._id;
+        abstractDocumentPayload.userName = decodedToken.user.user.userName;
+        abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
+        console.log(abstractDocumentPayload,"abstractDocumentPayload abstractDocumentPayload")
         dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
       }
 
