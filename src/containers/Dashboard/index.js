@@ -100,7 +100,7 @@ const Dashboard = (props) => {
                     <li>
                         <button
                           onClick={() => logoutUser()}
-                          className="dropdown-item"                         
+                          className="dropdown-item"
                         >
                           Logout
                         </button>

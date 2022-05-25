@@ -10,7 +10,7 @@ import * as ACTIONS from './action'
 const UserAbstractList = () => {
 
   const [isLoading, setIsLoading] = useState(true);
-  const [ userAbstractList,setUserAbstractList] = useState([]);
+  const [userAbstractList, setUserAbstractList] = useState([]);
   const state = useSelector((state) => state.UserAbstractListReducer); 
 
   let dispatch = useDispatch();

@@ -24,7 +24,7 @@ h1,h2,h3,h4,h5,h6
 }
 .section-padding
 {
-    padding:60px 0;
+    padding-top:60px;
 }
 .common-blue-color
 {
@@ -167,7 +167,7 @@ z-index: 10;
 
 
 .h1 {
-    font-size: 22px;
+    font-size: 22px!important;
 }
 
 .h2 {
@@ -274,7 +274,7 @@ header .nav-link.active
     color:#fff;
     border-bottom:3px solid #fff;
     opacity:1;
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+}                                                                                                                                                                          
 .header-wrapper .navbar
 {
     /*background-color: #fff;*/
@@ -306,11 +306,20 @@ background-color:#fff;
 }
 .header-wrapper .navbar-brand
 {
-    width: 180px;
+    width: 60px;
+}
+.header-wrapper .nav-display .navbar-brand img
+{
+    width: 60px; 
+}
+.header-wrapper .nav-display-1 .navbar-brand img
+{
+    max-width: 130px;
+    padding-right: 20px;
 }
 .header-wrapper .nav-item
 {
-    padding: 0 20px;
+    padding: 0 8px;
 }
   /* -----common responsive css---- */
   @media only screen and (max-width : 1024px) {
@@ -318,6 +327,15 @@ background-color:#fff;
 }
 
 @media only screen and (max-width :991px) {
+    
+    .header-wrapper .navbar .nav-display 
+    {
+        display: none;
+    }
+    .header-wrapper .navbar .nav-display-1
+    {
+        display: none;
+    }
     
 }
 

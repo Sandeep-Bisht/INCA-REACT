@@ -1,0 +1,109 @@
+.theme-section {
+  padding: 60px 0;
+}
+.theme-section .cards {
+  background-color: #f8f8f8;
+  padding: 16px;
+  border-radius: 25px;
+  text-align: center;
+  min-height: 160px;
+  margin-bottom: 20px;
+}
+.theme-section .main-theme-box u, .theme-section .sub-theme-box u
+{
+  font-size: 22px;
+}
+.theme-section .paragraph-box .common-para
+{
+  font-size: 40px;
+  color: #0096ff;
+}
+.theme-section .sub-theme-box h2 {
+  margin: 0;
+  padding-top: 22px;
+}
+.theme-section .cards .box-1 p {
+  color: #696a87;
+  line-height: 23px;
+  font-weight: 400;
+  color: #696a87;
+  font-size: 15px;
+  margin-bottom: 0;
+  text-align: start;
+}
+
+
+
+
+/* media querry */
+
+@media only screen and (max-width : 1399px){
+
+}
+@media only screen and (max-width : 1199px)
+{
+
+  .theme-section .paragraph-box .common-para {
+    font-size: 35px;
+    color: #0096ff;
+}
+.theme-section .main-theme-box u{
+  font-size: 21px;
+}
+.theme-section .cards {
+  min-height: 191px;
+}
+}
+
+@media only screen and (max-width : 1024px) {
+
+  .theme-section .paragraph-box .common-para {
+    font-size: 26px;
+    color: #0096ff;
+}
+
+}
+
+@media only screen and (max-width :991px) {
+
+  .theme-section .main-theme-box u, .theme-section .sub-theme-box u {
+    font-size: 15px;
+  }
+  .theme-section .cards {
+    padding: 10px;
+  }
+
+}
+
+@media only screen and (max-width : 767px) {
+ 
+  .theme-section .paragraph-box .common-para {
+    font-size: 23px;
+    color: #0096ff;
+}
+.theme-section .cards {
+  min-height: 107px;
+  padding: 0;
+}
+}
+
+@media only screen and (max-width : 575px) {
+
+
+}
+
+
+@media only screen and (max-width : 480px) {
+  
+}
+
+@media only screen and (max-width : 430px)
+{
+  
+
+}
+
+@media only screen and (max-width : 320px) {
+
+  
+}

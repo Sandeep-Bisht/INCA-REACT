@@ -1,0 +1,101 @@
+.important-dates-section
+{
+    padding: 60px 0;
+}
+.important-dates-section .table
+{
+    border: 1px solid #dedede;
+    margin-bottom: 40px;
+}
+.important-dates-section .table .dates
+{
+    border: none;
+    padding: 10px 2px;
+    border-radius: 23px;
+    width: 60%;
+    text-align: center;
+    background: #cfb211f7;
+    margin: 10px;
+}
+.important-dates-section .table .imp-table-date
+{
+    padding: 20px;
+    vertical-align: middle;
+}
+.table>:not(caption)>*>*
+{
+    border-bottom-width:0!important;
+}
+.important-dates-section .table tr
+{
+    border-bottom: 1px solid #dedede;
+    padding: 20px!important;
+}
+.important-dates-section .table tr:last-child
+{
+    border-bottom: 0;
+}
+
+
+/* -------------------media query--------------------- */
+@media only screen and (max-width : 1399px){
+
+}
+@media only screen and (max-width : 1199px)
+{
+
+}
+
+@media only screen and (max-width : 1024px) {
+
+
+}
+
+@media only screen and (max-width :991px) {
+
+    .important-dates-section .table .dates {
+        padding: 10px 6px;
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width : 767px) {
+ 
+}
+
+@media only screen and (max-width : 575px) {
+
+
+}
+
+
+@media only screen and (max-width : 480px) {
+  
+}
+
+@media only screen and (max-width : 430px)
+{
+    .important-dates-section .table .imp-table-date {
+        padding: 7px;
+        vertical-align: middle;
+    }
+
+}
+
+@media only screen and (max-width : 320px) {
+
+    .important-dates-section .table .imp-table-date {
+        padding: 0;
+        vertical-align: middle;
+    }
+    .important-dates-section .table .imp-table-date {
+        padding: 4px;
+        vertical-align: middle;
+        font-size: 14px;
+    }
+    .important-dates-section .table .dates {
+        font-size: 14px;
+        width: 100%;
+    }
+}
