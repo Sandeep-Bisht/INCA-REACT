@@ -21,6 +21,8 @@ import client9 from "../../images/client-9.png";
 import client10 from "../../images/client-10.png";
 import comittee1 from "../../images/Raj1.jpg";
 import comittee2 from "../../images/CH-Adhir-Arora.png";
+import comittee3 from "../../images/bkramprasad.jpg";
+import comittee4 from "../../images/raprasad.jpg";
 import gikslogo from "../../images/Giks-logo.png";
 import nhologo from "../../images/NHO-logo.png";
 import carislogo from "../../images/Caris-logo.png";
@@ -257,7 +259,7 @@ const HomePage = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="welcome-text">
-                      <h3 className="h1">WELCOME TO 42<sup>nd</sup> INCA International Conference</h3>
+                      <h3 className="common-heading">WELCOME TO 42<sup>nd</sup> INCA International Conference</h3>
                       <h4 className="h2">Dear Participants,</h4>
                       <p className="common-para">It gives me immense pleasure to welcome all presenters and participants to the Indian National Cartographic Association (INCA) Thematic Conference 2022 on the theme "Digital Cartography To Harness Blue Economy" which will be organized by the Department of INCA (India) on November 09-11, 2022.
 
@@ -765,7 +767,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee1} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
@@ -782,7 +784,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee4} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
@@ -799,7 +801,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee3} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
