@@ -299,7 +299,7 @@
 
 @media only screen and (max-width : 320px) {
     .foot-wrapper .box-4 .box-wrap{
-        width: 80%;
+        width: 100%;
     }
     .foot-wrapper .box-6,.foot-wrapper .box-7
     {

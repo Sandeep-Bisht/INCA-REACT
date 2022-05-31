@@ -72,6 +72,9 @@
   .theme-section .cards {
     padding: 10px;
   }
+  .theme-section .cards {
+    min-height: 226px;
+}
 
 }
 
@@ -83,27 +86,38 @@
 }
 .theme-section .cards {
   min-height: 107px;
-  padding: 0;
+  padding: 11px;
 }
 }
 
 @media only screen and (max-width : 575px) {
+  .theme-section .cards {
+    padding: 12px;
+  }
 
 
 }
 
 
 @media only screen and (max-width : 480px) {
-  
+  .theme-section .paragraph-box .common-para {
+    font-size: 20px;
+    line-height: 22px;
+}
+
+
 }
 
 @media only screen and (max-width : 430px)
 {
-  
 
 }
 
 @media only screen and (max-width : 320px) {
+  .theme-section .paragraph-box .common-para {
+    font-size: 20px;
+    line-height: 23px;
+}
 
   
 }

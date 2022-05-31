@@ -131,7 +131,7 @@ const Contact = () => {
                     </div>
 
                     <div className="row">
-                      <div className="col-md-12">
+                      <div className="col-md-12 pb-3">
                         <button className="common-btn">SUBMIT MESSAGE</button>
                       </div>
                     </div>

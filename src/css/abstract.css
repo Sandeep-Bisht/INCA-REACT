@@ -1,0 +1,29 @@
+.common-redirect-banner {
+    background-image: url(../images/NHO-background.jpg);
+    background-size: cover;
+    position: relative;
+    padding: 125px 0;
+    display: flex;
+    align-items: center;
+}
+.common-redirect-banner::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    content: '';
+    background: rgba(0, 0, 0, .70);
+}
+.common-redirect-banner .common-redirect-banner-title
+{
+    color: #fff;
+    position: relative;
+    font-size: 50px;
+    font-weight: 600;
+}
+.abstract-page ol .common-para
+{
+    line-height: 30px;
+}

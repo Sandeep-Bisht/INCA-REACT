@@ -70,10 +70,6 @@
 {
     line-height: 30px;
 }
-.Welcome-page .welcome-text h3
-{
-    font-weight: 700;
-}
 .Welcome-page .welcome-text h4
 {
     font-weight: 600;
@@ -371,7 +367,7 @@
 .home-schedule
 {
     background:#f8f8f8;
-    padding-top: 100px!important;
+    /* padding-top: 100px!important; */
 }
 .home-schedule .schedule-circles
 {
@@ -914,6 +910,9 @@ padding: 50px 40px;
 }
 @media only screen and (max-width : 1199px)
 {
+    .Welcome-page .adhir-image-title {
+        right: 61px;
+    }
     .home-banner .right .banner-title .banner-small {
         font-size: 29px;
     }
@@ -923,9 +922,6 @@ padding: 50px 40px;
     .home-about .home-about-event-card {
         min-height: 226px;
         padding: 15px;
-    }
-    .common-heading {
-        font-size: 29px;
     }
     .home-about .signature-box .upper-box {
         padding: 10px;
@@ -951,11 +947,11 @@ padding: 50px 40px;
 
 @media only screen and (max-width : 1024px) {
 
-    .Welcome-page .adhir-image-title {
-        right: 59px;
-    }
     .Welcome-page .welcome-text p {
         line-height: 26px;
+    }
+    .Welcome-page .adhir-image-title {
+        right: 60px;
     }
     .home-speakers .speaker-card .speaker-detail{
         padding:10px;
@@ -982,9 +978,6 @@ padding: 50px 40px;
     .home-banner .right .banner-title .banner-small {
         font-size: 21px;
     }
-    .Welcome-page .adhir-image-title {
-        right: 0px;
-    }
     .Welcome-page .welcome-text p {
         line-height: 19px;
     }
@@ -992,8 +985,8 @@ padding: 50px 40px;
         min-height: 160px;
         padding: 10px;
     }
-    .common-heading {
-        padding-top: 20px;
+    .Welcome-page .adhir-image-title {
+        right: 0;
     }
     .home-about .signature-box .upper-box {
         margin-left: 46px;
@@ -1008,10 +1001,6 @@ padding: 50px 40px;
     }
     .contact-area .contact-move .contact-venue h3{
         font-size: 21px;
-    }
-    .common-heading {
-        padding-top: 0;
-        font-size: 27px;
     }
     .header-wrapper .navbar .nav-display 
     {
@@ -1029,15 +1018,9 @@ padding: 50px 40px;
     {
         right: 165px;
     }
-    .Welcome-page .adhir-image-title {
-        right: 90px;
-    }
     .Welcome-page .welcome-text
     {
-        padding-left: 48px;
-    }
-    .common-heading {
-        padding-top: 20px;
+        padding: 20px 40px;
     }
     .home-about .signature-box .upper-box {
         margin-left: 0px;
@@ -1063,12 +1046,32 @@ padding: 50px 40px;
     }
 }
 @media only screen and (max-width : 575px) {
+
+    .home-banner {
+        padding: 110px 0;
+    }
+
     .home-banner .right .banner-title .banner-small
     {
-        font-size:30px;
+        font-size:24px;
+        margin-bottom: 0;
     }
-    .Welcome-page .adhir-image-title {
-        right: 115px;
+    .home-banner .right .theme-color {
+        font-size: 14px;
+    }
+    .Welcome-page .adhir-arora-image {
+        position: relative;
+        width: 60%;
+        margin: 20px auto;
+    }
+    .Welcome-page .adhir-image-title{
+        width: 100%;
+    }
+    .Welcome-page .adhir-arora-image .adhir-pic img {
+        border-radius: 25px;
+        height: 350px;
+        object-fit: cover;
+        width: 100%;
     }
     .Welcome-page .welcome-text {
         padding-left: 70px;
@@ -1080,7 +1083,7 @@ padding: 50px 40px;
     .home-banner .right .banner-title
     {
         font-size: 55px;
-        line-height:55px;
+        line-height:20px;
     }
     .home-banner .banner-last
     {
@@ -1135,8 +1138,7 @@ padding: 50px 40px;
     .home-about .home-about-event-card {
         top: 0;
         width: 80%;
-        margin-left: 70px;
-        margin-bottom: 16px;
+        margin: 10px auto;
     }
     .home-about .home-about-event-card .left span
     {
@@ -1275,7 +1277,7 @@ padding: 50px 40px;
     }
     .sponsors-area img {
         height: 70px;
-        width: 180px;
+        width: 170px;
         
     }
     .blog-area .blog-card
@@ -1330,11 +1332,35 @@ padding: 50px 40px;
     }
 
 }
+@media only screen and (max-width : 480px) {
+           
+    .home-banner .right .banner-title .banner-small {
+        font-size: 25px;
+    }
+    .Welcome-page .adhir-image-title {
+        padding: 10px 10px;
+    }
+    .Welcome-page .welcome-text {
+        padding-left: 50px;
+        padding-top: 20px;
+    }
+    .Welcome-page .adhir-arora-image {
+        position: relative;
+        width: 75%;
+        margin: 20px auto;
+    }
+
+
+}
 @media only screen and (max-width : 430px)
 {
       .home-banner .right .banner-title .banner-small
     {
         font-size:35px;
+    }
+    .Welcome-page .welcome-text h4.h2
+    {
+        font-size: 18px !important;
     }
     .home-banner .right .banner-title
     {
@@ -1392,11 +1418,11 @@ padding: 50px 40px;
     {
         margin: 30px auto;
     }
-    .home-about .home-about-event-card
-    {
-        top: 20px;
-        width:90%;
+    .home-about .home-about-event-card {
+        top: 0;
+        width: 88%;
         margin: 10px auto;
+        padding: 20px 30px;
     }
     .home-about .home-about-event-card .left span
     {
@@ -1534,9 +1560,8 @@ padding: 50px 40px;
         border-top:none;
     }
     .sponsors-area img {
-        height: 70px;
-        width: 180px;
-        
+        height: 40px;
+        width: 132px;  
     }
     .blog-area .blog-card
     {
@@ -1569,27 +1594,12 @@ padding: 50px 40px;
     {
         font-size: 20px;
         margin-bottom:0;
+        
     }
 
 }
 
 
-@media only screen and (max-width : 480px) {
-   
-    .home-banner .right .banner-title .banner-small {
-        font-size: 25px;
-    }
-    .Welcome-page .adhir-image-title {
-        right: 60px;
-        padding: 10px 10px;
-    }
-    .Welcome-page .welcome-text {
-        padding-left: 50px;
-        padding-top: 20px;
-    }
-
-
-}
 @media only screen and (max-width : 430px)
 { 
     .common-btn, .common-btn-transparent {
@@ -1603,14 +1613,14 @@ padding: 50px 40px;
         object-fit: contain;
     }
     .home-banner .right .banner-title .banner-small {
-        font-size: 22px;
-    }
-    .Welcome-page .adhir-image-title {
-        right: 35px;
+        font-size: 20px;
     }
     .home-banner .right .banner-title {
         font-size: 38px;
-        line-height: 42px;
+        line-height: 18px;
+    }
+    .home-banner {
+        padding: 82px 0;
     }
     .home-banner .banner-last {
         font-size: 34px;
@@ -1634,10 +1644,6 @@ padding: 50px 40px;
     {
         font-size:18px!important;
         margin-bottom:5px;
-    }
-    .home-about .home-about-event-card
-    {
-        padding: 30px;
     }
     .home-about .home-about-event-card .common-para{
         margin-bottom: 0;
@@ -1694,10 +1700,6 @@ padding: 50px 40px;
     {
         height:60px;
         width:60px;
-    }
-    .sponsors-area img
-    {
-        height:40px;
     }
     .sponsors-area .common-sponsor-padding{
         padding: 10px;
@@ -1756,17 +1758,46 @@ padding: 50px 40px;
 @media only screen and (max-width : 320px) {
 
     .home-banner .right .banner-title .banner-small {
-        font-size: 16px;
+        font-size: 17px;
     }
     .home-banner .right .theme-color {
-        font-size: 9px;
+        font-size: 12px;
+    }
+    .home-banner {
+        padding: 50px 0;
+    }
+    .home-about .home-about-event-card {
+        padding: 15px;
+    }
+    .home-register-step ul li p {
+        margin: 10px 0;
+        line-height: 22px;
+        font-size: 15px;
+    }
+    .sponsors-area img {
+        height: 34px;
+        width: 94px
+    }
+    .contact-area .contact-move .icon-text-movement {
+        display: flex;
+        align-items: start;
+        margin: 25px 0;
+    }
+    .home-register-step ul li {
+        height: auto;
+        margin: 5px;
     }
     .Welcome-page .adhir-image-title {
         right: 0;
     }
+    .Welcome-page .adhir-arora-image {
+        position: relative;
+        width: 90%;
+        margin: 20px auto;
+    }
     .home-banner .right .banner-title {
         font-size: 35px;
-        line-height: 35px;
+        line-height: 15px;
     }
     .home-banner .banner-last{
         font-size: 30px;
