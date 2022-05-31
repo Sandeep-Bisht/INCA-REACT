@@ -18,7 +18,7 @@ const PreviewPaper = () => {
   // Create new plugin instance
 
   // for submit event
-  const [viewPdf, setViewPdf] = useState("");
+  const [viewPdf, setViewPdf] = useState("1653493014230--Sandeep Bisht Offer Letter.pdf");
   const [approveDocs, setApproveDocs] = useState({
     paperApproveStatus : null,
     userId : "",
@@ -29,23 +29,23 @@ const PreviewPaper = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(location && location.state){      
+    if(location && location.state){ 
+      console.log(location.state,"location state")
       setViewPdf(location.state.abstractFileUrl)
       approveDocs.userId = location.state.userId;
       approveDocs.docsId = location.state._id;      
       setApproveDocs(approveDocs);
     }
   }, [location])  
-  console.log(approveDocs,"approveDocs approveDocs")
   
 
   const approvefilesubmissionHandler = (status) => {   
     approveDocs.paperApproveStatus = status;  
-    console.log(approveDocs,"approveDocs after biutto\n click")
     dispatch(ACTIONS.approveFileSubmission(approveDocs));
     
   }
-  console.log(approveDocs,"approveDocs approveDocs")
+
+  console.log(viewPdf, 'fileurl inside view')
 
   return (
     <>

@@ -75,11 +75,9 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/forgot" element={<ForgotPassword />} />  
           <Route path="/eventattendance/:id" element={<EventAttendance />} />                
           <Route path="/dashboard" element={<Dashboard />} >
-          <Route path="/dashboard/create" element={<CreateForm />} />         
-
-            <Route
-              path="/dashboard/allRegistration" element={<AllRegistration />}
-            />
+            
+          <Route path="/dashboard/create" element={<CreateForm />} />        
+          <Route path="/dashboard/allRegistration" element={<AllRegistration />} />
             {/* {loggedInUser.role == "admin" && ( */}
               <Route path="/dashboard/users" element={<RegisteredUser />} />
               <Route path="/dashboard/attendancestatus" element={<AttendanceStatus />} />
