@@ -1,10 +1,13 @@
 import React from "react";
 import { Header } from "../../components/Header";
+import { useNavigate } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import "../../css/theme.css";
 import "../../css/contact.css";
 
+
 function Theme() {
+  let navgate = useNavigate()
   return (
     <>
       <Header/>
@@ -166,7 +169,12 @@ function Theme() {
           <div className="row">
                   <div className="col-md-12">
                     <div className="register-btn d-flex justify-content-center pt-3">
-                      <button className="common-btn">Register</button>
+                    <button
+                    className=" common-btn"
+                    onClick={() => navgate("/register")}
+                  >
+                    Register
+                  </button>
                     </div>
                   </div>
                 </div>

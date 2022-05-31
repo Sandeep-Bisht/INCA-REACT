@@ -14,7 +14,7 @@
     border-radius: 23px;
     width: 60%;
     text-align: center;
-    background: #cfb211f7;
+    background: #eac600f7;
     margin: 10px;
 }
 .important-dates-section .table .imp-table-date
@@ -34,6 +34,11 @@
 .important-dates-section .table tr:last-child
 {
     border-bottom: 0;
+}
+.important-dates-section .note-imp-date .common-para
+{
+    color: #212121;
+    font-weight: 600;
 }
 
 
@@ -65,13 +70,17 @@
 }
 
 @media only screen and (max-width : 575px) {
-
+    .important-dates-section .table .dates {
+        font-size: 14px;
+      }
 
 }
 
 
 @media only screen and (max-width : 480px) {
-  
+    .important-dates-section .table .dates {
+        font-size: 13px;
+      }
 }
 
 @media only screen and (max-width : 430px)
@@ -95,7 +104,7 @@
         font-size: 14px;
     }
     .important-dates-section .table .dates {
-        font-size: 14px;
+        font-size: 10px;
         width: 100%;
     }
 }

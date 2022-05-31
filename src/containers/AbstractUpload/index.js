@@ -30,7 +30,7 @@ const AbstractUpload = () => {
     if(state.abstractFileUploadSuccess && state.abstractFileUploadSuccess.data){
       let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
       abstractDocumentPayloadCopy.mimetype = state.abstractFileUploadSuccess.data.mimetype;
-      abstractDocumentPayloadCopy.abstractFileUrl = state.abstractFileUploadSuccess.data.path;
+      abstractDocumentPayloadCopy.abstractFileUrl = state.abstractFileUploadSuccess.data.filename;
       setAbstractDocumentPayload(abstractDocumentPayloadCopy)
     }
   }, [state.abstractFileUploadSuccess])

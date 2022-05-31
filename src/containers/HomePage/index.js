@@ -7,7 +7,10 @@ import { Header } from "../../components/Header";
 import "../../css/home.css";
 import reg2 from "../../images/reg2.png";
 import reg4 from "../../images/reg4.png";
+import comittee1 from "../../images/Raj1.jpg";
 import comittee2 from "../../images/CH-Adhir-Arora.png";
+import comittee3 from "../../images/bkramprasad.jpg";
+import comittee4 from "../../images/raprasad.jpg";
 import gikslogo from "../../images/Giks-logo.png";
 import nhologo from "../../images/NHO-logo.png";
 import gislogo from "../../images/gis-logo.png";
@@ -139,18 +142,13 @@ const HomePage = () => {
                   >
                     Register
                   </button>
-                  <a
+                  <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
-                    href="#home-schedule-desk"
+                    onClick={() => navigation("/abstractpage")}
                   >
                     Abstract Submission
-                  </a>
-                  <a
-                    className="common-btn-transparent ms-3 home-schedule-mob"
-                    href="#home-schedule-mob"
-                  >
-                    Abstract Submission
-                  </a>
+                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -740,7 +738,7 @@ const HomePage = () => {
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee1} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
@@ -755,7 +753,7 @@ const HomePage = () => {
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee4} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
@@ -770,7 +768,7 @@ const HomePage = () => {
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee3} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">

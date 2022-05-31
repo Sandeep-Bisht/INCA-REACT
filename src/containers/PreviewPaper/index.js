@@ -9,16 +9,17 @@ import { Button, Viewer } from "@react-pdf-viewer/core"; // install this library
 
 // Import the styles
 import "@react-pdf-viewer/core/lib/styles/index.css";
-import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+//import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 // Worker
 import { Worker } from "@react-pdf-viewer/core"; // install this library
-import pdfPath from "../../PDF/sample.pdf";
+//import pdfPath from "../../PDF/sample.pdf";
+//import pdfPath from '../../files/1653493014230--Sandeep Bisht Offer Letter.pdf'
 
 const PreviewPaper = () => {
   // Create new plugin instance
 
   // for submit event
-  const [viewPdf, setViewPdf] = useState("1653493014230--Sandeep Bisht Offer Letter.pdf");
+  const [viewPdf, setViewPdf] = useState('');
   const [approveDocs, setApproveDocs] = useState({
     paperApproveStatus : null,
     userId : "",
@@ -30,8 +31,8 @@ const PreviewPaper = () => {
 
   useEffect(() => {
     if(location && location.state){ 
-      console.log(location.state,"location state")
-      setViewPdf(location.state.abstractFileUrl)
+      let filePath = `http://localhost:4801/files/${location.state.abstractFileUrl}`
+       setViewPdf(filePath)
       approveDocs.userId = location.state.userId;
       approveDocs.docsId = location.state._id;      
       setApproveDocs(approveDocs);
@@ -53,7 +54,7 @@ const PreviewPaper = () => {
       {viewPdf && (
         <>
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
-            <Viewer fileUrl={viewPdf} />
+            <Viewer fileUrl={viewPdf}/>
           </Worker>
         </>
       )}

@@ -3,9 +3,9 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import * as Loader from "react-loader-spinner";
 import { useLocation } from "react-router-dom";
-import PreviewPaper from "../containers/PreviewPaper";
 
-
+const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
+const AbstractPage = lazy(() => import("../containers/AbstractPage"))
 const HomePage = lazy(() => import("../containers/HomePage"));
 const UserRegistration = lazy(() => import("../containers/UserRegistration"));
 const Login = lazy(() => import("../containers/Login"));
@@ -90,6 +90,7 @@ export const ApplicationRoutes = ({ path }) => {
             {/* )} */}
           </Route>
           <Route path="/contact" element={<Contact />} />
+          <Route path="/abstractpage" element={<AbstractPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/sponsorForm" element={<SponsorForm />} />
           
