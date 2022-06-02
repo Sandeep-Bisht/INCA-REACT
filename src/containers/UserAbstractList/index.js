@@ -48,7 +48,7 @@ const UserAbstractList = () => {
   const statusBodyTemplate = (node) => {
     return (
       <>
-        <p>{node.paperApproveStatus ? "Approved" : node.paperApproveStatus == null ? "Pending" : "Reject"}</p>
+        {node.paperApproveStatus ? "Approved" : node.paperApproveStatus == null ? "Pending" : "Reject"}
       </>
     );
   };

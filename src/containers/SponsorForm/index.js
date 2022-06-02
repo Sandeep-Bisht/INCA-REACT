@@ -71,7 +71,7 @@ const SponsorForm = () => {
     });
   };
 
-  const regExp = RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/);
+  const regExp = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
   const nameRegExp = RegExp(/^[A-Za-z ]+$/);
   const phoneRegExp = RegExp(
     /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
@@ -168,7 +168,7 @@ const SponsorForm = () => {
       sponsorFormCopy.amount =
         "₹7.5 lakhs (with free registration of 7 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
-    } else if (e.target.value == "Platinium Sponsor") {
+    } else if (e.target.value == "Platinum Sponsor") {
       sponsorFormCopy.amount =
         "₹5.0 lakhs (with free registration of 5 delegates & Logo display)";
       sponsorFormCopy[e.target.name] = e.target.value;
@@ -351,8 +351,8 @@ const SponsorForm = () => {
                         <option value="Strategic Sponsor">
                           Strategic Sponsor
                         </option>
-                        <option value="Platinium Sponsor">
-                          Platinium Sponsor
+                        <option value="Platinum Sponsor">
+                          Platinum Sponsor
                         </option>
                         <option value="Gold Sponsor">Gold Sponsor</option>
                         <option value="Silver Sponsor">Silver Sponsor</option>

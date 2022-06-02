@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Footer } from "../../components/Footer";
@@ -2573,64 +2573,13 @@ const HomePage = () => {
                     <span> No Comments</span>
                   </div>
                   <div>
-                    <a className="common-yellow-color" href="#">
+                    <Link className="common-yellow-color" to="/eventblog">
                       READ MORE
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="col-lg-4">
-              <div className="blog-card">
-                <div className="blog-card-pic">
-                  <img src="" alt="Second-Circular"></img>
-                </div>
-                <div className="blog-card-content">
-                  <h3>
-                    42<sup>nd</sup> INCA International Conference-Second
-                    Circular
-                  </h3>
-                  <div className="blog-box">
-                    <span>Demoteam</span>{" "}
-                    <span className="blog-border px-1 mx-1">
-                      November 10, 2022
-                    </span>{" "}
-                    <span>No Comments</span>
-                  </div>
-                  <div>
-                    <a className="common-yellow-color" href="#">
-                      READ MORE
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4">
-              <div className="blog-card">
-                <div className="blog-card-pic">
-                  <img src="" alt="Final-Circular"></img>
-                </div>
-                <div className="blog-card-content">
-                  <h3>
-                    42<sup>nd</sup> INCA International Conference-Final Circular
-                  </h3>
-                  <div className="blog-box">
-                    <span>Demoteam</span>{" "}
-                    <span className="blog-border px-1 mx-1">
-                      November 11, 2022
-                    </span>{" "}
-                    <span>No Comments</span>
-                  </div>
-                  <div>
-                    <a className="common-yellow-color" href="#">
-                      READ MORE
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div>            
           </div>
         </div>
       </section>

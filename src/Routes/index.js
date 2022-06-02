@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import * as Loader from "react-loader-spinner";
 import { useLocation } from "react-router-dom";
+import EventBlog from "../containers/EventBlog";
 
 const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
 const AbstractPage = lazy(() => import("../containers/AbstractPage"))
@@ -91,6 +92,7 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/abstractpage" element={<AbstractPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/sponsorForm" element={<SponsorForm />} />
+          <Route path="/eventblog" element={<EventBlog />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>
