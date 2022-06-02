@@ -23,6 +23,9 @@ import comittee1 from "../../images/Raj1.jpg";
 import comittee2 from "../../images/CH-Adhir-Arora.png";
 import comittee3 from "../../images/bkramprasad.jpg";
 import comittee4 from "../../images/raprasad.jpg";
+import comittee5 from "../../images/capt-kuldeep-singh.jpg";
+import comittee6 from "../../images/cmde-puesh-pawsey.jpg";
+import comittee7 from "../../images/ls-pathania.jpg";
 import gikslogo from "../../images/Giks-logo.png";
 import nhologo from "../../images/NHO-logo.png";
 import carislogo from "../../images/Caris-logo.png";
@@ -44,6 +47,7 @@ import esrilogo from "../../images/esri-logo.png";
 import iiclogo from "../../images/iic-logo.png";
 import isrologo from "../../images/isro-logo.png";
 import natmologo from "../../images/natmo-logo.png";
+import Event from "../../images/event-announcement.jpg";
 import incalogo from "../../images/logo.png";
 import inca1 from "../../images/inca-image-1.JPG";
 import inca2 from "../../images/inca-image-2.JPG";
@@ -58,10 +62,10 @@ import inca9 from "../../images/inca-image-9.jpg";
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
 
-  const [countdownDays, setCountdownDays] = useState('00')
-  const [countdownHours, setCountdownHours] = useState('00')
-  const [countdownMinutes, setCountdownMinutes] = useState('00')
-  const [countdownSec, setCountdownSec] = useState('00')
+  const [countdownDays, setCountdownDays] = useState("00");
+  const [countdownHours, setCountdownHours] = useState("00");
+  const [countdownMinutes, setCountdownMinutes] = useState("00");
+  const [countdownSec, setCountdownSec] = useState("00");
 
   let interval = useRef();
 
@@ -69,38 +73,38 @@ const HomePage = () => {
     setShowEvents(val);
   };
 
-  const startTimer = () =>{
-    const countdownDate = new Date('nov 9, 2022 00:00:00').getTime();
+  const startTimer = () => {
+    const countdownDate = new Date("nov 9, 2022 00:00:00").getTime();
 
-      interval = setInterval(() =>{
+    interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = countdownDate - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24)) ;
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) ;
-      const minutes = Math.floor((distance % (1000 * 60 * 60 )) / (1000 * 60 )) ;
-      const seconds = Math.floor((distance % (1000 * 60  )) / ( 1000 )) ;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       if (distance < 0) {
         // Stop the timer
         clearInterval(interval.current);
-
-      }else{
+      } else {
         //Continue Timer
         setCountdownDays(days);
         setCountdownHours(hours);
         setCountdownMinutes(minutes);
         setCountdownSec(seconds);
       }
-
-    },1000);
-  }
+    }, 1000);
+  };
 
   useEffect(() => {
     startTimer();
-    return () =>{
+    return () => {
       clearInterval(interval.current);
-    }
-  })
+    };
+  });
 
   // useEffect(() => {
   //   var dest = new Date("nov 1, 2022 00:00:00").getTime();
@@ -167,7 +171,7 @@ const HomePage = () => {
                   </span>
 
                   <span className="theme-color">
-                  Theme : "Digital Cartography To Harness Blue Economy"
+                    Theme : "Digital Cartography To Harness Blue Economy"
                   </span>
 
                   {/* <span className="banner-last">Event-2022</span> */}
@@ -205,7 +209,7 @@ const HomePage = () => {
               <div className="count">
                 <div className="counter-wrapper">
                   <p id="day" className="common-timer-box common-yellow-color">
-                   {countdownDays}
+                    {countdownDays}
                   </p>
                   <p className="timer-detail">Days</p>
                 </div>
@@ -214,7 +218,7 @@ const HomePage = () => {
                     id="hours"
                     className="common-timer-box common-yellow-color"
                   >
-                   {countdownHours}
+                    {countdownHours}
                   </p>
                   <p className="timer-detail">Hours</p>
                 </div>
@@ -244,34 +248,51 @@ const HomePage = () => {
 
       <div className="Welcome-page">
         <div className="container">
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="adhir-arora-image">
-                      <div className="adhir-pic">
-                      <img src={comittee2} alt="" className="img-fluid"/>
-                      </div>
-                      <div className="adhir-image-title">
-                        <p className="common-para">Vice Admiral Adhir Arora </p>
-                        <p className="common-para">NM , GOI</p>
-                        <p className="common-para">CHIEF HYDROGRAPHER & PRESIDENT INCA</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="welcome-text">
-                      <h3 className="common-heading">WELCOME TO 42<sup>nd</sup> INCA International Conference</h3>
-                      <h4 className="h2">Dear Participants,</h4>
-                      <p className="common-para">It gives me immense pleasure to welcome all presenters and participants to the Indian National Cartographic Association (INCA) Thematic Conference 2022 on the theme "Digital Cartography To Harness Blue Economy" which will be organized by the Department of INCA (India) on November 09-11, 2022.
-
-Now, I cordially invite all the eminent speakers and distinguished guests from around the world and various parts of the country to join us and share their extensive knowledge and expertise.
-<br/>
-In this conference renowned national and international scholars, scientists, academicians, planners will take part among others to share their expertise and experiences which will enrich our knowledge. It shall be profoundly advantageous for all the participants including the students.
-<br/>
-Let us all come together to achieve the goals and success of this mega-event.</p>
-                  </div>
+          <div className="row">
+            <div className="col-md-6">
+              <div className="adhir-arora-image">
+                <div className="adhir-pic">
+                  <img src={comittee2} alt="" className="img-fluid" />
                 </div>
+                <div className="adhir-image-title">
+                  <p className="common-para">Vice Admiral Adhir Arora </p>
+                  <p className="common-para">NM , GOI</p>
+                  <p className="common-para">
+                    CHIEF HYDROGRAPHER & PRESIDENT INCA
+                  </p>
                 </div>
-      </div>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="welcome-text">
+                <h3 className="common-heading">
+                  WELCOME TO 42<sup>nd</sup> INCA International Conference
+                </h3>
+                <h4 className="h2">Dear Participants,</h4>
+                <p className="common-para">
+                  It gives me immense pleasure to welcome all presenters and
+                  participants to the Indian National Cartographic Association
+                  (INCA) Thematic Conference 2022 on the theme "Digital
+                  Cartography To Harness Blue Economy" which will be organized
+                  by the Department of INCA (India) on November 09-11, 2022.
+                  Now, I cordially invite all the eminent speakers and
+                  distinguished guests from around the world and various parts
+                  of the country to join us and share their extensive knowledge
+                  and expertise.
+                  <br />
+                  In this conference renowned national and international
+                  scholars, scientists, academicians, planners will take part
+                  among others to share their expertise and experiences which
+                  will enrich our knowledge. It shall be profoundly advantageous
+                  for all the participants including the students.
+                  <br />
+                  Let us all come together to achieve the goals and success of
+                  this mega-event.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <section className="section-padding home-about pb-lg-0 without-carousel">
@@ -287,7 +308,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                 <div className="right">
                   <h2 className="h2">Where is the Event:</h2>
                   <p className="common-para">
-                 <b> National Hydrographic Office </b> <br/>
+                    <b> National Hydrographic Office </b> <br />
                     107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun,
                     Uttarakhand 248001
                   </p>
@@ -304,7 +325,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                  09 November 2022 to <br/> 11 November 2022.
+                    09 November 2022 to <br /> 11 November 2022.
                   </p>
                 </div>
               </div>
@@ -319,7 +340,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                 <div className="right">
                   <h2 className="h2">Schedule of the Event</h2>
                   <p className="common-para">
-                  Schedule will be published once finalised
+                    Schedule will be published once finalised
                   </p>
                 </div>
               </div>
@@ -341,7 +362,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                 <div className="right">
                   <h2 className="h2">Where is the Event:</h2>
                   <p className="common-para">
-                 <b> National Hydrographic Office </b> <br/>
+                    <b> National Hydrographic Office </b> <br />
                     107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun,
                     Uttarakhand 248001
                   </p>
@@ -358,7 +379,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                  09 November 2022 to <br/> 11 November 2022.
+                    09 November 2022 to <br /> 11 November 2022.
                   </p>
                 </div>
               </div>
@@ -373,7 +394,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                 <div className="right">
                   <h2 className="h2">Schedule of the Event</h2>
                   <p className="common-para">
-                  Schedule will be published once finalised
+                    Schedule will be published once finalised
                   </p>
                 </div>
               </div>
@@ -672,12 +693,15 @@ Let us all come together to achieve the goals and success of this mega-event.</p
         </div>
       </section> */}
       {/* ----without carousel---- */}
-      <section className="section-padding home-speakers with-carousel" id="home-speaker">
+      <section
+        className="section-padding home-speakers with-carousel"
+        id="home-speaker"
+      >
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
               {/* <p className="common-pre-heading">Organising committee</p> */}
-              <h2 className="common-heading ">OUR ORGANISING COMMITTEE</h2>
+              <h2 className="common-heading ">Our Organising Committee</h2>
               {/* <p className="common-para ">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -706,7 +730,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Vice Admiral <br/> Adhir Arora , NM 
+                        Vice Admiral <br /> Adhir Arora , NM
                       </h3>
                       <span className="speaker-post">
                         Chief Hydrographer to the Govt. of India
@@ -718,30 +742,15 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee7} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                     Rear Admiral <br/> Lochan Singh Pathania
-                      </h3>
-                      <span className="speaker-post">Joint Chief Hydrographer</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="member-profile">
-                <div className="speaker-card">
-                  <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
-                  </div>
-                  <div className="speaker-detail">
-                    <div className="upper">
-                      <h3 className="speaker-title">
-                        CMDE Peush Pawsey <br/> CB & Press 
+                        Rear Admiral <br /> Lochan Singh Pathania
                       </h3>
                       <span className="speaker-post">
-                        Chairman
+                        Joint Chief Hydrographer
                       </span>
                     </div>
                   </div>
@@ -750,16 +759,29 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee6} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Captain Kuldeep Singh <br/> Capt (H) - HP
+                        CMDE Peush Pawsey <br /> CB & Press
                       </h3>
-                      <span className="speaker-post">
-                        Organising Secretary
-                      </span>
+                      <span className="speaker-post">Chairman</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="member-profile">
+                <div className="speaker-card">
+                  <div className="speaker-pic">
+                    <img src={comittee5} className="img-fluid" alt="" />
+                  </div>
+                  <div className="speaker-detail">
+                    <div className="upper">
+                      <h3 className="speaker-title">
+                        Captain Kuldeep Singh <br /> Capt (H) - HP
+                      </h3>
+                      <span className="speaker-post">Organising Secretary</span>
                     </div>
                   </div>
                 </div>
@@ -772,11 +794,9 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Rajesh Kumar Khatri <br/> CCHO
+                        Rajesh Kumar Khatri <br /> CCHO
                       </h3>
-                      <span className="speaker-post">
-                        LOC Member
-                      </span>
+                      <span className="speaker-post">LOC Member</span>
                     </div>
                   </div>
                 </div>
@@ -789,11 +809,9 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. R A Prasad <br/> DYCCHO
+                        Dr. R A Prasad <br /> DYCCHO
                       </h3>
-                      <span className="speaker-post">
-                        LOC Member
-                      </span>
+                      <span className="speaker-post">LOC Member</span>
                     </div>
                   </div>
                 </div>
@@ -806,16 +824,13 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. B K Ram Prasad <br/> ACCHO
+                        Dr. B K Ram Prasad <br /> ACCHO
                       </h3>
-                      <span className="speaker-post">
-                        LOC Member
-                      </span>
+                      <span className="speaker-post">LOC Member</span>
                     </div>
                   </div>
                 </div>
               </div>
-              
             </Carousel>
           </div>
           <div className="row mt-md-2 mt-lg-5">
@@ -921,8 +936,8 @@ Let us all come together to achieve the goals and success of this mega-event.</p
         className="section-padding home-schedule without-carousel"
         id="home-schedule-desk"
       > */}
-        {/* <div className="container"> */}
-          {/* <div className="row align-items-center">
+      {/* <div className="container"> */}
+      {/* <div className="row align-items-center">
             <div className="col-lg-6">
               <p className="common-pre-heading">SCHEDULE DETAILS</p>
               <h2 className="common-heading ">
@@ -975,10 +990,10 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               </div>
             </div>
           </div> */}
-          <div className="row mt-lg-5 ">
-            {showEvents == "9nov" && (
-              <>
-                {/* <div className="col-md-12">
+      <div className="row mt-lg-5 ">
+        {showEvents == "9nov" && (
+          <>
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1017,7 +1032,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="col-md-12">
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1056,7 +1071,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="col-md-12">
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1095,7 +1110,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="col-md-12">
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1135,12 +1150,12 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-              </>
-            )}
-            {/* ----copy----- */}
-            {showEvents == "10nov" && (
-              <>
-                {/* <div className="col-md-12">
+          </>
+        )}
+        {/* ----copy----- */}
+        {showEvents == "10nov" && (
+          <>
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1179,7 +1194,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="col-md-12">
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1218,7 +1233,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="col-md-12">
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1257,7 +1272,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="col-md-12">
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1297,13 +1312,13 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-              </>
-            )}
-            {/* -----paste----
+          </>
+        )}
+        {/* -----paste----
             ----copy----- */}
-            {showEvents == "11nov" && (
-              <>
-                {/* <div className="col-md-12">
+        {showEvents == "11nov" && (
+          <>
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1342,7 +1357,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="col-md-12">
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1381,7 +1396,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="col-md-12">
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1420,7 +1435,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="col-md-12">
+            {/* <div className="col-md-12">
                   <div className="schedule-long-card">
                     <div className="row ">
                       <div className="col-lg-4">
@@ -1460,11 +1475,11 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </div>
                   </div>
                 </div> */}
-              </>
-            )}
-            {/* -----paste---- */}
-          </div>
-        {/* </div> */}
+          </>
+        )}
+        {/* -----paste---- */}
+      </div>
+      {/* </div> */}
       {/* </section> */}
       {/* ------ without carousel---- */}
       <section
@@ -2068,7 +2083,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
               {/* <p className="common-pre-heading">register</p> */}
-              <h2 className="common-heading ">Quick Links</h2>
+              <h2 className="common-heading">Quick Links</h2>
               {/* <p className="common-para">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -2078,49 +2093,49 @@ Let us all come together to achieve the goals and success of this mega-event.</p
           <div className="row mt-5">
             <div className="col-md-12">
               <ul className="ps-0 list-unstyled">
-              <div className="row">
-                <div className="col-md-6">
-                <li>
-                  <div className="reg-icon-box">
-                    <div>
-                      <img src={reg2} className="img-fluid" alt="" />
-                    </div>
-                    <div className="ps-5">
-                    <h3> Sponsorship </h3>
-                      <p> Become a Sponsor / Partner </p>
-                      <button
-                        className="common-btn"
-                        onClick={() => navigation("/sponsorForm")}
-                      >
-                        Be a sponsor
-                      </button>
-                    </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <li>
+                      <div className="reg-icon-box">
+                        <div>
+                          <img src={reg2} className="img-fluid" alt="" />
+                        </div>
+                        <div className="ps-5">
+                          <h3> Sponsorship </h3>
+                          <p> Become a Sponsor / Partner </p>
+                          <button
+                            className="common-btn"
+                            onClick={() => navigation("/sponsorForm")}
+                          >
+                            Be a sponsor
+                          </button>
+                        </div>
+                      </div>
+                    </li>
                   </div>
-                </li>
-                </div>
-                <div className="col-md-6">
-                <li>
-                  {" "}
-                  <div className="reg-icon-box">
-                    <div>
-                    <img src={reg4} className="img-fluid" alt="" />
-                    </div>
-                  <div className="ps-5">
-                  <h3> Delegate </h3>
-                  <p> Get your Conference Pass </p>
-                    <button
-                      className=" common-btn"
-                      onClick={() => navigation("/register")}
-                    >
-                      Registration
-                    </button>
+                  <div className="col-md-6">
+                    <li>
+                      {" "}
+                      <div className="reg-icon-box">
+                        <div>
+                          <img src={reg4} className="img-fluid" alt="" />
+                        </div>
+                        <div className="ps-5">
+                          <h3> Delegate </h3>
+                          <p> Get your Conference Pass </p>
+                          <button
+                            className=" common-btn"
+                            onClick={() => navigation("/register")}
+                          >
+                            Registration
+                          </button>
+                        </div>
+                      </div>
+                    </li>
                   </div>
-                  </div>
-                </li>
                 </div>
-                </div>
-                </ul>
-                {/* <li>
+              </ul>
+              {/* <li>
                   {" "}
                   <div className="reg-icon-box">
                     <img src={reg4} className="img-fluid" alt="" />
@@ -2136,7 +2151,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     </button>
                   </div>
                 </li> */}
-                {/* <li>
+              {/* <li>
                   {" "}
                   <div className="reg-icon-box">
                     <img src={reg5} className="img-fluid" alt="" />
@@ -2180,25 +2195,25 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                     <div className="four  set-img">
                       <img src={gallary4} className="img-fluid w-75" />
                     </div>
-                    
+
                     <div className="five pt-3 set-img">
                       <img src={gallary5} className="img-fluid" />
                     </div>
-                </div>
-                <div className="row p-0">
-                      <div className="col-lg-12 ps-4 pe-0">
+                  </div>
+                  <div className="row p-0">
+                    <div className="col-lg-12 ps-4 pe-0">
                       <div className="three text-end set-img">
-                      <img src={gallary3} className="img-fluid w-75 h-25" />
-                    </div>
+                        <img src={gallary3} className="img-fluid w-75 h-25" />
                       </div>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-6">
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
                 {/* <p className="common-pre-heading">Introduction</p> */}
-                <h1 className="common-heading">
+                <h1 className="common-heading pt-4">
                   About INCA (Indian National Cartographic Association)
                 </h1>
                 <p className="common-para">
@@ -2254,10 +2269,10 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               </div>
             </div>
           </div>
-          </div>
-          </section>
+        </div>
+      </section>
 
-          <section className="section-padding home-about pb-lg-0 with-carousel">
+      <section className="section-padding home-about pb-lg-0 with-carousel">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-12">
@@ -2299,7 +2314,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
             <div className="col-lg-6">
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
                 {/* <p className="common-pre-heading">Introduction</p> */}
-                <h1 className="common-heading">
+                <h1 className="common-heading pt-4">
                   About INCA (Indian National Cartographic Association)
                 </h1>
                 <p className="common-para">
@@ -2354,8 +2369,8 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               </div>
             </div>
           </div>
-          </div>
-          </section>
+        </div>
+      </section>
 
       {/* <section className="testimonial-area">
         <div className="container">
@@ -2507,15 +2522,19 @@ Let us all come together to achieve the goals and success of this mega-event.</p
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
               {/* <p className="common-pre-heading">OUR SPONSORS</p> */}
-              <h2>SPONSORS AND PARTNERS</h2>
+              <h2>Sponsors And Partners</h2>
               {/* <p className="mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
               </p> */}
             </div>
           </div>
-
-          <div className="row position-relative">
+          <div className="sponsor-btn-temp">
+            <button className="common-btn" type="button" onClick={() => navigation("/sponsorForm")}>
+              BE A SPONSOR
+            </button>
+          </div>
+          {/* <div className="row position-relative">
             <div className="col-md-1"></div>
             <div className="col-md-2 px-0 sponsors-common">
               <div className="sponsor-box-1 common-sponsor-padding">
@@ -2558,7 +2577,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               </div>
             </div>
             <div className="col-md-1"></div>
-          </div>
+          </div> */}
 
           {/* <div className="row position-relative">
             <div className="col-md-8 mx-auto text-center">
@@ -2574,7 +2593,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
           <div className="row">
             <div className="col-md-12">
               {/* <p className="common-pre-heading">RECENT BLOG</p> */}
-              <h2 className="common-heading">Event Announcement</h2>
+              <h2 className="common-heading">Announcements</h2>
               {/* <p className="common-para mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -2586,7 +2605,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
             <div className="col-lg-4">
               <div className="blog-card">
                 <div className="blog-card-pic">
-                  <img src={firstcircular} alt=""></img>
+                  <img src={Event} alt="First-Circular"></img>
                 </div>
                 <div className="blog-card-content">
                   <h3>
@@ -2612,7 +2631,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
             <div className="col-lg-4">
               <div className="blog-card">
                 <div className="blog-card-pic">
-                  <img src={secondcircular} alt=""></img>
+                  <img src="" alt="Second-Circular"></img>
                 </div>
                 <div className="blog-card-content">
                   <h3>
@@ -2638,7 +2657,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
             <div className="col-lg-4">
               <div className="blog-card">
                 <div className="blog-card-pic">
-                  <img src={secondcircular} alt=""></img>
+                  <img src="" alt="Final-Circular"></img>
                 </div>
                 <div className="blog-card-content">
                   <h3>
@@ -2690,7 +2709,7 @@ Let us all come together to achieve the goals and success of this mega-event.</p
               <div className="contact-move">
                 {/* <p className="common-pre-heading">GET IN TOUCH</p> */}
                 <h2 className="common-heading">
-                  YOU CAN REACH US WITH FOLLOWING DETAILS
+                  You Can Reach Us With Following Details
                 </h2>
                 {/* <p className="common-para my-4">
                   Quam amet tristique adipisicing incididunt arcu, excepturi
@@ -2704,8 +2723,8 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                   <div className="contact-venue">
                     <h3>EVENT VENUE :</h3>
                     <p className="common-para mb-0">
-                   <b> National Hydrographic Office </b> <br/>
-                      107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun,
+                      <b> National Hydrographic Office </b> <br />
+                      107-A, Rajpur Rd, Hathibarkala Salwala<br/> Dehradun,
                       Uttarakhand 248001
                     </p>
                   </div>
@@ -2746,17 +2765,17 @@ Let us all come together to achieve the goals and success of this mega-event.</p
           </div>
         </div>
       </section>
-              <section className="section-padding home-gallery mb-5">
-                <div className="container">
-                  <div className="row align-items-center">
-                    <div className="col-md-6">
-                      {/* <p className="common-pre-heading">INCA Events</p> */}
-                      <h2 className="common-heading ">
-                        GALLERY OF PREVIOUS INCA CONFERENCE
-                      </h2>
-                    </div>
-                    <div className="col-md-6">
-                      {/* <p className="common-para">
+      <section className="section-padding home-gallery mb-5 without-carousel">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              {/* <p className="common-pre-heading">INCA Events</p> */}
+              <h2 className="common-heading ">
+                Gallery Of Previous Inca Conference
+              </h2>
+            </div>
+            <div className="col-md-6">
+              {/* <p className="common-para">
                         Founded on 7th August 1979 at Hyderabad, the Indian National
                         Cartographic Association (INCA) has evolved into one of the
                         world's most prominent professional associations of its kind.
@@ -2767,72 +2786,150 @@ Let us all come together to achieve the goals and success of this mega-event.</p
                         Gujarat, Hyderabad, Indore, Jodhpur, Kerala, Odisha and Tamil
                         Nadu.
                       </p> */}
-                    </div>
-                  </div>
-                  <div className="row mt-lg-5 ">
-                    <div className="col-md-12">
-                      <div className="gallery-wrapper mt-5 row d-none">
-                        <div className="gallery-box col-lg-3">
-                          <img src={inca1} alt="" className="img-fluid" />
-                        </div>
-        
-                        <div className="gallery-box col-lg-3">
-                          <img src={inca2} alt="" className="img-fluid" />
-                        </div>
-        
-                        <div className="gallery-box col-lg-3">
-                          <img src={inca3} alt="" className="img-fluid" />
-                        </div>
-        
-                        <div className="gallery-box col-lg-3">
-                          <img src={inca9} alt="" className="img-fluid" />
-                        </div>
-                        <div className="gallery-box col-lg-3">
-                          <img src={inca5} alt="" className="img-fluid" />
-                        </div>
-                        <div className="gallery-box col-lg-3">
-                          <img src={inca6} alt="" className="img-fluid" />
-                        </div>
-                        <div className="gallery-box col-lg-3">
-                          <img src={inca7} alt="" className="img-fluid" />
-                        </div>
-                        <div className="gallery-box col-lg-3">
-                          <img src={inca8} alt="" className="img-fluid" />
-                        </div>
-                      </div>
-                      {/* -------GALLERY------ */}
-                      <div className="grid-wrapper">
-                        <div className="tall">
-                          <img src={inca3} alt="" className="img-fluid" />
-                        </div>
-                        <div>
-                          <img src={inca2} alt="" className="img-fluid" />
-                        </div>
-                        <div className="wide">
-                          <img src={inca4} alt="" className="img-fluid" />
-                        </div>
-                        <div>
-                          <img src={inca5} alt="" className="img-fluid" />
-                        </div>
-        
-                        <div>
-                          <img src={inca1} alt="" className="img-fluid" />
-                        </div>
-                        <div className="tall">
-                          <img src={inca8} alt="" className="img-fluid" />
-                        </div>
-                        <div className="big">
-                          <img src={inca7} alt="" className="img-fluid" />
-                        </div>
-                        <div className="wide">
-                          <img src={inca6} alt="" className="img-fluid" />
-                        </div>
-                      </div>
-                      {/* ------GALLERY-------- */}
-                    </div>
-                  </div>
+            </div>
+          </div>
+          <div className="row mt-lg-5 ">
+            <div className="col-md-12">
+              <div className="gallery-wrapper mt-5 row d-none">
+                <div className="gallery-box col-lg-3">
+                  <img src={inca1} alt="" className="img-fluid" />
                 </div>
-              </section>
+
+                <div className="gallery-box col-lg-3">
+                  <img src={inca2} alt="" className="img-fluid" />
+                </div>
+
+                <div className="gallery-box col-lg-3">
+                  <img src={inca3} alt="" className="img-fluid" />
+                </div>
+
+                <div className="gallery-box col-lg-3">
+                  <img src={inca9} alt="" className="img-fluid" />
+                </div>
+                <div className="gallery-box col-lg-3">
+                  <img src={inca5} alt="" className="img-fluid" />
+                </div>
+                <div className="gallery-box col-lg-3">
+                  <img src={inca6} alt="" className="img-fluid" />
+                </div>
+                <div className="gallery-box col-lg-3">
+                  <img src={inca7} alt="" className="img-fluid" />
+                </div>
+                <div className="gallery-box col-lg-3">
+                  <img src={inca8} alt="" className="img-fluid" />
+                </div>
+              </div>
+              {/* -------GALLERY------ */}
+              <div className="grid-wrapper">
+                <div className="tall">
+                  <img src={inca3} alt="" className="img-fluid" />
+                </div>
+                <div>
+                  <img src={inca2} alt="" className="img-fluid" />
+                </div>
+                <div className="wide">
+                  <img src={inca4} alt="" className="img-fluid" />
+                </div>
+                <div>
+                  <img src={inca5} alt="" className="img-fluid" />
+                </div>
+
+                <div>
+                  <img src={inca1} alt="" className="img-fluid" />
+                </div>
+                <div className="tall">
+                  <img src={inca8} alt="" className="img-fluid" />
+                </div>
+                <div className="big">
+                  <img src={inca7} alt="" className="img-fluid" />
+                </div>
+                <div className="wide">
+                  <img src={inca6} alt="" className="img-fluid" />
+                </div>
+              </div>
+              {/* ------GALLERY-------- */}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-padding home-gallery with-carousel">
+      <div className="container">
+          <div className="row align-items-center">
+          <div className="col-lg-12">
+              <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
+                {/* <p className="common-pre-heading">Introduction</p> */}
+                <h1 className="common-heading pt-4">
+                  About INCA (Indian National Cartographic Association)
+                </h1>
+              
+              </div>
+              
+            </div>
+            <div className="col-md-12">
+              <div className="home-about-left pb-4">
+                <div className="row">
+                  <Carousel
+                    swipeable={true}
+                    arrows={true}
+                    draggable={false}
+                    showDots={false}
+                    responsive={responsive}
+                    infinite={true}
+                    autoPlay={true}
+                    ShowArrows={false}
+                    autoPlaySpeed={2000}
+                    keyBoardControl={true}
+                    transitionDuration={500}
+                    itemClass="carousel-item-padding-40-px"
+                  >
+                    {/* <div className="col-md-12">
+                      <img src={gallary1} className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary2} className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary3} className="img-fluid " />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary4} className="img-fluid " />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary5} className="img-fluid" />
+                    </div> */}
+                      <div className="col-md-12">
+                  <img src={inca3} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca2} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca4} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca5} alt="gallerypic" className="img-fluid" />
+                </div>
+
+                <div className="col-md-12">
+                  <img src={inca1} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca8} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca7} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca6} alt="gallerypic" className="img-fluid" />
+                </div>
+                  </Carousel>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </section>
       <Footer />
     </>
   );
