@@ -12,6 +12,7 @@ import User from "../../images/user-profile.png";
 import "../../css/dashboard.css";
 
 const Dashboard = (props) => {
+  console.log('inside dashbard page')
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState({});
   let [data, setData] = useState([]);

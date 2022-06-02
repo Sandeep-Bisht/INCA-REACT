@@ -64,13 +64,13 @@ const CreateForm = (props) => {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
+      
       let logedInId = decodedToken.user.user._id;
       if (decodedToken.user.user.role !== "admin") {
         setLoggedInUser(true)
         let userInformationCopy = { ...userInformation };
         userInformationCopy.name = decodedToken.user.user.userName;
         userInformationCopy.email = decodedToken.user.user.userEmail;
-        //userInformationCopy.phoneNumber = decodedToken.user.user.mobileNumber;
         userInformationCopy.userId = decodedToken.user.user._id;
         setUserInformation(userInformationCopy);
         setPhoneNumber(decodedToken.user.user.mobileNumber);
@@ -93,7 +93,12 @@ const CreateForm = (props) => {
         if (decodedToken.user.user.role !== "admin") {
           setMessage("Your information saved successfully");
         } else {
+          if(state.saveRegisterUserInfoSuccess.message === "User is already registred with this mail."){
+            setMessage(state.saveRegisterUserInfoSuccess.message)
+          }
+         else {
           navigate("/dashboard/allRegistration");
+         }
           dispatch(ACTIONS.resetToInitialState());
         }
       }
@@ -341,7 +346,8 @@ const CreateForm = (props) => {
       userInformation.registrationFee = value;
       userInformation.phoneNumber = phoneNumber;
       delete userInformation.isError;
-      dispatch(ACTIONS.saveRegisterdUserData(userInformation));
+      console.log(userInformation, 'userInformation')
+     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
     else{
       let userInformationCopy = {...userInformation}
@@ -831,7 +837,7 @@ const CreateForm = (props) => {
               </div>
             </div>            
 
-            {message && <p className="text-success">{message}</p>}
+            {message && <p className="text-danger">{message}</p>}
 
             <div className="row">
               <div className="col-md-12 text-end">

@@ -110,10 +110,9 @@ const AbstractDocumentList = () => {
       <>
         {/* <button onClick={() =>navigate("/dashboard/previewPaper")}> */}
 
-        {/* <button  onClick={() => redirectToPaperPreviewPage(node)}> */}
-        <button>
+        <button  onClick={() => redirectToPaperPreviewPage(node)}>
           <i className="fa-solid fa-file-pdf"></i>
-        </button>
+        </button> 
       </>
     );
   };

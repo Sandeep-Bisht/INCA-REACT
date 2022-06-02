@@ -246,10 +246,10 @@
   left: 6px;
   transition: all 250ms linear;
 }
-.toggle-btn input:checked + label
+/* .toggle-btn input:checked + label
 {
   background: #00acee;
-}
+} */
 .toggle-btn input:checked + label::before
 {
   left:32px;

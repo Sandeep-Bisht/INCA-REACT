@@ -9,6 +9,7 @@ import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Navigate } from 'react-router-dom';
+import '../../css/attendance.css'
 
 const AttendanceStatus = () => {
 
@@ -16,7 +17,8 @@ const AttendanceStatus = () => {
   const [attendanceStatus, setAttendanceStatus] = useState([])
   const [globalFilterValue1, setGlobalFilterValue1] = useState("");
   const [filters1, setFilters1] = useState(null);
-  const [checkTrue , setCheckedTrue] = useState(false);
+  const [checkTrue , setCheckedTrue] = useState('');
+  const [nodeId, setNodeId] = useState('')
   //const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
 
@@ -56,10 +58,19 @@ const AttendanceStatus = () => {
 
 
 
-  let markAttendanceStatus = (node) => {
-    setCheckedTrue(true);
-    dispatch(ACTIONS.markUserAttendance(node._id))
-    // navigate("/dashboard");
+  let markAttendanceStatus = (e, node) => {
+    console.log(e.target.checked, node, 'node value')
+    if(e.target.checked){
+      setNodeId(node._id)
+     dispatch(ACTIONS.markUserAttendance(node._id))
+      navigate("/dashboard");
+    }
+    // else {
+    //   setNodeId("")
+    // }
+    
+    
+    
   }
 
   const dynamicColumns = columns.map((col, i) => {
@@ -72,15 +83,16 @@ const AttendanceStatus = () => {
 
 
   const actionBodyTemplate = (node, column) => {
-    let checkBoxId = Math.random();
+    console.log(node, 'nodeeeee')
+   // let checkBoxId = Math.random();
     return (
       <>
       <div className='toggle-btn'>
-          <input onClick={() => markAttendanceStatus(node)} 
-          checked ={node.attendanceStatus || checkTrue }
-          disabled={node.attendanceStatus || checkTrue}
-           type="checkbox" id={checkBoxId}></input>
-          <label htmlFor={checkBoxId}></label>
+          <label class="switch">
+            <input type="checkbox" checked ={ node.attendanceStatus ||  nodeId == node._id }  disabled={node.attendanceStatus } onChange={(e) => markAttendanceStatus(e, node)}/>
+            <span class="slider round"></span>
+          </label>
+         
         </div>   
        </>
     );

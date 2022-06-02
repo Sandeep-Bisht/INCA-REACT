@@ -31,7 +31,10 @@ const PreviewPaper = () => {
 
   useEffect(() => {
     if(location && location.state){ 
-      let filePath = `http://localhost:4801/files/${location.state.abstractFileUrl}`
+      let filePath = `http://localhost:4801/${location.state.abstractFileUrl}`
+      console.log(filePath, 'filepath')
+      filePath = filePath.replace('\\', '/')
+      console.log(filePath, 'filepathafter')
        setViewPdf(filePath)
       approveDocs.userId = location.state.userId;
       approveDocs.docsId = location.state._id;      
