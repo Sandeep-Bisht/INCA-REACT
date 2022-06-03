@@ -11,7 +11,6 @@ import { Navigate, useNavigate } from "react-router-dom";
 const errorObj = {
   name: "",
   email: "",
-  //mobile: "",
   companyName: "",
   sponsorType: "",
   amount: "",
@@ -20,13 +19,13 @@ const SponsorForm = () => {
   const [sponsorForm, setSponsorForm] = useState({
     name: "",
     email: "",
-    //mobile: "",
     companyName: "",
     sponsorType: "",
     amount: "",
     isError: errorObj,
   });
 
+  const [loginLoder, setLoginLoder] = useState(false);
   const navigate = useNavigate()
   const [mobile, setMobile] = useState("");
   const dispatch = useDispatch();
@@ -36,25 +35,28 @@ const SponsorForm = () => {
 
   useEffect(() => {
     if (state.sponsorUserSuccess) {
+      setLoginLoder(false);
       emptySponsorForm();
       setGreet(
         "Your details are registered for sponsor(provisionally) and will be reviewed by managing committiee. Once confirmed, committie will communicate with you on your registered email. "
-      );
+      );      
       emptyMessage();
+      
      
     }
   }, [state.sponsorUserSuccess]);
 
   let emptyMessage = () => {
     setTimeout(() => {
-      setGreet("");
-     // navigate("/");
+      setGreet(undefined);
+      //navigate("/");
     }, 5000);
     
   };
   // useEffect(() => {
-  //   if(greet == ""){
-  //     navigate("/");
+  //   if(greet != ""){
+  //     setGreet(undefined)
+  //     //navigate("/");
   //   }
   // }, [])
 
@@ -68,6 +70,7 @@ const SponsorForm = () => {
       companyName: "",
       sponsorType: "",
       amount: "",
+      isError : errorObj
     });
   };
 
@@ -113,6 +116,7 @@ const SponsorForm = () => {
   const checkValidation = () => {
     
     let sponsorFormCopy = { ...sponsorForm };
+    console.log("error name after click",sponsorFormCopy)
     Object.keys(sponsorFormCopy).map((item) => {
       switch (item) {
         case "name":
@@ -157,6 +161,9 @@ const SponsorForm = () => {
     if (validateForm()) {
       sponsorForm.mobile = mobile;
       delete sponsorForm.isError;
+      setLoginLoder(true);
+      console.log("button is clicked");
+      
       dispatch(ACTIONS.createSponsorUser(sponsorForm));
     }
   };
@@ -185,6 +192,9 @@ const SponsorForm = () => {
     const { name, value } = e.target;
     sponsorFormCopy[name] = value;
     setSponsorForm(sponsorFormCopy);
+    if (e.target.name == "email") {
+      sponsorFormCopy[e.target.name] = e.target.value.toLowerCase();
+    }
     switch (name) {
       case "name":
         sponsorFormCopy.isError.name = nameRegExp.test(value)
@@ -231,7 +241,8 @@ const SponsorForm = () => {
   let phoneNumberInputHandler = (mobile) => {
     setMobile(mobile);
   };
-
+  
+  
   return (
     <>
       <Header />
@@ -384,7 +395,7 @@ const SponsorForm = () => {
                   <div className="col-md-12">
                     <div className="btn-wrapper mt-3">
                       <button type="submit" className="form-submit">
-                        Submit
+                      {loginLoder ? "verifying" : "Submit"}
                       </button>
                     </div>
                   </div>

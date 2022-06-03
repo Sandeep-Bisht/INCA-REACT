@@ -49,6 +49,7 @@ const CreateForm = (props) => {
   const [isHidden, setIsHidden] = useState(false);
   const [message, setMessage] = useState("");
   const [mode, setMode] = useState("");
+  const [show , setShow] = useState(false)
   const [value, setValue] = useState(undefined);
   const [systemRole, setSystemRole] = useState('')
   const state = useSelector((state) => state.RegisteredUserInfoReducer);  
@@ -91,12 +92,13 @@ const CreateForm = (props) => {
       if (localStorage.getItem("token")) {
         let decodedToken = jwt_decode(localStorage.getItem("token"));
         if (decodedToken.user.user.role !== "admin") {
+          setIsHidden(true);
           setMessage("Your information saved successfully");
         } else {
           if(state.saveRegisterUserInfoSuccess.message === "User is already registred with this mail."){
             setMessage(state.saveRegisterUserInfoSuccess.message)
           }
-         else {
+         else {          
           navigate("/dashboard/allRegistration");
          }
           dispatch(ACTIONS.resetToInitialState());
@@ -233,7 +235,9 @@ const CreateForm = (props) => {
 
     userInformationCopy[id] = value;
     setUserInformation(userInformationCopy);
-    
+    if (e.target.id == "email") {
+      userInformationCopy[e.target.id] = e.target.value.toLowerCase();
+    }
     switch (id) {
       case "name":
         userInformationCopy.isError.name = nameRegExp.test(value)
@@ -346,7 +350,7 @@ const CreateForm = (props) => {
       userInformation.registrationFee = value;
       userInformation.phoneNumber = phoneNumber;
       delete userInformation.isError;
-      console.log(userInformation, 'userInformation')
+      console.log(userInformation, 'userInformation and sAVE BUTTON IS clicked')
      dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
     else{
@@ -841,7 +845,7 @@ const CreateForm = (props) => {
 
             <div className="row">
               <div className="col-md-12 text-end">
-                <button className="mx-3" name="save" value ="save" type="submit" onClick={() => (buttonState.button = 1) } hidden={isHidden}>
+                <button className="mx-3" name="save" show value ="save" type="submit" onClick={() => (buttonState.button = 1) } hidden={isHidden}>
                   {location && location.state && location.state.mode === "edit"
                     ? "Update"
                     : "Save"}

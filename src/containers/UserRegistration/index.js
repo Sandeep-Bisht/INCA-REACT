@@ -21,8 +21,11 @@ const UserRegistration = () => {
   const [successResponse, setSuccessResponse] = useState({});
 
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [message, setMessage] = useState('user is already registered with this email');
+  const [message, setMessage] = useState(
+    "user is already registered with this email"
+  );
   const [isHidden, setIsHidden] = useState(false);
+  const [loginLoder, setLoginLoder] = useState(false);
 
   let dispatch = useDispatch();
   let navigate = useNavigate();
@@ -30,14 +33,27 @@ const UserRegistration = () => {
   const emailRegExp = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
   const { isError } = registrationPayload;
 
+  useEffect(() => {
+    if (state && state.userRegisterSuccess) {
+      setIsHidden(true);
+      setMessage(state.userRegisterSuccess.message);
+      setLoginLoder(false);
+      dispatch(ACTIONS.resetToInitialState());
+    }
+  }, [state.userRegisterSuccess]);
+
+  useEffect(() => {
+    if (state.userRegisterFailure) setLoginLoder(false);
+    setSuccessResponse(state.userRegisterFailure);
+  }, [state.userRegisterFailure]);
+
   let registrationPayloadOnChangeHandler = (e) => {
     let regitrationPayloadCopy = { ...registrationPayload };
-    //regitrationPayloadCopy[e.target.id] = e.target.value;
-    //setRegistrationPayload(regitrationPayloadCopy);
-
     const { id, value } = e.target;
     regitrationPayloadCopy[id] = value;
-    setRegistrationPayload(regitrationPayloadCopy);
+    if (e.target.id == "userEmail") {
+      regitrationPayloadCopy[e.target.id] = e.target.value.toLowerCase();
+    }
     switch (id) {
       case "userName":
         regitrationPayloadCopy.isError.userName = nameRegExp.test(value)
@@ -55,6 +71,26 @@ const UserRegistration = () => {
       default:
         break;
     }
+  };
+
+  const checkValidation = () => {
+    let regitrationPayloadCopy = { ...registrationPayload };
+    Object.keys(regitrationPayloadCopy).map((item) => {
+      switch (item) {
+        case "userName":
+          regitrationPayloadCopy.isError.userName =
+            regitrationPayloadCopy.userName ? "" : "Field is Required";
+          break;
+        case "userEmail":
+          regitrationPayloadCopy.isError.userEmail =
+            regitrationPayloadCopy.userEmail ? "" : "Field is required";
+          break;
+        default:
+          break;
+      }
+    });
+
+    setRegistrationPayload(regitrationPayloadCopy);
   };
 
   let validateRegisterForm = () => {
@@ -81,53 +117,18 @@ const UserRegistration = () => {
   let registrationSubmitRequest = (e) => {
     e.preventDefault();
     checkValidation();
-  
+
     if (validateRegisterForm()) {
       registrationPayload.mobileNumber = phoneNumber;
       delete registrationPayload.isError;
-    
+      setLoginLoder(true);
       dispatch(ACTIONS.appRegistration(registrationPayload));
+    } else {
+      let registrationPayloadCopy = { ...registrationPayload };
+      registrationPayloadCopy.isError.userEmail = "Email is invalid";
+      setRegistrationPayload(registrationPayloadCopy);
     }
-    else {
-      let registrationPayloadCopy = {...registrationPayload}
-        registrationPayloadCopy.isError.userEmail = "Email is invalid"
-        setRegistrationPayload(registrationPayloadCopy)
-    }
-
   };
-
-  const checkValidation = () => {
-    let regitrationPayloadCopy = { ...registrationPayload };
-    Object.keys(regitrationPayloadCopy).map((item) => {
-      switch (item) {
-        case "userName":
-          regitrationPayloadCopy.isError.userName =
-            regitrationPayloadCopy.userName ? "" : "Field is Required";
-          break;
-        case "userEmail":
-          regitrationPayloadCopy.isError.userEmail =
-            regitrationPayloadCopy.userEmail ? "" : "Field is required";
-          break;
-        default:
-          break;
-      }
-    });
-
-    setRegistrationPayload(regitrationPayloadCopy);
-  };
-
-  useEffect(() => {
-    if (state && state.userRegisterSuccess) {
-      setIsHidden(true);
-      setMessage(state.userRegisterSuccess.message);
-      dispatch(ACTIONS.resetToInitialState());
-    }
-  }, [state.userRegisterSuccess]);
-
-  useEffect(() => {
-    if (state.userRegisterFailure)
-      setSuccessResponse(state.userRegisterFailure);
-  }, [state.userRegisterFailure]);
 
   let phoneNumberInputHandler = (phone) => {
     setPhoneNumber(phone);
@@ -136,8 +137,7 @@ const UserRegistration = () => {
   return (
     <>
       <Header></Header>
-      { message == "user is already registered with this email"  ?
-(
+      {message == "user is already registered with this email" ? (
         <section className="register-form">
           <form
             className="login-form"
@@ -170,7 +170,6 @@ const UserRegistration = () => {
                               registrationPayload &&
                               registrationPayload.userName
                             }
-                            // disabled={isDisabled}
                             id="userName"
                           />
                           {isError && isError.userName && (
@@ -190,7 +189,6 @@ const UserRegistration = () => {
                           <input
                             type="email"
                             id="userEmail"
-                            //disabled={isDisabled}
                             value={
                               registrationPayload &&
                               registrationPayload.userEmail
@@ -205,8 +203,8 @@ const UserRegistration = () => {
                             }
                           />
                           {isError && isError.userEmail && (
-                      <p className="text-danger">{isError.userEmail}</p>
-                    )}
+                            <p className="text-danger">{isError.userEmail}</p>
+                          )}
 
                           <label>
                             <i className="fa-solid far far fa-envelope me-2"></i>
@@ -231,12 +229,8 @@ const UserRegistration = () => {
 
                     <div className="col-md-12">
                       <div className="btn-wrapper mt-3">
-                        <button
-                          type="submit"
-                          className=" form-submit "
-                          // disabled={validateRegisterForm()}
-                        >
-                          Submit
+                        <button type="submit" className=" form-submit">
+                          {loginLoder ? "verifying" : "Submit"}
                         </button>
                       </div>
                     </div>
@@ -244,24 +238,24 @@ const UserRegistration = () => {
                       <div className="form-wrap">
                         <div className="input-wrap">
                           {isHidden && <p className="text-danger">{message}</p>}
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="end-wrap mt-2">
-                      <p className="common-para mb-0 mt-3">
-                        Already have an Account?{" "}
-                        <Link
-                          to="/login"
-                          className="ms-2 common-yellow-color f2 text-decoration-none"
-                        >
-                          Login
-                        </Link>
-                      </p>
+                      <div className="end-wrap mt-2">
+                        <p className="common-para mb-0 mt-3">
+                          Already have an Account?{" "}
+                          <Link
+                            to="/login"
+                            className="ms-2 common-yellow-color f2 text-decoration-none"
+                          >
+                            Login
+                          </Link>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
           </form>
         </section>
