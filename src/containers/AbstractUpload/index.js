@@ -10,19 +10,18 @@ let obj = {
   mimetype:"",
   abstractFileUrl:"",
   paperApproveStatus: null
-
 }
 
 const AbstractUpload = () => {
   const [abstractDocumentPayload, setAbstractDocumentPayload] = useState(obj);
   const [abstractDataSavedMessage, setAbstractDataSavemessage] = useState('')
   const [loading, setLoading] = useState(false)
-  const state = useSelector((state) => state.AbstractUploadReducer); //state me response aata h
+  const [errorMessage, setErrorMessage] = useState('')
+  
+  const state = useSelector((state) => state.AbstractUploadReducer);
 
   let dispatch = useDispatch()
   const ref = useRef()
-
-  console.log(abstractDocumentPayload,"abstractDocumentPayload 111")
 
 
  
@@ -30,13 +29,13 @@ const AbstractUpload = () => {
     if(state.abstractFileUploadSuccess && state.abstractFileUploadSuccess.data){
       let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
       abstractDocumentPayloadCopy.mimetype = state.abstractFileUploadSuccess.data.mimetype;
-      abstractDocumentPayloadCopy.abstractFileUrl = state.abstractFileUploadSuccess.data.filename;
+      abstractDocumentPayloadCopy.abstractFileUrl = state.abstractFileUploadSuccess.data.path;
       setAbstractDocumentPayload(abstractDocumentPayloadCopy)
     }
   }, [state.abstractFileUploadSuccess])
 
   useEffect(() => {
-    if(state && state.abstractDataSaveSuccess){  // data succesful save k case me
+    if(state && state.abstractDataSaveSuccess){  
       setLoading(false)
       emptyFormField()
       setAbstractDataSavemessage("Your file submitted successfully. we will update you on email after verification")
@@ -46,14 +45,33 @@ const AbstractUpload = () => {
     }
   }, [state.abstractDataSaveSuccess])
 
+  let getFileExtension = (fileName) => {
+      return fileName.split('.').pop()
+  }
+
+  let emptyFormUploadField = () => {
+    let abstractDocumentPayloadCopy = {...abstractDocumentPayload}
+      ref.current.value = "";
+      abstractDocumentPayloadCopy.filename = ""
+      setAbstractDocumentPayload(abstractDocumentPayloadCopy)
+  }
+
   const abstarctOnChangeHandler = (e) => {
+
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
         if(e.target.id == 'file'){
+          if(getFileExtension(e.target.files[0].name) === "pdf"){
           let formData = new FormData();
           formData.append('file', e.target.files[0])
           abstractDocumentPayloadCopy.abstractFileUrl = e.target.files[0].name
           setAbstractDocumentPayload(abstractDocumentPayloadCopy)
-          dispatch(ACTIONS.abstratcFileUpload(formData)) //saga wali me gaya
+          setErrorMessage("")
+          dispatch(ACTIONS.abstratcFileUpload(formData)) 
+          }
+          else { 
+            emptyFormUploadField();
+            setErrorMessage("Please upload Pdf files only.")
+          }
         }
         else {
           abstractDocumentPayloadCopy[e.target.id] = e.target.value
@@ -70,7 +88,6 @@ const AbstractUpload = () => {
         abstractDocumentPayload.userId = decodedToken.user.user._id;
         abstractDocumentPayload.userName = decodedToken.user.user.userName;
         abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
-        console.log(abstractDocumentPayload,"abstractDocumentPayload abstractDocumentPayload")
         dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
       }
 
@@ -104,6 +121,7 @@ const AbstractUpload = () => {
                     className="form-control"
                     id="abstractPaperName"
                     value={abstractDocumentPayload.abstractPaperName}
+                    required
                   />
                 </div>
               </div>
@@ -123,7 +141,8 @@ const AbstractUpload = () => {
                     required
                  
                   />
-                  {abstractDocumentPayload.abstractFileUrl && <p>{abstractDocumentPayload.abstractFileUrl}</p>}
+                  {/* {abstractDocumentPayload.abstractFileUrl && <p>{abstractDocumentPayload.abstractFileUrl}</p>} */}
+                  {errorMessage && <p className="text-danger">{errorMessage}</p>}
                 </div>
               </div>
               <div className="col-md-12">

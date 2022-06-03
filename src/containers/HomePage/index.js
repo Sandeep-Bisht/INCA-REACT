@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Footer } from "../../components/Footer";
@@ -11,6 +11,9 @@ import comittee1 from "../../images/Raj1.jpg";
 import comittee2 from "../../images/CH-Adhir-Arora.png";
 import comittee3 from "../../images/bkramprasad.jpg";
 import comittee4 from "../../images/raprasad.jpg";
+import comittee5 from "../../images/capt-kuldeep-singh.jpg";
+import comittee6 from "../../images/cmde-puesh-pawsey.jpg";
+import comittee7 from "../../images/ls-pathania.jpg";
 import gikslogo from "../../images/Giks-logo.png";
 import nhologo from "../../images/NHO-logo.png";
 import gislogo from "../../images/gis-logo.png";
@@ -27,6 +30,7 @@ import esrilogo from "../../images/esri-logo.png";
 import iiclogo from "../../images/iic-logo.png";
 import isrologo from "../../images/isro-logo.png";
 import natmologo from "../../images/natmo-logo.png";
+import Event from "../../images/event-announcement.jpg";
 import incalogo from "../../images/logo.png";
 import inca1 from "../../images/inca-image-1.JPG";
 import inca2 from "../../images/inca-image-2.JPG";
@@ -214,7 +218,7 @@ const HomePage = () => {
             </div>
             <div className="col-md-6">
               <div className="welcome-text">
-                <h3 className="h1">
+                <h3 className="common-heading">
                   WELCOME TO 42<sup>nd</sup> INCA International Conference
                 </h3>
                 <h4 className="h2">Dear Participants,</h4>
@@ -650,7 +654,7 @@ const HomePage = () => {
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
               {/* <p className="common-pre-heading">Organising committee</p> */}
-              <h2 className="common-heading ">OUR ORGANISING COMMITTEE</h2>
+              <h2 className="common-heading ">Our Organising Committee</h2>
               {/* <p className="common-para ">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -691,7 +695,7 @@ const HomePage = () => {
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee7} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
@@ -708,7 +712,7 @@ const HomePage = () => {
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee6} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
@@ -723,7 +727,7 @@ const HomePage = () => {
               <div className="member-profile">
                 <div className="speaker-card">
                   <div className="speaker-pic">
-                    <img src={idelimage} className="img-fluid" alt="" />
+                    <img src={comittee5} className="img-fluid" alt="" />
                   </div>
                   <div className="speaker-detail">
                     <div className="upper">
@@ -2032,7 +2036,7 @@ const HomePage = () => {
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
               {/* <p className="common-pre-heading">register</p> */}
-              <h2 className="common-heading ">Quick Links</h2>
+              <h2 className="common-heading">Quick Links</h2>
               {/* <p className="common-para">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -2162,7 +2166,7 @@ const HomePage = () => {
             <div className="col-lg-6">
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
                 {/* <p className="common-pre-heading">Introduction</p> */}
-                <h1 className="common-heading">
+                <h1 className="common-heading pt-4">
                   About INCA (Indian National Cartographic Association)
                 </h1>
                 <p className="common-para">
@@ -2263,7 +2267,7 @@ const HomePage = () => {
             <div className="col-lg-6">
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
                 {/* <p className="common-pre-heading">Introduction</p> */}
-                <h1 className="common-heading">
+                <h1 className="common-heading pt-4">
                   About INCA (Indian National Cartographic Association)
                 </h1>
                 <p className="common-para">
@@ -2471,15 +2475,19 @@ const HomePage = () => {
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
               {/* <p className="common-pre-heading">OUR SPONSORS</p> */}
-              <h2>SPONSORS AND PARTNERS</h2>
+              <h2>Sponsors And Partners</h2>
               {/* <p className="mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
               </p> */}
             </div>
           </div>
-
-          <div className="row position-relative">
+          <div className="sponsor-btn-temp">
+            <button className="common-btn" type="button" onClick={() => navigation("/sponsorForm")}>
+              BE A SPONSOR
+            </button>
+          </div>
+          {/* <div className="row position-relative">
             <div className="col-md-1"></div>
             <div className="col-md-2 px-0 sponsors-common">
               <div className="sponsor-box-1 common-sponsor-padding">
@@ -2522,7 +2530,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-1"></div>
-          </div>
+          </div> */}
 
           {/* <div className="row position-relative">
             <div className="col-md-8 mx-auto text-center">
@@ -2538,7 +2546,7 @@ const HomePage = () => {
           <div className="row">
             <div className="col-md-12">
               {/* <p className="common-pre-heading">RECENT BLOG</p> */}
-              <h2 className="common-heading">Event Announcement</h2>
+              <h2 className="common-heading">Announcements</h2>
               {/* <p className="common-para mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -2550,7 +2558,7 @@ const HomePage = () => {
             <div className="col-lg-4">
               <div className="blog-card">
                 <div className="blog-card-pic">
-                  <img src={firstcircular} alt=""></img>
+                  <img src={Event} alt="First-Circular"></img>
                 </div>
                 <div className="blog-card-content">
                   <h3>
@@ -2565,64 +2573,13 @@ const HomePage = () => {
                     <span> No Comments</span>
                   </div>
                   <div>
-                    <a className="common-yellow-color" href="#">
+                    <Link className="common-yellow-color" to="/eventblog">
                       READ MORE
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="col-lg-4">
-              <div className="blog-card">
-                <div className="blog-card-pic">
-                  <img src={secondcircular} alt=""></img>
-                </div>
-                <div className="blog-card-content">
-                  <h3>
-                    42<sup>nd</sup> INCA International Conference-Second
-                    Circular
-                  </h3>
-                  <div className="blog-box">
-                    <span>Demoteam</span>{" "}
-                    <span className="blog-border px-1 mx-1">
-                      November 10, 2022
-                    </span>{" "}
-                    <span>No Comments</span>
-                  </div>
-                  <div>
-                    <a className="common-yellow-color" href="#">
-                      READ MORE
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4">
-              <div className="blog-card">
-                <div className="blog-card-pic">
-                  <img src={secondcircular} alt=""></img>
-                </div>
-                <div className="blog-card-content">
-                  <h3>
-                    42<sup>nd</sup> INCA International Conference-Final Circular
-                  </h3>
-                  <div className="blog-box">
-                    <span>Demoteam</span>{" "}
-                    <span className="blog-border px-1 mx-1">
-                      November 11, 2022
-                    </span>{" "}
-                    <span>No Comments</span>
-                  </div>
-                  <div>
-                    <a className="common-yellow-color" href="#">
-                      READ MORE
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div>            
           </div>
         </div>
       </section>
@@ -2654,7 +2611,7 @@ const HomePage = () => {
               <div className="contact-move">
                 {/* <p className="common-pre-heading">GET IN TOUCH</p> */}
                 <h2 className="common-heading">
-                  YOU CAN REACH US WITH FOLLOWING DETAILS
+                  You Can Reach Us With Following Details
                 </h2>
                 {/* <p className="common-para my-4">
                   Quam amet tristique adipisicing incididunt arcu, excepturi
@@ -2669,7 +2626,7 @@ const HomePage = () => {
                     <h3>EVENT VENUE :</h3>
                     <p className="common-para mb-0">
                       <b> National Hydrographic Office </b> <br />
-                      107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun,
+                      107-A, Rajpur Rd, Hathibarkala Salwala<br/> Dehradun,
                       Uttarakhand 248001
                     </p>
                   </div>
@@ -2710,13 +2667,13 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className="section-padding home-gallery mb-5">
+      <section className="section-padding home-gallery mb-5 without-carousel">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
               {/* <p className="common-pre-heading">INCA Events</p> */}
               <h2 className="common-heading ">
-                GALLERY OF PREVIOUS INCA CONFERENCE
+                Gallery Of Previous Inca Conference
               </h2>
             </div>
             <div className="col-md-6">
@@ -2794,6 +2751,84 @@ const HomePage = () => {
               </div>
               {/* ------GALLERY-------- */}
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-padding home-gallery with-carousel">
+      <div className="container">
+          <div className="row align-items-center">
+          <div className="col-lg-12">
+              <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
+                {/* <p className="common-pre-heading">Introduction</p> */}
+                <h1 className="common-heading pt-4">
+                  About INCA (Indian National Cartographic Association)
+                </h1>
+              
+              </div>
+              
+            </div>
+            <div className="col-md-12">
+              <div className="home-about-left pb-4">
+                <div className="row">
+                  <Carousel
+                    swipeable={true}
+                    arrows={true}
+                    draggable={false}
+                    showDots={false}
+                    responsive={responsive}
+                    infinite={true}
+                    autoPlay={true}
+                    ShowArrows={false}
+                    autoPlaySpeed={2000}
+                    keyBoardControl={true}
+                    transitionDuration={500}
+                    itemClass="carousel-item-padding-40-px"
+                  >
+                    {/* <div className="col-md-12">
+                      <img src={gallary1} className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary2} className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary3} className="img-fluid " />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary4} className="img-fluid " />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={gallary5} className="img-fluid" />
+                    </div> */}
+                      <div className="col-md-12">
+                  <img src={inca3} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca2} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca4} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca5} alt="gallerypic" className="img-fluid" />
+                </div>
+
+                <div className="col-md-12">
+                  <img src={inca1} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca8} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca7} alt="gallerypic" className="img-fluid" />
+                </div>
+                <div className="col-md-12">
+                  <img src={inca6} alt="gallerypic" className="img-fluid" />
+                </div>
+                  </Carousel>
+                </div>
+              </div>
+            </div>
+           
           </div>
         </div>
       </section>

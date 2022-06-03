@@ -17,7 +17,7 @@ export const Footer = () => {
                   evolved into one of the world's most prominent professional
                   associations of its kind.
                 </p>
-                <a href="#" target="_blank">
+                {/* <a href="#" target="_blank">
                   <i className="fa-brands fa-facebook-f"></i>
                 </a>
                 <a href="#" target="_blank">
@@ -28,7 +28,7 @@ export const Footer = () => {
                 </a>
                 <a href="#" target="_blank">
                   <i className="fa-brands fa-linkedin-in"></i>
-                </a>
+                </a> */}
               </div>
             </div>
 

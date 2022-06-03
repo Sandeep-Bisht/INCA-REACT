@@ -8,10 +8,10 @@ import { PieChart } from "../../components/PieChart";
 import CreateForm from "../Create";
 import Dashlogo from "../../images/logo.png";
 import { Outlet } from "react-router-dom";
-import User from "../../images/user-profile.png";
 import "../../css/dashboard.css";
 
 const Dashboard = (props) => {
+  console.log('inside dashbard page')
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState({});
   let [data, setData] = useState([]);
@@ -36,6 +36,11 @@ const Dashboard = (props) => {
       setData(state.counterSuccess.response);
     }
   }, [state.counterSuccess]);
+
+  const goToDashbaord = () => {
+    const origin = window.location.origin;
+    window.location.href = `${origin}/dashboard`
+  }
 
   const location = useLocation();
 
@@ -90,7 +95,7 @@ const Dashboard = (props) => {
                         className="img-fluid  me-3 dash-user-pic"
                       /> */}
                       <span className="user-text me-2">                      
-                        {loggedInUser.userEmail}
+                        {loggedInUser.userName}
                       </span>
                     </a>
                     <ul
@@ -100,7 +105,7 @@ const Dashboard = (props) => {
                     <li>
                         <button
                           onClick={() => logoutUser()}
-                          className="dropdown-item"
+                          className="dropdown-item logout-btn"
                         >
                           Logout
                         </button>
@@ -123,7 +128,7 @@ const Dashboard = (props) => {
                         <li>
                           <button
                             className="common-blue btn"
-                            onClick={() => navigate("/dashboard")}
+                            onClick={() => goToDashbaord()}
                           >
                             <span className="me-2">
                               <i className="fa-solid fa-house"></i>

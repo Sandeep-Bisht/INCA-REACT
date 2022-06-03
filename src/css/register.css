@@ -59,12 +59,14 @@ input:focus ~ label, input:valid ~ label
     background: #ffffff;
     padding: 0px 5px 0px 5px;
 }
+
 .input-wrap 
 {
     width:auto; 
     height:auto; 
     position:relative;
 }
+
 .input-wrap label 
 {
     font-family:arial;

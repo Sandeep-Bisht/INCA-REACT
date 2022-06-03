@@ -49,6 +49,7 @@ const CreateForm = (props) => {
   const [isHidden, setIsHidden] = useState(false);
   const [message, setMessage] = useState("");
   const [mode, setMode] = useState("");
+  const [show , setShow] = useState(false)
   const [value, setValue] = useState(undefined);
   const [systemRole, setSystemRole] = useState('')
   const state = useSelector((state) => state.RegisteredUserInfoReducer);  
@@ -64,13 +65,13 @@ const CreateForm = (props) => {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
+      
       let logedInId = decodedToken.user.user._id;
       if (decodedToken.user.user.role !== "admin") {
         setLoggedInUser(true)
         let userInformationCopy = { ...userInformation };
         userInformationCopy.name = decodedToken.user.user.userName;
         userInformationCopy.email = decodedToken.user.user.userEmail;
-        //userInformationCopy.phoneNumber = decodedToken.user.user.mobileNumber;
         userInformationCopy.userId = decodedToken.user.user._id;
         setUserInformation(userInformationCopy);
         setPhoneNumber(decodedToken.user.user.mobileNumber);
@@ -91,9 +92,15 @@ const CreateForm = (props) => {
       if (localStorage.getItem("token")) {
         let decodedToken = jwt_decode(localStorage.getItem("token"));
         if (decodedToken.user.user.role !== "admin") {
+          setIsHidden(true);
           setMessage("Your information saved successfully");
         } else {
+          if(state.saveRegisterUserInfoSuccess.message === "User is already registred with this mail."){
+            setMessage(state.saveRegisterUserInfoSuccess.message)
+          }
+         else {          
           navigate("/dashboard/allRegistration");
+         }
           dispatch(ACTIONS.resetToInitialState());
         }
       }
@@ -228,7 +235,9 @@ const CreateForm = (props) => {
 
     userInformationCopy[id] = value;
     setUserInformation(userInformationCopy);
-    
+    if (e.target.id == "email") {
+      userInformationCopy[e.target.id] = e.target.value.toLowerCase();
+    }
     switch (id) {
       case "name":
         userInformationCopy.isError.name = nameRegExp.test(value)
@@ -341,7 +350,8 @@ const CreateForm = (props) => {
       userInformation.registrationFee = value;
       userInformation.phoneNumber = phoneNumber;
       delete userInformation.isError;
-      dispatch(ACTIONS.saveRegisterdUserData(userInformation));
+      console.log(userInformation, 'userInformation and sAVE BUTTON IS clicked')
+     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
     else{
       let userInformationCopy = {...userInformation}
@@ -831,11 +841,11 @@ const CreateForm = (props) => {
               </div>
             </div>            
 
-            {message && <p className="text-success">{message}</p>}
+            {message && <p className="text-danger">{message}</p>}
 
             <div className="row">
               <div className="col-md-12 text-end">
-                <button className="mx-3" name="save" value ="save" type="submit" onClick={() => (buttonState.button = 1) } hidden={isHidden}>
+                <button className="mx-3" name="save" show value ="save" type="submit" onClick={() => (buttonState.button = 1) } hidden={isHidden}>
                   {location && location.state && location.state.mode === "edit"
                     ? "Update"
                     : "Save"}

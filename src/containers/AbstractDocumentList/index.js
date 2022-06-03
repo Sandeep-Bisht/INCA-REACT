@@ -8,6 +8,7 @@ import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
 import { Button } from "primereact/button";
 import * as Loader from "react-loader-spinner";
+import "../../css/registred.css";
 
 const AbstractDocumentList = () => {
   const state = useSelector((state) => state.AbstractListReducer);
@@ -110,10 +111,9 @@ const AbstractDocumentList = () => {
       <>
         {/* <button onClick={() =>navigate("/dashboard/previewPaper")}> */}
 
-        {/* <button  onClick={() => redirectToPaperPreviewPage(node)}> */}
-        <button>
+        <button  className="action-btn" onClick={() => redirectToPaperPreviewPage(node)}>
           <i className="fa-solid fa-file-pdf"></i>
-        </button>
+        </button> 
       </>
     );
   };

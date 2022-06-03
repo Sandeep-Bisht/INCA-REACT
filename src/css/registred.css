@@ -20,3 +20,10 @@
     display: flex;
     justify-content: flex-end;
 }
+/* All Registration Action Button */
+.action-btn {
+    background: #152036;
+    color: #fff;
+    border: 0;
+    padding: 5px 10px;
+}
