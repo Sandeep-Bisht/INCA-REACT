@@ -264,30 +264,19 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="welcome-text">
+              <div className="welcome-text pt-4">
                 <h3 className="common-heading">
                   WELCOME TO 42<sup>nd</sup> INCA International Conference
                 </h3>
                 <h4 className="h2">Dear Participants,</h4>
                 <p className="common-para">
-                  It gives me immense pleasure to welcome all presenters and
-                  participants to the Indian National Cartographic Association
-                  (INCA) Thematic Conference 2022 on the theme "Digital
-                  Cartography To Harness Blue Economy" which will be organized
-                  by the Department of INCA (India) on November 09-11, 2022.
-                  Now, I cordially invite all the eminent speakers and
-                  distinguished guests from around the world and various parts
-                  of the country to join us and share their extensive knowledge
-                  and expertise.
-                  <br />
-                  In this conference renowned national and international
-                  scholars, scientists, academicians, planners will take part
-                  among others to share their expertise and experiences which
-                  will enrich our knowledge. It shall be profoundly advantageous
-                  for all the participants including the students.
-                  <br />
-                  Let us all come together to achieve the goals and success of
-                  this mega-event.
+                It gives me immense pleasure to welcome all presenters and participants to the Indian National Cartographic Association (INCA) Conference 2022 on the theme <b>"Digital Cartography To Harness Blue Economy"</b> which will be hosted by National Hydrographic Office, Dehradun from November 09-11, 2022. 
+
+Now, I cordially invite all the eminent speakers and distinguished guests from around the world and various parts of the country to join us and share their extensive knowledge and expertise.
+
+In this conference renowned national and international scholars, scientists, academicians, planners will take part among others to share their expertise and experiences which will enrich our knowledge. It shall be profoundly advantageous for all the participants including the students.
+
+Let us all come together to achieve the goals and success of this mega-event and promote Cartography in India.
                 </p>
               </div>
             </div>
@@ -2612,18 +2601,18 @@ const HomePage = () => {
                     42<sup>nd</sup> INCA International Conference-First Circular
                   </h3>
                   <div className="blog-box">
-                    <span>Demoteam </span>{" "}
+                    <span>INCAteam </span>{" "}
                     <span className="blog-border px-1 mx-1">
                       {" "}
-                      November 09, 2022{" "}
+                      DD/MM/YYYY{" "}
                     </span>{" "}
                     <span> No Comments</span>
                   </div>
-                  <div>
+                  {/* <div>
                     <a className="common-yellow-color" href="#">
                       READ MORE
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -2639,17 +2628,17 @@ const HomePage = () => {
                     Circular
                   </h3>
                   <div className="blog-box">
-                    <span>Demoteam</span>{" "}
+                    <span>INCAteam</span>{" "}
                     <span className="blog-border px-1 mx-1">
-                      November 10, 2022
+                      DD/MM/YYYY
                     </span>{" "}
                     <span>No Comments</span>
                   </div>
-                  <div>
+                  {/* <div>
                     <a className="common-yellow-color" href="#">
                       READ MORE
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -2664,17 +2653,17 @@ const HomePage = () => {
                     42<sup>nd</sup> INCA International Conference-Final Circular
                   </h3>
                   <div className="blog-box">
-                    <span>Demoteam</span>{" "}
+                    <span>INCAteam</span>{" "}
                     <span className="blog-border px-1 mx-1">
-                      November 11, 2022
+                      DD/MM/YYYY
                     </span>{" "}
                     <span>No Comments</span>
                   </div>
-                  <div>
+                  {/* <div>
                     <a className="common-yellow-color" href="#">
                       READ MORE
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -2701,7 +2690,7 @@ const HomePage = () => {
                   ></textarea>
                 </div>
                 <div className="contact-btn">
-                  <button className="common-btn">Send Message</button>
+                  <button className="common-btn mb-3">Send Message</button>
                 </div>
               </form>
             </div>
