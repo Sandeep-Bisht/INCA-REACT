@@ -217,7 +217,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="welcome-text">
+              <div className="welcome-text pt-4">
                 <h3 className="common-heading">
                   WELCOME TO 42<sup>nd</sup> INCA International Conference
                 </h3>
