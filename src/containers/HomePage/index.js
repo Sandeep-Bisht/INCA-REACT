@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Footer } from "../../components/Footer";
@@ -41,6 +41,7 @@ import inca6 from "../../images/inca-image-6.JPG";
 import inca7 from "../../images/inca-image-7.jpg";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
+import Announcement from "../../SampleFiles/announcement.pdf";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -2554,32 +2555,23 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row">           
             <div className="col-lg-4">
+              
               <div className="blog-card">
+              <a href={Announcement} download="Announcement" >
                 <div className="blog-card-pic">
                   <img src={Event} alt="First-Circular"></img>
                 </div>
+                </a>
                 <div className="blog-card-content">
                   <h3>
                     42<sup>nd</sup> INCA International Conference-First Circular
                   </h3>
-                  <div className="blog-box">
-                    <span>Demoteam </span>{" "}
-                    <span className="blog-border px-1 mx-1">
-                      {" "}
-                      November 09, 2022{" "}
-                    </span>{" "}
-                    <span> No Comments</span>
-                  </div>
-                  <div>
-                    <Link className="common-yellow-color" to="/eventblog">
-                      READ MORE
-                    </Link>
-                  </div>
                 </div>
               </div>
-            </div>            
+              
+            </div>         
           </div>
         </div>
       </section>

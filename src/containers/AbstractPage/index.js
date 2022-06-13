@@ -2,6 +2,10 @@ import React from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
+import Abstract_Template_Pdf from "../../SampleFiles/ABSTRACT_TEMPLATE.pdf";
+import Abstract_Template_Docs from "../../SampleFiles/ABSTRACT_TEMPLATE.docx";
+import Fullpaper_Template_Pdf from "../../SampleFiles/FULLPAPER_TEMPLATE.pdf";
+import Fullpaper_Template_Docs from "../../SampleFiles/FULLPAPER_TEMPLATE.docx";
 import "../../css/abstract.css";
 import "../../css/contact.css";
 
@@ -60,44 +64,64 @@ function AbstractPage() {
                       <div className="abstract-pdf-file-icon-wrapper">
                         <div className="row">
                           <div className="col-md-6">
-                        <span className="abstract-pdf-file-icon">
-                          <i class="fa-solid fa-file-pdf"></i>
-                        </span>
-                        <span className="abstract-pdf-file-text">
-                          Abstract Template
-                        </span>
+                            <a
+                              href={Abstract_Template_Pdf}
+                              download="Abstract_Template_Pdf"
+                            >
+                              <span className="abstract-pdf-file-icon">
+                                <i class="fa-solid fa-file-pdf"></i>
+                              </span>
+                              <span className="abstract-pdf-file-text">
+                                Abstract Template
+                              </span>
+                            </a>
+                          </div>
+                          <div className="col-md-6">
+                            <a
+                              href={Fullpaper_Template_Pdf}
+                              download="Fullpaper_Template_Pdf"
+                            >
+                              <span className="abstract-pdf-file-icon">
+                                <i class="fa-solid fa-file-pdf"></i>
+                              </span>
+                              <span className="abstract-pdf-file-text">
+                                Fullpaper Template
+                              </span>
+                            </a>
+                          </div>
                         </div>
-                        <div className="col-md-6">
-                        <span className="abstract-pdf-file-icon">
-                          <i class="fa-solid fa-file-pdf"></i>
-                        </span>
-                        <span className="abstract-pdf-file-text">
-                          Fullpaper Template
-                        </span>
-                        </div>
-                      </div>
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="abstract-word-file-icon-wrapper">
                         <div className="row">
                           <div className="col-md-6">
-                        <span className="abstract-word-file-icon">
-                          <i class="fa-solid fa-file-word"></i>
-                        </span>
-                        <span className="abstract-word-file-text">
-                          Abstract Template
-                        </span>
+                            <a
+                              href={Abstract_Template_Docs}
+                              download="Abstract_Template_Docx"
+                            >
+                              <span className="abstract-word-file-icon">
+                                <i class="fa-solid fa-file-word"></i>
+                              </span>
+                              <span className="abstract-word-file-text">
+                                Abstract Template
+                              </span>
+                            </a>
+                          </div>
+                          <div className="col-md-6">
+                            <a
+                              href={Fullpaper_Template_Docs}
+                              download="Fullpaper_Template_Docx"
+                            >
+                              <span className="abstract-word-file-icon">
+                                <i class="fa-solid fa-file-word"></i>
+                              </span>
+                              <span className="abstract-word-file-text">
+                                Fullpaper Template
+                              </span>
+                            </a>
+                          </div>
                         </div>
-                        <div className="col-md-6">
-                        <span className="abstract-word-file-icon">
-                          <i class="fa-solid fa-file-word"></i>
-                        </span>
-                        <span className="abstract-word-file-text">
-                          Fullpaper Template
-                        </span>
-                        </div>
-                      </div>
                       </div>
                     </div>
                   </div>
