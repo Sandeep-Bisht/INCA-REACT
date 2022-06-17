@@ -4,7 +4,7 @@ import axios from "axios";
 
 export function* userForgotPassword(action) {
     console.log(action, 'sdfsdfsdf')
-  let url = "http://144.91.110.221:4801/api/login";
+  let url = "http://144.91.110.221:4801/api/forgot";
  //let url = "http://localhost:4801/api/forgot";
   try {
     const response = yield call(axios.put, url, {userEmail:action.userEmail});
