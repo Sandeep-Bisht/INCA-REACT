@@ -90,7 +90,6 @@ const AbstractUpload = () => {
         abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
         dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
       }
-
   }
 
   let emptyFormField = () => {

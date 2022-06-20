@@ -350,7 +350,6 @@ const CreateForm = (props) => {
       userInformation.registrationFee = value;
       userInformation.phoneNumber = phoneNumber;
       delete userInformation.isError;
-      console.log(userInformation, 'userInformation and sAVE BUTTON IS clicked')
      dispatch(ACTIONS.saveRegisterdUserData(userInformation));
     }
     else{
@@ -498,7 +497,7 @@ const CreateForm = (props) => {
     let url = "http://localhost:4801/api/payments"
     let data = await axios.post(url);
     
-    console.log(data);
+    
     var options = {
       key: "rzp_test_fXDarHzcgxICzG", // Enter the Key ID generated from the Dashboard
       name: "42 inca ",

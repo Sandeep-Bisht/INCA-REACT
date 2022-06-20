@@ -73,11 +73,12 @@ const ForgotPassword = () => {
                 <div className="row actual-form-1">
                   <div className="col-md-12">
                     <div className="rgstr d-flex justify-content-center position-relative align-items-center mb-4">
+                      
                       <Link
                         to="/login"
                         className="ms-2 forget-back text-decoration-underline position-absolute start-0"
                       >
-                        Back
+                       <i className="fa-solid fa-arrow-left "></i>
                       </Link>
                       <p className="common-form-heading mb-0">
                         Forgot Password

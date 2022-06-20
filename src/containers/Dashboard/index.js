@@ -11,7 +11,6 @@ import { Outlet } from "react-router-dom";
 import "../../css/dashboard.css";
 
 const Dashboard = (props) => {
-  console.log('inside dashbard page')
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState({});
   let [data, setData] = useState([]);
@@ -318,7 +317,7 @@ const Dashboard = (props) => {
                                       </button>
                                     </li>
 
-                                    <li className="ps-3">
+                                    {/* <li className="ps-3">
                                       <button
                                         className="common-blue btn"
                                         onClick={() =>
@@ -330,7 +329,7 @@ const Dashboard = (props) => {
                                         </span>
                                         Full Papers
                                       </button>
-                                    </li>                                    
+                                    </li>                                     */}
                                   </ul>
                                 </div>
                               </div>

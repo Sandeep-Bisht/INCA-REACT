@@ -47,7 +47,6 @@ const AllRegistration = () => {
       setIsLoading(false);
       setUsersInfo(state.userRegistrationInfoSuccess);
       initFilters1();
-      //console.log("dnsdndskndskkkk")
     }
   }, [state.userRegistrationInfoSuccess]);
 

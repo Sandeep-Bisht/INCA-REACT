@@ -4,8 +4,8 @@ import axios from "axios";
 import { GetHeaders } from "../../utils";
 
 export function* uploadAbstractFile(action) {
-  let url = "http://144.91.110.221:4801/api/getregistreduserinfo";
-   //let url = "http://localhost:4801/api/uploaddocument";
+  //let url = "http://144.91.110.221:4801/api/getregistreduserinfo";
+   let url = "http://144.91.110.221:4801/api/uploaddocument";
   try {
     const response = yield call(axios.post, url, action.payload, GetHeaders());
     yield put({

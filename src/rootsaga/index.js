@@ -2,7 +2,7 @@ import {fork, all} from "redux-saga/effects";
 import RegistrationPageSaga from '../containers/UserRegistration/saga'
 import LoginSaga from '../containers/Login/saga'
 import AllUsersSaga from '../containers/RegistredUsers/saga'
-import  GetUserRegistrationInfoSaga from '../containers/AllRegistration/saga'
+import GetUserRegistrationInfoSaga from '../containers/AllRegistration/saga'
 import CreateSaga from "../containers/Create/saga"
 import SponsorSaga from '../containers/SponsorForm/saga'
 import AllSponsorSaga from "../containers/AllSponsor/saga";
@@ -13,6 +13,7 @@ import AttendenceStatusSaga from "../containers/AttendanceStatus/saga";
 import UserAttendanceSaga from "../containers/EventAttendance/saga";
 import UserAbstractListByIdSaga from "../containers/UserAbstractList/saga";
 import ApproveFileSubmissionSaga from "../containers/PreviewPaper/saga";
+import UserForgotPasswordSaga from '../containers/ForgetPassword/saga'
 
 export function* rootSaga () {
     yield all([
@@ -29,6 +30,7 @@ export function* rootSaga () {
         fork(AttendenceStatusSaga),
         fork(UserAttendanceSaga),
         fork(UserAbstractListByIdSaga),
-        fork(ApproveFileSubmissionSaga)
+        fork(ApproveFileSubmissionSaga),
+        fork(UserForgotPasswordSaga)
     ]);
 }
