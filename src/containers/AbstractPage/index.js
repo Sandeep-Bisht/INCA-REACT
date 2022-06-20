@@ -3,7 +3,7 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 import First_Circular_Pdf from "../../SampleFiles/42thINCA-First Circular-20Jun2022.pdf";
-import Abstract_Template_Docs from "../../SampleFiles/ABSTRACT_TEMPLATE.docx";
+import Abstract_Template_Docx from "../../SampleFiles/ABSTRACT_TEMPLATE 42inca.docx";
 import Fullpaper_Template_Pdf from "../../SampleFiles/FULLPAPER_TEMPLATE.pdf";
 import Fullpaper_Template_Docs from "../../SampleFiles/FULLPAPER_TEMPLATE.docx";
 import "../../css/abstract.css";
@@ -92,23 +92,23 @@ function AbstractPage() {
                         </div>
                       </div>
                     </div>
-                    {/* <div className="col-md-6">
+                    <div className="col-md-12">
                       <div className="abstract-word-file-icon-wrapper">
                         <div className="row">
-                          <div className="col-md-6">
+                          <div className="col-md-12">
                             <a
-                              href={Abstract_Template_Docs}
+                              href={Abstract_Template_Docx}
                               download="Abstract_Template_Docx"
                             >
                               <span className="abstract-word-file-icon">
                                 <i class="fa-solid fa-file-word"></i>
                               </span>
                               <span className="abstract-word-file-text">
-                                Abstract Template
+                               Sample Abstract Template
                               </span>
                             </a>
                           </div>
-                          <div className="col-md-6">
+                          {/* <div className="col-md-6">
                             <a
                               href={Fullpaper_Template_Docs}
                               download="Fullpaper_Template_Docx"
@@ -120,10 +120,10 @@ function AbstractPage() {
                                 Fullpaper Template
                               </span>
                             </a>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
-                    </div> */}
+                    </div>
                   </div>
                   <p className="common-para">
                     * Please note that submitting an abstract does not imply

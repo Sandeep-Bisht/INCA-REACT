@@ -303,14 +303,14 @@
 {
     position: relative;
     overflow: visible;
-    margin:15px;
+    margin:10px 12px;
 }
 .home-speakers .speaker-card img
 {
   width:100%;
-  object-fit:cover;
-  height:300px;
-  padding: 0 20px;
+  object-fit:contain;
+  /* height:350px; */
+  /* padding: 0 20px; */
 }
 .home-speakers .speaker-card .speaker-detail
 {
