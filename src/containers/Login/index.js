@@ -152,7 +152,7 @@ const Login = () => {
 
                   <div className="end-wrap mt-3">
                     <p className="common-para">
-                      Not a member yet?
+                      Not register yet?
                       <Link
                         to="/register"
                         className="ms-2 common-yellow-color f2 text-decoration-none"

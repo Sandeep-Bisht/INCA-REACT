@@ -23,7 +23,89 @@
     font-size: 50px;
     font-weight: 600;
 }
-.abstract-page ol .common-para
+.abstract-page .common-para
 {
     line-height: 30px;
+    margin: 0;
+}
+
+.abstract-pdf-file-icon-wrapper .abstract-pdf-file-icon 
+{
+    font-size: 30px;
+    display: inline-block; 
+    padding: 15px;
+    color: #ff1f1fc7;
+}
+.abstract-word-file-icon-wrapper .abstract-word-file-icon 
+{
+    font-size: 30px;
+    display: inline-block;
+    padding: 15px;
+    color: #0808f3b0;
+}
+.abstract-pdf-file-icon-wrapper .abstract-pdf-file-text
+{
+    font-size: 18px;
+    
+}
+.abstract-word-file-icon-wrapper .abstract-word-file-text
+{
+    font-size: 18px;
+}
+
+/* Responsive */
+
+
+@media only screen and (max-width : 1199px){
+.abstract-pdf-file-icon-wrapper .abstract-pdf-file-icon {
+    font-size: 25px;
+    padding: 10px;
+}
+.abstract-word-file-icon-wrapper .abstract-word-file-icon 
+{
+    font-size: 25px;
+    padding: 10px;
+}
+.abstract-pdf-file-icon-wrapper .abstract-pdf-file-text
+{
+    font-size: 16px;
+    font-weight: 400;
+    
+}
+.abstract-word-file-icon-wrapper .abstract-word-file-text
+{
+    font-size: 16px;
+    font-weight: 400;
+}
+}
+
+@media only screen and (max-width : 991px){
+    .abstract-pdf-file-icon-wrapper .abstract-pdf-file-icon {
+        font-size: 24px;
+        padding: 5px;
+    }
+    .abstract-word-file-icon-wrapper .abstract-word-file-icon 
+    {
+        font-size: 24px;
+        padding: 5px;
+    }
+    .abstract-pdf-file-icon-wrapper .abstract-pdf-file-text
+    {
+        font-size: 15px;
+        display: block;
+        padding: 5px 0;
+    }
+    .abstract-word-file-icon-wrapper .abstract-word-file-text
+    {
+        font-size: 15px;
+        display: block;
+        padding: 5px 0;
+    }
+}
+@media only screen and (max-width : 767px){
+    .abstract-pdf-file-icon-wrapper , .abstract-word-file-icon-wrapper
+    {
+        display: flex;
+        justify-content: center;
+    }
 }

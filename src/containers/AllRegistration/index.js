@@ -27,13 +27,13 @@ const AllRegistration = () => {
       <>
       <div className="d-flex">
         <div >
-        <button className="text-primary" onClick={() => redirectToCretePage(node, "edit")}>
+        <button className="action-btn" onClick={() => redirectToCretePage(node, "edit")}>
           <i className="fa-solid fa-pen "></i>
         </button>
         </div>
         
         <div className="ps-2">
-        <button className="text-primary" onClick={() => redirectToCretePage(node, "view")}>
+        <button className="action-btn" onClick={() => redirectToCretePage(node, "view")}>
           <i className="fa-solid fa-eye "></i>
         </button>
         </div>
@@ -47,6 +47,7 @@ const AllRegistration = () => {
       setIsLoading(false);
       setUsersInfo(state.userRegistrationInfoSuccess);
       initFilters1();
+      //console.log("dnsdndskndskkkk")
     }
   }, [state.userRegistrationInfoSuccess]);
 

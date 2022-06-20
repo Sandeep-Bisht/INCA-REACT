@@ -40,8 +40,8 @@
 .home-banner .right .theme-color
 {
     color: #0096FF;
-    font-size: 21px;
-    font-weight: 500;
+    font-size: 30px;
+    font-weight: 600;
     text-transform: uppercase;
 }
 .home-banner .right .banner-title .banner-small
@@ -764,6 +764,7 @@ padding: 50px 40px;
 .contact-area
 {
     background-color: #f8f8f8;
+    padding : 40px 0;
 }
 
 .contact-area .contact-text input, .contact-email input , .contact-textarea textarea
@@ -969,7 +970,7 @@ padding: 50px 40px;
 @media only screen and (max-width :991px) {
    
     .home-banner .right .theme-color {
-        font-size: 13px;
+        font-size: 20px;
     }
     .home-banner .right .banner-title .banner-small {
         font-size: 21px;
@@ -1005,6 +1006,9 @@ padding: 50px 40px;
     .header-wrapper .navbar .nav-display-1
     {
         display: none;
+    }
+    .Welcome-page .adhir-arora-image {
+        width: 100%;
     }
 }
 

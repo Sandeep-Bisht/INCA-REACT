@@ -2,23 +2,13 @@ import React, {useEffect, useState} from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as ACTIONS from './action';
-import jwt_decode from "jwt-decode";
-
-// Import the main component
 import { Button, Viewer } from "@react-pdf-viewer/core"; // install this library
 
-// Import the styles
 import "@react-pdf-viewer/core/lib/styles/index.css";
-//import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 // Worker
 import { Worker } from "@react-pdf-viewer/core"; // install this library
-//import pdfPath from "../../PDF/sample.pdf";
-//import pdfPath from '../../files/1653493014230--Sandeep Bisht Offer Letter.pdf'
 
 const PreviewPaper = () => {
-  // Create new plugin instance
-
-  // for submit event
   const [viewPdf, setViewPdf] = useState('');
   const [approveDocs, setApproveDocs] = useState({
     paperApproveStatus : null,

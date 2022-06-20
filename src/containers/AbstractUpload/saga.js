@@ -21,8 +21,8 @@ export function* uploadAbstractFile(action) {
 }
 
 export function* saveAbstractData(action) {
-     let url = "http://144.91.110.221:4801/api/saveabstractpaper";
-     //let url = "http://localhost:4801/api/saveabstractpaper";
+     //let url = "http://144.91.110.221:4801/api/saveabstractpaper";
+     let url = "http://localhost:4801/api/saveabstractpaper";
     try {
       const response = yield call(axios.post, url, action.payload, GetHeaders());
       yield put({

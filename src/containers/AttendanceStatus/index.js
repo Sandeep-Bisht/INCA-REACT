@@ -63,11 +63,16 @@ const AttendanceStatus = () => {
     if(e.target.checked){
       setNodeId(node._id)
      dispatch(ACTIONS.markUserAttendance(node._id))
-      navigate("/dashboard");
+     setTimeout(() => {
+       const origin = window.location.origin;
+      window.location.href = `${origin}/dashboard`
+     }, 2000);
+     //navigate("/dashboard");
     }
     // else {
     //   setNodeId("")
-    // }
+    // }const origin = window.location.origin;
+    
     
     
     

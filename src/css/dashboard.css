@@ -32,7 +32,6 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 15px;
-  text-transform: capitalize;
   color: #fff;
   letter-spacing: 0;
 }
@@ -114,10 +113,9 @@
 {
   background: #1b2a47;
   width: 100%;
-  margin-top: 24px;
-  margin-left: 14px;
-  padding: 1px 60px!important;
-
+  margin-top: 21px;
+  padding: 0;
+  
 }
 .dash-body .left-part aside ul li button,.dash-body .left-part .accordion-button,
 .dashboard-header .dropdown-item
