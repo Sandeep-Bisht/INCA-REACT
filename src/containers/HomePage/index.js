@@ -314,7 +314,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    09 November 2022 to <br /> 11 November 2022.
+                    09 November 2022 <br/> to <br /> 11 November 2022.
                   </p>
                 </div>
               </div>
@@ -368,7 +368,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    09 November 2022 to <br /> 11 November 2022.
+                    09 November 2022 <br/> to <br /> 11 November 2022.
                   </p>
                 </div>
               </div>
@@ -2511,7 +2511,7 @@ Let us all come together to achieve the goals and success of this mega-event and
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
               {/* <p className="common-pre-heading">OUR SPONSORS</p> */}
-              <h2>Sponsors And Partners</h2>
+              <h2>SPONSOR</h2>
               {/* <p className="mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
