@@ -2693,7 +2693,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                   </div>
                   <div className="contact-venue">
                     <h3>Phone number :</h3>
-                    <p className="common-para mb-0">+91 937-1633-699</p>
+                    <p className="common-para mb-0">+91 135 2746290</p>
                   </div>
                 </div>
               </div>
