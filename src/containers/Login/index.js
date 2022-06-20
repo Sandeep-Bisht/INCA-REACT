@@ -21,7 +21,12 @@ const Login = () => {
 
   let loginOnChangeHandler = (e) => {
     let loginPayloadCopy = { ...loginPayload };
-    loginPayloadCopy[e.target.id] = e.target.value;
+    if (e.target.id == "userEmail") {
+      loginPayloadCopy[e.target.id] = e.target.value.toLowerCase();
+    }
+    else {
+      loginPayloadCopy[e.target.id] = e.target.value;
+    }
     setLoginMessage("")
     setLoginPayload(loginPayloadCopy);
   };
@@ -34,7 +39,7 @@ const Login = () => {
       dispatch(ACTIONS.resetToInitialState());
     }
     else {
-      if (state && state.userLoginSuccess  && state.userLoginSuccess.token == "") {
+      if (state && state.userLoginSuccess && state.userLoginSuccess.token == "") {
         setLoginLoder(false)
         setLoginMessage(state.userLoginSuccess.message)
       }
@@ -42,7 +47,7 @@ const Login = () => {
   }, [state.userLoginSuccess]);
 
   useEffect(() => {
-    if(state.userLoginFailure){
+    if (state.userLoginFailure) {
       setLoginLoder(false)
       setLoginMessage(state.userLoginFailure.message)
     }
@@ -147,7 +152,7 @@ const Login = () => {
 
                   <div className="end-wrap mt-3">
                     <p className="common-para">
-                      Not a member yet?
+                      Not register yet?
                       <Link
                         to="/register"
                         className="ms-2 common-yellow-color f2 text-decoration-none"

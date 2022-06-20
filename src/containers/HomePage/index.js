@@ -1,24 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import "../../css/home.css";
-import attend1 from "../../images/attend1.png";
-import attend2 from "../../images/attend2.png";
-import attend3 from "../../images/attend3.png";
-import attend4 from "../../images/attend4.png";
-import attend5 from "../../images/attend5.png";
-import attend6 from "../../images/attend6.png";
 import reg2 from "../../images/reg2.png";
-import reg3 from "../../images/reg3.png";
 import reg4 from "../../images/reg4.png";
-import reg5 from "../../images/reg5.png";
-import visitor1 from "../../images/visitor-1.jpg";
-import client8 from "../../images/client-8.png";
-import client9 from "../../images/client-9.png";
-import client10 from "../../images/client-10.png";
 import comittee1 from "../../images/Raj1.jpg";
 import comittee2 from "../../images/CH-Adhir-Arora.png";
 import comittee3 from "../../images/bkramprasad.jpg";
@@ -28,7 +16,6 @@ import comittee6 from "../../images/cmde-puesh-pawsey.jpg";
 import comittee7 from "../../images/ls-pathania.jpg";
 import gikslogo from "../../images/Giks-logo.png";
 import nhologo from "../../images/NHO-logo.png";
-import carislogo from "../../images/Caris-logo.png";
 import gislogo from "../../images/gis-logo.png";
 import soilogo from "../../images/survey-of-India-logo.png";
 import firstcircular from "../../images/First-Circular.png";
@@ -38,10 +25,6 @@ import gallary2 from "../../images/gallery-2.jpg";
 import gallary3 from "../../images/gallery-3.jpg";
 import gallary4 from "../../images/gallery-4.jpg";
 import gallary5 from "../../images/gallery-5.jpg";
-import gallary6 from "../../images/gallery-6.jpg";
-import gallary7 from "../../images/gallery-7.jpg";
-import gallary8 from "../../images/gallery-8.jpg";
-import gallary9 from "../../images/gallery-9.jpg";
 import idelimage from "../../images/idel-image.png";
 import esrilogo from "../../images/esri-logo.png";
 import iiclogo from "../../images/iic-logo.png";
@@ -58,6 +41,7 @@ import inca6 from "../../images/inca-image-6.JPG";
 import inca7 from "../../images/inca-image-7.jpg";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
+import Announcement from "../../SampleFiles/announcement.pdf";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -105,31 +89,6 @@ const HomePage = () => {
       clearInterval(interval.current);
     };
   });
-
-  // useEffect(() => {
-  //   var dest = new Date("nov 1, 2022 00:00:00").getTime();
-
-  //   var x = setInterval(function () {
-
-  //     var now = new Date().getTime();
-
-  //     var diff = dest - now;
-
-  //     var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-  //     var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-  //     var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-  //     var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-  //     document.getElementById("day").innerHTML = days;
-  //     document.getElementById("hours").innerHTML = hours;
-  //     document.getElementById("minutes").innerHTML = minutes;
-  //     document.getElementById("seconds").innerHTML = seconds;
-  //   }, 1000);
-
-  // }, [])
 
   const navigation = useNavigate();
 
@@ -188,18 +147,13 @@ const HomePage = () => {
                   >
                     Register
                   </button>
-                  <a
+                  <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
-                    href="#home-schedule-desk"
+                    onClick={() => navigation("/abstractpage")}
                   >
                     Abstract Submission
-                  </a>
-                  <a
-                    className="common-btn-transparent ms-3 home-schedule-mob"
-                    href="#home-schedule-mob"
-                  >
-                    Abstract Submission
-                  </a>
+                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -2590,12 +2544,15 @@ Let us all come together to achieve the goals and success of this mega-event and
             </div>
           </div>
 
-          <div className="row">
+          <div className="row">           
             <div className="col-lg-4">
+              
               <div className="blog-card">
+              <a href={Announcement} download="Announcement" >
                 <div className="blog-card-pic">
                   <img src={Event} alt="First-Circular"></img>
                 </div>
+                </a>
                 <div className="blog-card-content">
                   <h3>
                     42<sup>nd</sup> INCA International Conference-First Circular
@@ -2617,7 +2574,7 @@ Let us all come together to achieve the goals and success of this mega-event and
               </div>
             </div>
 
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <div className="blog-card">
                 <div className="blog-card-pic">
                   <img src="" alt="Second-Circular"></img>
@@ -2634,16 +2591,16 @@ Let us all come together to achieve the goals and success of this mega-event and
                     </span>{" "}
                     <span>No Comments</span>
                   </div>
-                  {/* <div>
+                  <div>
                     <a className="common-yellow-color" href="#">
                       READ MORE
                     </a>
-                  </div> */}
+                  </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <div className="blog-card">
                 <div className="blog-card-pic">
                   <img src="" alt="Final-Circular"></img>
@@ -2659,14 +2616,14 @@ Let us all come together to achieve the goals and success of this mega-event and
                     </span>{" "}
                     <span>No Comments</span>
                   </div>
-                  {/* <div>
+                  <div>
                     <a className="common-yellow-color" href="#">
                       READ MORE
                     </a>
-                  </div> */}
+                  </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

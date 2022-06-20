@@ -1,11 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import "../../css/contact.css";
 import "../../css/about.css";
-import about1 from "../../images/about1.jpeg";
-import about4 from "../../images/about4.jpeg";
-import aboutsingle from "../../images/aboutsingle.png";
 import buddhaTemple from "../../images/buddha-temple.jpg";
 import clockTower from "../../images/clock-tower.jpg";
 import doonAirport from "../../images/doon-airport.png";
@@ -14,10 +11,6 @@ import doonStadium from "../../images/doon-stadium.jpg";
 import doonWeather1 from "../../images/weather-1.jpg";
 import doonWeather2 from "../../images/weather-2.jpg";
 import doonWeather3 from "../../images/weather-3.jpg";
-import hotel1 from "../../images/sarovar-portico-dehradun.jpg";
-import hotel2 from "../../images/marbella.jpg";
-import hotel3 from "../../images/hotel-madhuban.jpg";
-import hotel4 from "../../images/hotel-boulevard.jpg";
 import NHOBuilding from "../../images/NHO-building.jpg";
 
 const About = () => {

@@ -33,8 +33,6 @@ const UserAbstractList = () => {
 
   }, [state.getUserAbstractListSuccess])
 
-  console.log(userAbstractList,"userAbstractList set after page load", state.getUserAbstractListSuccess, "state")
-
   const columns = [        
     { field: "abstractPaperName", header: "Paper Name" },
     { field: "abstractPaperDescription", header: "Paper Description" }
@@ -50,12 +48,10 @@ const UserAbstractList = () => {
   const statusBodyTemplate = (node) => {
     return (
       <>
-        <p>{node.paperApproveStatus ? "Approved" : "Pending"}</p>
+        {node.paperApproveStatus ? "Approved" : node.paperApproveStatus == null ? "Pending" : "Reject"}
       </>
     );
   };
-
-  
 
   const actionBodyTemplate = (node) => {
     return (

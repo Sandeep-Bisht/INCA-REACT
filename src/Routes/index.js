@@ -3,9 +3,10 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import * as Loader from "react-loader-spinner";
 import { useLocation } from "react-router-dom";
-import PreviewPaper from "../containers/PreviewPaper";
+import EventBlog from "../containers/EventBlog";
 
-
+const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
+const AbstractPage = lazy(() => import("../containers/AbstractPage"))
 const HomePage = lazy(() => import("../containers/HomePage"));
 const UserRegistration = lazy(() => import("../containers/UserRegistration"));
 const Login = lazy(() => import("../containers/Login"));
@@ -35,13 +36,12 @@ export const ApplicationRoutes = ({ path }) => {
   let location = useLocation();
 
   useEffect(() => {
-    // location.pathname.includes('/eventattendance')
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
       setLoggedInUser(decodedToken.user.user);
     }
     else if(location.pathname.includes('/eventattendance')){
-      navigate("/eventattendance/kjgjh");
+      navigate("/eventattendance");
     }
     else {
       navigate(`${location.pathname}`);
@@ -49,6 +49,7 @@ export const ApplicationRoutes = ({ path }) => {
     
   
   }, []);
+
 
   return (
     <>
@@ -75,12 +76,8 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/forgot" element={<ForgotPassword />} />  
           <Route path="/eventattendance/:id" element={<EventAttendance />} />                
           <Route path="/dashboard" element={<Dashboard />} >
-          <Route path="/dashboard/create" element={<CreateForm />} />         
-
-            <Route
-              path="/dashboard/allRegistration" element={<AllRegistration />}
-            />
-            {/* {loggedInUser.role == "admin" && ( */}
+          <Route path="/dashboard/create" element={<CreateForm />} />        
+          <Route path="/dashboard/allRegistration" element={<AllRegistration />} />
               <Route path="/dashboard/users" element={<RegisteredUser />} />
               <Route path="/dashboard/attendancestatus" element={<AttendanceStatus />} />
               <Route path="/dashboard/allSponsor" element={<AllSponsor />} />
@@ -92,9 +89,10 @@ export const ApplicationRoutes = ({ path }) => {
             {/* )} */}
           </Route>
           <Route path="/contact" element={<Contact />} />
+          <Route path="/abstractpage" element={<AbstractPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/sponsorForm" element={<SponsorForm />} />
-          
+          <Route path="/eventblog" element={<EventBlog />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>

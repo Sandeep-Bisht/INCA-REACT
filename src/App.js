@@ -4,13 +4,10 @@ import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";                                //icons
 import './css/common.css';
 
-
-
 function App() {
-  let path = window.location.pathname
   return (
     <div className="App">
-      <ApplicationRoutes path = {path} />
+      <ApplicationRoutes  />
     </div>
   );
 }

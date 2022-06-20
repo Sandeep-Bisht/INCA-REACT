@@ -5,8 +5,8 @@ import { GetHeaders } from "../../utils";
 
 export function* getUserAbstractList(action) {
  
-  //let url = `http://144.91.110.221:4801/api/getabstractpaper/${action.id}`;
-  let url = `http://localhost:4801/api/getabstractpaper/${action.id}`;
+  let url = `http://144.91.110.221:4801/api/getabstractpaper/${action.id}`;
+  //let url = `http://localhost:4801/api/getabstractpaper/${action.id}`;
 
   try {
     const response = yield call(axios.get, url, GetHeaders());
