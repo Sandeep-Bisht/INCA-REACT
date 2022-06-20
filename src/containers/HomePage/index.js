@@ -309,9 +309,9 @@ Let us all come together to achieve the goals and success of this mega-event and
                 <div className="right">
                   <h2 className="h2">Where is the Event:</h2>
                   <p className="common-para">
-                    <b> National Hydrographic Office </b> <br />
-                    107-A, Rajpur Rd, Hathibarkala Salwala, Dehradun,
-                    Uttarakhand 248001
+                  <b> National Hydrographic Office </b> <br />
+                      107-A, Rajpur Rd, Post Box – 75,<br/> Dehradun – 248001,
+                      Uttarakhand, India
                   </p>
                 </div>
               </div>
