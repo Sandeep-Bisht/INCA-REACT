@@ -26,7 +26,6 @@ const UserAbstractList = () => {
 
   useEffect (() => {
     if(state && state.getUserAbstractListSuccess ){
-      console.log(state && state.getUserAbstractListSuccess, 'state && state.getUserAbstractListSuccessstate && state.getUserAbstractListSuccess')
       setIsLoading(false)
       setUserAbstractList(state.getUserAbstractListSuccess.data)
   }

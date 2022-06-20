@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import {  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Footer } from "../../components/Footer";
@@ -30,7 +30,7 @@ import esrilogo from "../../images/esri-logo.png";
 import iiclogo from "../../images/iic-logo.png";
 import isrologo from "../../images/isro-logo.png";
 import natmologo from "../../images/natmo-logo.png";
-import Event from "../../images/event-announcement.jpg";
+import Event from "../../images/Announcement.png";
 import incalogo from "../../images/logo.png";
 import inca1 from "../../images/inca-image-1.JPG";
 import inca2 from "../../images/inca-image-2.JPG";
@@ -209,11 +209,13 @@ const HomePage = () => {
                   <img src={comittee2} alt="" className="img-fluid" />
                 </div>
                 <div className="adhir-image-title">
-                  <p className="common-para">Vice Admiral Adhir Arora </p>
-                  <p className="common-para">NM , GOI</p>
-                  <p className="common-para">
-                    CHIEF HYDROGRAPHER & PRESIDENT INCA
+                  <p className="common-para"> Vice Admiral <br /> Adhir Arora , NM </p>                  
+                  <p className="common-para">                    
+                    Chief Hydrographer to the Govt. of India
+                     & PRESIDENT INCA
                   </p>
+                  
+                        
                 </div>
               </div>
             </div>
@@ -224,24 +226,13 @@ const HomePage = () => {
                 </h3>
                 <h4 className="h2">Dear Participants,</h4>
                 <p className="common-para">
-                  It gives me immense pleasure to welcome all presenters and
-                  participants to the Indian National Cartographic Association
-                  (INCA) Thematic Conference 2022 on the theme "Digital
-                  Cartography To Harness Blue Economy" which will be organized
-                  by the Department of INCA (India) on November 09-11, 2022.
-                  Now, I cordially invite all the eminent speakers and
-                  distinguished guests from around the world and various parts
-                  of the country to join us and share their extensive knowledge
-                  and expertise.
-                  <br />
-                  In this conference renowned national and international
-                  scholars, scientists, academicians, planners will take part
-                  among others to share their expertise and experiences which
-                  will enrich our knowledge. It shall be profoundly advantageous
-                  for all the participants including the students.
-                  <br />
-                  Let us all come together to achieve the goals and success of
-                  this mega-event.
+                It gives me immense pleasure to welcome all presenters and participants to the Indian National Cartographic Association (INCA) Conference 2022 on the theme <b>"Digital Cartography To Harness Blue Economy"</b> which will be hosted by National Hydrographic Office, Dehradun from November 09-11, 2022. 
+
+Now, I cordially invite all the eminent speakers and distinguished guests from around the world and various parts of the country to join us and share their extensive knowledge and expertise.
+
+In this conference renowned national and international scholars, scientists, academicians, planners will take part among others to share their expertise and experiences which will enrich our knowledge. It shall be profoundly advantageous for all the participants including the students.
+
+Let us all come together to achieve the goals and success of this mega-event and promote Cartography in India.
                 </p>
               </div>
             </div>
@@ -279,7 +270,7 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    09 November 2022 to <br /> 11 November 2022.
+                    09 November 2022 <br/> to <br /> 11 November 2022.
                   </p>
                 </div>
               </div>
@@ -333,7 +324,7 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    09 November 2022 to <br /> 11 November 2022.
+                    09 November 2022 <br/> to <br /> 11 November 2022.
                   </p>
                 </div>
               </div>
@@ -718,7 +709,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        CMDE Peush Pawsey <br /> CB & Press
+                        Cmde Peush Pawsey <br /> CB & Press
                       </h3>
                       <span className="speaker-post">Chairman</span>
                     </div>
@@ -2476,7 +2467,7 @@ const HomePage = () => {
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
               {/* <p className="common-pre-heading">OUR SPONSORS</p> */}
-              <h2>Sponsors And Partners</h2>
+              <h2>SPONSOR</h2>
               {/* <p className="mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -2559,7 +2550,8 @@ const HomePage = () => {
             <div className="col-lg-4">
               
               <div className="blog-card">
-              <a href={Announcement} download="Announcement" >
+                {/* href={Announcement} download="Announcement" */}
+              <a target="_blank" href={Announcement}>
                 <div className="blog-card-pic">
                   <img src={Event} alt="First-Circular"></img>
                 </div>
@@ -2568,10 +2560,73 @@ const HomePage = () => {
                   <h3>
                     42<sup>nd</sup> INCA International Conference-First Circular
                   </h3>
+                  {/* <div className="blog-box">
+                    <span>INCAteam </span>{" "}
+                    <span className="blog-border px-1 mx-1">
+                      {" "}
+                      DD/MM/YYYY{" "}
+                    </span>{" "}
+                    <span> No Comments</span>
+                  </div> */}
+                  {/* <div>
+                    <a className="common-yellow-color" href="#">
+                      READ MORE
+                    </a>
+                  </div> */}
                 </div>
               </div>
-              
-            </div>         
+            </div>
+
+            {/* <div className="col-lg-4">
+              <div className="blog-card">
+                <div className="blog-card-pic">
+                  <img src="" alt="Second-Circular"></img>
+                </div>
+                <div className="blog-card-content">
+                  <h3>
+                    42<sup>nd</sup> INCA International Conference-Second
+                    Circular
+                  </h3>
+                  <div className="blog-box">
+                    <span>INCAteam</span>{" "}
+                    <span className="blog-border px-1 mx-1">
+                      DD/MM/YYYY
+                    </span>{" "}
+                    <span>No Comments</span>
+                  </div>
+                  <div>
+                    <a className="common-yellow-color" href="#">
+                      READ MORE
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div> */}
+
+            {/* <div className="col-lg-4">
+              <div className="blog-card">
+                <div className="blog-card-pic">
+                  <img src="" alt="Final-Circular"></img>
+                </div>
+                <div className="blog-card-content">
+                  <h3>
+                    42<sup>nd</sup> INCA International Conference-Final Circular
+                  </h3>
+                  <div className="blog-box">
+                    <span>INCAteam</span>{" "}
+                    <span className="blog-border px-1 mx-1">
+                      DD/MM/YYYY
+                    </span>{" "}
+                    <span>No Comments</span>
+                  </div>
+                  <div>
+                    <a className="common-yellow-color" href="#">
+                      READ MORE
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -2595,7 +2650,7 @@ const HomePage = () => {
                   ></textarea>
                 </div>
                 <div className="contact-btn">
-                  <button className="common-btn">Send Message</button>
+                  <button className="common-btn mb-3">Send Message</button>
                 </div>
               </form>
             </div>
@@ -2640,7 +2695,7 @@ const HomePage = () => {
                   </div>
                   <div className="contact-venue">
                     <h3>Phone number :</h3>
-                    <p className="common-para mb-0">+91 937-1633-699</p>
+                    <p className="common-para mb-0">+91 135 2746290</p>
                   </div>
                 </div>
               </div>

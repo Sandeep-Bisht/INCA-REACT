@@ -25,15 +25,15 @@ function ImportantDates() {
   <tbody>
     <tr>
       <td className='imp-table-date'>Last date for submitting the abstracts</td>
-      <td className='d-flex justify-content-end'><div className='dates'>DD/MM/YYYY</div></td>
+      <td className='d-flex justify-content-end'><div className='dates'>20/July/2022</div></td>
     </tr>
     <tr>
       <td className='imp-table-date'>Acceptance of paper will be notified by</td>
-      <td className='d-flex justify-content-end'><div className='dates'>DD/MM/YYYY</div></td>
+      <td className='d-flex justify-content-end'><div className='dates'>20/August/2022</div></td>
     </tr>
     <tr>
       <td className='imp-table-date'>Last date for submission of full paper</td>
-      <td className='d-flex justify-content-end'><div className='dates'>DD/MM/YYYY</div></td>
+      <td className='d-flex justify-content-end'><div className='dates'>20/September/2022</div></td>
     </tr>
     <tr>
       <td className='imp-table-date'>E-Mail Address for queries</td>

@@ -56,7 +56,7 @@ const Contact = () => {
                   <i className="fa-solid fa-file-lines"></i>
                   <h3 className="h2">CONTACT</h3>
                   <p className="common-para">
-                    Phone No: +91 937-1633-699 <br /> Email: info@42inca.org
+                    Phone No: +91 135 2746290 <br /> Email: info@42inca.org
                   </p>
                 </div>
               </div>
@@ -67,7 +67,7 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">EVENT DETAILS</h3>
                   <p className="common-para">
-                    09 November - 11 November 2022 Starts 09:00am to 06:00 pm
+                    09 November - 11 November 2022 Starts 09:00 am to 06:00 pm
                   </p>
                 </div>
               </div>

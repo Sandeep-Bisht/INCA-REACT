@@ -59,7 +59,6 @@ const AttendanceStatus = () => {
 
 
   let markAttendanceStatus = (e, node) => {
-    console.log(e.target.checked, node, 'node value')
     if(e.target.checked){
       setNodeId(node._id)
      dispatch(ACTIONS.markUserAttendance(node._id))
@@ -88,7 +87,6 @@ const AttendanceStatus = () => {
 
 
   const actionBodyTemplate = (node, column) => {
-    console.log(node, 'nodeeeee')
    // let checkBoxId = Math.random();
     return (
       <>

@@ -116,7 +116,6 @@ const SponsorForm = () => {
   const checkValidation = () => {
     
     let sponsorFormCopy = { ...sponsorForm };
-    console.log("error name after click",sponsorFormCopy)
     Object.keys(sponsorFormCopy).map((item) => {
       switch (item) {
         case "name":
@@ -162,7 +161,6 @@ const SponsorForm = () => {
       sponsorForm.mobile = mobile;
       delete sponsorForm.isError;
       setLoginLoder(true);
-      console.log("button is clicked");
       
       dispatch(ACTIONS.createSponsorUser(sponsorForm));
     }
