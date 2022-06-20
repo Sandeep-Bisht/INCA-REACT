@@ -11,7 +11,7 @@ export const Footer = () => {
           <div className="row brdr">
             <div className="col-md-3 col-6">
               <div className="box-1">
-                <h2>Inca</h2>
+                <h2>INCA</h2>
                 <p className="f1">
                   The Indian National Cartographic Association (INCA) has
                   evolved into one of the world's most prominent professional

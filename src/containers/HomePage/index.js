@@ -2750,7 +2750,7 @@ Let us all come together to achieve the goals and success of this mega-event and
             <div className="col-md-6">
               {/* <p className="common-pre-heading">INCA Events</p> */}
               <h2 className="common-heading ">
-                Gallery Of Previous Inca Conference
+                Gallery of previous INCA Conference
               </h2>
             </div>
             <div className="col-md-6">
