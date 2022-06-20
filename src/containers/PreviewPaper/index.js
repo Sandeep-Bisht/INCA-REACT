@@ -31,11 +31,9 @@ const PreviewPaper = () => {
 
   useEffect(() => {
     if(location && location.state){ 
-      let filePath = `http://localhost:4801/${location.state.abstractFileUrl}`
-      console.log(filePath, 'filepath')
+      let filePath = `http://144.91.110.221:4801/${location.state.abstractFileUrl}`
       filePath = filePath.replace('\\', '/')
-      console.log(filePath, 'filepathafter')
-       setViewPdf(filePath)
+      setViewPdf(filePath)
       approveDocs.userId = location.state.userId;
       approveDocs.docsId = location.state._id;      
       setApproveDocs(approveDocs);
@@ -46,10 +44,7 @@ const PreviewPaper = () => {
   const approvefilesubmissionHandler = (status) => {   
     approveDocs.paperApproveStatus = status;  
     dispatch(ACTIONS.approveFileSubmission(approveDocs));
-    
   }
-
-  console.log(viewPdf, 'fileurl inside view')
 
   return (
     <>

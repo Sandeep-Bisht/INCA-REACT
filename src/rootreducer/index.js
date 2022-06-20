@@ -12,6 +12,7 @@
  import AttendenceStatusReducer from "../containers/AttendanceStatus/reducer";
  import UserAttendanceReducer from "../containers/EventAttendance/reducer";
  import UserAbstractListReducer from "../containers/UserAbstractList/reducer";
+ import UserForgotPasswordReducer from '../containers/ForgetPassword/reducer'
 
 const rootReducer = combineReducers({
     RegisterReducer,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
     AbstractListReducer,
     AttendenceStatusReducer,
     UserAttendanceReducer,
-    UserAbstractListReducer
+    UserAbstractListReducer,
+    UserForgotPasswordReducer
 });
 export default rootReducer;

@@ -84,13 +84,14 @@ const AbstractUpload = () => {
       e.preventDefault();
       setLoading(true)
       if (localStorage.getItem("token")) {
+        console.log('inside this block')
         let decodedToken = jwt_decode(localStorage.getItem("token"));
         abstractDocumentPayload.userId = decodedToken.user.user._id;
         abstractDocumentPayload.userName = decodedToken.user.user.userName;
         abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
         dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
       }
-
+      console.log('inside else', localStorage.getItem("token"))
   }
 
   let emptyFormField = () => {
