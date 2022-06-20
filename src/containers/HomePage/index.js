@@ -209,11 +209,13 @@ const HomePage = () => {
                   <img src={comittee2} alt="" className="img-fluid" />
                 </div>
                 <div className="adhir-image-title">
-                  <p className="common-para">Vice Admiral Adhir Arora </p>
-                  <p className="common-para">NM , GOI</p>
-                  <p className="common-para">
-                    CHIEF HYDROGRAPHER & PRESIDENT INCA
+                  <p className="common-para"> Vice Admiral <br /> Adhir Arora , NM </p>                  
+                  <p className="common-para">                    
+                    Chief Hydrographer to the Govt. of India
+                     & PRESIDENT INCA
                   </p>
+                  
+                        
                 </div>
               </div>
             </div>
@@ -707,7 +709,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        CMDE Peush Pawsey <br /> CB & Press
+                        Cmde Peush Pawsey <br /> CB & Press
                       </h3>
                       <span className="speaker-post">Chairman</span>
                     </div>
