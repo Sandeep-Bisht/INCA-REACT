@@ -31,6 +31,7 @@ import iiclogo from "../../images/iic-logo.png";
 import isrologo from "../../images/isro-logo.png";
 import natmologo from "../../images/natmo-logo.png";
 import Event from "../../images/Announcement.png";
+import Event_2 from "../../SampleFiles/firstscreen.png";
 import incalogo from "../../images/logo.png";
 import inca1 from "../../images/inca-image-1.JPG";
 import inca2 from "../../images/inca-image-2.JPG";
@@ -42,6 +43,7 @@ import inca7 from "../../images/inca-image-7.jpg";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
 import Announcement from "../../SampleFiles/announcement.pdf";
+import SecondSercular from "../../SampleFiles/42thINCA-First Circular-20Jun2022.pdf";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -2558,7 +2560,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Conference-First Circular
+                    42<sup>nd</sup> INCA International Conference- Notice & Agenda
                   </h3>
                   {/* <div className="blog-box">
                     <span>INCAteam </span>{" "}
@@ -2577,8 +2579,36 @@ Let us all come together to achieve the goals and success of this mega-event and
               </div>
             </div>
 
-            {/* <div className="col-lg-4">
-              <div className="blog-card">
+           
+
+            <div className="col-lg-4">
+            <div className="blog-card">
+                {/* href={Announcement} download="Announcement" */}
+              <a target="_blank" href={SecondSercular}>
+                <div className="blog-card-pic">
+                  <img src={Event_2} alt="Second-Circular"></img>
+                </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    42<sup>nd</sup> INCA International Conference-First Circular
+                  </h3>
+                  {/* <div className="blog-box">
+                    <span>INCAteam </span>{" "}
+                    <span className="blog-border px-1 mx-1">
+                      {" "}
+                      DD/MM/YYYY{" "}
+                    </span>{" "}
+                    <span> No Comments</span>
+                  </div> */}
+                  {/* <div>
+                    <a className="common-yellow-color" href="#">
+                      READ MORE
+                    </a>
+                  </div> */}
+                </div>
+              </div>
+               {/*<div className="blog-card">
                 <div className="blog-card-pic">
                   <img src="" alt="Second-Circular"></img>
                 </div>
@@ -2600,8 +2630,8 @@ Let us all come together to achieve the goals and success of this mega-event and
                     </a>
                   </div>
                 </div>
-              </div>
-            </div> */}
+              </div>*/}
+            </div> 
 
             {/* <div className="col-lg-4">
               <div className="blog-card">
