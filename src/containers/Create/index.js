@@ -494,7 +494,7 @@ const CreateForm = (props) => {
     }
 
     // Make API call to the serverless API
-    let url = "http://localhost:4801/api/payments"
+    let url = "http://144.91.110.221:4801/api/payments"
     let data = await axios.post(url);
     
     
