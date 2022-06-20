@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import {  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Footer } from "../../components/Footer";
@@ -30,7 +30,7 @@ import esrilogo from "../../images/esri-logo.png";
 import iiclogo from "../../images/iic-logo.png";
 import isrologo from "../../images/isro-logo.png";
 import natmologo from "../../images/natmo-logo.png";
-import Event from "../../images/event-announcement.jpg";
+import Event from "../../images/Announcement.png";
 import incalogo from "../../images/logo.png";
 import inca1 from "../../images/inca-image-1.JPG";
 import inca2 from "../../images/inca-image-2.JPG";
@@ -268,7 +268,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    09 November 2022 to <br /> 11 November 2022.
+                    09 November 2022 <br/> to <br /> 11 November 2022.
                   </p>
                 </div>
               </div>
@@ -322,7 +322,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    09 November 2022 to <br /> 11 November 2022.
+                    09 November 2022 <br/> to <br /> 11 November 2022.
                   </p>
                 </div>
               </div>
@@ -2465,7 +2465,7 @@ Let us all come together to achieve the goals and success of this mega-event and
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
               {/* <p className="common-pre-heading">OUR SPONSORS</p> */}
-              <h2>Sponsors And Partners</h2>
+              <h2>SPONSOR</h2>
               {/* <p className="mb-5">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
                 molestie turpis deserunt ducimus malesuada minus mauris veniam.
@@ -2548,7 +2548,8 @@ Let us all come together to achieve the goals and success of this mega-event and
             <div className="col-lg-4">
               
               <div className="blog-card">
-              <a href={Announcement} download="Announcement" >
+                {/* href={Announcement} download="Announcement" */}
+              <a target="_blank" href={Announcement}>
                 <div className="blog-card-pic">
                   <img src={Event} alt="First-Circular"></img>
                 </div>
@@ -2557,14 +2558,14 @@ Let us all come together to achieve the goals and success of this mega-event and
                   <h3>
                     42<sup>nd</sup> INCA International Conference-First Circular
                   </h3>
-                  <div className="blog-box">
+                  {/* <div className="blog-box">
                     <span>INCAteam </span>{" "}
                     <span className="blog-border px-1 mx-1">
                       {" "}
                       DD/MM/YYYY{" "}
                     </span>{" "}
                     <span> No Comments</span>
-                  </div>
+                  </div> */}
                   {/* <div>
                     <a className="common-yellow-color" href="#">
                       READ MORE
@@ -2574,7 +2575,7 @@ Let us all come together to achieve the goals and success of this mega-event and
               </div>
             </div>
 
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <div className="blog-card">
                 <div className="blog-card-pic">
                   <img src="" alt="Second-Circular"></img>
@@ -2591,16 +2592,16 @@ Let us all come together to achieve the goals and success of this mega-event and
                     </span>{" "}
                     <span>No Comments</span>
                   </div>
-                  {/* <div>
+                  <div>
                     <a className="common-yellow-color" href="#">
                       READ MORE
                     </a>
-                  </div> */}
+                  </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <div className="blog-card">
                 <div className="blog-card-pic">
                   <img src="" alt="Final-Circular"></img>
@@ -2616,14 +2617,14 @@ Let us all come together to achieve the goals and success of this mega-event and
                     </span>{" "}
                     <span>No Comments</span>
                   </div>
-                  {/* <div>
+                  <div>
                     <a className="common-yellow-color" href="#">
                       READ MORE
                     </a>
-                  </div> */}
+                  </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

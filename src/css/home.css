@@ -1066,7 +1066,10 @@ padding: 50px 40px;
     .home-banner {
         padding: 110px 0;
     }
-
+    .home-about-left img
+    {
+        width: 95% !important;
+    }
     .home-banner .right .banner-title .banner-small
     {
         font-size:24px;
@@ -1136,7 +1139,7 @@ padding: 50px 40px;
     }
     .home-about img
     {
-        width: 100%!important;
+        width: 92%!important;
         height: 170px;
         object-fit: cover;
         margin: 10px 0;
