@@ -543,7 +543,6 @@
     color: #212121;
     font-weight:500;
     font-size: 16px;
-    line-height: 1;
     margin-top: 30px;
     font-family: 'Poppins', sans-serif;
 }
@@ -764,7 +763,7 @@ padding: 50px 40px;
 .contact-area
 {
     background-color: #f8f8f8;
-    padding : 40px 0;
+    padding: 40px 0;
 }
 
 .contact-area .contact-text input, .contact-email input , .contact-textarea textarea
@@ -942,6 +941,18 @@ padding: 50px 40px;
         grid-column: span 1;
         grid-row: span 1;
     }
+    .Welcome-page .adhir-arora-image {
+        width: 90%;
+    }
+    .welcome-text .common-heading {
+        font-size: 30px;
+    }
+    .home-about-right .common-heading {
+        font-size: 35px;
+    }
+    .home-speakers .speaker-card .speaker-detail {
+        height: 150px;
+    }
 }
 
 
@@ -970,7 +981,7 @@ padding: 50px 40px;
 @media only screen and (max-width :991px) {
    
     .home-banner .right .theme-color {
-        font-size: 20px;
+        font-size: 21px;
     }
     .home-banner .right .banner-title .banner-small {
         font-size: 21px;
@@ -1010,6 +1021,9 @@ padding: 50px 40px;
     .Welcome-page .adhir-arora-image {
         width: 100%;
     }
+    .welcome-text .common-heading {
+        font-size: 25px;
+    }
 }
 
 @media only screen and (max-width : 767px) {
@@ -1040,9 +1054,15 @@ padding: 50px 40px;
     .contact-area .contact-move {
         padding-left: 10px;
     }
+    .Welcome-page .adhir-arora-image {
+        width: 85%;
+    }
 }
 @media only screen and (max-width : 575px) {
 
+    .home-about-right .common-heading {
+        font-size: 25px;
+    }
     .home-banner {
         padding: 110px 0;
     }
@@ -1053,7 +1073,7 @@ padding: 50px 40px;
         margin-bottom: 0;
     }
     .home-banner .right .theme-color {
-        font-size: 14px;
+        font-size: 16px;
     }
     .Welcome-page .adhir-arora-image {
         position: relative;
@@ -1349,7 +1369,9 @@ padding: 50px 40px;
         width: 75%;
         margin: 20px auto;
     }
-
+    .home-banner .right .theme-color {
+        font-size: 17px;
+    }
 
 }
 @media only screen and (max-width : 430px)
@@ -1599,7 +1621,6 @@ padding: 50px 40px;
 
 }
 
-
 @media only screen and (max-width : 430px)
 { 
     .common-btn, .common-btn-transparent {
@@ -1761,7 +1782,7 @@ padding: 50px 40px;
         font-size: 17px;
     }
     .home-banner .right .theme-color {
-        font-size: 12px;
+        font-size: 14px;
     }
     .home-banner {
         padding: 50px 0;
