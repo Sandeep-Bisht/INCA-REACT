@@ -874,7 +874,9 @@ padding: 50px 40px;
 	grid-row: span 2;
 }
 
-
+#home-speaker  .react-multi-carousel-list{
+    padding: 0 0 75px 0;
+}
 
 
 
@@ -882,8 +884,20 @@ padding: 50px 40px;
 
 
 /* -----common responsive css---- */
+
+@media only screen and (max-width : 1920px){
+    .home-speakers .speaker-card .speaker-detail{
+        width: 90%;
+    }
+    .home-speakers .speaker-card .speaker-title{
+        font-size:20px;
+    }
+}
+
+
+
 @media only screen and (max-width : 1399px){
-    .home-banner .right .banner-title .banner-small{
+   .home-banner .right .banner-title .banner-small{
         font-size:33px;
     }
     .home-banner .right .banner-title{
@@ -910,6 +924,9 @@ padding: 50px 40px;
     .grid-wrapper .big {
         grid-column: auto;
         grid-row: auto;
+    }
+    .home-speakers .speaker-card .speaker-detail{
+        height:120px;
     }
 
 }
@@ -951,7 +968,13 @@ padding: 50px 40px;
         font-size: 35px;
     }
     .home-speakers .speaker-card .speaker-detail {
-        height: 150px;
+        height: 100px;
+    }
+    .home-speakers .speaker-card .speaker-title{
+        font-size:13px;
+    }
+    .home-speakers .speaker-card .speaker-post{
+        font-size: 11px;
     }
 }
 
@@ -966,6 +989,8 @@ padding: 50px 40px;
     }
     .home-speakers .speaker-card .speaker-detail{
         padding:10px;
+        height: 115px;
+        border-radius:12px;
     }
     .home-speakers .speaker-card .speaker-title{
         font-size:17px;
@@ -1024,6 +1049,14 @@ padding: 50px 40px;
     .welcome-text .common-heading {
         font-size: 25px;
     }
+    .home-speakers .speaker-card .speaker-detail{
+        padding:10px;
+        height: 100px
+        
+    }
+    .home-speakers .speaker-card .speaker-title{
+        font-size:14px;
+    }
 }
 
 @media only screen and (max-width : 767px) {
@@ -1056,6 +1089,19 @@ padding: 50px 40px;
     }
     .Welcome-page .adhir-arora-image {
         width: 85%;
+    }
+    .home-speakers .speaker-card .speaker-title{
+        font-size: 11px;
+
+    }
+    
+    .home-speakers .speaker-card .speaker-post{
+        font-size:8px;
+        letter-spacing: .4px;
+    }
+    .home-speakers .speaker-card .speaker-detail{
+        height:85px;
+        padding:8px 4px;
     }
 }
 @media only screen and (max-width : 575px) {
@@ -1194,26 +1240,23 @@ padding: 50px 40px;
     }
     .home-speakers .speaker-card
     {
-        width:75%;
+        width:93%;
         margin:45px auto;
     }
-    .home-speakers .speaker-card .speaker-title
-    {
-        font-size:15px;
-    }
+   
     .home-speakers .speaker-card img 
     {
         padding: 0;
     }
     .home-speakers .speaker-card .speaker-post 
     {
-        font-size: 12px;
+        /* font-size: 12px; */
        display: block;
         margin-top: 8px!important;
     }
     .home-speakers .speaker-card .speaker-detail
     {
-        height: 120px;
+        height: 90px;
     }
     .home-schedule .schedule-circles
     {
@@ -1353,8 +1396,14 @@ padding: 50px 40px;
     .home-banner .home-schedule-desk{
       display:none;
     }
+    #home-speaker .react-multi-carousel-list {
+        padding: 0 0 40px 0;
+    }
 
 }
+
+
+
 @media only screen and (max-width : 480px) {
            
     .home-banner .right .banner-title .banner-small {
@@ -1376,6 +1425,11 @@ padding: 50px 40px;
         font-size: 17px;
     }
 
+}
+@media only screen and (max-width : 464px) {
+    .home-speakers .speaker-card img{
+        height:308px;
+    }
 }
 @media only screen and (max-width : 430px)
 {
@@ -1486,16 +1540,8 @@ padding: 50px 40px;
         width:75%;
         margin:45px auto;
     }
-    .home-speakers .speaker-card .speaker-title
-    {
-        font-size:18px;
-    }
-    .home-speakers .speaker-card .speaker-post 
-    {
-        font-size: 12px;
-       display: block;
-        margin-top: 8px!important;
-    }
+   
+    
     .home-speakers .speaker-card .speaker-detail
     {
         padding: 25px 20px;
