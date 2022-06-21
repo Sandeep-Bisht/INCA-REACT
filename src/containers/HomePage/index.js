@@ -155,7 +155,6 @@ const HomePage = () => {
                   >
                     Abstract Submission
                   </button>
-                  
                 </div>
               </div>
             </div>
@@ -211,13 +210,13 @@ const HomePage = () => {
                   <img src={comittee2} alt="" className="img-fluid" />
                 </div>
                 <div className="adhir-image-title">
-                  <p className="common-para"> Vice Admiral <br /> Adhir Arora , NM </p>                  
-                  <p className="common-para">                    
-                    Chief Hydrographer to the Govt. of India
-                     & PRESIDENT INCA
+                  <p className="common-para">
+                    {" "}
+                    Vice Admiral <br /> Adhir Arora , NM{" "}
                   </p>
-                  
-                        
+                  <p className="common-para">
+                    Chief Hydrographer to the Govt. of India & PRESIDENT INCA
+                  </p>
                 </div>
               </div>
             </div>
@@ -228,13 +227,21 @@ const HomePage = () => {
                 </h3>
                 <h4 className="h2">Dear Participants,</h4>
                 <p className="common-para">
-                It gives me immense pleasure to welcome all presenters and participants to the Indian National Cartographic Association (INCA) Conference 2022 on the theme <b>"Digital Cartography To Harness Blue Economy"</b> which will be hosted by National Hydrographic Office, Dehradun from November 09-11, 2022. 
-
-Now, I cordially invite all the eminent speakers and distinguished guests from around the world and various parts of the country to join us and share their extensive knowledge and expertise.
-
-In this conference renowned national and international scholars, scientists, academicians, planners will take part among others to share their expertise and experiences which will enrich our knowledge. It shall be profoundly advantageous for all the participants including the students.
-
-Let us all come together to achieve the goals and success of this mega-event and promote Cartography in India.
+                  It gives me immense pleasure to welcome all presenters and
+                  participants to the Indian National Cartographic Association
+                  (INCA) Conference 2022 on the theme{" "}
+                  <b>"Digital Cartography To Harness Blue Economy"</b> which
+                  will be hosted by National Hydrographic Office, Dehradun from
+                  November 09-11, 2022. Now, I cordially invite all the eminent
+                  speakers and distinguished guests from around the world and
+                  various parts of the country to join us and share their
+                  extensive knowledge and expertise. In this conference renowned
+                  national and international scholars, scientists, academicians,
+                  planners will take part among others to share their expertise
+                  and experiences which will enrich our knowledge. It shall be
+                  profoundly advantageous for all the participants including the
+                  students. Let us all come together to achieve the goals and
+                  success of this mega-event and promote Cartography in India.
                 </p>
               </div>
             </div>
@@ -253,11 +260,12 @@ Let us all come together to achieve the goals and success of this mega-event and
                   </span>
                 </div>
                 <div className="right">
-                  <h2 className="h2">Where is the Event:</h2>
+                  <h2 className="h2">Where is the Event</h2>
                   <p className="common-para">
-                  <b> National Hydrographic Office </b> <br />
-                      107-A, Rajpur Rd, Post Box – 75,<br/> Dehradun – 248001,
-                      Uttarakhand, India
+                    <b> National Hydrographic Office </b> <br />
+                    107-A, Rajpur Rd, <br />
+                    Post Box – 75,
+                    <br /> Dehradun – 248001, Uttarakhand, India
                   </p>
                 </div>
               </div>
@@ -270,9 +278,9 @@ Let us all come together to achieve the goals and success of this mega-event and
                   </span>
                 </div>
                 <div className="right">
-                  <h2 className="h2">When is the Event:</h2>
+                  <h2 className="h2">When is the Event</h2>
                   <p className="common-para">
-                    09 November 2022 <br/> to <br /> 11 November 2022.
+                    09 November 2022 <br/> 10 November 2022 <br /> 11 November 2022
                   </p>
                 </div>
               </div>
@@ -286,9 +294,18 @@ Let us all come together to achieve the goals and success of this mega-event and
                 </div>
                 <div className="right">
                   <h2 className="h2">Schedule of the Event</h2>
-                  <p className="common-para">
-                    Schedule will be published once finalised
+                  <Link className="common-para pb-3" to="/importantdates">
+                    Click here to know details.
+                  </Link>
+                  {/* <p className="common-para">
+                    Last date for submitting the abstracts
                   </p>
+                  <p className="common-para">
+                    Acceptance of paper will be notified by
+                  </p>
+                  <p className="common-para">
+                    Last date for submission of full paper
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -309,9 +326,9 @@ Let us all come together to achieve the goals and success of this mega-event and
                 <div className="right">
                   <h2 className="h2">Where is the Event:</h2>
                   <p className="common-para">
-                  <b> National Hydrographic Office </b> <br />
-                      107-A, Rajpur Rd, Post Box – 75,<br/> Dehradun – 248001,
-                      Uttarakhand, India
+                    <b> National Hydrographic Office </b> <br />
+                    107-A, Rajpur Rd, Post Box – 75,
+                    <br /> Dehradun – 248001, Uttarakhand, India
                   </p>
                 </div>
               </div>
@@ -326,7 +343,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    09 November 2022 <br/> to <br /> 11 November 2022.
+                    09 November 2022 <br /> to <br /> 11 November 2022.
                   </p>
                 </div>
               </div>
@@ -771,7 +788,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. B K Ram Prasad <br /> ACCHO
+                        Dr. B K Ramprasad <br /> ACCHO
                       </h3>
                       <span className="speaker-post">LOC Member</span>
                     </div>
@@ -2477,7 +2494,11 @@ Let us all come together to achieve the goals and success of this mega-event and
             </div>
           </div>
           <div className="sponsor-btn-temp">
-            <button className="common-btn" type="button" onClick={() => navigation("/sponsorForm")}>
+            <button
+              className="common-btn"
+              type="button"
+              onClick={() => navigation("/sponsorForm")}
+            >
               BE A SPONSOR
             </button>
           </div>
@@ -2579,15 +2600,13 @@ Let us all come together to achieve the goals and success of this mega-event and
               </div>
             </div> */}
 
-           
-
             <div className="col-lg-4">
-            <div className="blog-card">
+              <div className="blog-card">
                 {/* href={Announcement} download="Announcement" */}
-              <a target="_blank" href={SecondSercular}>
-                <div className="blog-card-pic">
-                  <img src={Event_2} alt="Second-Circular"></img>
-                </div>
+                <a target="_blank" href={SecondSercular}>
+                  <div className="blog-card-pic">
+                    <img src={Event_2} alt="Second-Circular"></img>
+                  </div>
                 </a>
                 <div className="blog-card-content">
                   <h3>
@@ -2608,7 +2627,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                   </div> */}
                 </div>
               </div>
-               {/*<div className="blog-card">
+              {/*<div className="blog-card">
                 <div className="blog-card-pic">
                   <img src="" alt="Second-Circular"></img>
                 </div>
@@ -2631,7 +2650,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                   </div>
                 </div>
               </div>*/}
-            </div> 
+            </div>
 
             {/* <div className="col-lg-4">
               <div className="blog-card">
@@ -2703,8 +2722,8 @@ Let us all come together to achieve the goals and success of this mega-event and
                     <h3>EVENT VENUE :</h3>
                     <p className="common-para mb-0">
                       <b> National Hydrographic Office </b> <br />
-                      107-A, Rajpur Rd, Post Box – 75,<br/> Dehradun – 248001,
-                      Uttarakhand, India
+                      107-A, Rajpur Rd, Post Box – 75,
+                      <br /> Dehradun – 248001, Uttarakhand, India
                     </p>
                   </div>
                 </div>
@@ -2832,17 +2851,15 @@ Let us all come together to achieve the goals and success of this mega-event and
         </div>
       </section>
       <section className="section-padding home-gallery with-carousel">
-      <div className="container">
+        <div className="container">
           <div className="row align-items-center">
-          <div className="col-lg-12">
+            <div className="col-lg-12">
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
                 {/* <p className="common-pre-heading">Introduction</p> */}
                 <h1 className="common-heading pt-4">
                   About INCA (Indian National Cartographic Association)
                 </h1>
-              
               </div>
-              
             </div>
             <div className="col-md-12">
               <div className="home-about-left pb-4">
@@ -2876,36 +2893,35 @@ Let us all come together to achieve the goals and success of this mega-event and
                     <div className="col-md-12">
                       <img src={gallary5} className="img-fluid" />
                     </div> */}
-                      <div className="col-md-12">
-                  <img src={inca3} alt="gallerypic" className="img-fluid" />
-                </div>
-                <div className="col-md-12">
-                  <img src={inca2} alt="gallerypic" className="img-fluid" />
-                </div>
-                <div className="col-md-12">
-                  <img src={inca4} alt="gallerypic" className="img-fluid" />
-                </div>
-                <div className="col-md-12">
-                  <img src={inca5} alt="gallerypic" className="img-fluid" />
-                </div>
+                    <div className="col-md-12">
+                      <img src={inca3} alt="gallerypic" className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={inca2} alt="gallerypic" className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={inca4} alt="gallerypic" className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={inca5} alt="gallerypic" className="img-fluid" />
+                    </div>
 
-                <div className="col-md-12">
-                  <img src={inca1} alt="gallerypic" className="img-fluid" />
-                </div>
-                <div className="col-md-12">
-                  <img src={inca8} alt="gallerypic" className="img-fluid" />
-                </div>
-                <div className="col-md-12">
-                  <img src={inca7} alt="gallerypic" className="img-fluid" />
-                </div>
-                <div className="col-md-12">
-                  <img src={inca6} alt="gallerypic" className="img-fluid" />
-                </div>
+                    <div className="col-md-12">
+                      <img src={inca1} alt="gallerypic" className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={inca8} alt="gallerypic" className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={inca7} alt="gallerypic" className="img-fluid" />
+                    </div>
+                    <div className="col-md-12">
+                      <img src={inca6} alt="gallerypic" className="img-fluid" />
+                    </div>
                   </Carousel>
                 </div>
               </div>
             </div>
-           
           </div>
         </div>
       </section>

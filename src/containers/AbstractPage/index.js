@@ -2,7 +2,8 @@ import React from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
-import Abstract_Template_Pdf from "../../SampleFiles/ABSTRACT_TEMPLATE.pdf"
+import Abstract_Template_Pdf from "../../SampleFiles/ABSTRACT_TEMPLATE.pdf";
+import Abstract_Template_Docx from '../../SampleFiles/ABSTRACT_TEMPLATE 42inca.docx';
 import "../../css/abstract.css";
 import "../../css/contact.css";
 
@@ -33,7 +34,7 @@ function AbstractPage() {
                   <ol className="common-para">
                     <li>
                       Abstracts must pertain to original research works, either
-                      self-authored or co-authored, and must not exceed 350
+                      self-authored or co-authored, and must not exceed 250
                       words in length.
                     </li>
                     <li>
@@ -45,7 +46,7 @@ function AbstractPage() {
                       For the abstract body, Times New Roman font with a font
                       size of 12 should be applied.
                     </li>
-                    <li>Abstract must contain only 3 – 5 Keywords.</li>
+                    <li>Abstract must contain at least 6 Keywords.</li>
                     <li>
                       Abstracts that are excessively commercial in nature will
                       not be accepted.
@@ -69,7 +70,7 @@ function AbstractPage() {
                                 <i class="fa-solid fa-file-pdf"></i>
                               </span>
                               <span className="abstract-pdf-file-text">
-                                Abstract Template
+                              Abstract Template
                               </span>
                             </a>
                           </div>
@@ -92,7 +93,7 @@ function AbstractPage() {
                     <div className="col-md-12">
                       <div className="abstract-word-file-icon-wrapper">
                         <div className="row">
-                          {/* <div className="col-md-12">
+                          <div className="col-md-12">
                             <a
                               href={Abstract_Template_Docx}
                               download="Abstract_Template_Docx"
@@ -101,10 +102,10 @@ function AbstractPage() {
                                 <i class="fa-solid fa-file-word"></i>
                               </span>
                               <span className="abstract-word-file-text">
-                               Sample Abstract Template
+                               Sample Abstract Template Docx
                               </span>
                             </a>
-                          </div> */}
+                          </div>
                           {/* <div className="col-md-6">
                             <a
                               href={Fullpaper_Template_Docs}
