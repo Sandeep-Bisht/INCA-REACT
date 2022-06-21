@@ -2549,11 +2549,11 @@ Let us all come together to achieve the goals and success of this mega-event and
           </div>
 
           <div className="row">           
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               
-              <div className="blog-card">
+              <div className="blog-card"> */}
                 {/* href={Announcement} download="Announcement" */}
-              <a target="_blank" href={Announcement}>
+              {/* <a target="_blank" href={Announcement}>
                 <div className="blog-card-pic">
                   <img src={Event} alt="First-Circular"></img>
                 </div>
@@ -2561,7 +2561,7 @@ Let us all come together to achieve the goals and success of this mega-event and
                 <div className="blog-card-content">
                   <h3>
                     42<sup>nd</sup> INCA International Conference- Notice & Agenda
-                  </h3>
+                  </h3> */}
                   {/* <div className="blog-box">
                     <span>INCAteam </span>{" "}
                     <span className="blog-border px-1 mx-1">
@@ -2575,9 +2575,9 @@ Let us all come together to achieve the goals and success of this mega-event and
                       READ MORE
                     </a>
                   </div> */}
-                </div>
+                {/* </div>
               </div>
-            </div>
+            </div> */}
 
            
 
