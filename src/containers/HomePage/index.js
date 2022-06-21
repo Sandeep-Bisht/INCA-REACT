@@ -696,9 +696,7 @@ const HomePage = () => {
                       <h3 className="speaker-title">
                         Vice Admiral <br /> Adhir Arora , NM
                       </h3>
-                      <span className="speaker-post">
-                        Chief Hydrographer to the Govt. of India
-                      </span>
+                      <span className="speaker-post">PRESIDENT, INCA</span>
                     </div>
                   </div>
                 </div>
@@ -713,9 +711,7 @@ const HomePage = () => {
                       <h3 className="speaker-title">
                         Rear Admiral <br /> Lochan Singh Pathania
                       </h3>
-                      <span className="speaker-post">
-                        Joint Chief Hydrographer
-                      </span>
+                      <span className="speaker-post">PATRON</span>
                     </div>
                   </div>
                 </div>
@@ -728,9 +724,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Cmde Peush Pawsey <br /> CB & Press
+                        Cmde Peush Pawsey
                       </h3>
-                      <span className="speaker-post">Chairman</span>
+                      <span className="speaker-post">CHAIRMAN</span>
                     </div>
                   </div>
                 </div>
@@ -743,9 +739,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Captain Kuldeep Singh <br /> Capt (H) - HP
+                        Captain Kuldeep Singh
                       </h3>
-                      <span className="speaker-post">Organising Secretary</span>
+                      <span className="speaker-post">ORGANISING SECRETARY</span>
                     </div>
                   </div>
                 </div>
@@ -758,9 +754,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Rajesh Kumar Khatri <br /> CCHO
+                        Rajesh Kumar Khatri
                       </h3>
-                      <span className="speaker-post">LOC Member</span>
+                      <span className="speaker-post">LOC MEMBER</span>
                     </div>
                   </div>
                 </div>
@@ -773,9 +769,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. R A Prasad <br /> DYCCHO
+                        Dr. R A Prasad
                       </h3>
-                      <span className="speaker-post">LOC Member</span>
+                      <span className="speaker-post">LOC MEMBER</span>
                     </div>
                   </div>
                 </div>
@@ -788,9 +784,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. B K Ramprasad <br /> ACCHO
+                        Dr. B K Ramprasad
                       </h3>
-                      <span className="speaker-post">LOC Member</span>
+                      <span className="speaker-post">LOC MEMBER</span>
                     </div>
                   </div>
                 </div>
