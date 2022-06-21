@@ -16,19 +16,7 @@ export const Footer = () => {
                   The Indian National Cartographic Association (INCA) has
                   evolved into one of the world's most prominent professional
                   associations of its kind.
-                </p>
-                {/* <a href="#" target="_blank">
-                  <i className="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" target="_blank">
-                  <i className="fa-brands fa-twitter"></i>
-                </a>
-                <a href="#" target="_blank">
-                  <i className="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#" target="_blank">
-                  <i className="fa-brands fa-linkedin-in"></i>
-                </a> */}
+                </p>               
               </div>
             </div>
 
@@ -90,15 +78,7 @@ export const Footer = () => {
           </div>
 
           <div className="row">
-            {/* <div className="col-md-6">
-              <div className="box-6">
-                <span>PRIVACY POLICY</span>
-                <span className="move">TERMS & CONDITION</span>
-                <span>SUPPORT</span>
-              </div>
-            </div> */}
-
-            <div className="col-md-12">
+           <div className="col-md-12">
               <div className="box-7">
                 <span>Copyright © 2022 INCA. All rights reserved.</span>
               </div>

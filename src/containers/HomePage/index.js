@@ -14,25 +14,12 @@ import comittee4 from "../../images/raprasad.jpg";
 import comittee5 from "../../images/capt-kuldeep-singh.jpg";
 import comittee6 from "../../images/cmde-puesh-pawsey.jpg";
 import comittee7 from "../../images/ls-pathania.jpg";
-import gikslogo from "../../images/Giks-logo.png";
-import nhologo from "../../images/NHO-logo.png";
-import gislogo from "../../images/gis-logo.png";
-import soilogo from "../../images/survey-of-India-logo.png";
-import firstcircular from "../../images/First-Circular.png";
-import secondcircular from "../../images/Second-Circular.png";
 import gallary1 from "../../images/gallery-1.jpg";
 import gallary2 from "../../images/gallery-2.jpg";
 import gallary3 from "../../images/gallery-3.jpg";
 import gallary4 from "../../images/gallery-4.jpg";
 import gallary5 from "../../images/gallery-5.jpg";
-import idelimage from "../../images/idel-image.png";
-import esrilogo from "../../images/esri-logo.png";
-import iiclogo from "../../images/iic-logo.png";
-import isrologo from "../../images/isro-logo.png";
-import natmologo from "../../images/natmo-logo.png";
-import Event from "../../images/Announcement.png";
 import Event_2 from "../../SampleFiles/firstscreen.png";
-import incalogo from "../../images/logo.png";
 import inca1 from "../../images/inca-image-1.JPG";
 import inca2 from "../../images/inca-image-2.JPG";
 import inca3 from "../../images/inca-image-3.JPG";
@@ -42,7 +29,6 @@ import inca6 from "../../images/inca-image-6.JPG";
 import inca7 from "../../images/inca-image-7.jpg";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
-import Announcement from "../../SampleFiles/announcement.pdf";
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-20Jun2022.pdf";
 
 const HomePage = () => {
@@ -54,10 +40,6 @@ const HomePage = () => {
   const [countdownSec, setCountdownSec] = useState("00");
 
   let interval = useRef();
-
-  let showEventsByDate = (val) => {
-    setShowEvents(val);
-  };
 
   const startTimer = () => {
     const countdownDate = new Date("nov 9, 2022 00:00:00").getTime();
@@ -249,7 +231,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <section className="section-padding home-about pb-lg-0 without-carousel">
+      <section className="section-padding home-about pb-lg-0 without-carousel ">
         <div className="container">
           <div className="row py-4 mt-3">
             <div className="col-lg-4">
@@ -280,7 +262,8 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event</h2>
                   <p className="common-para">
-                    09 November 2022 <br/> 10 November 2022 <br /> 11 November 2022
+                    09 November 2022 <br /> 10 November 2022 <br /> 11 November
+                    2022
                   </p>
                 </div>
               </div>
@@ -327,7 +310,7 @@ const HomePage = () => {
                   <h2 className="h2">Where is the Event:</h2>
                   <p className="common-para">
                     <b> National Hydrographic Office </b> <br />
-                    107-A, Rajpur Rd, Post Box – 75,
+                    107-A, Rajpur Rd, <br />Post Box – 75,
                     <br /> Dehradun – 248001, Uttarakhand, India
                   </p>
                 </div>
@@ -343,7 +326,7 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    09 November 2022 <br /> to <br /> 11 November 2022.
+                    09 November 2022 <br /> 10 November 2022 <br /> 11 November 2022
                   </p>
                 </div>
               </div>
@@ -357,9 +340,9 @@ const HomePage = () => {
                 </div>
                 <div className="right">
                   <h2 className="h2">Schedule of the Event</h2>
-                  <p className="common-para">
-                    Schedule will be published once finalised
-                  </p>
+                  <Link className="common-para pb-3" to="/importantdates">
+                    Click here to know details.
+                  </Link>
                 </div>
               </div>
             </div>
@@ -696,9 +679,7 @@ const HomePage = () => {
                       <h3 className="speaker-title">
                         Vice Admiral <br /> Adhir Arora , NM
                       </h3>
-                      <span className="speaker-post">
-                        Chief Hydrographer to the Govt. of India
-                      </span>
+                      <span className="speaker-post">PRESIDENT, INCA</span>
                     </div>
                   </div>
                 </div>
@@ -713,9 +694,7 @@ const HomePage = () => {
                       <h3 className="speaker-title">
                         Rear Admiral <br /> Lochan Singh Pathania
                       </h3>
-                      <span className="speaker-post">
-                        Joint Chief Hydrographer
-                      </span>
+                      <span className="speaker-post">PATRON</span>
                     </div>
                   </div>
                 </div>
@@ -728,9 +707,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Cmde Peush Pawsey <br /> CB & Press
+                        Cmde Peush Pawsey
                       </h3>
-                      <span className="speaker-post">Chairman</span>
+                      <span className="speaker-post">CHAIRMAN</span>
                     </div>
                   </div>
                 </div>
@@ -743,9 +722,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Captain Kuldeep Singh <br /> Capt (H) - HP
+                        Captain Kuldeep Singh
                       </h3>
-                      <span className="speaker-post">Organising Secretary</span>
+                      <span className="speaker-post">ORGANISING SECRETARY</span>
                     </div>
                   </div>
                 </div>
@@ -758,9 +737,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Rajesh Kumar Khatri <br /> CCHO
+                        Rajesh Kumar Khatri
                       </h3>
-                      <span className="speaker-post">LOC Member</span>
+                      <span className="speaker-post">LOC MEMBER</span>
                     </div>
                   </div>
                 </div>
@@ -773,9 +752,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. R A Prasad <br /> DYCCHO
+                        Dr. R A Prasad
                       </h3>
-                      <span className="speaker-post">LOC Member</span>
+                      <span className="speaker-post">LOC MEMBER</span>
                     </div>
                   </div>
                 </div>
@@ -788,9 +767,9 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. B K Ramprasad <br /> ACCHO
+                        Dr. B K Ramprasad
                       </h3>
-                      <span className="speaker-post">LOC Member</span>
+                      <span className="speaker-post">LOC MEMBER</span>
                     </div>
                   </div>
                 </div>
@@ -2046,12 +2025,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
-              {/* <p className="common-pre-heading">register</p> */}
               <h2 className="common-heading">Quick Links</h2>
-              {/* <p className="common-para">
-                Quam amet tristique adipisicing incididunt arcu, excepturi
-                molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p> */}
             </div>
           </div>
           <div className="row mt-5">
@@ -2099,44 +2073,12 @@ const HomePage = () => {
                   </div>
                 </div>
               </ul>
-              {/* <li>
-                  {" "}
-                  <div className="reg-icon-box">
-                    <img src={reg4} className="img-fluid" alt="" />
-                  </div>
-                  <h3> Visitor </h3>
-                  <p> Register Now for Free Entry </p>
-                  <div className="btn-holder">
-                    <button
-                      className=" common-btn "
-                      onClick={() => navigation("/register")}
-                    >
-                      Registration
-                    </button>
-                  </div>
-                </li> */}
-              {/* <li>
-                  {" "}
-                  <div className="reg-icon-box">
-                    <img src={reg5} className="img-fluid" alt="" />
-                  </div>
-                  <h3> Media </h3>
-                  <p> Be a Media Partner </p>
-                  <div className="btn-holder">
-                    <button
-                      className=" common-btn "
-                      onClick={() => navigation("/sponsorForm")}
-                    >
-                      Be a sponsor
-                    </button>
-                  </div>
-                </li> */}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-padding home-about pb-lg-0 without-carousel">
+      <section className="section-padding home-about pb-lg-5 mb-lg-4 without-carousel ">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
@@ -2176,7 +2118,6 @@ const HomePage = () => {
             </div>
             <div className="col-lg-6">
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
-                {/* <p className="common-pre-heading">Introduction</p> */}
                 <h1 className="common-heading pt-4">
                   About INCA (Indian National Cartographic Association)
                 </h1>
@@ -2277,7 +2218,6 @@ const HomePage = () => {
             </div>
             <div className="col-lg-6">
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
-                {/* <p className="common-pre-heading">Introduction</p> */}
                 <h1 className="common-heading pt-4">
                   About INCA (Indian National Cartographic Association)
                 </h1>
@@ -2297,7 +2237,6 @@ const HomePage = () => {
                       <span className="me-2">
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
-
                       <span>
                         To foster cartographic research in the country , To
                         co-operate with professional organisations of cognate
@@ -2315,12 +2254,10 @@ const HomePage = () => {
                         cartography at all levels.
                       </span>
                     </li>
-
                     <li className="my-2 py-2">
                       <span className="me-2">
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
-
                       <span>
                         To foster co-operation between Government and
                         Quasi-Government organisations, Research Institutions
@@ -2336,161 +2273,11 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* <section className="testimonial-area">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 mx-auto">
-              <div
-                id="carouselExampleControls1"
-                className="carousel slide"
-                data-bs-ride="carousel"
-                >
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <div className="boxes">
-                      <div className="upper">
-                      <p className="common-pre-heading">Testimonial</p>
-                      <h2 className="common-heading">
-                          SEE WHAT OUR PREVIOUS CONFERENCE VISITORS HAS TO SAY
-                          ABOUT INTERNATIONAL EVENT
-                        </h2>
-                        <p className="common-para my-3">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Aliquid quasi tenetur, eligendi dolorem
-                          laboriosam voluptatum!
-                        </p>
-                        </div>
-                      <div className="middle">
-                      <div className="image">
-                          <img src={visitor1} alt="" />
-                        </div>
-                        <div className="lower">
-                          <p className="common-para fst-italic">
-                            "Habitant facilisis proident! Modi irure, modi
-                            blanditiis culpa! Soluta magnam maiores augue rutrum
-                            quia accumsan torquent venenatis. Facilis vel harum
-                            aspernatur orci, sit eleifend praesent, cupiditate,
-                            dignissimos sit proident, possimus proident
-                            distinctio wisi, odio quo."{" "}
-                            </p>
-                            <span className="blk">Petey Cruiser</span>
-                            <span className="blk-wht">Visitor</span>
-                        </div>
-                        </div>
-                    </div>
-                  </div>
-
-                  <div className="carousel-item">
-                  <div className="boxes">
-                      <div className="upper">
-                        <p className="common-pre-heading">Testimonial</p>
-                        <h2 className="common-heading">
-                          SEE WHAT OUR PREVIOUS CONFERENCE VISITORS HAS TO SAY
-                          ABOUT INTERNATIONAL EVENT
-                          </h2>
-                          <p className="common-para my-3">
-                          Lorem ipsum, dolor sit amet consectetur adipisicing
-                          elit. Aliquid quasi tenetur, eligendi dolorem
-                          laboriosam voluptatum!
-                          </p>
-                      </div>
-                      <div className="middle">
-                        <div className="image">
-                          <img src={visitor1} alt="" />
-                        </div>
-                        <div className="lower">
-                          <p className="common-para fst-italic">
-                            "Habitant facilisis proident! Modi irure, modi
-                            blanditiis culpa! Soluta magnam maiores augue rutrum
-                            quia accumsan torquent venenatis. Facilis vel harum
-                            aspernatur orci, sit eleifend praesent, cupiditate,
-                            dignissimos sit proident, possimus proident
-                            distinctio wisi, odio quo."{" "}
-                            </p>
-                            <span className="blk">Petey Cruiser</span>
-                            <span className="blk-wht">Visitor</span>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-
-                            <div className="carousel-item">
-                    <div className="boxes">
-                      <div className="upper">
-                        <p className="common-pre-heading">Testimonial</p>
-                        <h2 className="common-heading">
-                          SEE WHAT OUR PREVIOUS CONFERENCE VISITORS HAS TO SAY
-                          ABOUT INTERNATIONAL EVENT
-                        </h2>
-                        <p className="common-para my-3">
-                          Lorem ipsum, dolor sit amet consectetur adipisicing
-                          elit. Aliquid quasi tenetur, eligendi dolorem
-                          laboriosam voluptatum!
-                          </p>
-                          </div>
-                          <div className="middle">
-                        <div className="image">
-                          <img src={visitor1} alt="" />
-                        </div>
-                        <div className="lower">
-                          <p className="common-para fst-italic">
-                            "Habitant facilisis proident! Modi irure, modi
-                            blanditiis culpa! Soluta magnam maiores augue rutrum
-                            quia accumsan torquent venenatis. Facilis vel harum
-                            aspernatur orci, sit eleifend praesent, cupiditate,
-                            dignissimos sit proident, possimus proident
-                            distinctio wisi, odio quo."{" "}
-                          </p>
-                          <span className="blk">Petey Cruiser</span>
-                          <span className="blk-wht">Visitor</span>
-                          </div>
-                      </div>
-                      </div>
-                      </div>
-                      </div>
-                      <button
-                      className="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#carouselExampleControls1"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    className="carousel-control-prev-icon circle"
-                    aria-hidden="true"
-                  >
-                    <i className="fa-solid fa-angle-left"></i>
-                  </span>
-                  <span className="visually-hidden">Previous</span>
-                </button>
-                <button
-                className="carousel-control-next"
-                  type="button"
-                  data-bs-target="#carouselExampleControls1"
-                  data-bs-slide="next"
-                  >
-                  <span
-                  className="carousel-control-next-icon circle"
-                  aria-hidden="true"
-                  >
-                  <i className="fa-solid fa-angle-right"></i>
-                  </span>
-                  <span className="visually-hidden">Next</span>
-                </button>
-                </div>
-                </div>
-                </div>
-                </div>
-              </section> */}
       <section className="sponsors-area">
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
-              {/* <p className="common-pre-heading">OUR SPONSORS</p> */}
               <h2>SPONSOR</h2>
-              {/* <p className="mb-5">
-                Quam amet tristique adipisicing incididunt arcu, excepturi
-                molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p> */}
             </div>
           </div>
           <div className="sponsor-btn-temp">
@@ -2502,104 +2289,18 @@ const HomePage = () => {
               BE A SPONSOR
             </button>
           </div>
-          {/* <div className="row position-relative">
-            <div className="col-md-1"></div>
-            <div className="col-md-2 px-0 sponsors-common">
-              <div className="sponsor-box-1 common-sponsor-padding">
-                <img src={gislogo} alt="" className="img-fluid" />
-              </div>
-              <div className="sponsor-border-1 common-sponsor-padding ">
-                <img src={esrilogo} alt="" className="img-fluid" />
-              </div>
-            </div>
-            <div className="col-md-2 px-0 sponsors-common">
-              <div className="sponsor-box-2 common-sponsor-padding">
-                <img src={soilogo} alt="" className="img-fluid" />
-              </div>
-              <div className="sponsor-border-2 common-sponsor-padding">
-                <img src={iiclogo} alt="" className="img-fluid" />
-              </div>
-            </div>
-            <div className="col-md-2 px-0 sponsors-common">
-              <div className="sponsor-box-3 common-sponsor-padding">
-                <img src={esrilogo} alt="" className="img-fluid" />
-              </div>
-              <div className="sponsor-border-3 common-sponsor-padding">
-                <img src={isrologo} alt="" className="img-fluid" />
-              </div>
-            </div>
-            <div className="col-md-2 px-0 sponsors-common">
-              <div className="sponsor-box-4 common-sponsor-padding">
-                <img src={nhologo} alt="" className="img-fluid" />
-              </div>
-              <div className="sponsor-border-4 common-sponsor-padding">
-                <img src={natmologo} alt="" className="img-fluid" />
-              </div>
-            </div>
-            <div className="col-md-2 px-0 sponsors-common">
-              <div className="sponsor-box-5 common-sponsor-padding">
-                <img src={gikslogo} alt="" className="img-fluid" />
-              </div>
-              <div className="sponsor-border-5 common-sponsor-padding">
-                <img src={incalogo} alt="" className="img-fluid" />
-              </div>
-            </div>
-            <div className="col-md-1"></div>
-          </div> */}
-
-          {/* <div className="row position-relative">
-            <div className="col-md-8 mx-auto text-center">
-              <button className="common-btn my-lg-5 my-2">
-                BECAME A SPONSOR
-              </button>
-            </div>
-          </div> */}
         </div>
       </section>
+
       <section className="blog-area section-padding">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              {/* <p className="common-pre-heading">RECENT BLOG</p> */}
               <h2 className="common-heading">Announcements</h2>
-              {/* <p className="common-para mb-5">
-                Quam amet tristique adipisicing incididunt arcu, excepturi
-                molestie turpis deserunt ducimus malesuada minus mauris veniam.
-              </p> */}
             </div>
           </div>
 
-          <div className="row">           
-            {/* <div className="col-lg-4">
-              
-              <div className="blog-card"> */}
-                {/* href={Announcement} download="Announcement" */}
-              {/* <a target="_blank" href={Announcement}>
-                <div className="blog-card-pic">
-                  <img src={Event} alt="First-Circular"></img>
-                </div>
-                </a>
-                <div className="blog-card-content">
-                  <h3>
-                    42<sup>nd</sup> INCA International Conference- Notice & Agenda
-                  </h3> */}
-                  {/* <div className="blog-box">
-                    <span>INCAteam </span>{" "}
-                    <span className="blog-border px-1 mx-1">
-                      {" "}
-                      DD/MM/YYYY{" "}
-                    </span>{" "}
-                    <span> No Comments</span>
-                  </div> */}
-                  {/* <div>
-                    <a className="common-yellow-color" href="#">
-                      READ MORE
-                    </a>
-                  </div> */}
-                {/* </div>
-              </div>
-            </div> */}
-
+          <div className="row">
             <div className="col-lg-4">
               <div className="blog-card">
                 {/* href={Announcement} download="Announcement" */}
@@ -2612,73 +2313,13 @@ const HomePage = () => {
                   <h3>
                     42<sup>nd</sup> INCA International Conference-First Circular
                   </h3>
-                  {/* <div className="blog-box">
-                    <span>INCAteam </span>{" "}
-                    <span className="blog-border px-1 mx-1">
-                      {" "}
-                      DD/MM/YYYY{" "}
-                    </span>{" "}
-                    <span> No Comments</span>
-                  </div> */}
-                  {/* <div>
-                    <a className="common-yellow-color" href="#">
-                      READ MORE
-                    </a>
-                  </div> */}
                 </div>
               </div>
-              {/*<div className="blog-card">
-                <div className="blog-card-pic">
-                  <img src="" alt="Second-Circular"></img>
-                </div>
-                <div className="blog-card-content">
-                  <h3>
-                    42<sup>nd</sup> INCA International Conference-Second
-                    Circular
-                  </h3>
-                  <div className="blog-box">
-                    <span>INCAteam</span>{" "}
-                    <span className="blog-border px-1 mx-1">
-                      DD/MM/YYYY
-                    </span>{" "}
-                    <span>No Comments</span>
-                  </div>
-                  <div>
-                    <a className="common-yellow-color" href="#">
-                      READ MORE
-                    </a>
-                  </div>
-                </div>
-              </div>*/}
             </div>
-
-            {/* <div className="col-lg-4">
-              <div className="blog-card">
-                <div className="blog-card-pic">
-                  <img src="" alt="Final-Circular"></img>
-                </div>
-                <div className="blog-card-content">
-                  <h3>
-                    42<sup>nd</sup> INCA International Conference-Final Circular
-                  </h3>
-                  <div className="blog-box">
-                    <span>INCAteam</span>{" "}
-                    <span className="blog-border px-1 mx-1">
-                      DD/MM/YYYY
-                    </span>{" "}
-                    <span>No Comments</span>
-                  </div>
-                  <div>
-                    <a className="common-yellow-color" href="#">
-                      READ MORE
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
+
       <section className="contact-area">
         <div className="container">
           <div className="row">
@@ -2878,21 +2519,6 @@ const HomePage = () => {
                     transitionDuration={500}
                     itemClass="carousel-item-padding-40-px"
                   >
-                    {/* <div className="col-md-12">
-                      <img src={gallary1} className="img-fluid" />
-                    </div>
-                    <div className="col-md-12">
-                      <img src={gallary2} className="img-fluid" />
-                    </div>
-                    <div className="col-md-12">
-                      <img src={gallary3} className="img-fluid " />
-                    </div>
-                    <div className="col-md-12">
-                      <img src={gallary4} className="img-fluid " />
-                    </div>
-                    <div className="col-md-12">
-                      <img src={gallary5} className="img-fluid" />
-                    </div> */}
                     <div className="col-md-12">
                       <img src={inca3} alt="gallerypic" className="img-fluid" />
                     </div>
