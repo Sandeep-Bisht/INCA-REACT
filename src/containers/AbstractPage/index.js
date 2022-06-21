@@ -2,8 +2,8 @@ import React from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
-import Abstract_Template_Pdf from "../../SampleFiles/ABSTRACT_TEMPLATE.pdf";
-import Abstract_Template_Docx from '../../SampleFiles/ABSTRACT_TEMPLATE 42inca.docx';
+import Abstract_Template_Pdf from "../../SampleFiles/Abstract_Template_Format.pdf";
+import Abstract_Template_Docx from '../../SampleFiles/Abstract_Template_Word Format.docx';
 import "../../css/abstract.css";
 import "../../css/contact.css";
 

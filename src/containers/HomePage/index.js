@@ -29,7 +29,7 @@ import inca6 from "../../images/inca-image-6.JPG";
 import inca7 from "../../images/inca-image-7.jpg";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
-import SecondSercular from "../../SampleFiles/42thINCA-First Circular-20Jun2022.pdf";
+import SecondSercular from "../../SampleFiles/42thINCA-First Circular-21_Jun 22 .pdf";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -2303,7 +2303,7 @@ const HomePage = () => {
           <div className="row">
             <div className="col-lg-4">
               <div className="blog-card">
-                {/* href={Announcement} download="Announcement" */}
+                
                 <a target="_blank" href={SecondSercular}>
                   <div className="blog-card-pic">
                     <img src={Event_2} alt="Second-Circular"></img>
