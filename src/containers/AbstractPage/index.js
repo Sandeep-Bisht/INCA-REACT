@@ -36,7 +36,7 @@ function AbstractPage() {
                   <ol className="common-para">
                     <li>
                       Abstracts must pertain to original research works, either
-                      self-authored or co-authored, and must not exceed 350
+                      self-authored or co-authored, and must not exceed 250
                       words in length.
                     </li>
                     <li>
@@ -48,7 +48,7 @@ function AbstractPage() {
                       For the abstract body, Times New Roman font with a font
                       size of 12 should be applied.
                     </li>
-                    <li>Abstract must contain only 3 – 5 Keywords.</li>
+                    <li>Abstract must contain at least 6 Keywords.</li>
                     <li>
                       Abstracts that are excessively commercial in nature will
                       not be accepted.
