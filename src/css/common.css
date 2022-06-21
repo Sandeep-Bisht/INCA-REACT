@@ -401,6 +401,10 @@ background-color:#fff;
     margin-top: 12px;
     width: 50vw;
     }
+    .navbar-nav .nav-item
+    {
+        padding: 0 25px;
+    }
     header .nav-link
     {
         font-weight:600;

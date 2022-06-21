@@ -2040,7 +2040,7 @@ const HomePage = () => {
                         </div>
                         <div className="ps-5">
                           <h3> Sponsorship </h3>
-                          <p> Become a Sponsor / Partner </p>
+                          <p> Become a Sponsor</p>
                           <button
                             className="common-btn"
                             onClick={() => navigation("/sponsorForm")}
