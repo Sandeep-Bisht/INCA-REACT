@@ -497,13 +497,13 @@
     background-color:#f8f8f8;
 }
 
-
+/* 
 .home-register-step ul
 {
     display:flex;
     justify-content: space-between;
     flex-wrap:wrap;
-}
+} */
 .home-register-step ul li{
     /* text-align: center;
     margin: 5px 10px;
@@ -517,7 +517,7 @@
     margin: 5px 10px;
     /* box-shadow: 0 0 5px 0 #b9b9b9; */
     padding: 50px 10px;
-    width: 530px;
+    /* width: 530px; */
     /* height: 320px; */
     background: #fff;
     position: relative;
@@ -525,6 +525,9 @@
     /* flex-grow: 1; */
     align-items: center;
     display: flex;
+    justify-content: center;
+    width: 85%;
+    margin: 0 auto 20px auto;
 }
 .home-register-step ul li .reg-icon-box
 {
@@ -945,9 +948,9 @@ padding: 50px 40px;
     .home-about .signature-box .upper-box {
         padding: 10px;
     }
-    .home-register-step ul li {
+    /* .home-register-step ul li {
         width: 460px;
-    }
+    } */
      .grid-wrapper .tall {
         grid-row: span 1;
     }
@@ -1000,6 +1003,9 @@ padding: 50px 40px;
         line-height: 1.5;
         display: block;
     }
+    .home-register-step ul li{
+        width: 95%;
+    }
 
 }
 
@@ -1026,7 +1032,7 @@ padding: 50px 40px;
         margin-bottom: 30px;
     }
     .home-register-step ul li {
-        width: 350px;
+        /* width: 350px; */
         padding: 20px;
     }
     .contact-area .contact-move {
@@ -1306,11 +1312,11 @@ padding: 50px 40px;
         width: 85%;
         margin: 5px auto;
     }
-    .home-register-step ul li
+    /* .home-register-step ul li
     {
-        height:250px;
-        margin: 10px ;
-    }
+        /* height:250px; */
+        /* margin: 10px ; */
+    /* }  */
     .home-register-step ul li h3
     {
         font-size:18px;
@@ -1353,9 +1359,12 @@ padding: 50px 40px;
         box-shadow: 0px 15px 25px rgb(0 4 74 / 4%);
     }
     .home-register-step ul li{
-        width: auto;
-        height: auto;
+        /* width: auto;
+        height: auto; */
+        width:90%;
+        margin: 0 auto 20px auto;
         padding: 20px;
+
     }
     .home-register-step ul li p{
         margin: 18px 0;
@@ -1399,6 +1408,9 @@ padding: 50px 40px;
     #home-speaker .react-multi-carousel-list {
         padding: 0 0 40px 0;
     }
+
+
+
 
 }
 
@@ -1595,11 +1607,11 @@ padding: 50px 40px;
         width: 85%;
         margin: 5px auto;
     }
-    .home-register-step ul li
+    /* .home-register-step ul li
     {
         height:auto;
         margin: 10px ;
-    }
+    } */
     .home-register-step ul li h3
     {
         font-size:18px;
@@ -1795,7 +1807,7 @@ padding: 50px 40px;
         font-size: 10px;
     }
     .home-schedule{
-        padding: 40px 0!important;
+        padding: 15px 0!important;
     }
     .grid-wrapper{
         grid-auto-rows: auto;
@@ -1853,10 +1865,10 @@ padding: 50px 40px;
         align-items: start;
         margin: 25px 0;
     }
-    .home-register-step ul li {
+    /* .home-register-step ul li {
         height: auto;
         margin: 5px;
-    }
+    } */
     .Welcome-page .adhir-image-title {
         right: 0;
     }

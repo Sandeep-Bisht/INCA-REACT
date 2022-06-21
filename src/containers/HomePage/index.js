@@ -242,7 +242,7 @@ Let us all come together to achieve the goals and success of this mega-event and
         </div>
       </div>
 
-      <section className="section-padding home-about pb-lg-0 without-carousel">
+      <section className="section-padding home-about pb-lg-0 without-carousel ">
         <div className="container">
           <div className="row py-4 mt-3">
             <div className="col-lg-4">
@@ -2119,7 +2119,7 @@ Let us all come together to achieve the goals and success of this mega-event and
         </div>
       </section>
 
-      <section className="section-padding home-about pb-lg-0 without-carousel">
+      <section className="section-padding home-about pb-lg-5 mb-lg-4 without-carousel ">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
