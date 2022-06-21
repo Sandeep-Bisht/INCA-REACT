@@ -46,7 +46,7 @@ function ImportantDates() {
         <div className='row'>
           <div className='col-md-12'>
             <div className='note-imp-date'>
-            <span>Note :</span> <span className='common-para'>No Abstract will be published in Abstract volume without the receipt of the registration fee before DD-MM-YYYY </span>
+            <span>Note :</span> <span className='common-para'>No Abstract will be published in Abstract volume without the receipt of the registration fee before 30-September-2022 </span>
             </div>
           </div>
         </div>
