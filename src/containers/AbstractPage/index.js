@@ -2,10 +2,8 @@ import React from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
-import First_Circular_Pdf from "../../SampleFiles/42thINCA-First Circular-20Jun2022.pdf";
-import Abstract_Template_Docx from "../../SampleFiles/ABSTRACT_TEMPLATE 42inca.docx";
-import Fullpaper_Template_Pdf from "../../SampleFiles/FULLPAPER_TEMPLATE.pdf";
-import Fullpaper_Template_Docs from "../../SampleFiles/FULLPAPER_TEMPLATE.docx";
+import Abstract_Template_Pdf from "../../SampleFiles/ABSTRACT_TEMPLATE.pdf";
+import Abstract_Template_Docx from '../../SampleFiles/ABSTRACT_TEMPLATE.docx';
 import "../../css/abstract.css";
 import "../../css/contact.css";
 
@@ -65,14 +63,14 @@ function AbstractPage() {
                         <div className="row">
                           <div className="col-md-6">
                             <a
-                              href={First_Circular_Pdf}
-                              download="First_Circular"
+                              href={Abstract_Template_Pdf}
+                              download="Abstract_Template"
                             >
                               <span className="abstract-pdf-file-icon">
                                 <i class="fa-solid fa-file-pdf"></i>
                               </span>
                               <span className="abstract-pdf-file-text">
-                                First Circular
+                              Abstract Template
                               </span>
                             </a>
                           </div>
@@ -104,7 +102,7 @@ function AbstractPage() {
                                 <i class="fa-solid fa-file-word"></i>
                               </span>
                               <span className="abstract-word-file-text">
-                               Sample Abstract Template
+                               Sample Abstract Template Docx
                               </span>
                             </a>
                           </div>
