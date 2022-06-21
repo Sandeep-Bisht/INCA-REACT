@@ -102,8 +102,8 @@ const HomePage = () => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 2, // optional, default to 1.
+      items: 3,
+      slidesToSlide: 3, // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -2569,20 +2569,20 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-lg-4">
-              <div className="blog-card">
+          <div className="row">           
+            {/* <div className="col-lg-4">
+              
+              <div className="blog-card"> */}
                 {/* href={Announcement} download="Announcement" */}
-                <a target="_blank" href={Announcement}>
-                  <div className="blog-card-pic">
-                    <img src={Event} alt="First-Circular"></img>
-                  </div>
+              {/* <a target="_blank" href={Announcement}>
+                <div className="blog-card-pic">
+                  <img src={Event} alt="First-Circular"></img>
+                </div>
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Conference- Notice &
-                    Agenda
-                  </h3>
+                    42<sup>nd</sup> INCA International Conference- Notice & Agenda
+                  </h3> */}
                   {/* <div className="blog-box">
                     <span>INCAteam </span>{" "}
                     <span className="blog-border px-1 mx-1">
@@ -2596,9 +2596,9 @@ const HomePage = () => {
                       READ MORE
                     </a>
                   </div> */}
-                </div>
+                {/* </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="col-lg-4">
               <div className="blog-card">

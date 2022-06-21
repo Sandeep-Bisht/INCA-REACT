@@ -3,7 +3,7 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 import Abstract_Template_Pdf from "../../SampleFiles/ABSTRACT_TEMPLATE.pdf";
-import Abstract_Template_Docx from '../../SampleFiles/ABSTRACT_TEMPLATE.docx';
+import Abstract_Template_Docx from '../../SampleFiles/ABSTRACT_TEMPLATE 42inca.docx';
 import "../../css/abstract.css";
 import "../../css/contact.css";
 
