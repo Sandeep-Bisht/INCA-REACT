@@ -6,3 +6,8 @@ export function ForgotPassword(userEmail){
         userEmail,        
     }
 }
+export function resetToInitialState() {
+    return {
+      type: CONSTANTS.RESET_TO_INITIAL_STATE,
+    };
+  }

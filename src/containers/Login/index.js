@@ -34,7 +34,9 @@ const Login = () => {
   useEffect(() => {
     if (state && state.userLoginSuccess && state.userLoginSuccess.token) {
       localStorage.setItem("token", state.userLoginSuccess.token);
-      navigate("/dashboard");
+      //navigate("/dashboard");
+      const origin = window.location.origin;
+      window.location.href = `${origin}/dashboard`
       setLoginLoder(false)
       dispatch(ACTIONS.resetToInitialState());
     }

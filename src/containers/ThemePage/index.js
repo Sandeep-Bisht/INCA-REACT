@@ -26,7 +26,7 @@ function Theme() {
           <div className="row">
             <div className="col-md-2">
               <div className="main-theme-box">
-                <h1 className="h1"><u>Main Theme</u></h1>
+                <h1 className="h1 pt-2"><u>Main Theme</u></h1>
               </div>
             </div>
             <div className="col-md-10">
