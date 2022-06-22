@@ -194,10 +194,10 @@ const HomePage = () => {
                 <div className="adhir-image-title">
                   <p className="common-para">
                     {" "}
-                    Vice Admiral <br /> Adhir Arora , NM{" "}
+                    Vice Admiral Adhir Arora , NM{" "}
                   </p>
                   <p className="common-para">
-                    Chief Hydrographer to the Govt. of India & PRESIDENT INCA
+                    Chief Hydrographer to the Govt. of India & President INCA
                   </p>
                 </div>
               </div>
@@ -208,13 +208,13 @@ const HomePage = () => {
                   WELCOME TO 42<sup>nd</sup> INCA International Conference
                 </h3>
                 <h4 className="h2">Dear Participants,</h4>
-                <p className="common-para">
+                <p className="common-para text-justify">
                   It gives me immense pleasure to welcome all presenters and
                   participants to the Indian National Cartographic Association
                   (INCA) Conference 2022 on the theme{" "}
                   <b>"Digital Cartography To Harness Blue Economy"</b> which
                   will be hosted by National Hydrographic Office, Dehradun from
-                  November 09-11, 2022. Now, I cordially invite all the eminent
+                  November 09-11, 2022. I cordially invite all the eminent
                   speakers and distinguished guests from around the world and
                   various parts of the country to join us and share their
                   extensive knowledge and expertise. In this conference renowned
@@ -2121,7 +2121,7 @@ const HomePage = () => {
                 <h1 className="common-heading pt-4">
                   About INCA (Indian National Cartographic Association)
                 </h1>
-                <p className="common-para">
+                <p className="common-para text-justify">
                   INCA as an association provides an interface between academia,
                   particularly geographers, geologists, earth scientists,
                   technologists etc., and government institutions and
@@ -2138,7 +2138,7 @@ const HomePage = () => {
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
-                      <span>
+                      <span className="text-justify">
                         To foster cartographic research in the country , To
                         co-operate with professional organisations of cognate
                         disciplines and to promote academic interaction within
@@ -2150,7 +2150,7 @@ const HomePage = () => {
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
-                      <span>
+                      <span className="text-justify">
                         To co-operate with international organisations with
                         similar objectives , To improve the teaching of
                         cartography at all levels.
@@ -2162,7 +2162,7 @@ const HomePage = () => {
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
-                      <span>
+                      <span className="text-justify">
                         To foster co-operation between Government and
                         Quasi-Government organisations, Research Institutions
                         for the advancement of cartography , To hold a National

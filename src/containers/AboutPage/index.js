@@ -52,7 +52,7 @@ const About = () => {
           <div className="row">
             <div className="col-md-8 pe-4">
               <h2 className="pb-2">ABOUT DEHRADUN</h2>
-              <p className="common-para">
+              <p className="common-para text-justify">
                 <b>Dehradun</b> is the largest and most populated city in the
                 Indian state of Uttarakhand.The city is noted for its
                 picturesque landscape and slightly milder climate and provides a
@@ -70,7 +70,7 @@ const About = () => {
                 Basmati rice and bakery products.
               </p>
 
-              <p className="common-para">
+              <p className="common-para text-justify">
                 Dehradun is a notable academic and research hub and is home to
                 the Indian Military Academy, Forest Research Institute, Indira
                 Gandhi National Forest Academy, The Doon School, Welham Boys
@@ -118,7 +118,7 @@ const About = () => {
           <div className="row">
             <div className="col-md-8 pe-4">
               <h2>DEHRADUN CLIMATE</h2>
-              <p className="common-para">
+              <p className="common-para text-justify">
                 The climate of Dehradun is humid subtropical. It varies greatly
                 from tropical to severe cold depending upon the altitude of the
                 area. The city is in Doon Valley and temperature variations due

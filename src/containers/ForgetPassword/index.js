@@ -20,9 +20,18 @@ const ForgotPassword = () => {
       if(state.userForgotPasswordSuccess){
         setUserEmail("")
         setIsDisabled(false)
-        setForgotPassowrdMessage(state.userForgotPasswordSuccess.message)
+        setForgotPassowrdMessage(state.userForgotPasswordSuccess.message);
+        dispatch(ACTIONS.resetToInitialState());
+        clearMessage();
       }
   }, [state.userForgotPasswordSuccess])
+
+  let clearMessage = () => {
+    setTimeout(()=> {
+      setUserEmailValidationError("");
+      setForgotPassowrdMessage("");
+    }, 3000)
+  }
 
   useEffect(() => {
     if(state.userForgotPasswordFailure){
@@ -106,7 +115,7 @@ const ForgotPassword = () => {
                        { isDisabled ?  "Requesting" :  "Send" }
                       </button>
                       {userEmailValidationError && <p className="text-danger">{userEmailValidationError}</p>}
-                      {forgotPassowrdMessage && <p className="text-success">{forgotPassowrdMessage}</p>}
+                      {forgotPassowrdMessage  && <p className={`${forgotPassowrdMessage == "Please send the registred email address" ? "text-danger" : "text-success"}`}>{forgotPassowrdMessage}</p>}
                     </div>
                   </div>
                 </div>

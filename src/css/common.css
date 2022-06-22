@@ -124,6 +124,10 @@ h1,h2,h3,h4,h5,h6
     border-radius: 25px;
     border: 0;
 }
+.text-justify
+{
+    text-align: justify;
+}
 .header-scrolled
 {
 left: 0;

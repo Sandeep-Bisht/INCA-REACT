@@ -68,13 +68,6 @@ const AttendanceStatus = () => {
      }, 2000);
      //navigate("/dashboard");
     }
-    // else {
-    //   setNodeId("")
-    // }const origin = window.location.origin;
-    
-    
-    
-    
   }
 
   const dynamicColumns = columns.map((col, i) => {

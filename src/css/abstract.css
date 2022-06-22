@@ -102,10 +102,10 @@
         padding: 5px 0;
     }
 }
-@media only screen and (max-width : 767px){
+/* @media only screen and (max-width : 767px){
     .abstract-pdf-file-icon-wrapper , .abstract-word-file-icon-wrapper
     {
         display: flex;
         justify-content: center;
     }
-}
+} */

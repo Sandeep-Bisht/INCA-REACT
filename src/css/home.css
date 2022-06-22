@@ -1402,9 +1402,9 @@ padding: 50px 40px;
     .home-banner .home-schedule-mob{
         display:inline-block;
     }
-    .home-banner .home-schedule-desk{
+    /* .home-banner .home-schedule-desk{
       display:none;
-    }
+    } */
     #home-speaker .react-multi-carousel-list {
         padding: 0 0 40px 0;
     }

@@ -83,6 +83,10 @@ const CreateForm = (props) => {
     }
   }, []);
   
+  // useEffect(() => {
+  //   //const origin = window.location.origin;  `${origin}/dashboard`;
+  //   window.location.href = "/dashboard"
+  // }, [])
   useEffect(() => {
     setValue(getRegistrationFee());
   }, [userInformation]);
@@ -840,7 +844,7 @@ const CreateForm = (props) => {
               </div>
             </div>            
 
-            {message && <p className="text-danger">{message}</p>}
+            {message && <p className={`${message == "Your information saved successfully" ? "text-success" : "text-danger"}`} >{message}</p>}
 
             <div className="row">
               <div className="col-md-12 text-end">

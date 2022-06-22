@@ -14,6 +14,12 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         userForgotPasswordFailure: action.error,
       };
+
+      case CONSTANT.RESET_TO_INITIAL_STATE:
+        return {
+          ...state,
+          userForgotPasswordSuccess: "",
+        };
     
      
     default:
