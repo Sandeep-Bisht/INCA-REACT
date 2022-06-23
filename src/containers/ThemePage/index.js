@@ -47,7 +47,7 @@ function Theme() {
             <div className="col-md-10">
               <div className="paragraph-boxes">
                 <div className="row">
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                     <div className="cards">
                       <div className="box-1">
                         <p>
@@ -56,7 +56,7 @@ function Theme() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                   <div className="cards">
                       <div className="box-1">
                         <p>
@@ -65,7 +65,7 @@ function Theme() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                   <div className="cards">
                       <div className="box-1">
                         <p>
@@ -74,19 +74,10 @@ function Theme() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-3">
-                  <div className="cards">
-                      <div className="box-1">
-                        <p>
-                        Hydrographic surveys and mapping for coastal zone management 
-                        </p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="row">
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                     <div className="cards">
                       <div className="box-1">
                         <p>
@@ -95,7 +86,7 @@ function Theme() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                   <div className="cards">
                       <div className="box-1">
                         <p>
@@ -104,7 +95,7 @@ function Theme() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                   <div className="cards">
                       <div className="box-1">
                         <p>
@@ -113,19 +104,20 @@ function Theme() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-3">
+                 
+                </div>
+
+                <div className="row">
+                <div className="col-md-4">
                   <div className="cards">
                       <div className="box-1">
                         <p>
-                        Emerging trends in farming, livelihood and ‘food safety & security’ in rural India
+                        Hydrographic surveys and mapping for coastal zone management 
                         </p>
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                     <div className="cards">
                       <div className="box-1">
                         <p>
@@ -134,33 +126,15 @@ function Theme() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                   <div className="cards">
                       <div className="box-1">
                         <p>
-                        Geoinformatics including AI (Artificial Intelligence) Solutions for Border management and National security.
+                        Emerging trends in farming, livelihood and ‘food safety & security’ in rural India
                         </p>
                       </div>
                     </div>
                   </div>
-                  {/* <div className="col-md-3">
-                  <div className="cards">
-                      <div className="box-1">
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vel facere nisi nobis soluta quis.
-                        </p>
-                      </div>
-                    </div>
-                  </div> */}
-                  {/* <div className="col-md-3">
-                  <div className="cards">
-                      <div className="box-1">
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vel facere nisi nobis soluta quis.
-                        </p>
-                      </div>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </div>
