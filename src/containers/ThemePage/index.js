@@ -51,7 +51,7 @@ function Theme() {
                     <div className="cards">
                       <div className="box-1">
                         <p>
-                        Trending in Cartography – Past, Present and Future
+                        Trending Cartography – Past, Present and Future
                         </p>
                       </div>
                     </div>
