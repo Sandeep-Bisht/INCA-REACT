@@ -51,7 +51,7 @@ function Theme() {
                     <div className="cards">
                       <div className="box-1">
                         <p>
-                        Trends in Cartography – Past, Present and Future
+                        Trending in Cartography – Past, Present and Future
                         </p>
                       </div>
                     </div>
@@ -60,7 +60,7 @@ function Theme() {
                   <div className="cards">
                       <div className="box-1">
                         <p>
-                        Modern Surveying Techniques and Tools for Higher Precision 
+                        Modern Precision Surveying & Mapping Tool 
                         </p>
                       </div>
                     </div>
@@ -81,7 +81,7 @@ function Theme() {
                     <div className="cards">
                       <div className="box-1">
                         <p>
-                        GIS application for Climate Change and Environmental Protection
+                        GIS application for Climate Change and Environmental studies
                         </p>
                       </div>
                     </div>
@@ -113,24 +113,6 @@ function Theme() {
                       <div className="box-1">
                         <p>
                         Hydrographic surveys and mapping for coastal zone management 
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="cards">
-                      <div className="box-1">
-                        <p>
-                        Digital Cartographic Solutions for promoting Indian Heritage, Culture and Tourism
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                  <div className="cards">
-                      <div className="box-1">
-                        <p>
-                        Emerging trends in farming, livelihood and ‘food safety & security’ in rural India
                         </p>
                       </div>
                     </div>

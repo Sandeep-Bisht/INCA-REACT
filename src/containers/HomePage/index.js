@@ -2138,7 +2138,7 @@ const HomePage = () => {
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
-                      <span className="text-justify">
+                      <span>
                         To foster cartographic research in the country , To
                         co-operate with professional organisations of cognate
                         disciplines and to promote academic interaction within
@@ -2150,7 +2150,7 @@ const HomePage = () => {
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
-                      <span className="text-justify">
+                      <span>
                         To co-operate with international organisations with
                         similar objectives , To improve the teaching of
                         cartography at all levels.
@@ -2162,7 +2162,7 @@ const HomePage = () => {
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
 
-                      <span className="text-justify">
+                      <span>
                         To foster co-operation between Government and
                         Quasi-Government organisations, Research Institutions
                         for the advancement of cartography , To hold a National
