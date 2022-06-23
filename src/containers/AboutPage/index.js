@@ -33,7 +33,7 @@ const About = () => {
           <div className="row">
             <div className="col-md-8 pe-4">
               <h2 className="pb-2">ABOUT NHO</h2>
-              <p className="common-para">
+              <p className="common-para text-justify">
               The Indian Naval Hydrographic Department (INHD) functions under the Chief Hydrographer to the Government of India.  The Department, being the nodal agency for Hydrographic surveys and Nautical charting in India, has a very well established organizational setup.  INHD has seven indigenously built modern survey ships including one Catamaran Hull Survey Vessel (CHSV) fitted with state-of-the-art surveying equipment and a well established ‘National Institute of Hydrography’ which is the Centre for imparting training in Hydrography accredited by International Hydrographic Organisation for National and International trainees.<br/>
               The Chief Hydrographer to the Government of India is the NAVAREA VIII coordinator and is also the National Coordinator for NAVTEX services along Indian coast.
               </p>

@@ -12,7 +12,7 @@ export const Footer = () => {
             <div className="col-md-3 col-6">
               <div className="box-1">
                 <h2>INCA</h2>
-                <p className="f1 text-justify">
+                <p className="f1">
                   The Indian National Cartographic Association (INCA) has
                   evolved into one of the world's most prominent professional
                   associations of its kind.
