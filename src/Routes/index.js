@@ -21,6 +21,7 @@ const Contact = lazy(() => import("../containers/ContactPage"));
 const About = lazy(() => import("../containers/AboutPage"));
 const Error = lazy(() => import("../containers/Error"));
 const SponsorForm = lazy(() => import("../containers/SponsorForm"));
+const ExhibitorForm = lazy(() => import("../containers/ExhibitorForm"));
 const RegisteredUser = lazy(() => import("../containers/RegistredUsers"));
 const AllSponsor = lazy(() => import("../containers/AllSponsor"));
 const AbstractUpload = lazy(() => import("../containers/AbstractUpload"))
@@ -94,6 +95,7 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/abstractpage" element={<AbstractPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/sponsorForm" element={<SponsorForm />} />
+          <Route path="/exhibitor" element={<ExhibitorForm />} />
           <Route path="/eventblog" element={<EventBlog />} />
           <Route path="*" element={<Error />} />
         </Routes>

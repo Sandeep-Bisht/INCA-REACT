@@ -236,6 +236,12 @@ textarea
   color: red;
   content: '*';
 }
+.asterisk-exhibitor::before
+{
+  color: red;
+  content: '* Exhibitor Fee';
+  font-size: 12px;
+}
 
 
 
