@@ -40,11 +40,6 @@ export const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="nav-link text-white ps-0" to="/register">
-                      Registration
-                    </Link>
-                  </li>
-                  <li>
                     <a className="nav-link text-white ps-0" target="_blank" href="https://www.incaindia.org/">
                       INCA Official Website
                     </a>
@@ -72,7 +67,11 @@ export const Footer = () => {
                       Sponsor Registration
                     </Link>
                   </li>
-                  
+                  <li>
+                    <Link className="nav-link text-white ps-0" to="/exhibitor">
+                      Exhibitor Registration
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>

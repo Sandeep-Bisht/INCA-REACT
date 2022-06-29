@@ -70,15 +70,6 @@
 {
     line-height: 30px;
 }
-.Welcome-page .welcome-text h3
-{
-    letter-spacing: 2px;
-    text-align: left;
-}
-.Welcome-page .welcome-text h4
-{
-    font-weight: 600;
-}
 .Welcome-page .adhir-arora-image
 {
     position: relative;
@@ -367,6 +358,20 @@
 }
 #home-speaker{
     display: block!important;
+    background: aliceblue;
+}
+.react-multiple-carousel__arrow--right
+{
+    right: calc(2% + 1px);
+}
+.react-multiple-carousel__arrow
+{
+    min-height: 35px;
+    min-width: 35px;
+}
+.react-multiple-carousel__arrow--left 
+{
+    left: calc(2% + 1px);
 }
 /* ----------home-schedule-------------- */
 .home-schedule
@@ -566,6 +571,7 @@
 }
 .home-register-step ul li .common-btn
 {
+    margin-top: 40px;
     padding: 5px 15px;
     font-size:12px; 
 }
@@ -883,7 +889,7 @@ padding: 50px 40px;
 }
 
 #home-speaker  .react-multi-carousel-list{
-    padding: 0 0 75px 0;
+    padding: 80px 0;
 }
 
 
@@ -1075,6 +1081,14 @@ padding: 50px 40px;
     .Welcome-page .welcome-text
     {
         padding: 20px 40px;
+    }
+    .react-multiple-carousel__arrow--right
+    {
+        right: calc(0% + 1px);
+    }
+    .react-multiple-carousel__arrow--left
+    {
+        left: calc(0% + 1px);
     }
     .home-about .signature-box .upper-box {
         margin-left: 0px;
@@ -1411,7 +1425,7 @@ padding: 50px 40px;
       display:none;
     } */
     #home-speaker .react-multi-carousel-list {
-        padding: 0 0 40px 0;
+        padding: 52px 0;
     }
 
 
@@ -1623,7 +1637,7 @@ padding: 50px 40px;
     }
     .home-register-step ul li .common-btn
     {
-        font-size: 11px;
+        font-size: 10px;
     }
     /* -------home testimonial----- */
     .testimonial-area .container .carousel-item .boxes

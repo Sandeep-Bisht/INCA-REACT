@@ -86,14 +86,14 @@ const Dashboard = (props) => {
                       aria-expanded="false"
                     >
                       <span className="user-icon">
-                      <i className="fa-solid fa-user"></i>
+                        <i className="fa-solid fa-user"></i>
                       </span>
-                      
+
                       {/* <img
                         src={User}
                         className="img-fluid  me-3 dash-user-pic"
                       /> */}
-                      <span className="user-text me-2">                      
+                      <span className="user-text me-2">
                         {loggedInUser.userName}
                       </span>
                     </a>
@@ -101,7 +101,7 @@ const Dashboard = (props) => {
                       className="dropdown-menu"
                       aria-labelledby="navbarDropdown"
                     >
-                    <li>
+                      <li>
                         <button
                           onClick={() => logoutUser()}
                           className="dropdown-item logout-btn"
@@ -146,7 +146,7 @@ const Dashboard = (props) => {
                           onClick={() => navigate("/dashboard")}
                         >
                           <span className="me-2">
-                          <i className="fa-solid fa-user-plus"></i>
+                            <i className="fa-solid fa-user-plus"></i>
                           </span>
                           New Registration
                         </button>
@@ -185,7 +185,7 @@ const Dashboard = (props) => {
                                   onClick={() => navigate("/dashboard/create")}
                                 >
                                   <span className="me-2">
-                                  <i className="fa-solid fa-user-plus"></i>
+                                    <i className="fa-solid fa-user-plus"></i>
                                   </span>{" "}
                                   New Registration
                                 </button>
@@ -223,6 +223,22 @@ const Dashboard = (props) => {
                               <i className="fa-brands fa-elementor"></i>
                             </span>{" "}
                             Sponsors
+                          </button>
+                        </li>
+                      </>
+                    )}
+
+                    {loggedInUser.role == "admin" && (
+                      <>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() => navigate("/dashboard/exhibitorlist")}
+                          >
+                            <span className="me-2">
+                              <i className="fa-brands fa-elementor"></i>
+                            </span>{" "}
+                            Exhibitor List
                           </button>
                         </li>
                       </>
@@ -276,7 +292,7 @@ const Dashboard = (props) => {
                                   aria-controls="collapseOne"
                                 >
                                   <span className="me-2 ">
-                                  <i className="fa-solid fa-cloud-arrow-up"></i>                                  
+                                    <i className="fa-solid fa-cloud-arrow-up"></i>
                                   </span>
                                   Paper Submisson
                                 </button>
@@ -339,19 +355,19 @@ const Dashboard = (props) => {
                       </>
                     )}
                     {loggedInUser.role == "admin" && (
-                                      <li>
-                                        <button
-                                          className="common-blue btn"
-                                          onClick={() => navigate("/dashboard/abstract")
-                                          }
-                                        >
-                                          <span className="me-2">
-                                            <i className="fa-solid fa-file-export"></i>
-                                          </span>
-                                          Abstracts
-                                        </button>
-                                      </li>
-                                    )}
+                      <li>
+                        <button
+                          className="common-blue btn"
+                          onClick={() => navigate("/dashboard/abstract")
+                          }
+                        >
+                          <span className="me-2">
+                            <i className="fa-solid fa-file-export"></i>
+                          </span>
+                          Abstracts
+                        </button>
+                      </li>
+                    )}
                   </ul>
                 </aside>
               </div>

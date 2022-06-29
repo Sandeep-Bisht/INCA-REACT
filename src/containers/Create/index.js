@@ -753,7 +753,7 @@ const CreateForm = (props) => {
                       <option value="Life Members">Delegate</option>
                       <option value="For Students (Indian) ">For Students (Indian)</option>
                       <option value="Others (participants/delegates/members)">Others (participants/delegates/members)</option>
-                    </select><option value="Life Members">Life Members</option>
+                    </select>
                     {isError && isError.registrationCategory && (
                       <p className="text-danger">
                         {isError.registrationCategory}
@@ -765,7 +765,7 @@ const CreateForm = (props) => {
 
               <div className="col-md-4">
                 <div className="row">
-                  <div className="col-md-12 mb-4">
+                  <div className="col-md-12 mb-3">
                     <label htmlFor="SelectWish" className="form-label asterisk">
                       I wish to participate in the conference for
                     </label>
@@ -797,6 +797,14 @@ const CreateForm = (props) => {
                       <p className="text-danger">{isError.participationType}</p>
                     )}
                   </div>
+                  {/* <div className="col-md-12 pt-5">
+                    <div className="radio-button-box d-flex">
+                   <label for='foreigner'>foreigner</label>
+                    <input type='radio' id="foreigner" name="radio-btn"/>
+                  <label for='Indian'>Indian</label>
+                    <input type='radio' id="Indian" name="radio-btn"/>
+                    </div>
+                  </div> */}
                   <div className="col-md-12">
                     {isDisabled && (
                       <>
@@ -843,7 +851,23 @@ const CreateForm = (props) => {
                   }
                 ></textarea>                
               </div>
-            </div>            
+            </div>  
+
+            {/* <div className="row">
+              <div className="col-md-12">
+                <div className="accompany-box">
+                  <div className="accompany-box-1">
+                <h4>Accompanying Person</h4>
+                </div>
+                <div className="accompany-box-2">
+                  <label for='yes'>Yes</label>
+                <input type='checkbox' id="yes" name=''/>
+                <label for='no'>No</label>
+                <input type='checkbox' id="no" name=''/>
+                </div>
+              </div>
+              </div>
+              </div>           */}
 
             {message && <p className={`${message == "Your information saved successfully" ? "text-success" : "text-danger"}`} >{message}</p>}
 

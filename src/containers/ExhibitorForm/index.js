@@ -1,15 +1,53 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import PhoneInput from 'react-phone-input-2'
 import "react-phone-input-2/lib/style.css";
 import { Header } from '../../components/Header';
+import axios from "axios"
 import "../../css/sponsor.css";
 
 function ExhibitorForm() {
+  const [exhibitorPayload, setExhibitorPayload] = useState(
+    {
+      exhibitionFee:"1,00,000",
+      name:""
+    }
+  )
+  const [mobile, setMobile] = useState("");
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState("")
+
+  let exibitionOnChangeHandler = (e) => {
+      let exhibitorPayloadCopy = {...exhibitorPayload}
+      exhibitorPayloadCopy[e.target.name] = e.target.value
+      setExhibitorPayload(exhibitorPayloadCopy)
+  }
+
+  let phoneNumberInputHandler = (mobile) => {
+    setMobile(mobile);
+  };
+
+  let saveExhibitorFormData = async(e) => {
+    setLoading(true)
+    e.preventDefault()
+    exhibitorPayload.mobile = mobile;
+    let url = `http://144.91.110.221:4801/api/exhibitor`
+        try {
+          let response = await axios.post(url, exhibitorPayload);
+          setMessage(response.data.message)
+          setLoading(false)
+        } catch (error) {
+          setLoading(false)
+        }
+  }
+
+  
+
+
   return (
     <>
     <Header/>
      <section className="sponsor-form register-form">
-        <form
+        <form onSubmit={(e) => saveExhibitorFormData(e)}
           className="submit-form  pt-0">
           <div className="container">
             <div className="row">
@@ -25,7 +63,10 @@ function ExhibitorForm() {
                     <div className="form-wrap">
                       <div className="input-wrap">
                         <input
-                          type="text" name="name" placeholder="Your Name.."/>
+                          type="text" 
+                          name="name"
+                          onChange={(e) => exibitionOnChangeHandler(e)}
+                          placeholder="Your Name.."/>
                       </div>
                     </div>
                   </div>
@@ -34,8 +75,9 @@ function ExhibitorForm() {
                     <div className="form-wrap">
                       <div className="input-wrap">
                         <input
-                          type="email" name="email"
-                          
+                          type="email" 
+                          name="email"
+                          onChange={(e) => exibitionOnChangeHandler(e)}
                           placeholder="Your Email.."/>
                       </div>
                     </div>
@@ -46,8 +88,10 @@ function ExhibitorForm() {
                       <div className="input-wrap">
                       <PhoneInput
                       country={"in"}
-                      
+                      value={mobile}
+                      onChange={(phone) => phoneNumberInputHandler(phone)}
                       className="country-flag-input"/>
+
                       </div>
                     </div>
                   </div>
@@ -58,8 +102,8 @@ function ExhibitorForm() {
                         <input
                           type="text"
                           name="companyName"
-                          
                           placeholder="Your Company Name.."
+                          onChange={(e) => exibitionOnChangeHandler(e)}
                         />
                       </div>
                     </div>
@@ -71,7 +115,7 @@ function ExhibitorForm() {
                       <div className='asterisk-exhibitor'>
                           </div>
                         <input
-                          type="text" name="name" placeholder="Exhibitor Fee" value={`1,00,000`}/>
+                          type="text"  placeholder="Exhibitor Fee" value={`${exhibitorPayload.exhibitionFee}`}/>
                           
                       </div>
                     </div>
@@ -90,7 +134,7 @@ function ExhibitorForm() {
                       <div className="input-wrap">
                         {/* <div className="register-form"> */}
                         <div>
-                          <p className="text-success"></p>
+                         {message && <p className="text-success">{message}</p>}
                         </div>
                       </div>
                     </div>

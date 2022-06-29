@@ -110,7 +110,7 @@ const HomePage = () => {
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
                   <span className="banner-small text-white">
-                    42<sup>nd</sup> INCA International Conference
+                    42<sup>nd</sup> INCA International Congress
                   </span>
 
                   <span className="theme-color">
@@ -204,12 +204,8 @@ const HomePage = () => {
             </div>
             <div className="col-md-12 text-center">
               <div className="welcome-text pt-4">
-                <h3 className="common-heading pb-2">
-                  WELCOME TO 42<sup>nd</sup> INCA International Conference
-                </h3>
-                <h4 className="h2 mb-4">Dear Participants,</h4>
                 <p className="common-para text-justify">
-                The National Hydrographic Office, Dehradun, India, has the honour of inviting all professionals interested in the field of Cartography/GIS and allied subjects as well as various disciplines of their application viz. Hydrography, Geography, Geology, Geophysics, Oceanography, Geo- informatics, Artificial intelligence, Hydro-meteorology, Marine Geomorphology, Coastal Resource Management and Environmental Planning etc. to participate in the forthcoming 42nd International Conference of Indian National Cartographic Association (INCA), being held at Dehradun, Uttarakhand, during 09 -11 November 2022.
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The National Hydrographic Office,  Dehradun, India, has the honour of inviting all professionals interested in the field of Cartography/GIS and allied subjects as well as various disciplines of their application viz. Hydrography, Geography, Geology, Geophysics, Oceanography, Geo- informatics, Artificial intelligence, Hydro-meteorology, Marine Geomorphology, Coastal Resource Management and Environmental Planning etc. to participate in the forthcoming 42nd International Conference of Indian National Cartographic Association (INCA), being held at Dehradun, Uttarakhand, during 09 -11 November 2022.
 Renowned national and international scholars, scientists, academicians, planners are expected to take part in this conference. It shall be profoundly advantageous for all participants including students by gaining from enriched experience of the eminent speakers from various fields of specialisations.
                 </p>
               </div>
@@ -658,9 +654,9 @@ Renowned national and international scholars, scientists, academicians, planners
             >
               <div className="member-profile">
                 <div className="speaker-card">
-                  <div className="speaker-pic">
+                  {/* <div className="speaker-pic">
                     <img src={comittee2} className="img-fluid" alt="" />
-                  </div>
+                  </div> */}
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
@@ -673,9 +669,9 @@ Renowned national and international scholars, scientists, academicians, planners
               </div>
               <div className="member-profile">
                 <div className="speaker-card">
-                  <div className="speaker-pic">
+                  {/* <div className="speaker-pic">
                     <img src={comittee7} className="img-fluid" alt="" />
-                  </div>
+                  </div> */}
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
@@ -688,9 +684,9 @@ Renowned national and international scholars, scientists, academicians, planners
               </div>
               <div className="member-profile">
                 <div className="speaker-card">
-                  <div className="speaker-pic">
+                  {/* <div className="speaker-pic">
                     <img src={comittee6} className="img-fluid" alt="" />
-                  </div>
+                  </div> */}
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
@@ -703,9 +699,9 @@ Renowned national and international scholars, scientists, academicians, planners
               </div>
               <div className="member-profile">
                 <div className="speaker-card">
-                  <div className="speaker-pic">
+                  {/* <div className="speaker-pic">
                     <img src={comittee5} className="img-fluid" alt="" />
-                  </div>
+                  </div> */}
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
@@ -718,9 +714,9 @@ Renowned national and international scholars, scientists, academicians, planners
               </div>
               <div className="member-profile">
                 <div className="speaker-card">
-                  <div className="speaker-pic">
+                  {/* <div className="speaker-pic">
                     <img src={comittee1} className="img-fluid" alt="" />
-                  </div>
+                  </div> */}
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
@@ -733,9 +729,9 @@ Renowned national and international scholars, scientists, academicians, planners
               </div>
               <div className="member-profile">
                 <div className="speaker-card">
-                  <div className="speaker-pic">
+                  {/* <div className="speaker-pic">
                     <img src={comittee4} className="img-fluid" alt="" />
-                  </div>
+                  </div> */}
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
@@ -748,9 +744,9 @@ Renowned national and international scholars, scientists, academicians, planners
               </div>
               <div className="member-profile">
                 <div className="speaker-card">
-                  <div className="speaker-pic">
+                  {/* <div className="speaker-pic">
                     <img src={comittee3} className="img-fluid" alt="" />
-                  </div>
+                  </div> */}
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
@@ -2027,7 +2023,7 @@ Renowned national and international scholars, scientists, academicians, planners
                         </div>
                         <div className="ps-5">
                           <h3> Sponsorship </h3>
-                          <p> Become a Sponsor</p>
+                          {/* <p> Become a Sponsor</p> */}
                           <button
                             className="common-btn"
                             onClick={() => navigation("/sponsorForm")}
@@ -2047,7 +2043,7 @@ Renowned national and international scholars, scientists, academicians, planners
                         </div>
                         <div className="ps-5">
                           <h3>Exhibitor</h3>
-                          <p> Become a Exhibitor </p>
+                          {/* <p> Become a Exhibitor </p> */}
                           <button
                             className=" common-btn"
                             onClick={() => navigation("/exhibitor")}
@@ -2067,7 +2063,7 @@ Renowned national and international scholars, scientists, academicians, planners
                         </div>
                         <div className="ps-5">
                           <h3> Delegate </h3>
-                          <p> Get your Conference Pass </p>
+                          {/* <p> Get your Conference Pass </p> */}
                           <button
                             className=" common-btn"
                             onClick={() => navigation("/register")}
@@ -2318,7 +2314,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Conference-First Circular
+                    42<sup>nd</sup> INCA International Congress-First Circular
                   </h3>
                 </div>
               </div>
@@ -2417,7 +2413,7 @@ Renowned national and international scholars, scientists, academicians, planners
             <div className="col-md-6">
               {/* <p className="common-pre-heading">INCA Events</p> */}
               <h2 className="common-heading ">
-                Gallery of previous INCA Conference
+                Gallery of previous INCA Congress
               </h2>
             </div>
             <div className="col-md-6">
