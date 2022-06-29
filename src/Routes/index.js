@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import * as Loader from "react-loader-spinner";
 import { useLocation } from "react-router-dom";
 import EventBlog from "../containers/EventBlog";
+import ExhibitorList from "../containers/ExhibitorList";
 
 const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
 const AbstractPage = lazy(() => import("../containers/AbstractPage"))
@@ -85,7 +86,8 @@ export const ApplicationRoutes = ({ path }) => {
               <Route path= "/dashboard/abstract" element={<AbstractDocumentList />} /> 
               <Route path="/dashboard/userabstractlist" element={<UserAbstractList />} />
               <Route path="/dashboard/previewPaper" element={<PreviewPaper />} />  
-              <Route path="/dashboard/fullPaper" element={<FullPaper />} />           
+              <Route path="/dashboard/fullPaper" element={<FullPaper />} /> 
+              <Route path ="/dashboard/exhibitorlist" element={<ExhibitorList />}/>          
             {/* )} */}
           </Route>
           <Route path="/contact" element={<Contact />} />
