@@ -30,7 +30,7 @@ function ExhibitorForm() {
     setLoading(true)
     e.preventDefault()
     exhibitorPayload.mobile = mobile;
-    let url = `http://localhost:4801/api/exhibitor`
+    let url = `http://144.91.110.221:4801/api/exhibitor`
         try {
           let response = await axios.post(url, exhibitorPayload);
           setMessage(response.data.message)
