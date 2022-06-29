@@ -28,7 +28,7 @@ export const Header = () => {
           <div className="row">
             <div className="col-md-12">
               <nav className="navbar navbar-expand-lg">
-                <a className="navbar-brand p-0 m-0" href="#">
+                <a className="navbar-brand p-0 m-0" href="/">
                   <img src={logo} className="img-fluid" />
                   {/* <span className="logo-text f2">Inca 2022</span> */}
                 </a>

@@ -1,7 +1,7 @@
 .home-banner
 {
     position: relative;
-    background: linear-gradient(to left, #000000fa, #000000d1, #00000000);   
+    background: linear-gradient(to left, #000000eb, #0000008f, #00000000);   
      padding: 175px 0;
      display: flex;
      /* border-bottom-left-radius: 250px;
@@ -69,6 +69,11 @@
 .Welcome-page .welcome-text p
 {
     line-height: 30px;
+}
+.Welcome-page .welcome-text h3
+{
+    letter-spacing: 2px;
+    text-align: left;
 }
 .Welcome-page .welcome-text h4
 {
@@ -309,7 +314,7 @@
 {
   width:100%;
   object-fit:contain;
-  /* height:350px; */
+  height:260px;
   /* padding: 0 20px; */
 }
 .home-speakers .speaker-card .speaker-detail
@@ -518,7 +523,7 @@
     /* box-shadow: 0 0 5px 0 #b9b9b9; */
     padding: 50px 10px;
     /* width: 530px; */
-    /* height: 320px; */
+    height: 250px;
     background: #fff;
     position: relative;
      border-radius: 10px;
@@ -526,7 +531,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    width: 85%;
+    width: 100%;
     margin: 0 auto 20px auto;
 }
 .home-register-step ul li .reg-icon-box
@@ -562,7 +567,7 @@
 .home-register-step ul li .common-btn
 {
     padding: 5px 15px;
-    font-size:13px; 
+    font-size:12px; 
 }
 
 /* ------julesh css start---------- */
@@ -929,7 +934,7 @@ padding: 50px 40px;
         grid-row: auto;
     }
     .home-speakers .speaker-card .speaker-detail{
-        height:120px;
+        height:100px;
     }
 
 }

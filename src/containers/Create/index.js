@@ -187,7 +187,7 @@ const CreateForm = (props) => {
       userInformationCopy.conferenceMode === "offline" &&
       userInformationCopy.registrationCategory === "Life Members"
     ) {
-      return "2500";
+      return "2950";
     }
 
     if (
@@ -200,7 +200,7 @@ const CreateForm = (props) => {
       userInformationCopy.conferenceMode === "offline" &&
       userInformationCopy.registrationCategory === "For Students (Indian) "
     ) {
-      return "1500";
+      return "1770";
     }
 
     if (
@@ -215,7 +215,7 @@ const CreateForm = (props) => {
       userInformationCopy.registrationCategory ===
       "Others (participants/delegates/members)"
     ) {
-      return "3000";
+      return "3540";
     }
   };
 
@@ -750,9 +750,10 @@ const CreateForm = (props) => {
                         Please Select
                       </option>
                       <option value="Life Members">Life Members</option>
+                      <option value="Life Members">Delegate</option>
                       <option value="For Students (Indian) ">For Students (Indian)</option>
                       <option value="Others (participants/delegates/members)">Others (participants/delegates/members)</option>
-                    </select>
+                    </select><option value="Life Members">Life Members</option>
                     {isError && isError.registrationCategory && (
                       <p className="text-danger">
                         {isError.registrationCategory}
@@ -782,7 +783,7 @@ const CreateForm = (props) => {
                         Please Select
                       </option>
                       <option value="deligate">
-                      Deligate
+                      Delegate
                       </option>
                       <option value="Research Paper Presentation">
                         Research Paper Presentation
