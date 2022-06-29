@@ -186,7 +186,7 @@ const HomePage = () => {
       <div className="Welcome-page">
         <div className="container">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-6 d-none">
               <div className="adhir-arora-image">
                 <div className="adhir-pic">
                   <img src={comittee2} alt="" className="img-fluid" />
@@ -202,28 +202,15 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-12 text-center">
               <div className="welcome-text pt-4">
-                <h3 className="common-heading">
+                <h3 className="common-heading pb-2">
                   WELCOME TO 42<sup>nd</sup> INCA International Conference
                 </h3>
-                <h4 className="h2">Dear Participants,</h4>
+                <h4 className="h2 mb-4">Dear Participants,</h4>
                 <p className="common-para text-justify">
-                  It gives me immense pleasure to welcome all presenters and
-                  participants to the Indian National Cartographic Association
-                  (INCA) Conference 2022 on the theme{" "}
-                  <b>"Digital Cartography To Harness Blue Economy"</b> which
-                  will be hosted by National Hydrographic Office, Dehradun from
-                  November 09-11, 2022. I cordially invite all the eminent
-                  speakers and distinguished guests from around the world and
-                  various parts of the country to join us and share their
-                  extensive knowledge and expertise. In this conference renowned
-                  national and international scholars, scientists, academicians,
-                  planners will take part among others to share their expertise
-                  and experiences which will enrich our knowledge. It shall be
-                  profoundly advantageous for all the participants including the
-                  students. Let us all come together to achieve the goals and
-                  success of this mega-event and promote Cartography in India.
+                The National Hydrographic Office, Dehradun, India, has the honour of inviting all professionals interested in the field of Cartography/GIS and allied subjects as well as various disciplines of their application viz. Hydrography, Geography, Geology, Geophysics, Oceanography, Geo- informatics, Artificial intelligence, Hydro-meteorology, Marine Geomorphology, Coastal Resource Management and Environmental Planning etc. to participate in the forthcoming 42nd International Conference of Indian National Cartographic Association (INCA), being held at Dehradun, Uttarakhand, during 09 -11 November 2022.
+Renowned national and international scholars, scientists, academicians, planners are expected to take part in this conference. It shall be profoundly advantageous for all participants including students by gaining from enriched experience of the eminent speakers from various fields of specialisations.
                 </p>
               </div>
             </div>
@@ -2032,7 +2019,7 @@ const HomePage = () => {
             <div className="col-md-12">
               <ul className="ps-0 list-unstyled">
                 <div className="row">
-                  <div className="col-md-6">
+                  <div className="col-md-6 col-lg-4">
                     <li>
                       <div className="reg-icon-box">
                         <div>
@@ -2051,7 +2038,27 @@ const HomePage = () => {
                       </div>
                     </li>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6 col-lg-4">
+                    <li>
+                      {" "}
+                      <div className="reg-icon-box">
+                        <div>
+                          <img src={reg4} className="img-fluid" alt="" />
+                        </div>
+                        <div className="ps-5">
+                          <h3>Exhibitor</h3>
+                          <p> Become a Exhibitor </p>
+                          <button
+                            className=" common-btn"
+                            onClick={() => navigation("/exhibitor")}
+                          >
+                            Be a Exhibitor
+                          </button>
+                        </div>
+                      </div>
+                    </li>
+                  </div>
+                  <div className="col-md-6 col-lg-4">
                     <li>
                       {" "}
                       <div className="reg-icon-box">

@@ -44,6 +44,16 @@ export const Footer = () => {
                       Registration
                     </Link>
                   </li>
+                  <li>
+                    <a className="nav-link text-white ps-0" target="_blank" href="https://www.incaindia.org/">
+                      INCA Official Website
+                    </a>
+                  </li>
+                  <li>
+                    <a className="nav-link text-white ps-0" target="_blank" href = "https://hydrobharat.gov.in/">
+                      NHO Official Website
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>

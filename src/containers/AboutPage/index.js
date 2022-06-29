@@ -53,21 +53,15 @@ const About = () => {
             <div className="col-md-8 pe-4">
               <h2 className="pb-2">ABOUT DEHRADUN</h2>
               <p className="common-para text-justify">
-                <b>Dehradun</b> is the largest and most populated city in the
-                Indian state of Uttarakhand.The city is noted for its
-                picturesque landscape and slightly milder climate and provides a
-                gateway to the surrounding region. It is well connected and in
-                proximity to Himalayan tourist destinations such as Mussoorie,
-                Dhanaulti, Chakrata, New Tehri, Uttarkashi, Harsil,
-                Chopta-Tungnath, Auli, and famous summer and winter hiking
-                destinations like the Valley of Flowers at Dodital, Dayara
-                Bugyal, Kedarkantha, Har Ki Dun and Hemkunt Sahib for camping
-                and Himalayan panoramic views. The Hindu holy cities of Haridwar
-                and Rishikesh, along with the Himalayan pilgrimage circuit of
-                Chota Char Dham, viz. Yamunotri, Gangotri, Kedarnath and
-                Badrinath, are also primarily accessed via Dehradun, with it
-                being the closest major city. Dehradun is also known for its
-                Basmati rice and bakery products.
+              Dehradun, the capital of the Uttarakhand is visited by
+a large number of tourist every year, many of them en-route to Mussoorie. Nestled in the
+gorgeous mountain ranges of the Himalayas, the climate of the city is temperate even
+during summers. Dehradun is one of the fast emerging modern cities in Northern India.
+The city boasts of many National Institutes like the Forest Research Institute (FRI),
+Indian Institute of Remote Sensing (IIRS), Rashtriya Indian Military College (RIMC), and
+the Indian Military Academy (IMA) besides a host of prestigious public schools.
+Dehradun has been one of the best known educational centres in Northern India. The
+city is well connected by road, rail and air.
               </p>
 
               <p className="common-para text-justify">
