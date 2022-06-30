@@ -7,13 +7,13 @@ const PaymentInfo = () => {
       <div className="payment-info">
         <div className="container">
           <div className="col-md-12">
-            <div className="payment-info-box">
-              <h1>
+            <div className="payment-info-box pt-5">
+              <h3>
                 Payment to be made on the account details provided as follows
-              </h1>
+              </h3>
             </div>
           </div>
-          <div className="col-md-8 mx-auto">
+          <div className="col-md-8 mx-auto pt-5">
             <table className="table">
               <tbody>
                 <tr>

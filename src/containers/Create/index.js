@@ -947,17 +947,17 @@ const CreateForm = (props) => {
                 >
                   {location && location.state && location.state.mode === "edit"
                     ? "Update"
-                    : "Save"}
+                    : "Submit"}
                 </button>
 
-                <button
+                {/* <button
                   type="submit"
                   name="saveAndPay"
                   value="saveAndPay"
                   onClick={() => generateQr()}
                 >
                   Save & Pay
-                </button>
+                </button> */}
               </div>
             </div>
             {qrInfo !== undefined ? <QRCodeSVG value={qrInfo} /> : ""}
