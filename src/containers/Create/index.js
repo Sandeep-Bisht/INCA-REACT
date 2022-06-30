@@ -718,9 +718,9 @@ const CreateForm = (props) => {
                       disabled={isDisabled}
                       id="conferenceMode"
                     >
-                      <option defaultValue hidden>
+                      {/* <option defaultValue hidden>
                         Please Select The Mode
-                      </option>
+                      </option> */}
                       {/* <option value="online">Online</option> */}
                       <option value="offline">Physical</option>
                     </select>
@@ -771,7 +771,7 @@ const CreateForm = (props) => {
 
               <div className="col-md-4">
                 <div className="row">
-                  <div className="col-md-12 mb-3">
+                  <div className="col-md-12 mb-4">
                     <label htmlFor="SelectWish" className="form-label asterisk">
                       I wish to participate in the conference for
                     </label>
@@ -801,41 +801,30 @@ const CreateForm = (props) => {
                       <p className="text-danger">{isError.participationType}</p>
                     )}
                   </div>
-                  {/* <div className="col-md-12 pt-5">
-                    <div className="radio-button-box d-flex">
-                   <label for='foreigner'>foreigner</label>
-                    <input type='radio' id="foreigner" name="radio-btn"/>
-                  <label for='Indian'>Indian</label>
-                    <input type='radio' id="Indian" name="radio-btn"/>
+                  <div className="col-md-12 mt-2">
+                    <div>
+                      <p className="form-label">Delegate :</p>
                     </div>
-                  </div> */}
-                  <div className="col-md-12">
-                    {isDisabled && (
-                      <>
-                        <label htmlFor="InputFee" className="form-label">
-                          Registration Fee
-                        </label>
-                        <input
-                          disabled={isDisabled}
-                          className="form-control"
-                          value={
-                            userInformation && userInformation.registrationFee
-                          }
-                        />{" "}
-                      </>
-                    )}
-                    {!isDisabled && value && (
-                      <>
-                        <label htmlFor="InputFee" className="form-label">
-                          Registration Fee
-                        </label>{" "}
-                        <input
-                          disabled={value}
-                          value={value}
-                          className="form-control"
-                        />{" "}
-                      </>
-                    )}
+                    <div className="radio-button-box d-flex">
+                      <label className="pe-2" for="foreigner">
+                        Foreigner
+                      </label>
+                      <input
+                        type="radio"
+                        id="foreigner"
+                        className="w-auto"
+                        name="radio-btn"
+                      />
+                      <label className="ps-4 pe-1" for="Indian">
+                        Indian
+                      </label>
+                      <input
+                        type="radio"
+                        id="Indian"
+                        className="w-auto"
+                        name="radio-btn"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -857,21 +846,81 @@ const CreateForm = (props) => {
               </div>
             </div>
 
-            {/* <div className="row">
+            <div className="row">
+              <div className="col-md-12 mb-4">
+                <div className="accompany-box d-flex pb-2">
+                  <div className="accompany-box-1 pt-1">
+                    <h6 className="form-label m-0">Accompanying Person :</h6>
+                  </div>
+                  <div className="accompany-box-2 d-flex">
+                    <label className="ps-4 pe-1" for="yes">
+                      Yes
+                    </label>
+                    <input type="radio" id="yes" name="check" />
+                    <label className="ps-4 pe-1" for="no">
+                      No
+                    </label>
+                    <input type="radio" id="no" name="check" />
+                  </div>
+                </div>
+                <div className="add-button pt-2">
+                  <button className="create-btn" type="button">
+                    ADD
+                  </button>
+                </div>
+                <div className="exhibitor-relation d-flex mt-3">
+                  <div className="relation-box-1">
+                    <label className="form-label" for="relation-name">
+                      Full Name
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="relation-name"
+                    />
+                  </div>
+                  <div className="ms-2 relation-box-2">
+                    <label className="form-label" for="relation-type">
+                      Relation
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="relation-type"
+                    />
+                  </div>
+                  <div className="relation-delete-box ps-3">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </div>
+                </div>
+              </div>
               <div className="col-md-12">
-                <div className="accompany-box">
-                  <div className="accompany-box-1">
-                <h4>Accompanying Person</h4>
-                </div>
-                <div className="accompany-box-2">
-                  <label for='yes'>Yes</label>
-                <input type='checkbox' id="yes" name=''/>
-                <label for='no'>No</label>
-                <input type='checkbox' id="no" name=''/>
-                </div>
+                {isDisabled && (
+                  <>
+                    <label htmlFor="InputFee" className="form-label">
+                      Registration Fee
+                    </label>
+                    <input
+                      disabled={isDisabled}
+                      className="form-control"
+                      value={userInformation && userInformation.registrationFee}
+                    />{" "}
+                  </>
+                )}
+                {!isDisabled && value && (
+                  <>
+                    <label htmlFor="InputFee" className="form-label">
+                      Registration Fee
+                    </label>{" "}
+                    <input
+                      disabled={value}
+                      value={value}
+                      className="form-control"
+                    />{" "}
+                  </>
+                )}
               </div>
-              </div>
-              </div>           */}
+            </div>
 
             {message && (
               <p
@@ -920,8 +969,8 @@ const CreateForm = (props) => {
         <form>
           <div className="row">
             <div className="col-md-12">
-            <PaymentInfo />
-            </div>            
+              <PaymentInfo />
+            </div>
           </div>
         </form>
       </div>
