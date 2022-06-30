@@ -92,6 +92,16 @@ h1,h2,h3,h4,h5,h6
     transition: .1s;
 
 }
+.relation-delete-box
+{
+    font-size: 22px;
+    margin-top: 30px;
+}
+.create-btn
+{
+    padding: 4px 20px !important;
+    font-size: 14px;
+}
 .common-btn:hover{
     background:#cfb211f7;
     border: 1px solid #cfb211f7;
