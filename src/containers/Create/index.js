@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
-import axios from 'axios';
+import axios from "axios";
 import "react-phone-input-2/lib/style.css";
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeSVG } from "qrcode.react";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
+import PaymentInfo from "../PaymentInfo";
 import { countries } from "../../utils";
 import * as ACTIONS from "./action";
 
@@ -49,26 +50,26 @@ const CreateForm = (props) => {
   const [isHidden, setIsHidden] = useState(false);
   const [message, setMessage] = useState("");
   const [mode, setMode] = useState("");
-  const [show , setShow] = useState(false)
+  const [show, setShow] = useState(false);
   const [value, setValue] = useState(undefined);
-  const [systemRole, setSystemRole] = useState('')
-  const state = useSelector((state) => state.RegisteredUserInfoReducer);  
+  const [systemRole, setSystemRole] = useState("");
+  const state = useSelector((state) => state.RegisteredUserInfoReducer);
 
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const [loggedInUser, setLoggedInUser] = useState(false)
-  let [qrInfo, setQrInfo] = useState(undefined)  
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState(false);
+  let [qrInfo, setQrInfo] = useState(undefined);
 
   let dispatch = useDispatch();
   let location = useLocation();
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
-      
+
       let logedInId = decodedToken.user.user._id;
       if (decodedToken.user.user.role !== "admin") {
-        setLoggedInUser(true)
+        setLoggedInUser(true);
         let userInformationCopy = { ...userInformation };
         userInformationCopy.name = decodedToken.user.user.userName;
         userInformationCopy.email = decodedToken.user.user.userEmail;
@@ -76,13 +77,12 @@ const CreateForm = (props) => {
         setUserInformation(userInformationCopy);
         setPhoneNumber(decodedToken.user.user.mobileNumber);
         dispatch(ACTIONS.getLoggedInUser(logedInId));
-      }
-      else {
-        setSystemRole(decodedToken.user.user.role )
+      } else {
+        setSystemRole(decodedToken.user.user.role);
       }
     }
   }, []);
-  
+
   // useEffect(() => {
   //   //const origin = window.location.origin;  `${origin}/dashboard`;
   //   window.location.href = "/dashboard"
@@ -99,12 +99,14 @@ const CreateForm = (props) => {
           setIsHidden(true);
           setMessage("Your information saved successfully");
         } else {
-          if(state.saveRegisterUserInfoSuccess.message === "User is already registred with this mail."){
-            setMessage(state.saveRegisterUserInfoSuccess.message)
+          if (
+            state.saveRegisterUserInfoSuccess.message ===
+            "User is already registred with this mail."
+          ) {
+            setMessage(state.saveRegisterUserInfoSuccess.message);
+          } else {
+            navigate("/dashboard/allRegistration");
           }
-         else {          
-          navigate("/dashboard/allRegistration");
-         }
           dispatch(ACTIONS.resetToInitialState());
         }
       }
@@ -146,7 +148,6 @@ const CreateForm = (props) => {
       setMode(location.state.mode);
       setIsDisabled(true);
       setIsHidden(true);
-     
     } else if (location && location.state && location.state.mode === "edit") {
       location.state.isError = {
         name: "",
@@ -159,12 +160,11 @@ const CreateForm = (props) => {
         email: "",
         conferenceMode: "",
         participationType: "",
-        title: "",        
+        title: "",
         registrationCategory: "",
         registrationFee: "",
         transactionId: "",
-    
-    }
+      };
       userId = location.state._id;
       setUserInformation(location.state);
       setPhoneNumber(location.state.phoneNumber.toString());
@@ -173,13 +173,11 @@ const CreateForm = (props) => {
     }
   }, []);
 
- 
-
   const getRegistrationFee = () => {
     let userInformationCopy = { ...userInformation };
     if (
       userInformationCopy.conferenceMode === "online" &&
-      userInformationCopy.registrationCategory ==="Life Members"
+      userInformationCopy.registrationCategory === "Life Members"
     ) {
       return "1000";
     }
@@ -206,25 +204,27 @@ const CreateForm = (props) => {
     if (
       userInformationCopy.conferenceMode === "online" &&
       userInformationCopy.registrationCategory ===
-      "Others (participants/delegates/members)"
+        "Others (participants/delegates/members)"
     ) {
       return "1500";
     }
     if (
       userInformationCopy.conferenceMode === "offline" &&
       userInformationCopy.registrationCategory ===
-      "Others (participants/delegates/members)"
+        "Others (participants/delegates/members)"
     ) {
       return "3540";
     }
   };
 
   const buttonState = {
-           button: 0
-            };
+    button: 0,
+  };
   const regExp = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
   const nameRegExp = RegExp(/^[A-Za-z ]+$/);
-  const phoneRegExp = RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
+  const phoneRegExp = RegExp(
+    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+  );
   // const pinCode = RegExp();
   const { isError } = userInformation;
 
@@ -235,7 +235,7 @@ const CreateForm = (props) => {
     //   let res = value.split(' ')
     //    userInformationCopy[id] = res[1];
     //    setPhoneNumber(res[0])
-    // }  
+    // }
 
     userInformationCopy[id] = value;
     setUserInformation(userInformationCopy);
@@ -287,7 +287,7 @@ const CreateForm = (props) => {
           value.length < 0 ? "Participation Type is Required" : "";
         setUserInformation(userInformationCopy);
         break;
-     
+
       case "registrationCategory":
         userInformationCopy.isError.registrationCategory =
           value.length < 0 ? "Registration Category is Required" : "";
@@ -322,7 +322,6 @@ const CreateForm = (props) => {
     }
 
     if (!userInformation?.email) {
-      
       formIsValid = false;
     } else if (typeof userInformation?.email !== "undefined") {
       var pattern = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
@@ -338,46 +337,41 @@ const CreateForm = (props) => {
     if (!userInformation?.registrationCategory) {
       formIsValid = false;
     }
-    
 
     return formIsValid;
   };
 
   let submitRegisterUserInformation = (e) => {
-    e.preventDefault();   
-    if(systemRole == "admin"){
-      userInformation.systemRole = systemRole
+    e.preventDefault();
+    if (systemRole == "admin") {
+      userInformation.systemRole = systemRole;
     }
-    if (buttonState.button == 1) {          
+    if (buttonState.button == 1) {
       checkValidation();
-    if (validateForm()) {
-      userInformation.registrationFee = value;
-      userInformation.phoneNumber = phoneNumber;
-      delete userInformation.isError;
-     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
-    }
-    else{
-      let userInformationCopy = {...userInformation}
-      //userInformationCopy.isError.email = "Email is invalid"
-      setUserInformation(userInformationCopy)
-    }
+      if (validateForm()) {
+        userInformation.registrationFee = value;
+        userInformation.phoneNumber = phoneNumber;
+        delete userInformation.isError;
+        dispatch(ACTIONS.saveRegisterdUserData(userInformation));
+      } else {
+        let userInformationCopy = { ...userInformation };
+        //userInformationCopy.isError.email = "Email is invalid"
+        setUserInformation(userInformationCopy);
+      }
     }
     if (buttonState.button == 2) {
       checkValidation();
       if (validateForm()) {
-       // makePayment();       
-      }
-      else{
-        let userInformationCopy = {...userInformation}
-      //userInformationCopy.isError.email = "Email is invalid"
-      setUserInformation(userInformationCopy)
+        // makePayment();
+      } else {
+        let userInformationCopy = { ...userInformation };
+        //userInformationCopy.isError.email = "Email is invalid"
+        setUserInformation(userInformationCopy);
       }
     }
-    
   };
 
   const checkValidation = () => {
-
     let userInformationCopy = { ...userInformation };
 
     if (mode == "edit") {
@@ -420,7 +414,7 @@ const CreateForm = (props) => {
             ? ""
             : " Field is required";
           break;
-        
+
         case "email":
           userInformationCopy.isError.email = userInformationCopy.email
             ? ""
@@ -435,10 +429,9 @@ const CreateForm = (props) => {
             userInformationCopy.participationType ? "" : "Field is required";
           break;
         case "registrationCategory":
-            userInformationCopy.isError.registrationCategory =
-              userInformationCopy.registrationCategory ? "" : "Field is required";
-            break;
-        
+          userInformationCopy.isError.registrationCategory =
+            userInformationCopy.registrationCategory ? "" : "Field is required";
+          break;
 
         default:
           break;
@@ -452,7 +445,7 @@ const CreateForm = (props) => {
   let updateRegisterUserInfo = (e) => {
     e.preventDefault();
     checkValidation();
-   
+
     if (validateForm()) {
       let id = location.state._id;
       userInformation.registrationFee = value;
@@ -468,15 +461,14 @@ const CreateForm = (props) => {
 
   let generateQr = () => {
     buttonState.button = 2;
-      makePayment();
-  
-  }
+    makePayment();
+  };
 
   const initializeRazorpay = () => {
     return new Promise((resolve) => {
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/checkout.js";
-      
+
       script.onload = () => {
         resolve(true);
       };
@@ -488,7 +480,6 @@ const CreateForm = (props) => {
     });
   };
 
-
   const makePayment = async () => {
     const res = await initializeRazorpay();
 
@@ -498,15 +489,14 @@ const CreateForm = (props) => {
     }
 
     // Make API call to the serverless API
-    let url = "http://144.91.110.221:4801/api/payments"
+    let url = "http://144.91.110.221:4801/api/payments";
     let data = await axios.post(url);
-    
-    
+
     var options = {
       key: "rzp_test_fXDarHzcgxICzG", // Enter the Key ID generated from the Dashboard
       name: "42 inca ",
       currency: data.currency,
-      amount: 1500*100,
+      amount: 1500 * 100,
       order_id: data.id,
       handler: function (response) {
         // Validate payment at server - using webhooks is a better idea.
@@ -547,7 +537,9 @@ const CreateForm = (props) => {
                   }
                   value={userInformation && userInformation.name}
                   //disabled={isDisabled}
-               disabled={loggedInUser && userInformation && userInformation.name}
+                  disabled={
+                    loggedInUser && userInformation && userInformation.name
+                  }
                   id="name"
                 />
                 {isError && isError.name && (
@@ -612,7 +604,10 @@ const CreateForm = (props) => {
               <div className="col-md-4">
                 <div className="row">
                   <div className="col-md-12 mb-4">
-                    <label htmlFor="InputPincode" className="form-label asterisk">
+                    <label
+                      htmlFor="InputPincode"
+                      className="form-label asterisk"
+                    >
                       PIN Code
                     </label>
                     <input
@@ -632,17 +627,16 @@ const CreateForm = (props) => {
                     )}
                   </div>
                   <div className="col-md-12">
-                  <label htmlFor="InputPhone" className="form-label">
+                    <label htmlFor="InputPhone" className="form-label">
                       Phone
                     </label>
                     <PhoneInput
-                     country="in"                     
+                      country="in"
                       value={phoneNumber}
-                       disabled={loggedInUser && userInformation && phoneNumber}                      
+                      disabled={loggedInUser && userInformation && phoneNumber}
                       placeholder=""
                       onChange={(phone) => phoneNumberInputHandler(phone)}
                     />
-                   
                   </div>
                 </div>
               </div>
@@ -650,7 +644,10 @@ const CreateForm = (props) => {
               <div className="col-md-4">
                 <div className="row">
                   <div className="col-md-12 mb-4">
-                    <label htmlFor="SelectCountry" className="form-label asterisk">
+                    <label
+                      htmlFor="SelectCountry"
+                      className="form-label asterisk"
+                    >
                       Country
                     </label>
                     <select
@@ -664,7 +661,7 @@ const CreateForm = (props) => {
                       value={userInformation && userInformation.country}
                       disabled={isDisabled}
                       id="country"
-                    >                      
+                    >
                       <option defaultValue hidden>
                         Please Select
                       </option>
@@ -675,8 +672,8 @@ const CreateForm = (props) => {
                       ))}
                     </select>
                     {isError && isError.country && (
-                        <p className="text-danger">{isError.country}</p>
-                      )}
+                      <p className="text-danger">{isError.country}</p>
+                    )}
                   </div>
 
                   <div className="col-md-12">
@@ -685,8 +682,10 @@ const CreateForm = (props) => {
                     </label>
                     <input
                       type="email"
-                      id="email"                     
-                       disabled={loggedInUser && userInformation && userInformation.email}
+                      id="email"
+                      disabled={
+                        loggedInUser && userInformation && userInformation.email
+                      }
                       //disabled={isDisabled}
                       value={userInformation && userInformation.email}
                       onChange={(e) => userInformationOnchangeHandler(e)}
@@ -730,10 +729,13 @@ const CreateForm = (props) => {
                     )}
                   </div>
 
-            {/* Registration Category */}
+                  {/* Registration Category */}
 
-            <div className="col-md-12">
-                    <label htmlFor="SelectCategory" className="form-label asterisk">
+                  <div className="col-md-12">
+                    <label
+                      htmlFor="SelectCategory"
+                      className="form-label asterisk"
+                    >
                       Registration Category
                     </label>
                     <select
@@ -751,8 +753,12 @@ const CreateForm = (props) => {
                       </option>
                       <option value="Life Members">Life Members</option>
                       <option value="Life Members">Delegate</option>
-                      <option value="For Students (Indian) ">For Students (Indian)</option>
-                      <option value="Others (participants/delegates/members)">Others (participants/delegates/members)</option>
+                      <option value="For Students (Indian) ">
+                        For Students (Indian)
+                      </option>
+                      <option value="Others (participants/delegates/members)">
+                        Others (participants/delegates/members)
+                      </option>
                     </select>
                     {isError && isError.registrationCategory && (
                       <p className="text-danger">
@@ -782,9 +788,7 @@ const CreateForm = (props) => {
                       <option defaultValue hidden>
                         Please Select
                       </option>
-                      <option value="deligate">
-                      Delegate
-                      </option>
+                      <option value="deligate">Delegate</option>
                       <option value="Research Paper Presentation">
                         Research Paper Presentation
                       </option>
@@ -849,9 +853,9 @@ const CreateForm = (props) => {
                       ? "is-invalid form-control"
                       : "form-control"
                   }
-                ></textarea>                
+                ></textarea>
               </div>
-            </div>  
+            </div>
 
             {/* <div className="row">
               <div className="col-md-12">
@@ -869,20 +873,55 @@ const CreateForm = (props) => {
               </div>
               </div>           */}
 
-            {message && <p className={`${message == "Your information saved successfully" ? "text-success" : "text-danger"}`} >{message}</p>}
+            {message && (
+              <p
+                className={`${
+                  message == "Your information saved successfully"
+                    ? "text-success"
+                    : "text-danger"
+                }`}
+              >
+                {message}
+              </p>
+            )}
 
             <div className="row">
               <div className="col-md-12 text-end">
-                <button className="mx-3" name="save" show value ="save" type="submit" onClick={() => (buttonState.button = 1) } hidden={isHidden}>
+                <button
+                  className="mx-3"
+                  name="save"
+                  show
+                  value="save"
+                  type="submit"
+                  onClick={() => (buttonState.button = 1)}
+                  hidden={isHidden}
+                >
                   {location && location.state && location.state.mode === "edit"
                     ? "Update"
                     : "Save"}
                 </button>
 
-                <button type="submit" name="saveAndPay"  value= "saveAndPay" onClick={() => generateQr()}>Save & Pay</button>
+                <button
+                  type="submit"
+                  name="saveAndPay"
+                  value="saveAndPay"
+                  onClick={() => generateQr()}
+                >
+                  Save & Pay
+                </button>
               </div>
             </div>
-           {  qrInfo !== undefined  ?  <QRCodeSVG value={qrInfo} /> : "" }
+            {qrInfo !== undefined ? <QRCodeSVG value={qrInfo} /> : ""}
+          </div>
+        </form>
+      </div>
+
+      <div className="payment-section">
+        <form>
+          <div className="row">
+            <div className="col-md-12">
+            <PaymentInfo />
+            </div>            
           </div>
         </form>
       </div>
