@@ -9,7 +9,6 @@ import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { countries } from "../../utils";
 import * as ACTIONS from "./action";
-import {BsFillTrashFill} from "react-icons/bs";
 
 const obj = {
   name: "",
@@ -856,7 +855,7 @@ const CreateForm = (props) => {
                   <input className="form-control" type='text' id='relation-type'/>
                   </div>
                   <div className="relation-delete-box ps-3">
-                  <BsFillTrashFill/>
+                  <i class="fa-solid fa-trash-can"></i>
                   </div>
                 </div>
               </div>
