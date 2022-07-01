@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
-import axios from 'axios';
+import axios from "axios";
 import "react-phone-input-2/lib/style.css";
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeSVG } from "qrcode.react";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
+import PaymentInfo from "../PaymentInfo";
 import { countries } from "../../utils";
 import * as ACTIONS from "./action";
 
@@ -19,12 +20,14 @@ const obj = {
   country: "",
   //phoneNumber: "",
   email: "",
-  conferenceMode: "",
+  conferenceMode: "offline",
   participationType: "",
+  nationality:"",
   title: "",
   registrationCategory: "",
   //registrationFee: "",
   //transactionId: "",
+  accompanningPerson:[],
   isError: {
     name: "",
     designation: "",
@@ -36,6 +39,7 @@ const obj = {
     email: "",
     conferenceMode: "",
     participationType: "",
+    nationality:"",
     title: "",
     registrationCategory: "",
     registrationFee: "",
@@ -49,26 +53,35 @@ const CreateForm = (props) => {
   const [isHidden, setIsHidden] = useState(false);
   const [message, setMessage] = useState("");
   const [mode, setMode] = useState("");
-  const [show , setShow] = useState(false)
+  const [show, setShow] = useState(false);
   const [value, setValue] = useState(undefined);
-  const [systemRole, setSystemRole] = useState('')
-  const state = useSelector((state) => state.RegisteredUserInfoReducer);  
+  const [systemRole, setSystemRole] = useState("");
+  //const [accompanningPerson, setAccompanningPerson] = useState([]);
+  //const [addPerson, setAddPerson] = useState(false)
+  const [anotherPerson, setAnotherPerson] = useState(false);
+  const [anotherPersonPayload, setAnotherPersonPayload] = useState([]);
+  const [anotherPersonDetails, setAnotherPersonDetails] = useState({
+    relation_name : '',
+    relation_type : ''
+  });
+  const state = useSelector((state) => state.RegisteredUserInfoReducer);
 
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const [loggedInUser, setLoggedInUser] = useState(false)
-  let [qrInfo, setQrInfo] = useState(undefined)  
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState(false);
+  let [qrInfo, setQrInfo] = useState(undefined);
 
   let dispatch = useDispatch();
   let location = useLocation();
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
+  console.log("userIndo on loaduing", anotherPersonPayload, userInformation)
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
-      
+
       let logedInId = decodedToken.user.user._id;
       if (decodedToken.user.user.role !== "admin") {
-        setLoggedInUser(true)
+        setLoggedInUser(true);
         let userInformationCopy = { ...userInformation };
         userInformationCopy.name = decodedToken.user.user.userName;
         userInformationCopy.email = decodedToken.user.user.userEmail;
@@ -76,20 +89,20 @@ const CreateForm = (props) => {
         setUserInformation(userInformationCopy);
         setPhoneNumber(decodedToken.user.user.mobileNumber);
         dispatch(ACTIONS.getLoggedInUser(logedInId));
-      }
-      else {
-        setSystemRole(decodedToken.user.user.role )
+      } else {
+        setSystemRole(decodedToken.user.user.role);
       }
     }
   }, []);
-  
+
   // useEffect(() => {
   //   //const origin = window.location.origin;  `${origin}/dashboard`;
   //   window.location.href = "/dashboard"
   // }, [])
   useEffect(() => {
+    console.log("inside registration fee")
     setValue(getRegistrationFee());
-  }, [userInformation]);
+  }, [userInformation, anotherPersonPayload]);
 
   useEffect(() => {
     if (state.saveRegisterUserInfoSuccess) {
@@ -99,12 +112,14 @@ const CreateForm = (props) => {
           setIsHidden(true);
           setMessage("Your information saved successfully");
         } else {
-          if(state.saveRegisterUserInfoSuccess.message === "User is already registred with this mail."){
-            setMessage(state.saveRegisterUserInfoSuccess.message)
+          if (
+            state.saveRegisterUserInfoSuccess.message ===
+            "User is already registred with this mail."
+          ) {
+            setMessage(state.saveRegisterUserInfoSuccess.message);
+          } else {
+            navigate("/dashboard/allRegistration");
           }
-         else {          
-          navigate("/dashboard/allRegistration");
-         }
           dispatch(ACTIONS.resetToInitialState());
         }
       }
@@ -146,7 +161,6 @@ const CreateForm = (props) => {
       setMode(location.state.mode);
       setIsDisabled(true);
       setIsHidden(true);
-     
     } else if (location && location.state && location.state.mode === "edit") {
       location.state.isError = {
         name: "",
@@ -157,14 +171,14 @@ const CreateForm = (props) => {
         country: "",
         phoneNumber: "",
         email: "",
-        conferenceMode: "",
+        conferenceMode: "offline",
         participationType: "",
-        title: "",        
+        nationality: "",
+        title: "",
         registrationCategory: "",
         registrationFee: "",
         transactionId: "",
-    
-    }
+      };
       userId = location.state._id;
       setUserInformation(location.state);
       setPhoneNumber(location.state.phoneNumber.toString());
@@ -172,70 +186,81 @@ const CreateForm = (props) => {
       setMode(location.state.mode);
     }
   }, []);
-
- 
-
+  
+  
   const getRegistrationFee = () => {
+   
     let userInformationCopy = { ...userInformation };
-    if (
-      userInformationCopy.conferenceMode === "online" &&
-      userInformationCopy.registrationCategory ==="Life Members"
+    //let anotherPersonPayloadCopy =  ...anotherPersonPayload }
+    let accompanningPersonLength = anotherPersonPayload.length
+    //console.log("get resistration fee accp length",accompanningPersonLength )
+  
+    if (      
+      userInformationCopy.registrationCategory === "Life Members" &&
+      userInformationCopy.nationality === "indian"  && accompanningPersonLength >= 0    
     ) {
-      return "1000";
+      let totalFee = (accompanningPersonLength * 2360) + 2950
+      return `₹ ${totalFee}`
     }
-    if (
-      userInformationCopy.conferenceMode === "offline" &&
-      userInformationCopy.registrationCategory === "Life Members"
+
+    if (      
+      userInformationCopy.registrationCategory === "Life Members" &&
+      userInformationCopy.nationality === "foreigner" && accompanningPersonLength >= 0 
     ) {
-      return "2950";
+      let totalFee = (accompanningPersonLength * 100) + 125
+      return `USD$ ${totalFee}`
     }
 
     if (
-      userInformationCopy.conferenceMode === "online" &&
-      userInformationCopy.registrationCategory === "For Students (Indian) "
-    ) {
-      return "500";
-    }
-    if (
       userInformationCopy.conferenceMode === "offline" &&
-      userInformationCopy.registrationCategory === "For Students (Indian) "
+      userInformationCopy.registrationCategory === "For Students" &&
+      userInformationCopy.nationality === "indian"
     ) {
       return "1770";
     }
 
     if (
-      userInformationCopy.conferenceMode === "online" &&
-      userInformationCopy.registrationCategory ===
-      "Others (participants/delegates/members)"
+      userInformationCopy.conferenceMode === "offline" &&
+      userInformationCopy.registrationCategory === "For Students" &&
+      userInformationCopy.nationality === "foreigner"
     ) {
-      return "1500";
+      return "US$100";
     }
+
     if (
       userInformationCopy.conferenceMode === "offline" &&
       userInformationCopy.registrationCategory ===
-      "Others (participants/delegates/members)"
+        "Others (participants/delegates/members)" && 
+        userInformationCopy.nationality === "indian"
     ) {
       return "3540";
     }
+
+    if (
+      userInformationCopy.conferenceMode === "offline" &&
+      userInformationCopy.registrationCategory ===
+        "Others (participants/delegates/members)" && 
+        userInformationCopy.nationality === "foreigner"
+    ) {
+      return "US$125";
+    }
   };
+  
 
   const buttonState = {
-           button: 0
-            };
+    button: 0,
+  };
   const regExp = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
   const nameRegExp = RegExp(/^[A-Za-z ]+$/);
-  const phoneRegExp = RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
+  const phoneRegExp = RegExp(
+    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+  );
   // const pinCode = RegExp();
   const { isError } = userInformation;
 
   const userInformationOnchangeHandler = (e) => {
     let userInformationCopy = { ...userInformation };
-    const { id, value } = e.target;
-    // if(e.target.id == "country"){
-    //   let res = value.split(' ')
-    //    userInformationCopy[id] = res[1];
-    //    setPhoneNumber(res[0])
-    // }  
+    const { id, value } = e.target;  
 
     userInformationCopy[id] = value;
     setUserInformation(userInformationCopy);
@@ -277,17 +302,23 @@ const CreateForm = (props) => {
           : "Email address is invalid";
         setUserInformation(userInformationCopy);
         break;
-      case "conferenceMode":
-        userInformationCopy.isError.conferenceMode =
-          value.length < 0 ? "Conference Mode is Required" : "";
-        setUserInformation(userInformationCopy);
-        break;
+      // case "conferenceMode":
+      //   userInformationCopy.isError.conferenceMode =
+      //     value.length < 0 ? "Conference Mode is Required" : "";
+      //   setUserInformation(userInformationCopy);
+      //   break;
       case "participationType":
         userInformationCopy.isError.participationType =
           value.length < 0 ? "Participation Type is Required" : "";
         setUserInformation(userInformationCopy);
         break;
-     
+
+        case "nationality":
+        userInformationCopy.isError.nationality =
+          value.length < 0 ? "Mention nationality type" : "";
+        setUserInformation(userInformationCopy);
+        break;
+
       case "registrationCategory":
         userInformationCopy.isError.registrationCategory =
           value.length < 0 ? "Registration Category is Required" : "";
@@ -302,6 +333,7 @@ const CreateForm = (props) => {
     }
   };
 
+  console.log(userInformation,'user info here')
   const validateForm = () => {
     let formIsValid = true;
 
@@ -322,7 +354,6 @@ const CreateForm = (props) => {
     }
 
     if (!userInformation?.email) {
-      
       formIsValid = false;
     } else if (typeof userInformation?.email !== "undefined") {
       var pattern = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
@@ -331,53 +362,53 @@ const CreateForm = (props) => {
       }
     }
 
-    if (!userInformation?.conferenceMode) {
+    if (!userInformation?.nationality) {
       formIsValid = false;
     }
 
     if (!userInformation?.registrationCategory) {
       formIsValid = false;
     }
-    
 
     return formIsValid;
   };
 
   let submitRegisterUserInformation = (e) => {
-    e.preventDefault();   
-    if(systemRole == "admin"){
-      userInformation.systemRole = systemRole
+    e.preventDefault();
+    if (systemRole == "admin") {
+      userInformation.systemRole = systemRole;
     }
-    if (buttonState.button == 1) {          
+    //userInformation.accompanningPerson = anotherPersonPayload;
+    //console.log("submit button clicked", userInformation)
+    if (buttonState.button == 1) {
       checkValidation();
-    if (validateForm()) {
-      userInformation.registrationFee = value;
-      userInformation.phoneNumber = phoneNumber;
-      delete userInformation.isError;
-     dispatch(ACTIONS.saveRegisterdUserData(userInformation));
-    }
-    else{
-      let userInformationCopy = {...userInformation}
-      //userInformationCopy.isError.email = "Email is invalid"
-      setUserInformation(userInformationCopy)
-    }
+      if (validateForm()) {
+        userInformation.registrationFee = value;
+        userInformation.phoneNumber = phoneNumber;
+        //userInformation.accompanningPerson.push(anotherPersonPayload);
+        delete userInformation.isError;
+        //console.log("userINfo", userInformation)
+        dispatch(ACTIONS.saveRegisterdUserData(userInformation));
+      } else {
+        console.log("nothing happened")
+        let userInformationCopy = { ...userInformation };
+        //userInformationCopy.isError.email = "Email is invalid"
+        setUserInformation(userInformationCopy);
+      }
     }
     if (buttonState.button == 2) {
       checkValidation();
       if (validateForm()) {
-       // makePayment();       
-      }
-      else{
-        let userInformationCopy = {...userInformation}
-      //userInformationCopy.isError.email = "Email is invalid"
-      setUserInformation(userInformationCopy)
+        // makePayment();
+      } else {
+        let userInformationCopy = { ...userInformation };        
+        //userInformationCopy.isError.email = "Email is invalid"
+        setUserInformation(userInformationCopy);
       }
     }
-    
   };
 
   const checkValidation = () => {
-
     let userInformationCopy = { ...userInformation };
 
     if (mode == "edit") {
@@ -390,8 +421,9 @@ const CreateForm = (props) => {
         country: "",
         phoneNumber: "",
         email: "",
-        conferenceMode: "",
+        conferenceMode: "offline",
         participationType: "",
+        nationality: "",
         title: "",
         registrationCategory: "",
         registrationFee: "",
@@ -420,25 +452,24 @@ const CreateForm = (props) => {
             ? ""
             : " Field is required";
           break;
-        
+
         case "email":
           userInformationCopy.isError.email = userInformationCopy.email
             ? ""
             : "Field is required";
           break;
-        case "conferenceMode":
-          userInformationCopy.isError.conferenceMode =
-            userInformationCopy.conferenceMode ? "" : " Field is required";
+        case "nationality":
+          userInformationCopy.isError.nationality =
+            userInformationCopy.nationality ? "" : " Field is required";
           break;
         case "participationType":
           userInformationCopy.isError.participationType =
             userInformationCopy.participationType ? "" : "Field is required";
           break;
         case "registrationCategory":
-            userInformationCopy.isError.registrationCategory =
-              userInformationCopy.registrationCategory ? "" : "Field is required";
-            break;
-        
+          userInformationCopy.isError.registrationCategory =
+            userInformationCopy.registrationCategory ? "" : "Field is required";
+          break;
 
         default:
           break;
@@ -452,7 +483,7 @@ const CreateForm = (props) => {
   let updateRegisterUserInfo = (e) => {
     e.preventDefault();
     checkValidation();
-   
+
     if (validateForm()) {
       let id = location.state._id;
       userInformation.registrationFee = value;
@@ -468,15 +499,14 @@ const CreateForm = (props) => {
 
   let generateQr = () => {
     buttonState.button = 2;
-      makePayment();
-  
-  }
+    makePayment();
+  };
 
   const initializeRazorpay = () => {
     return new Promise((resolve) => {
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/checkout.js";
-      
+
       script.onload = () => {
         resolve(true);
       };
@@ -488,7 +518,6 @@ const CreateForm = (props) => {
     });
   };
 
-
   const makePayment = async () => {
     const res = await initializeRazorpay();
 
@@ -498,15 +527,14 @@ const CreateForm = (props) => {
     }
 
     // Make API call to the serverless API
-    let url = "http://144.91.110.221:4801/api/payments"
+    let url = "http://144.91.110.221:4801/api/payments";
     let data = await axios.post(url);
-    
-    
+
     var options = {
       key: "rzp_test_fXDarHzcgxICzG", // Enter the Key ID generated from the Dashboard
       name: "42 inca ",
       currency: data.currency,
-      amount: 1500*100,
+      amount: 1500 * 100,
       order_id: data.id,
       handler: function (response) {
         // Validate payment at server - using webhooks is a better idea.
@@ -519,6 +547,53 @@ const CreateForm = (props) => {
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
+
+  let anotherPersonHandleChange = (e) =>{
+
+    let anotherPersonDetailsCopy = {...anotherPersonDetails}
+    anotherPersonDetailsCopy[e.target.id] = e.target.value
+    setAnotherPersonDetails(anotherPersonDetailsCopy)
+  }
+
+  let addAccompanningPerson = () => { 
+    if(anotherPersonDetails.relation_name !== "") {
+        
+    //setAddPerson(true);
+    // setAccompanningPerson(e.target.value);
+    
+    let anotherPersonPayloadCopy = [...anotherPersonPayload]
+    anotherPersonPayloadCopy.push(anotherPersonDetails)
+    setAnotherPersonPayload(anotherPersonPayloadCopy)
+    userInformation.accompanningPerson = anotherPersonPayloadCopy;
+    setAnotherPersonDetails({
+      relation_name : '',
+      relation_type : ''
+    })
+    } else {
+      alert("Please mention the person details")
+    }
+  }
+    console.log("payl;oad ",userInformation)
+
+  let deleteAccompanningPerson = (index) =>{
+    let anotherPersonPayloadCopy = [...anotherPersonPayload]
+    let result = anotherPersonPayloadCopy.filter((item, i) => i !== index)
+    setAnotherPersonPayload(result)
+  }
+
+  let anotherPersonHandler = (e) => {
+    //console.log("button clicked ",e)
+    if(e === true) {
+      setAnotherPerson(e)
+    } else {
+      setAnotherPersonPayload([]);
+      setAnotherPerson(e)
+      userInformation.accompanningPerson = [];
+      
+    }
+    
+
+  }
 
   return (
     <div className="main">
@@ -546,8 +621,10 @@ const CreateForm = (props) => {
                       : "form-control"
                   }
                   value={userInformation && userInformation.name}
-                  //disabled={isDisabled}
-               disabled={loggedInUser && userInformation && userInformation.name}
+                  
+                  disabled={
+                    loggedInUser && userInformation && userInformation.name
+                  }
                   id="name"
                 />
                 {isError && isError.name && (
@@ -566,9 +643,7 @@ const CreateForm = (props) => {
                   disabled={isDisabled}
                   id="designation"
                 />
-                {/* {
-                  isError  && isError.designation && <p className="text-danger">{isError.designation }</p>
-                } */}
+              
               </div>
               <div className="col-md-4">
                 <label htmlFor="InputAffiliation" className="form-label">
@@ -581,10 +656,7 @@ const CreateForm = (props) => {
                   value={userInformation && userInformation.affilation}
                   disabled={isDisabled}
                   id="affilation"
-                />
-                {/* {
-                  isError  && isError.affilation && <p className="text-danger">{isError.affilation }</p>
-                } */}
+                />                
               </div>
             </div>
 
@@ -612,7 +684,10 @@ const CreateForm = (props) => {
               <div className="col-md-4">
                 <div className="row">
                   <div className="col-md-12 mb-4">
-                    <label htmlFor="InputPincode" className="form-label asterisk">
+                    <label
+                      htmlFor="InputPincode"
+                      className="form-label asterisk"
+                    >
                       PIN Code
                     </label>
                     <input
@@ -632,17 +707,16 @@ const CreateForm = (props) => {
                     )}
                   </div>
                   <div className="col-md-12">
-                  <label htmlFor="InputPhone" className="form-label">
+                    <label htmlFor="InputPhone" className="form-label">
                       Phone
                     </label>
                     <PhoneInput
-                     country="in"                     
+                      country="in"
                       value={phoneNumber}
-                       disabled={loggedInUser && userInformation && phoneNumber}                      
+                      disabled={loggedInUser && userInformation && phoneNumber}
                       placeholder=""
                       onChange={(phone) => phoneNumberInputHandler(phone)}
                     />
-                   
                   </div>
                 </div>
               </div>
@@ -650,7 +724,10 @@ const CreateForm = (props) => {
               <div className="col-md-4">
                 <div className="row">
                   <div className="col-md-12 mb-4">
-                    <label htmlFor="SelectCountry" className="form-label asterisk">
+                    <label
+                      htmlFor="SelectCountry"
+                      className="form-label asterisk"
+                    >
                       Country
                     </label>
                     <select
@@ -664,7 +741,7 @@ const CreateForm = (props) => {
                       value={userInformation && userInformation.country}
                       disabled={isDisabled}
                       id="country"
-                    >                      
+                    >
                       <option defaultValue hidden>
                         Please Select
                       </option>
@@ -675,8 +752,8 @@ const CreateForm = (props) => {
                       ))}
                     </select>
                     {isError && isError.country && (
-                        <p className="text-danger">{isError.country}</p>
-                      )}
+                      <p className="text-danger">{isError.country}</p>
+                    )}
                   </div>
 
                   <div className="col-md-12">
@@ -685,9 +762,10 @@ const CreateForm = (props) => {
                     </label>
                     <input
                       type="email"
-                      id="email"                     
-                       disabled={loggedInUser && userInformation && userInformation.email}
-                      //disabled={isDisabled}
+                      id="email"
+                      disabled={
+                        loggedInUser && userInformation && userInformation.email
+                      }
                       value={userInformation && userInformation.email}
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       className={
@@ -707,7 +785,7 @@ const CreateForm = (props) => {
             <div className="row mb-5">
               <div className="col-md-4">
                 <div className="row">
-                  <div className="col-md-12 mb-4">
+                  {/* <div className="col-md-12 mb-4">
                     <label htmlFor="SelectMode" className="form-label asterisk">
                       Mode of attending the conference
                     </label>
@@ -722,18 +800,42 @@ const CreateForm = (props) => {
                       <option defaultValue hidden>
                         Please Select The Mode
                       </option>
-                      {/* <option value="online">Online</option> */}
+                     
                       <option value="offline">Physical</option>
                     </select>
                     {isError && isError.conferenceMode && (
                       <p className="text-danger">{isError.conferenceMode}</p>
                     )}
+                  </div> */}
+
+                    <div className="col-md-12 mb-4">
+                    <label htmlFor="SelectMode" className="form-label asterisk">
+                      Mode of attending the conference
+                    </label>
+                    <select
+                      className="form-select"
+                      onChange={(e) => userInformationOnchangeHandler(e)}
+                      aria-label="Default select example"
+                      value={userInformation && userInformation.conferenceMode}
+                      disabled={isDisabled}
+                      id="conferenceMode"
+                    >
+                      <option value="offline">Physical</option>
+                      {/* <option value="offline">Physical</option>
+                      <option value="offline">Physical</option> */}
+                    </select>
+                    {/* {isError && isError.conferenceMode && (
+                      <p className="text-danger">{isError.conferenceMode}</p>
+                    )} */}
                   </div>
 
-            {/* Registration Category */}
+                  {/* Registration Category */}
 
-            <div className="col-md-12">
-                    <label htmlFor="SelectCategory" className="form-label asterisk">
+                  <div className="col-md-12">
+                    <label
+                      htmlFor="SelectCategory"
+                      className="form-label asterisk"
+                    >
                       Registration Category
                     </label>
                     <select
@@ -750,9 +852,13 @@ const CreateForm = (props) => {
                         Please Select
                       </option>
                       <option value="Life Members">Life Members</option>
-                      <option value="Life Members">Delegate</option>
-                      <option value="For Students (Indian) ">For Students (Indian)</option>
-                      <option value="Others (participants/delegates/members)">Others (participants/delegates/members)</option>
+                      <option value="delegate">Delegate</option>
+                      <option value="For Students">
+                        For Students
+                      </option>
+                      <option value="Others (participants/delegates/members)">
+                        Others (Participants/Delegates/Members)
+                      </option>
                     </select>
                     {isError && isError.registrationCategory && (
                       <p className="text-danger">
@@ -765,7 +871,7 @@ const CreateForm = (props) => {
 
               <div className="col-md-4">
                 <div className="row">
-                  <div className="col-md-12 mb-3">
+                  <div className="col-md-12 mb-4">
                     <label htmlFor="SelectWish" className="form-label asterisk">
                       I wish to participate in the conference for
                     </label>
@@ -782,59 +888,53 @@ const CreateForm = (props) => {
                       <option defaultValue hidden>
                         Please Select
                       </option>
-                      <option value="deligate">
-                      Delegate
-                      </option>
+                      <option value="delegate">Delegate</option>
                       <option value="Research Paper Presentation">
                         Research Paper Presentation
                       </option>
                       <option value="Poster Presentation">
                         Poster Presentation
                       </option>
-                      <option value="Both">Both</option>
+                      <option value="Both">
+                        Research Paper & Poster Presentation
+                      </option>
                     </select>
                     {isError && isError.participationType && (
                       <p className="text-danger">{isError.participationType}</p>
                     )}
                   </div>
-                  {/* <div className="col-md-12 pt-5">
-                    <div className="radio-button-box d-flex">
-                   <label for='foreigner'>foreigner</label>
-                    <input type='radio' id="foreigner" name="radio-btn"/>
-                  <label for='Indian'>Indian</label>
-                    <input type='radio' id="Indian" name="radio-btn"/>
+                  <div className="col-md-12 mt-2">
+                    <div>
+                      <p className="form-label">Nationality :</p>
                     </div>
-                  </div> */}
-                  <div className="col-md-12">
-                    {isDisabled && (
-                      <>
-                        <label htmlFor="InputFee" className="form-label">
-                          Registration Fee
-                        </label>
-                        <input
-                          disabled={isDisabled}
-                          className="form-control"
-                          value={
-                            userInformation && userInformation.registrationFee
-                          }
-                        />{" "}
-                      </>
-                    )}
-                    {!isDisabled && value && (
-                      <>
-                        <label htmlFor="InputFee" className="form-label">
-                          Registration Fee
-                        </label>{" "}
-                        <input
-                          disabled={value}
-                          value={value}
-                          className="form-control"
-                        />{" "}
-                      </>
-                    )}
+                    <div className="radio-button-box d-flex">
+                      <label className="pe-2" for="foreigner">
+                        Foreign
+                      </label>
+                      <input
+                        type="radio"
+                        id="nationality"
+                        className="w-auto"
+                        name="nationality"
+                        value="foreigner"
+                        onChange={(e) => userInformationOnchangeHandler(e)}
+                      />
+                      <label className="ps-4 pe-1" for="Indian">
+                        Indian
+                      </label>
+                      <input
+                        type="radio"
+                        id="nationality"
+                        className="w-auto"
+                        name="nationality"
+                        value="indian"
+                        onChange={(e) => userInformationOnchangeHandler(e)}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
+              { userInformation.participationType !== "" && userInformation.participationType !== "delegate" &&
               <div className="col-md-4">
                 <label htmlFor="InputTitle" className="form-label">
                   Title of the paper/poster
@@ -849,43 +949,186 @@ const CreateForm = (props) => {
                       ? "is-invalid form-control"
                       : "form-control"
                   }
-                ></textarea>                
+                ></textarea>
               </div>
-            </div>  
-
-            {/* <div className="row">
-              <div className="col-md-12">
-                <div className="accompany-box">
-                  <div className="accompany-box-1">
-                <h4>Accompanying Person</h4>
-                </div>
-                <div className="accompany-box-2">
-                  <label for='yes'>Yes</label>
-                <input type='checkbox' id="yes" name=''/>
-                <label for='no'>No</label>
-                <input type='checkbox' id="no" name=''/>
-                </div>
-              </div>
-              </div>
-              </div>           */}
-
-            {message && <p className={`${message == "Your information saved successfully" ? "text-success" : "text-danger"}`} >{message}</p>}
+            }
+            </div>
 
             <div className="row">
-              <div className="col-md-12 text-end">
-                <button className="mx-3" name="save" show value ="save" type="submit" onClick={() => (buttonState.button = 1) } hidden={isHidden}>
-                  {location && location.state && location.state.mode === "edit"
-                    ? "Update"
-                    : "Save"}
-                </button>
+              <div className="col-md-6 mb-4">
+                <div className="accompany-box d-flex pb-2">
+                  <div className="accompany-box-1 pt-1">
+                    <h6 className="form-label m-0">Accompanying Person :</h6>
+                  </div>
+                  <div className="accompany-box-2 d-flex">
+                    <label className="ps-4 pe-1" for="yes">
+                      Yes
+                    </label>
+                    <input type="radio" id="yes" name="add" value="yes" onClick={(e)=>anotherPersonHandler(true)} />
+                    <label className="ps-4 pe-1" for="no">
+                      No
+                    </label>
+                    <input type="radio" id="no" name="add" value="no" onClick={(e)=>anotherPersonHandler(false)} />
+                  </div>               
+                  </div>
 
-                <button type="submit" name="saveAndPay"  value= "saveAndPay" onClick={() => generateQr()}>Save & Pay</button>
+                {/* {anotherPerson && (
+                  
+                )} */}
+                
+                {anotherPerson && anotherPersonPayload.length < 3 && (
+                    <div className="exhibitor-relation d-flex mt-3">
+                    <div className="relation-box-1">
+                      <label className="form-label" for="relation-name">
+                        Full Name
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        id="relation_name"
+                        value={anotherPersonDetails.relation_name}
+                        onChange={(e)=>anotherPersonHandleChange(e)}
+                      />
+                    </div>
+                    <div className="ms-2 relation-box-2">
+                      <label className="form-label" for="relation_type">
+                        Relation
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        id="relation_type"
+                        value={anotherPersonDetails.relation_type}
+                        onChange={(e)=>anotherPersonHandleChange(e)}
+                      />
+                    </div>
+                    
+                    <div className="relation-delete-box ps-3">
+                    <button className="create-btn" id="accompanningPerson" type="button" onClick={(e)=>addAccompanningPerson(e)}>
+                    ADD
+                  </button>
+                    </div>
+                  </div>
+
+                )
+                }
+
+                {anotherPersonPayload.length > 0 && (anotherPersonPayload.map((item,index) =>{
+                  return (<div className="exhibitor-relation d-flex mt-3">
+                  <div className="relation-box-1">
+                    <label className="form-label" for="relation-name">
+                      Full Name
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={item.relation_name}
+                      disabled
+                    />
+                  </div>
+                  <div className="ms-2 relation-box-2">
+                    <label className="form-label" for="relation-type">
+                      Relation
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={item.relation_type}
+                      disabled
+                    />
+                  </div>
+                  
+                  <div className="relation-delete-box ps-3">
+                  <i class="fa-solid fa-trash-can ps-3" onClick={()=>deleteAccompanningPerson(index)}></i>
+                  </div>
+                </div>
+                  )
+                })
+                )}
+                
+              </div>
+              <div className="col-md-4">
+                {isDisabled && (
+                  <>
+                    <label htmlFor="InputFee" className="form-label">
+                      Registration Fee
+                    </label>
+                    <input
+                      disabled={isDisabled}
+                      className="form-control"
+                      value={userInformation && userInformation.registrationFee}
+                    />{" "}
+                  </>
+                )}
+                {!isDisabled && value && (
+                  <>
+                    <label htmlFor="InputFee" className="form-label">
+                      Registration Fee
+                    </label>{" "}
+                    <input
+                      disabled={value}
+                      value={value}
+                      className="form-control"
+                    />{" "}
+                  </>
+                )}
               </div>
             </div>
-           {  qrInfo !== undefined  ?  <QRCodeSVG value={qrInfo} /> : "" }
+
+            {message && (
+              <p
+                className={`${
+                  message == "Your information saved successfully"
+                    ? "text-success"
+                    : "text-danger"
+                }`}
+              >
+                {message}
+              </p>
+            )}
+
+<div className="payment-section">
+        <form>
+          <div className="row">
+            <div className="col-md-12">
+              <PaymentInfo />
+            </div>
           </div>
         </form>
       </div>
+
+            <div className="row">
+              <div className="col-md-12">
+                <button
+                  className="mx-3"
+                  name="save"
+                  show
+                  value="save"
+                  type="submit"
+                  onClick={() => (buttonState.button = 1)}
+                  hidden={isHidden}
+                >
+                  {location && location.state && location.state.mode === "edit"
+                    ? "Update"
+                    : "Submit"}
+                </button>
+
+                {/* <button
+                  type="submit"
+                  name="saveAndPay"
+                  value="saveAndPay"
+                  onClick={() => generateQr()}
+                >
+                  Save & Pay
+                </button> */}
+              </div>
+            </div>
+            {qrInfo !== undefined ? <QRCodeSVG value={qrInfo} /> : ""}
+          </div>
+        </form>
+      </div>
+
+      
     </div>
   );
 };

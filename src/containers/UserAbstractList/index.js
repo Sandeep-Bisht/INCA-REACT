@@ -3,9 +3,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
-import * as ACTIONS from './action'
-
-
+import * as ACTIONS from './action';
 
 const UserAbstractList = () => {
 
