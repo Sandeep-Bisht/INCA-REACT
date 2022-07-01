@@ -8,12 +8,14 @@ const PaymentInfo = () => {
         <div className="container">
           <div className="col-md-12">
             <div className="payment-info-box pt-5">
-              <h3>
+              <p>
+                <strong>
                 Payment to be made on the account details provided as follows
-              </h3>
+                </strong>
+              </p>
             </div>
           </div>
-          <div className="col-md-8 mx-auto pt-5">
+          <div className="col-md-8">
             <table className="table">
               <tbody>
                 <tr>
@@ -54,6 +56,16 @@ const PaymentInfo = () => {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <strong>
+              Note
+            </strong>
+            <p>
+              Transation details are to be shared with organising secretary on the email : info@42inca.org
+            </p>
           </div>
         </div>
       </div>

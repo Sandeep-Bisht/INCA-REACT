@@ -20,12 +20,14 @@ const obj = {
   country: "",
   //phoneNumber: "",
   email: "",
-  conferenceMode: "",
+  conferenceMode: "offline",
   participationType: "",
+  nationality:"",
   title: "",
   registrationCategory: "",
   //registrationFee: "",
   //transactionId: "",
+  accompanningPerson:[],
   isError: {
     name: "",
     designation: "",
@@ -37,6 +39,7 @@ const obj = {
     email: "",
     conferenceMode: "",
     participationType: "",
+    nationality:"",
     title: "",
     registrationCategory: "",
     registrationFee: "",
@@ -53,6 +56,14 @@ const CreateForm = (props) => {
   const [show, setShow] = useState(false);
   const [value, setValue] = useState(undefined);
   const [systemRole, setSystemRole] = useState("");
+  //const [accompanningPerson, setAccompanningPerson] = useState([]);
+  //const [addPerson, setAddPerson] = useState(false)
+  const [anotherPerson, setAnotherPerson] = useState(false);
+  const [anotherPersonPayload, setAnotherPersonPayload] = useState([]);
+  const [anotherPersonDetails, setAnotherPersonDetails] = useState({
+    relation_name : '',
+    relation_type : ''
+  });
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
 
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -62,6 +73,7 @@ const CreateForm = (props) => {
   let dispatch = useDispatch();
   let location = useLocation();
   let navigate = useNavigate();
+  console.log("userIndo on loaduing", anotherPersonPayload, userInformation)
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -88,8 +100,9 @@ const CreateForm = (props) => {
   //   window.location.href = "/dashboard"
   // }, [])
   useEffect(() => {
+    console.log("inside registration fee")
     setValue(getRegistrationFee());
-  }, [userInformation]);
+  }, [userInformation, anotherPersonPayload]);
 
   useEffect(() => {
     if (state.saveRegisterUserInfoSuccess) {
@@ -158,8 +171,9 @@ const CreateForm = (props) => {
         country: "",
         phoneNumber: "",
         email: "",
-        conferenceMode: "",
+        conferenceMode: "offline",
         participationType: "",
+        nationality: "",
         title: "",
         registrationCategory: "",
         registrationFee: "",
@@ -172,50 +186,66 @@ const CreateForm = (props) => {
       setMode(location.state.mode);
     }
   }, []);
-
+  
+  
   const getRegistrationFee = () => {
+   
     let userInformationCopy = { ...userInformation };
-    if (
-      userInformationCopy.conferenceMode === "online" &&
-      userInformationCopy.registrationCategory === "Life Members"
+    //let anotherPersonPayloadCopy =  ...anotherPersonPayload }
+    let accompanningPersonLength = anotherPersonPayload.length
+    //console.log("get resistration fee accp length",accompanningPersonLength )
+  
+    if (      
+      userInformationCopy.registrationCategory === "Life Members" &&
+      userInformationCopy.nationality === "indian"  && accompanningPersonLength >= 0    
     ) {
-      return "1000";
+      let totalFee = (accompanningPersonLength * 2360) + 2950
+      return `₹ ${totalFee}`
     }
-    if (
-      userInformationCopy.conferenceMode === "offline" &&
-      userInformationCopy.registrationCategory === "Life Members"
+
+    if (      
+      userInformationCopy.registrationCategory === "Life Members" &&
+      userInformationCopy.nationality === "foreigner" && accompanningPersonLength >= 0 
     ) {
-      return "2950";
+      let totalFee = (accompanningPersonLength * 100) + 125
+      return `USD$ ${totalFee}`
     }
 
     if (
-      userInformationCopy.conferenceMode === "online" &&
-      userInformationCopy.registrationCategory === "For Students (Indian) "
-    ) {
-      return "500";
-    }
-    if (
       userInformationCopy.conferenceMode === "offline" &&
-      userInformationCopy.registrationCategory === "For Students (Indian) "
+      userInformationCopy.registrationCategory === "For Students" &&
+      userInformationCopy.nationality === "indian"
     ) {
       return "1770";
     }
 
     if (
-      userInformationCopy.conferenceMode === "online" &&
-      userInformationCopy.registrationCategory ===
-        "Others (participants/delegates/members)"
+      userInformationCopy.conferenceMode === "offline" &&
+      userInformationCopy.registrationCategory === "For Students" &&
+      userInformationCopy.nationality === "foreigner"
     ) {
-      return "1500";
+      return "US$100";
     }
+
     if (
       userInformationCopy.conferenceMode === "offline" &&
       userInformationCopy.registrationCategory ===
-        "Others (participants/delegates/members)"
+        "Others (participants/delegates/members)" && 
+        userInformationCopy.nationality === "indian"
     ) {
       return "3540";
     }
+
+    if (
+      userInformationCopy.conferenceMode === "offline" &&
+      userInformationCopy.registrationCategory ===
+        "Others (participants/delegates/members)" && 
+        userInformationCopy.nationality === "foreigner"
+    ) {
+      return "US$125";
+    }
   };
+  
 
   const buttonState = {
     button: 0,
@@ -230,12 +260,7 @@ const CreateForm = (props) => {
 
   const userInformationOnchangeHandler = (e) => {
     let userInformationCopy = { ...userInformation };
-    const { id, value } = e.target;
-    // if(e.target.id == "country"){
-    //   let res = value.split(' ')
-    //    userInformationCopy[id] = res[1];
-    //    setPhoneNumber(res[0])
-    // }
+    const { id, value } = e.target;  
 
     userInformationCopy[id] = value;
     setUserInformation(userInformationCopy);
@@ -277,14 +302,20 @@ const CreateForm = (props) => {
           : "Email address is invalid";
         setUserInformation(userInformationCopy);
         break;
-      case "conferenceMode":
-        userInformationCopy.isError.conferenceMode =
-          value.length < 0 ? "Conference Mode is Required" : "";
-        setUserInformation(userInformationCopy);
-        break;
+      // case "conferenceMode":
+      //   userInformationCopy.isError.conferenceMode =
+      //     value.length < 0 ? "Conference Mode is Required" : "";
+      //   setUserInformation(userInformationCopy);
+      //   break;
       case "participationType":
         userInformationCopy.isError.participationType =
           value.length < 0 ? "Participation Type is Required" : "";
+        setUserInformation(userInformationCopy);
+        break;
+
+        case "nationality":
+        userInformationCopy.isError.nationality =
+          value.length < 0 ? "Mention nationality type" : "";
         setUserInformation(userInformationCopy);
         break;
 
@@ -302,6 +333,7 @@ const CreateForm = (props) => {
     }
   };
 
+  console.log(userInformation,'user info here')
   const validateForm = () => {
     let formIsValid = true;
 
@@ -330,7 +362,7 @@ const CreateForm = (props) => {
       }
     }
 
-    if (!userInformation?.conferenceMode) {
+    if (!userInformation?.nationality) {
       formIsValid = false;
     }
 
@@ -346,14 +378,19 @@ const CreateForm = (props) => {
     if (systemRole == "admin") {
       userInformation.systemRole = systemRole;
     }
+    //userInformation.accompanningPerson = anotherPersonPayload;
+    //console.log("submit button clicked", userInformation)
     if (buttonState.button == 1) {
       checkValidation();
       if (validateForm()) {
         userInformation.registrationFee = value;
         userInformation.phoneNumber = phoneNumber;
+        //userInformation.accompanningPerson.push(anotherPersonPayload);
         delete userInformation.isError;
+        //console.log("userINfo", userInformation)
         dispatch(ACTIONS.saveRegisterdUserData(userInformation));
       } else {
+        console.log("nothing happened")
         let userInformationCopy = { ...userInformation };
         //userInformationCopy.isError.email = "Email is invalid"
         setUserInformation(userInformationCopy);
@@ -364,7 +401,7 @@ const CreateForm = (props) => {
       if (validateForm()) {
         // makePayment();
       } else {
-        let userInformationCopy = { ...userInformation };
+        let userInformationCopy = { ...userInformation };        
         //userInformationCopy.isError.email = "Email is invalid"
         setUserInformation(userInformationCopy);
       }
@@ -384,8 +421,9 @@ const CreateForm = (props) => {
         country: "",
         phoneNumber: "",
         email: "",
-        conferenceMode: "",
+        conferenceMode: "offline",
         participationType: "",
+        nationality: "",
         title: "",
         registrationCategory: "",
         registrationFee: "",
@@ -420,9 +458,9 @@ const CreateForm = (props) => {
             ? ""
             : "Field is required";
           break;
-        case "conferenceMode":
-          userInformationCopy.isError.conferenceMode =
-            userInformationCopy.conferenceMode ? "" : " Field is required";
+        case "nationality":
+          userInformationCopy.isError.nationality =
+            userInformationCopy.nationality ? "" : " Field is required";
           break;
         case "participationType":
           userInformationCopy.isError.participationType =
@@ -510,6 +548,53 @@ const CreateForm = (props) => {
     paymentObject.open();
   };
 
+  let anotherPersonHandleChange = (e) =>{
+
+    let anotherPersonDetailsCopy = {...anotherPersonDetails}
+    anotherPersonDetailsCopy[e.target.id] = e.target.value
+    setAnotherPersonDetails(anotherPersonDetailsCopy)
+  }
+
+  let addAccompanningPerson = () => { 
+    if(anotherPersonDetails.relation_name !== "") {
+        
+    //setAddPerson(true);
+    // setAccompanningPerson(e.target.value);
+    
+    let anotherPersonPayloadCopy = [...anotherPersonPayload]
+    anotherPersonPayloadCopy.push(anotherPersonDetails)
+    setAnotherPersonPayload(anotherPersonPayloadCopy)
+    userInformation.accompanningPerson = anotherPersonPayloadCopy;
+    setAnotherPersonDetails({
+      relation_name : '',
+      relation_type : ''
+    })
+    } else {
+      alert("Please mention the person details")
+    }
+  }
+    console.log("payl;oad ",userInformation)
+
+  let deleteAccompanningPerson = (index) =>{
+    let anotherPersonPayloadCopy = [...anotherPersonPayload]
+    let result = anotherPersonPayloadCopy.filter((item, i) => i !== index)
+    setAnotherPersonPayload(result)
+  }
+
+  let anotherPersonHandler = (e) => {
+    //console.log("button clicked ",e)
+    if(e === true) {
+      setAnotherPerson(e)
+    } else {
+      setAnotherPersonPayload([]);
+      setAnotherPerson(e)
+      userInformation.accompanningPerson = [];
+      
+    }
+    
+
+  }
+
   return (
     <div className="main">
       <div className="form-section">
@@ -536,7 +621,7 @@ const CreateForm = (props) => {
                       : "form-control"
                   }
                   value={userInformation && userInformation.name}
-                  //disabled={isDisabled}
+                  
                   disabled={
                     loggedInUser && userInformation && userInformation.name
                   }
@@ -558,9 +643,7 @@ const CreateForm = (props) => {
                   disabled={isDisabled}
                   id="designation"
                 />
-                {/* {
-                  isError  && isError.designation && <p className="text-danger">{isError.designation }</p>
-                } */}
+              
               </div>
               <div className="col-md-4">
                 <label htmlFor="InputAffiliation" className="form-label">
@@ -573,10 +656,7 @@ const CreateForm = (props) => {
                   value={userInformation && userInformation.affilation}
                   disabled={isDisabled}
                   id="affilation"
-                />
-                {/* {
-                  isError  && isError.affilation && <p className="text-danger">{isError.affilation }</p>
-                } */}
+                />                
               </div>
             </div>
 
@@ -686,7 +766,6 @@ const CreateForm = (props) => {
                       disabled={
                         loggedInUser && userInformation && userInformation.email
                       }
-                      //disabled={isDisabled}
                       value={userInformation && userInformation.email}
                       onChange={(e) => userInformationOnchangeHandler(e)}
                       className={
@@ -706,7 +785,7 @@ const CreateForm = (props) => {
             <div className="row mb-5">
               <div className="col-md-4">
                 <div className="row">
-                  <div className="col-md-12 mb-4">
+                  {/* <div className="col-md-12 mb-4">
                     <label htmlFor="SelectMode" className="form-label asterisk">
                       Mode of attending the conference
                     </label>
@@ -718,15 +797,36 @@ const CreateForm = (props) => {
                       disabled={isDisabled}
                       id="conferenceMode"
                     >
-                      {/* <option defaultValue hidden>
+                      <option defaultValue hidden>
                         Please Select The Mode
-                      </option> */}
-                      {/* <option value="online">Online</option> */}
+                      </option>
+                     
                       <option value="offline">Physical</option>
                     </select>
                     {isError && isError.conferenceMode && (
                       <p className="text-danger">{isError.conferenceMode}</p>
                     )}
+                  </div> */}
+
+                    <div className="col-md-12 mb-4">
+                    <label htmlFor="SelectMode" className="form-label asterisk">
+                      Mode of attending the conference
+                    </label>
+                    <select
+                      className="form-select"
+                      onChange={(e) => userInformationOnchangeHandler(e)}
+                      aria-label="Default select example"
+                      value={userInformation && userInformation.conferenceMode}
+                      disabled={isDisabled}
+                      id="conferenceMode"
+                    >
+                      <option value="offline">Physical</option>
+                      {/* <option value="offline">Physical</option>
+                      <option value="offline">Physical</option> */}
+                    </select>
+                    {/* {isError && isError.conferenceMode && (
+                      <p className="text-danger">{isError.conferenceMode}</p>
+                    )} */}
                   </div>
 
                   {/* Registration Category */}
@@ -752,12 +852,12 @@ const CreateForm = (props) => {
                         Please Select
                       </option>
                       <option value="Life Members">Life Members</option>
-                      <option value="Life Members">Delegate</option>
-                      <option value="For Students (Indian) ">
-                        For Students (Indian)
+                      <option value="delegate">Delegate</option>
+                      <option value="For Students">
+                        For Students
                       </option>
                       <option value="Others (participants/delegates/members)">
-                        Others (participants/delegates/members)
+                        Others (Participants/Delegates/Members)
                       </option>
                     </select>
                     {isError && isError.registrationCategory && (
@@ -788,14 +888,16 @@ const CreateForm = (props) => {
                       <option defaultValue hidden>
                         Please Select
                       </option>
-                      <option value="deligate">Delegate</option>
+                      <option value="delegate">Delegate</option>
                       <option value="Research Paper Presentation">
                         Research Paper Presentation
                       </option>
                       <option value="Poster Presentation">
                         Poster Presentation
                       </option>
-                      <option value="Both">Both</option>
+                      <option value="Both">
+                        Research Paper & Poster Presentation
+                      </option>
                     </select>
                     {isError && isError.participationType && (
                       <p className="text-danger">{isError.participationType}</p>
@@ -803,31 +905,36 @@ const CreateForm = (props) => {
                   </div>
                   <div className="col-md-12 mt-2">
                     <div>
-                      <p className="form-label">Delegate :</p>
+                      <p className="form-label">Nationality :</p>
                     </div>
                     <div className="radio-button-box d-flex">
                       <label className="pe-2" for="foreigner">
-                        Foreigner
+                        Foreign
                       </label>
                       <input
                         type="radio"
-                        id="foreigner"
+                        id="nationality"
                         className="w-auto"
-                        name="radio-btn"
+                        name="nationality"
+                        value="foreigner"
+                        onChange={(e) => userInformationOnchangeHandler(e)}
                       />
                       <label className="ps-4 pe-1" for="Indian">
                         Indian
                       </label>
                       <input
                         type="radio"
-                        id="Indian"
+                        id="nationality"
                         className="w-auto"
-                        name="radio-btn"
+                        name="nationality"
+                        value="indian"
+                        onChange={(e) => userInformationOnchangeHandler(e)}
                       />
                     </div>
                   </div>
                 </div>
               </div>
+              { userInformation.participationType !== "" && userInformation.participationType !== "delegate" &&
               <div className="col-md-4">
                 <label htmlFor="InputTitle" className="form-label">
                   Title of the paper/poster
@@ -844,10 +951,11 @@ const CreateForm = (props) => {
                   }
                 ></textarea>
               </div>
+            }
             </div>
 
             <div className="row">
-              <div className="col-md-12 mb-4">
+              <div className="col-md-6 mb-4">
                 <div className="accompany-box d-flex pb-2">
                   <div className="accompany-box-1 pt-1">
                     <h6 className="form-label m-0">Accompanying Person :</h6>
@@ -856,19 +964,57 @@ const CreateForm = (props) => {
                     <label className="ps-4 pe-1" for="yes">
                       Yes
                     </label>
-                    <input type="radio" id="yes" name="check" />
+                    <input type="radio" id="yes" name="add" value="yes" onClick={(e)=>anotherPersonHandler(true)} />
                     <label className="ps-4 pe-1" for="no">
                       No
                     </label>
-                    <input type="radio" id="no" name="check" />
+                    <input type="radio" id="no" name="add" value="no" onClick={(e)=>anotherPersonHandler(false)} />
+                  </div>               
                   </div>
-                </div>
-                <div className="add-button pt-2">
-                  <button className="create-btn" type="button">
+
+                {/* {anotherPerson && (
+                  
+                )} */}
+                
+                {anotherPerson && anotherPersonPayload.length < 3 && (
+                    <div className="exhibitor-relation d-flex mt-3">
+                    <div className="relation-box-1">
+                      <label className="form-label" for="relation-name">
+                        Full Name
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        id="relation_name"
+                        value={anotherPersonDetails.relation_name}
+                        onChange={(e)=>anotherPersonHandleChange(e)}
+                      />
+                    </div>
+                    <div className="ms-2 relation-box-2">
+                      <label className="form-label" for="relation_type">
+                        Relation
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        id="relation_type"
+                        value={anotherPersonDetails.relation_type}
+                        onChange={(e)=>anotherPersonHandleChange(e)}
+                      />
+                    </div>
+                    
+                    <div className="relation-delete-box ps-3">
+                    <button className="create-btn" id="accompanningPerson" type="button" onClick={(e)=>addAccompanningPerson(e)}>
                     ADD
                   </button>
-                </div>
-                <div className="exhibitor-relation d-flex mt-3">
+                    </div>
+                  </div>
+
+                )
+                }
+
+                {anotherPersonPayload.length > 0 && (anotherPersonPayload.map((item,index) =>{
+                  return (<div className="exhibitor-relation d-flex mt-3">
                   <div className="relation-box-1">
                     <label className="form-label" for="relation-name">
                       Full Name
@@ -876,7 +1022,8 @@ const CreateForm = (props) => {
                     <input
                       className="form-control"
                       type="text"
-                      id="relation-name"
+                      value={item.relation_name}
+                      disabled
                     />
                   </div>
                   <div className="ms-2 relation-box-2">
@@ -886,15 +1033,21 @@ const CreateForm = (props) => {
                     <input
                       className="form-control"
                       type="text"
-                      id="relation-type"
+                      value={item.relation_type}
+                      disabled
                     />
                   </div>
+                  
                   <div className="relation-delete-box ps-3">
-                    <i class="fa-solid fa-trash-can"></i>
+                  <i class="fa-solid fa-trash-can ps-3" onClick={()=>deleteAccompanningPerson(index)}></i>
                   </div>
                 </div>
+                  )
+                })
+                )}
+                
               </div>
-              <div className="col-md-12">
+              <div className="col-md-4">
                 {isDisabled && (
                   <>
                     <label htmlFor="InputFee" className="form-label">
@@ -934,8 +1087,18 @@ const CreateForm = (props) => {
               </p>
             )}
 
+<div className="payment-section">
+        <form>
+          <div className="row">
+            <div className="col-md-12">
+              <PaymentInfo />
+            </div>
+          </div>
+        </form>
+      </div>
+
             <div className="row">
-              <div className="col-md-12 text-end">
+              <div className="col-md-12">
                 <button
                   className="mx-3"
                   name="save"
@@ -965,15 +1128,7 @@ const CreateForm = (props) => {
         </form>
       </div>
 
-      <div className="payment-section">
-        <form>
-          <div className="row">
-            <div className="col-md-12">
-              <PaymentInfo />
-            </div>
-          </div>
-        </form>
-      </div>
+      
     </div>
   );
 };
