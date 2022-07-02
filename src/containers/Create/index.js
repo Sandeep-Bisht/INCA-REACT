@@ -22,12 +22,12 @@ const obj = {
   email: "",
   conferenceMode: "offline",
   participationType: "",
-  nationality:"",
+  nationality: "",
   title: "",
   registrationCategory: "",
   //registrationFee: "",
   //transactionId: "",
-  accompanningPerson:[],
+  accompanningPerson: [],
   isError: {
     name: "",
     designation: "",
@@ -39,7 +39,7 @@ const obj = {
     email: "",
     conferenceMode: "",
     participationType: "",
-    nationality:"",
+    nationality: "",
     title: "",
     registrationCategory: "",
     registrationFee: "",
@@ -61,8 +61,8 @@ const CreateForm = (props) => {
   const [anotherPerson, setAnotherPerson] = useState(false);
   const [anotherPersonPayload, setAnotherPersonPayload] = useState([]);
   const [anotherPersonDetails, setAnotherPersonDetails] = useState({
-    relation_name : '',
-    relation_type : ''
+    relation_name: "",
+    relation_type: "",
   });
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
 
@@ -73,7 +73,7 @@ const CreateForm = (props) => {
   let dispatch = useDispatch();
   let location = useLocation();
   let navigate = useNavigate();
-  console.log("userIndo on loaduing", anotherPersonPayload, userInformation)
+  //console.log("userIndo on loaduing", anotherPersonPayload, userInformation);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -100,7 +100,7 @@ const CreateForm = (props) => {
   //   window.location.href = "/dashboard"
   // }, [])
   useEffect(() => {
-    console.log("inside registration fee")
+    //console.log("inside registration fee");
     setValue(getRegistrationFee());
   }, [userInformation, anotherPersonPayload]);
 
@@ -186,67 +186,69 @@ const CreateForm = (props) => {
       setMode(location.state.mode);
     }
   }, []);
-  
-  
+
   const getRegistrationFee = () => {
-   
     let userInformationCopy = { ...userInformation };
-    //let anotherPersonPayloadCopy =  ...anotherPersonPayload }
-    let accompanningPersonLength = anotherPersonPayload.length
-    //console.log("get resistration fee accp length",accompanningPersonLength )
-  
-    if (      
+    let accompanningPersonLength = userInformation.accompanningPerson.length;
+
+    if (
       userInformationCopy.registrationCategory === "Life Members" &&
-      userInformationCopy.nationality === "indian"  && accompanningPersonLength >= 0    
+      userInformationCopy.nationality === "indian" &&
+      accompanningPersonLength >= 0
     ) {
-      let totalFee = (accompanningPersonLength * 2360) + 2950
-      return `₹ ${totalFee}`
+      let totalFee = accompanningPersonLength * 2360 + 2950;
+      return `₹ ${totalFee} including 18% GST`;
     }
 
-    if (      
+    if (
       userInformationCopy.registrationCategory === "Life Members" &&
-      userInformationCopy.nationality === "foreigner" && accompanningPersonLength >= 0 
+      userInformationCopy.nationality === "foreigner" &&
+      accompanningPersonLength >= 0
     ) {
-      let totalFee = (accompanningPersonLength * 100) + 125
-      return `USD$ ${totalFee}`
+      let totalFee = accompanningPersonLength * 100 + 125;
+      return `US$ ${totalFee} `;
     }
 
     if (
-      userInformationCopy.conferenceMode === "offline" &&
       userInformationCopy.registrationCategory === "For Students" &&
-      userInformationCopy.nationality === "indian"
+      userInformationCopy.nationality === "indian" &&
+      accompanningPersonLength >= 0
     ) {
-      return "1770";
+      let totalFee = accompanningPersonLength * 2360 + 1770;
+      return `₹ ${totalFee} including 18% GST`;
     }
 
     if (
-      userInformationCopy.conferenceMode === "offline" &&
       userInformationCopy.registrationCategory === "For Students" &&
-      userInformationCopy.nationality === "foreigner"
+      userInformationCopy.nationality === "foreigner" &&
+      accompanningPersonLength >= 0
     ) {
-      return "US$100";
+      let totalFee = accompanningPersonLength * 100 + 100;
+      return `US$ ${totalFee}`;
     }
 
     if (
-      userInformationCopy.conferenceMode === "offline" &&
       userInformationCopy.registrationCategory ===
-        "Others (participants/delegates/members)" && 
-        userInformationCopy.nationality === "indian"
+        "Others (participants/delegates/members)" &&
+      userInformationCopy.nationality === "indian" &&
+      accompanningPersonLength >= 0
     ) {
-      return "3540";
+      let totalFee = accompanningPersonLength * 2360 + 3540;
+      return `₹ ${totalFee} including 18% GST`;
     }
 
     if (
-      userInformationCopy.conferenceMode === "offline" &&
       userInformationCopy.registrationCategory ===
-        "Others (participants/delegates/members)" && 
-        userInformationCopy.nationality === "foreigner"
+        "Others (participants/delegates/members)" &&
+      userInformationCopy.nationality === "foreigner" &&
+      accompanningPersonLength >= 0
     ) {
-      return "US$125";
+      let totalFee = accompanningPersonLength * 100 + 125;
+      return `US$ ${totalFee}`;
     }
   };
-  
 
+  //console.log("userInformation from edit", userInformation, userInformation.nationality);
   const buttonState = {
     button: 0,
   };
@@ -260,7 +262,7 @@ const CreateForm = (props) => {
 
   const userInformationOnchangeHandler = (e) => {
     let userInformationCopy = { ...userInformation };
-    const { id, value } = e.target;  
+    const { id, value } = e.target;
 
     userInformationCopy[id] = value;
     setUserInformation(userInformationCopy);
@@ -313,7 +315,7 @@ const CreateForm = (props) => {
         setUserInformation(userInformationCopy);
         break;
 
-        case "nationality":
+      case "nationality":
         userInformationCopy.isError.nationality =
           value.length < 0 ? "Mention nationality type" : "";
         setUserInformation(userInformationCopy);
@@ -333,7 +335,7 @@ const CreateForm = (props) => {
     }
   };
 
-  console.log(userInformation,'user info here')
+  //console.log(userInformation, "user info here");
   const validateForm = () => {
     let formIsValid = true;
 
@@ -387,10 +389,10 @@ const CreateForm = (props) => {
         userInformation.phoneNumber = phoneNumber;
         //userInformation.accompanningPerson.push(anotherPersonPayload);
         delete userInformation.isError;
-        //console.log("userINfo", userInformation)
+        // console.log("userINfo before dispatch", userInformation)
         dispatch(ACTIONS.saveRegisterdUserData(userInformation));
       } else {
-        console.log("nothing happened")
+        //console.log("nothing happened");
         let userInformationCopy = { ...userInformation };
         //userInformationCopy.isError.email = "Email is invalid"
         setUserInformation(userInformationCopy);
@@ -401,7 +403,7 @@ const CreateForm = (props) => {
       if (validateForm()) {
         // makePayment();
       } else {
-        let userInformationCopy = { ...userInformation };        
+        let userInformationCopy = { ...userInformation };
         //userInformationCopy.isError.email = "Email is invalid"
         setUserInformation(userInformationCopy);
       }
@@ -548,52 +550,55 @@ const CreateForm = (props) => {
     paymentObject.open();
   };
 
-  let anotherPersonHandleChange = (e) =>{
+  let anotherPersonHandleChange = (e) => {
+    let anotherPersonDetailsCopy = { ...anotherPersonDetails };
+    anotherPersonDetailsCopy[e.target.id] = e.target.value;
+    setAnotherPersonDetails(anotherPersonDetailsCopy);
+  };
 
-    let anotherPersonDetailsCopy = {...anotherPersonDetails}
-    anotherPersonDetailsCopy[e.target.id] = e.target.value
-    setAnotherPersonDetails(anotherPersonDetailsCopy)
-  }
-
-  let addAccompanningPerson = () => { 
-    if(anotherPersonDetails.relation_name !== "") {
-        
-    //setAddPerson(true);
-    // setAccompanningPerson(e.target.value);
-    
-    let anotherPersonPayloadCopy = [...anotherPersonPayload]
-    anotherPersonPayloadCopy.push(anotherPersonDetails)
-    setAnotherPersonPayload(anotherPersonPayloadCopy)
-    userInformation.accompanningPerson = anotherPersonPayloadCopy;
-    setAnotherPersonDetails({
-      relation_name : '',
-      relation_type : ''
-    })
+  let addAccompanningPerson = () => {
+    if (anotherPersonDetails.relation_name !== "") {
+      //setAddPerson(true);
+      // setAccompanningPerson(e.target.value);
+      let userInformationCopy = { ...userInformation };
+      let anotherPersonPayloadCopy = [...userInformation.accompanningPerson];
+      anotherPersonPayloadCopy.push(anotherPersonDetails);
+      // userInformation.accompanningPerson = anotherPersonPayloadCopy
+      // setAnotherPersonPayload(anotherPersonPayloadCopy);
+      //userInformation.accompanningPerson = anotherPersonPayloadCopy;
+      userInformationCopy.accompanningPerson = anotherPersonPayloadCopy;
+      setUserInformation(userInformationCopy);
+      setAnotherPersonDetails({
+        relation_name: "",
+        relation_type: "",
+      });
     } else {
-      alert("Please mention the person details")
+      alert("Please mention the person details");
     }
-  }
-    console.log("payl;oad ",userInformation)
+  };
 
-  let deleteAccompanningPerson = (index) =>{
-    let anotherPersonPayloadCopy = [...anotherPersonPayload]
-    let result = anotherPersonPayloadCopy.filter((item, i) => i !== index)
-    setAnotherPersonPayload(result)
-  }
+  let deleteAccompanningPerson = (index) => {
+    let userInformationCopy = { ...userInformation };
+    let anotherPersonPayloadCopy = [...userInformation.accompanningPerson];
+    // console.log("i am clicked",anotherPersonPayloadCopy)
+
+    let result = anotherPersonPayloadCopy.filter((item, i) => i !== index);
+    // console.log("after clicked",result)
+    userInformationCopy.accompanningPerson = result;
+    // setAnotherPersonPayload(result);
+    setUserInformation(userInformationCopy);
+  };
 
   let anotherPersonHandler = (e) => {
     //console.log("button clicked ",e)
-    if(e === true) {
-      setAnotherPerson(e)
+    if (e === true) {
+      setAnotherPerson(e);
     } else {
       setAnotherPersonPayload([]);
-      setAnotherPerson(e)
+      setAnotherPerson(e);
       userInformation.accompanningPerson = [];
-      
     }
-    
-
-  }
+  };
 
   return (
     <div className="main">
@@ -607,7 +612,42 @@ const CreateForm = (props) => {
           noValidate
         >
           <div className="container">
-            <div className="row mt-5 mb-5">
+            <div className="row">
+              <div className="col-md-3 pt-3">
+                <label htmlFor="InputName" className="form-label">
+                  Registration No : &nbsp;
+                  <span>
+                    {userInformation && userInformation.registrationNumber}
+                  </span>
+                </label>
+              </div>
+              {/* <div className="col-md-6"></div>
+            
+              <div className="col-md-3">
+                <div>
+              <label htmlFor="SelectWish" className="form-label">
+                      Payment Status
+                    </label>
+                    <select
+                      className="form-select"
+                      onChange={(e) => userInformationOnchangeHandler(e)}
+                      aria-label="Default select example"
+                      value={
+                        userInformation && userInformation.paymentStatus
+                      }
+                      disabled={isDisabled}
+                      id="paymentStatus"
+                    >
+                      <option defaultValue hidden>
+                        Please Select Payment Status
+                      </option>
+                      <option value="unpaid">Unpaid</option>
+                      <option value="paid">Paid</option>                     
+                    </select>
+                    </div>
+              </div> */}
+            </div>
+            <div className="row mt-2 mb-5">
               <div className="col-md-4">
                 <label htmlFor="InputName" className="form-label asterisk">
                   Name
@@ -621,7 +661,6 @@ const CreateForm = (props) => {
                       : "form-control"
                   }
                   value={userInformation && userInformation.name}
-                  
                   disabled={
                     loggedInUser && userInformation && userInformation.name
                   }
@@ -643,7 +682,6 @@ const CreateForm = (props) => {
                   disabled={isDisabled}
                   id="designation"
                 />
-              
               </div>
               <div className="col-md-4">
                 <label htmlFor="InputAffiliation" className="form-label">
@@ -656,7 +694,7 @@ const CreateForm = (props) => {
                   value={userInformation && userInformation.affilation}
                   disabled={isDisabled}
                   id="affilation"
-                />                
+                />
               </div>
             </div>
 
@@ -808,7 +846,7 @@ const CreateForm = (props) => {
                     )}
                   </div> */}
 
-                    <div className="col-md-12 mb-4">
+                  <div className="col-md-12 mb-4">
                     <label htmlFor="SelectMode" className="form-label asterisk">
                       Mode of attending the conference
                     </label>
@@ -852,10 +890,8 @@ const CreateForm = (props) => {
                         Please Select
                       </option>
                       <option value="Life Members">Life Members</option>
-                      <option value="delegate">Delegate</option>
-                      <option value="For Students">
-                        For Students
-                      </option>
+                      {/* <option value="delegate">Delegate</option> */}
+                      <option value="For Students">For Students</option>
                       <option value="Others (participants/delegates/members)">
                         Others (Participants/Delegates/Members)
                       </option>
@@ -916,6 +952,8 @@ const CreateForm = (props) => {
                         id="nationality"
                         className="w-auto"
                         name="nationality"
+                        checked={userInformation.nationality === "foreigner"}
+                        disabled={isDisabled}
                         value="foreigner"
                         onChange={(e) => userInformationOnchangeHandler(e)}
                       />
@@ -927,6 +965,8 @@ const CreateForm = (props) => {
                         id="nationality"
                         className="w-auto"
                         name="nationality"
+                        checked={userInformation.nationality === "indian"}
+                        disabled={isDisabled}
                         value="indian"
                         onChange={(e) => userInformationOnchangeHandler(e)}
                       />
@@ -934,24 +974,25 @@ const CreateForm = (props) => {
                   </div>
                 </div>
               </div>
-              { userInformation.participationType !== "" && userInformation.participationType !== "delegate" &&
-              <div className="col-md-4">
-                <label htmlFor="InputTitle" className="form-label">
-                  Title of the paper/poster
-                </label>
-                <textarea
-                  id="title"
-                  value={userInformation && userInformation.title}
-                  disabled={isDisabled}
-                  onChange={(e) => userInformationOnchangeHandler(e)}
-                  className={
-                    isError && isError.title.length > 0
-                      ? "is-invalid form-control"
-                      : "form-control"
-                  }
-                ></textarea>
-              </div>
-            }
+              {userInformation.participationType !== "" &&
+                userInformation.participationType !== "delegate" && (
+                  <div className="col-md-4">
+                    <label htmlFor="InputTitle" className="form-label">
+                      Title of the paper/poster
+                    </label>
+                    <textarea
+                      id="title"
+                      value={userInformation && userInformation.title}
+                      disabled={isDisabled}
+                      onChange={(e) => userInformationOnchangeHandler(e)}
+                      className={
+                        isError && isError.title.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
+                    ></textarea>
+                  </div>
+                )}
             </div>
 
             <div className="row">
@@ -960,24 +1001,50 @@ const CreateForm = (props) => {
                   <div className="accompany-box-1 pt-1">
                     <h6 className="form-label m-0">Accompanying Person :</h6>
                   </div>
-                  <div className="accompany-box-2 d-flex">
-                    <label className="ps-4 pe-1" for="yes">
-                      Yes
-                    </label>
-                    <input type="radio" id="yes" name="add" value="yes" onClick={(e)=>anotherPersonHandler(true)} />
-                    <label className="ps-4 pe-1" for="no">
-                      No
-                    </label>
-                    <input type="radio" id="no" name="add" value="no" onClick={(e)=>anotherPersonHandler(false)} />
-                  </div>               
-                  </div>
 
-                {/* {anotherPerson && (
-                  
-                )} */}
-                
-                {anotherPerson && anotherPersonPayload.length < 3 && (
-                    <div className="exhibitor-relation d-flex mt-3">
+                  {location &&
+                  location.state &&
+                  location.state.mode === "view" ? (
+                    ""
+                  ) : (
+                    <div className="accompany-box-2 d-flex">
+                      <label className="ps-4 pe-1" for="yes">
+                        Yes
+                      </label>
+                      <input
+                        type="radio"
+                        id="yes"
+                        name="add"
+                        value="yes"
+                        disabled={isDisabled}
+                        onClick={(e) => anotherPersonHandler(true)}
+                      />
+                      <label className="ps-4 pe-1" for="no">
+                        No
+                      </label>
+                      <input
+                        type="radio"
+                        id="no"
+                        name="add"
+                        value="no"
+                        disabled={isDisabled}
+                        onClick={(e) => anotherPersonHandler(false)}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {location &&
+                location.state &&
+                location.state.mode === "view" ? (
+                  ""
+                ) : (
+                  <small>(max. of 3 persons are allowed.)</small>
+                )}
+                {/* {location && location.state && ( location.state.mode === "view" || location.state.mode === "edit")   && userInformation.accompanningPerson.length > 0 &&
+              userInformation.accompanningPerson.map((item,index) => {
+                return (
+                  <div className="exhibitor-relation d-flex mt-3">
                     <div className="relation-box-1">
                       <label className="form-label" for="relation-name">
                         Full Name
@@ -985,67 +1052,116 @@ const CreateForm = (props) => {
                       <input
                         className="form-control"
                         type="text"
-                        id="relation_name"
-                        value={anotherPersonDetails.relation_name}
-                        onChange={(e)=>anotherPersonHandleChange(e)}
+                        value={item.relation_name}
+                        disabled
                       />
                     </div>
                     <div className="ms-2 relation-box-2">
-                      <label className="form-label" for="relation_type">
+                      <label className="form-label" for="relation-type">
                         Relation
                       </label>
                       <input
                         className="form-control"
                         type="text"
-                        id="relation_type"
-                        value={anotherPersonDetails.relation_type}
-                        onChange={(e)=>anotherPersonHandleChange(e)}
+                        value={item.relation_type}
+                        disabled
                       />
                     </div>
-                    
+                  {location && location.state && location.state.mode === "edit" &&
                     <div className="relation-delete-box ps-3">
-                    <button className="create-btn" id="accompanningPerson" type="button" onClick={(e)=>addAccompanningPerson(e)}>
-                    ADD
-                  </button>
+                      <i
+                        class="fa-solid fa-trash-can ps-3"
+                        onClick={() => deleteAccompanningPerson(index)}
+                      ></i>
                     </div>
+              }
                   </div>
-
-                )
-                }
-
-                {anotherPersonPayload.length > 0 && (anotherPersonPayload.map((item,index) =>{
-                  return (<div className="exhibitor-relation d-flex mt-3">
-                  <div className="relation-box-1">
-                    <label className="form-label" for="relation-name">
-                      Full Name
-                    </label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={item.relation_name}
-                      disabled
-                    />
-                  </div>
-                  <div className="ms-2 relation-box-2">
-                    <label className="form-label" for="relation-type">
-                      Relation
-                    </label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={item.relation_type}
-                      disabled
-                    />
-                  </div>
-                  
-                  <div className="relation-delete-box ps-3">
-                  <i class="fa-solid fa-trash-can ps-3" onClick={()=>deleteAccompanningPerson(index)}></i>
-                  </div>
-                </div>
-                  )
-                })
-                )}
                 
+                );
+
+              }) 
+            } */}
+
+                {anotherPerson &&
+                  userInformation.accompanningPerson.length < 3 && (
+                    <div className="exhibitor-relation d-flex mt-3">
+                      <div className="relation-box-1">
+                        <label className="form-label" for="relation-name">
+                          Full Name
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          id="relation_name"
+                          value={anotherPersonDetails.relation_name}
+                          onChange={(e) => anotherPersonHandleChange(e)}
+                        />
+                      </div>
+                      <div className="ms-2 relation-box-2">
+                        <label className="form-label" for="relation_type">
+                          Relation
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          id="relation_type"
+                          value={anotherPersonDetails.relation_type}
+                          onChange={(e) => anotherPersonHandleChange(e)}
+                        />
+                      </div>
+
+                      <div className="relation-delete-box ps-3">
+                        <button
+                          className="create-btn"
+                          id="accompanningPerson"
+                          type="button"
+                          onClick={(e) => addAccompanningPerson(e)}
+                        >
+                          ADD
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                {userInformation.accompanningPerson.length > 0 &&
+                  userInformation.accompanningPerson.map((item, index) => {
+                    return (
+                      <div className="exhibitor-relation d-flex mt-3">
+                        <div className="relation-box-1">
+                          <label className="form-label" for="relation-name">
+                            Full Name
+                          </label>
+                          <input
+                            className="form-control"
+                            type="text"
+                            value={item.relation_name}
+                            disabled
+                          />
+                        </div>
+                        <div className="ms-2 relation-box-2">
+                          <label className="form-label" for="relation-type">
+                            Relation
+                          </label>
+                          <input
+                            className="form-control"
+                            type="text"
+                            value={item.relation_type}
+                            disabled
+                          />
+                        </div>
+                        {location &&
+                          location.state &&
+                          location.state.mode === "edit" && (
+                            <div className="relation-delete-box ps-3">
+                              <i
+                                class="fa-solid fa-trash-can ps-3"
+                                onClick={() => deleteAccompanningPerson(index)}
+                              ></i>
+                            </div>
+                          )}
+                      </div>
+                    );
+                  })}
               </div>
               <div className="col-md-4">
                 {isDisabled && (
@@ -1087,15 +1203,15 @@ const CreateForm = (props) => {
               </p>
             )}
 
-<div className="payment-section">
-        <form>
-          <div className="row">
-            <div className="col-md-12">
-              <PaymentInfo />
+            <div className="payment-section">
+              <form>
+                <div className="row">
+                  <div className="col-md-12">
+                    <PaymentInfo />
+                  </div>
+                </div>
+              </form>
             </div>
-          </div>
-        </form>
-      </div>
 
             <div className="row">
               <div className="col-md-12">
@@ -1127,8 +1243,6 @@ const CreateForm = (props) => {
           </div>
         </form>
       </div>
-
-      
     </div>
   );
 };
