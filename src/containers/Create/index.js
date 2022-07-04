@@ -100,7 +100,6 @@ const CreateForm = (props) => {
   //   window.location.href = "/dashboard"
   // }, [])
   useEffect(() => {
-    //console.log("inside registration fee");
     setValue(getRegistrationFee());
   }, [userInformation, anotherPersonPayload]);
 
@@ -149,8 +148,6 @@ const CreateForm = (props) => {
       setIsDisabled(true);
       setIsHidden(true);
       setUserInformation(state.loggedInUserSuccess[0]);
-
-      // userId = state.loggedInUserSuccess[0]._id;
     }
   }, [state.loggedInUserSuccess]);
 
