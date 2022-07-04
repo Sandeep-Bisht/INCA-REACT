@@ -14,7 +14,7 @@ export function resetToInitialState() {
 }
 
 export const getLoggedInUser = (id) => {
-  return {
+   return {
     type: CONSTANTS.GET_LOGGEDID_USER,
     id,
   }

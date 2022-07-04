@@ -30,6 +30,7 @@ const AbstractDocumentList = lazy(() => import('../containers/AbstractDocumentLi
 const UserAbstractList = lazy(() => import('../containers/UserAbstractList'))
 const Theme = lazy(() => import('../containers/ThemePage'))
 const ImportantDates = lazy(() => import('../containers/ImportantDates'))
+const TransactionDetails = lazy(()=> import('../containers/TransactionDetails'))
 
 export const ApplicationRoutes = ({ path }) => {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -81,6 +82,7 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/dashboard/create" element={<CreateForm />} />        
           <Route path="/dashboard/allRegistration" element={<AllRegistration />} />
               <Route path="/dashboard/users" element={<RegisteredUser />} />
+              <Route path="/dashboard/transaction_details" element={<TransactionDetails />} />
               <Route path="/dashboard/attendancestatus" element={<AttendanceStatus />} />
               <Route path="/dashboard/allSponsor" element={<AllSponsor />} />
               <Route path="/dashboard/upload" element={<AbstractUpload />} />
