@@ -49,7 +49,6 @@ function TransactionDetails() {
     setTransactionDetails(transactionDetailsCopy)
    
   }
-  console.log(transactionDetails, 'valueee of ')
 
   useEffect(() => {
     emptyMessage()
@@ -139,7 +138,7 @@ function TransactionDetails() {
               <div className="row">
                 <div className="col-md-6">
                   <div className="account-name">
-                    <span>Account name</span>
+                    <span>Account Type</span>
                     <input className="form-control" required name="accountHolderName" value={transactionDetails && transactionDetails.accountHolderName} onChange={(e)=>transactionDetailHandler(e)} type="text" />
                   </div>
                 </div>
@@ -153,7 +152,7 @@ function TransactionDetails() {
               <div className="row">
                 <div className="col-md-6">
                   <div className="transaction-date">
-                    <span>Transaction</span>
+                    <span>Transaction Number</span>
                     <input className="form-control" required name="transactionNumber" value={transactionDetails && transactionDetails.transactionNumber} onChange={(e)=>transactionDetailHandler(e)} type="text" />
                   </div>
                 </div>

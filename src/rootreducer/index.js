@@ -15,6 +15,7 @@
  import UserForgotPasswordReducer from '../containers/ForgetPassword/reducer';
  import PreviewPaperReducer from "../containers/PreviewPaper/reducer";
  import TransactionDetailsReducer from "../containers/TransactionDetails/reducer";
+ import GetUserTransactionListReducer from "../containers/TransactionList/reducer";
 
 const rootReducer = combineReducers({
     RegisterReducer,
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
     UserAbstractListReducer,
     UserForgotPasswordReducer,
     PreviewPaperReducer,
-    TransactionDetailsReducer
+    TransactionDetailsReducer,
+    GetUserTransactionListReducer
 });
 export default rootReducer;

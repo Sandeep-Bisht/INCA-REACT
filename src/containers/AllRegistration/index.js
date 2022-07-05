@@ -74,7 +74,9 @@ const AllRegistration = () => {
   }
 
   const columns = [
+    { field: "registrationNumber", header: "Registration Number" },
     { field: "name", header: "Name" },
+    { field: "mannualPaymentStatus", header: "Payment Status" },
     { field: "email", header: "E-mail" },
     { field: "designation", header: "Designation" },
     { field: "participationType", header: "Participation Type" },

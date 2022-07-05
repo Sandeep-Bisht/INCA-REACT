@@ -236,6 +236,17 @@ const Dashboard = (props) => {
                             Sponsors
                           </button>
                         </li>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() => navigate("/dashboard/transaction_list")}
+                          >
+                            <span className="me-2">
+                              <i className="fa-brands fa-elementor"></i>
+                            </span>{" "}
+                            Transaction List
+                          </button>
+                        </li>
                       </>
                     )}
 
