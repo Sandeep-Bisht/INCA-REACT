@@ -9,7 +9,7 @@ export const Footer = () => {
       <footer className="foot-wrapper">
         <div className="container">
           <div className="row brdr">
-            <div className="col-md-3 col-6">
+            <div className="col-md-4 col-6">
               <div className="box-1">
                 <h2>INCA</h2>
                 <p className="f1">
@@ -20,7 +20,7 @@ export const Footer = () => {
               </div>
             </div>
 
-            <div className="col-md-3 col-6">
+            <div className="col-md-4 d-flex justify-content-center col-6">
               <div className="box-2">
                 <h5>Quick Links</h5>
                 <ul>
@@ -53,7 +53,7 @@ export const Footer = () => {
               </div>
             </div>
 
-            <div className="col-md-3 col-5">
+            <div className="col-md-4 d-flex justify-content-end col-5">
               <div className="box-3">
                 <h5>Other Pages</h5>
                 <ul>
@@ -76,7 +76,7 @@ export const Footer = () => {
               </div>
             </div>
 
-            <div className="col-md-3 col-7">
+            <div className="col-md-3 d-none col-7">
               <div className="box-4">
                 <div className="box-wrap">
                   <h5>OUR TECHNOLOGY PARTNER</h5>
@@ -89,7 +89,13 @@ export const Footer = () => {
           <div className="row">
            <div className="col-md-12">
               <div className="box-7">
-                <span>Copyright © 2022 INCA. All rights reserved.</span>
+                <div className="giks-copyright d-flex pe-4">
+                <img src={giksfooterlogo} alt="" className="img-fluid" />
+                    <p>Our Technology Partner</p>
+                    </div>
+                 <div className="inca-copyright">
+                <p>Copyright © 2022 INCA. All rights reserved.</p>
+                </div>
               </div>
             </div>
           </div>
