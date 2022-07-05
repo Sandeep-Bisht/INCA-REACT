@@ -8,7 +8,6 @@ import { Button } from "primereact/button";
 const ExhibitorList = () => {
   const [exhibitorList, setExhibitorList] = useState();
   const columns = [
-    // {field: 'code', header: 'S.no'},
     { field: "name", header: "Name" },
     { field: "email", header: "Email" },
     { field: "mobile", header: "Mobile No" },
@@ -36,7 +35,6 @@ const ExhibitorList = () => {
       console.log(error);
     }
   };
-  console.log(exhibitorList, "exhibitorList exhibitorList");
 
   return (
     <>

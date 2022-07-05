@@ -62,12 +62,10 @@ const PreviewPaper = () => {
     if(approveDocs.paperApproveStatus == false) {
       setRejectLoader(true)
       approveDocs.rejectionMsg = rejectionMsg;
-      //console.log("payload when rejcet", approveDocs);
       dispatch(ACTIONS.approveFileSubmission(approveDocs));      
     } else {    
       setAcceptLoader(true)
       approveDocs.paperApproveStatus = status;
-      //console.log("payload when accept", approveDocs);
       dispatch(ACTIONS.approveFileSubmission(approveDocs));
     }
   };

@@ -15,7 +15,7 @@ const PaymentInfo = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-8">
+          <div className="col-md-12">
             <table className="table">
               <tbody>
                 <tr>

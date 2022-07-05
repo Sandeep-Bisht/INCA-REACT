@@ -8,6 +8,7 @@ import { QRCodeSVG } from "qrcode.react";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import PaymentInfo from "../PaymentInfo";
+import PaymentConfirm from "../PaymentConfirm";
 import { countries } from "../../utils";
 import * as ACTIONS from "./action";
 
@@ -18,15 +19,12 @@ const obj = {
   address: "",
   pinCode: "",
   country: "",
-  //phoneNumber: "",
   email: "",
   conferenceMode: "offline",
   participationType: "",
   nationality: "",
   title: "",
   registrationCategory: "",
-  //registrationFee: "",
-  //transactionId: "",
   accompanningPerson: [],
   isError: {
     name: "",
@@ -56,8 +54,6 @@ const CreateForm = (props) => {
   const [show, setShow] = useState(false);
   const [value, setValue] = useState(undefined);
   const [systemRole, setSystemRole] = useState("");
-  //const [accompanningPerson, setAccompanningPerson] = useState([]);
-  //const [addPerson, setAddPerson] = useState(false)
   const [anotherPerson, setAnotherPerson] = useState(false);
   const [anotherPersonPayload, setAnotherPersonPayload] = useState([]);
   const [anotherPersonDetails, setAnotherPersonDetails] = useState({
@@ -73,7 +69,7 @@ const CreateForm = (props) => {
   let dispatch = useDispatch();
   let location = useLocation();
   let navigate = useNavigate();
-  //console.log("userIndo on loaduing", anotherPersonPayload, userInformation);
+  
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -245,7 +241,6 @@ const CreateForm = (props) => {
     }
   };
 
-  //console.log("userInformation from edit", userInformation, userInformation.nationality);
   const buttonState = {
     button: 0,
   };
@@ -332,7 +327,6 @@ const CreateForm = (props) => {
     }
   };
 
-  //console.log(userInformation, "user info here");
   const validateForm = () => {
     let formIsValid = true;
 
@@ -377,31 +371,23 @@ const CreateForm = (props) => {
     if (systemRole == "admin") {
       userInformation.systemRole = systemRole;
     }
-    //userInformation.accompanningPerson = anotherPersonPayload;
-    //console.log("submit button clicked", userInformation)
     if (buttonState.button == 1) {
       checkValidation();
       if (validateForm()) {
         userInformation.registrationFee = value;
         userInformation.phoneNumber = phoneNumber;
-        //userInformation.accompanningPerson.push(anotherPersonPayload);
         delete userInformation.isError;
-        // console.log("userINfo before dispatch", userInformation)
         dispatch(ACTIONS.saveRegisterdUserData(userInformation));
       } else {
-        //console.log("nothing happened");
         let userInformationCopy = { ...userInformation };
-        //userInformationCopy.isError.email = "Email is invalid"
         setUserInformation(userInformationCopy);
       }
     }
     if (buttonState.button == 2) {
       checkValidation();
       if (validateForm()) {
-        // makePayment();
       } else {
         let userInformationCopy = { ...userInformation };
-        //userInformationCopy.isError.email = "Email is invalid"
         setUserInformation(userInformationCopy);
       }
     }
@@ -577,17 +563,13 @@ const CreateForm = (props) => {
   let deleteAccompanningPerson = (index) => {
     let userInformationCopy = { ...userInformation };
     let anotherPersonPayloadCopy = [...userInformation.accompanningPerson];
-    // console.log("i am clicked",anotherPersonPayloadCopy)
 
     let result = anotherPersonPayloadCopy.filter((item, i) => i !== index);
-    // console.log("after clicked",result)
     userInformationCopy.accompanningPerson = result;
-    // setAnotherPersonPayload(result);
     setUserInformation(userInformationCopy);
   };
 
   let anotherPersonHandler = (e) => {
-    //console.log("button clicked ",e)
     if (e === true) {
       setAnotherPerson(e);
     } else {
@@ -1038,46 +1020,6 @@ const CreateForm = (props) => {
                 ) : (
                   <small>(max. of 3 persons are allowed.)</small>
                 )}
-                {/* {location && location.state && ( location.state.mode === "view" || location.state.mode === "edit")   && userInformation.accompanningPerson.length > 0 &&
-              userInformation.accompanningPerson.map((item,index) => {
-                return (
-                  <div className="exhibitor-relation d-flex mt-3">
-                    <div className="relation-box-1">
-                      <label className="form-label" for="relation-name">
-                        Full Name
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={item.relation_name}
-                        disabled
-                      />
-                    </div>
-                    <div className="ms-2 relation-box-2">
-                      <label className="form-label" for="relation-type">
-                        Relation
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={item.relation_type}
-                        disabled
-                      />
-                    </div>
-                  {location && location.state && location.state.mode === "edit" &&
-                    <div className="relation-delete-box ps-3">
-                      <i
-                        class="fa-solid fa-trash-can ps-3"
-                        onClick={() => deleteAccompanningPerson(index)}
-                      ></i>
-                    </div>
-              }
-                  </div>
-                
-                );
-
-              }) 
-            } */}
 
                 {anotherPerson &&
                   userInformation.accompanningPerson.length < 3 && (
@@ -1188,26 +1130,21 @@ const CreateForm = (props) => {
               </div>
             </div>
 
-            {message && (
-              <p
-                className={`${
-                  message == "Your information saved successfully"
-                    ? "text-success"
-                    : "text-danger"
-                }`}
-              >
-                {message}
-              </p>
-            )}
+            
 
             <div className="payment-section">
-              <form>
-                <div className="row">
-                  <div className="col-md-12">
-                    <PaymentInfo />
-                  </div>
+              <div className="row">
+                    <div className="col-md-6">
+                      <PaymentInfo />
+                    </div>
+                    <div className="col-md-6">
+                      {location &&
+                        location.state &&
+                        location.state.mode == "view" && (
+                          <PaymentConfirm userInformation={userInformation} />
+                        )}
                 </div>
-              </form>
+              </div>
             </div>
 
             <div className="row">
@@ -1236,6 +1173,18 @@ const CreateForm = (props) => {
                 </button> */}
               </div>
             </div>
+
+            {message && (
+              <p
+                className={`${
+                  message == "Your information saved successfully"
+                    ? "text-success"
+                    : "text-danger"
+                }`}
+              >
+                {message}
+              </p>
+            )}
             {qrInfo !== undefined ? <QRCodeSVG value={qrInfo} /> : ""}
           </div>
         </form>
