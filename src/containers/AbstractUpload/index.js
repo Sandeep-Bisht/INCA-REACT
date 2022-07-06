@@ -5,11 +5,12 @@ import jwt_decode from "jwt-decode";
 import * as ACTIONS from './action'
 
 let obj = {
-  abstractPaperName:"",
-  abstractPaperDescription:"",
-  mimetype:"",
-  abstractFileUrl:"",
-  paperApproveStatus: null
+  abstractPaperName: "",
+  //abstractPaperDescription: "",
+  mimetype: "",
+  abstractFileUrl: "",
+  paperApproveStatus: null,
+  themeType:"",
 }
 
 const AbstractUpload = () => {
@@ -17,16 +18,16 @@ const AbstractUpload = () => {
   const [abstractDataSavedMessage, setAbstractDataSavemessage] = useState('')
   const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
-  
+
   const state = useSelector((state) => state.AbstractUploadReducer);
 
   let dispatch = useDispatch()
   const ref = useRef()
 
 
- 
+
   useEffect(() => {
-    if(state.abstractFileUploadSuccess && state.abstractFileUploadSuccess.data){
+    if (state.abstractFileUploadSuccess && state.abstractFileUploadSuccess.data) {
       let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
       abstractDocumentPayloadCopy.mimetype = state.abstractFileUploadSuccess.data.mimetype;
       abstractDocumentPayloadCopy.abstractFileUrl = state.abstractFileUploadSuccess.data.path;
@@ -35,7 +36,7 @@ const AbstractUpload = () => {
   }, [state.abstractFileUploadSuccess])
 
   useEffect(() => {
-    if(state && state.abstractDataSaveSuccess){  
+    if (state && state.abstractDataSaveSuccess) {
       setLoading(false)
       emptyFormField()
       setAbstractDataSavemessage("Your file submitted successfully. we will update you on email after verification")
@@ -46,62 +47,65 @@ const AbstractUpload = () => {
   }, [state.abstractDataSaveSuccess])
 
   let getFileExtension = (fileName) => {
-      return fileName.split('.').pop()
+    return fileName.split('.').pop()
   }
 
   let emptyFormUploadField = () => {
-    let abstractDocumentPayloadCopy = {...abstractDocumentPayload}
-      ref.current.value = "";
-      abstractDocumentPayloadCopy.filename = ""
-      setAbstractDocumentPayload(abstractDocumentPayloadCopy)
+    let abstractDocumentPayloadCopy = { ...abstractDocumentPayload }
+    ref.current.value = "";
+    abstractDocumentPayloadCopy.filename = ""
+    setAbstractDocumentPayload(abstractDocumentPayloadCopy)
   }
 
   const abstarctOnChangeHandler = (e) => {
+    
 
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
-        if(e.target.id == 'file'){
-          if(getFileExtension(e.target.files[0].name) === "pdf"){
-          let formData = new FormData();
-          formData.append('file', e.target.files[0])
-          abstractDocumentPayloadCopy.abstractFileUrl = e.target.files[0].name
-          setAbstractDocumentPayload(abstractDocumentPayloadCopy)
-          setErrorMessage("")
-          dispatch(ACTIONS.abstratcFileUpload(formData)) 
-          }
-          else { 
-            emptyFormUploadField();
-            setErrorMessage("Please upload Pdf files only.")
-          }
-        }
-        else {
-          abstractDocumentPayloadCopy[e.target.id] = e.target.value
-          setAbstractDocumentPayload(abstractDocumentPayloadCopy)
-        }
-        
+    if (e.target.id == 'file') {
+      if (getFileExtension(e.target.files[0].name) === "pdf") {
+        let formData = new FormData();
+        formData.append('file', e.target.files[0])
+        abstractDocumentPayloadCopy.abstractFileUrl = e.target.files[0].name
+        setAbstractDocumentPayload(abstractDocumentPayloadCopy)
+        setErrorMessage("")
+        dispatch(ACTIONS.abstratcFileUpload(formData))
+      }
+      else {
+        emptyFormUploadField();
+        setErrorMessage("Please upload Pdf files only.")
+      }
+    }
+    else {
+      abstractDocumentPayloadCopy[e.target.id] = e.target.value
+      setAbstractDocumentPayload(abstractDocumentPayloadCopy)
+      
+    }
+
   };
 
   let abstractPaperSubmitHandler = (e) => {
-      e.preventDefault();
-      setLoading(true)
-      if (localStorage.getItem("token")) {
-        let decodedToken = jwt_decode(localStorage.getItem("token"));
-        abstractDocumentPayload.userId = decodedToken.user.user._id;
-        abstractDocumentPayload.userName = decodedToken.user.user.userName;
-        abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
-        dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
-      }
+    e.preventDefault();
+    setLoading(true)
+    if (localStorage.getItem("token")) {
+      let decodedToken = jwt_decode(localStorage.getItem("token"));
+      abstractDocumentPayload.userId = decodedToken.user.user._id;
+      abstractDocumentPayload.userName = decodedToken.user.user.userName;
+      abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
+
+      dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
+    }
   }
 
   let emptyFormField = () => {
-    let abstractDocumentPayloadCopy = {...abstractDocumentPayload}
-        ref.current.value = "";
-        abstractDocumentPayloadCopy.abstractFileUrl = ""
-        abstractDocumentPayloadCopy.filename = ""
-        abstractDocumentPayloadCopy.abstractPaperName = ""
-        abstractDocumentPayloadCopy.abstractPaperDescription = ""
-        setAbstractDocumentPayload(abstractDocumentPayloadCopy)
+    let abstractDocumentPayloadCopy = { ...abstractDocumentPayload }
+    ref.current.value = "";
+    abstractDocumentPayloadCopy.abstractFileUrl = ""
+    abstractDocumentPayloadCopy.filename = ""
+    abstractDocumentPayloadCopy.abstractPaperName = ""
+   abstractDocumentPayloadCopy.themeType = ""
+    setAbstractDocumentPayload(abstractDocumentPayloadCopy)
   }
-  
+
 
   return (
     <>
@@ -129,8 +133,8 @@ const AbstractUpload = () => {
                   <label htmlFor="inputFile" className="form-label">
                     Abstract Upload
                   </label>
-                 <input 
-                    
+                  <input
+
                     type="file"
                     className="form-control"
                     onChange={(e) => abstarctOnChangeHandler(e)}
@@ -138,13 +142,13 @@ const AbstractUpload = () => {
                     id="file"
                     ref={ref}
                     required
-                 
+
                   />
                   {/* {abstractDocumentPayload.abstractFileUrl && <p>{abstractDocumentPayload.abstractFileUrl}</p>} */}
                   {errorMessage && <p className="text-danger">{errorMessage}</p>}
                 </div>
               </div>
-              <div className="col-md-12">
+              {/* <div className="col-md-12 d-none">
                 <div className="mb-3">
                   <label htmlFor="validationTextarea" className="form-label">
                     Brief Description
@@ -158,12 +162,37 @@ const AbstractUpload = () => {
                     value={abstractDocumentPayload.abstractPaperDescription}
                   ></textarea>
                 </div>
+              </div> */}
+              <div className="col-md-12">
+                <div className="mb-3">
+                  <select 
+                  class="form-select" 
+                  aria-label="Default select example" 
+                  id="themeType"
+                  value={abstractDocumentPayload.themeType}
+                  onChange={(e) => abstarctOnChangeHandler(e)}
+                  
+                  >
+                    <option selected >Select Theme</option>
+                    <option value="trending cartography – past, present and future">trending cartography – past, present and future</option>
+                    <option value="modern precision surveying & mapping tool">modern precision surveying & mapping tool</option>
+                    <option value="geospatial solution for sustainable water resource management">geospatial solution for sustainable water resource management</option>
+                    <option value="gis application for climate change and environmental studies">gis application for climate change and environmental studies</option>
+                    <option value="mapping solutions for risk assessment, mitigation measures and disaster management">
+                    mapping solutions for risk assessment, mitigation measures and disaster management
+                    </option>
+                    <option value="application of artificial intelligence tools for urban planning and resource management">application of artificial intelligence tools for urban planning and resource management</option>
+                  </select>
+                </div>
               </div>
+
+
+
               <div className="row">
                 <div className="col-md-12">
                   <div className="mb-3">
-                    <button className="btn btn-primary" type="submit" disabled = {loading}>
-                    {loading ? "uploading" :  "Submit"}
+                    <button className="btn btn-primary" type="submit" disabled={loading}>
+                      {loading ? "uploading" : "Submit"}
                     </button>
                   </div>
                 </div>
