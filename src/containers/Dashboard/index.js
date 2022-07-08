@@ -78,7 +78,7 @@ const Dashboard = (props) => {
                 <form className="d-flex">
                   <div className="nav-item dropdown">
                     <a
-                      className="text-decoration-none dropdown-toggle p-0 d-user-toggle"
+                      className="text-decoration-none dropdown-toggle p-0 d-user-toggle" 
                       href="#"
                       id="navbarDropdown"
                       role="button"
@@ -122,7 +122,7 @@ const Dashboard = (props) => {
               <div className="col-md-3 left-part col-lg-2 px-0">
                 <aside>
                   <ul className="ps-0 list-unstyled ">
-                    {loggedInUser.role == "admin" && (
+                    {loggedInUser.role === "admin" && (
                       <>
                         <li>
                           <button
@@ -149,6 +149,17 @@ const Dashboard = (props) => {
                             <i className="fa-solid fa-user-plus"></i>
                           </span>
                           New Registration
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="common-blue btn"
+                          onClick={() => navigate("/dashboard/transaction_details")}
+                        >
+                          <span className="me-2">
+                            <i className="fa-solid fa-user-plus"></i>
+                          </span>
+                          Transaction Details
                         </button>
                       </li>
                     </ul>
@@ -223,6 +234,17 @@ const Dashboard = (props) => {
                               <i className="fa-brands fa-elementor"></i>
                             </span>{" "}
                             Sponsors
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() => navigate("/dashboard/transaction_list")}
+                          >
+                            <span className="me-2">
+                              <i className="fa-brands fa-elementor"></i>
+                            </span>{" "}
+                            Transaction List
                           </button>
                         </li>
                       </>

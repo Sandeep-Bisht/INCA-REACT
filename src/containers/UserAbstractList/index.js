@@ -3,9 +3,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
-import * as ACTIONS from './action'
-
-
+import * as ACTIONS from './action';
 
 const UserAbstractList = () => {
 
@@ -32,9 +30,11 @@ const UserAbstractList = () => {
 
   }, [state.getUserAbstractListSuccess])
 
-  const columns = [        
+  const columns = [   
+    {field:"registrationNumber",header:"Registration No"}, 
+    {field:"userEmail",header:"Email"},    
     { field: "abstractPaperName", header: "Paper Name" },
-    { field: "abstractPaperDescription", header: "Paper Description" }
+    { field: "themeType", header: "Theme" }
 
   ];
 
@@ -84,11 +84,11 @@ const UserAbstractList = () => {
             header="Status"
             body={statusBodyTemplate}
           ></Column>
-          <Column
+          {/* <Column
             field="Actions"
             header="Actions"
             body={actionBodyTemplate}
-          ></Column>
+          ></Column> */}
         </DataTable>
       </div>
     </>

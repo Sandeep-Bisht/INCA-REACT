@@ -26,6 +26,7 @@ export function* saveRegisterUserData(action) {
 export function* updateRegisteredUser(action) {
   let url = `http://144.91.110.221:4801/api/updateregisteruserinfo/${action.id}`;
   // let url = "http://localhost:4801/api/saveregistreduser";
+  //let url = `http://localhost:4801/api/updateregisteruserinfo/${action.id}`;
   try {
     const response = yield call(axios.put, url, action.payload, GetHeaders());
     yield put({

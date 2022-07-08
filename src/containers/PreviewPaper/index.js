@@ -13,7 +13,7 @@ import { Worker } from "@react-pdf-viewer/core"; // install this library
 const PreviewPaper = () => {
   const [viewPdf, setViewPdf] = useState("");
   const [message, setMessage] = useState("");
-  const [string, setString] = useState("")
+  const [string, setString] = useState("");
   const [acceptLoader, setAcceptLoader] = useState(false);
   const [rejectLoader, setRejectLoader] = useState(false);
   const [rejectionMsg, setRejectionMsg] = useState(null);
@@ -40,34 +40,29 @@ const PreviewPaper = () => {
   }, [location]);
 
   useEffect(() => {
-    
     if (state.userAbstractPaperSuccess) {
-      setString(state.userAbstractPaperSuccess.message)
+      setString(state.userAbstractPaperSuccess.message);
       if (
         state.userAbstractPaperSuccess.message ===
         "Email is sent on your registred mail. Please check your email for further process"
-      ){
+      ) {
         setAcceptLoader(false);
-      setMessage("Document Approved, Email sent successfully on user email.");
-      }else {
+        setMessage("Document Approved, Email sent successfully on user email.");
+      } else {
         setRejectLoader(false);
-        setMessage("Document Rejected, Email sent successfully on user email")
-      }    
-      
+        setMessage("Document Rejected, Email sent successfully on user email");
+      }
     }
   }, [state.userAbstractPaperSuccess]);
 
   const approvefilesubmissionHandler = (status) => {
-           
-    if(approveDocs.paperApproveStatus == false) {
-      setRejectLoader(true)
+    if (approveDocs.paperApproveStatus == false) {
+      setRejectLoader(true);
       approveDocs.rejectionMsg = rejectionMsg;
-      //console.log("payload when rejcet", approveDocs);
-      dispatch(ACTIONS.approveFileSubmission(approveDocs));      
-    } else {    
-      setAcceptLoader(true)
+      dispatch(ACTIONS.approveFileSubmission(approveDocs));
+    } else {
+      setAcceptLoader(true);
       approveDocs.paperApproveStatus = status;
-      //console.log("payload when accept", approveDocs);
       dispatch(ACTIONS.approveFileSubmission(approveDocs));
     }
   };
@@ -119,12 +114,24 @@ const PreviewPaper = () => {
             {/* Reject */}
             {rejectLoader ? "Rejecting" : "Reject"}
           </button>
+          <a 
+          className="btn btn-primary ms-5"
+          href={viewPdf} target="_blank">
+            Download
+          </a>
         </div>
       </div>
       <div className="row mt-3">
         <div className="col-md-10">
-          { message && 
-          <p className={`${message == {string} ? "text-success" : "text-danger"}`}>{message}</p>}          
+          {message && (
+            <p
+              className={`${
+                message == { string } ? "text-success" : "text-danger"
+              }`}
+            >
+              {message}
+            </p>
+          )}
         </div>
       </div>
 
