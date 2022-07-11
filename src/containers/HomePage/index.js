@@ -29,7 +29,7 @@ import inca6 from "../../images/inca-image-6.JPG";
 import inca7 from "../../images/inca-image-7.jpg";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
-import SecondSercular from "../../SampleFiles/42thINCA-First Circular-21_Jun 22 .pdf";
+import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
