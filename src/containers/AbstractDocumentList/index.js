@@ -20,8 +20,11 @@ const AbstractDocumentList = () => {
   let navigate = useNavigate();
 
   const columns = [
-    { field: "abstractPaperName", header: "Name" },
-    { field: "abstractPaperDescription", header: "Description" },
+    {field:"registrationNumber",header:"Registration No"}, 
+    {field:"userName",header:"Author Name"},    
+    { field: "abstractPaperName", header: "Author Title" },
+    { field: "createdAt", header: "Date of Submission"},
+    { field: "themeType", header: "Theme" },    
   ];
 
   const dynamicColumns = columns.map((col, i) => {
@@ -117,6 +120,15 @@ const AbstractDocumentList = () => {
       </>
     );
   };
+
+  const statusBodyTemplate = (node) => {
+    return (
+      <>
+        {node.paperApproveStatus ? "Approved" : node.paperApproveStatus == null ? "Pending" : "Reject"}
+      </>
+    );
+  };
+
   const header1 = renderHeader1();
 
   return (
@@ -137,8 +149,13 @@ const AbstractDocumentList = () => {
           {dynamicColumns}
           <Column
             field="Actions"
-            header="Actions"
+            header="Document"
             body={actionBodyTemplate}
+          ></Column>
+          <Column
+            field="Status"
+            header="Status"
+            body={statusBodyTemplate}
           ></Column>
         </DataTable>
       </div>

@@ -35,7 +35,6 @@ const UserAbstractList = () => {
     {field:"userEmail",header:"Email"},    
     { field: "abstractPaperName", header: "Paper Name" },
     { field: "themeType", header: "Theme" }
-
   ];
 
   const dynamicColumns = columns.map((col, i) => {
