@@ -57,18 +57,23 @@ const AbstractUpload = () => {
     setAbstractDocumentPayload(abstractDocumentPayloadCopy)
   }
 
-  const abstarctOnChangeHandler = (e) => {
-    
-
+  const abstarctOnChangeHandler = (e) => {    
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
     if (e.target.id == 'file') {
+
       if (getFileExtension(e.target.files[0].name) === "pdf") {
-        let formData = new FormData();
-        formData.append('file', e.target.files[0])
-        abstractDocumentPayloadCopy.abstractFileUrl = e.target.files[0].name
-        setAbstractDocumentPayload(abstractDocumentPayloadCopy)
-        setErrorMessage("")
-        dispatch(ACTIONS.abstratcFileUpload(formData))
+        if(e.target.files[0].size <= 10000000 ){
+          let formData = new FormData();
+          formData.append('file', e.target.files[0])
+          abstractDocumentPayloadCopy.abstractFileUrl = e.target.files[0].name
+          setAbstractDocumentPayload(abstractDocumentPayloadCopy)
+          setErrorMessage("")
+          dispatch(ACTIONS.abstratcFileUpload(formData))
+        }
+        else {
+          setErrorMessage("File size should not be more than 10Mb")
+        }
+        
       }
       else {
         emptyFormUploadField();
@@ -78,7 +83,6 @@ const AbstractUpload = () => {
     else {
       abstractDocumentPayloadCopy[e.target.id] = e.target.value
       setAbstractDocumentPayload(abstractDocumentPayloadCopy)
-      
     }
 
   };
@@ -131,7 +135,7 @@ const AbstractUpload = () => {
               <div className="col-md-12">
                 <div className="mb-3">
                   <label htmlFor="inputFile" className="form-label">
-                    Abstract Upload
+                    Abstract Upload (File size should not be more 10mb )
                   </label>
                   <input
 
