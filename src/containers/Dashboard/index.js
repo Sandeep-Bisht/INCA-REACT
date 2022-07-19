@@ -225,18 +225,7 @@ const Dashboard = (props) => {
                   <ul className="ps-0 list-unstyled mt-4">
                     {loggedInUser.role == "admin" && (
                       <>
-                        <li>
-                          <button
-                            className="common-blue btn"
-                            onClick={() => navigate("/dashboard/allSponsor")}
-                          >
-                            <span className="me-2">
-                              <i className="fa-brands fa-elementor"></i>
-                            </span>{" "}
-                            Sponsors
-                          </button>
-                        </li>
-                        <li>
+                      <li>
                           <button
                             className="common-blue btn"
                             onClick={() => navigate("/dashboard/transaction_list")}
@@ -247,11 +236,6 @@ const Dashboard = (props) => {
                             Transaction List
                           </button>
                         </li>
-                      </>
-                    )}
-
-                    {loggedInUser.role == "admin" && (
-                      <>
                         <li>
                           <button
                             className="common-blue btn"
@@ -263,8 +247,22 @@ const Dashboard = (props) => {
                             Exhibitor List
                           </button>
                         </li>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() => navigate("/dashboard/allSponsor")}
+                          >
+                            <span className="me-2">
+                              <i className="fa-brands fa-elementor"></i>
+                            </span>{" "}
+                            Sponsors
+                          </button>
+                        </li>
+                        
                       </>
                     )}
+
+                   
 
                     {loggedInUser.role == "admin" && (
                       <>
