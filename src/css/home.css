@@ -13,6 +13,17 @@
   color: #fff;
 }
 
+.abstract-submission-date
+{
+    background: #0a0a0a8f;
+    height: 26px;
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 100%;
+}
+
 .home-banner::before{
     position:absolute;
     top:0;

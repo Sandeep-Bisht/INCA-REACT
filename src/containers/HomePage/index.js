@@ -99,7 +99,6 @@ const HomePage = () => {
   return (
     <>
       <Header></Header>
-
       <div className="home-banner">
         <div className="container">
           <div className="row pb-md-5">
@@ -180,6 +179,17 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+          <section className="abstract-date">
+  <div className="container-fluid">
+  <div className="row">
+            <div className="col-md-12">
+              <div className="abstract-submission-date">
+            <marquee><p><b>"The Abstract Submission Date for 42nd INCA Conference has been extended till 31st July 2022"</b></p></marquee>
+            </div>
+            </div>
+          </div>
+  </div>
+</section>
         </div>
       </div>
 

@@ -24,8 +24,8 @@ function ImportantDates() {
             <table className="table table-striped">
   <tbody>
     <tr>
-      <td className='imp-table-date'>Last date for submitting the abstracts</td>
-      <td className='d-flex justify-content-end'><div className='dates'>20/July/2022</div></td>
+      <td className='imp-table-date'>Last date for submitting the abstracts (Extended)</td>
+      <td className='d-flex justify-content-end'><div className='dates'>31/July/2022</div></td>
     </tr>
     <tr>
       <td className='imp-table-date'>Acceptance of paper will be notified by</td>
