@@ -198,6 +198,7 @@ const AbstractUpload = () => {
                     <button className="btn btn-primary" type="submit" disabled={loading}>
                       {loading ? "uploading" : "Submit"}
                     </button>
+                    <p className="pt-3 fs-6"><b>Note</b>: For technical support in uploading of Abstracts please contact Mr.Julesh at +91-7500872014 on Working Hours 10:00 AM to 6:00 PM</p>
                   </div>
                 </div>
               </div>
