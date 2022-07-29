@@ -184,7 +184,7 @@ const HomePage = () => {
   <div className="row">
             <div className="col-md-12">
               <div className="abstract-submission-date">
-            <marquee><p><b>"The Abstract Submission Date for 42nd INCA Conference has been extended till 31st July 2022"</b></p></marquee>
+            <marquee><p><b>"The Abstract Submission Date for 42nd INCA Conference has been extended till 10<sup>th</sup> August 2022"</b></p></marquee>
             </div>
             </div>
           </div>
