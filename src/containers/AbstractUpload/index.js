@@ -186,6 +186,9 @@ const AbstractUpload = () => {
                     mapping solutions for risk assessment, mitigation measures and disaster management
                     </option>
                     <option value="application of artificial intelligence tools for urban planning and resource management">application of artificial intelligence tools for urban planning and resource management</option>
+                    <option value='hydrographic surveys and mapping for coastal zone management'>
+                    hydrographic surveys and mapping for coastal zone management
+                    </option>
                   </select>
                 </div>
               </div>
