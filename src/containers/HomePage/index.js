@@ -26,7 +26,7 @@ import inca3 from "../../images/inca-image-3.JPG";
 import inca4 from "../../images/inca-image-4.JPG";
 import inca5 from "../../images/inca-image-5.JPG";
 import inca6 from "../../images/inca-image-6.JPG";
-import inca7 from "../../images/inca-image-7.jpg";
+import inca7 from "../../images/inca-image-7.JPG";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
