@@ -96,7 +96,9 @@ const AbstractUpload = () => {
       abstractDocumentPayload.userName = decodedToken.user.user.userName;
       abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
 
-      dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
+      console.log("abstract upload payload",abstractDocumentPayload )
+
+      //dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload))
     }
   }
 

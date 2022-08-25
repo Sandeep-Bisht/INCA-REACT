@@ -8,6 +8,7 @@
  import AllSponsorReducer from '../containers/AllSponsor/reducer'
  import DashboardCounterReducer from '../containers/Dashboard/reducer'
  import AbstractUploadReducer from '../containers/AbstractUpload/reducer'
+ import FullPaperUploadReducer from '../containers/FullPaper/reducer'
  import AbstractListReducer from '../containers/AbstractDocumentList/reducer'
  import AttendenceStatusReducer from "../containers/AttendanceStatus/reducer";
  import UserAttendanceReducer from "../containers/EventAttendance/reducer";
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
     UserForgotPasswordReducer,
     PreviewPaperReducer,
     TransactionDetailsReducer,
-    GetUserTransactionListReducer
+    GetUserTransactionListReducer,
+    FullPaperUploadReducer
 });
 export default rootReducer;
