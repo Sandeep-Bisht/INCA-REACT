@@ -40,7 +40,7 @@ const PaymentInfo = () => {
                   <td>
                     <th scope="row">Account No</th>
                   </td>
-                  <td><b>36759239449</b></td>
+                  <td><b>40853837369</b></td>
                 </tr>
                 <tr>
                   <td>

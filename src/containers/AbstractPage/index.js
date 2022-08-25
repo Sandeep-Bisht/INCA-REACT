@@ -2,8 +2,8 @@ import React from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
-import Abstract_Template_Pdf from "../../SampleFiles/Abstract_Template_Format.pdf";
-import Abstract_Template_Docx from "../../SampleFiles/Abstract_Template_Word Format.docx";
+import Full_Paper_Template from "../../SampleFiles/Abstract_Template_Format.docx";
+import Guidelines_Template from "../../SampleFiles/Abstract_Template_Word Format.docx";
 import "../../css/abstract.css";
 import "../../css/contact.css";
 
@@ -27,12 +27,13 @@ function AbstractPage() {
           <div className="col-md-10 mx-auto">
             <div className="abstract-page py-4">
               <h3 className="common-heading">
-                Abstracts to be submitted must adhere to the following
-                specifications:
+                Full Paper Submission Templates
+                 {/* to be submitted must adhere to the following
+                specifications: */}
               </h3>
 
               <div>
-                <ol className="common-para">
+                {/* <ol className="common-para">
                   <li>
                     Abstracts must pertain to original research works, either
                     self-authored or co-authored, and must not exceed 250 words
@@ -55,36 +56,38 @@ function AbstractPage() {
                     Template for Submission of Abstract and Full Paper are given
                     below :
                   </li>
-                </ol>
+                </ol> */}
                 <div className="row">
-                  <div className="col-md-12">
-                    <div className="abstract-pdf-file-icon-wrapper">
-                      <a
-                        href={Abstract_Template_Pdf}
-                        download="Abstract_Template_PDF Format.pdf"
-                      >
-                        <span className="abstract-pdf-file-icon">
-                          <i class="fa-solid fa-file-pdf"></i>
-                        </span>
-                        <span className="abstract-pdf-file-text">
-                          Abstract_Template_PDF Format.pdf
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-
                 <div className="col-md-12">
                   <div className="abstract-word-file-icon-wrapper">
                     <div className="col-md-12">
                       <a
-                        href={Abstract_Template_Docx}
+                        href={Full_Paper_Template}
                         download="Abstract_Template_Word Format.docx"
                       >
                         <span className="abstract-word-file-icon">
                           <i className="fa-solid fa-file-word"></i>
                         </span>
                         <span className="abstract-word-file-text">
-                          Abstract_Template_Word Format.docx
+                          Fullpaper_Template_Word Format.docx
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-md-12">
+                  <div className="abstract-word-file-icon-wrapper">
+                    <div className="col-md-12">
+                      <a
+                        href={Guidelines_Template}
+                        download="Abstract_Template_Word Format.docx"
+                      >
+                        <span className="abstract-word-file-icon">
+                          <i className="fa-solid fa-file-word"></i>
+                        </span>
+                        <span className="abstract-word-file-text">
+                          Guidelines_Template_Word Format.docx
                         </span>
                       </a>
                     </div>
@@ -92,14 +95,13 @@ function AbstractPage() {
                 </div>
                 </div>
 
-
-                <p className="common-para">
+                {/* <p className="common-para">
                   * Please note that submitting an abstract does not imply
                   registration for the 42 <sup>nd</sup> INCA International
                   Conference.
-                </p>
+                </p> */}
                 <p className="common-para">
-                  For abstract submission, you must first generate your login
+                  * For Full Paper submission, you must first generate your login
                   credentials.
                 </p>
               </div>
@@ -112,7 +114,7 @@ function AbstractPage() {
                 className="common-btn"
                 onClick={() => navigation("/register")}
               >
-                Submit Abstract
+                Submit Full Paper
               </button>
             </div>
           </div>

@@ -188,6 +188,9 @@ const AbstractUpload = () => {
                     mapping solutions for risk assessment, mitigation measures and disaster management
                     </option>
                     <option value="application of artificial intelligence tools for urban planning and resource management">application of artificial intelligence tools for urban planning and resource management</option>
+                    <option value='hydrographic surveys and mapping for coastal zone management'>
+                    hydrographic surveys and mapping for coastal zone management
+                    </option>
                   </select>
                 </div>
               </div>
@@ -200,6 +203,7 @@ const AbstractUpload = () => {
                     <button className="btn btn-primary" type="submit" disabled={loading}>
                       {loading ? "uploading" : "Submit"}
                     </button>
+                    <p className="pt-3 fs-6"><b>Note</b>: Kindly, Fill the registeration form before uploading abstracts. For technical support in uploading of Abstracts please contact Mr.Julesh at +91-7500872014 on Working Hours 10:00 AM to 6:00 PM</p>
                   </div>
                 </div>
               </div>
