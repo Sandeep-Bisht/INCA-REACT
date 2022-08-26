@@ -16,7 +16,7 @@ function AbstractPage() {
         <div className="container">
           <div className="row ">
             <div className="col-md-12 text-center">
-              <p className="common-redirect-banner-title">Abstract</p>
+              <p className="common-redirect-banner-title">Full Paper</p>
             </div>
           </div>
         </div>

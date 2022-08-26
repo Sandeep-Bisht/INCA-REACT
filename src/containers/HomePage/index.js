@@ -134,7 +134,7 @@ const HomePage = () => {
                     className="common-btn-transparent ms-3 home-schedule-desk"
                     onClick={() => navigation("/abstractpage")}
                   >
-                    Abstract Submission
+                    Full Paper Submission
                   </button>
                 </div>
               </div>
@@ -184,7 +184,7 @@ const HomePage = () => {
   <div className="row">
             <div className="col-md-12">
               <div className="abstract-submission-date">
-            <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference has been extended till 20<sup>th</sup> September 2022"</b></p></marquee>
+            <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is 20<sup>th</sup> September 2022"</b></p></marquee>
             </div>
             </div>
           </div>
