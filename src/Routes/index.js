@@ -93,7 +93,7 @@ export const ApplicationRoutes = ({ path }) => {
               <Route path="/dashboard/previewPaper" element={<PreviewPaper />} />  
               <Route path="/dashboard/fullPaper" element={<FullPaper />} /> 
               <Route path ="/dashboard/exhibitorlist" element={<ExhibitorList />}/>          
-            {/* )} */}
+            
           </Route>
           <Route path="/contact" element={<Contact />} />
           <Route path="/abstractpage" element={<AbstractPage />} />

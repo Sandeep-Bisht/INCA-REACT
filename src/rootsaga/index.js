@@ -8,6 +8,7 @@ import SponsorSaga from '../containers/SponsorForm/saga'
 import AllSponsorSaga from "../containers/AllSponsor/saga";
 import Countersaga from '../containers/Dashboard/saga';
 import abstractUploadFile from '../containers/AbstractUpload/saga'
+import fullPaperUploadFile from '../containers/FullPaper/saga';
 import getAbstractData from '../containers/AbstractDocumentList/saga'
 import AttendenceStatusSaga from "../containers/AttendanceStatus/saga";
 import UserAttendanceSaga from "../containers/EventAttendance/saga";
@@ -35,6 +36,7 @@ export function* rootSaga () {
         fork(ApproveFileSubmissionSaga),
         fork(UserForgotPasswordSaga),
         fork(TransactionDetailsSaga),
-        fork(GetTransactionListSaga)
+        fork(GetTransactionListSaga),
+        fork(fullPaperUploadFile)
     ]);
 }

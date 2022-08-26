@@ -1,40 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { DataTable } from "primereact/datatable";
+import { useNavigate } from "react-router-dom";
 import { Column } from "primereact/column";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
-import * as ACTIONS from './action';
+import * as ACTIONS from "./action";
 
 const UserAbstractList = () => {
-
   const [isLoading, setIsLoading] = useState(true);
+  let navigate = useNavigate();
   const [userAbstractList, setUserAbstractList] = useState([]);
-  const state = useSelector((state) => state.UserAbstractListReducer); 
+  const state = useSelector((state) => state.UserAbstractListReducer);
 
   let dispatch = useDispatch();
- 
 
-  useEffect (() => {
-    if(localStorage.getItem("token")) {
-      let token = jwt_decode(localStorage.getItem("token"))
-      dispatch(ACTIONS.getUserAbstractList(token.user.user._id))
-    }   
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      let token = jwt_decode(localStorage.getItem("token"));
+      dispatch(ACTIONS.getUserAbstractList(token.user.user._id));
+    }
+  }, []);
 
-  }, [])
+  useEffect(() => {
+    if (state && state.getUserAbstractListSuccess) {
+      setIsLoading(false);
+      setUserAbstractList(state.getUserAbstractListSuccess.data);
+    }
+  }, [state.getUserAbstractListSuccess]);
 
-  useEffect (() => {
-    if(state && state.getUserAbstractListSuccess ){
-      setIsLoading(false)
-      setUserAbstractList(state.getUserAbstractListSuccess.data)
-  }
-
-  }, [state.getUserAbstractListSuccess])
-
-  const columns = [   
-    {field:"registrationNumber",header:"Registration No"}, 
-    {field:"userEmail",header:"Email"},    
+  const columns = [
+    { field: "registrationNumber", header: "Registration No" },
+    { field: "userEmail", header: "Email" },
     { field: "abstractPaperName", header: "Paper Name" },
-    { field: "themeType", header: "Theme" }
+    { field: "themeType", header: "Theme" },
   ];
 
   const dynamicColumns = columns.map((col, i) => {
@@ -46,7 +44,11 @@ const UserAbstractList = () => {
   const statusBodyTemplate = (node) => {
     return (
       <>
-        {node.paperApproveStatus ? "Approved" : node.paperApproveStatus == null ? "Pending" : "Reject"}
+        {node.paperApproveStatus
+          ? "Approved"
+          : node.paperApproveStatus == null
+          ? "Pending"
+          : "Reject"}
       </>
     );
   };
@@ -55,13 +57,17 @@ const UserAbstractList = () => {
     return (
       <>
         <button className="btn btn-success" disabled={!node.paperApproveStatus}>
-            Payment
+          Payment
         </button>
       </>
     );
   };
 
- // const header1 = renderHeader1();
+  const handleFullPaperSubmit = (e) => {
+    navigate(`/dashboard/fullPaper` , { state : userAbstractList})
+  }
+
+  // const header1 = renderHeader1();
 
   return (
     <>
@@ -89,6 +95,16 @@ const UserAbstractList = () => {
             body={actionBodyTemplate}
           ></Column> */}
         </DataTable>
+      </div>
+
+      <div>
+        <button
+          type="button"
+          className="btn btn-primary mt-3"
+          onClick={() => handleFullPaperSubmit()}
+        >
+          Full Paper Submission
+        </button>
       </div>
     </>
   );
