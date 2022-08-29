@@ -10,6 +10,7 @@ const UserAbstractList = () => {
   const [isLoading, setIsLoading] = useState(true);
   let navigate = useNavigate();
   const [userAbstractList, setUserAbstractList] = useState([]);
+  // const [approveStatus, setApproveStatus] = useState("false")
   const state = useSelector((state) => state.UserAbstractListReducer);
 
   let dispatch = useDispatch();
@@ -96,16 +97,22 @@ const UserAbstractList = () => {
           ></Column> */}
         </DataTable>
       </div>
-
-      <div>
-        <button
-          type="button"
-          className="btn btn-primary mt-3"
-          onClick={() => handleFullPaperSubmit()}
-        >
-          Full Paper Submission
-        </button>
-      </div>
+          { userAbstractList && userAbstractList.length >0 && userAbstractList[0].paperApproveStatus && (
+            <>
+            <div>
+            <button
+              type="button"
+              className="btn btn-primary mt-3"
+              onClick={() => handleFullPaperSubmit()}
+            >
+              Full Paper Submission
+            </button>
+          </div>
+          </>
+          )
+            
+          }
+      
     </>
   );
 };

@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as ACTIONS from './action'
 import jwt_decode from "jwt-decode";
 
+
 const FullPaper = () => {
   let obj = {
     fullPaperName: "",
     mimetype: "",
     fullPaperFileUrl: "",
+    themeType:"",
   }
 
   let location = useLocation();
@@ -19,13 +21,14 @@ const FullPaper = () => {
   const [fullPaperDataSavedMessage, setFullPaperDataSavedMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   let [fullPaperName, setFullPaperName] = useState();
+  let [themeType, setThemeType] = useState();
   let [fullPaperPayload, setFullPaperPayload] = useState(obj)
- 
 
   useEffect(() => {
-    if(location) {
-      console.log(location.state[0].abstractPaperName)
-      setFullPaperName(location.state[0].abstractPaperName)      
+    if(location && location.state.length > 0) {
+      setFullPaperName(location.state[0].abstractPaperName)
+      setThemeType(location.state[0].themeType)
+
     }
   }, [location])
 
@@ -33,7 +36,7 @@ const FullPaper = () => {
     let fullPaperPayloadCopy = { ...fullPaperPayload };
     if (e.target.id == 'file') {
       if (getFileExtension(e.target.files[0].name) === "pdf") {
-        if(e.target.files[0].size <= 10000000 ){
+        if(e.target.files[0].size <= 20000000 ){
           let formData = new FormData();
           formData.append('file', e.target.files[0])
           fullPaperPayloadCopy.fullPaperFileUrl = e.target.files[0].name
@@ -63,11 +66,10 @@ const FullPaper = () => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
       fullPaperPayload.fullPaperName = fullPaperName;
+      fullPaperPayload.themeType = themeType;
       fullPaperPayload.userId = decodedToken.user.user._id;
       fullPaperPayload.userName = decodedToken.user.user.userName;
       fullPaperPayload.userEmail = decodedToken.user.user.userEmail;
-
-      console.log("fullPaperPayload from submit", fullPaperPayload)
       dispatch(ACTIONS.saveFullPaperData(fullPaperPayload))
     }
   }
@@ -87,7 +89,7 @@ const FullPaper = () => {
     if (state.fullPaperFileUploadSuccess && state.fullPaperFileUploadSuccess.data) {
       let fullPaperPayloadCopy = { ...fullPaperPayload };
       fullPaperPayloadCopy.mimetype = state.fullPaperFileUploadSuccess.data.mimetype;
-      fullPaperPayloadCopy.abstractFileUrl = state.fullPaperFileUploadSuccess.data.path;
+      fullPaperPayloadCopy.fullPaperFileUrl = state.fullPaperFileUploadSuccess.data.path;
       setFullPaperPayload(fullPaperPayloadCopy)
     }
   }, [state.fullPaperFileUploadSuccess])
@@ -95,7 +97,7 @@ const FullPaper = () => {
   let emptyFormField = () => {
     let fullPaperPayloadCopy = { ...fullPaperPayload }
     ref.current.value = "";
-    fullPaperPayloadCopy.abstractFileUrl = ""
+    fullPaperPayloadCopy.fullPaperFileUrl = ""
     fullPaperPayloadCopy.filename = ""
     fullPaperPayloadCopy.abstractPaperName = ""
     fullPaperPayloadCopy.themeType = ""
@@ -132,6 +134,21 @@ const FullPaper = () => {
                 type="text"
                 className="form-control"
                 id="fullPaperName"                
+              />
+            </div>
+          </div>
+          <div className="col-md-12">
+            <div className="mb-3">
+              <label htmlFor="inputName" className="form-label">
+                Paper Theme
+              </label>
+              <input 
+              //value={themeType && themeType}
+              onChange={(e) => fullPaperOnChangeHandler(e)}               
+                type="text"
+                value={themeType && themeType}
+                className="form-control"
+                id="themeType"                
               />
             </div>
           </div>
@@ -179,7 +196,7 @@ const FullPaper = () => {
           <div className="col-md-12">
                 <div className="mb-3">
                   <label htmlFor="inputFile" className="form-label">
-                    Abstract Upload (File size should not be more 10mb )
+                  Full Paper Upload (File size should not be more 20mb )
                   </label>
                   <input
                     type="file"
