@@ -27,7 +27,7 @@ const AbstractDocumentList = () => {
     { field: "themeType", header: "Theme" },    
   ];
 
-  const dynamicColumns = columns.map((col, i) => {
+  const dynamicColumns = columns.map((col) => {
     return (
       <Column key={col.field} field={col.field} header={col.header} sortable />
     );
@@ -109,7 +109,7 @@ const AbstractDocumentList = () => {
     navigate("/dashboard/previewPaper", { state: item });
   };
 
-  const actionBodyTemplate = (node, column) => {
+  const actionBodyTemplate = (node) => {
     return (
       <>
         {/* <button onClick={() =>navigate("/dashboard/previewPaper")}> */}

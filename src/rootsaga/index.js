@@ -17,7 +17,7 @@ import ApproveFileSubmissionSaga from "../containers/PreviewPaper/saga";
 import UserForgotPasswordSaga from '../containers/ForgetPassword/saga';
 import TransactionDetailsSaga from '../containers/TransactionDetails/saga';
 import GetTransactionListSaga from '../containers/TransactionList/saga';
-
+import GetFullPaperListSaga from '../containers/FullpaperList/saga'
 export function* rootSaga () {
     yield all([
         fork(RegistrationPageSaga),
@@ -37,6 +37,7 @@ export function* rootSaga () {
         fork(UserForgotPasswordSaga),
         fork(TransactionDetailsSaga),
         fork(GetTransactionListSaga),
-        fork(fullPaperUploadFile)
+        fork(fullPaperUploadFile),
+        fork(GetFullPaperListSaga)
     ]);
 }

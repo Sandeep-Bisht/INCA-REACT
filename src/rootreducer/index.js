@@ -17,7 +17,7 @@
  import PreviewPaperReducer from "../containers/PreviewPaper/reducer";
  import TransactionDetailsReducer from "../containers/TransactionDetails/reducer";
  import GetUserTransactionListReducer from "../containers/TransactionList/reducer";
-
+ import GetFullPaperListReducer from "../containers/FullpaperList/reducer";
 const rootReducer = combineReducers({
     RegisterReducer,
     LoginReducer,
@@ -36,6 +36,7 @@ const rootReducer = combineReducers({
     PreviewPaperReducer,
     TransactionDetailsReducer,
     GetUserTransactionListReducer,
-    FullPaperUploadReducer
+    FullPaperUploadReducer,
+    GetFullPaperListReducer
 });
 export default rootReducer;

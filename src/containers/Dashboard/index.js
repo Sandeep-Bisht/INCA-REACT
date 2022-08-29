@@ -38,14 +38,14 @@ const Dashboard = (props) => {
 
   const goToDashbaord = () => {
     const origin = window.location.origin;
-    window.location.href = `${origin}/dashboard`
-  }
+    window.location.href = `${origin}/dashboard`;
+  };
 
   const location = useLocation();
 
   let logoutUser = () => {
     localStorage.removeItem("token");
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -78,7 +78,7 @@ const Dashboard = (props) => {
                 <form className="d-flex">
                   <div className="nav-item dropdown">
                     <a
-                      className="text-decoration-none dropdown-toggle p-0 d-user-toggle" 
+                      className="text-decoration-none dropdown-toggle p-0 d-user-toggle"
                       href="#"
                       id="navbarDropdown"
                       role="button"
@@ -154,7 +154,9 @@ const Dashboard = (props) => {
                       <li>
                         <button
                           className="common-blue btn"
-                          onClick={() => navigate("/dashboard/transaction_details")}
+                          onClick={() =>
+                            navigate("/dashboard/transaction_details")
+                          }
                         >
                           <span className="me-2">
                             <i className="fa-solid fa-user-plus"></i>
@@ -225,10 +227,12 @@ const Dashboard = (props) => {
                   <ul className="ps-0 list-unstyled mt-4">
                     {loggedInUser.role == "admin" && (
                       <>
-                      <li>
+                        <li>
                           <button
                             className="common-blue btn"
-                            onClick={() => navigate("/dashboard/transaction_list")}
+                            onClick={() =>
+                              navigate("/dashboard/transaction_list")
+                            }
                           >
                             <span className="me-2">
                               <i className="fa-brands fa-elementor"></i>
@@ -258,11 +262,8 @@ const Dashboard = (props) => {
                             Sponsors
                           </button>
                         </li>
-                        
                       </>
                     )}
-
-                   
 
                     {loggedInUser.role == "admin" && (
                       <>
@@ -343,7 +344,9 @@ const Dashboard = (props) => {
                                       <button
                                         className="common-blue btn"
                                         onClick={() =>
-                                          navigate("/dashboard/userabstractlist")
+                                          navigate(
+                                            "/dashboard/userabstractlist"
+                                          )
                                         }
                                       >
                                         <span className="me-2">
@@ -357,15 +360,15 @@ const Dashboard = (props) => {
                                       <button
                                         className="common-blue btn"
                                         onClick={() =>
-                                          navigate("/dashboard/fullPaper")
+                                          navigate("/dashboard/fullPaperList")
                                         }
                                       >
                                         <span className="me-2">
                                           <i className="fa-solid fa-file-export"></i>
                                         </span>
-                                        Full Papers
+                                        Full Papers List
                                       </button>
-                                    </li>                                    
+                                    </li>
                                   </ul>
                                 </div>
                               </div>
@@ -375,18 +378,31 @@ const Dashboard = (props) => {
                       </>
                     )}
                     {loggedInUser.role == "admin" && (
-                      <li>
-                        <button
-                          className="common-blue btn"
-                          onClick={() => navigate("/dashboard/abstract")
-                          }
-                        >
-                          <span className="me-2">
-                            <i className="fa-solid fa-file-export"></i>
-                          </span>
-                          Abstracts
-                        </button>
-                      </li>
+                      <>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() => navigate("/dashboard/abstract")}
+                          >
+                            <span className="me-2">
+                              <i className="fa-solid fa-file-export"></i>
+                            </span>
+                            Abstracts
+                          </button>
+                        </li>
+
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() => navigate("/dashboard/fullPaperList")}
+                          >
+                            <span className="me-2">
+                              <i className="fa-solid fa-file-export"></i>
+                            </span>
+                            Full Papers List
+                          </button>
+                        </li>
+                      </>
                     )}
                   </ul>
                 </aside>

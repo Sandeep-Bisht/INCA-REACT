@@ -5,6 +5,7 @@ import * as Loader from "react-loader-spinner";
 import { useLocation } from "react-router-dom";
 import EventBlog from "../containers/EventBlog";
 import ExhibitorList from "../containers/ExhibitorList";
+import FullPaperPreview from "../FullPaperPreview";
 
 const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
 const AbstractPage = lazy(() => import("../containers/AbstractPage"))
@@ -26,6 +27,7 @@ const RegisteredUser = lazy(() => import("../containers/RegistredUsers"));
 const AllSponsor = lazy(() => import("../containers/AllSponsor"));
 const AbstractUpload = lazy(() => import("../containers/AbstractUpload"))
 const FullPaper = lazy(() => import("../containers/FullPaper"))
+const FullPaperList = lazy(() => import("../containers/FullpaperList"))
 const AbstractDocumentList = lazy(() => import('../containers/AbstractDocumentList'))
 const UserAbstractList = lazy(() => import('../containers/UserAbstractList'))
 const Theme = lazy(() => import('../containers/ThemePage'))
@@ -91,7 +93,9 @@ export const ApplicationRoutes = ({ path }) => {
               <Route path= "/dashboard/abstract" element={<AbstractDocumentList />} /> 
               <Route path="/dashboard/userabstractlist" element={<UserAbstractList />} />
               <Route path="/dashboard/previewPaper" element={<PreviewPaper />} />  
+              <Route path="/dashboard/fullPaperpreview" element={<FullPaperPreview />} />
               <Route path="/dashboard/fullPaper" element={<FullPaper />} /> 
+              <Route path="/dashboard/fullPaperList" element={<FullPaperList />} />
               <Route path ="/dashboard/exhibitorlist" element={<ExhibitorList />}/>          
             
           </Route>
