@@ -4,8 +4,7 @@ import axios from "axios";
 import { GetHeaders } from "../../utils";
 
 export function* getFullPaperList(action) {
-  let url = "http://144.91.110.221:4801/api/uploadfullPaperdocument";
-  //let url = "http://localhost:4801/api/getFullPaperList";
+  let url = "http://144.91.110.221:4801/api/getFullPaperList";
   try {
     const response = yield call(axios.get, url, GetHeaders());
     yield put({
