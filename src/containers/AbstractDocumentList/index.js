@@ -6,9 +6,11 @@ import * as ACTIONS from "./action";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
+import { GetHeaders } from '../../utils'
 import { Button } from "primereact/button";
 import * as Loader from "react-loader-spinner";
 import "../../css/registred.css";
+import axios from "axios";
 
 const AbstractDocumentList = () => {
   const state = useSelector((state) => state.AbstractListReducer);
@@ -131,8 +133,29 @@ const AbstractDocumentList = () => {
 
   const header1 = renderHeader1();
 
+  let downloadAbstractDataExcel = () => {
+    try {
+       axios({
+        url: 'http://144.91.110.221:4801/api/download_abstarct_list',
+        method: 'GET',
+        responseType: 'blob', 
+      }).then((response) => {
+         const url = window.URL.createObjectURL(new Blob([response.data]));
+         const link = document.createElement('a');
+         link.href = url;
+         link.setAttribute('download', 'abstractlist.xlsx'); 
+         document.body.appendChild(link);
+         link.click();
+      });
+    } catch (error) {
+    }         
+  }
+
   return (
     <>
+     <div className="moving-box mb-2">
+        <button onClick={() => downloadAbstractDataExcel()} >Download Excel</button>
+        </div>
       <div className="card">
         <DataTable
           loading={isLoading}
