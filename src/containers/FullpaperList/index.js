@@ -160,7 +160,7 @@ const FullPaperList = () => {
   let downloadFullPaperDataExcel = () => {
     try {
        axios({
-        url: 'http://localhost:4801/api/download_fullPaper_list',        
+        url: 'http://144.91.110.221:4801/api/download_fullPaper_list',        
         method: 'GET',
         responseType: 'blob', 
       }).then((response) => {
