@@ -7,6 +7,7 @@ import jwt_decode from "jwt-decode";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Button } from "primereact/button";
 import * as Loader from "react-loader-spinner";
 import "../../css/registred.css";
@@ -62,7 +63,7 @@ const FullPaperList = () => {
   useEffect(() => {
     if (state && state.getUserFullPaperListSuccess ) {
         setIsLoading(false);
-        setFullPaperList(state.getUserFullPaperListSuccess.data);
+        setUserFullPaperList(state.getUserFullPaperListSuccess.data);
         initFilters1();      
     }
   }, [state.getUserFullPaperListSuccess]);
@@ -156,10 +157,31 @@ const FullPaperList = () => {
 
   const header1 = renderHeader1();
 
+  let downloadFullPaperDataExcel = () => {
+    try {
+       axios({
+        url: 'http://localhost:4801/api/download_fullPaper_list',        
+        method: 'GET',
+        responseType: 'blob', 
+      }).then((response) => {
+         const url = window.URL.createObjectURL(new Blob([response.data]));
+         const link = document.createElement('a');
+         link.href = url;
+         link.setAttribute('download', 'fullPaperList.xlsx'); 
+         document.body.appendChild(link);
+         link.click();
+      });
+    } catch (error) {
+    }         
+  }
+
   return (
     <>
     { role == "admin" ? (
         <>
+         <div className="moving-box mb-2">
+        <button onClick={() => downloadFullPaperDataExcel()} >Download Excel</button>
+        </div>
         <div className="card">
         <DataTable
           loading={isLoading}
@@ -191,17 +213,17 @@ const FullPaperList = () => {
           dataKey="id"
           filters={filters1}
           filterDisplay="menu"
-          value={fullPaperList}
+          value={userFullPaperList}
           responsiveLayout="scroll"
           globalFilterFields={["fullPaperName"]}
           header={header1}
         >
-          {/* {dynamicColumns}
+          {dynamicColumns}
            <Column
             field="Actions"
             header="Document"
             body={actionBodyTemplate}
-          ></Column>          */}
+          ></Column>         
         </DataTable>
       </div>
     }
