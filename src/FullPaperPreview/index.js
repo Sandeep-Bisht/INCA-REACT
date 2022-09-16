@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router-dom';
 import { Button, Viewer } from "@react-pdf-viewer/core"; // install this library
-
 import "@react-pdf-viewer/core/lib/styles/index.css";
 // Worker
 import { Worker } from "@react-pdf-viewer/core"; // install this library
@@ -35,7 +34,8 @@ const FullPaperPreview = () => {
             </div>
           </Worker>
         </>
-      )}</>
+      )}
+      </>
   )
 }
 
