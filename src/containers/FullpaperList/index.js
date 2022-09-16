@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { Viewer } from "@react-pdf-viewer/core"; // install this library
+import "@react-pdf-viewer/core/lib/styles/index.css";
+// Worker
+import { Worker } from "@react-pdf-viewer/core"; // install this library
 import * as ACTIONS from "./action";
 import jwt_decode from "jwt-decode";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
@@ -19,7 +23,8 @@ const FullPaperList = () => {
   const [userFullPaperList, setUserFullPaperList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [userId, setUserId] = useState(null);
-  const [role, setRole] = useState(null)
+  const [role, setRole] = useState(null);
+  const [viewPdf, setViewPdf] = useState("");
 
   let dispatch = useDispatch();
   let navigate = useNavigate();
@@ -38,33 +43,32 @@ const FullPaperList = () => {
     );
   });
 
-  useEffect(() => {    
+  useEffect(() => {
     if (localStorage.getItem("token")) {
       let token = jwt_decode(localStorage.getItem("token"));
-      if(token.user.user.role == "admin"){
+      if (token.user.user.role == "admin") {
         setRole(token.user.user.role);
         dispatch(ACTIONS.getFullPaperList());
-      }  else{
+      } else {
         dispatch(ACTIONS.getUserFullPaperList(token.user.user._id));
         setUserId(token.user.user._id);
-      }    
+      }
     }
   }, []);
 
-
   useEffect(() => {
     if (state && state.getFullPaperListSuccess) {
-        setIsLoading(false);
-        setFullPaperList(state.getFullPaperListSuccess);
-        initFilters1();      
+      setIsLoading(false);
+      setFullPaperList(state.getFullPaperListSuccess);
+      initFilters1();
     }
-  }, [state.getFullPaperListSuccess ]);
+  }, [state.getFullPaperListSuccess]);
 
   useEffect(() => {
-    if (state && state.getUserFullPaperListSuccess ) {
-        setIsLoading(false);
-        setUserFullPaperList(state.getUserFullPaperListSuccess.data);
-        initFilters1();      
+    if (state && state.getUserFullPaperListSuccess) {
+      setIsLoading(false);
+      setUserFullPaperList(state.getUserFullPaperListSuccess.data);
+      initFilters1();
     }
   }, [state.getUserFullPaperListSuccess]);
 
@@ -126,6 +130,24 @@ const FullPaperList = () => {
     );
   };
 
+  // let redirectToFullPaperPreviewPage = (item) => {
+  //   console.log(item, "item to see pdf")
+  //   //navigate("/dashboard/fullPaperpreview", { state: item });
+  // };
+
+  let openPdf = (item) => {
+    console.log("clicked", item);
+    if (item) {
+      let filePath = `http://144.91.110.221:4801/${item.fullPaperFileUrl}`;
+      // let filePath = `http://localhost:4801/${item.fullPaperFileUrl}`;
+      // let filePath = location.state.fullPaperFileUrl
+      filePath = filePath.replace("\\", "/");
+      console.log(filePath, "filepath");
+
+      setViewPdf(filePath);
+    }
+  };
+
   let redirectToFullPaperPreviewPage = (item) => {
     navigate("/dashboard/fullPaperpreview", { state: item });
   };
@@ -133,6 +155,9 @@ const FullPaperList = () => {
   const actionBodyTemplate = (node, column) => {
     return (
       <>
+        <a target="_blank" href={viewPdf} onClick={() => openPdf(node)}>
+         Download
+        </a>
         <button
           className="action-btn"
           onClick={() => redirectToFullPaperPreviewPage(node)}
@@ -143,90 +168,92 @@ const FullPaperList = () => {
     );
   };
 
-//   const statusBodyTemplate = (node) => {
-//     return (
-//       <>
-//         {node.paperApproveStatus
-//           ? "Approved"
-//           : node.paperApproveStatus == null
-//           ? "Pending"
-//           : "Reject"}
-//       </>
-//     );
-//   };
+  //   const statusBodyTemplate = (node) => {
+  //     return (
+  //       <>
+  //         {node.paperApproveStatus
+  //           ? "Approved"
+  //           : node.paperApproveStatus == null
+  //           ? "Pending"
+  //           : "Reject"}
+  //       </>
+  //     );
+  //   };
 
   const header1 = renderHeader1();
 
   let downloadFullPaperDataExcel = () => {
     try {
-       axios({
-        url: 'http://144.91.110.221:4801/api/download_fullPaper_list',        
-        method: 'GET',
-        responseType: 'blob', 
+      axios({
+        url: "http://144.91.110.221:4801/api/download_fullPaper_list",
+        // url: 'http://localhost:4801/api/download_fullPaper_list',
+        method: "GET",
+        responseType: "blob",
       }).then((response) => {
-         const url = window.URL.createObjectURL(new Blob([response.data]));
-         const link = document.createElement('a');
-         link.href = url;
-         link.setAttribute('download', 'fullPaperList.xlsx'); 
-         document.body.appendChild(link);
-         link.click();
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "fullPaperList.xlsx");
+        document.body.appendChild(link);
+        link.click();
       });
-    } catch (error) {
-    }         
-  }
+    } catch (error) {}
+  };
 
   return (
     <>
-    { role == "admin" ? (
+      {role == "admin" ? (
         <>
-         <div className="moving-box mb-2">
-        <button onClick={() => downloadFullPaperDataExcel()} >Download Excel</button>
-        </div>
-        <div className="card">
-        <DataTable
-          loading={isLoading}
-          paginator
-          rows={10}
-          dataKey="id"
-          filters={filters1}
-          filterDisplay="menu"
-          value={fullPaperList}
-          responsiveLayout="scroll"
-          globalFilterFields={["fullPaperName"]}
-          header={header1}
-        >
-          {dynamicColumns}
-           <Column
-            field="Actions"
-            header="Document"
-            body={actionBodyTemplate}
-          ></Column>         
-        </DataTable>
-      </div>
+          <div className="moving-box mb-2">
+            <button onClick={() => downloadFullPaperDataExcel()}>
+              Download Excel
+            </button>
+          </div>
+          <div className="card">
+            <DataTable
+              loading={isLoading}
+              paginator
+              rows={10}
+              dataKey="id"
+              filters={filters1}
+              filterDisplay="menu"
+              value={fullPaperList}
+              responsiveLayout="scroll"
+              globalFilterFields={["fullPaperName"]}
+              header={header1}
+            >
+              {dynamicColumns}
+              <Column
+                field="Actions"
+                header="Document"
+                body={actionBodyTemplate}
+              ></Column>
+            </DataTable>
+          </div>
         </>
-    ) :
-      <div className="card">
-        <DataTable
-          loading={isLoading}
-          paginator
-          rows={10}
-          dataKey="id"
-          filters={filters1}
-          filterDisplay="menu"
-          value={userFullPaperList}
-          responsiveLayout="scroll"
-          globalFilterFields={["fullPaperName"]}
-          header={header1}
-        >
-          {dynamicColumns}
-           <Column
-            field="Actions"
-            header="Document"
-            body={actionBodyTemplate}
-          ></Column>         
-        </DataTable>
-      </div>
-    }
+      ) : (
+        <div className="card">
+          <DataTable
+            loading={isLoading}
+            paginator
+            rows={10}
+            dataKey="id"
+            filters={filters1}
+            filterDisplay="menu"
+            value={userFullPaperList}
+            responsiveLayout="scroll"
+            globalFilterFields={["fullPaperName"]}
+            header={header1}
+          >
+            {dynamicColumns}
+            <Column
+              field="Actions"
+              header="Document"
+              body={actionBodyTemplate}
+            ></Column>
+          </DataTable>
+        </div>
+      )}
     </>
   );
 };
