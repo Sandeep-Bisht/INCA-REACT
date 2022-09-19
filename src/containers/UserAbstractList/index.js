@@ -54,18 +54,21 @@ const UserAbstractList = () => {
     );
   };
 
-  const actionBodyTemplate = (node) => {
+  const actionBodyTemplate = (userAbstractList) => {
     return (
       <>
-        <button className="btn btn-success" disabled={!node.paperApproveStatus}>
+        {/* <button className="btn btn-success" disabled={!node.paperApproveStatus}>
           Payment
-        </button>
+        </button> */}
+       {userAbstractList.paperApproveStatus && <button className="abstracts-common-btn" onClick={() => {
+          navigate(`/dashboard/fullPaper` , { state : userAbstractList})
+        }}>Full Paper Submission</button>}
       </>
     );
   };
 
   const handleFullPaperSubmit = (e) => {
-    navigate(`/dashboard/fullPaper` , { state : userAbstractList})
+    //navigate(`/dashboard/fullPaper` , { state : userAbstractList})
   }
 
   // const header1 = renderHeader1();
@@ -90,14 +93,14 @@ const UserAbstractList = () => {
             header="Status"
             body={statusBodyTemplate}
           ></Column>
-          {/* <Column
+           <Column
             field="Actions"
             header="Actions"
             body={actionBodyTemplate}
-          ></Column> */}
+          ></Column> 
         </DataTable>
       </div>
-          { userAbstractList && userAbstractList.length >0 && userAbstractList[0].paperApproveStatus && (
+          {/* { userAbstractList && userAbstractList.length > 0 && userAbstractList[0].paperApproveStatus && (
             <>
             <div>
             <button
@@ -111,7 +114,7 @@ const UserAbstractList = () => {
           </>
           )
             
-          }
+          } */}
       
     </>
   );

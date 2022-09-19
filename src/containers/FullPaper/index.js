@@ -25,9 +25,9 @@ const FullPaper = () => {
   let [fullPaperPayload, setFullPaperPayload] = useState(obj)
 
   useEffect(() => {
-    if(location && location.state.length > 0) {
-      setFullPaperName(location.state[0].abstractPaperName)
-      setThemeType(location.state[0].themeType)
+    if(location && location.state) {
+      setFullPaperName(location.state.abstractPaperName)
+      setThemeType(location.state.themeType)
 
     }
   }, [location])
