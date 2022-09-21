@@ -33,7 +33,7 @@ function ImportantDates() {
     </tr>
     <tr>
       <td className='imp-table-date'>Last date for submission of full paper</td>
-      <td className='d-flex justify-content-end'><div className='dates'>20/September/2022</div></td>
+      <td className='d-flex justify-content-end'><div className='dates'>30/September/2022</div></td>
     </tr>
     <tr>
       <td className='imp-table-date'>E-Mail Address for queries</td>
