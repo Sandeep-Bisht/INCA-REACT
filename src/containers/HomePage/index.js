@@ -30,6 +30,7 @@ import inca7 from "../../images/inca-image-7.JPG";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
+import ThirdSercular from '../../SampleFiles/Second circular_20 sep 22.pdf';
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -2325,6 +2326,21 @@ Renowned national and international scholars, scientists, academicians, planners
                 <div className="blog-card-content">
                   <h3>
                     42<sup>nd</sup> INCA International Congress-First Circular
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="blog-card">
+                
+                <a target="_blank" href={ThirdSercular}>
+                  <div className="blog-card-pic">
+                    <img src={Event_2} alt="Second-Circular"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    42<sup>nd</sup> INCA International Congress-Second Circular
                   </h3>
                 </div>
               </div>
