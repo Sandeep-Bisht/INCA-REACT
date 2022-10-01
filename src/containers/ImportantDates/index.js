@@ -23,17 +23,17 @@ function ImportantDates() {
             <div className='col-md-12'>
             <table className="table table-striped">
   <tbody>
-    <tr>
+    {/* <tr>
       <td className='imp-table-date'>Last date for submitting the abstracts (Extended)</td>
       <td className='d-flex justify-content-end'><div className='dates'>10/August/2022</div></td>
-    </tr>
+    </tr> */}
     <tr>
       <td className='imp-table-date'>Acceptance of paper will be notified by</td>
-      <td className='d-flex justify-content-end'><div className='dates'>20/August/2022</div></td>
+      <td className='d-flex justify-content-end'><div className='dates'>10/October/2022</div></td>
     </tr>
     <tr>
-      <td className='imp-table-date'>Last date for submission of full paper</td>
-      <td className='d-flex justify-content-end'><div className='dates'>30/September/2022</div></td>
+      <td className='imp-table-date'>Last date for submission of full paper (Extended)</td>
+      <td className='d-flex justify-content-end'><div className='dates'>10/October/2022</div></td>
     </tr>
     <tr>
       <td className='imp-table-date'>E-Mail Address for queries</td>
@@ -46,7 +46,7 @@ function ImportantDates() {
         <div className='row'>
           <div className='col-md-12'>
             <div className='note-imp-date'>
-            <span>Note :</span> <span className='common-para'>No Abstract will be published in Abstract volume without the receipt of the registration fee before 30-September-2022 </span>
+            <span>Note :</span> <span className='common-para'>No Abstract will be published in Abstract volume without the receipt of the registration fee. </span>
             </div>
           </div>
         </div>
