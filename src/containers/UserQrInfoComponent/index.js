@@ -12,7 +12,6 @@ let UserQrInfoComponent = () => {
   useEffect(() => {
     if (param.id) {
       getUserInfoByqrCode(param.id)
-      console.log(id, 'id')
     }
   }, [param.id])
 
