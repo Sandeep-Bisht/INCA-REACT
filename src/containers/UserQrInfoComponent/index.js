@@ -12,11 +12,12 @@ let UserQrInfoComponent = () => {
   useEffect(() => {
     if (param.id) {
       getUserInfoByqrCode(param.id)
+      console.log(id, 'id')
     }
   }, [param.id])
 
   let getUserInfoByqrCode = async (id) => {
-    let url = `http://144.91.110.221:4801:4801/api/getuserqrinfo/${id}`;
+    let url = `http://144.91.110.221:4801/api/getuserqrinfo/${id}`;
     try {
       let response = await axios.get(url);
       setUserQrInfo(response.data[0])
