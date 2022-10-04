@@ -35,7 +35,7 @@ const PaymentConfirm = (props) => {
     let url = `http://144.91.110.221:4801/api/generateqrcode/${userId}`;
     try {
       let response = await axios.get(url, GetHeaders());
-     console.log(response, 'response')
+      
     } catch (error) {
       console.log(error, "err");
     }
