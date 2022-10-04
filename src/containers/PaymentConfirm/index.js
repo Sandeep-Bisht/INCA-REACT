@@ -19,7 +19,7 @@ const PaymentConfirm = (props) => {
   } = props.userInformation;
 
   let paymentHandler = async (registrationNumber) => {
-    let url = `http://144.91.110.221:4801/api/update_transction_details/${registrationNumber}`;
+   let url = `http://144.91.110.221:4801/api/update_transction_details/${registrationNumber}`;
    //let url = `http://localhost:4801/api/update_transction_details/${registrationNumber}`;
     try {
       let response = await axios.get(url, GetHeaders());
@@ -35,7 +35,6 @@ const PaymentConfirm = (props) => {
     let url = `http://144.91.110.221:4801/api/generateqrcode/${userId}`;
     try {
       let response = await axios.get(url, GetHeaders());
-      
     } catch (error) {
       console.log(error, "err");
     }
