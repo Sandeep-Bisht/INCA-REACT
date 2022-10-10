@@ -20,7 +20,7 @@ const PaymentConfirm = (props) => {
 
   let paymentHandler = async (registrationNumber) => {
    let url = `http://144.91.110.221:4801/api/update_transction_details/${registrationNumber}`;
-   //let url = `http://localhost:4801/api/update_transction_details/${registrationNumber}`;
+  // let url = `http://localhost:4801/api/update_transction_details/${registrationNumber}`;
     try {
       let response = await axios.get(url, GetHeaders());
       if(response && response.data && response.data.message){
