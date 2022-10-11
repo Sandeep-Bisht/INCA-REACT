@@ -34,6 +34,7 @@ const Theme = lazy(() => import('../containers/ThemePage'))
 const ImportantDates = lazy(() => import('../containers/ImportantDates'))
 const TransactionDetails = lazy(()=> import('../containers/TransactionDetails'));
 const TransactionList = lazy(()=> import('../containers/TransactionList'));
+const UserQrInfoComponent = lazy(() => import('../containers/UserQrInfoComponent'))
 
 export const ApplicationRoutes = ({ path }) => {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -105,6 +106,7 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/sponsorForm" element={<SponsorForm />} />
           <Route path="/exhibitor" element={<ExhibitorForm />} />
           <Route path="/eventblog" element={<EventBlog />} />
+          <Route path="/userinfo/:id" element={<UserQrInfoComponent />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>

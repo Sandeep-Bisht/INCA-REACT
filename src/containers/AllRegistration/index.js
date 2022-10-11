@@ -42,6 +42,28 @@ const AllRegistration = () => {
     );
   };
 
+  const attendanceBodyTemplate = (node, column) => {
+    return (
+      <>
+      <div className="d-flex">
+       
+       <p>{node.attendanceStatus ? "Present" : "Absent"}</p>
+        </div>
+      </>
+    );
+  };
+
+  const paymentBodyTemplate = (node, column) => {
+    return (
+      <>
+      <div className="d-flex">
+       
+       <p>{node.mannualPaymentStatus ? node.mannualPaymentStatus : "Unpaid"}</p>
+        </div>
+      </>
+    );
+  };
+
   useEffect(() => {
     if (state && state.userRegistrationInfoSuccess) {
       setIsLoading(false);
@@ -76,7 +98,8 @@ const AllRegistration = () => {
   const columns = [
     { field: "registrationNumber", header: "Registration Number" },
     { field: "name", header: "Name" },
-    { field: "mannualPaymentStatus", header: "Payment Status" },
+   // { field: "mannualPaymentStatus", header: "Payment Status" },
+    // { field: "attendanceStatus", header: "Attendance" },
     { field: "email", header: "E-mail" },
     { field: "designation", header: "Designation" },
     { field: "participationType", header: "Participation Type" },
@@ -189,6 +212,16 @@ const AllRegistration = () => {
             header={header1}
           >
             {dynamicColumns}
+            <Column
+              field=""
+              header="Attendance"
+              body={attendanceBodyTemplate}
+            ></Column>
+            <Column
+              field=""
+              header="Payment Status"
+              body={paymentBodyTemplate}
+            ></Column>
             <Column
               field="Actions"
               header="Actions"

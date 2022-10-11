@@ -15,11 +15,12 @@ const PaymentConfirm = (props) => {
     referenceNumber,
     email,
     mannualPaymentStatus,
+    userId
   } = props.userInformation;
 
   let paymentHandler = async (registrationNumber) => {
-    let url = `http://144.91.110.221:4801/api/update_transction_details/${registrationNumber}`;
-   //let url = `http://localhost:4801/api/update_transction_details/${registrationNumber}`;
+   let url = `http://144.91.110.221:4801/api/update_transction_details/${registrationNumber}`;
+  // let url = `http://localhost:4801/api/update_transction_details/${registrationNumber}`;
     try {
       let response = await axios.get(url, GetHeaders());
       if(response && response.data && response.data.message){
@@ -29,6 +30,15 @@ const PaymentConfirm = (props) => {
       console.log(error, "err");
     }
   };
+
+  let sendQrOnEmailToUser = async(userId) => {
+    let url = `http://144.91.110.221:4801/api/generateqrcode/${userId}`;
+    try {
+      let response = await axios.get(url, GetHeaders());
+    } catch (error) {
+      console.log(error, "err");
+    }
+  }
 
   return (
     <div className="container-fluid">
@@ -112,7 +122,8 @@ const PaymentConfirm = (props) => {
             </tbody>
           </table>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-12 ">
+          <div className="qr-btns">
           <button
             className="btn-success"
             disabled={mannualPaymentStatus == "paid"}
@@ -120,6 +131,13 @@ const PaymentConfirm = (props) => {
           >
             Confirm
           </button>
+          <button
+            className="btn-success"
+            onClick={() => sendQrOnEmailToUser(userId)}
+          >
+            Send QR
+          </button>
+          </div>
         </div>
       </div>
     </div>
