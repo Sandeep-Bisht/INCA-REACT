@@ -23,10 +23,10 @@ function ImportantDates() {
             <div className='col-md-12'>
             <table className="table table-striped">
   <tbody>
-    {/* <tr>
+    <tr>
       <td className='imp-table-date'>Last date for submitting the abstracts (Extended)</td>
       <td className='d-flex justify-content-end'><div className='dates'>10/August/2022</div></td>
-    </tr> */}
+    </tr>
     <tr>
       <td className='imp-table-date'>Acceptance of paper will be notified by</td>
       <td className='d-flex justify-content-end'><div className='dates'>10/October/2022</div></td>
