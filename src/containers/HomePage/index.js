@@ -29,7 +29,9 @@ import inca6 from "../../images/inca-image-6.JPG";
 import inca7 from "../../images/inca-image-7.JPG";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
+import instruction from '../../images/instructions.jpg';
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
+import Instructions from "../../SampleFiles/instructions_for_participants.pdf";
 import ThirdSercular from '../../SampleFiles/Second circular_20 sep 22.pdf';
 
 const HomePage = () => {
@@ -180,7 +182,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <section className="abstract-date">
+          {/* <section className="abstract-date">
   <div className="container-fluid">
   <div className="row">
             <div className="col-md-12">
@@ -190,7 +192,7 @@ const HomePage = () => {
             </div>
           </div>
   </div>
-</section>
+</section> */}
         </div>
       </div>
 
@@ -2341,6 +2343,21 @@ Renowned national and international scholars, scientists, academicians, planners
                 <div className="blog-card-content">
                   <h3>
                     42<sup>nd</sup> INCA International Congress-Second Circular
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="blog-card">
+                
+                <a target="_blank" href={Instructions}>
+                  <div className="blog-card-pic">
+                    <img src={instruction} alt="instructions"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    Instructions For Participants
                   </h3>
                 </div>
               </div>
