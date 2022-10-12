@@ -95,6 +95,24 @@ const AllRegistration = () => {
     }         
   }
 
+  let downloadUserInfoExcel = () => {
+    try {
+       axios({
+        url: 'http://144.91.110.221:4801/api/userexcel',
+        method: 'GET',
+        responseType: 'blob', 
+      }).then((response) => {
+         const url = window.URL.createObjectURL(new Blob([response.data]));
+         const link = document.createElement('a');
+         link.href = url;
+         link.setAttribute('download', 'registreduserinfo.xlsx'); 
+         document.body.appendChild(link);
+         link.click();
+      });
+    } catch (error) {
+    }         
+  }
+
   const columns = [
     { field: "registrationNumber", header: "Registration Number" },
     { field: "name", header: "Name" },
@@ -190,7 +208,8 @@ const AllRegistration = () => {
   return (
     <>
       <div>
-        <div className="moving-box mb-2">
+      <div className="moving-box mb-2">
+        <button onClick={() => downloadUserInfoExcel()}  >DownLoad User Information</button>
         <button onClick={() => downloadStudentDataExcel()}  >Download Excel</button>
         </div>
         <div className="card">
