@@ -22,6 +22,16 @@ const AllRegistration = () => {
     dispatch(ACTIONS.getUserRegistrationInfo());
   }, []);
 
+  let sendDownloadCertificateEmailToUser = async(id) => {
+    let url = `http://144.91.110.221:4801/api/sendemailtodownloadcertificate/${id}`;
+        try {
+          let response = await axios.get(url);
+            
+        } catch (error) {
+          console.log(error);
+        }
+  }
+
   const actionBodyTemplate = (node, column) => {
     return (
       <>
@@ -36,7 +46,16 @@ const AllRegistration = () => {
         <button className="action-btn" onClick={() => redirectToCretePage(node, "view")}>
           <i className="fa-solid fa-eye "></i>
         </button>
+
         </div>
+
+        <div className="ps-2">
+        <button className="action-btn"  onClick={() => {sendDownloadCertificateEmailToUser(node.registrationNumber)}}>
+         Send Email
+        </button>
+
+        </div>
+        
         </div>
       </>
     );
@@ -46,7 +65,6 @@ const AllRegistration = () => {
     return (
       <>
       <div className="d-flex">
-       
        <p>{node.attendanceStatus ? "Present" : "Absent"}</p>
         </div>
       </>

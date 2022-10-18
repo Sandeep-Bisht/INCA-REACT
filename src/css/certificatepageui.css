@@ -1,0 +1,109 @@
+.border-line.first-logo img
+{
+    width: 100%;
+    height: auto;
+}
+.border-line .heading h1
+{
+ font-size: 5.5rem;
+ font-family: Abyssinica SIL;
+ font-weight: bolder;
+ color:darkblue;
+}
+.border-line .heading span
+{
+    font-size: 1.2rem;
+    font-weight: 600;
+    
+}
+.middle-text .candidate-name 
+{
+    position: relative;
+}
+.middle-text .candidate-name h1
+{
+    font-family: DM Serif Display;
+    font-weight:900;
+    font-size: 3.5rem;
+    color:darkblue;
+    
+}
+.middle-text .candidate-name ::before
+{
+    position: absolute;
+    width: 60%;
+    left: 55%;
+    right: 50%;
+    height: 1px;
+    background: darkblue;
+    bottom: 0;
+    transform: translate(-55%);
+    content: '';
+}
+.middle-text .text-area p
+{
+color: black;
+font-size: 18px;
+font-weight: 600;
+}
+.last-area
+{
+    margin-top: 60px;
+}
+
+.last-area .signature
+{
+    position: relative;
+}
+
+.last-area .signature::before
+{
+    position: absolute;
+    width: 30%;
+    left: 55%;
+    right: 50%;
+    height: 2px;
+    background:black;
+    top: 0;
+    transform: translate(-65%);
+    content: '';
+}
+
+.last-area .signature p
+{
+    color:black;
+    font-size: 1.9rem;
+    font-weight: 800;
+    font-family: Abyssinica SIL;
+    
+}
+
+
+
+@media only screen and (max-width :991px) {
+
+    .border .heading h1
+    {
+        font-size: 35px;
+        margin-top: 35px;
+        margin-left: 20px;
+    }
+    
+    .border .heading span
+    {
+        padding-left: 30px;
+        font-size: 15px;
+    }
+
+    .middle-text .candidate-name h1{
+        font-size: 2.5rem;
+    }
+    
+    .middle-text .text-area p{
+        font-size: 12px;
+    }
+
+    .last-area .signature p{
+        font-size:10px;
+    }
+}
