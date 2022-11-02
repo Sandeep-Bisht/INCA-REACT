@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DataTable } from "primereact/datatable";
-import { QRCodeSVG } from 'qrcode.react';
+import  QRCode  from 'qrcode.react';
 import axios from 'axios';
 import { Column } from "primereact/column";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
@@ -262,7 +262,7 @@ const AllRegistration = () => {
           <button onClick={() => downloadStudentDataExcel()}  >Download Excel</button>
         </div>
         {qrCodeText &&
-          <><QRCodeSVG
+          <><QRCode
             id="qrCodeEl"
             size={150}
             value={qrCodeText}

@@ -32,4 +32,20 @@
     font-size: 20px;
     margin-left: 20px;
 }
+/* ---------media query--------- */
+@media (max-width: 575.98px){     
+    .border .box .information p{
+        font-size: 17px;
+    }
 
+    .border .box .information span{
+        font-size: 15px;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 475.98px){
+    .border .box{
+        padding:40px 20px;
+    }
+}

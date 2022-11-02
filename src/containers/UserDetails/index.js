@@ -40,33 +40,33 @@ let UserDetails = () => {
                   <div class="information">
                     <p>Name :-</p><span> {userQrInfo.name}</span>
                   </div>
-                  <div class="information">
+                  {/* <div class="information">
                     <p>Designation:-</p><span> {userQrInfo.designation} </span>
-                  </div>
+                  </div> */}
                   <div class="information">
-                    <p>Registration Number:-</p><span> {userQrInfo.registrationNumber}</span>
+                    <p>Registration No:-</p><span> {userQrInfo.registrationNumber}</span>
                   </div>
-                  <div class="information">
+                  {/* <div class="information">
                     <p>Email:-</p><span> {userQrInfo.email} </span>
-                  </div>
-                  <div class="information">
+                  </div> */}
+                  {/* <div class="information">
                     <p>Country:-</p><span>{userQrInfo.country} </span>
-                  </div>
-                  <div class="information">
+                  </div> */}
+                  {/* <div class="information">
                     <p>ConferenceMode:-</p><span>{userQrInfo.conferenceMode} </span>
                   </div>
                   <div class="information">
                     <p>Phone Number:-</p><span> {userQrInfo.phoneNumber}</span>
-                  </div>
+                  </div> */}
                   <div class="information">
                     <p>Participation Type:-</p><span> {userQrInfo.participationType} </span>
                   </div>
-                  <div class="information">
+                  {/* <div class="information">
                     <p>Payment Status:-</p><span> {userQrInfo.mannualPaymentStatus} </span>
-                  </div>
-                  <div class="information">
+                  </div> */}
+                  {/* <div class="information">
                     <p>Address:-</p><span> {userQrInfo.address} </span>
-                  </div>
+                  </div> */}
                  
                 </div>
               </div>
