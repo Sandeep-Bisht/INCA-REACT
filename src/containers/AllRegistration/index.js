@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DataTable } from "primereact/datatable";
+import { QRCodeSVG } from 'qrcode.react';
 import axios from 'axios';
 import { Column } from "primereact/column";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
@@ -14,6 +15,7 @@ const AllRegistration = () => {
   const navigate = useNavigate();
   let [usersInfo, setUsersInfo] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
+  const [qrCodeText, setQRCodeText] = useState('');
 
   const state = useSelector((state) => state.GetUserRegistrationInfoReducer);
   let dispatch = useDispatch();
@@ -22,40 +24,69 @@ const AllRegistration = () => {
     dispatch(ACTIONS.getUserRegistrationInfo());
   }, []);
 
-  let sendDownloadCertificateEmailToUser = async(id) => {
-    let url = `http://144.91.110.221:4801/api/sendemailtodownloadcertificate/${id}`;
-        try {
-          let response = await axios.get(url);
-            
-        } catch (error) {
-          console.log(error);
-        }
+  let sendDownloadCertificateEmailToUser = async (id) => {
+    let url = `http://144.91.110.221:4801/api/getsaveregistreduserinfo/${id}`;
+    try {
+      let response = await axios.get(url);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const downloadQRCode = (node) => {
+    const qrCodeURL = document.getElementById('qrCodeEl')
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    console.log(qrCodeURL)
+    let aEl = document.createElement("a");
+    aEl.href = qrCodeURL;
+    aEl.download = "QR_Code.png";
+    document.body.appendChild(aEl);
+    aEl.click();
+    document.body.removeChild(aEl);
+  }
+
+  let generateUserQrCode = (node) => {
+    // let url = "https://www.google.com/"
+    let url = `http://42inca.org/userdetails/${node.id}`
+    setQRCodeText(url)
   }
 
   const actionBodyTemplate = (node, column) => {
     return (
       <>
-      <div className="d-flex">
-        <div >
-        <button className="action-btn" onClick={() => redirectToCretePage(node, "edit")}>
-          <i className="fa-solid fa-pen "></i>
-        </button>
-        </div>
-        
-        <div className="ps-2">
-        <button className="action-btn" onClick={() => redirectToCretePage(node, "view")}>
-          <i className="fa-solid fa-eye "></i>
-        </button>
+        <div className="d-flex">
+          <div >
+            <button className="action-btn" onClick={() => redirectToCretePage(node, "edit")}>
+              <i className="fa-solid fa-pen "></i>
+            </button>
+          </div>
 
-        </div>
+          <div className="ps-2">
+            <button className="action-btn" onClick={() => redirectToCretePage(node, "view")}>
+              <i className="fa-solid fa-eye "></i>
+            </button>
 
-        <div className="ps-2">
-        <button className="action-btn"  onClick={() => {sendDownloadCertificateEmailToUser(node.registrationNumber)}}>
-         Send Email
-        </button>
+          </div>
 
-        </div>
-        
+          <div className="ps-2">
+            <div>
+
+            </div>
+            <button className="action-btn" onClick={() => { sendDownloadCertificateEmailToUser(node.registrationNumber) }}>
+              Send Email
+            </button>
+
+          </div>
+
+          <div className="ps-2">
+            <button className="action-btn" onClick={() => { generateUserQrCode(node) }}>
+              Generate Qr
+            </button>
+
+          </div>
+
         </div>
       </>
     );
@@ -64,8 +95,8 @@ const AllRegistration = () => {
   const attendanceBodyTemplate = (node, column) => {
     return (
       <>
-      <div className="d-flex">
-       <p>{node.attendanceStatus ? "Present" : "Absent"}</p>
+        <div className="d-flex">
+          <p>{node.attendanceStatus ? "Present" : "Absent"}</p>
         </div>
       </>
     );
@@ -74,9 +105,9 @@ const AllRegistration = () => {
   const paymentBodyTemplate = (node, column) => {
     return (
       <>
-      <div className="d-flex">
-       
-       <p>{node.mannualPaymentStatus ? node.mannualPaymentStatus : "Unpaid"}</p>
+        <div className="d-flex">
+
+          <p>{node.mannualPaymentStatus ? node.mannualPaymentStatus : "Unpaid"}</p>
         </div>
       </>
     );
@@ -97,44 +128,44 @@ const AllRegistration = () => {
 
   let downloadStudentDataExcel = () => {
     try {
-       axios({
+      axios({
         url: 'http://144.91.110.221:4801/api/downloadexcel',
         method: 'GET',
-        responseType: 'blob', 
+        responseType: 'blob',
       }).then((response) => {
-         const url = window.URL.createObjectURL(new Blob([response.data]));
-         const link = document.createElement('a');
-         link.href = url;
-         link.setAttribute('download', 'registreduser.xlsx'); 
-         document.body.appendChild(link);
-         link.click();
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'registreduser.xlsx');
+        document.body.appendChild(link);
+        link.click();
       });
     } catch (error) {
-    }         
+    }
   }
 
   let downloadUserInfoExcel = () => {
     try {
-       axios({
+      axios({
         url: 'http://144.91.110.221:4801/api/userexcel',
         method: 'GET',
-        responseType: 'blob', 
+        responseType: 'blob',
       }).then((response) => {
-         const url = window.URL.createObjectURL(new Blob([response.data]));
-         const link = document.createElement('a');
-         link.href = url;
-         link.setAttribute('download', 'registreduserinfo.xlsx'); 
-         document.body.appendChild(link);
-         link.click();
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'registreduserinfo.xlsx');
+        document.body.appendChild(link);
+        link.click();
       });
     } catch (error) {
-    }         
+    }
   }
 
   const columns = [
     { field: "registrationNumber", header: "Registration Number" },
     { field: "name", header: "Name" },
-   // { field: "mannualPaymentStatus", header: "Payment Status" },
+    // { field: "mannualPaymentStatus", header: "Payment Status" },
     // { field: "attendanceStatus", header: "Attendance" },
     { field: "email", header: "E-mail" },
     { field: "designation", header: "Designation" },
@@ -143,7 +174,7 @@ const AllRegistration = () => {
 
   const dynamicColumns = columns.map((col, i) => {
     return (
-      <Column key={col.field} field={col.field} header={col.header}  sortable />
+      <Column key={col.field} field={col.field} header={col.header} sortable />
     );
   });
 
@@ -198,41 +229,51 @@ const AllRegistration = () => {
     return (
       <div className="d-flex justify-content-between">
         <div>
-        <Button
-          type="button"
-          icon="pi pi-filter-slash"
-          label="Clear"
-          className="p-button-outlined"
-          onClick={clearFilter1}
-        />
+          <Button
+            type="button"
+            icon="pi pi-filter-slash"
+            label="Clear"
+            className="p-button-outlined"
+            onClick={clearFilter1}
+          />
         </div>
 
         <div>
-        <span className="p-input-icon-left">
-          <i className="pi pi-search" />
-          <InputText
-            value={globalFilterValue1}
-            onChange={onGlobalFilterChange1}
-            placeholder="Keyword Search"
-          />
-        </span>
+          <span className="p-input-icon-left">
+            <i className="pi pi-search" />
+            <InputText
+              value={globalFilterValue1}
+              onChange={onGlobalFilterChange1}
+              placeholder="Keyword Search"
+            />
+          </span>
         </div>
       </div>
     );
   };
- 
+
   const header1 = renderHeader1();
 
   return (
     <>
       <div>
-      <div className="moving-box mb-2">
-        <button onClick={() => downloadUserInfoExcel()}  >DownLoad User Information</button>
-        <button onClick={() => downloadStudentDataExcel()}  >Download Excel</button>
+        <div className="moving-box mb-2">
+          <button onClick={() => downloadUserInfoExcel()}  >DownLoad User Information</button>
+          <button onClick={() => downloadStudentDataExcel()}  >Download Excel</button>
         </div>
+        {qrCodeText &&
+          <><QRCodeSVG
+            id="qrCodeEl"
+            size={150}
+            value={qrCodeText}
+          />
+            <button onClick={() => downloadQRCode()}>Download Qr</button>
+
+          </>
+        }
         <div className="card">
           <DataTable
-          loading={isLoading}
+            loading={isLoading}
             paginator
             rows={10}
             dataKey="id"
