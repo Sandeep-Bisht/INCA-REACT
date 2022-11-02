@@ -16,7 +16,7 @@ let UserDetails = () => {
   }, [param.id])
 
   let getUserInfoByqrCode = async (id) => {
-    let url = `http://144.91.110.221:4801/api/getuserqrinfo/${id}`;
+    let url = `http://144.91.110.221:4801/api/getuserinfo/${id}`;
     try {
       let response = await axios.get(url);
       setUserQrInfo(response.data[0])

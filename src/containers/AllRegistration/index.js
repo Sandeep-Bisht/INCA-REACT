@@ -49,7 +49,7 @@ const AllRegistration = () => {
 
   let generateUserQrCode = (node) => {
     // let url = "https://www.google.com/"
-    let url = `http://42inca.org/userdetails/${node.userId}`
+    let url = `http://42inca.org/userdetails/${node.email}`
     setQRCodeText(url)
   }
 
