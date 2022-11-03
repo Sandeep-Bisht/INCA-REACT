@@ -1,3 +1,7 @@
+.board-programme-section
+{
+    background-color: #f2f2f287;
+}
 .board-programme-section .board-lists-box
 {
     display: flex;

@@ -33,6 +33,7 @@ import instruction from '../../images/instructions.jpg';
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
 import Instructions from "../../SampleFiles/instructions_for_participants.pdf";
 import ThirdSercular from '../../SampleFiles/Second circular_20 sep 22.pdf';
+import BoardList from '../../images/board.png';
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -2352,7 +2353,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 
                 <a target="_blank" href='/boardlists'>
                   <div className="blog-card-pic">
-                    <img src={Event_2} alt="Second-Circular"></img>
+                    <img src={BoardList} alt="Second-Circular"></img>
                   </div>
                 </a>
                 <div className="blog-card-content">
