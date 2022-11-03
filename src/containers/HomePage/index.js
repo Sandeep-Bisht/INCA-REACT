@@ -2358,7 +2358,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    Board Programme For 42<sup>nd</sup> International INCA Congress
+                    Broad Programme For 42<sup>nd</sup> International INCA Congress
                   </h3>
                 </div>
               </div>
