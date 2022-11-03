@@ -2317,7 +2317,7 @@ Renowned national and international scholars, scientists, academicians, planners
           </div>
 
           <div className="row">
-            <div className="col-lg-4">
+            <div className="col-lg-3">
               <div className="blog-card">
                 
                 <a target="_blank" href={SecondSercular}>
@@ -2332,7 +2332,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-3">
               <div className="blog-card">
                 
                 <a target="_blank" href={ThirdSercular}>
@@ -2347,7 +2347,22 @@ Renowned national and international scholars, scientists, academicians, planners
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-3">
+              <div className="blog-card">
+                
+                <a target="_blank" href='/boardlists'>
+                  <div className="blog-card-pic">
+                    <img src={Event_2} alt="Second-Circular"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    Board Programme For 42<sup>nd</sup> International INCA Congress
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
               <div className="blog-card">
                 
                 <a target="_blank" href={Instructions}>

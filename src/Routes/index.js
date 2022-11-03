@@ -34,6 +34,7 @@ const Theme = lazy(() => import('../containers/ThemePage'))
 const ImportantDates = lazy(() => import('../containers/ImportantDates'))
 const TransactionDetails = lazy(()=> import('../containers/TransactionDetails'));
 const TransactionList = lazy(()=> import('../containers/TransactionList'));
+const BoardList = lazy (()=> import('../components/BoardProgramme'));
 const UserQrInfoComponent = lazy(() => import('../containers/UserQrInfoComponent'));
 
 const UserDetails = lazy(() => import('../containers/UserDetails'));
@@ -114,6 +115,7 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/userinfo/:id" element={<UserQrInfoComponent />} />
           <Route path="/certificate/:id" element={<Certificate />} />
           <Route path="/userdetails/:id" element={<UserDetails />} />
+          <Route path="/boardlists" element={<BoardList />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>
