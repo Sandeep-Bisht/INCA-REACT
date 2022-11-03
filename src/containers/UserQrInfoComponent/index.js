@@ -83,7 +83,7 @@ let UserQrInfoComponent = () => {
                   <button className="btn btn-primary " onClick={() => redirectToRegistrationPage()} class="btn btn-primary">Go Back</button>
                 </div> */}
 
-                {/* pooja's code  */}
+                {/* julesh code  */}
                 <div class="box">
                   <h2><u>User Information Info</u></h2>
                   <table class="table">
