@@ -75,7 +75,7 @@ let UserQrInfoComponent = () => {
                     <p>Participation Type:-</p><span> {userQrInfo.participationType} </span>
                   </div>
                   <div class="information">
-                    <p>Payment Status:-</p><span> {userQrInfo.mannualPaymentStatus} </span>
+                    <p>Payment Status:-</p><span> {userQrInfo.mannualPaymentStatus ? userQrInfo.mannualPaymentStatus  : "unpaid" } </span>
                   </div>
                   <div class="information">
                     <p>Address:-</p><span> {userQrInfo.address} </span>
