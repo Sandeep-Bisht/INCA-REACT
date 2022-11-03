@@ -25,7 +25,8 @@ const AllRegistration = () => {
   }, []);
 
   let sendDownloadCertificateEmailToUser = async (id) => {
-    let url = `http://144.91.110.221:4801/api/getsaveregistreduserinfo/${id}`;
+    //let url = `http://144.91.110.221:4801/api/getsaveregistreduserinfo/${id}`;
+    let url = `http://144.91.110.221:4801/api/sendemailtodownloadcertificate/${id}`;
     try {
       let response = await axios.get(url);
 
