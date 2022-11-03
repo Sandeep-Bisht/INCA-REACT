@@ -16,10 +16,15 @@
 }
 .border .box .information
 {
-    display: flex;
-    align-items: baseline;
     font-family: "Roboto",sans-serif;
-    line-height: 10px;
+}
+.border .box .information td
+{
+    padding: 10px 0;
+}
+.border .table>:not(:first-child)
+{
+    border-top: none !important;
 }
 .border .box .information p
 {
