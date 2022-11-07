@@ -33,6 +33,8 @@ import instruction from '../../images/instructions.jpg';
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
 import Instructions from "../../SampleFiles/instructions_for_participants.pdf";
 import ThirdSercular from '../../SampleFiles/Second circular_20 sep 22.pdf';
+import FinalSercular from '../../SampleFiles/Final Circular.pdf';
+import DraftTechnical from '../../SampleFiles/Draft Technical Session07 nov.pdf';
 import BoardList from '../../images/board.png';
 
 const HomePage = () => {
@@ -2313,11 +2315,42 @@ Renowned national and international scholars, scientists, academicians, planners
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h2 className="common-heading">Announcements</h2>
+            <h2 className="common-heading">Announcements</h2>
             </div>
           </div>
 
+         
           <div className="row">
+            <div className="col-lg-3">
+              <div className="blog-card">
+                
+                <a target="_blank" href={FinalSercular}>
+                  <div className="blog-card-pic">
+                    <img src={Event_2} alt="Second-Circular"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    42<sup>nd</sup> INCA International Congress-Final Circular
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="blog-card">
+                
+                <a target="_blank" href={DraftTechnical}>
+                  <div className="blog-card-pic">
+                    <img src={Event_2} alt="Second-Circular"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    42<sup>nd</sup> INCA International Congress-Draft Technical Session
+                  </h3>
+                </div>
+              </div>
+            </div>  
             <div className="col-lg-3">
               <div className="blog-card">
                 
@@ -2347,7 +2380,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   </h3>
                 </div>
               </div>
-            </div>
+            </div>          
+          </div>
+          <div className="row">
             <div className="col-lg-3">
               <div className="blog-card">
                 
