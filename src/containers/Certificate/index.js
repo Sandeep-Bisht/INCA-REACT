@@ -15,7 +15,7 @@ import INCA from '../../images/INCA.jpg'
 
 const ref = React.createRef();
 const options = {
-    orientation: 'portrait',
+    orientation: 'landscape',
     unit: 'in',
     format: [14.0, 9.0],
     scale: 0.8
