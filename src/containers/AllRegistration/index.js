@@ -48,6 +48,17 @@ const AllRegistration = () => {
     document.body.removeChild(aEl);
   }
 
+  let sendEmailToUsers = async(email) => {
+    let url = `http://localhost:4801/api/sendEmailToAllUsers/${email}`;
+    //let url = `http://localhost:4801/api/generate_certificate/${id}`;
+    try {
+        let response = await axios.get(url);
+        //setUserInfo(response.data[0])
+    } catch (error) {
+        console.log(error);
+    }
+  }
+
   let generateUserQrCode = (node) => {
     // let url = "https://www.google.com/"
     let url = `http://42inca.org/userdetails/${node.email}`
@@ -58,13 +69,19 @@ const AllRegistration = () => {
     return (
       <>
         <div className="d-flex">
-          <div >
+          <div>
+        <button className="action-btn" onClick={() => { sendEmailToUsers(node.email) }}>
+              Send General email
+            </button>
+            </div>
+          <div className="ps-2">
+
             <button className="action-btn" onClick={() => redirectToCretePage(node, "edit")}>
               <i className="fa-solid fa-pen "></i>
             </button>
           </div>
 
-          <div className="ps-2">
+          <div >
             <button className="action-btn" onClick={() => redirectToCretePage(node, "view")}>
               <i className="fa-solid fa-eye "></i>
             </button>
@@ -107,12 +124,21 @@ const AllRegistration = () => {
     return (
       <>
         <div className="d-flex">
-
           <p>{node.mannualPaymentStatus ? node.mannualPaymentStatus : "Unpaid"}</p>
         </div>
       </>
     );
   };
+
+  // const emailActionBodyTemplate = (node, column) => {
+  //   return (
+  //     <>
+  //       <div className="d-flex">
+  //         <p>{node.mannualPaymentStatus ? node.mannualPaymentStatus : "Unpaid"}</p>
+  //       </div>
+  //     </>
+  //   );
+  // }
 
   useEffect(() => {
     if (state && state.userRegistrationInfoSuccess) {
@@ -259,6 +285,9 @@ const AllRegistration = () => {
     <>
       <div>
         <div className="moving-box mb-2">
+        <div >
+           
+          </div>
           <button onClick={() => downloadUserInfoExcel()}  >DownLoad User Information</button>
           <button onClick={() => downloadStudentDataExcel()}  >Download Excel</button>
         </div>
@@ -306,6 +335,7 @@ const AllRegistration = () => {
               header="Actions"
               body={actionBodyTemplate}
             ></Column>
+            
           </DataTable>
         </div>
       </div>

@@ -124,6 +124,7 @@ font-weight: 600;
     letter-spacing: 1px;
      font-weight: 700; 
      color: darkblue;
+     margin-top: 20px;
 }
 .content p{
     text-align: center;
@@ -158,6 +159,14 @@ font-weight: 600;
 
 .bottom_area{
     margin-top:50px;
+}
+.bottom_area img{
+    width: 100px;
+    height: 100px;
+    margin-right: 100px;
+}
+.bottom_area img.second-sig{
+    margin-left: 95px;
 }
 .bottom_left{
     text-align: right;

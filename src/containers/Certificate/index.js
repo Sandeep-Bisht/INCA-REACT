@@ -8,11 +8,14 @@ import bg from '../../images/bg.png'
 import Layer from '../../images/Layer.png'
 import Rope from '../../images/Rope.png'
 import certificate_logo from '../../images/certificate_logo.jpg'
+import Signature1 from '../../images/certificatesignature1.png'
+import Signature2 from '../../images/certificatesignature2.png'
+
 import INCA from '../../images/INCA.jpg'
 
 const ref = React.createRef();
 const options = {
-    orientation: 'landscape',
+    orientation: 'portrait',
     unit: 'in',
     format: [14.0, 9.0],
     scale: 0.8
@@ -93,13 +96,16 @@ const Certificate = () => {
                                     </div>
                                 </div>
                                 <div class="row bottom_area">
-                                    <div class="col-md-6 col-6">
+                                    <div class="col-md-6 col-6 text-end">
+                                        <img src={Signature1} className="img-fluid"></img>
                                         <div class="bottom_left">
                                             <span>Capt Kuldeep Singh</span>
                                             <p>(Organising Secretary)</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-6">
+                                        
+                                    <img src={Signature2} className="img-fluid second-sig"></img>
                                         <div class="bottom_right">
                                             <span>Cmde Peush Pawsey</span>
                                             <p>(Chairman)</p>
