@@ -1,203 +1,80 @@
-/* .border-line.first-logo img
-{
-    width: 100%;
-    height: auto;
+body{
+    display: flex;
+    justify-content: center;
 }
-.border-line .heading h1
-{
- font-size: 5.5rem;
- font-family: Abyssinica SIL;
- font-weight: bolder;
- color:darkblue;
-}
-.border-line .heading span
-{
-    font-size: 1.2rem;
-    font-weight: 600;
-    
-}
-.middle-text .candidate-name 
-{
-    position: relative;
-}
-.middle-text .candidate-name h1
-{
-    font-family: DM Serif Display;
-    font-weight:900;
-    font-size: 3.5rem;
-    color:darkblue;
-    
-}
-.middle-text .candidate-name ::before
-{
-    position: absolute;
-    width: 60%;
-    left: 55%;
-    right: 50%;
-    height: 1px;
-    background: darkblue;
-    bottom: 0;
-    transform: translate(-55%);
-    content: '';
-}
-.middle-text .text-area p
-{
-color: black;
-font-size: 18px;
-font-weight: 600;
-}
-.last-area
-{
-    margin-top: 60px;
-}
-
-.last-area .signature
-{
-    position: relative;
-}
-
-.last-area .signature::before
-{
-    position: absolute;
-    width: 30%;
-    left: 55%;
-    right: 50%;
-    height: 2px;
-    background:black;
-    top: 0;
-    transform: translate(-65%);
-    content: '';
-}
-
-.last-area .signature p
-{
-    color:black;
-    font-size: 1.9rem;
-    font-weight: 800;
-    font-family: Abyssinica SIL;
-    
-}
-
-
-
-@media only screen and (max-width :991px) {
-
-    .border .heading h1
-    {
-        font-size: 35px;
-        margin-top: 35px;
-        margin-left: 20px;
-    }
-    
-    .border .heading span
-    {
-        padding-left: 30px;
-        font-size: 15px;
-    }
-
-    .middle-text .candidate-name h1{
-        font-size: 2.5rem;
-    }
-    
-    .middle-text .text-area p{
-        font-size: 12px;
-    }
-
-    .last-area .signature p{
-        font-size:10px;
-    }
-} */
-.border{
+.frame{
+    width:850px;
+    height: 1000px;
+    display: block;
+    justify-content: center;
+    padding:90px 91px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    position: relative;
+    right: 25px;
+  
 }
-.frame{
-    padding:130px 20px;
-}
-.logo{
-    display: flex;
-    justify-content:end;
-}
-.content{
+.table_content{
     font-size: 1rem;
     letter-spacing: 1px;
      font-weight: 700; 
      color: darkblue;
-     margin-top: 20px;
 }
-.content p{
-    text-align: center;
+#top_row{
+    margin-top: 40px;
 }
-.heading{
-    text-align: center;
-    line-height: 12px;
-     font-size: 1rem;
-      margin-top: 15px;
-      letter-spacing: 1px;
-      color: darkblue;
-      font-weight: 600;
+.table_row{
+    display: flex;
+    justify-content: center;
+    width: 666px;
+    text-align: center;    
 }
-.main-text{
-    text-align: center;
-     margin-top:20px;
-     margin-bottom:25px;
-     color:#000077;
+#mid_row_1{
+    line-height: 11px;
+    margin-top: 20px;   
 }
-.details{
-    text-align: center;
+#mid_row_2{
+    margin-top: 20px;   
+}
+#mid_row_3{
+    margin-top: 30px;  
     font-size:1.2rem;color:darkblue;
-    font-family: Philosopher; 
-      /* background-image: url(./image/bg.png); */
+    font-family: Philosopher;
        background-repeat: no-repeat;
        background-size: contain;
        background-position: center;
 }
-.details span{
-    margin-right:19rem;
+.mid_row_3_data{
+padding: 9px 70px;
+word-wrap: break-word;
 }
 
-.bottom_area{
-    margin-top:50px;
+.table_row #congress{
+    margin-right:19rem;
 }
-.bottom_area img{
-    width: 100px;
-    height: 100px;
-    margin-right: 100px;
+.mid_para{
+    font-size: 0.9rem;
 }
-.bottom_area img.second-sig{
-    margin-left: 95px;
+
+#mid_row_4{
+    margin-left: -46px;
+    margin-top: 9px;
 }
-.bottom_left{
-    text-align: right;
-    padding-right: 80px;
+#mid_row_5{
+    margin-top:-43px;
 }
-.bottom_left span{
-    font-size: 1rem;
-    color:darkblue;
-    font-weight:600;
+#mid_row_6{
+    padding-right: 103px;
 }
-.bottom_left p{
-    font-size: 1rem;
-    color: #000077;
-    font-weight:700;
+
+.button{
+    position: absolute;
+    left: 82px;
+    top: 30px;
 }
-.bottom_right{
-    text-align: left;
-    padding-left: 80px;
+.congress{
+    display: block;
+    text-align: center;
 }
-.bottom_right span{
-    font-size: 1rem;
-    color:darkblue;
-    font-weight:600;
-}
-.bottom_right p{
-    font-size: 1rem;
-    color: #000077;
-    font-weight:700;   
-}
-.last_line p{
-    font-size: 1rem;
-    color:#000077;
-    font-weight:700;
-}
+
