@@ -6,10 +6,11 @@ import ReactToPdf from "react-to-pdf";
 import '../../css/certificatepageui.css'
 import bg from '../../images/bg.png'
 import Layer from '../../images/Layer.png'
-import Rope from '../../images/Rope.png'
+import background_img from '../../images/background_img.png'
 import certificate_logo from '../../images/certificate_logo.jpg'
 import Signature1 from '../../images/certificatesignature1.png'
 import Signature2 from '../../images/certificatesignature2.png'
+import Pdf from "react-to-pdf";
 
 import INCA from '../../images/INCA.jpg'
 
@@ -31,8 +32,8 @@ const Certificate = () => {
     }, [param.id])
 
     let getUserInfoForCertificate = async (id) => {
-         let url = `http://144.91.110.221:4801/api/generate_certificate/${id}`;
-        //let url = `http://localhost:4801/api/generate_certificate/${id}`;
+        let url = `http://144.91.110.221:4801/api/generate_certificate/${id}`;
+       // let url = `http://localhost:4801/api/generate_certificate/${id}`;
         try {
             let response = await axios.get(url);
             setUserInfo(response.data[0])
@@ -41,85 +42,83 @@ const Certificate = () => {
         }
     }
 
+    const ref = React.createRef();
+
     return (
         <>
-            <ReactToPdf targetRef={ref} filename="certificate.pdf" options={options} >
-                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-            </ReactToPdf>
-            <div  ref={ref}>
-              
-                <div  class="border" style={{ backgroundImage: `url(${Rope})` }}>
 
-                    <section class="frame">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-4 col-4">
-                                    <div class="logo">
-                                        {/* <img src="./image/INCA.jpg" width="70px" height="80px"/> */}
-                                        <img src={INCA} width="70px" height="80px"/> 
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-4">
-                                    <div class="content">
-                                        <p>42<sup>ND</sup> INTERNATIONAL CONGRESS ON<br/>DIGITAL CARTOGRAPHY
-                                            TO <br/>HARNESS BLUE ECONOMY</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-4 p-0">
-                                        {/* <img src="./image/certificate_logo.jpg" width="70px" height="80px"/> */}
-                                        <img src={certificate_logo} width="70px" height="80px"/> 
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="heading">
-                                            <p>Organised by</p>
-                                            <p>Indian National Cartographic Association</p>
-                                            <p>&</p>
-                                            <p>National Hydrographic Office, Dehradun </p><br/>
-                                                <p>09-11<sup>th</sup> November 2022 </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="main-text">
-                                            <img src={Layer} width="30%" height="20%"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mx-auto">
-                                        <div class="details"  style={{ backgroundImage: `url(${bg})` }}>
-                                            <p><i>This is to certify that Prof./Dr./Mr./Ms. <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo?.userName}</span></i></p>
-                                            <p><i> of <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo && userInfo.designation ? userInfo.designation : "------------" }</span> Attended / Chaired</i></p>
-                                            <p><i>a session / Presented paper titled <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo && userInfo.abstractPaperName ? userInfo.abstractPaperName : "------------" }</span></i></p>
-                                            <p><i>....................................in the 42<sup>th</sup> INCA International</i></p>
-                                            <span><i>Congress 2022.</i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row bottom_area">
-                                    <div class="col-md-6 col-6 text-end">
-                                        <img src={Signature1} className="img-fluid"></img>
-                                        <div class="bottom_left">
-                                            <span>Capt Kuldeep Singh</span>
-                                            <p>(Organising Secretary)</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-6">
-                                        
-                                    <img src={Signature2} className="img-fluid second-sig"></img>
-                                        <div class="bottom_right">
-                                            <span>Cmde Peush Pawsey</span>
-                                            <p>(Chairman)</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 text-center mt-5">
-                                        <div class="last_line">
-                                            <p>Date:11<sup>th</sup> Nov 2022</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </section>
-                </div>
+            <div className="element-to-print" ref={ref}>
+                <Pdf targetRef={ref} filename="cenaze-yardimlasma.pdf">
+                    {({ toPdf }) => (
+                        <button className="button" onClick={toPdf}>
+                            Generate Pdf
+                        </button>
+                    )}
+                </Pdf>
+                <section  class="frame" style={{ backgroundImage: `url(${background_img})`}}>
+                    <table class="table_content" id="top_row">
+                        <tbody>
+                            <tr class="table_row">
+                                <td>
+                                    <img src={INCA} width="70px" height="80px" />
+                                </td>
+                                <td class="content">
+                                    <p>42<sup>ND</sup> INTERNATIONAL CONGRESS ON<br />DIGITAL CARTOGRAPHY
+                                        TO <br />HARNESS BLUE ECONOMY</p>
+                                </td>
+                                <td>
+                                    <img src={certificate_logo} width="70px" height="80px" />
+                                </td>
+                            </tr>
+
+                            <tr class="table_row" id="mid_row_1">
+                                <td>
+                                    <p>Organised by</p>
+                                    <p>Indian National Cartographic Association</p>
+                                    <p>&</p>
+                                    <p>National Hydrographic Office, Dehradun</p>
+                                    <p>09-11<sup>th</sup> November 2022</p>
+                                </td>
+                            </tr>
+                            <tr class="table_row" id="mid_row_2">
+                                <td class="logo"><img src={Layer} width="35%" height="100%" /></td>
+                            </tr>
+                            <tr class="table_row" id="mid_row_3" style={{ backgroundImage: `url(${bg})` }}>
+                                <td className="mid_row_3_data">
+                                    <p className="mid_para"><i>This is to certify that Prof./Dr./Mr./Ms. <span style={{fontSize:"1.1rem", marginRight: 0 }}>{userInfo?.userName}</span></i></p>
+                                    <p className="mid_para"><i> of <span style={{fontSize:"1.1rem", marginRight: 0 }}>{userInfo && userInfo.designation ? userInfo.designation : "------------"}</span></i></p>
+                                    <p className="mid_para"><i>Presented paper titled <span style={{ fontSize:"1.1rem", marginRight: 0 }}>{userInfo && userInfo.abstractPaperName ? userInfo.abstractPaperName : "------------"}</span></i></p>
+                                    <span className="congress"><i>in the 42<sup>th</sup> INCA International Congress 2022.</i></span>
+                                   
+                                </td>
+                            </tr>
+                            <tr class="table_row" id="mid_row_4">
+                                <td>
+                                    <img src={Signature2} width="30%" height="65%" />
+                                </td>
+                                <td>
+                                    <img src={Signature1} width="30%" height="65%" />
+                                </td>
+                            </tr>
+                            <tr class="table_row" id="mid_row_5">
+                                <td id="mid_row_6">
+                                    <span>Capt Kuldeep Singh</span>
+                                    <p>(Organising Secretary)</p>
+                                </td>
+                                <td >
+                                    <span>Cmde Peush Pawsey</span>
+                                    <p>(Chairman)</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table_row">
+                                    <p>Date:11<sup>th</sup> Nov 2022</p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </section>
             </div>
 
         </>
