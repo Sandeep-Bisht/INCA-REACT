@@ -1,11 +1,10 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as CONSTANTS from "./constant";
 import axios from "axios";
-import { GetHeaders } from "../../utils";
+import { GetHeaders, baseUrl } from "../../utils";
 
 export function* transactionDetailsHandler(action) {   
-    // let url = "http://144.91.110.221:4801/api/savepaymentdetails"
-    let url="http://144.91.110.221:4801/api/savepaymentdetails";
+    let url=`${baseUrl}savepaymentdetails`;
     try {    
       const response = yield call(axios.post, url, action.payload, GetHeaders());
       yield put({

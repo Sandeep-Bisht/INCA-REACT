@@ -1,10 +1,11 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as CONSTANT from "./constant";
 import axios from "axios";
+import { baseUrl } from "../../utils";
 
 export function* appRegistrationHandler(action) {
-  let url = "http://144.91.110.221:4801/api/signup";
-  //let url = "http://localhost:4801/api/signup";
+
+  let url = `${baseUrl}signup`;
   try {
     const response = yield call(axios.post, url, action.payload);
     yield put({

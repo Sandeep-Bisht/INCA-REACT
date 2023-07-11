@@ -22,23 +22,11 @@ export const Card = (props) => {
                                                 <p className="counter-card-title">{item.type}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                     </div>
                                 )
-                            })
+                            }) 
                         }
-                        {/* {
-                        data && data.length > 0 &&
-                         <div className="col-md-3">
-                        <div className="conter-card four">
-                            <div className="left"><i class="fa-solid fa-file-export"></i></div>
-                            <div className="right">
-                                <p className="counter-card-number">0</p>
-                                <p className="counter-card-title">Paper Submission</p>
-                            </div>
-                        </div>
-                        </div>
-                        }
- */}
+                    
 
                     </div>
 

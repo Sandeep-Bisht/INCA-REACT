@@ -1,10 +1,10 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as CONSTANTS from "./constant";
 import axios from "axios";
+import { baseUrl } from "../../utils";
 
 export function* approveFileSubmission(action) {
-    let url = "http://144.91.110.221:4801/api/approvefilesubmission";
-//let url = "http://localhost:4801/api/approvefilesubmission";
+let url = `${baseUrl}approvefilesubmission`;
   try {
     const response = yield call(axios.put, url, action.payload);
     yield put({

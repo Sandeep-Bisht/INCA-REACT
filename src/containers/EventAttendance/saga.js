@@ -1,11 +1,11 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as CONSTANT from "./constant";
 import axios from "axios";
-import { GetHeaders } from "../../utils";
+import { GetHeaders, baseUrl } from "../../utils";
 
 
 export function* getUserInformation(action) {
-  let url =  `http://144.91.110.221:4801/api/getuserinfoforattendance/${action.id}`;
+  let url =  `${baseUrl}getuserinfoforattendance/${action.id}`;
   try {
     const response = yield call(axios.get, url, GetHeaders());
     yield put({
@@ -21,7 +21,7 @@ export function* getUserInformation(action) {
 }
 
 export function* markAttendance(action) {
-  let url = "http://144.91.110.221:4801/api/markattendances";
+  let url = `${baseUrl}markattendances`;
 
   try {
     const response = yield call(axios.post, url, action.payload, GetHeaders());

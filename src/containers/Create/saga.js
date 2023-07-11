@@ -1,11 +1,10 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as CONSTANTS from "./constant";
 import axios from "axios";
-import { GetHeaders } from "../../utils";
+import { GetHeaders, baseUrl } from "../../utils";
 
 export function* saveRegisterUserData(action) {
-  let url = "http://144.91.110.221:4801/api/saveregistreduser";
-  //let url = "http://localhost:4801/api/saveregistreduser";
+  let url = `${baseUrl}saveregistreduser`;
    
   
   try {    
@@ -24,9 +23,7 @@ export function* saveRegisterUserData(action) {
 }
 
 export function* updateRegisteredUser(action) {
-  let url = `http://144.91.110.221:4801/api/updateregisteruserinfo/${action.id}`;
-  // let url = "http://localhost:4801/api/saveregistreduser";
-  //let url = `http://localhost:4801/api/updateregisteruserinfo/${action.id}`;
+  let url = `${baseUrl}updateregisteruserinfo/${action.id}`;
   try {
     const response = yield call(axios.put, url, action.payload, GetHeaders());
     yield put({
@@ -43,7 +40,7 @@ export function* updateRegisteredUser(action) {
 
 export function* getLoggedInUser(action) {
   
-  let url = `http://144.91.110.221:4801/api/getsaveregistreduserinfo/${action.id}`;
+  let url = `${baseUrl}getsaveregistreduserinfo/${action.id}`;
   try {
     const response = yield call(axios.get, url, GetHeaders());
     yield put({

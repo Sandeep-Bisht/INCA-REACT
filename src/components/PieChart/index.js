@@ -46,7 +46,7 @@ let { data } = props
                                         </div>
                                     </div>
                                 )
-                            })
+                            }) 
                         }
                     </div>
                 </div>

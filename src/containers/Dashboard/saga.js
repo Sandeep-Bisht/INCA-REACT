@@ -1,11 +1,10 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as CONSTANTS from "./constant";
 import axios from "axios";
-import { GetHeaders } from "../../utils";
+import { GetHeaders, baseUrl } from "../../utils";
 
 export function* getCounters(action) {
-  let url = "http://144.91.110.221:4801/api/counters";
-  //let url = "http://localhost:4801/api/counters";
+  let url = `${baseUrl}counters`;
   try {
     const response = yield call(axios.get, url, GetHeaders());
     yield put({ type: CONSTANTS.GET_COUNTERS_SUCCESS, 

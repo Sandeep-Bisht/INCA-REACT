@@ -1,10 +1,10 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as CONSTANTS from "./constant";
 import axios from "axios";
+import { baseUrl } from "../../utils";
 
 export function* userForgotPassword(action) {
- // let url = "http://144.91.110.221:4801/api/login";
- let url = "http://144.91.110.221:4801/api/forgot";
+ let url = `${baseUrl}forgot`;
   try {
     const response = yield call(axios.put, url, {userEmail:action.userEmail});
     yield put({ type: CONSTANTS.FORGOT_PASSWORD_SUCCESS, 

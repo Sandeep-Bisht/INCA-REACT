@@ -1,11 +1,11 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as CONSTANTS from './constant'
 import axios from "axios";
-import { GetHeaders } from "../../utils";
+import { GetHeaders, baseUrl } from "../../utils";
 
 export function* getAllAbstractData(action) {
 
-     let url = "http://144.91.110.221:4801/api/getabstractpaper";
+     let url = `${baseUrl}getabstractpaper`;
     try {
       const response = yield call(axios.get, url, GetHeaders());
       yield put({

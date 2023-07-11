@@ -97,7 +97,7 @@ const UserAbstractList = () => {
           ></Column> */}
         </DataTable>
       </div>
-          { userAbstractList && userAbstractList.length >0 && userAbstractList[0].paperApproveStatus && (
+          { userAbstractList && userAbstractList.length > 0 && userAbstractList[0].paperApproveStatus && (
             <>
             <div>
             <button

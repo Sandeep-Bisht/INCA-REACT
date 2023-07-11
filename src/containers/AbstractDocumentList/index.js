@@ -6,7 +6,7 @@ import * as ACTIONS from "./action";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
-import { GetHeaders } from '../../utils'
+import { GetHeaders, baseUrl } from '../../utils'
 import { Button } from "primereact/button";
 import * as Loader from "react-loader-spinner";
 import "../../css/registred.css";
@@ -136,7 +136,7 @@ const AbstractDocumentList = () => {
   let downloadAbstractDataExcel = () => {
     try {
        axios({
-        url: 'http://144.91.110.221:4801/api/download_abstarct_list',
+        url: `${baseUrl}download_abstarct_list`,
         method: 'GET',
         responseType: 'blob', 
       }).then((response) => {

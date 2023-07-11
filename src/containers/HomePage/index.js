@@ -42,7 +42,7 @@ const HomePage = () => {
   let interval = useRef();
 
   const startTimer = () => {
-    const countdownDate = new Date("nov 9, 2022 00:00:00").getTime();
+    const countdownDate = new Date("nov 9, 2023 00:00:00").getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();
@@ -184,7 +184,7 @@ const HomePage = () => {
   <div className="row">
             <div className="col-md-12">
               <div className="abstract-submission-date">
-            <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is 20<sup>th</sup> September 2022"</b></p></marquee>
+            <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is 20<sup>th</sup> September 2023"</b></p></marquee>
             </div>
             </div>
           </div>
