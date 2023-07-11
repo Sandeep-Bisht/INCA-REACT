@@ -68,7 +68,7 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">EVENT DETAILS</h3>
                   <p className="common-para">
-                    09 November - 11 November 2022 Starts 09:00 am to 06:00 pm
+                    09 November - 11 November 2023 Starts 09:00 am to 06:00 pm
                   </p>
                 </div>
               </div>

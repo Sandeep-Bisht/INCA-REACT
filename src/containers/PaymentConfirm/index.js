@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { GetHeaders } from "../../utils";
+import { GetHeaders, baseUrl } from "../../utils";
 import { useNavigate } from "react-router-dom";
 
 const PaymentConfirm = (props) => {
@@ -19,8 +19,7 @@ const PaymentConfirm = (props) => {
   } = props.userInformation;
 
   let paymentHandler = async (registrationNumber) => {
-   let url = `http://144.91.110.221:4801/api/update_transction_details/${registrationNumber}`;
-  // let url = `http://localhost:4801/api/update_transction_details/${registrationNumber}`;
+    let url = `${baseUrl}update_transction_details/${registrationNumber}`;
     try {
       let response = await axios.get(url, GetHeaders());
       if(response && response.data && response.data.message){

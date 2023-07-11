@@ -10,6 +10,7 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import * as ACTIONS from "./action";
 import "../../css/registred.css";
+import { baseUrl } from "../../utils";
 
 const AllRegistration = () => {
   const navigate = useNavigate();
@@ -155,8 +156,8 @@ const AllRegistration = () => {
 
   let downloadStudentDataExcel = () => {
     try {
-      axios({
-        url: 'http://144.91.110.221:4801/api/downloadexcel',
+       axios({
+        url: `${baseUrl}downloadexcel`,
         method: 'GET',
         responseType: 'blob',
       }).then((response) => {

@@ -9,7 +9,7 @@ import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import PaymentInfo from "../PaymentInfo";
 import PaymentConfirm from "../PaymentConfirm";
-import { countries } from "../../utils";
+import { baseUrl, countries } from "../../utils";
 import * as ACTIONS from "./action";
 
 const obj = {
@@ -512,7 +512,7 @@ const CreateForm = (props) => {
     }
 
     // Make API call to the serverless API
-    let url = "http://144.91.110.221:4801/api/payments";
+    let url = `${baseUrl}payments`;
     let data = await axios.post(url);
 
     var options = {

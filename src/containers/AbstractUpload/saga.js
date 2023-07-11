@@ -1,11 +1,10 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as CONSTANTS from './constant'
 import axios from "axios";
-import { GetHeaders } from "../../utils";
+import { GetHeaders, baseUrl } from "../../utils";
 
 export function* uploadAbstractFile(action) {
-   let url = "http://144.91.110.221:4801/api/uploaddocument";
-  // let url = "http://localhost:4801/api/uploaddocument";
+  let url =`${baseUrl}uploaddocument`;
   try {
     const response = yield call(axios.post, url, action.payload, GetHeaders());
     yield put({
@@ -21,7 +20,7 @@ export function* uploadAbstractFile(action) {
 }
 
 export function* saveAbstractData(action) {
-     let url = "http://144.91.110.221:4801/api/saveabstractpaper";
+     let url = `${baseUrl}saveabstractpaper`;
     // let url = "http://localhost:4801/api/saveabstractpaper";
     try {
       const response = yield call(axios.post, url, action.payload, GetHeaders());

@@ -4,6 +4,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
+import { baseUrl } from "../../utils";
 
 const ExhibitorList = () => {
   const [exhibitorList, setExhibitorList] = useState();
@@ -27,7 +28,7 @@ const ExhibitorList = () => {
 
   let getExhibitorFormData = async () => {
     //setLoading(true)
-    let url = `http://144.91.110.221:4801/api/getexhibitor`;
+    let url = `${baseUrl}getexhibitor`;
     try {
       let response = await axios.get(url);
       setExhibitorList(response.data);

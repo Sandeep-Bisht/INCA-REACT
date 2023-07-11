@@ -15,6 +15,7 @@ import axios from "axios";
 import { Button } from "primereact/button";
 import * as Loader from "react-loader-spinner";
 import "../../css/registred.css";
+import { baseUrl } from "../../utils";
 
 const FullPaperList = () => {
   const state = useSelector((state) => state.GetFullPaperListReducer);
@@ -185,8 +186,7 @@ const FullPaperList = () => {
   let downloadFullPaperDataExcel = () => {
     try {
       axios({
-        url: "http://144.91.110.221:4801/api/download_fullPaper_list",
-        // url: 'http://localhost:4801/api/download_fullPaper_list',
+        url: `${baseUrl}download_fullPaper_list`,
         method: "GET",
         responseType: "blob",
       }).then((response) => {

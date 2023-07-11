@@ -4,6 +4,7 @@ import "react-phone-input-2/lib/style.css";
 import { Header } from '../../components/Header';
 import axios from "axios"
 import "../../css/sponsor.css";
+import { baseUrl } from '../../utils';
 
 function ExhibitorForm() {
   const [exhibitorPayload, setExhibitorPayload] = useState(
@@ -30,7 +31,7 @@ function ExhibitorForm() {
     setLoading(true)
     e.preventDefault()
     exhibitorPayload.mobile = mobile;
-    let url = `http://144.91.110.221:4801/api/exhibitor`
+    let url = `${baseUrl}exhibitor`
         try {
           let response = await axios.post(url, exhibitorPayload);
           setMessage(response.data.message)
