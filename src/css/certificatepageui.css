@@ -1,0 +1,80 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.frame{
+    width:850px;
+    height: 1000px;
+    display: block;
+    justify-content: center;
+    padding:90px 91px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: relative;
+    right: 25px;
+  
+}
+.table_content{
+    font-size: 1rem;
+    letter-spacing: 1px;
+     font-weight: 700; 
+     color: darkblue;
+}
+#top_row{
+    margin-top: 40px;
+}
+.table_row{
+    display: flex;
+    justify-content: center;
+    width: 666px;
+    text-align: center;    
+}
+#mid_row_1{
+    line-height: 11px;
+    margin-top: 20px;   
+}
+#mid_row_2{
+    margin-top: 20px;   
+}
+#mid_row_3{
+    margin-top: 30px;  
+    font-size:1.2rem;color:darkblue;
+    font-family: Philosopher;
+       background-repeat: no-repeat;
+       background-size: contain;
+       background-position: center;
+}
+.mid_row_3_data{
+padding: 9px 70px;
+word-wrap: break-word;
+}
+
+.table_row #congress{
+    margin-right:19rem;
+}
+.mid_para{
+    font-size: 0.9rem;
+}
+
+#mid_row_4{
+    margin-left: -46px;
+    margin-top: 9px;
+}
+#mid_row_5{
+    margin-top:-43px;
+}
+#mid_row_6{
+    padding-right: 103px;
+}
+
+.button{
+    position: absolute;
+    left: 82px;
+    top: 30px;
+}
+.congress{
+    display: block;
+    text-align: center;
+}
+

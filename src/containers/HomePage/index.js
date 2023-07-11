@@ -29,7 +29,13 @@ import inca6 from "../../images/inca-image-6.JPG";
 import inca7 from "../../images/inca-image-7.JPG";
 import inca8 from "../../images/inca-image-8.JPG";
 import inca9 from "../../images/inca-image-9.jpg";
+import instruction from '../../images/instructions.jpg';
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
+import Instructions from "../../SampleFiles/instructions_for_participants.pdf";
+import ThirdSercular from '../../SampleFiles/Second circular_20 sep 22.pdf';
+import FinalSercular from '../../SampleFiles/Final Circular.pdf';
+import DraftTechnical from '../../SampleFiles/Draft Technical Session07 nov.pdf';
+import BoardList from '../../images/board.png';
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -179,17 +185,21 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <section className="abstract-date">
+          {/* <section className="abstract-date">
   <div className="container-fluid">
   <div className="row">
             <div className="col-md-12">
               <div className="abstract-submission-date">
+<<<<<<< HEAD
             <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is 20<sup>th</sup> September 2023"</b></p></marquee>
+=======
+            <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2022"</b></p></marquee>
+>>>>>>> d1ba045977921e7f9e959032f781dc521d4b0986
             </div>
             </div>
           </div>
   </div>
-</section>
+</section> */}
         </div>
       </div>
 
@@ -2309,12 +2319,43 @@ Renowned national and international scholars, scientists, academicians, planners
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h2 className="common-heading">Announcements</h2>
+            <h2 className="common-heading">Announcements</h2>
             </div>
           </div>
 
+         
           <div className="row">
-            <div className="col-lg-4">
+            <div className="col-lg-3">
+              <div className="blog-card">
+                
+                <a target="_blank" href={FinalSercular}>
+                  <div className="blog-card-pic">
+                    <img src={Event_2} alt="Second-Circular"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    42<sup>nd</sup> INCA International Congress-Final Circular
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="blog-card">
+                
+                <a target="_blank" href={DraftTechnical}>
+                  <div className="blog-card-pic">
+                    <img src={Event_2} alt="Second-Circular"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    42<sup>nd</sup> INCA International Congress-Draft Technical Session
+                  </h3>
+                </div>
+              </div>
+            </div>  
+            <div className="col-lg-3">
               <div className="blog-card">
                 
                 <a target="_blank" href={SecondSercular}>
@@ -2325,6 +2366,53 @@ Renowned national and international scholars, scientists, academicians, planners
                 <div className="blog-card-content">
                   <h3>
                     42<sup>nd</sup> INCA International Congress-First Circular
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="blog-card">
+                
+                <a target="_blank" href={ThirdSercular}>
+                  <div className="blog-card-pic">
+                    <img src={Event_2} alt="Second-Circular"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    42<sup>nd</sup> INCA International Congress-Second Circular
+                  </h3>
+                </div>
+              </div>
+            </div>          
+          </div>
+          <div className="row">
+            <div className="col-lg-3">
+              <div className="blog-card">
+                
+                <a target="_blank" href='/boardlists'>
+                  <div className="blog-card-pic">
+                    <img src={BoardList} alt="Second-Circular"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    Broad Programme For 42<sup>nd</sup> International INCA Congress
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="blog-card">
+                
+                <a target="_blank" href={Instructions}>
+                  <div className="blog-card-pic">
+                    <img src={instruction} alt="instructions"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    Instructions For Participants
                   </h3>
                 </div>
               </div>

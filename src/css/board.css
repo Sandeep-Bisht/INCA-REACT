@@ -1,0 +1,57 @@
+.board-programme-section
+{
+    background-color: #f2f2f287;
+}
+.board-programme-section .board-lists-box
+{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+.board-programme-section .board-heading h1
+{
+    font-size: 30px;
+    color: #212121;
+    font-weight: 700;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 0.25px;
+    text-align: center;
+}
+.board-programme-section .board-lists-box table
+{
+    display: flex;
+    justify-content: center;
+}
+.board-programme-section .board-timings h2
+{
+    font-size: 20px;
+    font-weight: 600;
+    color: #212121;
+    text-decoration: underline;
+    text-align: center;
+    padding: 30px 0 2px 0;
+}
+.board-programme-section .board-timings tr
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+.board-programme-section .board-timings td
+{
+    padding: 0 16px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+/* responsive css */
+
+@media only screen and (max-width:507px) {
+    .board-programme-section .board-timings td
+    {
+        padding: 0 5px;
+    }
+}

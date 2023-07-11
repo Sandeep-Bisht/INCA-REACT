@@ -1,0 +1,56 @@
+.border
+{
+    background: #f8f9fa;
+}
+.border .box
+{   
+    margin-top: 40px;
+    padding: 50px;
+    box-shadow: 0 15px 30px 0 rgb(0 0 0 / 10%);
+    margin-bottom: 40px;
+    
+}
+.border .box h2
+{
+    font-family: Abyssinica SIL;
+}
+.border .box .information
+{
+    font-family: "Roboto",sans-serif;
+}
+.border .box .information td
+{
+    padding: 10px 0;
+}
+.border .table>:not(:first-child)
+{
+    border-top: none !important;
+}
+.border .box .information p
+{
+    margin-top: 30px;
+    font-size: 22px;
+    
+}
+.border .box .information span
+{
+    font-size: 20px;
+    margin-left: 20px;
+}
+/* ---------media query--------- */
+@media (max-width: 575.98px){     
+    .border .box .information p{
+        font-size: 17px;
+    }
+
+    .border .box .information span{
+        font-size: 15px;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 475.98px){
+    .border .box{
+        padding:40px 20px;
+    }
+}
