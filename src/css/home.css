@@ -50,11 +50,17 @@
 }
 .home-banner .right .theme-color
 {
-    color: #0096FF;
-    font-size: 30px;
+    
+    font-size: 24px;
     font-weight: 600;
-    text-transform: uppercase;
+    
 }
+.home-banner .right .head-text{
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1;
+}
+
 .home-banner .right .banner-title .banner-small
 {
     font-size: 38px;
@@ -923,7 +929,7 @@ padding: 50px 40px;
 
 @media only screen and (max-width : 1399px){
    .home-banner .right .banner-title .banner-small{
-        font-size:33px;
+        font-size:35px;
     }
     .home-banner .right .banner-title{
         font-size:46px;

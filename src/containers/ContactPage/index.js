@@ -44,9 +44,8 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">ADDRESS</h3>
                   <p className="common-para">
-                  <b> National Hydrographic Office </b> <br />
-                      107-A, Rajpur Rd, Post Box – 75,<br/> Dehradun – 248001,
-                      Uttarakhand, India
+                  <b> Regional Remote Sensing Center-West National Remote Sensing Center(NRSC),ISRO </b> <br />
+                       Jodhpur – 342005,
                   </p>
                 </div>
               </div>
@@ -57,7 +56,7 @@ const Contact = () => {
                   <i className="fa-solid fa-file-lines"></i>
                   <h3 className="h2">CONTACT</h3>
                   <p className="common-para">
-                    Phone No: +91 135 2746290 <br /> Email: info@42inca.org
+                    Phone No: +91 291 2796395 <br /> Email: info@43inca.org
                   </p>
                 </div>
               </div>
@@ -68,7 +67,7 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">EVENT DETAILS</h3>
                   <p className="common-para">
-                    09 November - 11 November 2023 Starts 09:00 am to 06:00 pm
+                    06 November - 08 November 2023 Starts 09:00 am to 06:00 pm
                   </p>
                 </div>
               </div>

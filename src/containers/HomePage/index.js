@@ -48,7 +48,7 @@ const HomePage = () => {
   let interval = useRef();
 
   const startTimer = () => {
-    const countdownDate = new Date("nov 9, 2023 00:00:00").getTime();
+    const countdownDate = new Date("nov 06, 2023 00:00:00").getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();
@@ -115,13 +115,20 @@ const HomePage = () => {
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
                   <span className="banner-small text-white">
-                    42<sup>nd</sup> INCA International Congress
+                    43<sup>rd</sup> INCA International Congress on
                   </span>
 
                   <span className="theme-color">
-                    Theme : "Digital Cartography To Harness Blue Economy"
+                    Emerging Trends in Digital Cartography For
                   </span>
-
+                  <p className="head-text">
+                    Sustainable Ecosystems and 
+                  </p>
+                  <p className="head-text">
+                    Geospatial Economy
+                  </p>
+                  
+                  
                   {/* <span className="banner-last">Event-2022</span> */}
                 </p>
                 <div className="banner-bottom"></div>
@@ -225,7 +232,7 @@ const HomePage = () => {
             <div className="col-md-12 text-center">
               <div className="welcome-text pt-4">
                 <p className="common-para text-justify">
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The National Hydrographic Office,  Dehradun, India, has the honour of inviting all professionals interested in the field of Cartography/GIS and allied subjects as well as various disciplines of their application viz. Hydrography, Geography, Geology, Geophysics, Oceanography, Geo- informatics, Artificial intelligence, Hydro-meteorology, Marine Geomorphology, Coastal Resource Management and Environmental Planning etc. to participate in the forthcoming 42nd International Conference of Indian National Cartographic Association (INCA), being held at Dehradun, Uttarakhand, during 09 -11 November 2022.
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The National Hydrographic Office,  Dehradun, India, has the honour of inviting all professionals interested in the field of Cartography/GIS and allied subjects as well as various disciplines of their application viz. Hydrography, Geography, Geology, Geophysics, Oceanography, Geo- informatics, Artificial intelligence, Hydro-meteorology, Marine Geomorphology, Coastal Resource Management and Environmental Planning etc. to participate in the forthcoming 43rd International Conference of Indian National Cartographic Association (INCA), being held at Dehradun, Uttarakhand, during 06 -08 November 2022.
 Renowned national and international scholars, scientists, academicians, planners are expected to take part in this conference. It shall be profoundly advantageous for all participants including students by gaining from enriched experience of the eminent speakers from various fields of specialisations.
                 </p>
               </div>
@@ -247,10 +254,8 @@ Renowned national and international scholars, scientists, academicians, planners
                 <div className="right">
                   <h2 className="h2">Where is the Event</h2>
                   <p className="common-para">
-                    <b> National Hydrographic Office </b> <br />
-                    107-A, Rajpur Rd, <br />
-                    Post Box – 75,
-                    <br /> Dehradun – 248001, Uttarakhand, India
+                    <b> Regional Remote Sensing Center-West National Remote Sensing Center (NRSC),ISRO</b> <br />
+                    Jodhpur – 342005
                   </p>
                 </div>
               </div>
@@ -265,8 +270,8 @@ Renowned national and international scholars, scientists, academicians, planners
                 <div className="right">
                   <h2 className="h2">When is the Event</h2>
                   <p className="common-para">
-                    09 November 2022 <br /> 10 November 2022 <br /> 11 November
-                    2022
+                    06 November 2023 <br /> 07 November 2023 <br /> 08 November
+                    2023
                   </p>
                 </div>
               </div>
@@ -680,9 +685,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Vice Admiral <br /> Adhir Arora , NM
+                      Dr. Prakash Chauhan,  <br /> NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">PRESIDENT, INCA</span>
+                      <span className="speaker-post">Patron</span>
                     </div>
                   </div>
                 </div>
@@ -695,9 +700,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Rear Admiral <br /> Lochan Singh Pathania
+                      Dr. S. K. Srivastav, <br />  NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">PATRON</span>
+                      <span className="speaker-post">Chairman</span>
                     </div>
                   </div>
                 </div>
@@ -710,9 +715,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Cmde Peush Pawsey
+                       Dr. A. K. Bera, RRSC-West, NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">CHAIRMAN</span>
+                      <span className="speaker-post">Organising Secretary</span>
                     </div>
                   </div>
                 </div>
@@ -725,9 +730,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Captain Kuldeep Singh
+                       Dr. P. C. Moharana, ICAR-CAZRI
                       </h3>
-                      <span className="speaker-post">ORGANISING SECRETARY</span>
+                      <span className="speaker-post">Co-Organising Secretary</span>
                     </div>
                   </div>
                 </div>
@@ -740,9 +745,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Rajesh Kumar Khatri
+                      Shri Sagar S. Salunkhe, RRSC-West, NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">LOC MEMBER</span>
+                      <span className="speaker-post">Treasurer</span>
                     </div>
                   </div>
                 </div>
@@ -755,9 +760,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. R A Prasad
+                      Dr. Dandabathula Giribabu, RRSC-West, NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">LOC MEMBER</span>
+                      <span className="speaker-post">Editor</span>
                     </div>
                   </div>
                 </div>
@@ -770,9 +775,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. B K Ramprasad
+                      Shri Gaurav Kumar, RRSC-West, NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">LOC MEMBER</span>
+                      <span className="speaker-post">Event Secretariat Focal Point</span>
                     </div>
                   </div>
                 </div>
@@ -2335,7 +2340,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Congress-Final Circular
+                    43<sup>rd</sup> INCA International Congress-Final Circular
                   </h3>
                 </div>
               </div>
@@ -2350,7 +2355,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Congress-Draft Technical Session
+                    43<sup>rd</sup> INCA International Congress-Draft Technical Session
                   </h3>
                 </div>
               </div>
@@ -2365,7 +2370,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Congress-First Circular
+                    43<sup>rd</sup> INCA International Congress-First Circular
                   </h3>
                 </div>
               </div>
@@ -2380,7 +2385,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Congress-Second Circular
+                    43<sup>rd</sup> INCA International Congress-Second Circular
                   </h3>
                 </div>
               </div>
@@ -2397,7 +2402,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    Broad Programme For 42<sup>nd</sup> International INCA Congress
+                    Broad Programme For 43<sup>rd</sup> International INCA Congress
                   </h3>
                 </div>
               </div>
@@ -2463,9 +2468,8 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="contact-venue">
                     <h3>EVENT VENUE :</h3>
                     <p className="common-para mb-0">
-                      <b> National Hydrographic Office </b> <br />
-                      107-A, Rajpur Rd, Post Box – 75,
-                      <br /> Dehradun – 248001, Uttarakhand, India
+                      <b> Regional Remote Sensing Center-west <br/> National Remote Sensing Center (NRSC),ISRO </b> <br />
+                      Jodhpur– 342005
                     </p>
                   </div>
                 </div>
@@ -2476,7 +2480,7 @@ Renowned national and international scholars, scientists, academicians, planners
                   </div>
                   <div className="contact-venue">
                     <h3>Email :</h3>
-                    <p className="common-para mb-0">info@42inca.org</p>
+                    <p className="common-para mb-0">info@43inca.org</p>
                   </div>
                 </div>
 

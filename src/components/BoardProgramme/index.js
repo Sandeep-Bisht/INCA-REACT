@@ -11,7 +11,7 @@ function index() {
                     <div className='board-lists-box'>
                         <div>
                     <div className='board-heading'>
-                        <h1>Broad Programme for 42<sup>nd</sup> International inca <br/> congress</h1>
+                        <h1>Broad Programme for 43<sup>rd</sup> International inca <br/> congress</h1>
                     </div>
                     <table>
                         <div className='board-timing-boxes'>
