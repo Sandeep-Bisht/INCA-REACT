@@ -50,7 +50,7 @@ const AllRegistration = () => {
   }
 
   let sendEmailToUsers = async(email) => {
-    let url = `http://localhost:4801/api/sendEmailToAllUsers/${email}`;
+    let url = `http://144.91.110.221:4801/api/sendEmailToAllUsers/${email}`;
     //let url = `http://localhost:4801/api/generate_certificate/${id}`;
     try {
         let response = await axios.get(url);
