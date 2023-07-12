@@ -45,8 +45,8 @@ export const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a className="nav-link text-white ps-0" target="_blank" href = "https://hydrobharat.gov.in/">
-                      NHO Official Website
+                    <a className="nav-link text-white ps-0" target="_blank" href = "https://www.nrsc.gov.in/aboutus_campus_nrscrc/rrsc_west?language_content_entity=en">
+                      RRSC Official Website
                     </a>
                   </li>
                 </ul>

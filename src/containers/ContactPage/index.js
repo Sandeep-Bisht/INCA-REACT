@@ -44,8 +44,9 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">ADDRESS</h3>
                   <p className="common-para">
-                  <b> Regional Remote Sensing Center-West National Remote Sensing Center(NRSC),ISRO </b> <br />
-                       Jodhpur – 342005,
+                  <b> Regional Remote Sensing Center-West National Remote Sensing Center(NRSC),ISRO ISRO Complex, Bypass Road
+                    Sector 9, Kudi Bhagtasani Housing Board (KBHB) </b> <br />
+                     <b>Jodhpur – 342005,</b>
                   </p>
                 </div>
               </div>
@@ -56,7 +57,7 @@ const Contact = () => {
                   <i className="fa-solid fa-file-lines"></i>
                   <h3 className="h2">CONTACT</h3>
                   <p className="common-para">
-                    Phone No: +91 291 2796395 <br /> Email: info@43inca.org
+                    <b>Phone No: +91 291 2796395 </b><br /> <b>Email: info@43inca.org</b>
                   </p>
                 </div>
               </div>
@@ -67,7 +68,7 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">EVENT DETAILS</h3>
                   <p className="common-para">
-                    06 November - 08 November 2023 Starts 09:00 am to 06:00 pm
+                    <b>06 November - 08 November 2023 Starts 09:00 am to 06:00 pm</b>
                   </p>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 .common-redirect-banner {
-    background-image: url(../images/NHO-background.jpg);
+    background-image: url(../images/RCW_Building.jpg);
     background-size: cover;
     position: relative;
     padding: 125px 0;
@@ -41,7 +41,7 @@
     border: none;
    
     border-radius: 50%;
-    background-color: #eac600f7;
+    background-color: #111b69;
     color: #fff;
     display: inline-block;
     width: 100px;
