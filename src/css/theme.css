@@ -25,7 +25,7 @@
 .theme-section .paragraph-box .common-para
 {
   font-size: 33px;
-  color: #082ce1;
+  color: #f47216;
   text-transform: uppercase;
   line-height: 46px;
   font-weight: bold;
@@ -56,7 +56,7 @@
   z-index: -1;
   top: -11px;
   right: -12px;
-  background: #05a3dc;
+  background: #f47216;
   height: 40px;
   width: 40px;
   border-radius: 100%;

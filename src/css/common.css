@@ -61,11 +61,11 @@ h1,h2,h3,h4,h5,h6
 }
 .common-yellow-color
 {
-    color:#eac600f7;
+    color:#111b69;
 }
 .common-yellow-bg
 {
-    background:#eac600f7;
+    background: #1c1e6bf7;
 }
 .common-pre-heading{
     font-family: 'Poppins', sans-serif;
@@ -108,12 +108,12 @@ h1,h2,h3,h4,h5,h6
     font-weight: 400;
     padding: 10px 30px;
     color: #fff;
-    background: #eac600f7;
+    background: #111b69;
     text-decoration: none;
     border-radius: 25px;
     font-size: 15px;
     text-transform: uppercase;
-    border: 1px solid #eac600f7;
+    border: 1px solid #111b69;
     transition: .1s;
 
 }
@@ -129,8 +129,8 @@ h1,h2,h3,h4,h5,h6
     font-size: 14px;
 }
 .common-btn:hover{
-    background:#cfb211f7;
-    border: 1px solid #cfb211f7;
+    background: #f47216;
+    border: 1px solid #f47216;
    
 }
 .common-btn-transparent
@@ -139,8 +139,8 @@ h1,h2,h3,h4,h5,h6
   border:1px solid #fff;
 }
 .common-btn-transparent:hover{
-    background:#cfb211f7;
-    border: 1px solid #cfb211f7;
+    background:#f47216;
+    border: 1px solid #f47216;
 }
 .common-form-heading
 {
@@ -178,7 +178,7 @@ z-index: 10;
 }
 
 .header-wrapper.header-scrolled .nav-link {
-    color: #cfb211f7;
+    color: #1c1e6bf7;
 }
 .header-wrapper.header-scrolled .logo-text
 {
@@ -341,7 +341,7 @@ background-color:#fff;
 }
 .scrolled-link
 {
-    color:#eac600f7!important;
+    color:#1c1e6bf7!important;
 }
 
 .header-wrapper .navbar-brand

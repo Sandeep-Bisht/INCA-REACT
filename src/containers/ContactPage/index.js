@@ -44,9 +44,9 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">ADDRESS</h3>
                   <p className="common-para">
-                  <b> National Hydrographic Office </b> <br />
-                      107-A, Rajpur Rd, Post Box – 75,<br/> Dehradun – 248001,
-                      Uttarakhand, India
+                  <b> Regional Remote Sensing Center-West National Remote Sensing Center(NRSC),ISRO ISRO Complex, Bypass Road
+                    Sector 9, Kudi Bhagtasani Housing Board (KBHB) </b> <br />
+                     <b>Jodhpur – 342005,</b>
                   </p>
                 </div>
               </div>
@@ -57,7 +57,7 @@ const Contact = () => {
                   <i className="fa-solid fa-file-lines"></i>
                   <h3 className="h2">CONTACT</h3>
                   <p className="common-para">
-                    Phone No: +91 135 2746290 <br /> Email: info@42inca.org
+                    <b>Phone No: +91 291 2796395 </b><br /> <b>Email: info@43inca.org</b>
                   </p>
                 </div>
               </div>
@@ -68,7 +68,7 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">EVENT DETAILS</h3>
                   <p className="common-para">
-                    09 November - 11 November 2023 Starts 09:00 am to 06:00 pm
+                    <b>06 November - 08 November 2023 Starts 09:00 am to 06:00 pm</b>
                   </p>
                 </div>
               </div>
@@ -140,9 +140,9 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-            <div className="col-md-4">             
+            <div className="col-md-4">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.16881580721!2d78.05518931445123!3d30.34615181121301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390929d6271a7c35%3A0x2880aa511432cf59!2sNational%20Hydrographic%20Office!5e0!3m2!1sen!2sin!4v1652774657786!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56474.94761311179!2d72.97284353692041!3d26.230592923325176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418bb0afd5bef9%3A0xaea174d001879fea!2sRegional%20Remote%20Sensing%20Centre%20-%20West!5e0!3m2!1sen!2sin!4v1689144860809!5m2!1sen!2sin"
                 width="100%"
                 height="300"
               ></iframe>

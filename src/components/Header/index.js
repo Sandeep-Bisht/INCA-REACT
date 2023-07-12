@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
-import nhologo from "../../images/NHO-logo.png";
-import Amritlogo from "../../images/logoamrit.png";
+import ISROlogo from "../../images/nrsc_logo.png";
+import G20 from "../../images/G20_100_70.png";
+import azadi from "../../images/azadi.png";
 
 export const Header = () => {
   useEffect(() => {   
@@ -95,12 +96,17 @@ export const Header = () => {
                 </div>
                 <div className="nav-display-1">
                 <a className="navbar-brand p-0 m-0" href="#">
-                  <img src={Amritlogo} className="img-fluid" />
+                  <img src={azadi} className="img-fluid" />
+                </a>
+                </div>
+                <div className="nav-display-1">
+                <a className="navbar-brand p-0 m-0" href="#">
+                  <img src={G20} className="img-fluid" />
                 </a>
                 </div>
                 <div className="nav-display">
                 <a className="navbar-brand p-0 m-0" href="#">
-                  <img src={nhologo} className="img-fluid" />
+                  <img src={ISROlogo} className="img-fluid" />
                 </a>
                 </div>
               </nav>

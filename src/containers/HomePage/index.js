@@ -36,6 +36,7 @@ import ThirdSercular from '../../SampleFiles/Second circular_20 sep 22.pdf';
 import FinalSercular from '../../SampleFiles/Final Circular.pdf';
 import DraftTechnical from '../../SampleFiles/Draft Technical Session07 nov.pdf';
 import BoardList from '../../images/board.png';
+import homepageBackgroundVideo from '../../video/Chandrayaan3_indexvideo.mp4'
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -48,7 +49,7 @@ const HomePage = () => {
   let interval = useRef();
 
   const startTimer = () => {
-    const countdownDate = new Date("nov 9, 2023 00:00:00").getTime();
+    const countdownDate = new Date("nov 06, 2023 00:00:00").getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();
@@ -106,22 +107,31 @@ const HomePage = () => {
     <>
       <Header></Header>
       <div className="home-banner">
-        <div className="container">
-          <div className="row pb-md-5">
-            <div className="col-md-5">
-              <div className="left"></div>
+      <div className="homepage-video-section">
+            <video className="w-100" src={homepageBackgroundVideo}  autoPlay muted loop/>
             </div>
-            <div className="col-md-7">
+        <div className="container-home">
+          <div className="row pb-md-5 h-100 m-0">
+            <div className="col-md-5">
+            </div>
+            <div className="col-md-7 d-flex flex-column justify-content-center">
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
                   <span className="banner-small text-white">
-                    42<sup>nd</sup> INCA International Congress
+                    43<sup>rd</sup> INCA International Congress on
                   </span>
 
                   <span className="theme-color">
-                    Theme : "Digital Cartography To Harness Blue Economy"
+                    Emerging Trends in Digital Cartography For
                   </span>
-
+                  <p className="head-text">
+                    Sustainable Ecosystems and 
+                  </p>
+                  <p className="head-text">
+                    Geospatial Economy
+                  </p>
+                  
+                  
                   {/* <span className="banner-last">Event-2022</span> */}
                 </p>
                 <div className="banner-bottom"></div>
@@ -190,11 +200,8 @@ const HomePage = () => {
   <div className="row">
             <div className="col-md-12">
               <div className="abstract-submission-date">
-<<<<<<< HEAD
             <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is 20<sup>th</sup> September 2023"</b></p></marquee>
-=======
             <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2022"</b></p></marquee>
->>>>>>> d1ba045977921e7f9e959032f781dc521d4b0986
             </div>
             </div>
           </div>
@@ -225,9 +232,11 @@ const HomePage = () => {
             <div className="col-md-12 text-center">
               <div className="welcome-text pt-4">
                 <p className="common-para text-justify">
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The National Hydrographic Office,  Dehradun, India, has the honour of inviting all professionals interested in the field of Cartography/GIS and allied subjects as well as various disciplines of their application viz. Hydrography, Geography, Geology, Geophysics, Oceanography, Geo- informatics, Artificial intelligence, Hydro-meteorology, Marine Geomorphology, Coastal Resource Management and Environmental Planning etc. to participate in the forthcoming 42nd International Conference of Indian National Cartographic Association (INCA), being held at Dehradun, Uttarakhand, during 09 -11 November 2022.
-Renowned national and international scholars, scientists, academicians, planners are expected to take part in this conference. It shall be profoundly advantageous for all participants including students by gaining from enriched experience of the eminent speakers from various fields of specialisations.
-                </p>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;National Remote Sensing Centre (NRSC), a key functionary of Indian Space Research Organisation (ISRO), is striving to realize the Indian Space Vision through Earth Observation. It is responsible for the ground segment of Remote Sensing Programme through satellite data acquisition, archival, processing, dissemination, remote sensing applications, training and capacity building. It also
+                provides aerial services in the civilian sector for the country. NRSC has five Regional Centres located at Bangalore, Nagpur, Kolkata, New Delhi and Jodhpur to address region/area specific remote sensing application needs. NRSC is continuously exploring the practical use of remote sensing for societal applications and disaster management through multilevel initiatives, development of value-added data services and remote sensing applications.
+               </p>
+               <p className="common-para text-justify">Regional Remote Sensing Centre-West (RRSC-West), Jodhpur is one of the regional centres of NRSC. It was established in 1987 under the aegis of National Natural Resources Management System (NNRMS) of ISRO to cater to the needs of different user agencies of North-West India. The centre is acting as a hub of space technology applications in the region since last three and half decades, with its current focus on issues related to sustainable arid ecosystems.
+</p>
               </div>
             </div>
           </div>
@@ -247,10 +256,10 @@ Renowned national and international scholars, scientists, academicians, planners
                 <div className="right">
                   <h2 className="h2">Where is the Event</h2>
                   <p className="common-para">
-                    <b> National Hydrographic Office </b> <br />
-                    107-A, Rajpur Rd, <br />
-                    Post Box – 75,
-                    <br /> Dehradun – 248001, Uttarakhand, India
+                    <b> Regional Remote Sensing Center-West National Remote Sensing Center (NRSC),ISRO ISRO Complex, Bypass Road
+                    Sector 9, Kudi Bhagtasani Housing Board (KBHB)</b> <br />
+                    
+                    <b>Jodhpur – 342005</b>
                   </p>
                 </div>
               </div>
@@ -265,8 +274,8 @@ Renowned national and international scholars, scientists, academicians, planners
                 <div className="right">
                   <h2 className="h2">When is the Event</h2>
                   <p className="common-para">
-                    09 November 2022 <br /> 10 November 2022 <br /> 11 November
-                    2022
+                    <b>06 November 2023</b> <br /> <b>07 November 2023</b> <br /> <b>08 November
+                    2023</b>
                   </p>
                 </div>
               </div>
@@ -281,7 +290,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 <div className="right">
                   <h2 className="h2">Schedule of the Event</h2>
                   <Link className="common-para pb-3" to="/importantdates">
-                    Click here to know details.
+                    <b>Click here to know details.</b>
                   </Link>
                   {/* <p className="common-para">
                     Last date for submitting the abstracts
@@ -680,9 +689,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Vice Admiral <br /> Adhir Arora , NM
+                      Dr. Prakash Chauhan,  <br /> NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">PRESIDENT, INCA</span>
+                      <span className="speaker-post">Patron</span>
                     </div>
                   </div>
                 </div>
@@ -695,9 +704,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Rear Admiral <br /> Lochan Singh Pathania
+                      Dr. S. K. Srivastav, <br />  NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">PATRON</span>
+                      <span className="speaker-post">Chairman</span>
                     </div>
                   </div>
                 </div>
@@ -710,9 +719,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Cmde Peush Pawsey
+                       Dr. A. K. Bera, RRSC-West, NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">CHAIRMAN</span>
+                      <span className="speaker-post">Organising Secretary</span>
                     </div>
                   </div>
                 </div>
@@ -725,9 +734,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Captain Kuldeep Singh
+                       Dr. P. C. Moharana, ICAR-CAZRI
                       </h3>
-                      <span className="speaker-post">ORGANISING SECRETARY</span>
+                      <span className="speaker-post">Co-Organising Secretary</span>
                     </div>
                   </div>
                 </div>
@@ -740,9 +749,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Rajesh Kumar Khatri
+                      Shri Sagar S. Salunkhe, RRSC-West, NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">LOC MEMBER</span>
+                      <span className="speaker-post">Treasurer</span>
                     </div>
                   </div>
                 </div>
@@ -755,9 +764,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. R A Prasad
+                      Dr. Dandabathula Giribabu, RRSC-West, NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">LOC MEMBER</span>
+                      <span className="speaker-post">Editor</span>
                     </div>
                   </div>
                 </div>
@@ -770,9 +779,9 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                        Dr. B K Ramprasad
+                      Shri Gaurav Kumar, RRSC-West, NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">LOC MEMBER</span>
+                      <span className="speaker-post">Event Secretariat Focal Point</span>
                     </div>
                   </div>
                 </div>
@@ -2335,12 +2344,12 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Congress-Final Circular
+                    43<sup>rd</sup> INCA International Congress-draft Circular
                   </h3>
                 </div>
               </div>
             </div>
-            <div className="col-lg-3">
+            {/* <div className="col-lg-3"> 
               <div className="blog-card">
                 
                 <a target="_blank" href={DraftTechnical}>
@@ -2350,7 +2359,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Congress-Draft Technical Session
+                    43<sup>rd</sup> INCA International Congress-Draft Technical Session
                   </h3>
                 </div>
               </div>
@@ -2365,7 +2374,7 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Congress-First Circular
+                    43<sup>rd</sup> INCA International Congress-First Circular
                   </h3>
                 </div>
               </div>
@@ -2380,28 +2389,11 @@ Renowned national and international scholars, scientists, academicians, planners
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    42<sup>nd</sup> INCA International Congress-Second Circular
+                    43<sup>rd</sup> INCA International Congress-Second Circular
                   </h3>
                 </div>
               </div>
-            </div>          
-          </div>
-          <div className="row">
-            <div className="col-lg-3">
-              <div className="blog-card">
-                
-                <a target="_blank" href='/boardlists'>
-                  <div className="blog-card-pic">
-                    <img src={BoardList} alt="Second-Circular"></img>
-                  </div>
-                </a>
-                <div className="blog-card-content">
-                  <h3>
-                    Broad Programme For 42<sup>nd</sup> International INCA Congress
-                  </h3>
-                </div>
-              </div>
-            </div>
+            </div>  */} 
             <div className="col-lg-3">
               <div className="blog-card">
                 
@@ -2416,7 +2408,25 @@ Renowned national and international scholars, scientists, academicians, planners
                   </h3>
                 </div>
               </div>
-            </div>
+            </div>       
+          </div>
+          <div className="row">
+            {/* <div className="col-lg-3"> 
+              <div className="blog-card">
+                
+                <a target="_blank" href='/boardlists'>
+                  <div className="blog-card-pic">
+                    <img src={BoardList} alt="Second-Circular"></img>
+                  </div>
+                </a>
+                <div className="blog-card-content">
+                  <h3>
+                    Broad Programme For 43<sup>rd</sup> International INCA Congress
+                  </h3>
+                </div>
+              </div>
+            </div>*/}
+            
           </div>
         </div>
       </section>
@@ -2463,9 +2473,8 @@ Renowned national and international scholars, scientists, academicians, planners
                   <div className="contact-venue">
                     <h3>EVENT VENUE :</h3>
                     <p className="common-para mb-0">
-                      <b> National Hydrographic Office </b> <br />
-                      107-A, Rajpur Rd, Post Box – 75,
-                      <br /> Dehradun – 248001, Uttarakhand, India
+                      <b> Regional Remote Sensing Center-west <br/> National Remote Sensing Center (NRSC),ISRO </b> <br />
+                      Jodhpur– 342005
                     </p>
                   </div>
                 </div>
@@ -2476,7 +2485,7 @@ Renowned national and international scholars, scientists, academicians, planners
                   </div>
                   <div className="contact-venue">
                     <h3>Email :</h3>
-                    <p className="common-para mb-0">info@42inca.org</p>
+                    <p className="common-para mb-0">info@43inca.org</p>
                   </div>
                 </div>
 

@@ -57,7 +57,7 @@ export let CertificatePageUi = () => {
                     <div class="row text-center">
                         <div class="col-md-12">
                             <div class="text-area">
-                                <p>This Certificate is for the participation in INCA 42nd Internation <br />Congress held at National
+                                <p>This Certificate is for the participation in INCA 43rd Internation <br />Congress held at National
                                     Hydrographic office,Dehradun on 11th <br />November 2022 to 13th November 2022. </p>
                             </div>
                         </div>

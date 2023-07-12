@@ -34,7 +34,7 @@ const PaymentInfo = () => {
                   <td>
                     <th scope="row">Name of Account Holder</th>
                   </td>
-                  <td><b>42<sup>nd</sup> INCA International Congress</b></td>
+                  <td><b>43<sup>rd</sup> INCA International Congress</b></td>
                 </tr>
                 <tr>
                   <td>
