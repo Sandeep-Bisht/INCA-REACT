@@ -31,7 +31,7 @@ export const Header = () => {
               <nav className="navbar navbar-expand-lg">
                 <a className="navbar-brand p-0 m-0" href="/">
                   <img src={logo} className="img-fluid" />
-                  {/* <span className="logo-text f2">Inca 2022</span> */}
+                  {/* <span className="logo-text f2">Inca 2023</span> */}
                 </a>
                 <button
                   className="navbar-toggler"

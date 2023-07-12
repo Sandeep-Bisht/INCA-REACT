@@ -76,8 +76,10 @@ const Certificate = () => {
                                             <p>Organised by</p>
                                             <p>Indian National Cartographic Association</p>
                                             <p>&</p>
-                                            <p>National Hydrographic Office, Dehradun </p><br/>
-                                                <p>09-11<sup>th</sup> November 2022 </p>
+                                            <p>Regional Remote Sensing Center-West National Remote Sensing Center(NRSC),ISRO ISRO Complex, Bypass Road
+                    Sector 9, Kudi Bhagtasani Housing Board (KBHB)  <br />
+                     Jodhpur – 342005, </p>
+                                                <p>06-08<sup>th</sup> November 2023 </p>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -91,7 +93,7 @@ const Certificate = () => {
                                             <p><i> of <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo && userInfo.designation ? userInfo.designation : "------------" }</span></i></p>
                                             <p><i>Presented paper titled <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo && userInfo.abstractPaperName ? userInfo.abstractPaperName : "------------" }</span></i></p>
                                             <p><i>in the 42<sup>th</sup> INCA International</i></p>
-                                            <span><i>Congress 2022.</i></span>
+                                            <span><i>Congress 2023.</i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +115,7 @@ const Certificate = () => {
                                     </div>
                                     <div class="col-md-12 text-center mt-5">
                                         <div class="last_line">
-                                            <p>Date:11<sup>th</sup> Nov 2022</p>
+                                            <p>Date:11<sup>th</sup> Nov 2023</p>
                                         </div>
                                     </div>
                                 </div>

@@ -76,8 +76,10 @@ const Certificate = () => {
                                     <p>Organised by</p>
                                     <p>Indian National Cartographic Association</p>
                                     <p>&</p>
-                                    <p>National Hydrographic Office, Dehradun</p>
-                                    <p>09-11<sup>th</sup> November 2022</p>
+                                    <p>Regional Remote Sensing Center-West National Remote Sensing Center(NRSC),ISRO ISRO Complex, Bypass Road
+                    Sector 9, Kudi Bhagtasani Housing Board (KBHB)  <br />
+                     Jodhpur – 342005, </p>
+                                    <p>06-09<sup>th</sup> November 2023</p>
                                 </td>
                             </tr>
                             <tr class="table_row" id="mid_row_2">
@@ -88,7 +90,7 @@ const Certificate = () => {
                                     <p className="mid_para"><i>This is to certify that Prof./Dr./Mr./Ms. <span style={{fontSize:"1.1rem", marginRight: 0 }}>{userInfo?.userName}</span></i></p>
                                     <p className="mid_para"><i> of <span style={{fontSize:"1.1rem", marginRight: 0 }}>{userInfo && userInfo.designation ? userInfo.designation : "------------"}</span></i></p>
                                     <p className="mid_para"><i>Presented paper titled <span style={{ fontSize:"1.1rem", marginRight: 0 }}>{userInfo && userInfo.abstractPaperName ? userInfo.abstractPaperName : "------------"}</span></i></p>
-                                    <span className="congress"><i>in the 42<sup>th</sup> INCA International Congress 2022.</i></span>
+                                    <span className="congress"><i>in the 43<sup>rd</sup> INCA International Congress 2023.</i></span>
                                    
                                 </td>
                             </tr>
@@ -112,7 +114,7 @@ const Certificate = () => {
                             </tr>
                             <tr>
                                 <td class="table_row">
-                                    <p>Date:11<sup>th</sup> Nov 2022</p>
+                                    <p>Date:11<sup>th</sup> Nov 2023</p>
                                 </td>
                             </tr>
 

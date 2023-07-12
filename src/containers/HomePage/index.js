@@ -132,7 +132,7 @@ const HomePage = () => {
                   </p>
                   
                   
-                  {/* <span className="banner-last">Event-2022</span> */}
+                  {/* <span className="banner-last">Event-2023</span> */}
                 </p>
                 <div className="banner-bottom"></div>
                 {/* <p className="common-para text-white mt-3">
@@ -146,12 +146,12 @@ const HomePage = () => {
                   >
                     Register
                   </button>
-                  <button
+                  {/* <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
                     onClick={() => navigation("/abstractpage")}
                   >
                     Full Paper Submission
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -201,7 +201,7 @@ const HomePage = () => {
             <div className="col-md-12">
               <div className="abstract-submission-date">
             <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is 20<sup>th</sup> September 2023"</b></p></marquee>
-            <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2022"</b></p></marquee>
+            <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee>
             </div>
             </div>
           </div>
@@ -321,9 +321,11 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">Where is the Event:</h2>
                   <p className="common-para">
-                    <b> National Hydrographic Office </b> <br />
-                    107-A, Rajpur Rd, <br />Post Box – 75,
-                    <br /> Dehradun – 248001, Uttarakhand, India
+                  
+                    <b> Regional Remote Sensing Center-West National Remote Sensing Center(NRSC), <br />
+                    ISRO  Complex, Bypass Road
+                    Sector 9, <br />Kudi Bhagtasani Housing Board (KBHB)  <br />
+                    Jodhpur – 342005</b>
                   </p>
                 </div>
               </div>
@@ -338,7 +340,7 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    09 November 2022 <br /> 10 November 2022 <br /> 11 November 2022
+                    06 November 2023 <br /> 07 November 2023 <br /> 08 November 2023
                   </p>
                 </div>
               </div>
@@ -398,7 +400,7 @@ const HomePage = () => {
             <div className="col-md-8 mx-auto text-center">
               <p className="common-pre-heading">Introduction</p>
               <h2 className="common-heading text-white">
-                WHY ATTEND INCA 2022 EVENT?
+                WHY ATTEND INCA 2023 EVENT?
               </h2>
               <p className="common-para text-white position-relative">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
@@ -537,7 +539,7 @@ const HomePage = () => {
             <div className="col-md-8 mx-auto text-center">
               <p className="common-pre-heading">Introduction</p>
               <h2 className="common-heading text-white">
-                WHY ATTEND INCA 2022 EVENT?
+                WHY ATTEND INCA 2023 EVENT?
               </h2>
               <p className="common-para text-white position-relative">
                 Quam amet tristique adipisicing incididunt arcu, excepturi
