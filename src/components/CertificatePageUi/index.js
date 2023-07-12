@@ -58,7 +58,7 @@ export let CertificatePageUi = () => {
                         <div class="col-md-12">
                             <div class="text-area">
                                 <p>This Certificate is for the participation in INCA 43rd Internation <br />Congress held at National
-                                    Hydrographic office,Dehradun on 11th <br />November 2022 to 13th November 2022. </p>
+                                    Hydrographic office,Dehradun on 11th <br />November 2023 to 13th November 2023. </p>
                             </div>
                         </div>
                     </div>
