@@ -3,15 +3,15 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import "../../css/contact.css";
 import "../../css/about.css";
-import buddhaTemple from "../../images/buddha-temple.jpg";
+import buddhaTemple from "../../images/udaipur2.jpeg";
 import clockTower from "../../images/clock-tower.jpg";
 import doonAirport from "../../images/doon-airport.png";
-import doonFri from "../../images/doon-fri.jpg";
-import doonStadium from "../../images/doon-stadium.jpg";
+import doonFri from "../../images/udaipur1.jpeg";
+import doonStadium from "../../images/stadium.jpeg";
 import doonWeather1 from "../../images/weather-1.jpg";
 import doonWeather2 from "../../images/weather-2.jpg";
 import doonWeather3 from "../../images/weather-3.jpg";
-import NHOBuilding from "../../images/NHO-building.jpg";
+import NHOBuilding from "../../images/RCW_Building.jpg";
 
 const About = () => {
   return (
@@ -32,11 +32,18 @@ const About = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8 pe-4">
-              <h2 className="pb-2">ABOUT NHO</h2>
+              <h2 className="pb-2">ABOUT NRSC</h2>
               <p className="common-para text-justify">
-              The Indian Naval Hydrographic Department (INHD) functions under the Chief Hydrographer to the Government of India.  The Department, being the nodal agency for Hydrographic surveys and Nautical charting in India, has a very well established organizational setup.  INHD has seven indigenously built modern survey ships including one Catamaran Hull Survey Vessel (CHSV) fitted with state-of-the-art surveying equipment and a well established ‘National Institute of Hydrography’ which is the Centre for imparting training in Hydrography accredited by International Hydrographic Organisation for National and International trainees.<br/>
-              The Chief Hydrographer to the Government of India is the NAVAREA VIII coordinator and is also the National Coordinator for NAVTEX services along Indian coast.
-              </p>
+              National Remote Sensing Centre (NRSC), a key functionary of 
+              Indian Space Research Organisation (ISRO), is striving to realize
+               the Indian Space Vision through Earth Observation. It is responsible
+                for the ground segment of Remote Sensing Programme through satellite data 
+                acquisition, archival, processing, dissemination, remote sensing applications, 
+                training and capacity building. It also
+                provides aerial services in the civilian sector for the country. NRSC has five 
+                Regional Centres located at Bangalore, Nagpur, Kolkata, New Delhi and Jodhpur to 
+                address region/area specific remote sensing application needs. NRSC is continuously 
+                exploring the practical use of remote sensing for societal applications and disaster management through multilevel initiatives, development of value-added data services and remote sensing applications.</p>
             </div>
             <div className="col-md-4">
               <div className="nho-pics">
@@ -51,31 +58,48 @@ const About = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8 pe-4">
-              <h2 className="pb-2">ABOUT DEHRADUN</h2>
+              <h2 className="pb-2">ABOUT JODHPUR </h2>
               <p className="common-para text-justify">
-              Dehradun, the capital of the Uttarakhand is visited by
-a large number of tourist every year, many of them en-route to Mussoorie. Nestled in the
-gorgeous mountain ranges of the Himalayas, the climate of the city is temperate even
-during summers. Dehradun is one of the fast emerging modern cities in Northern India.
-The city boasts of many National Institutes like the Forest Research Institute (FRI),
-Indian Institute of Remote Sensing (IIRS), Rashtriya Indian Military College (RIMC), and
-the Indian Military Academy (IMA) besides a host of prestigious public schools.
-Dehradun has been one of the best known educational centres in Northern India. The
-city is well connected by road, rail and air.
+              Jodhpur traditionally known as the “Sun City” was founded by Rao Jodha, 
+              a chief of Rathore clan, in 1459. It is the second largest city in Rajasthan 
+              and a very popular tourist destination. Jodhpur is best known for Mehrangarh 
+              Majestic Fort, Umaid Bhawan Palace, Mandore Garden and Clock Tower. Jodhpur 
+              is famous for its traditional sweets and spicy food. The lifestyle in Jodhpur 
+              is quite fascinating and colourful. Lending a cultural aura to Jodhpur, 
+              are its exquisite handicrafts, folk dances, folk music and the brightly attired people. 
+              The desert people are quite affable. Jodhpur has emerged as Center for Academic
+               Excellence where apart from ISRO, a number of institutions like ICAR-CAZRI, IIT, 
+               AIIMS, ONGC, DRDO, AFRI, National Law University, Ayurvedic University, Police & Forensic Science University, BSI, ZSI and NIFT are located. Famous Osian sand dunes are just 65 km away from the city. The weather during November month will be pleasant as the temperature ranges from 20-35 degree Celsius. Jodhpur city is well connected with the national capital and other Indian cities through Air, Rail and Road transport. The congress venue is located within 15 km of the respective terminals. Jodhpur is about 600 km away from Delhi, 300 km from Jaipur, 450 km from Ahmedabad and 280 km from Udaipur.
+
               </p>
 
+              <h2 className="pb-2">HOW TO REACH</h2>
               <p className="common-para text-justify">
-                Dehradun is a notable academic and research hub and is home to
-                the Indian Military Academy, Forest Research Institute, Indira
-                Gandhi National Forest Academy, The Doon School, Welham Boys
-                School, Welham Girls School, Brightlands School, Rashtriya
-                Indian Military College, Uttarakhand Ayurveda University, Wadia
-                Institute of Himalayan Geology and the Indian Institute of
-                Remote Sensing. It is the headquarters of the Surveyor-General
-                of India. According to the combined survey based on health,
-                infrastructure, economy, education, and crime, conducted by
-                Dainik Jagran and KPMG, Dehradun is one of India's safest
-                cities.
+              Jodhpur Airport is a domestic airport located at about 12
+               km away from RRSC-West/NRSC Regional Centre. Taxi cabs are 
+               available from the airport to Centre. The airport operates daily 
+               flights to all major cities of India. Jodhpur has a railway station well 
+               connected to all major cities in the country. All nearby cities are also connected 
+               to Jodhpur by bus service. The venue for the conference is the RRSC-West/NRSC Regional
+                Centre which is about 10 km away from the Jodhpur railway station.
+              </p>
+
+
+              <h2 className="pb-2">ACCOMMODATION</h2>
+              <p className="common-para text-justify">
+              The registration fee does not include accommodation. 
+              Jodhpur has large number of hotels ranging from budget
+               to luxury/heritage hotels. The accommodation charges may
+                vary from Rs. 1000/- to Rs. 5000/- and more for luxury/heritage hotels. 
+                The above rates are only indicative and may vary. Limited guest house 
+                accommodation will be available on payment 
+                (tariff as per respective institution’s rule) 
+                and on first-come-first-serve basis. List of hotels with their indicative 
+                tariff and contact number will be available shortly on website https://www.43inca.org. 
+                Participants should book their accommodation in advance to avoid last minute rush. 
+                Transport will be provided from the hotels/ guest houses identified by the organisers 
+                to the conference venue.
+  
               </p>
             </div>
             <div className="col-md-4">
@@ -111,25 +135,13 @@ city is well connected by road, rail and air.
         <div className="container">
           <div className="row">
             <div className="col-md-8 pe-4">
-              <h2>DEHRADUN CLIMATE</h2>
+              <h2>JODHPUR CLIMATE</h2>
               <p className="common-para text-justify">
-                The climate of Dehradun is humid subtropical. It varies greatly
-                from tropical to severe cold depending upon the altitude of the
-                area. The city is in Doon Valley and temperature variations due
-                to difference in elevation are considerable. In the hilly
-                regions, the summer is pleasant. But in the Doon, the heat is
-                often intense and summer temperatures can reach up to 44 °C (111
-                °F) for a few days and hot winds (called Loo) blows over North
-                India. Winter temperature drops below freezing point and is
-                usually between 1 and 20 °C (34 and 68 °F) and fog is quite
-                common as in the plains. Although the temperature in Dehradun
-                can reach below freezing during severe cold snaps, this is not
-                common. The area receives an average annual rainfall of 2,073.3
-                mm (81.63 in). Most of the annual rainfall in the city is
-                received during the months from June to September, July and
-                August being rainiest. During the monsoon season, there is often
-                heavy and protracted rainfall.Agriculture benefits from fertile
-                alluvial soil, adequate drainage and plentiful rain.
+              November is considered to be one of the best months to visit Jodhpur as 
+              the weather during this time is pleasant. The temperature during the day 
+              usually ranges between 25-30°C. However, it is advisable to carry a light 
+              jacket or sweater for the evening and early morning hours as the temperature can drop.
+
               </p>
             </div>
             <div className="col-md-4">
