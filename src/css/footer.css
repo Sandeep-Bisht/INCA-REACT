@@ -1,12 +1,12 @@
 .foot-wrapper
 {
-    background-image: url('../images/43rd inca international congress concept logo-01-01.png');
-    background-size: cover;
+    background-image: url('../images/Asset 4@4x.png');
+    background-size: contain;
     background-position: center;
-
     color: #fff;
     position: relative;
     padding: 120px 0 40px 0;
+    background-repeat: no-repeat;
 }
 
 .foot-wrapper::before

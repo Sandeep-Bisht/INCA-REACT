@@ -1280,6 +1280,7 @@ padding: 50px 40px;
       margin: 15px auto;
       padding: 20px 40px;
     }
+    
     .home-attend-event .attend-card .upper img
     {
         width:50%;
@@ -1735,6 +1736,7 @@ padding: 50px 40px;
     .common-btn, .common-btn-transparent {
         padding: 3px 20px;
         font-size: 12px;
+        margin-bottom: 21px;
     }
     .section-padding{
         padding:40px 0;
