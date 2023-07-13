@@ -94,7 +94,7 @@ export const Footer = () => {
                     <p>Our Technology Partner</p>
                     </div>
                  <div className="inca-copyright">
-                <p>Copyright © 2022 INCA. All rights reserved.</p>
+                <p>Copyright © 2023 INCA. All rights reserved.</p>
                 </div>
               </div>
             </div>
