@@ -415,7 +415,7 @@ background-color:#fff;
     .navbar-toggler
     {
         
-    background-color: #eac600f7!important;
+    background-color: #75b00f!important;
     padding: 3px 10px!important;
     }
     .navbar-toggler:focus
@@ -476,7 +476,7 @@ background-color:#fff;
     .react-multiple-carousel__arrow{
         min-width:30px!important;
         min-height:30px!important;
-        background-color: #eac600f7!important;
+        background-color: #75b00f!important;
         z-index: 2!important;
     }
     .react-multiple-carousel__arrow::before{

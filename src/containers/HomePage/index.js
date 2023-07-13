@@ -20,14 +20,14 @@ import gallary3 from "../../images/gallery-3.jpg";
 import gallary4 from "../../images/gallery-4.jpg";
 import gallary5 from "../../images/gallery-5.jpg";
 import Event_2 from "../../images/INCA43rd.png";
-import inca1 from "../../images/inca-image-1.JPG";
-import inca2 from "../../images/inca-image-2.JPG";
-import inca3 from "../../images/inca-image-3.JPG";
-import inca4 from "../../images/inca-image-4.JPG";
-import inca5 from "../../images/inca-image-5.JPG";
-import inca6 from "../../images/inca-image-6.JPG";
-import inca7 from "../../images/inca-image-7.JPG";
-import inca8 from "../../images/inca-image-8.JPG";
+import inca1 from "../../images/award.jpeg";
+import inca2 from "../../images/41stINCA.png";
+import inca3 from "../../images/chandighar.jpeg";
+import inca4 from "../../images/JSS (2).jpeg";
+import inca5 from "../../images/GUJARAT.png";
+import inca6 from "../../images/DS.jpeg";
+import inca7 from "../../images/2612.jpeg";
+import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
 import instruction from '../../images/instructions.jpg';
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
@@ -141,7 +141,7 @@ const HomePage = () => {
                 </p> */}
                 <div className="banner-btn-box pt-2">
                   <button
-                    className=" common-btn"
+                    className=" common-btn register-home-btn"
                     onClick={() => navigation("/register")}
                   >
                     Register
@@ -2348,7 +2348,7 @@ const HomePage = () => {
                 </a>
                 <div className="blog-card-content">
                   <h3>
-                    43<sup>rd</sup> INCA International Congress-draft Circular
+                    43<sup>rd</sup> INCA International Congress-first Circular
                   </h3>
                 </div>
               </div>
