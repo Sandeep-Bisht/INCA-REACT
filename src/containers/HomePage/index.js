@@ -19,7 +19,7 @@ import gallary2 from "../../images/gallery-2.jpg";
 import gallary3 from "../../images/gallery-3.jpg";
 import gallary4 from "../../images/gallery-4.jpg";
 import gallary5 from "../../images/gallery-5.jpg";
-import Event_2 from "../../SampleFiles/firstscreen.png";
+import Event_2 from "../../images/INCA43rd.png";
 import inca1 from "../../images/inca-image-1.JPG";
 import inca2 from "../../images/inca-image-2.JPG";
 import inca3 from "../../images/inca-image-3.JPG";
@@ -33,10 +33,10 @@ import instruction from '../../images/instructions.jpg';
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
 import Instructions from "../../SampleFiles/instructions_for_participants.pdf";
 import ThirdSercular from '../../SampleFiles/Second circular_20 sep 22.pdf';
-import FinalSercular from '../../SampleFiles/Final Circular.pdf';
+import FinalSercular from '../../images/INCA_43rd_First_Circular.pdf';
 import DraftTechnical from '../../SampleFiles/Draft Technical Session07 nov.pdf';
 import BoardList from '../../images/board.png';
-import homepageBackgroundVideo from '../../video/Chandrayaan3_indexvideo.mp4'
+import homepageBackgroundVideo from '../../video/_import_6166ec628fdab6.53885345_FPpreview.mp4'
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -229,6 +229,8 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+            <div className="col-md-8 mx-auto text-center">
+            <h2 className="common-heading">National Remote Sensing Center</h2></div>
             <div className="col-md-12 text-center">
               <div className="welcome-text pt-4">
                 <p className="common-para text-justify">
@@ -947,7 +949,7 @@ const HomePage = () => {
               </div>
             </div>
           </div> */}
-      <div className="row mt-lg-5 ">
+      <div className="">
         {showEvents == "9nov" && (
           <>
             {/* <div className="col-md-12">

@@ -57,15 +57,15 @@ h1,h2,h3,h4,h5,h6
 }
 .common-blue-bg
 {
-    background:#111b69;
+    background: #75b00f;
 }
 .common-yellow-color
 {
-    color:#111b69;
+    color:#75b00f;
 }
 .common-yellow-bg
 {
-    background: #1c1e6bf7;
+    background: #75b00f;
 }
 .common-pre-heading{
     font-family: 'Poppins', sans-serif;
@@ -108,12 +108,12 @@ h1,h2,h3,h4,h5,h6
     font-weight: 400;
     padding: 10px 30px;
     color: #fff;
-    background: #111b69;
+    background: #75b00f;
     text-decoration: none;
     border-radius: 25px;
     font-size: 15px;
     text-transform: uppercase;
-    border: 1px solid #111b69;
+    border: 1px solid #75b00f;
     transition: .1s;
 
 }
@@ -129,8 +129,8 @@ h1,h2,h3,h4,h5,h6
     font-size: 14px;
 }
 .common-btn:hover{
-    background: #f47216;
-    border: 1px solid #f47216;
+    background: #111b69;
+    border: 1px solid #111b69;
    
 }
 .common-btn-transparent
