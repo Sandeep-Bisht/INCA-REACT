@@ -46,7 +46,7 @@ export const Footer = () => {
                   </li>
                   <li>
                     <a className="nav-link text-white ps-0" target="_blank" href = "https://www.nrsc.gov.in/aboutus_campus_nrscrc/rrsc_west?language_content_entity=en">
-                      RRSC Official Website
+                      NRSC Official Website
                     </a>
                   </li>
                 </ul>
@@ -90,7 +90,7 @@ export const Footer = () => {
            <div className="col-md-12">
               <div className="box-7">
                 <div className="giks-copyright d-flex pe-4">
-                <img src={giksfooterlogo} alt="" className="img-fluid" />
+               <a className="giks-copyright-connect" href="https://giksindia.com/" target="_blank"> <img src={giksfooterlogo} alt="" className="img-fluid" /></a>
                     <p>Our Technology Partner</p>
                     </div>
                  <div className="inca-copyright">

@@ -29,7 +29,7 @@ function index() {
                         <div className='board-timings'>
                         <h2>9 <sup>th</sup> November 2023</h2>
                         <tr>
-                            <td>Registration of Delegates at NHO</td>
+                            <td>Registration of Delegates at NRSC</td>
                             <td>9:00 AM to 11:00 AM</td>
                         </tr>
                         <tr>
