@@ -92,6 +92,9 @@
 /* Welcome Css */
 .home-banner .homepage-video-section video{
     margin-bottom: -5px;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
 }
 .Welcome-page
 {
@@ -1178,7 +1181,11 @@ padding: 50px 40px;
         font-size: 25px;
     }
     .home-banner {
-        padding: 110px 0;
+        /* padding: 110px 0; */
+    }
+    .home-banner .homepage-video-section video
+    {
+        height: 400px;
     }
     .home-about-left img
     {
@@ -1770,7 +1777,7 @@ padding: 50px 40px;
         line-height: 18px;
     }
     .home-banner {
-        padding: 82px 0;
+        /* padding: 82px 0; */
     }
     .home-banner .banner-last {
         font-size: 34px;
