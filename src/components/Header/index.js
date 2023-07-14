@@ -57,55 +57,55 @@ export const Header = () => {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/about">
+                      <a className="nav-link" href="/about">
                         About
-                      </Link>
+                      </a>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/importantdates">
+                      <a className="nav-link" href="/importantdates">
                        Schedule
-                      </Link>
+                      </a>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/Theme">
+                      <a className="nav-link" href="/Theme">
                         Theme
-                      </Link>
+                      </a>
                     </li>
                     <li className="nav-item d-none">
-                      <Link className="nav-link" to="/sponsorship">
+                      <a className="nav-link" href="/sponsorship">
                         Sponsorship
-                      </Link>
+                      </a>
                     </li>
 
                     <li className="nav-item">
-                      <Link className="nav-link" to="/contact">
+                      <a className="nav-link" href="/contact">
                         Contact
-                      </Link>
+                      </a>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/login">
+                      <a className="nav-link" href="/login">
                         Login
-                      </Link>
+                      </a>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/register">
+                      <a className="nav-link" href="/register">
                         Register
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>
                 <div className="nav-display-1">
-                <a className="navbar-brand p-0 m-0" href="#">
+                <a className="navbar-brand p-0 m-0" href="">
                   <img src={azadi} className="img-fluid" />
                 </a>
                 </div>
                 <div className="nav-display-1">
-                <a className="navbar-brand p-0 m-0" href="#">
+                <a className="navbar-brand p-0 m-0" href="">
                   <img src={G20} className="img-fluid" />
                 </a>
                 </div>
                 <div className="nav-display">
-                <a className="navbar-brand p-0 m-0" href="#">
+                <a className="navbar-brand p-0 m-0" href="">
                   <img src={ISROlogo} className="img-fluid" />
                 </a>
                 </div>

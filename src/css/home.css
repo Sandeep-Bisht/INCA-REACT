@@ -90,7 +90,9 @@
 } */
 
 /* Welcome Css */
-
+.home-banner .homepage-video-section video{
+    margin-bottom: -5px;
+}
 .Welcome-page
 {
     padding-top: 100px;
@@ -1051,8 +1053,20 @@ padding: 50px 40px;
 
 @media only screen and (max-width :991px) {
    
+    .home-banner .right .head-text{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    .common-btn, .common-btn-transparent {
+        padding: 3px 20px;
+        font-size: 12px;
+        margin-bottom: 40px;
+    }
+
     .home-banner .right .theme-color {
         font-size: 21px;
+        line-height: 1;
     }
     .home-banner .right .banner-title .banner-small {
         font-size: 21px;
@@ -1177,6 +1191,7 @@ padding: 50px 40px;
     }
     .home-banner .right .theme-color {
         font-size: 16px;
+        line-height: 1.6;
     }
     .Welcome-page .adhir-arora-image {
         position: relative;
@@ -1732,11 +1747,14 @@ padding: 50px 40px;
 }
 
 @media only screen and (max-width : 430px)
-{ 
+{  
+    .home-banner .right .head-text {
+        margin-bottom: 3px;
+    }
     .common-btn, .common-btn-transparent {
         padding: 3px 20px;
         font-size: 12px;
-        margin-bottom: 21px;
+        margin-bottom: 23px;
     }
     .section-padding{
         padding:40px 0;
@@ -1748,7 +1766,7 @@ padding: 50px 40px;
         font-size: 20px;
     }
     .home-banner .right .banner-title {
-        font-size: 38px;
+        font-size: 16px;
         line-height: 18px;
     }
     .home-banner {

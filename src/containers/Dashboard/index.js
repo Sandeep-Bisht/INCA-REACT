@@ -54,7 +54,7 @@ const Dashboard = (props) => {
         <header className="dashboard-header ">
           <nav className="navbar navbar-expand-lg py-0">
             <div className="container-fluid">
-              <a className="navbar-brand d-flex align-items-center" href="#">
+              <a className="navbar-brand d-flex align-items-center" href="/">
                 <img src={Dashlogo} className="img-fluid w-75" />
                 <h1 className="dashboard-title ms-2">
                   <span></span>INCA

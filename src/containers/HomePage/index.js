@@ -2478,7 +2478,7 @@ const HomePage = () => {
                     <h3>EVENT VENUE :</h3>
                     <p className="common-para mb-0">
                       <b> Regional Remote Sensing Center-west <br/> National Remote Sensing Center (NRSC),ISRO </b> <br />
-                      Jodhpur– 342005
+                      <b>Jodhpur– 342005</b>
                     </p>
                   </div>
                 </div>
@@ -2489,7 +2489,7 @@ const HomePage = () => {
                   </div>
                   <div className="contact-venue">
                     <h3>Email :</h3>
-                    <p className="common-para mb-0">info@43inca.org</p>
+                    <p className="common-para mb-0"><b>info@43inca.org</b></p>
                   </div>
                 </div>
 
@@ -2499,7 +2499,7 @@ const HomePage = () => {
                   </div>
                   <div className="contact-venue">
                     <h3>Phone number :</h3>
-                    <p className="common-para mb-0">+91 135 2746290</p>
+                    <p className="common-para mb-0"><b>+91 2912796395</b></p>
                   </div>
                 </div>
               </div>
