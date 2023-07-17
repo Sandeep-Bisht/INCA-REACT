@@ -70,11 +70,11 @@ const AllRegistration = () => {
     return (
       <>
         <div className="d-flex">
-          <div>
+          {/* <div>
         <button className="action-btn" onClick={() => { sendEmailToUsers(node.email) }}>
               Send General email
             </button>
-            </div>
+            </div> */}
           <div className="ps-2">
 
             <button className="action-btn" onClick={() => redirectToCretePage(node, "edit")}>
@@ -105,7 +105,12 @@ const AllRegistration = () => {
             </button>
 
           </div>
-
+            
+          <div className="ps-2">
+        <button className="action-btn" onClick={() => { sendEmailToUsers(node.email) }}>
+              Send General email
+            </button>
+            </div>
         </div>
       </>
     );
