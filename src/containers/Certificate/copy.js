@@ -61,7 +61,7 @@ const Certificate = () => {
                                 </div>
                                 <div class="col-md-4 col-4">
                                     <div class="content">
-                                        <p>42<sup>ND</sup> INTERNATIONAL CONGRESS ON<br/>DIGITAL CARTOGRAPHY
+                                        <p>43<sup>RD</sup> INTERNATIONAL CONGRESS ON<br/>DIGITAL CARTOGRAPHY
                                             TO <br/>HARNESS BLUE ECONOMY</p>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@ const Certificate = () => {
                                             <p><i>This is to certify that Prof./Dr./Mr./Ms. <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo?.userName}</span></i></p>
                                             <p><i> of <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo && userInfo.designation ? userInfo.designation : "------------" }</span></i></p>
                                             <p><i>Presented paper titled <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo && userInfo.abstractPaperName ? userInfo.abstractPaperName : "------------" }</span></i></p>
-                                            <p><i>in the 42<sup>th</sup> INCA International</i></p>
+                                            <p><i>in the RD<sup>th</sup> INCA International</i></p>
                                             <span><i>Congress 2023.</i></span>
                                         </div>
                                     </div>

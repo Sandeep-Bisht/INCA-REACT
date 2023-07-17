@@ -63,7 +63,7 @@ const Certificate = () => {
                                     <img src={INCA} width="70px" height="80px" />
                                 </td>
                                 <td class="content">
-                                    <p>42<sup>ND</sup> INTERNATIONAL CONGRESS ON<br />DIGITAL CARTOGRAPHY
+                                    <p>43<sup>RD</sup> INTERNATIONAL CONGRESS ON<br />DIGITAL CARTOGRAPHY
                                         TO <br />HARNESS BLUE ECONOMY</p>
                                 </td>
                                 <td>
