@@ -64,7 +64,7 @@ const PaymentInfo = () => {
               Note
             </strong>
             <p>
-              Transation details are to be shared with organising secretary on the email : info@42inca.org
+              Transation details are to be shared with organising secretary on the email : info@43inca.org
             </p>
           </div>
         </div>

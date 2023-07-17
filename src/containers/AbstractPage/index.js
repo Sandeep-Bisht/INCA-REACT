@@ -97,7 +97,7 @@ function AbstractPage() {
 
                 {/* <p className="common-para">
                   * Please note that submitting an abstract does not imply
-                  registration for the 42 <sup>nd</sup> INCA International
+                  registration for the 43 <sup>rd</sup> INCA International
                   Conference.
                 </p> */}
                 <p className="common-para">

@@ -29,14 +29,14 @@ import inca6 from "../../images/DS.jpeg";
 import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
-import instruction from '../../images/instructions.jpg';
+import instruction from "../../images/instructions.jpg";
 import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
 import Instructions from "../../SampleFiles/instructions_for_participants.pdf";
-import ThirdSercular from '../../SampleFiles/Second circular_20 sep 22.pdf';
-import FinalSercular from '../../images/INCA_43rd_First_Circular.pdf';
-import DraftTechnical from '../../SampleFiles/Draft Technical Session07 nov.pdf';
-import BoardList from '../../images/board.png';
-import homepageBackgroundVideo from '../../video/_import_6166ec628fdab6.53885345_FPpreview.mp4'
+import ThirdSercular from "../../SampleFiles/Second circular_20 sep 22.pdf";
+import FinalSercular from "../../images/INCA_43rd_First_Circular.pdf";
+import DraftTechnical from "../../SampleFiles/Draft Technical Session07 nov.pdf";
+import BoardList from "../../images/board.png";
+import homepageBackgroundVideo from "../../video/_import_6166ec628fdab6.53885345_FPpreview.mp4";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -107,13 +107,18 @@ const HomePage = () => {
     <>
       <Header></Header>
       <div className="home-banner">
-      <div className="homepage-video-section">
-            <video className="w-100" src={homepageBackgroundVideo}  autoPlay muted loop/>
-            </div>
+        <div className="homepage-video-section">
+          <video
+            className="w-100"
+            src={homepageBackgroundVideo}
+            autoPlay
+            muted
+            loop
+          />
+        </div>
         <div className="container-home">
           <div className="row pb-md-5 h-100 m-0">
-            <div className="col-md-5">
-            </div>
+            <div className="col-md-5"></div>
             <div className="col-md-7 d-flex flex-column justify-content-center">
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
@@ -124,14 +129,9 @@ const HomePage = () => {
                   <span className="theme-color">
                     Emerging Trends in Digital Cartography For
                   </span>
-                  <p className="head-text">
-                    Sustainable Ecosystems and 
-                  </p>
-                  <p className="head-text">
-                    Geospatial Economy
-                  </p>
-                  
-                  
+                  <p className="head-text">Sustainable Ecosystems and</p>
+                  <p className="head-text">Geospatial Economy</p>
+
                   {/* <span className="banner-last">Event-2023</span> */}
                 </p>
                 <div className="banner-bottom"></div>
@@ -213,32 +213,38 @@ const HomePage = () => {
       <div className="Welcome-page">
         <div className="container">
           <div className="row">
-            <div className="col-md-6 d-none">
-              <div className="adhir-arora-image">
-                <div className="adhir-pic">
-                  <img src={comittee2} alt="" className="img-fluid" />
-                </div>
-                <div className="adhir-image-title">
-                  <p className="common-para">
-                    {" "}
-                    Vice Admiral Adhir Arora , NM{" "}
-                  </p>
-                  <p className="common-para">
-                    Chief Hydrographer to the Govt. of India & President INCA
-                  </p>
-                </div>
-              </div>
-            </div>
             <div className="col-md-8 mx-auto text-center">
-            <h2 className="common-heading">National Remote Sensing Center</h2></div>
+              <h2 className="common-heading">National Remote Sensing Center</h2>
+            </div>
             <div className="col-md-12 text-center">
               <div className="welcome-text pt-4">
                 <p className="common-para text-justify">
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;National Remote Sensing Centre (NRSC), a key functionary of Indian Space Research Organisation (ISRO), is striving to realize the Indian Space Vision through Earth Observation. It is responsible for the ground segment of Remote Sensing Programme through satellite data acquisition, archival, processing, dissemination, remote sensing applications, training and capacity building. It also
-                provides aerial services in the civilian sector for the country. NRSC has five Regional Centres located at Bangalore, Nagpur, Kolkata, New Delhi and Jodhpur to address region/area specific remote sensing application needs. NRSC is continuously exploring the practical use of remote sensing for societal applications and disaster management through multilevel initiatives, development of value-added data services and remote sensing applications.
-               </p>
-               <p className="common-para text-justify">Regional Remote Sensing Centre-West (RRSC-West), Jodhpur is one of the regional centres of NRSC. It was established in 1987 under the aegis of National Natural Resources Management System (NNRMS) of ISRO to cater to the needs of different user agencies of North-West India. The centre is acting as a hub of space technology applications in the region since last three and half decades, with its current focus on issues related to sustainable arid ecosystems.
-</p>
+                  National Remote Sensing Centre (NRSC), a key functionary of
+                  Indian Space Research Organisation (ISRO), is striving to
+                  realize the Indian Space Vision through Earth Observation. It
+                  is responsible for the ground segment of Remote Sensing
+                  Programme through satellite data acquisition, archival,
+                  processing, dissemination, remote sensing applications,
+                  training and capacity building. It also provides aerial
+                  services in the civilian sector for the country. NRSC has five
+                  Regional Centres located at Bangalore, Nagpur, Kolkata, New
+                  Delhi and Jodhpur to address region/area specific remote
+                  sensing application needs. NRSC is continuously exploring the
+                  practical use of remote sensing for societal applications and
+                  disaster management through multilevel initiatives,
+                  development of value-added data services and remote sensing
+                  applications.
+                </p>
+                <p className="common-para text-justify">
+                  Regional Remote Sensing Centre-West (RRSC-West), Jodhpur is
+                  one of the regional centres of NRSC. It was established in
+                  1987 under the aegis of National Natural Resources Management
+                  System (NNRMS) of ISRO to cater to the needs of different user
+                  agencies of North-West India. The centre is acting as a hub of
+                  space technology applications in the region since last three
+                  and half decades, with its current focus on issues related to
+                  sustainable arid ecosystems.
+                </p>
               </div>
             </div>
           </div>
@@ -258,9 +264,13 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">Where is the Event</h2>
                   <p className="common-para">
-                    <b> Regional Remote Sensing Center-West National Remote Sensing Center (NRSC),ISRO ISRO Complex, Bypass Road
-                    Sector 9, Kudi Bhagtasani Housing Board (KBHB)</b> <br />
-                    
+                    <b>
+                      {" "}
+                      Regional Remote Sensing Center-West National Remote
+                      Sensing Center (NRSC), ISRO ISRO Complex, Bypass Road
+                      Sector 9, Kudi Bhagtasani Housing Board (KBHB)
+                    </b>{" "}
+                    <br />
                     <b>Jodhpur – 342005</b>
                   </p>
                 </div>
@@ -276,8 +286,8 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event</h2>
                   <p className="common-para">
-                    <b>06 November 2023</b> <br /> <b>07 November 2023</b> <br /> <b>08 November
-                    2023</b>
+                    <b>06 November 2023</b> <br /> <b>07 November 2023</b>{" "}
+                    <br /> <b>08 November 2023</b>
                   </p>
                 </div>
               </div>
@@ -323,11 +333,14 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">Where is the Event:</h2>
                   <p className="common-para">
-                  
-                    <b> Regional Remote Sensing Center-West National Remote Sensing Center(NRSC), <br />
-                    ISRO  Complex, Bypass Road
-                    Sector 9, <br />Kudi Bhagtasani Housing Board (KBHB)  <br />
-                    Jodhpur – 342005</b>
+                    <b>
+                      {" "}
+                      Regional Remote Sensing Center-West National Remote
+                      Sensing Center(NRSC), <br />
+                      ISRO Complex, Bypass Road Sector 9, <br />
+                      Kudi Bhagtasani Housing Board (KBHB) <br />
+                      Jodhpur – 342005
+                    </b>
                   </p>
                 </div>
               </div>
@@ -342,7 +355,8 @@ const HomePage = () => {
                 <div className="right">
                   <h2 className="h2">When is the Event:</h2>
                   <p className="common-para">
-                    06 November 2023 <br /> 07 November 2023 <br /> 08 November 2023
+                    06 November 2023 <br /> 07 November 2023 <br /> 08 November
+                    2023
                   </p>
                 </div>
               </div>
@@ -693,7 +707,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                      Dr. Prakash Chauhan,  <br /> NRSC/ISRO
+                        Dr. Prakash Chauhan, <br /> NRSC/ISRO
                       </h3>
                       <span className="speaker-post">Patron</span>
                     </div>
@@ -708,7 +722,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                      Dr. S. K. Srivastav, <br />  NRSC/ISRO
+                        Dr. S. K. Srivastav, <br /> NRSC/ISRO
                       </h3>
                       <span className="speaker-post">Chairman</span>
                     </div>
@@ -723,7 +737,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                       Dr. A. K. Bera, RRSC-West, NRSC/ISRO
+                        Dr. A. K. Bera, RRSC-West, NRSC/ISRO
                       </h3>
                       <span className="speaker-post">Organising Secretary</span>
                     </div>
@@ -738,9 +752,11 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                       Dr. P. C. Moharana, ICAR-CAZRI
+                        Dr. P. C. Moharana, ICAR-CAZRI
                       </h3>
-                      <span className="speaker-post">Co-Organising Secretary</span>
+                      <span className="speaker-post">
+                        Co-Organising Secretary
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -753,7 +769,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                      Shri Sagar S. Salunkhe, RRSC-West, NRSC/ISRO
+                        Shri Sagar S. Salunkhe, RRSC-West, NRSC/ISRO
                       </h3>
                       <span className="speaker-post">Treasurer</span>
                     </div>
@@ -768,7 +784,7 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                      Dr. Dandabathula Giribabu, RRSC-West, NRSC/ISRO
+                        Dr. Dandabathula Giribabu, RRSC-West, NRSC/ISRO
                       </h3>
                       <span className="speaker-post">Editor</span>
                     </div>
@@ -783,9 +799,11 @@ const HomePage = () => {
                   <div className="speaker-detail">
                     <div className="upper">
                       <h3 className="speaker-title">
-                      Shri Gaurav Kumar, RRSC-West, NRSC/ISRO
+                        Shri Gaurav Kumar, RRSC-West, NRSC/ISRO
                       </h3>
-                      <span className="speaker-post">Event Secretariat Focal Point</span>
+                      <span className="speaker-post">
+                        Event Secretariat Focal Point
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -2154,16 +2172,18 @@ const HomePage = () => {
             </div>
             <div className="col-lg-6">
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
-                <h1 className="common-heading pt-4">
-                  About INCA (Indian National Cartographic Association)
-                </h1>
+                <h1 className="common-heading pt-4">The Congress</h1>
                 <p className="common-para text-justify">
-                  INCA as an association provides an interface between academia,
-                  particularly geographers, geologists, earth scientists,
-                  technologists etc., and government institutions and
-                  geo-spatial industries involved in manufacturing of mapping
-                  and surveying tools and software, mapping and geo-spatial
-                  analysis.
+                  The INCA, established in 1979, is a non-profit making
+                  professional body. It is an inter-disciplinary institution
+                  originally between Geographers and Cartographers which is now
+                  shared by a host of premier public and private bodies. Today,
+                  Cartography along with Geoinformatics is a multifaceted and
+                  highly complex domain involving several disciplines to enhance
+                  the understanding, creation, analysis, and use of maps as well
+                  as geographic information in order to support effective
+                  decision making and, thus, improving the quality of life. The
+                  aims of the association are as follows:
                 </p>
               </div>
               <div className="signature-box">
@@ -2175,12 +2195,21 @@ const HomePage = () => {
                       </span>
 
                       <span>
-                        To foster cartographic research in the country , To
-                        co-operate with professional organisations of cognate
-                        disciplines and to promote academic interaction within
-                        an inter-disciplinary frame.
+                        To foster cartographic research in the country
                       </span>
                     </li>
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+
+                      <span>
+                        To co-operate with professional organisations of cognate
+                        disciplines and to promote interaction within an
+                        inter-disciplinary frame.
+                      </span>
+                    </li>
+
                     <li className="my-2 py-2">
                       <span className="me-2">
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
@@ -2188,8 +2217,7 @@ const HomePage = () => {
 
                       <span>
                         To co-operate with international organisations with
-                        similar objectives , To improve the teaching of
-                        cartography at all levels.
+                        similar objectives.
                       </span>
                     </li>
 
@@ -2199,10 +2227,35 @@ const HomePage = () => {
                       </span>
 
                       <span>
-                        To foster co-operation between Government and
-                        Quasi-Government organisations, Research Institutions
-                        for the advancement of cartography , To hold a National
-                        Cartographic Conference, ordinarily, once in a year.
+                        To foster co-operation between government and
+                        quasi-government organisations, research institutions
+                        engaged in cartographic activities and their
+                        applications.
+                      </span>
+                    </li>
+
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+
+                      <span>
+                        To hold an annual cartographic congress at the national
+                        or international level.
+                      </span>
+                    </li>
+
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+
+                      <span>
+                        To take such measures as may help secure cartography its
+                        legitimate place in national life and enhance a sense of
+                        national responsibility and professional efficacy among
+                        all the professionals and academic people engaged in
+                        cartographic activities in its broad sense.
                       </span>
                     </li>
                   </ul>
@@ -2254,16 +2307,18 @@ const HomePage = () => {
             </div>
             <div className="col-lg-6">
               <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
-                <h1 className="common-heading pt-4">
-                  About INCA (Indian National Cartographic Association)
-                </h1>
+                <h1 className="common-heading pt-4">The Congress</h1>
                 <p className="common-para">
-                  INCA as an association provides an interface between academia,
-                  particularly geographers, geologists, earth scientists,
-                  technologists etc., and government institutions and
-                  geo-spatial industries involved in manufacturing of mapping
-                  and surveying tools and software, mapping and geo-spatial
-                  analysis.
+                  The INCA, established in 1979, is a non-profit making
+                  professional body. It is an inter-disciplinary institution
+                  originally between Geographers and Cartographers which is now
+                  shared by a host of premier public and private bodies. Today,
+                  Cartography along with Geoinformatics is a multifaceted and
+                  highly complex domain involving several disciplines to enhance
+                  the understanding, creation, analysis, and use of maps as well
+                  as geographic information in order to support effective
+                  decision making and, thus, improving the quality of life. The
+                  aims of the association are as follows:
                 </p>
               </div>
               <div className="signature-box">
@@ -2274,10 +2329,17 @@ const HomePage = () => {
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
                       <span>
-                        To foster cartographic research in the country , To
-                        co-operate with professional organisations of cognate
-                        disciplines and to promote academic interaction within
-                        an inter-disciplinary frame.
+                        To foster cartographic research in the country
+                      </span>
+                    </li>
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+                      <span>
+                        To co-operate with professional organisations of cognate
+                        disciplines and to promote interaction within an
+                        inter-disciplinary frame.
                       </span>
                     </li>
                     <li className="my-2 py-2">
@@ -2286,8 +2348,7 @@ const HomePage = () => {
                       </span>
                       <span>
                         To co-operate with international organisations with
-                        similar objectives , To improve the teaching of
-                        cartography at all levels.
+                        similar objectives.
                       </span>
                     </li>
                     <li className="my-2 py-2">
@@ -2295,10 +2356,31 @@ const HomePage = () => {
                         <i className="fa-solid fa-circle-check common-yellow-color"></i>
                       </span>
                       <span>
-                        To foster co-operation between Government and
-                        Quasi-Government organisations, Research Institutions
-                        for the advancement of cartography , To hold a National
-                        Cartographic Conference, ordinarily, once in a year.
+                        To foster co-operation between government and
+                        quasi-government organisations, research institutions
+                        engaged in cartographic activities and their
+                        applications.
+                      </span>
+                    </li>
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+                      <span>
+                        To hold an annual cartographic congress at the national
+                        or international level.
+                      </span>
+                    </li>
+                    <li className="my-2 py-2">
+                      <span className="me-2">
+                        <i className="fa-solid fa-circle-check common-yellow-color"></i>
+                      </span>
+                      <span>
+                        To take such measures as may help secure cartography its
+                        legitimate place in national life and enhance a sense of
+                        national responsibility and professional efficacy among
+                        all the professionals and academic people engaged in
+                        cartographic activities in its broad sense.
                       </span>
                     </li>
                   </ul>
@@ -2332,15 +2414,13 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-            <h2 className="common-heading">Announcements</h2>
+              <h2 className="common-heading">Announcements</h2>
             </div>
           </div>
 
-         
           <div className="row">
             <div className="col-lg-3">
               <div className="blog-card">
-                
                 <a target="_blank" href={FinalSercular}>
                   <div className="blog-card-pic">
                     <img src={Event_2} alt="Second-Circular"></img>
@@ -2353,84 +2433,6 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="col-lg-3"> 
-              <div className="blog-card">
-                
-                <a target="_blank" href={DraftTechnical}>
-                  <div className="blog-card-pic">
-                    <img src={Event_2} alt="Second-Circular"></img>
-                  </div>
-                </a>
-                <div className="blog-card-content">
-                  <h3>
-                    43<sup>rd</sup> INCA International Congress-Draft Technical Session
-                  </h3>
-                </div>
-              </div>
-            </div>  
-            <div className="col-lg-3">
-              <div className="blog-card">
-                
-                <a target="_blank" href={SecondSercular}>
-                  <div className="blog-card-pic">
-                    <img src={Event_2} alt="Second-Circular"></img>
-                  </div>
-                </a>
-                <div className="blog-card-content">
-                  <h3>
-                    43<sup>rd</sup> INCA International Congress-First Circular
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3">
-              <div className="blog-card">
-                
-                <a target="_blank" href={ThirdSercular}>
-                  <div className="blog-card-pic">
-                    <img src={Event_2} alt="Second-Circular"></img>
-                  </div>
-                </a>
-                <div className="blog-card-content">
-                  <h3>
-                    43<sup>rd</sup> INCA International Congress-Second Circular
-                  </h3>
-                </div>
-              </div>
-            </div>  */} 
-            <div className="col-lg-3">
-              <div className="blog-card">
-                
-                <a target="_blank" href={Instructions}>
-                  <div className="blog-card-pic">
-                    <img src={instruction} alt="instructions"></img>
-                  </div>
-                </a>
-                <div className="blog-card-content">
-                  <h3>
-                    Instructions For Participants
-                  </h3>
-                </div>
-              </div>
-            </div>       
-          </div>
-          <div className="row">
-            {/* <div className="col-lg-3"> 
-              <div className="blog-card">
-                
-                <a target="_blank" href='/boardlists'>
-                  <div className="blog-card-pic">
-                    <img src={BoardList} alt="Second-Circular"></img>
-                  </div>
-                </a>
-                <div className="blog-card-content">
-                  <h3>
-                    Broad Programme For 43<sup>rd</sup> International INCA Congress
-                  </h3>
-                </div>
-              </div>
-            </div>*/}
-            
           </div>
         </div>
       </section>
@@ -2477,7 +2479,12 @@ const HomePage = () => {
                   <div className="contact-venue">
                     <h3>EVENT VENUE :</h3>
                     <p className="common-para mb-0">
-                      <b> Regional Remote Sensing Center-west <br/> National Remote Sensing Center (NRSC),ISRO </b> <br />
+                      <b>
+                        {" "}
+                        Regional Remote Sensing Center-west <br /> National
+                        Remote Sensing Center (NRSC),ISRO{" "}
+                      </b>{" "}
+                      <br />
                       <b>Jodhpur– 342005</b>
                     </p>
                   </div>
@@ -2489,7 +2496,9 @@ const HomePage = () => {
                   </div>
                   <div className="contact-venue">
                     <h3>Email :</h3>
-                    <p className="common-para mb-0"><b>info@43inca.org</b></p>
+                    <p className="common-para mb-0">
+                      <b>info@43inca.org</b>
+                    </p>
                   </div>
                 </div>
 
@@ -2499,7 +2508,9 @@ const HomePage = () => {
                   </div>
                   <div className="contact-venue">
                     <h3>Phone number :</h3>
-                    <p className="common-para mb-0"><b>+91 2912796395</b></p>
+                    <p className="common-para mb-0">
+                      <b>+91 2912796395</b>
+                    </p>
                   </div>
                 </div>
               </div>

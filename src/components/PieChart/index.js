@@ -10,10 +10,17 @@ export let PieChart = (props) => {
 let { data } = props 
     let createPieChart = () => {
         let chart = am4core.create("chartdiv", am4charts.PieChart);
-        chart.data = data
+        console.log(data , "isndide pi echart")
+        const updatedData = data.map(item => ({
+            ...item,
+            type: item.type.charAt(0).toUpperCase() + item.type.slice(1).toLowerCase()
+          }));
+        chart.data = updatedData
         var pieSeries = chart.series.push(new am4charts.PieSeries());
         pieSeries.dataFields.value = "counter";
         pieSeries.dataFields.category = "type";
+
+        
     }
 
     useEffect(() => {
@@ -41,7 +48,7 @@ let { data } = props
                                             <div className="left"><i className={`${item.type == "present" ? "fa-solid fa-user-plus" : "fa-solid fa-user-minus" }`}></i></div>
                                             <div className="right">
                                                 <p className="counter-card-number">{item.counter}</p>
-                                                <p className="counter-card-title">{item.type}</p>
+                                                <p className="counter-card-title">{item.type.charAt(0).toUpperCase() + item.type.slice(1)}</p>
                                             </div>
                                         </div>
                                     </div>

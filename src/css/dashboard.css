@@ -80,7 +80,7 @@
 {
   
 
-  margin:25px 0;
+  margin:12px 0;
   transition: .2s;
 }
 
@@ -98,7 +98,21 @@
   transform: rotate(0deg)!important;
 }
 
-
+.p-datatable .p-datatable-thead > tr > th{
+  font-weight: 400!important;
+  padding: 10px 26px 0 8px;
+}
+.p-datatable .p-datatable-tbody > tr > td{
+  padding: 5px 24px 5px 8px;
+  font-size: 14px;
+}
+.p-datatable .p-datatable-tbody > tr > td:nth-child(8) .d-flex{
+  width: 470px !important;
+  font-size: 15px!important;
+}
+.p-sortable-column{
+  font-size: 15px;
+}
 .dash-body .left-part aside ul li:hover,.dash-body .left-part .accordion-button:hover,
 .dashboard-header .dropdown-item:hover
 {
@@ -124,7 +138,8 @@
     background: transparent;
     border:none;
     text-align:left;
-    padding: 12px 20px!important;
+    
+    padding: 0 0.5rem 0 32px!important;
     font-size: 15px;
     font-weight:500;
     color:#fff;
@@ -195,7 +210,7 @@
 {
   color: #fff;
   background-color: #1b2a47;
-  padding: 12px 25px;
+  padding: 7px 25px;
   border: none;
   border-radius: 5px;
   font-weight: 600;

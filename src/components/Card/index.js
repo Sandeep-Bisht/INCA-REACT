@@ -19,7 +19,7 @@ export const Card = (props) => {
                                             <div className="left"><i className={`${item.type == "user" ? "fa-solid fa-users" : item.type === "sponser" ? "fa-brands fa-elementor" : item.type === "registred" ? "fa-solid fa-user-check" : "fa-solid fa-file-export"}`}></i></div>
                                             <div className="right">
                                                 <p className="counter-card-number">{item.counter}</p>
-                                                <p className="counter-card-title">{item.type}</p>
+                                                <p className="counter-card-title">{item.type.charAt(0).toUpperCase() + item.type.slice(1)}</p>
                                             </div>
                                         </div>
                                      </div>
