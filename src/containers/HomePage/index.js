@@ -118,20 +118,24 @@ const HomePage = () => {
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
                   <span className="banner-small text-white">
-                    43<sup>rd</sup> INCA International Congress on
+                    43<sup>rd</sup> INCA International Congress <br/>on
                   </span>
 
-                  <span className="theme-color">
-                    Emerging Trends in Digital Cartography For
-                  </span>
                   <p className="head-text">
-                    Sustainable Ecosystems and 
+                    Emerging Trends in Digital 
                   </p>
                   <p className="head-text">
-                    Geospatial Economy
+                  Cartography For Sustainable  
                   </p>
-                  
-                  
+                  <p className="head-text">
+                  Ecosystems and  Geospatial
+                  </p>
+                  <p className="head-text">
+                   Economy
+                  </p>
+                  <p className="head-text-para">
+                    -- Enabling Earth to Talk --
+                  </p>
                   {/* <span className="banner-last">Event-2023</span> */}
                 </p>
                 <div className="banner-bottom"></div>
