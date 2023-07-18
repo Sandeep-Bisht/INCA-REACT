@@ -5,7 +5,7 @@ import "../../css/contact.css";
 import "../../css/about.css";
 import buddhaTemple from "../../images/udaipur2.jpeg";
 import clockTower from "../../images/clock-tower.jpg";
-import doonAirport from "../../images/doon-airport.png";
+import doonAirport from "../../images/doon-airport.jpg";
 import doonFri from "../../images/udaipur1.jpeg";
 import doonStadium from "../../images/stadium.jpeg";
 import doonWeather1 from "../../images/weather-1.jpg";
@@ -34,20 +34,35 @@ const About = () => {
             <div className="col-md-8 pe-4">
               <h2 className="pb-2">ABOUT NRSC</h2>
               <p className="common-para text-justify">
-              National Remote Sensing Centre (NRSC), a key functionary of 
-              Indian Space Research Organisation (ISRO), is striving to realize
-               the Indian Space Vision through Earth Observation. It is responsible
-                for the ground segment of Remote Sensing Programme through satellite data 
-                acquisition, archival, processing, dissemination, remote sensing applications, 
-                training and capacity building. It also
-                provides aerial services in the civilian sector for the country. NRSC has five 
-                Regional Centres located at Bangalore, Nagpur, Kolkata, New Delhi and Jodhpur to 
-                address region/area specific remote sensing application needs. NRSC is continuously 
-                exploring the practical use of remote sensing for societal applications and disaster management through multilevel initiatives, development of value-added data services and remote sensing applications.</p>
+                National Remote Sensing Centre (NRSC), a key functionary of
+                Indian Space Research Organisation (ISRO), is striving to
+                realize the Indian Space Vision through Earth Observation. It is
+                responsible for the ground segment of Remote Sensing Programme
+                through satellite data acquisition, archival, processing,
+                dissemination, remote sensing applications, training and
+                capacity building. It also provides aerial services in the
+                civilian sector for the country. NRSC has five Regional Centres
+                located at Bangalore, Nagpur, Kolkata, New Delhi and Jodhpur to
+                address region/area specific remote sensing application needs.
+                NRSC is continuously exploring the practical use of remote
+                sensing for societal applications and disaster management
+                through multilevel initiatives, development of value-added data
+                services and remote sensing applications.
+              </p>
+              <p className="common-para text-justify">
+                Regional Remote Sensing Centre - West (RRSC-West), Jodhpur was
+                established in 1987 under the aegis of National Natural
+                Resources Management System (NNRMS) of ISRO to cater to the
+                needs of different user agencies of North-West India. The centre
+                is acting as a hub of space technology applications in the
+                region during the last three and half decades, with current
+                focus on sustainable arid ecosystems having major emphasis on
+                desertification and water resources management.
+              </p>
             </div>
             <div className="col-md-4">
-              <div className="nho-pics">
-                    <img src={NHOBuilding} alt="" className="img-fluid"/>
+              <div className="nho-pics d-flex align-items-center h-100">
+                <img src={NHOBuilding} alt="" className="img-fluid" />
               </div>
             </div>
           </div>
@@ -60,50 +75,61 @@ const About = () => {
             <div className="col-md-8 pe-4">
               <h2 className="pb-2">ABOUT JODHPUR </h2>
               <p className="common-para text-justify">
-              Jodhpur traditionally known as the “Sun City” was founded by Rao Jodha, 
-              a chief of Rathore clan, in 1459. It is the second largest city in Rajasthan 
-              and a very popular tourist destination. Jodhpur is best known for Mehrangarh 
-              Majestic Fort, Umaid Bhawan Palace, Mandore Garden and Clock Tower. Jodhpur 
-              is famous for its traditional sweets and spicy food. The lifestyle in Jodhpur 
-              is quite fascinating and colourful. Lending a cultural aura to Jodhpur, 
-              are its exquisite handicrafts, folk dances, folk music and the brightly attired people. 
-              The desert people are quite affable. Jodhpur has emerged as Center for Academic
-               Excellence where apart from ISRO, a number of institutions like ICAR-CAZRI, IIT, 
-               AIIMS, ONGC, DRDO, AFRI, National Law University, Ayurvedic University, Police & Forensic Science University, BSI, ZSI and NIFT are located. Famous Osian sand dunes are just 65 km away from the city. The weather during November month will be pleasant as the temperature ranges from 20-35 degree Celsius. Jodhpur city is well connected with the national capital and other Indian cities through Air, Rail and Road transport. The congress venue is located within 15 km of the respective terminals. Jodhpur is about 600 km away from Delhi, 300 km from Jaipur, 450 km from Ahmedabad and 280 km from Udaipur.
-
+                Jodhpur traditionally known as the “Sun City” was founded by Rao
+                Jodha, a chief of Rathore clan, in 1459. It is the second
+                largest city in Rajasthan and a very popular tourist
+                destination. Jodhpur is best known for Mehrangarh Majestic Fort,
+                Umaid Bhawan Palace, Mandore Garden and Clock Tower. Jodhpur is
+                famous for its traditional sweets and spicy food. The lifestyle
+                in Jodhpur is quite fascinating and colourful. Lending a
+                cultural aura to Jodhpur, are its exquisite handicrafts, folk
+                dances, folk music and the brightly attired people. The desert
+                people are quite affable. Jodhpur has emerged as Center for
+                Academic Excellence where apart from ISRO, a number of
+                institutions like ICAR-CAZRI, IIT, AIIMS, ONGC, DRDO, AFRI,
+                National Law University, Ayurvedic University, Police & Forensic
+                Science University, BSI, ZSI and NIFT are located. Famous Osian
+                sand dunes are just 65 km away from the city. The weather during
+                November month will be pleasant as the temperature ranges from
+                20-35 degree Celsius. Jodhpur city is well connected with the
+                national capital and other Indian cities through Air, Rail and
+                Road transport. The congress venue is located within 15 km of
+                the respective terminals. Jodhpur is about 600 km away from
+                Delhi, 300 km from Jaipur, 450 km from Ahmedabad and 280 km from
+                Udaipur.
               </p>
 
               <h2 className="pb-2">HOW TO REACH</h2>
               <p className="common-para text-justify">
-              Jodhpur Airport is a domestic airport located at about 12
-               km away from RRSC-West/NRSC Regional Centre. Taxi cabs are 
-               available from the airport to Centre. The airport operates daily 
-               flights to all major cities of India. Jodhpur has a railway station well 
-               connected to all major cities in the country. All nearby cities are also connected 
-               to Jodhpur by bus service. The venue for the conference is the RRSC-West/NRSC Regional
-                Centre which is about 10 km away from the Jodhpur railway station.
+                Jodhpur Airport is a domestic airport located at about 12 km
+                away from RRSC-West/NRSC Regional Centre. Taxi cabs are
+                available from the airport to Centre. The airport operates daily
+                flights to all major cities of India. Jodhpur has a railway
+                station well connected to all major cities in the country. All
+                nearby cities are also connected to Jodhpur by bus service. The
+                venue for the conference is the RRSC-West/NRSC Regional Centre
+                which is about 10 km away from the Jodhpur railway station.
               </p>
-
 
               <h2 className="pb-2">ACCOMMODATION</h2>
               <p className="common-para text-justify">
-              The registration fee does not include accommodation. 
-              Jodhpur has large number of hotels ranging from budget
-               to luxury/heritage hotels. The accommodation charges may
-                vary from Rs. 1000/- to Rs. 5000/- and more for luxury/heritage hotels. 
-                The above rates are only indicative and may vary. Limited guest house 
-                accommodation will be available on payment 
-                (tariff as per respective institution’s rule) 
-                and on first-come-first-serve basis. List of hotels with their indicative 
-                tariff and contact number will be available shortly on website https://www.43inca.org. 
-                Participants should book their accommodation in advance to avoid last minute rush. 
-                Transport will be provided from the hotels/ guest houses identified by the organisers 
-                to the conference venue.
-  
+                The registration fee does not include accommodation. Jodhpur has
+                large number of hotels ranging from budget to luxury/heritage
+                hotels. The accommodation charges may vary from Rs. 1000/- to
+                Rs. 5000/- and more for luxury/heritage hotels. The above rates
+                are only indicative and may vary. Limited guest house
+                accommodation will be available on payment (tariff as per
+                respective institution’s rule) and on first-come-first-serve
+                basis. List of hotels with their indicative tariff and contact
+                number will be available shortly on website
+                https://www.43inca.org. Participants should book their
+                accommodation in advance to avoid last minute rush. Transport
+                will be provided from the hotels/ guest houses identified by the
+                organisers to the conference venue.
               </p>
             </div>
             <div className="col-md-4">
-              <div className="doon-pics">
+              <div className="doon-pics mt-5">
                 <div className="row">
                   <div className="col-md-8 p-0">
                     <img src={buddhaTemple} alt="" className="img-fluid" />
@@ -137,11 +163,11 @@ const About = () => {
             <div className="col-md-8 pe-4">
               <h2>JODHPUR CLIMATE</h2>
               <p className="common-para text-justify">
-              November is considered to be one of the best months to visit Jodhpur as 
-              the weather during this time is pleasant. The temperature during the day 
-              usually ranges between 25-30°C. However, it is advisable to carry a light 
-              jacket or sweater for the evening and early morning hours as the temperature can drop.
-
+                November is considered to be one of the best months to visit
+                Jodhpur as the weather during this time is pleasant. The
+                temperature during the day usually ranges between 25-30°C.
+                However, it is advisable to carry a light jacket or sweater for
+                the evening and early morning hours as the temperature can drop.
               </p>
             </div>
             <div className="col-md-4">
@@ -254,7 +280,7 @@ const About = () => {
               </div>
             </div>
           </div> */}
-          
+
       <section className="section-padding contact-single1 about-single1">
         <div className="container">
           <div className="row pt-5">
@@ -264,7 +290,9 @@ const About = () => {
                   <i className="fa-solid fa-lightbulb"></i>
                   <h3 className="h2">ABOUT INCA</h3>
                   <p className="common-para">
-                  Founded on 7th August, 1979 at Hyderabad, the Indian National Cartographic Association (INCA) has evolved into one of the biggest organizations of its kind in the world.
+                    Founded on 7th August, 1979 at Hyderabad, the Indian
+                    National Cartographic Association (INCA) has evolved into
+                    one of the biggest organizations of its kind in the world.
                   </p>
                 </div>
               </div>
@@ -275,7 +303,10 @@ const About = () => {
                   <i className="fa-solid fa-user-plus"></i>
                   <h3 className="h2">OUR ACTIVITIES</h3>
                   <p className="common-para">
-                  In order to achieve the above objectives, INCA organizes several programmes. It has so far conducted Twenty five National / International conferences at various places in India.
+                    In order to achieve the above objectives, INCA organizes
+                    several programmes. It has so far conducted Twenty five
+                    National / International conferences at various places in
+                    India.
                   </p>
                 </div>
               </div>
@@ -286,9 +317,9 @@ const About = () => {
                   <i className="fa-solid fa-rocket"></i>
                   <h3 className="h2">OUR AIM & MISSION</h3>
                   <p className="common-para">
-                  To foster cartographic research in the country.
-                  To improve the teaching of cartography at all levels.
-                  To co-operate with international organizations with similar objectives.
+                    To foster cartographic research in the country. To improve
+                    the teaching of cartography at all levels. To co-operate
+                    with international organizations with similar objectives.
                   </p>
                 </div>
               </div>

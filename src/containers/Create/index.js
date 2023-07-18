@@ -24,6 +24,7 @@ const obj = {
   participationType: "",
   nationality: "",
   title: "",
+  theme:"",
   registrationCategory: "",
   accompanningPerson: [],
   isError: {
@@ -39,6 +40,7 @@ const obj = {
     participationType: "",
     nationality: "",
     title: "",
+    theme:"",
     registrationCategory: "",
     registrationFee: "",
     transactionId: "",
@@ -69,7 +71,6 @@ const CreateForm = (props) => {
   let dispatch = useDispatch();
   let location = useLocation();
   let navigate = useNavigate();
-  
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -168,6 +169,7 @@ const CreateForm = (props) => {
         participationType: "",
         nationality: "",
         title: "",
+        theme: "",
         registrationCategory: "",
         registrationFee: "",
         transactionId: "",
@@ -313,6 +315,12 @@ const CreateForm = (props) => {
         setUserInformation(userInformationCopy);
         break;
 
+        case "theme" : 
+        userInformationCopy.isError.theme =
+        value.length < 0 ? "Theme is Required" : "";
+      setUserInformation(userInformationCopy);
+      break;
+
       case "registrationCategory":
         userInformationCopy.isError.registrationCategory =
           value.length < 0 ? "Registration Category is Required" : "";
@@ -356,6 +364,10 @@ const CreateForm = (props) => {
     }
 
     if (!userInformation?.nationality) {
+      formIsValid = false;
+    }
+
+    if (!userInformation?.theme) {
       formIsValid = false;
     }
 
@@ -802,6 +814,91 @@ const CreateForm = (props) => {
             <div className="row mb-5">
               <div className="col-md-4">
                 <div className="row">
+                  <div className="col-md-12">
+                    <label
+                      htmlFor="SelectCategory"
+                      className="form-label asterisk"
+                    >
+                      Theme
+                    </label>
+                    <select
+                      className="form-select"
+                      onChange={(e) => userInformationOnchangeHandler(e)}
+                      aria-label="Default select example"
+                      value={
+                        userInformation && userInformation.theme
+                      }
+                      disabled={isDisabled}
+                      id="theme"
+                    >
+                      <option defaultValue hidden>
+                        Please Select
+                      </option>
+                      <option
+                        value="Advances in cartography, geospatial technology and thematic mapping for
+management of natural resources and smart governance"
+                      >
+                        Advances in cartography, geospatial technology and
+                        thematic mapping for management of natural resources and
+                        smart governance
+                      </option>
+                      {/* <option value="delegate">Delegate</option> */}
+                      <option
+                        value="Geospatial technologies for fostering sustainable agriculture, food security and green economies"
+                      >
+                        Geospatial technologies for fostering sustainable
+                        agriculture, food security and green economies
+                      </option>
+                      <option value="Geospatial technologies for sustainable water resources management">
+                        Geospatial technologies for sustainable water resources
+                        management
+                      </option>
+                      <option value="Geospatial technologies for environment and energy security">
+                        Geospatial technologies for environment and energy
+                        security
+                      </option>
+                      <option
+                        value="Geospatial technologies for urban studies and infrastructure planning & development"
+                      >
+                        Geospatial technologies for urban studies and
+                        infrastructure planning & development
+                      </option>
+                      <option value="Geospatial technologies for meteorology and climate change studies">
+                        Geospatial technologies for meteorology and climate
+                        change studies
+                      </option>
+                      <option
+                        value="Geospatial technologies for building disaster resilience and emergency management"
+                      >
+                        Geospatial technologies for building disaster resilience
+                        and emergency management
+                      </option>
+                      <option
+                        value=" Hydrographic surveys and geospatial technologies for coastal zone management and oceanography"
+                      >
+                        Hydrographic surveys and geospatial technologies for
+                        coastal zone management and oceanography
+                      </option>
+                      <option value="Drone/UAV based novel applications for sustainable economies">
+                        Drone/UAV based novel applications for sustainable
+                        economies
+                      </option>
+                      <option value="Emerging trends in AI/ML for cartography and geospatial applications">
+                        Emerging trends in AI/ML for cartography and geospatial
+                        applications
+                      </option>
+                      <option
+                        value="New geospatial and space policies for enhancing entrepreneurship and geospatial economy">
+                        New geospatial and space policies for enhancing
+                        entrepreneurship and geospatial economy
+                      </option>
+                    </select>
+                    {isError && isError.registrationCategory && (
+                      <p className="text-danger">
+                        {isError.registrationCategory}
+                      </p>
+                    )}
+                  </div>
                   {/* <div className="col-md-12 mb-4">
                     <label htmlFor="SelectMode" className="form-label asterisk">
                       Mode of attending the conference
@@ -825,7 +922,7 @@ const CreateForm = (props) => {
                     )}
                   </div> */}
 
-                  <div className="col-md-12 mb-4">
+                  {/* <div className="col-md-12 mb-4">
                     <label htmlFor="SelectMode" className="form-label asterisk">
                       Mode of attending the conference
                     </label>
@@ -840,11 +937,11 @@ const CreateForm = (props) => {
                       <option value="offline">Physical</option>
                       {/* <option value="offline">Physical</option>
                       <option value="offline">Physical</option> */}
-                    </select>
-                    {/* {isError && isError.conferenceMode && (
+                  {/* </select> */}
+                  {/* {isError && isError.conferenceMode && (
                       <p className="text-danger">{isError.conferenceMode}</p>
-                    )} */}
-                  </div>
+                    )} 
+                  </div> */}
 
                   {/* Registration Category */}
 
@@ -1130,19 +1227,17 @@ const CreateForm = (props) => {
               </div>
             </div>
 
-            
-
             <div className="payment-section">
               <div className="row">
-                    <div className="col-md-6">
-                      <PaymentInfo />
-                    </div>
-                    <div className="col-md-6">
-                      {location &&
-                        location.state &&
-                        location.state.mode == "view" && (
-                          <PaymentConfirm userInformation={userInformation} />
-                        )}
+                <div className="col-md-6">
+                  <PaymentInfo />
+                </div>
+                <div className="col-md-6">
+                  {location &&
+                    location.state &&
+                    location.state.mode == "view" && (
+                      <PaymentConfirm userInformation={userInformation} />
+                    )}
                 </div>
               </div>
             </div>

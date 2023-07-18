@@ -44,7 +44,7 @@ const Contact = () => {
                   <i className="fa-solid fa-house-chimney"></i>
                   <h3 className="h2">ADDRESS</h3>
                   <p className="common-para">
-                  <b> Regional Remote Sensing Center-West National Remote Sensing Center(NRSC),ISRO ISRO Complex, Bypass Road
+                  <b> Regional Remote Sensing Center-West National Remote Sensing Center(NRSC), ISRO ISRO Complex, Bypass Road
                     Sector 9, Kudi Bhagtasani Housing Board (KBHB) </b> <br />
                      <b>Jodhpur – 342005,</b>
                   </p>
