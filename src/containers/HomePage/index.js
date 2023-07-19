@@ -153,7 +153,11 @@ const HomePage = () => {
                     className=" common-btn register-home-btn"
                     onClick={() => navigation("/register")}
                   >
-                    Register
+                   <span></span>
+                   <span></span>
+                   <span></span>
+                   <span></span>
+                   Registration open now 
                   </button>
                   {/* <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
@@ -2146,7 +2150,7 @@ const HomePage = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="home-about-left">
-                <div className="row pt-5">
+                <div className="row pt-3">
                   <div className="col-lg-7 col-6 ">
                     <div className="one text-end set-img">
                       <img
@@ -2180,7 +2184,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-lg-6">
-              <div className="home-about-right pt-lg-5 mt-lg-5 ps-md-5">
+              <div className="home-about-right pt-lg-4 mt-lg-4 ps-md-5">
                 <h1 className="common-heading pt-4">The Congress</h1>
                 <p className="common-para text-justify">
                   The INCA, established in 1979, is a non-profit making
