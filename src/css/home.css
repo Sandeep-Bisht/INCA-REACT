@@ -67,7 +67,11 @@
     font-weight: 600;
     line-height: 1;
 }
-
+.head-text-para{
+    font-size: 20px;
+    font-style: italic;
+    color: #75b00f;
+}
 .home-banner .right .banner-title .banner-small
 {
     font-size: 38px;
@@ -146,7 +150,7 @@
 }
 .home-banner .banner-btn-box
 {
-    margin-top:30px;
+    margin-top:0px;
 }
 .home-banner .count
 {
