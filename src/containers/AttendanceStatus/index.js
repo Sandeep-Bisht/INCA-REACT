@@ -84,9 +84,9 @@ const AttendanceStatus = () => {
     return (
       <>
       <div className='toggle-btn'>
-          <label class="switch">
+          <label className="switch">
             <input type="checkbox" checked ={ node.attendanceStatus ||  nodeId == node._id }  disabled={node.attendanceStatus } onChange={(e) => markAttendanceStatus(e, node)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
          
         </div>   

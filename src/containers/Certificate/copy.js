@@ -48,31 +48,31 @@ const Certificate = () => {
             </ReactToPdf>
             <div  ref={ref}>
               
-                <div  class="border" style={{ backgroundImage: `url(${Rope})` }}>
+                <div  className="border" style={{ backgroundImage: `url(${Rope})` }}>
 
-                    <section class="frame">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-4 col-4">
-                                    <div class="logo">
+                    <section className="frame">
+                        <div className="container-fluid">
+                            <div className="row">
+                                <div className="col-md-4 col-4">
+                                    <div className="logo">
                                         {/* <img src="./image/INCA.jpg" width="70px" height="80px"/> */}
                                         <img src={INCA} width="70px" height="80px"/> 
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-4">
-                                    <div class="content">
+                                <div className="col-md-4 col-4">
+                                    <div className="content">
                                         <p>43<sup>RD</sup> INTERNATIONAL CONGRESS ON<br/>DIGITAL CARTOGRAPHY
                                             TO <br/>HARNESS BLUE ECONOMY</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-4 p-0">
+                                    <div className="col-md-4 col-4 p-0">
                                         {/* <img src="./image/certificate_logo.jpg" width="70px" height="80px"/> */}
                                         <img src={certificate_logo} width="70px" height="80px"/> 
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="heading">
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="heading">
                                             <p>Organised by</p>
                                             <p>Indian National Cartographic Association</p>
                                             <p>&</p>
@@ -82,13 +82,13 @@ const Certificate = () => {
                                                 <p>06-08<sup>th</sup> November 2023 </p>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="main-text">
+                                    <div className="col-md-12">
+                                        <div className="main-text">
                                             <img src={Layer} width="30%" height="20%"/>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mx-auto">
-                                        <div class="details"  style={{ backgroundImage: `url(${bg})` }}>
+                                    <div className="col-md-6 mx-auto">
+                                        <div className="details"  style={{ backgroundImage: `url(${bg})` }}>
                                             <p><i>This is to certify that Prof./Dr./Mr./Ms. <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo?.userName}</span></i></p>
                                             <p><i> of <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo && userInfo.designation ? userInfo.designation : "------------" }</span></i></p>
                                             <p><i>Presented paper titled <span style={{borderBottom:"2px dotted", marginRight:0}}>{userInfo && userInfo.abstractPaperName ? userInfo.abstractPaperName : "------------" }</span></i></p>
@@ -97,24 +97,24 @@ const Certificate = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row bottom_area">
-                                    <div class="col-md-6 col-6 text-end">
+                                <div className="row bottom_area">
+                                    <div className="col-md-6 col-6 text-end">
                                         <img src={Signature2} className="img-fluid"></img>
-                                        <div class="bottom_left">
+                                        <div className="bottom_left">
                                             <span>Capt Kuldeep Singh</span>
                                             <p>(Organising Secretary)</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-6">
+                                    <div className="col-md-6 col-6">
                                         
                                     <img src={Signature1} className="img-fluid second-sig"></img>
-                                        <div class="bottom_right">
+                                        <div className="bottom_right">
                                             <span>Cmde Peush Pawsey</span>
                                             <p>(Chairman)</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 text-center mt-5">
-                                        <div class="last_line">
+                                    <div className="col-md-12 text-center mt-5">
+                                        <div className="last_line">
                                             <p>Date:11<sup>th</sup> Nov 2023</p>
                                         </div>
                                     </div>

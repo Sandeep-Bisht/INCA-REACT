@@ -11,52 +11,52 @@ import INCA from '../../images/INCA.jpg'
 export let CertificatePageUi = () => {
     return (
         <>
-            <section class="border-line">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="first-logo text-center">
+            <section className="border-line">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-3">
+                            <div className="first-logo text-center">
                               <img src={certificate_logo} width="100px" height="120px"/> 
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="heading">
-                                <h1 class="text-center">Certificate</h1>
-                                <span class="d-flex justify-content-center">OF PARTICIPATION</span>
+                        <div className="col-6">
+                            <div className="heading">
+                                <h1 className="text-center">Certificate</h1>
+                                <span className="d-flex justify-content-center">OF PARTICIPATION</span>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="last-logo">
+                        <div className="col-3">
+                            <div className="last-logo">
                                  <img src={INCA}/> 
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="frame">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
+            <section className="frame">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
                              <img src={certificateborder} width="100%" height="100%"/> 
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="middle-text mt-5">
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="col-md-12">
+            <section className="middle-text mt-5">
+                <div className="container">
+                    <div className="row text-center">
+                        <div className="col-md-12">
                             <h4>Presented To</h4>
                         </div>
-                        <div class="col-md-12">
-                            <div class="candidate-name">
+                        <div className="col-md-12">
+                            <div className="candidate-name">
                                 <h1>Capt.Kuldeep Singh</h1>
                             </div>
                         </div>
                     </div>
-                    <div class="row text-center">
-                        <div class="col-md-12">
-                            <div class="text-area">
+                    <div className="row text-center">
+                        <div className="col-md-12">
+                            <div className="text-area">
                                 <p>This Certificate is for the participation in INCA 43rd Internation <br />Congress held at National
                                     Hydrographic office,Dehradun on 11th <br />November 2023 to 13th November 2023. </p>
                             </div>
@@ -64,29 +64,29 @@ export let CertificatePageUi = () => {
                     </div>
                 </div>
             </section>
-            <section class="last-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5 col-5">
-                            <div class="signature text-center">
+            <section className="last-area">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-5 col-5">
+                            <div className="signature text-center">
                                 <p>Cmde.Peush Pawsey</p>
                             </div>
                         </div>
-                        <div class="col-md-7 col-7">
-                            <div class="signature text-center">
+                        <div className="col-md-7 col-7">
+                            <div className="signature text-center">
                                 <p>Vice Admiral Adhir Arora,NM</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="side-bar">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
+            <section className="side-bar">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6">
                             <img src={leftbar} width="60%" height="80%"/> 
                         </div>
-                        <div class="col-md-6 text-end">
+                        <div className="col-md-6 text-end">
                           <img src={rightbar} width="60%" height="80%"/> 
                         </div>
                     </div>

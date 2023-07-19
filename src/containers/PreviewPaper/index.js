@@ -30,7 +30,8 @@ const PreviewPaper = () => {
 
   useEffect(() => {
     if (location && location.state) {
-      let filePath = `http://144.91.110.221:4801/${location.state.abstractFileUrl}`;
+      // let filePath = `http://144.91.110.221:4801/${location.state.abstractFileUrl}`;
+      let filePath = `http://localhost:4801/${location.state.abstractFileUrl}`;
       filePath = filePath.replace("\\", "/");
       setViewPdf(filePath);
       approveDocs.userId = location.state.userId;
@@ -43,8 +44,8 @@ const PreviewPaper = () => {
     if (state.userAbstractPaperSuccess) {
       setString(state.userAbstractPaperSuccess.message);
       if (
-        state.userAbstractPaperSuccess.message ===
-        "Email is sent on your registred mail. Please check your email for further process"
+        state.userAbstractPaperSuccess.status ===
+        "Approved"
       ) {
         setAcceptLoader(false);
         setMessage("Document Approved, Email sent successfully on user email.");
@@ -77,7 +78,7 @@ const PreviewPaper = () => {
       {/* show pdf conditionally (if we have one)  */}
       {viewPdf && (
         <>
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-10">
@@ -99,7 +100,7 @@ const PreviewPaper = () => {
             className="btn btn-success ms-5"
             onClick={() => approvefilesubmissionHandler(true)}
           >
-            {acceptLoader ? "Accepting" : "Accept"}
+            {acceptLoader ? "Accepting..." : "Accept"}
             {/* Accept */}
           </button>
 
@@ -112,7 +113,7 @@ const PreviewPaper = () => {
             data-bs-target="#exampleModal"
           >
             {/* Reject */}
-            {rejectLoader ? "Rejecting" : "Reject"}
+            {rejectLoader ? "Rejecting..." : "Reject"}
           </button>
           <a 
           className="btn btn-primary ms-5"
@@ -123,39 +124,43 @@ const PreviewPaper = () => {
       </div>
       <div className="row mt-3">
         <div className="col-md-10">
-          {message && (
+          {message && message === "Document Approved, Email sent successfully on user email." ? (
             <p
-              className={`${
-                message == { string } ? "text-success" : "text-danger"
-              }`}
+              className={ "text-success"}
             >
               {message}
             </p>
+          ) : (
+            <p
+            className={ "text-danger"}
+          >
+            {message}
+          </p>
           )}
         </div>
       </div>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Reason for Rejection
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <textarea
                 placeholder="Enter reason for document rejection..."
                 name="rejectionMsg"
@@ -165,17 +170,17 @@ const PreviewPaper = () => {
                 }}
               ></textarea>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 onClick={() => approvefilesubmissionHandler(false)}
                 data-bs-dismiss="modal"
               >

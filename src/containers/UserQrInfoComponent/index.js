@@ -44,91 +44,91 @@ let UserQrInfoComponent = () => {
     <>
 
       {userQrInfo &&
-        <section class="border">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-10">
-                {/* <div class="box">
+        <section className="border">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-md-10">
+                {/* <div className="box">
                   <h2><u>User Information Info</u></h2>
-                  <div class="information">
+                  <div className="information">
                     <p>Name :-</p><span> {userQrInfo.name}</span>
                   </div>
-                  <div class="information">
+                  <div className="information">
                     <p>Designation:-</p><span> {userQrInfo.designation} </span>
                   </div>
-                  <div class="information">
+                  <div className="information">
                     <p>Registration Number:-</p><span> {userQrInfo.registrationNumber}</span>
                   </div>
-                  <div class="information">
+                  <div className="information">
                     <p>Email:-</p><span> {userQrInfo.email} </span>
                   </div>
-                  <div class="information">
+                  <div className="information">
                     <p>Country:-</p><span>{userQrInfo.country} </span>
                   </div>
-                  <div class="information">
+                  <div className="information">
                     <p>ConferenceMode:-</p><span>{userQrInfo.conferenceMode} </span>
                   </div>
-                  <div class="information">
+                  <div className="information">
                     <p>Phone Number:-</p><span> {userQrInfo.phoneNumber}</span>
                   </div>
-                  <div class="information">
+                  <div className="information">
                     <p>Participation Type:-</p><span> {userQrInfo.participationType} </span>
                   </div>
-                  <div class="information">
+                  <div className="information">
                     <p>Payment Status:-</p><span> {userQrInfo.mannualPaymentStatus ? userQrInfo.mannualPaymentStatus  : "unpaid" } </span>
                   </div>
-                  <div class="information">
+                  <div className="information">
                     <p>Address:-</p><span> {userQrInfo.address} </span>
                   </div>
-                  <button className="btn btn-primary " onClick={() => redirectToRegistrationPage()} class="btn btn-primary">Go Back</button>
+                  <button className="btn btn-primary " onClick={() => redirectToRegistrationPage()} className="btn btn-primary">Go Back</button>
                 </div> */}
 
                 {/* julesh code  */}
-                <div class="box">
+                <div className="box">
                   <h2><u>User Information Info</u></h2>
-                  <table class="table">
-                    <tr class="information">
+                  <table className="table">
+                    <tr className="information">
                         <td>Name</td>
                         <td>{userQrInfo.name}</td>
                     </tr>
-                    <tr class="information">
+                    <tr className="information">
                         <td>Designation</td>
                         <td>{userQrInfo.designation}</td>
                     </tr>
-                    <tr class="information">
+                    <tr className="information">
                         <td>Registration Number</td>
                         <td>{userQrInfo.registrationNumber}</td>
                     </tr>
-                    <tr class="information">
+                    <tr className="information">
                         <td>Email</td>
                         <td>{userQrInfo.email}</td>
                     </tr>
-                    <tr class="information">
+                    <tr className="information">
                         <td>Country</td>
                         <td>{userQrInfo.country} </td>
                     </tr>
-                    <tr class="information">
+                    <tr className="information">
                         <td>Conference Mode</td>
                         <td>{userQrInfo.conferenceMode}</td>
                     </tr>
-                    <tr class="information">
+                    <tr className="information">
                         <td>Phone Number</td>
                         <td>{userQrInfo.phoneNumber}</td>
                     </tr>
-                    <tr class="information">
+                    <tr className="information">
                         <td>Participation Type</td>
                         <td>{userQrInfo.participationType}</td>
                     </tr>
-                    <tr class="information">
+                    <tr className="information">
                         <td>Payment Status</td>
                         <td>{userQrInfo.mannualPaymentStatus}</td>
                     </tr>
-                    <tr class="information">
+                    <tr className="information">
                         <td>Address</td>
                         <td>{userQrInfo.address}</td>
                     </tr>
                   </table>
-                  <button className="btn btn-primary " onClick={() => redirectToRegistrationPage()} class="btn btn-primary">Go Back</button>
+                  <button className="btn btn-primary " onClick={() => redirectToRegistrationPage()} >Go Back</button>
 </div>
               </div>
             </div>

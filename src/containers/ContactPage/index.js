@@ -1,9 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import "../../css/contact.css";
+import {useForm} from "react-hook-form";
+
 
 const Contact = () => {
+  const {
+    register, 
+    formState:{errors},
+    handleSubmit
+  }
+     =useForm({
+      firstName:"",
+      email:"",
+      phoneNumber:"",
+      subject:"",
+      
+     });
+
+  const onSubmit =(data) =>{
+    console.log(data)
+  }
   return (
     <>
       <Header></Header>
@@ -80,25 +98,34 @@ const Contact = () => {
       <section className="contact-single2 section-padding pt-3">
         <div className="container">
           <div className="row">
-            <div className="col-md-8">
-              <form>
+          
+            <div className="col-md-7">
+              <form  onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
-                  <div className="col-md-8 mx-auto">
+                  <div className="col-md-8 mx-0">
                     <div className="row">
                       <div className="col-md-6">
                         <input
                           className="form-movement"
                           type="text"
+                          name="firstName"
                           placeholder="Your Name.."
+                         {...register("firstName", { required: true })}
                         />
+                        {errors.firstName === 'required' && <p>First name is required</p>}
+
                       </div>
 
                       <div className="col-md-6">
                         <input
                           className="form-movement"
                           type="email"
+                          name="email"
                           placeholder="Your Email.."
+                          {...register("email", { required: "Email Address is required" })} 
+
                         />
+                        {errors.email=='required' && <p>email is required</p>}
                       </div>
                     </div>
 
@@ -108,7 +135,10 @@ const Contact = () => {
                           className="form-movement"
                           type="number"
                           placeholder="Your Number.."
-                        />
+                          {...register("phoneNumber", { required: true })}
+                          />
+                          {errors.phoneNumber === 'required' && <p>Phone Number is required</p>}
+                        
                       </div>
 
                       <div className="col-md-6">
@@ -116,7 +146,10 @@ const Contact = () => {
                           className="form-movement"
                           type="text"
                           placeholder="Your Subject.."
-                        />
+                          {...register("subject", { required: true })}
+                          />
+                          {errors.subject === 'required' && <p>This feild is required</p>}
+                        
                       </div>
                     </div>
 
@@ -140,11 +173,11 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-5">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56474.94761311179!2d72.97284353692041!3d26.230592923325176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418bb0afd5bef9%3A0xaea174d001879fea!2sRegional%20Remote%20Sensing%20Centre%20-%20West!5e0!3m2!1sen!2sin!4v1689144860809!5m2!1sen!2sin"
                 width="100%"
-                height="300"
+                height="430" className="pt-3"
               ></iframe>
             </div>
           </div>
@@ -154,5 +187,6 @@ const Contact = () => {
     </>
   );
 };
+
 
 export default Contact;

@@ -67,9 +67,6 @@ const UserAbstractList = () => {
     );
   };
 
-  const handleFullPaperSubmit = (e) => {
-    //navigate(`/dashboard/fullPaper` , { state : userAbstractList})
-  }
 
   // const header1 = renderHeader1();
 
@@ -99,23 +96,7 @@ const UserAbstractList = () => {
             body={actionBodyTemplate}
           ></Column> 
         </DataTable>
-      </div>
-          { userAbstractList && userAbstractList.length > 0 && userAbstractList[0].paperApproveStatus && (
-            <>
-            <div>
-            <button
-              type="button"
-              className="btn btn-primary mt-3"
-              onClick={() => handleFullPaperSubmit()}
-            >
-              Full Paper Submission
-            </button>
-          </div>
-          </>
-          )
-            
-          } 
-      
+      </div>      
     </>
   );
 };
