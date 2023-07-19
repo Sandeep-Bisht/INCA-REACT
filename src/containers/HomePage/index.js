@@ -36,8 +36,7 @@ import ThirdSercular from "../../SampleFiles/Second circular_20 sep 22.pdf";
 import FinalSercular from "../../images/INCA_43rd_First_Circular.pdf";
 import DraftTechnical from "../../SampleFiles/Draft Technical Session07 nov.pdf";
 import BoardList from "../../images/board.png";
-// import homepageBackgroundVideo from "../../video/_import_6166ec628fdab6.53885345_FPpreview.mp4";
-
+import homepageBackgroundVideo from "../../video/Chandrayaan3_indexvideo.mp4"
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
 
@@ -110,7 +109,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-            // src={homepageBackgroundVideo}
+            src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
