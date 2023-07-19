@@ -3,19 +3,28 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import * as ACTIONS from "./action";
+import * as USER_ACTIONS from "../Create/action"
+import * as ABSTRACT_ACTIONS from "../UserAbstractList/action"
+import axios from "axios";
 import { Card } from "../../components/Card";
 import { PieChart } from "../../components/PieChart";
 import CreateForm from "../Create";
 import Dashlogo from "../../images/logo.png";
 import { Outlet } from "react-router-dom";
 import "../../css/dashboard.css";
+import { baseUrl } from "../../utils";
 
 const Dashboard = (props) => {
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState({});
   let [data, setData] = useState([]);
+  let [paymentStatus, setPaymentStatus] = useState(undefined);
+  let [allowTransaction, setAllowTransaction] = useState(undefined)
+  let [abstractStatus, setAbstractStatus] = useState(undefined);
 
   const state = useSelector((state) => state.DashboardCounterReducer);
+  const user_state = useSelector((state) => state.RegisteredUserInfoReducer);
+  const abstract_state = useSelector((state) => state.UserAbstractListReducer);
 
   let dispatch = useDispatch();
 
@@ -23,11 +32,46 @@ const Dashboard = (props) => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
       setLoggedInUser(decodedToken.user.user);
+      //  getUserPaymentStatus(decodedToken.user.user._id)
+      if(decodedToken.user.user.role != "admin"){
+      dispatch(ABSTRACT_ACTIONS.getUserAbstractList(decodedToken.user.user._id));
+      }
+       dispatch(USER_ACTIONS.getLoggedInUser(decodedToken.user.user._id));
     }
   }, []);
 
   useEffect(() => {
+    if (abstract_state && abstract_state.getUserAbstractListSuccess) {
+      console.log("inside success",abstract_state.getUserAbstractListSuccess.data);
+      setAbstractStatus(abstract_state.getUserAbstractListSuccess.data[0].paperApproveStatus)
+    }
+  }, [abstract_state.getUserAbstractListSuccess]);
+
+  useEffect(() => {
+    if (
+      user_state &&
+      user_state.loggedInUserSuccess &&
+      user_state.loggedInUserSuccess.length > 0
+    ) {
+      setAllowTransaction(true)
+    }
+  }, [user_state.loggedInUserSuccess]);
+
+  // let getUserPaymentStatus = async (id) => {
+  //   let url = `${baseUrl}getPaymentStatus/${id}`
+  //   try {
+  //     let response = await axios.get(url);
+  //     if(response && response.data[0]?.mannualPaymentStatus === "paid"){
+  //       setPaymentStatus(true)
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  useEffect(() => {
     dispatch(ACTIONS.getUsersCounters());
+    
   }, []);
 
   useEffect(() => {
@@ -138,7 +182,7 @@ const Dashboard = (props) => {
                       </>
                     )}
                   </ul>
-                  {loggedInUser.role !== "admin" && (
+                  {loggedInUser.role !== "admin" &&  (
                     <ul className="ps-0 list-unstyled">
                       <li>
                         <button
@@ -151,19 +195,22 @@ const Dashboard = (props) => {
                           New Registration
                         </button>
                       </li>
-                      <li>
-                        <button
-                          className="common-blue btn"
-                          onClick={() =>
-                            navigate("/dashboard/transaction_details")
-                          }
-                        >
-                          <span className="me-2">
-                            <i className="fa-solid fa-user-plus"></i>
-                          </span>
-                          Transaction Details
-                        </button>
-                      </li>
+                      { allowTransaction &&(
+                         <li>
+                         <button
+                           className="common-blue btn"
+                           onClick={() =>
+                             navigate("/dashboard/transaction_details")
+                           }
+                         >
+                           <span className="me-2">
+                             <i className="fa-solid fa-user-plus"></i>
+                           </span>
+                           Transaction Details
+                         </button>
+                       </li>
+                      )}
+                     
                     </ul>
                   )}
                   {loggedInUser.role == "admin" && (
@@ -243,6 +290,28 @@ const Dashboard = (props) => {
                         <li>
                           <button
                             className="common-blue btn"
+                            onClick={() => navigate("/dashboard/abstract")}
+                          >
+                            <span className="me-2">
+                              <i className="fa-solid fa-file-export"></i>
+                            </span>
+                            Abstracts
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() => navigate("/dashboard/fullPaperList")}
+                          >
+                            <span className="me-2">
+                              <i className="fa-solid fa-file-export"></i>
+                            </span>
+                            Full Papers List
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            className="common-blue btn"
                             onClick={() => navigate("/dashboard/exhibitorlist")}
                           >
                             <span className="me-2">
@@ -298,7 +367,7 @@ const Dashboard = (props) => {
                       </>
                     )}
 
-                    {loggedInUser.role !== "admin" && (
+                    {loggedInUser.role !== "admin"  && (
                       <>
                         <li>
                           <div className="accordion" id="accordionExample">
@@ -355,6 +424,8 @@ const Dashboard = (props) => {
                                         Abstract List
                                       </button>
                                     </li>
+                                    { abstractStatus && (
+                                      <>                                 
 
                                     <li className="ps-3">
                                       <button
@@ -369,6 +440,8 @@ const Dashboard = (props) => {
                                         Full Papers List
                                       </button>
                                     </li>
+                                    </>
+                                    ) }
                                   </ul>
                                 </div>
                               </div>
@@ -377,33 +450,7 @@ const Dashboard = (props) => {
                         </li>
                       </>
                     )}
-                    {loggedInUser.role == "admin" && (
-                      <>
-                        <li>
-                          <button
-                            className="common-blue btn"
-                            onClick={() => navigate("/dashboard/abstract")}
-                          >
-                            <span className="me-2">
-                              <i className="fa-solid fa-file-export"></i>
-                            </span>
-                            Abstracts
-                          </button>
-                        </li>
-
-                        <li>
-                          <button
-                            className="common-blue btn"
-                            onClick={() => navigate("/dashboard/fullPaperList")}
-                          >
-                            <span className="me-2">
-                              <i className="fa-solid fa-file-export"></i>
-                            </span>
-                            Full Papers List
-                          </button>
-                        </li>
-                      </>
-                    )}
+                   
                   </ul>
                 </aside>
               </div>

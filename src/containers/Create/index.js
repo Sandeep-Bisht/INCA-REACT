@@ -72,6 +72,7 @@ const CreateForm = (props) => {
   let location = useLocation();
   let navigate = useNavigate();
 
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
@@ -107,6 +108,7 @@ const CreateForm = (props) => {
         if (decodedToken.user.user.role !== "admin") {
           setIsHidden(true);
           setMessage("Your information saved successfully");
+          window.location.href = "/dashboard"
         } else {
           if (
             state.saveRegisterUserInfoSuccess.message ===
@@ -835,61 +837,61 @@ const CreateForm = (props) => {
                         Please Select
                       </option>
                       <option
-                        value="Advances in cartography, geospatial technology and thematic mapping for
+                        value="Advances in cartography, geospatial technology and thematic mapping htmlFor
 management of natural resources and smart governance"
                       >
                         Advances in cartography, geospatial technology and
-                        thematic mapping for management of natural resources and
+                        thematic mapping htmlFor management of natural resources and
                         smart governance
                       </option>
                       {/* <option value="delegate">Delegate</option> */}
                       <option
-                        value="Geospatial technologies for fostering sustainable agriculture, food security and green economies"
+                        value="Geospatial technologies htmlFor fostering sustainable agriculture, food security and green economies"
                       >
-                        Geospatial technologies for fostering sustainable
+                        Geospatial technologies htmlFor fostering sustainable
                         agriculture, food security and green economies
                       </option>
-                      <option value="Geospatial technologies for sustainable water resources management">
-                        Geospatial technologies for sustainable water resources
+                      <option value="Geospatial technologies htmlFor sustainable water resources management">
+                        Geospatial technologies htmlFor sustainable water resources
                         management
                       </option>
-                      <option value="Geospatial technologies for environment and energy security">
-                        Geospatial technologies for environment and energy
+                      <option value="Geospatial technologies htmlFor environment and energy security">
+                        Geospatial technologies htmlFor environment and energy
                         security
                       </option>
                       <option
-                        value="Geospatial technologies for urban studies and infrastructure planning & development"
+                        value="Geospatial technologies htmlFor urban studies and infrastructure planning & development"
                       >
-                        Geospatial technologies for urban studies and
+                        Geospatial technologies htmlFor urban studies and
                         infrastructure planning & development
                       </option>
-                      <option value="Geospatial technologies for meteorology and climate change studies">
-                        Geospatial technologies for meteorology and climate
+                      <option value="Geospatial technologies htmlFor meteorology and climate change studies">
+                        Geospatial technologies htmlFor meteorology and climate
                         change studies
                       </option>
                       <option
-                        value="Geospatial technologies for building disaster resilience and emergency management"
+                        value="Geospatial technologies htmlFor building disaster resilience and emergency management"
                       >
-                        Geospatial technologies for building disaster resilience
+                        Geospatial technologies htmlFor building disaster resilience
                         and emergency management
                       </option>
                       <option
-                        value=" Hydrographic surveys and geospatial technologies for coastal zone management and oceanography"
+                        value=" Hydrographic surveys and geospatial technologies htmlFor coastal zone management and oceanography"
                       >
-                        Hydrographic surveys and geospatial technologies for
+                        Hydrographic surveys and geospatial technologies htmlFor
                         coastal zone management and oceanography
                       </option>
-                      <option value="Drone/UAV based novel applications for sustainable economies">
-                        Drone/UAV based novel applications for sustainable
+                      <option value="Drone/UAV based novel applications htmlFor sustainable economies">
+                        Drone/UAV based novel applications htmlFor sustainable
                         economies
                       </option>
-                      <option value="Emerging trends in AI/ML for cartography and geospatial applications">
-                        Emerging trends in AI/ML for cartography and geospatial
+                      <option value="Emerging trends in AI/ML htmlFor cartography and geospatial applications">
+                        Emerging trends in AI/ML htmlFor cartography and geospatial
                         applications
                       </option>
                       <option
-                        value="New geospatial and space policies for enhancing entrepreneurship and geospatial economy">
-                        New geospatial and space policies for enhancing
+                        value="New geospatial and space policies htmlFor enhancing entrepreneurship and geospatial economy">
+                        New geospatial and space policies htmlFor enhancing
                         entrepreneurship and geospatial economy
                       </option>
                     </select>
@@ -985,7 +987,7 @@ management of natural resources and smart governance"
                 <div className="row">
                   <div className="col-md-12 mb-4">
                     <label htmlFor="SelectWish" className="form-label asterisk">
-                      I wish to participate in the conference for
+                      I wish to participate in the conference htmlFor
                     </label>
                     <select
                       className="form-select"
@@ -1020,7 +1022,7 @@ management of natural resources and smart governance"
                       <p className="form-label">Nationality :</p>
                     </div>
                     <div className="radio-button-box d-flex">
-                      <label className="pe-2" for="foreigner">
+                      <label className="pe-2" htmlFor="foreigner">
                         Foreign
                       </label>
                       <input
@@ -1033,7 +1035,7 @@ management of natural resources and smart governance"
                         value="foreigner"
                         onChange={(e) => userInformationOnchangeHandler(e)}
                       />
-                      <label className="ps-4 pe-1" for="Indian">
+                      <label className="ps-4 pe-1" htmlFor="Indian">
                         Indian
                       </label>
                       <input
@@ -1084,7 +1086,7 @@ management of natural resources and smart governance"
                     ""
                   ) : (
                     <div className="accompany-box-2 d-flex">
-                      <label className="ps-4 pe-1" for="yes">
+                      <label className="ps-4 pe-1" htmlFor="yes">
                         Yes
                       </label>
                       <input
@@ -1095,7 +1097,7 @@ management of natural resources and smart governance"
                         disabled={isDisabled}
                         onClick={(e) => anotherPersonHandler(true)}
                       />
-                      <label className="ps-4 pe-1" for="no">
+                      <label className="ps-4 pe-1" htmlFor="no">
                         No
                       </label>
                       <input
@@ -1122,7 +1124,7 @@ management of natural resources and smart governance"
                   userInformation.accompanningPerson.length < 3 && (
                     <div className="exhibitor-relation d-flex mt-3">
                       <div className="relation-box-1">
-                        <label className="form-label" for="relation-name">
+                        <label className="form-label" htmlFor="relation-name">
                           Full Name
                         </label>
                         <input
@@ -1134,7 +1136,7 @@ management of natural resources and smart governance"
                         />
                       </div>
                       <div className="ms-2 relation-box-2">
-                        <label className="form-label" for="relation_type">
+                        <label className="form-label" htmlFor="relation_type">
                           Relation
                         </label>
                         <input
@@ -1164,7 +1166,7 @@ management of natural resources and smart governance"
                     return (
                       <div className="exhibitor-relation d-flex mt-3">
                         <div className="relation-box-1">
-                          <label className="form-label" for="relation-name">
+                          <label className="form-label" htmlFor="relation-name">
                             Full Name
                           </label>
                           <input
@@ -1175,7 +1177,7 @@ management of natural resources and smart governance"
                           />
                         </div>
                         <div className="ms-2 relation-box-2">
-                          <label className="form-label" for="relation-type">
+                          <label className="form-label" htmlFor="relation-type">
                             Relation
                           </label>
                           <input
@@ -1190,7 +1192,7 @@ management of natural resources and smart governance"
                           location.state.mode === "edit" && (
                             <div className="relation-delete-box ps-3">
                               <i
-                                class="fa-solid fa-trash-can ps-3"
+                                className="fa-solid fa-trash-can ps-3"
                                 onClick={() => deleteAccompanningPerson(index)}
                               ></i>
                             </div>

@@ -4,13 +4,13 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import '../../css/card.css'
 am4core.useTheme(am4themes_animated);
+// import { useTheme } from '@amcharts/amcharts4/core';
 
 
 export let PieChart = (props) => {
 let { data } = props 
     let createPieChart = () => {
         let chart = am4core.create("chartdiv", am4charts.PieChart);
-        console.log(data , "isndide pi echart")
         const updatedData = data.map(item => ({
             ...item,
             type: item.type.charAt(0).toUpperCase() + item.type.slice(1).toLowerCase()
@@ -43,7 +43,7 @@ let { data } = props
                             data && data.length > 0 &&
                             data.slice(3,data.length).map((item, i) => {
                                 return (
-                                    <div className="col-md-12 ">
+                                    <div className="col-md-12" key={i}>
                                         <div className={ `${item.type == "present" ? "conter-card one" : "conter-card five" }`}>
                                             <div className="left"><i className={`${item.type == "present" ? "fa-solid fa-user-plus" : "fa-solid fa-user-minus" }`}></i></div>
                                             <div className="right">

@@ -8,6 +8,7 @@ import jwt_decode from "jwt-decode";
 const FullPaper = () => {
   let obj = {
     fullPaperName: "",
+    userName: "",
     mimetype: "",
     fullPaperFileUrl: "",
     themeType:"",
@@ -31,6 +32,15 @@ const FullPaper = () => {
 
     }
   }, [location])
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      let decodedToken = jwt_decode(localStorage.getItem("token"));
+      fullPaperPayload.userId = decodedToken.user.user._id;
+      fullPaperPayload.userName = decodedToken.user.user.userName;
+      fullPaperPayload.userEmail = decodedToken.user.user.userEmail;
+    }
+  },[])
 
   const fullPaperOnChangeHandler = (e) => {    
     let fullPaperPayloadCopy = { ...fullPaperPayload };
@@ -123,6 +133,20 @@ const FullPaper = () => {
         <div className='row'>
           <div className='col-md-6'>
         <div className="row">
+        <div className="col-md-12">
+            <div className="mb-3">
+              <label htmlFor="inputName" className="form-label">
+                User Name
+              </label>
+              <input 
+              value={fullPaperPayload && fullPaperPayload.userName}
+              onChange={(e) => fullPaperOnChangeHandler(e)}               
+                type="text"
+                className="form-control"
+                id="userName"                
+              />
+            </div>
+          </div>
           <div className="col-md-12">
             <div className="mb-3">
               <label htmlFor="inputName" className="form-label">

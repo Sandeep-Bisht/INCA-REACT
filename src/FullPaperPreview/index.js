@@ -5,6 +5,7 @@ import "@react-pdf-viewer/core/lib/styles/index.css";
 // Worker
 import { Worker } from "@react-pdf-viewer/core"; // install this library
 import SecondSercular from "../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
+import { baseUrl } from '../utils';
 
 const FullPaperPreview = () => {
 
@@ -13,8 +14,8 @@ const FullPaperPreview = () => {
 
  useEffect(() => {
     if (location && location.state) {
-      let filePath = `http://144.91.110.221:4801/${location.state.fullPaperFileUrl}`;
-      //let filePath = `http://localhost:4801/${location.state.fullPaperFileUrl}`;
+      // let filePath = `${baseUrl}${location?.state?.fullPaperFileUrl}`;
+      let filePath = `http://localhost:4801/${location.state.fullPaperFileUrl}`;
     // let filePath = location.state.fullPaperFileUrl
       filePath = filePath.replace("\\", "/");
      setViewPdf(filePath);
@@ -24,7 +25,7 @@ const FullPaperPreview = () => {
    <>
    {viewPdf && (
         <>
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-10">
