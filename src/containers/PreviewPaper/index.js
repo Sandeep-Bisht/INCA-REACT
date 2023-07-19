@@ -30,8 +30,8 @@ const PreviewPaper = () => {
 
   useEffect(() => {
     if (location && location.state) {
-      // let filePath = `http://144.91.110.221:4801/${location.state.abstractFileUrl}`;
-      let filePath = `http://localhost:4801/${location.state.abstractFileUrl}`;
+      let filePath = `http://144.91.110.221:4801/${location.state.abstractFileUrl}`;
+      // let filePath = `http://localhost:4801/${location.state.abstractFileUrl}`;
       filePath = filePath.replace("\\", "/");
       setViewPdf(filePath);
       approveDocs.userId = location.state.userId;
