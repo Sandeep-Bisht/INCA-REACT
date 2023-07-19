@@ -14,8 +14,8 @@ const FullPaperPreview = () => {
 
  useEffect(() => {
     if (location && location.state) {
-      // let filePath = `${baseUrl}${location?.state?.fullPaperFileUrl}`;
-      let filePath = `http://localhost:4801/${location.state.fullPaperFileUrl}`;
+      let filePath = `http://144.91.110.221:4801/${location?.state?.fullPaperFileUrl}`;
+      // let filePath = `http://localhost:4801/${location.state.fullPaperFileUrl}`;
     // let filePath = location.state.fullPaperFileUrl
       filePath = filePath.replace("\\", "/");
      setViewPdf(filePath);
