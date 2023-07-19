@@ -43,7 +43,7 @@ const Dashboard = (props) => {
   useEffect(() => {
     if (abstract_state && abstract_state.getUserAbstractListSuccess) {
       console.log("inside success",abstract_state.getUserAbstractListSuccess.data);
-      setAbstractStatus(abstract_state.getUserAbstractListSuccess.data[0].paperApproveStatus)
+      setAbstractStatus(abstract_state?.getUserAbstractListSuccess?.data[0]?.paperApproveStatus)
     }
   }, [abstract_state.getUserAbstractListSuccess]);
 

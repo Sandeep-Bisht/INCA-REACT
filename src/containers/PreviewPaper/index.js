@@ -57,7 +57,7 @@ const PreviewPaper = () => {
   }, [state.userAbstractPaperSuccess]);
 
   const approvefilesubmissionHandler = (status) => {
-    if (approveDocs.paperApproveStatus == false) {
+    if (approveDocs?.paperApproveStatus == false) {
       setRejectLoader(true);
       approveDocs.rejectionMsg = rejectionMsg;
       dispatch(ACTIONS.approveFileSubmission(approveDocs));
