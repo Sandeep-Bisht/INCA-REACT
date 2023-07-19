@@ -60,7 +60,7 @@ const UserAbstractList = () => {
         {/* <button className="btn btn-success" disabled={!node.paperApproveStatus}>
           Payment
         </button> */}
-       {userAbstractList.paperApproveStatus && <button className="abstracts-common-btn" onClick={() => {
+       {userAbstractList?.paperApproveStatus && <button className="abstracts-common-btn" onClick={() => {
           navigate(`/dashboard/fullPaper` , { state : userAbstractList})
         }}>Full Paper Submission</button>}
       </>
