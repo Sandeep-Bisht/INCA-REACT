@@ -1757,6 +1757,11 @@ padding: 50px 40px;
 
 }
 
+.event-bg{
+    background-image: url('../images/jodhpur-bg.jpg');
+   
+}
+
 @media only screen and (max-width : 430px)
 {  
     .home-banner .right .head-text {

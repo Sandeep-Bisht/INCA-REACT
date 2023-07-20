@@ -7,13 +7,6 @@ import { Header } from "../../components/Header";
 import "../../css/home.css";
 import reg2 from "../../images/reg2.png";
 import reg4 from "../../images/reg4.png";
-import comittee1 from "../../images/Raj1.jpg";
-import comittee2 from "../../images/CH-Adhir-Arora.png";
-import comittee3 from "../../images/bkramprasad.jpg";
-import comittee4 from "../../images/raprasad.jpg";
-import comittee5 from "../../images/capt-kuldeep-singh.jpg";
-import comittee6 from "../../images/cmde-puesh-pawsey.jpg";
-import comittee7 from "../../images/ls-pathania.jpg";
 import gallary1 from "../../images/gallery-1.jpg";
 import gallary2 from "../../images/gallery-2.jpg";
 import gallary3 from "../../images/gallery-3.jpg";
@@ -37,6 +30,8 @@ import FinalSercular from "../../images/INCA_43rd_First_Circular.pdf";
 import DraftTechnical from "../../SampleFiles/Draft Technical Session07 nov.pdf";
 import BoardList from "../../images/board.png";
 import homepageBackgroundVideo from "../../video/INCA-video.mp4"
+import JodhpurBg from "../../images/jodhpur-bg.jpg"
+
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
 
@@ -109,7 +104,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-            src={homepageBackgroundVideo}
+            // src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
@@ -263,7 +258,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <section className="section-padding home-about pb-lg-0 without-carousel ">
+      <section className="section-padding home-about pb-lg-0 without-carousel event-bg ">
         <div className="container">
           <div className="row py-4 mt-3">
             <div className="col-lg-4">
@@ -2067,7 +2062,7 @@ const HomePage = () => {
       </section>
       {/* ------ without carousel----*/}
 
-      <section className="section-padding home-register-step">
+      <section className="section-padding home-register-step event-bg">
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
