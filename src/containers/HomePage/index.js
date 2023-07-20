@@ -104,7 +104,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-            // src={homepageBackgroundVideo}
+            src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
@@ -326,8 +326,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      {/* --------with carousel--------- */}
-      <section className="section-padding home-about pb-lg-0 with-carousel">
+      {/* --------with carousel---------  MOBILE */}
+      <section className="section-padding home-about pb-lg-0 with-carousel event-bg">
         <div className="container">
           <div className="row">
             <div className="col-lg-4">

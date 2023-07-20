@@ -42,20 +42,18 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     if (abstract_state && abstract_state.getUserAbstractListSuccess) {
-      console.log("inside success",abstract_state.getUserAbstractListSuccess.data);
       setAbstractStatus(abstract_state?.getUserAbstractListSuccess?.data[0]?.paperApproveStatus)
     }
   }, [abstract_state.getUserAbstractListSuccess]);
 
-  useEffect(() => {
-    if (
-      user_state &&
-      user_state.loggedInUserSuccess &&
-      user_state.loggedInUserSuccess.length > 0
-    ) {
-      setAllowTransaction(true)
-    }
-  }, [user_state.loggedInUserSuccess]);
+  // useEffect(() => {
+  //   if (user_state &&
+  //     user_state.loggedInUserSuccess &&
+  //     user_state.loggedInUserSuccess.length > 0
+  //   ) {
+  //     setAllowTransaction(true)
+  //   }
+  // }, [user_state.loggedInUserSuccess]);
 
   // let getUserPaymentStatus = async (id) => {
   //   let url = `${baseUrl}getPaymentStatus/${id}`
@@ -198,7 +196,7 @@ const Dashboard = (props) => {
                           New Registration
                         </button>
                       </li>
-                      { allowTransaction &&(
+                      
                          <li>
                          <button
                            className="common-blue btn"
@@ -212,7 +210,7 @@ const Dashboard = (props) => {
                            Transaction Details
                          </button>
                        </li>
-                      )}
+                     
                      
                     </ul>
                   )}

@@ -125,7 +125,7 @@ const AbstractUpload = () => {
             <div className="col-md-8">
                 <div className="mb-3">
                   <label htmlFor="inputName" className="form-label">
-                    User Name
+                    Author Name
                   </label>
                   <input
                     onChange={(e) => abstarctOnChangeHandler(e)}

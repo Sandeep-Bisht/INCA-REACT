@@ -136,7 +136,7 @@ const FullPaper = () => {
         <div className="col-md-12">
             <div className="mb-3">
               <label htmlFor="inputName" className="form-label">
-                User Name
+                Author Name
               </label>
               <input 
               value={fullPaperPayload && fullPaperPayload.userName}
