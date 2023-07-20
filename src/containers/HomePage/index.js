@@ -274,8 +274,8 @@ const HomePage = () => {
                     <b>
                       {" "}
                       Regional Remote Sensing Center-West National Remote
-                      Sensing Center (NRSC), ISRO ISRO Complex, Bypass Road
-                      Sector 9, Kudi Bhagtasani Housing Board (KBHB)
+                      Sensing Center (NRSC),ISRO ISRO Complex,Bypass Road
+                      Sector 9,Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
                     <br />
                     <b>Jodhpur – 342005</b>
@@ -2100,7 +2100,7 @@ const HomePage = () => {
                           <img src={reg4} className="img-fluid" alt="" />
                         </div>
                         <div className="ps-5">
-                          <h3>Exhibitor</h3>
+                          <h3 className="ps-2">Exhibitor</h3>
                           {/* <p> Become a Exhibitor </p> */}
                           <button
                             className=" common-btn"
@@ -2120,7 +2120,7 @@ const HomePage = () => {
                           <img src={reg4} className="img-fluid" alt="" />
                         </div>
                         <div className="ps-5">
-                          <h3> Delegate </h3>
+                          <h3 className="ps-2"> Delegate </h3>
                           {/* <p> Get your Conference Pass </p> */}
                           <button
                             className=" common-btn"

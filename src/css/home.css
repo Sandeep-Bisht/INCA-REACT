@@ -1082,7 +1082,7 @@ padding: 50px 40px;
         line-height: 19px;
     }
     .home-about .home-about-event-card {
-        min-height: 160px;
+        min-height: 100px;
         padding: 10px;
     }
     .Welcome-page .adhir-image-title {
@@ -1095,6 +1095,7 @@ padding: 50px 40px;
     .home-register-step ul li {
         /* width: 350px; */
         padding: 20px;
+        min-height: 93px;
     }
     .contact-area .contact-move {
         padding-left: 50px;
@@ -1120,6 +1121,12 @@ padding: 50px 40px;
         padding:10px;
         height: 100px
         
+    }
+    .home-register-step ul li .common-btn{
+        margin-top: 22px;
+    }
+    .ps-2{
+        padding-left: 1.2rem!important;
     }
     .home-speakers .speaker-card .speaker-title{
         font-size:14px;
@@ -1203,6 +1210,12 @@ padding: 50px 40px;
     .home-banner .right .theme-color {
         font-size: 16px;
         line-height: 1.6;
+    }
+    .home-register-step ul li{
+        width: 80%;
+    margin: 0px auto 10px auto;
+    padding: 24px;
+    height: 74%;
     }
     .Welcome-page .adhir-arora-image {
         position: relative;
@@ -1436,10 +1449,13 @@ padding: 50px 40px;
     .home-register-step ul li{
         /* width: auto;
         height: auto; */
-        width:90%;
+        width:80%;
         margin: 0 auto 20px auto;
         padding: 20px;
 
+    }
+    .common-para{
+        font-size: 9px;
     }
     .home-register-step ul li p{
         margin: 18px 0;
@@ -1448,6 +1464,7 @@ padding: 50px 40px;
     .home-register-step ul li .reg-icon-box img{
         width: 90px;
     }
+    
 
     /* -------contact area----- */
     .contact-area
@@ -1689,7 +1706,7 @@ padding: 50px 40px;
     } */
     .home-register-step ul li h3
     {
-        font-size:18px;
+        font-size:15px;
     }
     .home-register-step ul li .common-btn
     {
@@ -1759,7 +1776,8 @@ padding: 50px 40px;
 
 .event-bg{
     background-image: url('../images/jodhpur-bg.jpg');
-   
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media only screen and (max-width : 430px)
@@ -1770,7 +1788,10 @@ padding: 50px 40px;
     .common-btn, .common-btn-transparent {
         padding: 3px 20px;
         font-size: 12px;
-        margin-bottom: 23px;
+        /* margin-bottom: 23px; */
+    }
+    .common-btn {
+        margin-bottom: 0px!important;
     }
     .section-padding{
         padding:40px 0;
@@ -1808,7 +1829,7 @@ padding: 50px 40px;
     }
     .home-about .home-about-event-card .right .h2
     {
-        font-size:18px!important;
+        font-size:15px!important;
         margin-bottom:5px;
     }
     .home-about .home-about-event-card .common-para{

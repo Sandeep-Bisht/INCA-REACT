@@ -133,6 +133,7 @@ const Dashboard = (props) => {
                     >
                       <span className="user-icon">
                         <i className="fa-solid fa-user"></i>
+                      
                       </span>
 
                       {/* <img
