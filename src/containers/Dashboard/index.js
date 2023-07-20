@@ -113,7 +113,9 @@ const Dashboard = (props) => {
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <span className="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon">
+                <i className="fa-solid fa-bars"></i>
+                </span>
               </button>
               <div
                 className="collapse navbar-collapse justify-content-end"
