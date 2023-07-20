@@ -150,7 +150,15 @@
   border:0;
   background: transparent;
 }
-
+.form-control{
+  margin-bottom: 17px;
+}
+.react-tel-input .form-control{
+  margin-bottom: 15px!important;
+}
+.form-select{
+  margin-bottom: 15px2;
+}
 .accordion-button:not(.collapsed)
 {
   background:transparent;

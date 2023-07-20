@@ -7,13 +7,6 @@ import { Header } from "../../components/Header";
 import "../../css/home.css";
 import reg2 from "../../images/reg2.png";
 import reg4 from "../../images/reg4.png";
-import comittee1 from "../../images/Raj1.jpg";
-import comittee2 from "../../images/CH-Adhir-Arora.png";
-import comittee3 from "../../images/bkramprasad.jpg";
-import comittee4 from "../../images/raprasad.jpg";
-import comittee5 from "../../images/capt-kuldeep-singh.jpg";
-import comittee6 from "../../images/cmde-puesh-pawsey.jpg";
-import comittee7 from "../../images/ls-pathania.jpg";
 import gallary1 from "../../images/gallery-1.jpg";
 import gallary2 from "../../images/gallery-2.jpg";
 import gallary3 from "../../images/gallery-3.jpg";
@@ -37,6 +30,8 @@ import FinalSercular from "../../images/INCA_43rd_First_Circular.pdf";
 import DraftTechnical from "../../SampleFiles/Draft Technical Session07 nov.pdf";
 import BoardList from "../../images/board.png";
 import homepageBackgroundVideo from "../../video/INCA-video.mp4"
+import JodhpurBg from "../../images/jodhpur-bg.jpg"
+
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
 
@@ -263,7 +258,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <section className="section-padding home-about pb-lg-0 without-carousel ">
+      <section className="section-padding home-about pb-lg-0 without-carousel event-bg ">
         <div className="container">
           <div className="row py-4 mt-3">
             <div className="col-lg-4">
@@ -279,8 +274,8 @@ const HomePage = () => {
                     <b>
                       {" "}
                       Regional Remote Sensing Center-West National Remote
-                      Sensing Center (NRSC), ISRO ISRO Complex, Bypass Road
-                      Sector 9, Kudi Bhagtasani Housing Board (KBHB)
+                      Sensing Center (NRSC),ISRO ISRO Complex,Bypass Road
+                      Sector 9,Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
                     <br />
                     <b>Jodhpur – 342005</b>
@@ -331,8 +326,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      {/* --------with carousel--------- */}
-      <section className="section-padding home-about pb-lg-0 with-carousel">
+      {/* --------with carousel---------  MOBILE */}
+      <section className="section-padding home-about pb-lg-0 with-carousel event-bg">
         <div className="container">
           <div className="row">
             <div className="col-lg-4">
@@ -2067,7 +2062,7 @@ const HomePage = () => {
       </section>
       {/* ------ without carousel----*/}
 
-      <section className="section-padding home-register-step">
+      <section className="section-padding home-register-step event-bg">
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
@@ -2105,7 +2100,7 @@ const HomePage = () => {
                           <img src={reg4} className="img-fluid" alt="" />
                         </div>
                         <div className="ps-5">
-                          <h3>Exhibitor</h3>
+                          <h3 className="ps-2">Exhibitor</h3>
                           {/* <p> Become a Exhibitor </p> */}
                           <button
                             className=" common-btn"
@@ -2125,7 +2120,7 @@ const HomePage = () => {
                           <img src={reg4} className="img-fluid" alt="" />
                         </div>
                         <div className="ps-5">
-                          <h3> Delegate </h3>
+                          <h3 className="ps-2"> Delegate </h3>
                           {/* <p> Get your Conference Pass </p> */}
                           <button
                             className=" common-btn"

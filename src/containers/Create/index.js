@@ -947,7 +947,7 @@ management of natural resources and smart governance"
 
                   {/* Registration Category */}
 
-                  <div className="col-md-12">
+                  <div className="col-md-12 pt-4">
                     <label
                       htmlFor="SelectCategory"
                       className="form-label asterisk"

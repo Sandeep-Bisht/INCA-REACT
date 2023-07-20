@@ -122,10 +122,10 @@ const AbstractUpload = () => {
         <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
           <div className="container">
             <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-8">
                 <div className="mb-3">
                   <label htmlFor="inputName" className="form-label">
-                    User Name
+                    Author Name
                   </label>
                   <input
                     onChange={(e) => abstarctOnChangeHandler(e)}
@@ -137,7 +137,7 @@ const AbstractUpload = () => {
                   />
                 </div>
               </div>
-              <div className="col-md-12">
+              <div className="col-md-8">
                 <div className="mb-3">
                   <select
                     className="form-select"
@@ -211,7 +211,7 @@ const AbstractUpload = () => {
                   </select>
                 </div>
               </div>
-              <div className="col-md-12">
+              <div className="col-md-8">
                 <div className="mb-3">
                   <label htmlFor="inputName" className="form-label">
                     Paper Name
@@ -226,7 +226,7 @@ const AbstractUpload = () => {
                   />
                 </div>
               </div>
-              <div className="col-md-12">
+              <div className="col-md-8">
                 <div className="mb-3">
                   <label htmlFor="inputFile" className="form-label">
                     Abstract Upload (File size should not be more 10mb )
@@ -264,7 +264,7 @@ const AbstractUpload = () => {
               
 
               <div className="row">
-                <div className="col-md-12">
+                <div className="col-md-8">
                   <div className="mb-3">
                     <button
                       className="btn btn-primary"
