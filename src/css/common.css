@@ -256,13 +256,16 @@ border: none!important;
 } 
 .form-submit
 {
-    background: #111b69;
+    background: #75b00f;
     padding: 6px 45px;
     color: #fff;
     text-transform: uppercase;
     font-weight: 400;
     border-radius: 25px;
     border: 0;
+}
+.form-submit:hover{
+    background: #111b69;
 }
 .text-justify
 {
