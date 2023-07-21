@@ -79,6 +79,28 @@
     color: #212121;
 }
 
+.common{
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    padding-left: 30px
+}
+.captcha-section{
+    border: 1px solid #bebbbb;
+    padding: 10px;
+    border-radius: 10px
+}
+.captcha-align{
+    margin-bottom: 11px;
+    padding-top: 8px;
+}
+.captcha-form{
+    display: flex;
+}
+.pt-3{
+    margin-top: 9px;
+}
+
 .contact-single2 input::placeholder , .contact-single2 textarea::placeholder
 {
     opacity: .50;
