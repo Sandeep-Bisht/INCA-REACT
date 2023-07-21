@@ -7,6 +7,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import "../../css/sponsor.css";
 import { Navigate, useNavigate } from "react-router-dom";
+import Captcha from "../Captcha";
 
 const errorObj = {
   name: "",
@@ -389,6 +390,9 @@ const SponsorForm = () => {
                       </div>
                     </>
                   )}
+                  <div>
+                  <Captcha captchaLength={6} />
+                  </div>
 
                   <div className="col-md-12">
                     <div className="btn-wrapper mt-3">

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import "../../css/contact.css";
 import {useForm} from "react-hook-form";
-
+// import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import Captcha from "../Captcha";
+import address from "../../images/rrsc_addres.png"
 
 const Contact = () => {
   const {
@@ -20,8 +22,29 @@ const Contact = () => {
      });
 
   const onSubmit =(data) =>{
+    // doSubmit(data)
     console.log(data)
   }
+
+//   useEffect(() => {
+//     loadCaptchaEnginge(6);
+//   }, [])
+
+
+//   let doSubmit = () => {
+//     let user_captcha = document.getElementById('user_captcha_input').value;
+
+//     if (validateCaptcha(user_captcha)===true) {
+//         alert('Captcha Matched');
+//         loadCaptchaEnginge(6); 
+//         document.getElementById('user_captcha_input').value = "";
+//     }
+
+//     else {
+//         alert('Captcha Does Not Match');
+//         document.getElementById('user_captcha_input').value = "";
+//     }
+// };
   return (
     <>
       <Header></Header>
@@ -164,6 +187,11 @@ const Contact = () => {
                       </div>
                     </div>
 
+                    {/* <div className="col mt-3">
+                       <div><input placeholder="Enter Captcha Value" id="user_captcha_input" name="user_captcha_input" type="text"></input></div>
+                   </div> */}
+                    <Captcha captchaLength={6} />
+
                     <div className="row">
                       <div className="col-md-12 pb-3">
                         <button className="common-btn">SUBMIT MESSAGE</button>
@@ -174,11 +202,18 @@ const Contact = () => {
               </form>
             </div>
             <div className="col-md-5">
+              <div>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56474.94761311179!2d72.97284353692041!3d26.230592923325176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418bb0afd5bef9%3A0xaea174d001879fea!2sRegional%20Remote%20Sensing%20Centre%20-%20West!5e0!3m2!1sen!2sin!4v1689144860809!5m2!1sen!2sin"
                 width="100%"
                 height="430" className="pt-3"
               ></iframe>
+            </div>
+            <div className="mt-3">
+              <img src={address} className="img-fluid" width="30%" height="60"
+
+              />
+            </div>
             </div>
           </div>
         </div>

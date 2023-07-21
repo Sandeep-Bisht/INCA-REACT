@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { useForm } from "react-hook-form";
 import "../../css/home.css";
 import reg2 from "../../images/reg2.png";
 import reg4 from "../../images/reg4.png";
@@ -22,15 +23,8 @@ import inca6 from "../../images/DS.jpeg";
 import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
-import instruction from "../../images/instructions.jpg";
-import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
-import Instructions from "../../SampleFiles/instructions_for_participants.pdf";
-import ThirdSercular from "../../SampleFiles/Second circular_20 sep 22.pdf";
 import FinalSercular from "../../images/INCA_43rd_First_Circular.pdf";
-import DraftTechnical from "../../SampleFiles/Draft Technical Session07 nov.pdf";
-import BoardList from "../../images/board.png";
-import homepageBackgroundVideo from "../../video/INCA-video.mp4"
-import JodhpurBg from "../../images/jodhpur-bg.jpg"
+import Captcha from "../Captcha";
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -75,6 +69,21 @@ const HomePage = () => {
     };
   });
 
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({
+    firstName: "",
+    email: "",
+    phoneNumber: "",
+    subject: "",
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   const navigation = useNavigate();
 
   const responsive = {
@@ -104,7 +113,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-            src={homepageBackgroundVideo}
+            // src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
@@ -117,24 +126,15 @@ const HomePage = () => {
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
                   <span className="banner-small text-white">
-                    43<sup>rd</sup> INCA International Congress <br/>on
+                    43<sup>rd</sup> INCA International Congress <br />
+                    on
                   </span>
 
-                  <p className="head-text">
-                    Emerging Trends in Digital 
-                  </p>
-                  <p className="head-text">
-                  Cartography For Sustainable  
-                  </p>
-                  <p className="head-text">
-                  Ecosystems and  Geospatial
-                  </p>
-                  <p className="head-text">
-                   Economy
-                  </p>
-                  <p className="head-text-para">
-                    -- Enabling Earth to Talk --
-                  </p>
+                  <p className="head-text">Emerging Trends in Digital</p>
+                  <p className="head-text">Cartography For Sustainable</p>
+                  <p className="head-text">Ecosystems and Geospatial</p>
+                  <p className="head-text">Economy</p>
+                  <p className="head-text-para">-- Enabling Earth to Talk --</p>
                   {/* <span className="banner-last">Event-2023</span> */}
                 </p>
                 <div className="banner-bottom"></div>
@@ -147,11 +147,11 @@ const HomePage = () => {
                     className=" common-btn register-home-btn"
                     onClick={() => navigation("/register")}
                   >
-                   <span></span>
-                   <span></span>
-                   <span></span>
-                   <span></span>
-                   Registration open now 
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Registration open now
                   </button>
                   {/* <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
@@ -274,8 +274,8 @@ const HomePage = () => {
                     <b>
                       {" "}
                       Regional Remote Sensing Center-West National Remote
-                      Sensing Center (NRSC),ISRO ISRO Complex,Bypass Road
-                      Sector 9,Kudi Bhagtasani Housing Board (KBHB)
+                      Sensing Center (NRSC),ISRO ISRO Complex,Bypass Road Sector
+                      9,Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
                     <br />
                     <b>Jodhpur – 342005</b>
@@ -2448,20 +2448,62 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="contact-text">
-                  <input type="text" placeholder="Your Name.." />
+                  <input
+                    // className="form-movement"
+                    type="text"
+                    name="firstName"
+                    placeholder="Your Name.."
+                    {...register("firstName", { required: true })}
+                  />
+                  {errors.firstName === "required" && (
+                    <p>First name is required</p>
+                  )}
                 </div>
                 <div className="contact-email">
-                  <input type="email" placeholder="Your Email.." />
+                  <input
+                    // className="form-movement"
+                    type="email"
+                    name="email"
+                    placeholder="Your Email.."
+                    {...register("email", {
+                      required: "Email Address is required",
+                    })}
+                  />
+                  {errors.email == "required" && <p>email is required</p>}
+                </div>
+                <div className="contact-text">
+                  <input
+                    // className="form-movement"
+                    type="number"
+                    placeholder="Your Number.."
+                    {...register("phoneNumber", { required: true })}
+                  />
+                  {errors.phoneNumber === "required" && (
+                    <p>Phone Number is required</p>
+                  )}
+                </div>
+                <div className="contact-text">
+                  <input
+                    // className="form-movement"
+                    type="subject"
+                    placeholder="Subject.."
+                    {...register("subject", { required: true })}
+                  />
+                  {errors.subject === "required" && <p>Subject is required</p>}
                 </div>
                 <div className="contact-textarea">
                   <textarea
                     className="w-100"
-                    rows="10"
+                    rows="7"
                     cols="51"
                     placeholder="Enter Message.."
                   ></textarea>
+                </div>
+                <div className="contact-text"> 
+                <Captcha captchaLength={6} />
+
                 </div>
                 <div className="contact-btn">
                   <button className="common-btn mb-3">Send Message</button>
