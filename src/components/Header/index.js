@@ -1,11 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 import ISROlogo from "../../images/nrsc_logo.png";
 import G20 from "../../images/G20_100_70.png";
 import azadi from "../../images/azadi.png";
+import jwt_decode from "jwt-decode";
 
 export const Header = () => {
+
+  let [token, setToken] = useState(undefined)
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      let decodedToken = jwt_decode(localStorage.getItem("token"));
+      setToken(decodedToken)
+    }
+  }, [])
   useEffect(() => {   
     
     let nav = document.querySelector(".header-wrapper");
@@ -82,6 +92,8 @@ export const Header = () => {
                         Contact
                       </a>
                     </li>
+                    { !token ? (
+                      <>
                     <li className="nav-item">
                       <a className="nav-link" href="/login">
                         Login
@@ -92,6 +104,14 @@ export const Header = () => {
                         Register
                       </a>
                     </li>
+                    </>
+                    ) : (
+                      <li className="nav-item">
+                      <a className="nav-link" href="/dashboard">
+                        Dashboard
+                      </a>
+                    </li>
+                    ) }
                   </ul>
                 </div>
                 <div className="nav-display-1">

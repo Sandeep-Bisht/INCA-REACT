@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { useForm } from "react-hook-form";
 import "../../css/home.css";
 import reg2 from "../../images/reg2.png";
 import reg4 from "../../images/reg4.png";
@@ -22,15 +23,9 @@ import inca6 from "../../images/DS.jpeg";
 import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
-import instruction from "../../images/instructions.jpg";
-import SecondSercular from "../../SampleFiles/42thINCA-First Circular-09_Jul 22.pdf";
-import Instructions from "../../SampleFiles/instructions_for_participants.pdf";
-import ThirdSercular from "../../SampleFiles/Second circular_20 sep 22.pdf";
 import FinalSercular from "../../images/INCA_43rd_First_Circular.pdf";
-import DraftTechnical from "../../SampleFiles/Draft Technical Session07 nov.pdf";
-import BoardList from "../../images/board.png";
-import homepageBackgroundVideo from "../../video/INCA-video.mp4"
-import JodhpurBg from "../../images/jodhpur-bg.jpg"
+import Captcha from "../Captcha";
+import homepageBackgroundVideo from '../../video/INCA-video.mp4'
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -75,6 +70,21 @@ const HomePage = () => {
     };
   });
 
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({
+    firstName: "",
+    email: "",
+    phoneNumber: "",
+    subject: "",
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   const navigation = useNavigate();
 
   const responsive = {
@@ -104,7 +114,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-            src={homepageBackgroundVideo}
+            //  src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
@@ -117,7 +127,8 @@ const HomePage = () => {
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
                   <span className="banner-small text-white">
-                    43<sup>rd</sup> INCA International Congress <br/>on
+                    43<sup>rd</sup> INCA International Congress <br />
+                    on
                   </span>
 
                   <p className="head-text">
@@ -132,9 +143,7 @@ const HomePage = () => {
                   <p className="head-text">
                    Economy
                   </p>
-                  <p className="head-text-para">
-                    -- Enabling Earth to Talk --
-                  </p>
+                  
                   {/* <span className="banner-last">Event-2023</span> */}
                 </p>
                 <div className="banner-bottom"></div>
@@ -147,11 +156,11 @@ const HomePage = () => {
                     className=" common-btn register-home-btn"
                     onClick={() => navigation("/register")}
                   >
-                   <span></span>
-                   <span></span>
-                   <span></span>
-                   <span></span>
-                   Registration open now 
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Registration open now
                   </button>
                   {/* <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
@@ -160,6 +169,20 @@ const HomePage = () => {
                     Full Paper Submission
                   </button> */}
                 </div>
+                <div className="banner-btn-box pt-2">
+                  <button
+                    className=" common-btn register-home-btn"
+                    onClick={() => navigation("/register")}
+                  >
+                   <span></span>
+                   <span></span>
+                   <span></span>
+                   <span></span>
+                   <a target="_blank" href={FinalSercular}>
+                   First Circular 
+                   </a>
+                  </button>
+                  </div>
               </div>
             </div>
           </div>
@@ -202,18 +225,18 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          {/* <section className="abstract-date">
+           <section className="abstract-date">
   <div className="container-fluid">
   <div className="row">
             <div className="col-md-12">
               <div className="abstract-submission-date">
-            <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is 20<sup>th</sup> September 2023"</b></p></marquee>
-            <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee>
+            <marquee><p><b>"You can now start registration for 43<sup>rd</sup> INCA Conference 2023"</b></p></marquee>
+            {/* <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee> */}
             </div>
             </div>
           </div>
   </div>
-</section> */}
+</section> 
         </div>
       </div>
 
@@ -261,28 +284,29 @@ const HomePage = () => {
       <section className="section-padding home-about pb-lg-0 without-carousel event-bg ">
         <div className="container">
           <div className="row py-4 mt-3">
-            <div className="col-lg-4">
+             <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="first common-yellow-bg">
                     <i className="fa-solid fa-location-dot"></i>
                   </span>
                 </div>
-                <div className="right">
+                <div className="right mt-3">
                   <h2 className="h2">Where is the Event</h2>
                   <p className="common-para">
                     <b>
                       {" "}
-                      Regional Remote Sensing Center-West National Remote
-                      Sensing Center (NRSC),ISRO ISRO Complex,Bypass Road
+                      <h5 className="right-text">Regional Remote Sensing Center-West</h5> National Remote
+                      Sensing Center NRSC/ISRO, ISRO Complex,Bypass Road
                       Sector 9,Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
                     <br />
                     <b>Jodhpur – 342005</b>
                   </p>
                 </div>
-              </div>
-            </div>
+              </div></div> 
+            
+
             <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
@@ -290,7 +314,7 @@ const HomePage = () => {
                     <i className="fa-solid fa-calendar-days"></i>
                   </span>
                 </div>
-                <div className="right">
+                <div className="right mt-3">
                   <h2 className="h2">When is the Event</h2>
                   <p className="common-para">
                     <b>06 November 2023</b> <br /> <b>07 November 2023</b>{" "}
@@ -306,11 +330,16 @@ const HomePage = () => {
                     <i className="fa-solid fa-calendar-days"></i>
                   </span>
                 </div>
-                <div className="right">
+                <div className="right mt-3">
                   <h2 className="h2">Schedule of the Event</h2>
                   <Link className="common-para pb-3" to="/importantdates">
                     <b>Click here to know details.</b>
-                  </Link>
+                   
+                  </Link><br/>
+                  <p className="common-para">
+                    <b>Last date for submission of abstract</b></p>
+                  <p className="common-para pb-3">
+                    <b>10/August/2023</b></p> 
                   {/* <p className="common-para">
                     Last date for submitting the abstracts
                   </p>
@@ -700,9 +729,9 @@ const HomePage = () => {
               showDots={false}
               responsive={responsive}
               // ssr={true}
-              // infinite={true}
-              autoPlay={false}
-              autoPlaySpeed={50000}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={3000}
               // keyBoardControl={true}
               // transitionDuration={500}
             >
@@ -2398,7 +2427,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="sponsors-area">
+      <section className="sponsors-area event-bg">
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
@@ -2448,20 +2477,62 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="contact-text">
-                  <input type="text" placeholder="Your Name.." />
+                  <input
+                    // className="form-movement"
+                    type="text"
+                    name="firstName"
+                    placeholder="Your Name.."
+                    {...register("firstName", { required: true })}
+                  />
+                  {errors.firstName === "required" && (
+                    <p>First name is required</p>
+                  )}
                 </div>
                 <div className="contact-email">
-                  <input type="email" placeholder="Your Email.." />
+                  <input
+                    // className="form-movement"
+                    type="email"
+                    name="email"
+                    placeholder="Your Email.."
+                    {...register("email", {
+                      required: "Email Address is required",
+                    })}
+                  />
+                  {errors.email == "required" && <p>email is required</p>}
+                </div>
+                <div className="contact-text">
+                  <input
+                    // className="form-movement"
+                    type="number"
+                    placeholder="Your Number.."
+                    {...register("phoneNumber", { required: true })}
+                  />
+                  {errors.phoneNumber === "required" && (
+                    <p>Phone Number is required</p>
+                  )}
+                </div>
+                <div className="contact-text">
+                  <input
+                    // className="form-movement"
+                    type="subject"
+                    placeholder="Subject.."
+                    {...register("subject", { required: true })}
+                  />
+                  {errors.subject === "required" && <p>Subject is required</p>}
                 </div>
                 <div className="contact-textarea">
                   <textarea
                     className="w-100"
-                    rows="10"
+                    rows="7"
                     cols="51"
                     placeholder="Enter Message.."
                   ></textarea>
+                </div>
+                <div className="contact-text"> 
+                <Captcha captchaLength={6} />
+
                 </div>
                 <div className="contact-btn">
                   <button className="common-btn mb-3">Send Message</button>
