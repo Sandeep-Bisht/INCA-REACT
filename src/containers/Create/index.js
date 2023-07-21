@@ -18,14 +18,16 @@ const obj = {
   affilation: "",
   address: "",
   pinCode: "",
-  country: "",
+  country: "India",
   email: "",
   conferenceMode: "offline",
   participationType: "",
   nationality: "",
   title: "",
-  theme:"",
+  theme: "",
   registrationCategory: "",
+  lifeMemberNo: "",
+  universityName: "",
   accompanningPerson: [],
   isError: {
     name: "",
@@ -40,8 +42,10 @@ const obj = {
     participationType: "",
     nationality: "",
     title: "",
-    theme:"",
+    theme: "",
     registrationCategory: "",
+    lifeMemberNo: "",
+    universityName: "",
     registrationFee: "",
     transactionId: "",
   },
@@ -71,7 +75,6 @@ const CreateForm = (props) => {
   let dispatch = useDispatch();
   let location = useLocation();
   let navigate = useNavigate();
-
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -108,7 +111,7 @@ const CreateForm = (props) => {
         if (decodedToken.user.user.role !== "admin") {
           setIsHidden(true);
           setMessage("Your information saved successfully");
-          window.location.href = "/dashboard"
+          window.location.href = "/dashboard";
         } else {
           if (
             state.saveRegisterUserInfoSuccess.message ===
@@ -173,6 +176,8 @@ const CreateForm = (props) => {
         title: "",
         theme: "",
         registrationCategory: "",
+        lifeMemberNo: "",
+        universityName: "",
         registrationFee: "",
         transactionId: "",
       };
@@ -278,9 +283,16 @@ const CreateForm = (props) => {
 
         setUserInformation(userInformationCopy);
         break;
-      case "pinCode":
-        userInformationCopy.isError.pinCode =
-          value.length <= 5 ? "Atleast 6 characaters Required" : "";
+      case "lifeMemberNo":
+        userInformationCopy.isError.lifeMemberNo =
+          value.length < 0 ? "Life member Number Required" : "";
+          delete userInformationCopy.universityName 
+        setUserInformation(userInformationCopy);
+        break;
+      case "universityName":
+        userInformationCopy.isError.universityName =
+          value.length < 0 ? "Life member Number Required" : "";
+          delete userInformationCopy.lifeMemberNo
         setUserInformation(userInformationCopy);
         break;
       case "country":
@@ -299,12 +311,7 @@ const CreateForm = (props) => {
           ? ""
           : "Email address is invalid";
         setUserInformation(userInformationCopy);
-        break;
-      // case "conferenceMode":
-      //   userInformationCopy.isError.conferenceMode =
-      //     value.length < 0 ? "Conference Mode is Required" : "";
-      //   setUserInformation(userInformationCopy);
-      //   break;
+        break;      
       case "participationType":
         userInformationCopy.isError.participationType =
           value.length < 0 ? "Participation Type is Required" : "";
@@ -317,25 +324,27 @@ const CreateForm = (props) => {
         setUserInformation(userInformationCopy);
         break;
 
-        case "theme" : 
+      case "theme":
         userInformationCopy.isError.theme =
-        value.length < 0 ? "Theme is Required" : "";
-      setUserInformation(userInformationCopy);
-      break;
+          value.length < 0 ? "Theme is Required" : "";
+        setUserInformation(userInformationCopy);
+        break;
 
       case "registrationCategory":
         userInformationCopy.isError.registrationCategory =
           value.length < 0 ? "Registration Category is Required" : "";
+          if(userInformationCopy.registrationCategory == "Others (participants/delegates/members)"){
+            delete userInformationCopy.lifeMemberNo;
+            delete userInformationCopy.universityName;
+          }
         setUserInformation(userInformationCopy);
-        break;
-      // case "transactionId":
-      //   userInformationCopy.isError.transactionId = value.length < 4 ? "Atleast 4 characaters required" : "";
-      //   break;
+        break;   
 
       default:
         break;
     }
   };
+
 
   const validateForm = () => {
     let formIsValid = true;
@@ -344,9 +353,7 @@ const CreateForm = (props) => {
       formIsValid = false;
     }
 
-    if (!userInformation?.pinCode) {
-      formIsValid = false;
-    }
+   
 
     if (!userInformation?.country) {
       formIsValid = false;
@@ -376,12 +383,19 @@ const CreateForm = (props) => {
     if (!userInformation?.registrationCategory) {
       formIsValid = false;
     }
+    if (userInformation?.registrationCategory == "For Students" && !userInformation?.universityName) {
+      formIsValid = false;
+    }
+    if (userInformation?.registrationCategory == "Life Members" && !userInformation?.lifeMemberNo) {
+      formIsValid = false;
+    }
 
     return formIsValid;
   };
 
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
+    
     if (systemRole == "admin") {
       userInformation.systemRole = systemRole;
     }
@@ -425,6 +439,8 @@ const CreateForm = (props) => {
         nationality: "",
         title: "",
         registrationCategory: "",
+        universityName: "",
+        lifeMemberNo: "",
         registrationFee: "",
         transactionId: "",
       };
@@ -441,11 +457,16 @@ const CreateForm = (props) => {
             ? ""
             : "  Field is required ";
           break;
-        case "pinCode":
-          userInformationCopy.isError.pinCode = userInformationCopy.pinCode
-            ? ""
-            : " Field is required";
-          break;
+        // case "universityName":
+        //   userInformationCopy.isError.universityName = userInformationCopy.universityName
+        //     ? ""
+        //     : " Field is required";
+        //   break;
+        //   case "lifeMemberNo":
+        //     userInformationCopy.isError.lifeMemberNo = userInformationCopy.lifeMemberNo
+        //       ? ""
+        //       : " Field is required";
+        //     break;
         case "country":
           userInformationCopy.isError.country = userInformationCopy.country
             ? ""
@@ -640,9 +661,9 @@ const CreateForm = (props) => {
                     </div>
               </div> */}
             </div>
-            <div className="row mt-2 mb-5">
+            <div className="row mt-2 mb-2">
               <div className="col-md-4">
-                <label htmlFor="InputName" className="form-label asterisk">
+                <label htmlFor="name" className="form-label asterisk">
                   Name
                 </label>
                 <input
@@ -664,7 +685,7 @@ const CreateForm = (props) => {
                 )}
               </div>
               <div className="col-md-4">
-                <label htmlFor="InputPosition" className="form-label">
+                <label htmlFor="designation" className="form-label">
                   Designation/Position
                 </label>
                 <input
@@ -677,7 +698,7 @@ const CreateForm = (props) => {
                 />
               </div>
               <div className="col-md-4">
-                <label htmlFor="InputAffiliation" className="form-label">
+                <label htmlFor="affilation" className="form-label">
                   Affiliation
                 </label>
                 <input
@@ -691,9 +712,9 @@ const CreateForm = (props) => {
               </div>
             </div>
 
-            <div className="row mb-5">
+            <div className="row mb-3">
               <div className="col-md-4">
-                <label htmlFor="InputAddress" className="form-label asterisk">
+                <label htmlFor="address" className="form-label asterisk">
                   Address
                 </label>
                 <textarea
@@ -714,12 +735,9 @@ const CreateForm = (props) => {
 
               <div className="col-md-4">
                 <div className="row">
-                  <div className="col-md-12 mb-4">
-                    <label
-                      htmlFor="InputPincode"
-                      className="form-label asterisk"
-                    >
-                      PIN Code
+                  <div className="col-md-12 mb-2">
+                    <label htmlFor="pinCode" className="form-label">
+                      Pin Code
                     </label>
                     <input
                       type="text"
@@ -733,9 +751,6 @@ const CreateForm = (props) => {
                       disabled={isDisabled}
                       id="pinCode"
                     />
-                    {isError && isError.pinCode && (
-                      <p className="text-danger">{isError.pinCode}</p>
-                    )}
                   </div>
                   <div className="col-md-12">
                     <label htmlFor="InputPhone" className="form-label">
@@ -754,11 +769,8 @@ const CreateForm = (props) => {
 
               <div className="col-md-4">
                 <div className="row">
-                  <div className="col-md-12 mb-4">
-                    <label
-                      htmlFor="SelectCountry"
-                      className="form-label asterisk"
-                    >
+                  <div className="col-md-12 mb-2">
+                    <label htmlFor="country" className="form-label asterisk">
                       Country
                     </label>
                     <select
@@ -773,9 +785,7 @@ const CreateForm = (props) => {
                       disabled={isDisabled}
                       id="country"
                     >
-                      <option defaultValue hidden>
-                        Please Select
-                      </option>
+                      <option defaultValue="India">India</option>
                       {countries.map((country, i) => (
                         <option key={i} value={country}>
                           {country}
@@ -788,7 +798,7 @@ const CreateForm = (props) => {
                   </div>
 
                   <div className="col-md-12">
-                    <label htmlFor="InputEmail" className="form-label asterisk">
+                    <label htmlFor="email" className="form-label asterisk">
                       Email
                     </label>
                     <input
@@ -813,249 +823,157 @@ const CreateForm = (props) => {
               </div>
             </div>
 
-            <div className="row mb-5">
-              <div className="col-md-4">
-                <div className="row">
-                  <div className="col-md-12">
-                    <label
-                      htmlFor="SelectCategory"
-                      className="form-label asterisk"
-                    >
-                      Theme
-                    </label>
-                    <select
-                      className="form-select"
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      aria-label="Default select example"
-                      value={
-                        userInformation && userInformation.theme
-                      }
-                      disabled={isDisabled}
-                      id="theme"
-                    >
-                      <option defaultValue hidden>
-                        Please Select
-                      </option>
-                      <option
-                        value="Advances in cartography, geospatial technology and thematic mapping htmlFor
+            {/* Theme */}
+            <div className="row mb-2">
+              <div className="col-md-8">
+                <label htmlFor="theme" className="form-label asterisk">
+                  Sub Themes
+                </label>
+                <select
+                  className="form-select"
+                  onChange={(e) => userInformationOnchangeHandler(e)}
+                  aria-label="Default select example"
+                  value={userInformation && userInformation.theme}
+                  disabled={isDisabled}
+                  id="theme"
+                >
+                  <option defaultValue hidden>
+                    Please Select Sub-Themes
+                  </option>
+                  <option
+                    value="Advances in cartography, geospatial technology and thematic mapping htmlFor
 management of natural resources and smart governance"
-                      >
-                        Advances in cartography, geospatial technology and
-                        thematic mapping htmlFor management of natural resources and
-                        smart governance
-                      </option>
-                      {/* <option value="delegate">Delegate</option> */}
-                      <option
-                        value="Geospatial technologies htmlFor fostering sustainable agriculture, food security and green economies"
-                      >
-                        Geospatial technologies htmlFor fostering sustainable
-                        agriculture, food security and green economies
-                      </option>
-                      <option value="Geospatial technologies htmlFor sustainable water resources management">
-                        Geospatial technologies htmlFor sustainable water resources
-                        management
-                      </option>
-                      <option value="Geospatial technologies htmlFor environment and energy security">
-                        Geospatial technologies htmlFor environment and energy
-                        security
-                      </option>
-                      <option
-                        value="Geospatial technologies htmlFor urban studies and infrastructure planning & development"
-                      >
-                        Geospatial technologies htmlFor urban studies and
-                        infrastructure planning & development
-                      </option>
-                      <option value="Geospatial technologies htmlFor meteorology and climate change studies">
-                        Geospatial technologies htmlFor meteorology and climate
-                        change studies
-                      </option>
-                      <option
-                        value="Geospatial technologies htmlFor building disaster resilience and emergency management"
-                      >
-                        Geospatial technologies htmlFor building disaster resilience
-                        and emergency management
-                      </option>
-                      <option
-                        value=" Hydrographic surveys and geospatial technologies htmlFor coastal zone management and oceanography"
-                      >
-                        Hydrographic surveys and geospatial technologies htmlFor
-                        coastal zone management and oceanography
-                      </option>
-                      <option value="Drone/UAV based novel applications htmlFor sustainable economies">
-                        Drone/UAV based novel applications htmlFor sustainable
-                        economies
-                      </option>
-                      <option value="Emerging trends in AI/ML htmlFor cartography and geospatial applications">
-                        Emerging trends in AI/ML htmlFor cartography and geospatial
-                        applications
-                      </option>
-                      <option
-                        value="New geospatial and space policies htmlFor enhancing entrepreneurship and geospatial economy">
-                        New geospatial and space policies htmlFor enhancing
-                        entrepreneurship and geospatial economy
-                      </option>
-                    </select>
-                    {isError && isError.registrationCategory && (
-                      <p className="text-danger">
-                        {isError.registrationCategory}
-                      </p>
-                    )}
-                  </div>
-                  {/* <div className="col-md-12 mb-4">
-                    <label htmlFor="SelectMode" className="form-label asterisk">
-                      Mode of attending the conference
-                    </label>
-                    <select
-                      className="form-select"
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      aria-label="Default select example"
-                      value={userInformation && userInformation.conferenceMode}
-                      disabled={isDisabled}
-                      id="conferenceMode"
-                    >
-                      <option defaultValue hidden>
-                        Please Select The Mode
-                      </option>
-                     
-                      <option value="offline">Physical</option>
-                    </select>
-                    {isError && isError.conferenceMode && (
-                      <p className="text-danger">{isError.conferenceMode}</p>
-                    )}
-                  </div> */}
-
-                  {/* <div className="col-md-12 mb-4">
-                    <label htmlFor="SelectMode" className="form-label asterisk">
-                      Mode of attending the conference
-                    </label>
-                    <select
-                      className="form-select"
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      aria-label="Default select example"
-                      value={userInformation && userInformation.conferenceMode}
-                      disabled={isDisabled}
-                      id="conferenceMode"
-                    >
-                      <option value="offline">Physical</option>
-                      {/* <option value="offline">Physical</option>
-                      <option value="offline">Physical</option> */}
-                  {/* </select> */}
-                  {/* {isError && isError.conferenceMode && (
-                      <p className="text-danger">{isError.conferenceMode}</p>
-                    )} 
-                  </div> */}
-
-                  {/* Registration Category */}
-
-                  <div className="col-md-12 pt-4">
-                    <label
-                      htmlFor="SelectCategory"
-                      className="form-label asterisk"
-                    >
-                      Registration Category
-                    </label>
-                    <select
-                      className="form-select"
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      aria-label="Default select example"
-                      value={
-                        userInformation && userInformation.registrationCategory
-                      }
-                      disabled={isDisabled}
-                      id="registrationCategory"
-                    >
-                      <option defaultValue hidden>
-                        Please Select
-                      </option>
-                      <option value="Life Members">Life Members</option>
-                      {/* <option value="delegate">Delegate</option> */}
-                      <option value="For Students">For Students</option>
-                      <option value="Others (participants/delegates/members)">
-                        Others (Participants/Delegates/Members)
-                      </option>
-                    </select>
-                    {isError && isError.registrationCategory && (
-                      <p className="text-danger">
-                        {isError.registrationCategory}
-                      </p>
-                    )}
-                  </div>
-                </div>
+                  >
+                    Advances in cartography, geospatial technology and thematic
+                    mapping htmlFor management of natural resources and smart
+                    governance
+                  </option>
+                  {/* <option value="delegate">Delegate</option> */}
+                  <option value="Geospatial technologies htmlFor fostering sustainable agriculture, food security and green economies">
+                    Geospatial technologies htmlFor fostering sustainable
+                    agriculture, food security and green economies
+                  </option>
+                  <option value="Geospatial technologies htmlFor sustainable water resources management">
+                    Geospatial technologies htmlFor sustainable water resources
+                    management
+                  </option>
+                  <option value="Geospatial technologies htmlFor environment and energy security">
+                    Geospatial technologies htmlFor environment and energy
+                    security
+                  </option>
+                  <option value="Geospatial technologies htmlFor urban studies and infrastructure planning & development">
+                    Geospatial technologies htmlFor urban studies and
+                    infrastructure planning & development
+                  </option>
+                  <option value="Geospatial technologies htmlFor meteorology and climate change studies">
+                    Geospatial technologies htmlFor meteorology and climate
+                    change studies
+                  </option>
+                  <option value="Geospatial technologies htmlFor building disaster resilience and emergency management">
+                    Geospatial technologies htmlFor building disaster resilience
+                    and emergency management
+                  </option>
+                  <option value=" Hydrographic surveys and geospatial technologies htmlFor coastal zone management and oceanography">
+                    Hydrographic surveys and geospatial technologies htmlFor
+                    coastal zone management and oceanography
+                  </option>
+                  <option value="Drone/UAV based novel applications htmlFor sustainable economies">
+                    Drone/UAV based novel applications htmlFor sustainable
+                    economies
+                  </option>
+                  <option value="Emerging trends in AI/ML htmlFor cartography and geospatial applications">
+                    Emerging trends in AI/ML htmlFor cartography and geospatial
+                    applications
+                  </option>
+                  <option value="New geospatial and space policies htmlFor enhancing entrepreneurship and geospatial economy">
+                    New geospatial and space policies htmlFor enhancing
+                    entrepreneurship and geospatial economy
+                  </option>
+                </select>
+                {isError && isError.registrationCategory && (
+                  <p className="text-danger">{isError.registrationCategory}</p>
+                )}
               </div>
 
               <div className="col-md-4">
-                <div className="row">
-                  <div className="col-md-12 mb-4">
-                    <label htmlFor="SelectWish" className="form-label asterisk">
-                      I wish to participate in the conference htmlFor
-                    </label>
-                    <select
-                      className="form-select"
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      aria-label="Default select example"
-                      value={
-                        userInformation && userInformation.participationType
-                      }
-                      disabled={isDisabled}
-                      id="participationType"
-                    >
-                      <option defaultValue hidden>
-                        Please Select
-                      </option>
-                      <option value="delegate">Delegate</option>
-                      <option value="Research Paper Presentation">
-                        Research Paper Presentation
-                      </option>
-                      <option value="Poster Presentation">
-                        Poster Presentation
-                      </option>
-                      <option value="Both">
-                        Research Paper & Poster Presentation
-                      </option>
-                    </select>
-                    {isError && isError.participationType && (
-                      <p className="text-danger">{isError.participationType}</p>
-                    )}
-                  </div>
-                  <div className="col-md-12 mt-2">
-                    <div>
-                      <p className="form-label">Nationality :</p>
-                    </div>
-                    <div className="radio-button-box d-flex">
-                      <label className="pe-2" htmlFor="foreigner">
-                        Foreign
-                      </label>
-                      <input
-                        type="radio"
-                        id="nationality"
-                        className="w-auto"
-                        name="nationality"
-                        checked={userInformation.nationality === "foreigner"}
-                        disabled={isDisabled}
-                        value="foreigner"
-                        onChange={(e) => userInformationOnchangeHandler(e)}
-                      />
-                      <label className="ps-4 pe-1" htmlFor="Indian">
-                        Indian
-                      </label>
-                      <input
-                        type="radio"
-                        id="nationality"
-                        className="w-auto"
-                        name="nationality"
-                        checked={userInformation.nationality === "indian"}
-                        disabled={isDisabled}
-                        value="indian"
-                        onChange={(e) => userInformationOnchangeHandler(e)}
-                      />
-                    </div>
-                  </div>
+                <div>
+                  <p className="form-label">Nationality :</p>
                 </div>
+                <div className="radio-button-box d-flex">
+                  <label className="pe-2" htmlFor="nationality">
+                    Foreign
+                  </label>
+                  <input
+                    type="radio"
+                    id="nationality"
+                    className="w-auto"
+                    name="nationality"
+                    checked={userInformation.nationality === "foreigner"}
+                    disabled={isDisabled}
+                    value="foreigner"
+                    onChange={(e) => userInformationOnchangeHandler(e)}
+                  />
+                  <label className="ps-4 pe-1" htmlFor="nationality">
+                    Indian
+                  </label>
+                  <input
+                    type="radio"
+                    id="nationality"
+                    className="w-auto"
+                    name="nationality"
+                    checked={userInformation.nationality === "indian"}
+                    disabled={isDisabled}
+                    value="indian"
+                    onChange={(e) => userInformationOnchangeHandler(e)}
+                  />
+                </div>
+                {isError && isError.nationality && (
+                  <p className="text-danger">{isError.nationality}</p>
+                )}
               </div>
+            </div>
+            {/* Theme end */}
+
+            {/* Registration Category Start */}
+            <div className="row mb-2">
+              <div className="col-md-4">
+                <label
+                  htmlFor="participationType"
+                  className="form-label asterisk"
+                >
+                  I wish to participate in the conference for
+                </label>
+                <select
+                  className="form-select"
+                  onChange={(e) => userInformationOnchangeHandler(e)}
+                  aria-label="Default select example"
+                  value={userInformation && userInformation.participationType}
+                  disabled={isDisabled}
+                  id="participationType"
+                >
+                  <option defaultValue hidden>
+                    Please Select
+                  </option>
+                  <option value="delegate">Delegate</option>
+                  <option value="Research Paper Presentation">
+                    Research Paper Presentation
+                  </option>
+                  <option value="Poster Presentation">
+                    Poster Presentation
+                  </option>
+                  <option value="Both">
+                    Research Paper & Poster Presentation
+                  </option>
+                </select>
+                {isError && isError.participationType && (
+                  <p className="text-danger">{isError.participationType}</p>
+                )}
+              </div>
+
               {userInformation.participationType !== "" &&
                 userInformation.participationType !== "delegate" && (
                   <div className="col-md-4">
-                    <label htmlFor="InputTitle" className="form-label">
+                    <label htmlFor="title" className="form-label">
                       Title of the paper/poster
                     </label>
                     <textarea
@@ -1071,10 +989,76 @@ management of natural resources and smart governance"
                     ></textarea>
                   </div>
                 )}
-            </div>
 
-            <div className="row">
-              <div className="col-md-6 mb-4">
+              <div className="col-md-4">
+                <label
+                  htmlFor="registrationCategory"
+                  className="form-label asterisk"
+                >
+                  Registration Category
+                </label>
+                <select
+                  className="form-select"
+                  onChange={(e) => userInformationOnchangeHandler(e)}
+                  aria-label="Default select example"
+                  value={
+                    userInformation && userInformation.registrationCategory
+                  }
+                  disabled={isDisabled}
+                  id="registrationCategory"
+                >
+                  <option defaultValue hidden>
+                    Please Select
+                  </option>
+                  <option value="Life Members">Life Members</option>
+                  {/* <option value="delegate">Delegate</option> */}
+                  <option value="For Students">For Students</option>
+                  <option value="Others (participants/delegates/members)">
+                    Others (Participants/Delegates/Members)
+                  </option>
+                </select>
+                {isError && isError.registrationCategory && (
+                  <p className="text-danger">{isError.registrationCategory}</p>
+                )}
+              </div>
+
+              {userInformation?.registrationCategory == "Life Members" ? (
+                <div className="col-md-4">
+                  <label htmlFor="lifeMemberNo" className="form-label">
+                    Life Member No
+                  </label>
+                  <input
+                    id="lifeMemberNo"
+                    value={userInformation && userInformation.lifeMemberNo}
+                    disabled={isDisabled}
+                    onChange={(e) => userInformationOnchangeHandler(e)}
+                    className={"form-control"}
+                  />
+                  {isError && isError.lifeMemberNo && (
+                    <p className="text-danger">{isError.lifeMemberNo}</p>
+                  )}
+                </div>
+              ) : userInformation?.registrationCategory == "For Students" ? (
+                <div className="col-md-4">
+                  <label htmlFor="universityName" className="form-label">
+                    University Name
+                  </label>
+                  <input
+                    id="universityName"
+                    value={userInformation && userInformation.universityName}
+                    disabled={isDisabled}
+                    onChange={(e) => userInformationOnchangeHandler(e)}
+                    className={"form-control"}
+                  />
+                  {isError && isError.universityName && (
+                    <p className="text-danger">{isError.universityName}</p>
+                  )}
+                </div>
+              ) : (
+                ""
+              )}
+
+              <div className="col-md-4 mt-3">
                 <div className="accompany-box d-flex pb-2">
                   <div className="accompany-box-1 pt-1">
                     <h6 className="form-label m-0">Accompanying Person :</h6>
@@ -1122,7 +1106,7 @@ management of natural resources and smart governance"
 
                 {anotherPerson &&
                   userInformation.accompanningPerson.length < 3 && (
-                    <div className="exhibitor-relation d-flex mt-3">
+                    <div className="exhibitor-relation d-flex ">
                       <div className="relation-box-1">
                         <label className="form-label" htmlFor="relation-name">
                           Full Name
@@ -1167,7 +1151,7 @@ management of natural resources and smart governance"
                       <div className="exhibitor-relation d-flex mt-3">
                         <div className="relation-box-1">
                           <label className="form-label" htmlFor="relation-name">
-                            Full Name
+                            Full Name test
                           </label>
                           <input
                             className="form-control"
@@ -1187,6 +1171,18 @@ management of natural resources and smart governance"
                             disabled
                           />
                         </div>
+
+                        <div className="relation-delete-box ps-3">
+                          <button
+                            className="create-btn"
+                            id="accompanningPerson"
+                            type="button"
+                            onClick={(e) => deleteAccompanningPerson(index)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+
                         {location &&
                           location.state &&
                           location.state.mode === "edit" && (
@@ -1201,6 +1197,7 @@ management of natural resources and smart governance"
                     );
                   })}
               </div>
+
               <div className="col-md-4">
                 {isDisabled && (
                   <>
@@ -1228,39 +1225,26 @@ management of natural resources and smart governance"
                 )}
               </div>
             </div>
+            {/* Registration Category end */}
+          </div>
 
-            <div className="payment-section">
-              <div className="row">
-                <div className="col-md-6">
-                  <PaymentInfo />
-                </div>
-                <div className="col-md-6">
-                  {location &&
-                    location.state &&
-                    location.state.mode == "view" && (
-                      <PaymentConfirm userInformation={userInformation} />
-                    )}
-                </div>
-              </div>
-            </div>
+          <div className="row">
+            <div className="col-md-12">
+              <button
+                className="mx-3"
+                name="save"
+                show
+                value="save"
+                type="submit"
+                onClick={() => (buttonState.button = 1)}
+                hidden={isHidden}
+              >
+                {location && location.state && location.state.mode === "edit"
+                  ? "Update"
+                  : "Submit"}
+              </button>
 
-            <div className="row">
-              <div className="col-md-12">
-                <button
-                  className="mx-3"
-                  name="save"
-                  show
-                  value="save"
-                  type="submit"
-                  onClick={() => (buttonState.button = 1)}
-                  hidden={isHidden}
-                >
-                  {location && location.state && location.state.mode === "edit"
-                    ? "Update"
-                    : "Submit"}
-                </button>
-
-                {/* <button
+              {/* <button
                   type="submit"
                   name="saveAndPay"
                   value="saveAndPay"
@@ -1268,22 +1252,21 @@ management of natural resources and smart governance"
                 >
                   Save & Pay
                 </button> */}
-              </div>
             </div>
-
-            {message && (
-              <p
-                className={`${
-                  message == "Your information saved successfully"
-                    ? "text-success"
-                    : "text-danger"
-                }`}
-              >
-                {message}
-              </p>
-            )}
-            {qrInfo !== undefined ? <QRCodeSVG value={qrInfo} /> : ""}
           </div>
+
+          {message && (
+            <p
+              className={`${
+                message == "Your information saved successfully"
+                  ? "text-success"
+                  : "text-danger"
+              }`}
+            >
+              {message}
+            </p>
+          )}
+          {/* {qrInfo !== undefined ? <QRCodeSVG value={qrInfo} /> : ""} */}
         </form>
       </div>
     </div>
