@@ -870,6 +870,26 @@ a{
     font-size: 25px;
 }
 
+.common{
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    padding-left: 30px
+}
+.captcha-section{
+    border: 1px solid #bebbbb;
+    padding: 10px;
+    border-radius: 10px
+}
+.captcha-align{
+    margin-bottom: 11px;
+    padding-top: 8px;
+}
+.captcha-form{
+    display: flex;
+}
+
+
 .contact-area .contact-move .contact-icon i
 {
     font-size: 35px;
