@@ -44,7 +44,7 @@ function Theme() {
             <div className="col-md-2">
               <div className="sub-theme-box">
                 <h2 className="h1">
-                  <u>Sub Theme</u>
+                  <u>Sub Themes</u>
                 </h2>
               </div>
             </div>
