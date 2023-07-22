@@ -5,6 +5,7 @@ import { Header } from '../../components/Header';
 import axios from "axios"
 import "../../css/sponsor.css";
 import { baseUrl } from '../../utils';
+import Captcha from '../Captcha';
 
 function ExhibitorForm() {
   const [exhibitorPayload, setExhibitorPayload] = useState(
@@ -120,6 +121,10 @@ function ExhibitorForm() {
                           
                       </div>
                     </div>
+                  </div>
+
+                  <div className='contact-text'>
+                  <Captcha captchaLength={6} />
                   </div>
 
                   <div className="col-md-12">

@@ -841,7 +841,7 @@ const CreateForm = (props) => {
                     Please Select Sub-Themes
                   </option>
                   <option
-                    value="Advances in cartography, geospatial technology and thematic mapping htmlFor
+                    value="Advances in cartography, geospatial technology and thematic mapping for
 management of natural resources and smart governance"
                   >
                     Advances in cartography, geospatial technology and thematic
@@ -849,44 +849,44 @@ management of natural resources and smart governance"
                     governance
                   </option>
                   {/* <option value="delegate">Delegate</option> */}
-                  <option value="Geospatial technologies htmlFor fostering sustainable agriculture, food security and green economies">
-                    Geospatial technologies htmlFor fostering sustainable
+                  <option value="Geospatial technologies for fostering sustainable agriculture, food security and green economies">
+                    Geospatial technologies for fostering sustainable
                     agriculture, food security and green economies
                   </option>
-                  <option value="Geospatial technologies htmlFor sustainable water resources management">
-                    Geospatial technologies htmlFor sustainable water resources
+                  <option value="Geospatial technologies for sustainable water resources management">
+                    Geospatial technologies for sustainable water resources
                     management
                   </option>
-                  <option value="Geospatial technologies htmlFor environment and energy security">
-                    Geospatial technologies htmlFor environment and energy
+                  <option value="Geospatial technologies for environment and energy security">
+                    Geospatial technologies for environment and energy
                     security
                   </option>
-                  <option value="Geospatial technologies htmlFor urban studies and infrastructure planning & development">
-                    Geospatial technologies htmlFor urban studies and
+                  <option value="Geospatial technologies for urban studies and infrastructure planning & development">
+                    Geospatial technologies for urban studies and
                     infrastructure planning & development
                   </option>
-                  <option value="Geospatial technologies htmlFor meteorology and climate change studies">
-                    Geospatial technologies htmlFor meteorology and climate
+                  <option value="Geospatial technologies for meteorology and climate change studies">
+                    Geospatial technologies for meteorology and climate
                     change studies
                   </option>
-                  <option value="Geospatial technologies htmlFor building disaster resilience and emergency management">
-                    Geospatial technologies htmlFor building disaster resilience
+                  <option value="Geospatial technologies for building disaster resilience and emergency management">
+                    Geospatial technologies for building disaster resilience
                     and emergency management
                   </option>
-                  <option value=" Hydrographic surveys and geospatial technologies htmlFor coastal zone management and oceanography">
-                    Hydrographic surveys and geospatial technologies htmlFor
+                  <option value=" Hydrographic surveys and geospatial technologies for coastal zone management and oceanography">
+                    Hydrographic surveys and geospatial technologies for
                     coastal zone management and oceanography
                   </option>
-                  <option value="Drone/UAV based novel applications htmlFor sustainable economies">
-                    Drone/UAV based novel applications htmlFor sustainable
+                  <option value="Drone/UAV based novel applications for sustainable economies">
+                    Drone/UAV based novel applications for sustainable
                     economies
                   </option>
-                  <option value="Emerging trends in AI/ML htmlFor cartography and geospatial applications">
-                    Emerging trends in AI/ML htmlFor cartography and geospatial
+                  <option value="Emerging trends in AI/ML for cartography and geospatial applications">
+                    Emerging trends in AI/ML for cartography and geospatial
                     applications
                   </option>
-                  <option value="New geospatial and space policies htmlFor enhancing entrepreneurship and geospatial economy">
-                    New geospatial and space policies htmlFor enhancing
+                  <option value="New geospatial and space policies for enhancing entrepreneurship and geospatial economy">
+                    New geospatial and space policies for enhancing
                     entrepreneurship and geospatial economy
                   </option>
                 </select>

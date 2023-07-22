@@ -390,7 +390,7 @@ const SponsorForm = () => {
                       </div>
                     </>
                   )}
-                  <div>
+                  <div className="contact-text"> 
                   <Captcha captchaLength={6} />
                   </div>
 
