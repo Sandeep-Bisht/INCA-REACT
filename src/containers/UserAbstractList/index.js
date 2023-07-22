@@ -63,6 +63,9 @@ const UserAbstractList = () => {
        {userAbstractList?.paperApproveStatus && <button className="abstracts-common-btn" onClick={() => {
           navigate(`/dashboard/fullPaper` , { state : userAbstractList})
         }}>Full Paper Submission</button>}
+        {/* <button className="abstracts-common-btn" onClick={() => {
+          navigate(`/dashboard/fullPaper` , { state : userAbstractList})
+        }}>Full Paper Submission</button> */}
       </>
     );
   };
