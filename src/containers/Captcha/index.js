@@ -26,19 +26,24 @@ function Captcha({ captchaLength }) {
   };
 
   return (
-    <>
-    <div className='captcha-form'>
+  <>    
+  <div className='captcha-form'>
       <label className='pt-3'>Enter the text you see below:</label>
-      <input type="text" className='form-movement' value={userInput} onChange={handleUserInput} />
       
+    
     </div>
+    <div className='captcha-box'>
+      <input type="text" className='form-movement me-5' value={userInput} onChange={handleUserInput} />
       <div className='captcha-align'>
-      <span className='captcha-section fs-4 mb-4'>{captchaText}</span>
+      <span className='captcha-section fs-4'>{captchaText}</span>
       <button className="common" onClick={regenerateCaptcha}><i class="fa-solid fa-arrows-rotate"></i></button>
+  </div>
     
     {/* <input type="text" className='form-movement' value={userInput} onChange={handleUserInput} /> */}
     {/* You can add validation logic to check if userInput matches captchaText */}
-  </div></>
+    </div>
+  </>
+
   );
 }
 

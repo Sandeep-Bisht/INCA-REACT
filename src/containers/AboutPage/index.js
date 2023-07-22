@@ -3,10 +3,10 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import "../../css/contact.css";
 import "../../css/about.css";
-import buddhaTemple from "../../images/udaipur2.jpeg";
+import buddhaTemple from "../../images/mehrangarh-fort.jpeg";
 import clockTower from "../../images/clock-tower.jpg";
 import doonAirport from "../../images/doon-airport.jpg";
-import doonFri from "../../images/udaipur1.jpeg";
+import doonFri from "../../images/india-2895905_640.jpeg";
 import doonStadium from "../../images/stadium.jpeg";
 import doonWeather1 from "../../images/weather-1.jpg";
 import doonWeather2 from "../../images/weather-2.jpg";
@@ -84,7 +84,7 @@ const About = () => {
                 in Jodhpur is quite fascinating and colourful. Lending a
                 cultural aura to Jodhpur, are its exquisite handicrafts, folk
                 dances, folk music and the brightly attired people. The desert
-                people are quite affable. Jodhpur has emerged as Center for
+                people are quite affable. Jodhpur has emerged as Centre for
                 Academic Excellence where apart from ISRO, a number of
                 institutions like ICAR-CAZRI, IIT, AIIMS, ONGC, DRDO, AFRI,
                 National Law University, Ayurvedic University, Police & Forensic
