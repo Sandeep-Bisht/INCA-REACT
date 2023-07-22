@@ -73,8 +73,8 @@ const AbstractUpload = () => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
       abstractDocumentPayload.userId = decodedToken.user.user._id;
-      abstractDocumentPayload.userName = decodedToken.user.user.userName;
-      abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
+      // abstractDocumentPayload.userName = decodedToken.user.user.userName;
+      abstractDocumentPayload.authorEmail = decodedToken.user.user.userEmail;
     }
   },[])
 
@@ -124,13 +124,13 @@ const AbstractUpload = () => {
     e.preventDefault();
     setLoading(true);
   console.log("before api hit", abstractDocumentPayload)
-      // dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
+      dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
     
   };
 
   let emptyFormField = () => {
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
-    ref.current.value = "";
+    // ref.current.value = "";
     abstractDocumentPayloadCopy.abstractFileUrl = "";
     abstractDocumentPayloadCopy.filename = "";
     abstractDocumentPayloadCopy.userName = "";

@@ -31,8 +31,9 @@ const UserAbstractList = () => {
 
   const columns = [
     { field: "registrationNumber", header: "Registration No" },
-    { field: "userEmail", header: "Email" },
-    { field: "abstractPaperName", header: "Paper Name" },
+    { field: "abstractNumber", header: "Abstract Id"},
+    { field: "authorEmail", header: "Email" },
+    { field: "abstractPaperName", header: "Abstract Title" },
     { field: "themeType", header: "Theme" },
   ];
 
