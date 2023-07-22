@@ -187,8 +187,8 @@ const AbstractUpload = () => {
               </div>
             </div>
             <div className="row">
-            <div className="col-md-3">
-                <div className="mb-3">
+            <div className="exhibitor-relation d-flex mt-3">
+                <div className="relation-box-1">
                   <label htmlFor="authorSaluation" className="form-label">
                     Saluation
                   </label>                 
@@ -207,8 +207,7 @@ const AbstractUpload = () => {
                     </select>                   
                     
                 </div>
-              </div>
-              <div className="col-md-3">
+              <div className="ms-2 relation-box-2">
                 <div className="mb-3">
                   <label htmlFor="authorFirstName" className="form-label">
                     First Name
@@ -223,8 +222,7 @@ const AbstractUpload = () => {
                   />
                 </div>
               </div>
-              <div className="col-md-3">
-                <div className="mb-3">
+              <div className="ms-2 relation-box-2">
                   <label htmlFor="authorMiddleName" className="form-label">
                     Middle Name
                   </label>
@@ -237,9 +235,7 @@ const AbstractUpload = () => {
                     required
                   />
                 </div>
-              </div>
-              <div className="col-md-3">
-                <div className="mb-3">
+              <div className="ms-2 relation-box-2">
                   <label htmlFor="authorLastName" className="form-label">
                     Last Name
                   </label>
@@ -252,10 +248,7 @@ const AbstractUpload = () => {
                     required
                   />
                 </div>
-              </div>
-
-              <div className="col-md-3">
-                <div className="mb-3">
+              <div className="ms-2 relation-box-2">
                   <label htmlFor="authorEmail" className="form-label">
                    email
                   </label>
@@ -268,10 +261,7 @@ const AbstractUpload = () => {
                     required
                   />
                 </div>
-              </div>
-
-              <div className="col-md-3">
-                <div className="mb-3">
+              <div className="ms-2 relation-box-2">
                   <label htmlFor="authorAffiliation" className="form-label">
                    Affiliation
                   </label>
@@ -284,19 +274,16 @@ const AbstractUpload = () => {
                     required
                   />
                 </div>
-              </div>
-
-              <div className="col-md-3">
-                <button className="common-btn" onClick={()=>setOtherAuthor(!otherAuthor)}>Add/Remove Co-Author</button>
+              <div className="relation-delete-box add-and-remove ps-1">
+                <button className="common-btn add-and-remove-button" onClick={()=>setOtherAuthor(!otherAuthor)}>Add Co-Author</button>
               </div>
               </div>
-
+</div>
               
 
             { otherAuthor && (
-             <div className="row">
-             <div className="col-md-3">
-                 <div className="mb-3">
+                 <div className="exhibitor-relation d-flex mt-3">
+                  <div className="relation-box-1">
                    <label htmlFor="coAuthorSaluation" className="form-label">
                      Saluation
                    </label>                 
@@ -315,9 +302,7 @@ const AbstractUpload = () => {
                      </select>                   
                      
                  </div>
-               </div>
-               <div className="col-md-3">
-                 <div className="mb-3">
+               <div className="ms-2 relation-box-2">
                    <label htmlFor="coAuthorFirstName" className="form-label">
                      First Name
                    </label>
@@ -330,9 +315,7 @@ const AbstractUpload = () => {
                      
                    />
                  </div>
-               </div>
-               <div className="col-md-3">
-                 <div className="mb-3">
+               <div className="ms-2 relation-box-2">
                    <label htmlFor="coAuthorMiddleName" className="form-label">
                      Middle Name
                    </label>
@@ -345,9 +328,7 @@ const AbstractUpload = () => {
                      
                    />
                  </div>
-               </div>
-               <div className="col-md-3">
-                 <div className="mb-3">
+               <div className="ms-2 relation-box-2">
                    <label htmlFor="coAuthorLastName" className="form-label">
                      Last Name
                    </label>
@@ -360,10 +341,8 @@ const AbstractUpload = () => {
                      
                    />
                  </div>
-               </div>
  
-               <div className="col-md-3">
-                 <div className="mb-3">
+               <div className="ms-2 relation-box-2">
                    <label htmlFor="coAuthorEmail" className="form-label">
                     email
                    </label>
@@ -376,9 +355,8 @@ const AbstractUpload = () => {
                      
                    />
                  </div>
-               </div>
  
-               <div className="col-md-3">
+               <div className="ms-2 relation-box-2">
                  <div className="mb-3">
                    <label htmlFor="coAuthorAffiliation" className="form-label">
                     Affiliation
@@ -394,9 +372,9 @@ const AbstractUpload = () => {
                  </div>
                </div>
 
-               <div className="col-md-2">
+               <div className="relation-delete-box add-button-div ps-1">
                         <button
-                          className="common-btn"
+                          className="common-btn add-button"
                           id="coAuthor"
                           type="button"
                           onClick={(e) => addCoAuthor(e)}
@@ -477,7 +455,6 @@ const AbstractUpload = () => {
                             disabled
                           />
                         </div>
-
                         <div className="relation-delete-box ps-3">
                           <button
                             className="create-btn"
@@ -514,6 +491,25 @@ const AbstractUpload = () => {
                     {abstractTitleError}
                   </p>
                 )}
+              </div>
+              <div className="col-md-6">
+                <div className="mb-3">
+                  <label htmlFor="paperPresentationType" className="form-label">
+                    Intended mode of paper presentation
+                  </label>                 
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    id="paperPresentationType"
+                    value={abstractDocumentPayload.paperPresentationType}
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                  >
+                    <option selected>Select Saluation</option>
+                    <option defaultValue="Oral">Oral</option>
+                    <option defaultValue="Poster">Poster</option>   
+                    </select>                   
+                    
+                </div>
               </div>
 
               <div className="col-md-8">
@@ -611,35 +607,11 @@ const AbstractUpload = () => {
                   </select>
                 </div>
               </div>
-
-              <div className="col-md-12">
-                <div className="mb-3">
-                  <label htmlFor="paperPresentationType" className="form-label">
-                    Intended mode of paper presentation
-                  </label>                 
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                    id="paperPresentationType"
-                    value={abstractDocumentPayload.paperPresentationType}
-                    onChange={(e) => abstarctOnChangeHandler(e)}
-                  >
-                    <option selected>Select Saluation</option>
-                    <option defaultValue="Oral">Oral</option>
-                    <option defaultValue="Poster">Poster</option>   
-                    </select>                   
-                    
-                </div>
-              </div>
-             
-             
-              
-
               <div className="row">
                 <div className="col-md-8">
                   <div className="mb-3">
                     <button
-                      className="common-btn"
+                      className="common-btn add-button"
                       type="submit"
                       disabled={loading}
                     >
