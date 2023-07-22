@@ -122,22 +122,145 @@ const AbstractUpload = () => {
         <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
           <div className="container">
             <div className="row">
-            <div className="col-md-8">
+              <div className="col-md-3">
+                  First Author
+              </div>
+            </div>
+            <div className="row">
+            <div className="col-md-3">
                 <div className="mb-3">
-                  <label htmlFor="inputName" className="form-label">
-                    Author Name
+                  <label htmlFor="saluation" className="form-label">
+                    Saluation
+                  </label>                 
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    id="saluation"
+                    value={abstractDocumentPayload.saluation}
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                  >
+                    <option selected>Select Saluation</option>
+                    <option defaultValue="Dr."> Dr. </option>
+                    <option defaultValue="Mr."> Mr. </option>         
+                    <option defaultValue="Ms."> Ms. </option>         
+                    <option defaultValue="Mrs."> Mrs. </option>       
+                    </select>                   
+                    
+                </div>
+              </div>
+              <div className="col-md-3">
+                <div className="mb-3">
+                  <label htmlFor="firstName" className="form-label">
+                    First Name
                   </label>
                   <input
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
-                    id="userName"
-                    defaultValue={abstractDocumentPayload?.userName}
+                    id="firstName"
+                    defaultValue={abstractDocumentPayload?.firstName}
                     required
                   />
                 </div>
               </div>
+              <div className="col-md-3">
+                <div className="mb-3">
+                  <label htmlFor="middleName" className="form-label">
+                    Middle Name
+                  </label>
+                  <input
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                    type="text"
+                    className="form-control"
+                    id="middleName"
+                    defaultValue={abstractDocumentPayload?.middleName}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="col-md-3">
+                <div className="mb-3">
+                  <label htmlFor="lastName" className="form-label">
+                    Last Name
+                  </label>
+                  <input
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                    type="text"
+                    className="form-control"
+                    id="lastName"
+                    defaultValue={abstractDocumentPayload?.lastName}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="col-md-3">
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                   email
+                  </label>
+                  <input
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                    type="text"
+                    className="form-control"
+                    id="email"
+                    defaultValue={abstractDocumentPayload?.email}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="col-md-3">
+                <div className="mb-3">
+                  <label htmlFor="affiliation" className="form-label">
+                   Affiliation
+                  </label>
+                  <input
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                    type="text"
+                    className="form-control"
+                    id="affiliation"
+                    defaultValue={abstractDocumentPayload?.affiliation}
+                    required
+                  />
+                </div>
+              </div>
+              </div>
+
+              <div className="row">
+              <div className="col-md-6">
+                <div className="mb-3">
+                  <label htmlFor="inputName" className="form-label">
+                    Title of the  Paper (25 words limit)
+                  </label>
+                  <input
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                    type="text"
+                    className="form-control"
+                    id="abstractPaperName"
+                    value={abstractDocumentPayload.abstractPaperName}
+                    required
+                  />
+                </div>
+              </div>
+
               <div className="col-md-8">
+                <div className="mb-3">
+                  <label htmlFor="abstract" className="form-label">
+                    Paste Abstract (300 words only)
+                  </label>
+                  <textarea
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                    type="text"
+                    className="form-control"
+                    id="abstract"
+                    value={abstractDocumentPayload.abstract}
+                    required
+                    ></textarea>
+                </div>
+              </div>
+
+              <div className="col-md-12">
                 <div className="mb-3">
                   <select
                     className="form-select"
@@ -146,7 +269,7 @@ const AbstractUpload = () => {
                     value={abstractDocumentPayload.themeType}
                     onChange={(e) => abstarctOnChangeHandler(e)}
                   >
-                    <option selected>Select Theme</option>
+                    <option selected>Proposed sub-theme</option>
                     <option
                       defaultValue="Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance"
                     >
@@ -211,73 +334,44 @@ const AbstractUpload = () => {
                   </select>
                 </div>
               </div>
-              <div className="col-md-8">
+
+              <div className="col-md-12">
                 <div className="mb-3">
-                  <label htmlFor="inputName" className="form-label">
-                    Paper Name
-                  </label>
-                  <input
+                  <label htmlFor="paperPresentation" className="form-label">
+                    Intended mode of paper presentation
+                  </label>                 
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    id="paperPresentation"
+                    value={abstractDocumentPayload.saluation}
                     onChange={(e) => abstarctOnChangeHandler(e)}
-                    type="text"
-                    className="form-control"
-                    id="abstractPaperName"
-                    value={abstractDocumentPayload.abstractPaperName}
-                    required
-                  />
+                  >
+                    <option selected>Select Saluation</option>
+                    <option defaultValue="Oral">Oral</option>
+                    <option defaultValue="Poster">Poster</option>   
+                    </select>                   
+                    
                 </div>
               </div>
-              <div className="col-md-8">
-                <div className="mb-3">
-                  <label htmlFor="inputFile" className="form-label">
-                    Abstract Upload (File size should not be more 10mb )
-                  </label>
-                  <input
-                    type="file"
-                    className="form-control"
-                    onChange={(e) => abstarctOnChangeHandler(e)}
-                    aria-label="file example"
-                    id="file"
-                    ref={ref}
-                    required
-                  />
-                  {/* {abstractDocumentPayload.abstractFileUrl && <p>{abstractDocumentPayload.abstractFileUrl}</p>} */}
-                  {errorMessage && (
-                    <p className="text-danger">{errorMessage}</p>
-                  )}
-                </div>
-              </div>
-              {/* <div className="col-md-12 d-none">
-                <div className="mb-3">
-                  <label htmlFor="validationTextarea" className="form-label">
-                    Brief Description
-                  </label>
-                  <textarea
-                    onChange={(e) => abstarctOnChangeHandler(e)}
-                    className="form-control"
-                    id="abstractPaperDescription"
-                    placeholder="Required description.."
-                    required
-                    value={abstractDocumentPayload.abstractPaperDescription}
-                  ></textarea>
-                </div>
-              </div> */}
+             
+             
               
 
               <div className="row">
                 <div className="col-md-8">
                   <div className="mb-3">
                     <button
-                      className="btn btn-primary"
+                      className="common-btn"
                       type="submit"
                       disabled={loading}
                     >
-                      {loading ? "uploading" : "Submit"}
+                      {loading ? "uploading..." : "Submit"}
                     </button>
                     <p className="pt-3 fs-6">
                       <b>Note</b>: Kindly, Fill the registeration form before
                       uploading abstracts. For technical support in uploading of
-                      Abstracts please contact at +91-7500872014 on Working
-                      Hours 10:00 AM to 6:00 PM
+                      Abstracts please contact at info@43inca.org
                     </p>
                   </div>
                 </div>

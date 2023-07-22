@@ -190,9 +190,11 @@ const Contact = () => {
                     {/* <div className="col mt-3">
                        <div><input placeholder="Enter Captcha Value" id="user_captcha_input" name="user_captcha_input" type="text"></input></div>
                    </div> */}
+                   <div className="pb-2">
                     <Captcha captchaLength={6} />
+                    </div>
 
-                    <div className="row">
+                    <div className="row mt-2">
                       <div className="col-md-12 pb-3">
                         <button className="common-btn">SUBMIT MESSAGE</button>
                       </div>

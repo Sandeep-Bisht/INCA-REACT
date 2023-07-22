@@ -114,7 +114,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-            //  src={homepageBackgroundVideo}
+             src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
@@ -2473,140 +2473,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="contact-area">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="contact-text">
-                  <input
-                    // className="form-movement"
-                    type="text"
-                    name="firstName"
-                    placeholder="Your Name.."
-                    {...register("firstName", { required: true })}
-                  />
-                  {errors.firstName === "required" && (
-                    <p>First name is required</p>
-                  )}
-                </div>
-                <div className="contact-email">
-                  <input
-                    // className="form-movement"
-                    type="email"
-                    name="email"
-                    placeholder="Your Email.."
-                    {...register("email", {
-                      required: "Email Address is required",
-                    })}
-                  />
-                  {errors.email == "required" && <p>email is required</p>}
-                </div>
-                <div className="contact-text">
-                  <input
-                    // className="form-movement"
-                    type="number"
-                    placeholder="Your Number.."
-                    {...register("phoneNumber", { required: true })}
-                  />
-                  {errors.phoneNumber === "required" && (
-                    <p>Phone Number is required</p>
-                  )}
-                </div>
-                <div className="contact-text">
-                  <input
-                    // className="form-movement"
-                    type="subject"
-                    placeholder="Subject.."
-                    {...register("subject", { required: true })}
-                  />
-                  {errors.subject === "required" && <p>Subject is required</p>}
-                </div>
-                <div className="contact-textarea">
-                  <textarea
-                    className="w-100"
-                    rows="7"
-                    cols="51"
-                    placeholder="Enter Message.."
-                  ></textarea>
-                </div>
-                <div className="contact-text"> 
-                <Captcha captchaLength={6} />
-
-                </div>
-                <div className="contact-btn">
-                  <button className="common-btn mb-3">Send Message</button>
-                </div>
-              </form>
-            </div>
-            <div className="col-md-6">
-              <div className="contact-move">
-                {/* <p className="common-pre-heading">GET IN TOUCH</p> */}
-                <h2 className="common-heading">
-                  You Can Reach Us With Following Details
-                </h2>
-                {/* <p className="common-para my-4">
-                  Quam amet tristique adipisicing incididunt arcu, excepturi
-                  molestie turpis deserunt ducimus malesuada minus mauris
-                  veniam.
-                </p> */}
-                <div className="icon-text-movement">
-                  <div className="contact-icon">
-                    <i className="fa-solid fa-building"></i>
-                  </div>
-                  <div className="contact-venue">
-                    <h3>EVENT VENUE :</h3>
-                    <p className="common-para mb-0">
-                      <b>
-                        {" "}
-                        Regional Remote Sensing Center-west <br /> National
-                        Remote Sensing Center (NRSC),ISRO{" "}
-                      </b>{" "}
-                      <br />
-                      <b>Jodhpur– 342005</b>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="icon-text-movement">
-                  <div className="contact-icon">
-                    <i className="fa-solid fa-envelope"></i>
-                  </div>
-                  <div className="contact-venue">
-                    <h3>Email :</h3>
-                    <p className="common-para mb-0">
-                      <b>info@43inca.org</b>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="icon-text-movement">
-                  <div className="contact-icon">
-                    <i className="fa-solid fa-phone"></i>
-                  </div>
-                  <div className="contact-venue">
-                    <h3>Phone number :</h3>
-                    <p className="common-para mb-0">
-                      <b>+91 2912796395</b>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="owl-slider d-none">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              {/* -----copy------- */}
-
-              {/* ------paste----- */}
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="section-padding home-gallery mb-5 without-carousel">
         <div className="container">
           <div className="row align-items-center">
@@ -2694,6 +2560,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
       <section className="section-padding home-gallery with-carousel">
         <div className="container">
           <div className="row align-items-center">
@@ -2748,6 +2615,124 @@ const HomePage = () => {
                       <img src={inca6} alt="gallerypic" className="img-fluid" />
                     </div>
                   </Carousel>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-area">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="contact-text">
+                  <input
+                    // className="form-movement"
+                    type="text"
+                    name="firstName"
+                    placeholder="Your Name.."
+                    {...register("firstName", { required: true })}
+                  />
+                  {errors.firstName === "required" && (
+                    <p>First name is required</p>
+                  )}
+                </div>
+                <div className="contact-email">
+                  <input
+                    // className="form-movement"
+                    type="email"
+                    name="email"
+                    placeholder="Your Email.."
+                    {...register("email", {
+                      required: "Email Address is required",
+                    })}
+                  />
+                  {errors.email == "required" && <p>email is required</p>}
+                </div>
+                <div className="contact-text">
+                  <input
+                    // className="form-movement"
+                    type="number"
+                    placeholder="Your Number.."
+                    {...register("phoneNumber", { required: true })}
+                  />
+                  {errors.phoneNumber === "required" && (
+                    <p>Phone Number is required</p>
+                  )}
+                </div>
+                <div className="contact-text">
+                  <input
+                    // className="form-movement"
+                    type="subject"
+                    placeholder="Subject.."
+                    {...register("subject", { required: true })}
+                  />
+                  {errors.subject === "required" && <p>Subject is required</p>}
+                </div>
+                <div className="contact-textarea">
+                  <textarea
+                    className="w-100"
+                    rows="7"
+                    cols="51"
+                    placeholder="Enter Message.."
+                  ></textarea>
+                </div>
+                <div className="contact-text"> 
+                <Captcha captchaLength={6} />
+                </div>
+                <div className="contact-btn">
+                  <button className="common-btn mb-3">Send Message</button>
+                </div>
+              </form>
+            </div>
+            <div className="col-md-6">
+              <div className="contact-move">
+                {/* <p className="common-pre-heading">GET IN TOUCH</p> */}
+                <h2 className="common-heading">
+                  You Can Reach Us With Following Details
+                </h2>                
+                <div className="icon-text-movement">
+                  <div className="contact-icon">
+                    <i className="fa-solid fa-building"></i>
+                  </div>
+                  <div className="contact-venue">
+                    <h3>EVENT VENUE :</h3>
+                    <p className="common-para mb-0">
+                      <b>
+                        {" "}
+                        Regional Remote Sensing Center-west <br /> National
+                        Remote Sensing Center (NRSC),ISRO{" "}
+                      </b>{" "}
+                      <br />
+                      <b>Jodhpur– 342005</b>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="icon-text-movement">
+                  <div className="contact-icon">
+                    <i className="fa-solid fa-envelope"></i>
+                  </div>
+                  <div className="contact-venue">
+                    <h3>Email :</h3>
+                    <p className="common-para mb-0">
+                      <b>info@43inca.org</b>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="icon-text-movement">
+                  <div className="contact-icon">
+                    <i className="fa-solid fa-phone"></i>
+                  </div>
+                  <div className="contact-venue">
+                    <h3>Phone number :</h3>
+                    <p className="common-para mb-0">
+                      <b>+91 2912796395</b>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
