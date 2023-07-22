@@ -59,6 +59,10 @@
    /* text-transform:uppercase; */
    line-height: 62px; 
 }
+.react-multi-carousel-track{
+
+    margin-top: 3px!important;
+}
 .home-banner .right .theme-color
 {
     
@@ -368,7 +372,7 @@
 }
 .home-speakers .speaker-card .speaker-title,.home-register-step ul li h3
 {
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 600;
     margin-bottom: 5px;
 }
@@ -488,6 +492,9 @@
     margin: 20px 0;
    
 }
+.section-padding .home-register-step .event-bg{
+    height: 100vh;
+}
 .home-schedule .schedule-long-card .timing
 {
   font-size: 13px;
@@ -573,7 +580,7 @@
     /* box-shadow: 0 0 5px 0 #b9b9b9; */
     padding: 50px 10px;
     /* width: 530px; */
-    height: 250px;
+    height: 170px;
     background: #fff;
     position: relative;
      border-radius: 10px;
@@ -834,7 +841,7 @@ a{
     padding: 20px;
     border: 1px solid #bebbbb;
     border-radius: 30px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     outline: none;
 }
 .contact-area .contact-text input::placeholder, .contact-email input::placeholder , .contact-textarea textarea::placeholder
@@ -873,8 +880,9 @@ a{
 .common{
     border: none;
     background: transparent;
-    font-size: 22px;
-    padding-left: 30px
+    font-size: 24px;
+    padding-left: 30px;
+    margin-bottom: 19px;
 }
 .captcha-section{
     border: 1px solid #bebbbb;
@@ -884,12 +892,16 @@ a{
 .captcha-align{
     margin-bottom: 11px;
     padding-top: 8px;
+    display: flex;
 }
 .captcha-form{
     display: flex;
 }
 
-
+.captcha-box{
+    display: flex;
+    align-items: center;
+}
 .contact-area .contact-move .contact-icon i
 {
     font-size: 35px;
@@ -1172,10 +1184,14 @@ a{
     .react-multiple-carousel__arrow--right
     {
         right: calc(0% + 1px);
+        position: absolute;
+        top: 86px;
     }
     .react-multiple-carousel__arrow--left
     {
         left: calc(0% + 1px);
+        position: absolute;
+        top: 86px;
     }
     .home-about .signature-box .upper-box {
         margin-left: 0px;
@@ -1642,6 +1658,7 @@ a{
         font-size: 26px;
     padding: 5px 16px;
     border-radius: 15px;
+    margin-bottom: 9px;
     }
     .home-counter .counter-card .counter-heading
     {
@@ -1737,6 +1754,8 @@ a{
     .home-register-step ul li h3
     {
         font-size:15px;
+        padding-left: 10px;
+        margin-top: 5px;
     }
     .home-register-step ul li .common-btn
     {

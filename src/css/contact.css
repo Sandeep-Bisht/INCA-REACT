@@ -30,7 +30,7 @@
 .contact-single1 .boxes
 {
     background-color: #f8f8f8;
-    padding: 40px;
+    padding: 14px;
     height : 320px;
     border-radius: 25px;
     text-align: center;
@@ -93,6 +93,12 @@
 .captcha-align{
     margin-bottom: 11px;
     padding-top: 8px;
+    display: flex;
+  
+}
+.captcha-box{
+    display: flex;
+    align-items: center;
 }
 .captcha-form{
     display: flex;
@@ -100,6 +106,11 @@
 .pt-3{
     margin-top: 9px;
 }
+
+ .boxes .box-1 .right-text{
+    font-size: 16px!important;
+    font-weight: 600!important;
+} 
 
 .contact-single2 input::placeholder , .contact-single2 textarea::placeholder
 {

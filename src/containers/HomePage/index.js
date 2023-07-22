@@ -23,7 +23,7 @@ import inca6 from "../../images/DS.jpeg";
 import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
-import FinalSercular from "../../images/INCA_43rd_First_Circular.pdf";
+import FinalSercular from "../../images/INCA_43rd_First_Circular (2).pdf";
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4'
 
@@ -114,7 +114,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-             src={homepageBackgroundVideo}
+            //  src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
@@ -244,12 +244,13 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8 mx-auto text-center">
-              <h2 className="common-heading">National Remote Sensing Center</h2>
+              <h2 className="common-heading">National Remote Sensing centre</h2>
             </div>
             <div className="col-md-12 text-center">
               <div className="welcome-text pt-4">
                 <p className="common-para text-justify">
-                  National Remote Sensing Centre (NRSC), a key functionary of
+                  National Remote Sensing Centre
+                   (NRSC), a key functionary of
                   Indian Space Research Organisation (ISRO), is striving to
                   realize the Indian Space Vision through Earth Observation. It
                   is responsible for the ground segment of Remote Sensing
@@ -296,8 +297,8 @@ const HomePage = () => {
                   <p className="common-para">
                     <b>
                       {" "}
-                      <h5 className="right-text">Regional Remote Sensing Center-West</h5> National Remote
-                      Sensing Center NRSC/ISRO, ISRO Complex,Bypass Road
+                      <h5 className="right-text">Regional Remote Sensing Centre-West</h5> National Remote
+                      Sensing Centre NRSC/ISRO, ISRO Complex,Bypass Road
                       Sector 9,Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
                     <br />
@@ -371,8 +372,8 @@ const HomePage = () => {
                   <p className="common-para">
                     <b>
                       {" "}
-                      Regional Remote Sensing Center-West National Remote
-                      Sensing Center(NRSC), <br />
+                      Regional Remote Sensing Centre-West National Remote
+                      Sensing Centre(NRSC), <br />
                       ISRO Complex, Bypass Road Sector 9, <br />
                       Kudi Bhagtasani Housing Board (KBHB) <br />
                       Jodhpur – 342005
@@ -2108,11 +2109,11 @@ const HomePage = () => {
                         <div>
                           <img src={reg2} className="img-fluid" alt="" />
                         </div>
-                        <div className="ps-5">
+                        <div className="ps-4">
                           <h3> Sponsorship </h3>
                           {/* <p> Become a Sponsor</p> */}
                           <button
-                            className="common-btn"
+                            className="common-btn ms-2"
                             onClick={() => navigation("/sponsorForm")}
                           >
                             Be a sponsor
@@ -2128,8 +2129,8 @@ const HomePage = () => {
                         <div>
                           <img src={reg4} className="img-fluid" alt="" />
                         </div>
-                        <div className="ps-5">
-                          <h3 className="ps-2">Exhibitor</h3>
+                        <div className="ps-4">
+                          <h3 className="ps-3">Exhibitor</h3>
                           {/* <p> Become a Exhibitor </p> */}
                           <button
                             className=" common-btn"
@@ -2148,7 +2149,7 @@ const HomePage = () => {
                         <div>
                           <img src={reg4} className="img-fluid" alt="" />
                         </div>
-                        <div className="ps-5">
+                        <div className="ps-4">
                           <h3 className="ps-2"> Delegate </h3>
                           {/* <p> Get your Conference Pass </p> */}
                           <button
@@ -2702,8 +2703,8 @@ const HomePage = () => {
                     <p className="common-para mb-0">
                       <b>
                         {" "}
-                        Regional Remote Sensing Center-west <br /> National
-                        Remote Sensing Center (NRSC),ISRO{" "}
+                        Regional Remote Sensing Centre-west <br /> National
+                        Remote Sensing Centre (NRSC),ISRO{" "}
                       </b>{" "}
                       <br />
                       <b>Jodhpur– 342005</b>

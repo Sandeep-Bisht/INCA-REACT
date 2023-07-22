@@ -63,7 +63,34 @@
     font-size: 14px;
     padding-left: 20px;
     box-shadow: none;  
+    margin-top: 6px;
 }
+.common{
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    padding-left: 30px;
+    margin-top: 4px;
+}
+.captcha-section{
+    border: 1px solid #bebbbb;
+    padding: 4px;
+    border-radius: 10px;
+    height: 45px;
+    margin-top: 4px;
+}
+.captcha-align{
+    /* margin-bottom: 11px;
+    padding-top: 20px; */
+    margin: 5px 0 5px 0;
+}
+.captcha-form{
+    display: flex;
+    margin-bottom: 16px;
+}
+/* .pt-3{
+    margin-top: 9px;
+} */
 input:focus ~ label, input:valid ~ label
 {
     font-size: 12px;
@@ -95,6 +122,10 @@ input:focus ~ label, input:valid ~ label
     pointer-events: none;
   
 }  
+.contact-text{
+    width: 374px;
+    margin-left: 14px;
+}
 input[type="text"]:focus 
 {
     outline:none;
