@@ -1151,7 +1151,7 @@ management of natural resources and smart governance"
                       <div className="exhibitor-relation d-flex mt-3">
                         <div className="relation-box-1">
                           <label className="form-label" htmlFor="relation-name">
-                            Full Name test
+                            Full Name 
                           </label>
                           <input
                             className="form-control"
