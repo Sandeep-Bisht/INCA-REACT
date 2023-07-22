@@ -76,7 +76,7 @@ const Certificate = () => {
                                     <p>Organised by</p>
                                     <p>Indian National Cartographic Association</p>
                                     <p>&</p>
-                                    <p>Regional Remote Sensing Center-West National Remote Sensing Center(NRSC),ISRO ISRO Complex, Bypass Road
+                                    <p>Regional Remote Sensing Centre-West National Remote Sensing Center(NRSC),ISRO ISRO Complex, Bypass Road
                     Sector 9, Kudi Bhagtasani Housing Board (KBHB)  <br />
                      Jodhpur – 342005, </p>
                                     <p>06-09<sup>th</sup> November 2023</p>
