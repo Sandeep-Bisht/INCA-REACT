@@ -1231,7 +1231,7 @@ management of natural resources and smart governance"
           <div className="row">
             <div className="col-md-12">
               <button
-                className="mx-3"
+                className="common-btn add-button mx-3"
                 name="save"
                 show
                 value="save"
