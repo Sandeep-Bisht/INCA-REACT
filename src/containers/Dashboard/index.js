@@ -193,7 +193,7 @@ const Dashboard = (props) => {
                           <span className="me-2">
                             <i className="fa-solid fa-user-plus"></i>
                           </span>
-                          New Registration
+                          Registration
                         </button>
                       </li>
                       
@@ -207,7 +207,7 @@ const Dashboard = (props) => {
                            <span className="me-2">
                              <i className="fa-solid fa-user-plus"></i>
                            </span>
-                           Transaction Details
+                           Registration Fee
                          </button>
                        </li>
                      

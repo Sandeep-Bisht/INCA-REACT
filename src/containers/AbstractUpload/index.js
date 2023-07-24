@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
+import { MultiSelect } from 'primereact/multiselect';
 
 import * as ACTIONS from "./action";
 
@@ -16,7 +17,7 @@ let obj = {
   mimetype: "",
   abstract: "",
   paperApproveStatus: null,
-  themeType: "",
+  themeType: [],
   paperPresentationType: ""
 };
 
@@ -175,6 +176,38 @@ const AbstractUpload = () => {
     abstractDocumentPayloadCopy.coAuthorDetails = result;
     setAbstractDocumentPayload(abstractDocumentPayloadCopy);
   };
+
+  const [selectedCities, setSelectedCities] = useState(null);
+
+  const subThems = [
+    
+    { name: 'Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance', code: 'Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance' },
+    { name: 'Geospatial technologies for fostering sustainable agriculture, food security and green economies', code: 'Geospatial technologies for fostering sustainable agriculture, food security and green economies' },
+    { name: 'Geospatial technologies for sustainable water resources management', code: 'Geospatial technologies for sustainable water resources management' },
+    { name: 'Geospatial technologies for environment and energy security', code: 'Geospatial technologies for environment and energy security' },
+    { name: 'Geospatial technologies for urban studies and infrastructure planning & development', code: 'Geospatial technologies for urban studies and infrastructure planning & development' },
+    { name: 'Geospatial technologies for meteorology and climate change studies', code: 'Geospatial technologies for meteorology and climate change studies' },
+    { name: 'Geospatial technologies for building disaster resilience and emergency management', code: 'Geospatial technologies for building disaster resilience and emergency management' },
+    { name: 'Hydrographic surveys and geospatial technologies for coastal zone management and oceanography', code: 'Hydrographic surveys and geospatial technologies for coastal zone management and oceanography' },
+    { name: 'Drone/UAV based novel applications for sustainable economies', code: 'Drone/UAV based novel applications for sustainable economies' },
+    { name: 'Emerging trends in AI/ML for cartography and geospatial applications', code: 'Emerging trends in AI/ML for cartography and geospatial applications' },
+    { name: 'New geospatial and space policies for enhancing entrepreneurship and geospatial economy', code: 'New geospatial and space policies for enhancing entrepreneurship and geospatial economy' }
+
+];
+
+const handleSelectedCitiesChange = (e) => {
+  // Check if the selected values exceed the limit (3 in this case)
+  let value=""
+  if (e.value.length <= 3) {
+    setSelectedCities(e.value);
+     value = e.value
+  }
+
+  abstractDocumentPayload.themeType.push(value)
+
+  
+
+};
 
   return (
     <>
@@ -501,6 +534,24 @@ const AbstractUpload = () => {
                 </div>
               </div>
               <div className="col-md-12">
+                <div className="col-md-12">
+                <div className="card flex mb-3">
+                <MultiSelect
+      value={selectedCities}
+      onChange={handleSelectedCitiesChange} // Update the onChange handler
+      options={subThems}
+      optionLabel="name"
+      display="chip"
+      placeholder="Select Sub-Themes"
+      maxSelectedLabels={3}
+      className="w-full md:w-20rem"
+    />
+        </div>
+                </div>
+
+              </div>
+              
+              {/* <div className="col-md-12">
                 <div className="mb-3">
                   <select
                     className="form-select"
@@ -573,7 +624,7 @@ const AbstractUpload = () => {
                     </option>
                   </select>
                 </div>
-              </div>
+              </div> */}
               <div className="col-md-12">
                 <div className="mb-3">
                   <label htmlFor="inputName" className="form-label">
