@@ -214,7 +214,7 @@
     height: 130px;
 }
 
-.form-section button
+/* .form-section button
 {
   color: #fff;
   background-color: #1b2a47;
@@ -222,7 +222,7 @@
   border: none;
   border-radius: 5px;
   font-weight: 600;
-}
+} */
 
 .form-section select , .form-section input #InputDated
 {

@@ -162,7 +162,7 @@ const HomePage = () => {
                     <span></span>
                     <span></span>
                     <span></span>
-                    Registration open now
+                    REGISTER/SUBMIT ABSTRACT
                   </button>
                   {/* <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
@@ -232,7 +232,7 @@ const HomePage = () => {
   <div className="row">
             <div className="col-md-12">
               <div className="abstract-submission-date">
-            <marquee><p><b>"You can now start registration for 43<sup>rd</sup> INCA Conference 2023"</b></p></marquee>
+            <marquee><p><b>"Last date for Abstract Submission: 10<sup>th</sup> August, 2023"</b></p></marquee>
             {/* <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee> */}
             </div>
             </div>

@@ -56,14 +56,14 @@ const Login = () => {
   }, [state.userLoginFailure])
 
 
-  let validateLoginForm = () => {
-    const isEmpty = Object.values(loginPayload).some((x) => x === "");
+  let validateLoginForm = () => {    
+    const isEmpty = Object.values(loginPayload).some((x) => x === "");    
     return isEmpty;
   };
 
   // setTimeout(() => {
   //   setLoginMessage('')
-  // }, 10000)
+  // }, 3000)
 
   let onSubmitLoginRequest = (e) => {
     e.preventDefault();
@@ -154,7 +154,7 @@ const Login = () => {
 
                   <div className="end-wrap mt-3">
                     <p className="common-para">
-                      Not register yet?
+                      Not registered yet?
                       <Link
                         to="/register"
                         className="ms-2 common-yellow-color f2 text-decoration-none"

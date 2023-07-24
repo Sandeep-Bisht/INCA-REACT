@@ -824,7 +824,7 @@ const CreateForm = (props) => {
             </div>
 
             {/* Theme */}
-            <div className="row mb-2">
+            <div className="row mb-4">
               <div className="col-md-8">
                 <label htmlFor="theme" className="form-label asterisk">
                   Sub Themes
@@ -935,7 +935,7 @@ management of natural resources and smart governance"
             {/* Theme end */}
 
             {/* Registration Category Start */}
-            <div className="row mb-2">
+            <div className="row mb-4">
               <div className="col-md-4">
                 <label
                   htmlFor="participationType"
@@ -1134,7 +1134,7 @@ management of natural resources and smart governance"
 
                       <div className="relation-delete-box ps-3">
                         <button
-                          className="create-btn"
+                          className="common-btn add-button"
                           id="accompanningPerson"
                           type="button"
                           onClick={(e) => addAccompanningPerson(e)}
@@ -1172,9 +1172,12 @@ management of natural resources and smart governance"
                           />
                         </div>
 
+                        {location &&
+                          location.state &&
+                          location.state.mode !== "edit" && (
                         <div className="relation-delete-box ps-3">
                           <button
-                            className="create-btn"
+                            className="common-btn add-button"
                             id="accompanningPerson"
                             type="button"
                             onClick={(e) => deleteAccompanningPerson(index)}
@@ -1182,6 +1185,7 @@ management of natural resources and smart governance"
                             Delete
                           </button>
                         </div>
+                          )}
 
                         {location &&
                           location.state &&
@@ -1226,12 +1230,12 @@ management of natural resources and smart governance"
               </div>
             </div>
             {/* Registration Category end */}
-          </div>
+          
 
           <div className="row">
             <div className="col-md-12">
               <button
-                className="common-btn add-button mx-3"
+                className="common-btn add-button"
                 name="save"
                 show
                 value="save"
@@ -1267,6 +1271,7 @@ management of natural resources and smart governance"
             </p>
           )}
           {/* {qrInfo !== undefined ? <QRCodeSVG value={qrInfo} /> : ""} */}
+          </div>
         </form>
       </div>
     </div>
