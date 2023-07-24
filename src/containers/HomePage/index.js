@@ -13,7 +13,7 @@ import gallary2 from "../../images/gallery-2.jpg";
 import gallary3 from "../../images/gallery-3.jpg";
 import gallary4 from "../../images/gallery-4.jpg";
 import gallary5 from "../../images/gallery-5.jpg";
-import Event_2 from "../../images/INCA43rd.png";
+import Event_2 from "../../images/Capture.png";
 import inca1 from "../../images/award.jpeg";
 import inca2 from "../../images/41stINCA.png";
 import inca3 from "../../images/chandighar.jpeg";
@@ -34,6 +34,8 @@ const HomePage = () => {
   const [countdownHours, setCountdownHours] = useState("00");
   const [countdownMinutes, setCountdownMinutes] = useState("00");
   const [countdownSec, setCountdownSec] = useState("00");
+
+
 
   let interval = useRef();
 
@@ -114,7 +116,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-            //  src={homepageBackgroundVideo}
+             src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
@@ -297,9 +299,11 @@ const HomePage = () => {
                   <p className="common-para">
                     <b>
                       {" "}
-                      <h5 className="right-text">Regional Remote Sensing Centre-West</h5> National Remote
-                      Sensing Centre NRSC/ISRO, ISRO Complex,Bypass Road
-                      Sector 9,Kudi Bhagtasani Housing Board (KBHB)
+                      <h5 className="right-text">Regional Remote Sensing Centre (RRSC)-West</h5> National Remote
+                      Sensing Centre (NRSC)<br/>
+                      Indian Space Research organisation (ISRO)<br/>
+                      Bypass Road, Sector 9<br/>
+                      Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
                     <br />
                     <b>Jodhpur – 342005</b>
@@ -372,12 +376,14 @@ const HomePage = () => {
                   <p className="common-para">
                     <b>
                       {" "}
-                      Regional Remote Sensing Centre-West National Remote
-                      Sensing Centre(NRSC), <br />
-                      ISRO Complex, Bypass Road Sector 9, <br />
-                      Kudi Bhagtasani Housing Board (KBHB) <br />
-                      Jodhpur – 342005
-                    </b>
+                      <h5 className="right-text">Regional Remote Sensing Centre (RRSC)-West</h5> National Remote
+                      Sensing Centre (NRSC)<br/>
+                      Indian Space Research organisation (ISRO)<br/>
+                      Bypass Road, Sector 9<br/>
+                      Kudi Bhagtasani Housing Board (KBHB)
+                    </b>{" "}
+                    <br />
+                    <b>Jodhpur – 342005</b>
                   </p>
                 </div>
               </div>
@@ -2674,8 +2680,8 @@ const HomePage = () => {
                 </div>
                 <div className="contact-textarea">
                   <textarea
-                    className="w-100"
-                    rows="7"
+                    className="w-90"
+                    rows="5"
                     cols="51"
                     placeholder="Enter Message.."
                   ></textarea>
