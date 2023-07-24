@@ -12,7 +12,7 @@ export function* appLoginHandler(action) {
   } catch (error) {
     yield put({
       type: CONSTANTS.APP_LOGIN_FAILURE,
-      error: error.response.data,
+      error: error.response?.data,
     });
   }
 }
