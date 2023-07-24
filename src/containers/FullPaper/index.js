@@ -40,6 +40,7 @@ const FullPaper = () => {
     coAuthorEmail: "",
     coAuthorAffilation: ""
   });
+  const [fullPaperError, setFullPaperError] = useState(undefined)
 
   useEffect(() => {
     if(location && location.state) {
@@ -58,10 +59,20 @@ const FullPaper = () => {
     }
   },[])
 
-  const fullPaperOnChangeHandler = (e) => {    
+
+  function getFileExtensionToLowerCase(filename) {
+    return filename.split('.').pop().toLowerCase();
+  }
+
+  const fullPaperOnChangeHandler = async (e) => {    
     let fullPaperPayloadCopy = { ...fullPaperPayload };
     if (e.target.id == 'file') {
-      if (getFileExtension(e.target.files[0].name) === "pdf") {
+      const allowedExtensions = ['doc', 'docx'];
+      const fileExtension = await getFileExtensionToLowerCase(e.target.files[0].name);
+      if (!allowedExtensions.includes(fileExtension)) {
+        emptyFormUploadField();
+        setErrorMessage("Please upload word file only.")
+      } else{
         if(e.target.files[0].size <= 20000000 ){
           let formData = new FormData();
           formData.append('file', e.target.files[0])
@@ -72,11 +83,17 @@ const FullPaper = () => {
         }
         else {
           setErrorMessage("File size should not be more than 10Mb")
-        }        
+        }  
       }
-      else {
-        emptyFormUploadField();
-        setErrorMessage("Please upload Pdf files only.")
+    } else if (e.target.id == "fullPaperName") {
+      let userInput = e.target.value;
+      const words = userInput.split(' ');
+      if (words.length <= 25) {
+        fullPaperPayloadCopy.fullPaperName = e.target.value;
+        setFullPaperPayload(fullPaperPayloadCopy);
+        setFullPaperError("");
+      } else {
+        setFullPaperError("Please enter under 25 words")
       }
     }
     else {
@@ -91,11 +108,12 @@ const FullPaper = () => {
     setLoading(true)
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
-      fullPaperPayload.fullPaperName = fullPaperName;
+      // fullPaperPayload.fullPaperName = fullPaperName;
       fullPaperPayload.themeType = themeType;
       fullPaperPayload.userId = decodedToken.user.user._id;
-      fullPaperPayload.userName = decodedToken.user.user.userName;
+      // fullPaperPayload.userName = decodedToken.user.user.userName;
       fullPaperPayload.userEmail = decodedToken.user.user.userEmail;
+      console.log("full paper fullPaperPayload ", fullPaperPayload)
       dispatch(ACTIONS.saveFullPaperData(fullPaperPayload))
     }
   }
@@ -281,7 +299,10 @@ const FullPaper = () => {
               { otherAuthor && (
              <div className="row">
              <div className="col-12 ms-1">
+                    Co-Author
+                  </div>
                  <div className="col-10 d-flex">
+                 <div className="col-2 ms-1 relation-box-1">
                    <label htmlFor="coAuthorSaluation" className="form-label">
                      Saluation
                    </label>                 
@@ -517,13 +538,18 @@ const FullPaper = () => {
               Title of the  Paper (25 words limit)
               </label>
               <textarea 
-              value={fullPaperName && fullPaperName}
+              value={fullPaperPayload?.fullPaperName}
               onChange={(e) => fullPaperOnChangeHandler(e)}               
                 type="text"
                 className="form-control"
                 id="fullPaperName"                
               />
             </div>
+            {fullPaperError && (
+                  <p className="text-danger">
+                    {fullPaperError}
+                  </p>
+                )}
           </div>
           <div className="col-md-8">
                 <div className="mb-3">

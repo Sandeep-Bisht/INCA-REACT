@@ -108,8 +108,8 @@
 }
 
  .boxes .box-1 .right-text{
-    font-size: 16px!important;
-    font-weight: 600!important;
+    font-size: 13px!important;
+    font-weight: bolder!important;
 } 
 
 .contact-single2 input::placeholder , .contact-single2 textarea::placeholder
@@ -144,6 +144,11 @@
         height: 80px;
         line-height: 80px;
         text-align: center;
+    }
+    .boxes .box-1 .right-text {
+        font-size: 11px!important;
+        font-weight: bolder!important;
+        margin-bottom: 2px;
     }
 
 }

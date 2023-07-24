@@ -32,8 +32,8 @@
 
 }
 .home-about .right .right-text{
-    font-size: 16px!important;
-    font-weight: 600!important;
+    font-size: 13px!important;
+    font-weight: bolder!important;
 }
 
 .home-banner::before{
@@ -838,7 +838,7 @@ a{
 .contact-area .contact-text input, .contact-email input , .contact-textarea textarea
 {
     background: #f4f0f0eb;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #bebbbb;
     border-radius: 30px;
     margin: 20px 0;
@@ -1233,6 +1233,12 @@ a{
     }
 }
 @media only screen and (max-width : 575px) {
+    
+    .home-about .right .right-text {
+        font-size: 11px!important;
+        font-weight: bolder!important;
+        margin-bottom: 2px;
+    }
 
     .home-about-right .common-heading {
         font-size: 25px;
@@ -1880,7 +1886,7 @@ a{
     .home-about .home-about-event-card .right .h2
     {
         font-size:15px!important;
-        margin-bottom:5px;
+        margin-bottom:7px;
     }
     .home-about .home-about-event-card .common-para{
         margin-bottom: 0;
