@@ -1,24 +1,41 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
+import { MultiSelect } from 'primereact/multiselect';
 
 import * as ACTIONS from "./action";
 
 let obj = {
+  authorSaluation: "",
+  authorFirstName: "",
+  authorMiddleName: "",
+  authorLastName: "",
+  authorEmail: "",
+  authorAffiliation: "",
+  coAuthorDetails: [],
   abstractPaperName: "",
-  userName: "",
-  //abstractPaperDescription: "",
   mimetype: "",
-  abstractFileUrl: "",
+  abstract: "",
   paperApproveStatus: null,
-  themeType: "",
+  themeType: [],
+  paperPresentationType: ""
 };
 
 const AbstractUpload = () => {
   const [abstractDocumentPayload, setAbstractDocumentPayload] = useState(obj);
   const [abstractDataSavedMessage, setAbstractDataSavemessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [abstractTitleError, setAbstractTitleError] = useState("");
+  const [abstractError, setAbstractError] = useState("");
+  const [otherAuthor, setOtherAuthor] = useState(false)
+  const [coAuthor, setCoAuthor] = useState({
+    coAuthorSaluation: "",
+    coAuthorFirstName: "",
+    coAuthorMiddleName: "",
+    coAuthorLastName: "",
+    coAuthorEmail: "",
+    coAuthorAffilation: ""
+  });
 
   const state = useSelector((state) => state.AbstractUploadReducer);
 
@@ -57,10 +74,10 @@ const AbstractUpload = () => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
       abstractDocumentPayload.userId = decodedToken.user.user._id;
-      abstractDocumentPayload.userName = decodedToken.user.user.userName;
-      abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
+      // abstractDocumentPayload.userName = decodedToken.user.user.userName;
+      abstractDocumentPayload.authorEmail = decodedToken.user.user.userEmail;
     }
-  },[])
+  }, [])
 
   let getFileExtension = (fileName) => {
     return fileName.split(".").pop();
@@ -75,23 +92,30 @@ const AbstractUpload = () => {
 
   const abstarctOnChangeHandler = (e) => {
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
-    if (e.target.id == "file") {
-      if (getFileExtension(e.target.files[0].name) === "pdf") {
-        if (e.target.files[0].size <= 10000000) {
-          let formData = new FormData();
-          formData.append("file", e.target.files[0]);
-          abstractDocumentPayloadCopy.abstractFileUrl = e.target.files[0].name;
-          setAbstractDocumentPayload(abstractDocumentPayloadCopy);
-          setErrorMessage("");
-          dispatch(ACTIONS.abstratcFileUpload(formData));
-        } else {
-          setErrorMessage("File size should not be more than 10Mb");
-        }
+    if (e.target.id == "abstractPaperName") {
+      let userInput = e.target.value;
+      const words = userInput.split(' ');
+      if (words.length <= 25) {
+        abstractDocumentPayloadCopy.abstractPaperName = e.target.value;
+        setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+        setAbstractTitleError("");
       } else {
-        emptyFormUploadField();
-        setErrorMessage("Please upload Pdf files only.");
+        setAbstractTitleError("Please enter under 25 words")
       }
-    } else {
+
+    }
+    else if (e.target.id == "abstract") {
+      let userInput = e.target.value;
+      const words = userInput.split(' ');
+      if (words.length <= 300) {
+        abstractDocumentPayloadCopy.abstract = e.target.value;
+        setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+        setAbstractError("");
+      } else {
+        setAbstractError("Please enter under 300 words")
+      }
+    }
+    else {
       abstractDocumentPayloadCopy[e.target.id] = e.target.value;
       setAbstractDocumentPayload(abstractDocumentPayloadCopy);
     }
@@ -100,14 +124,14 @@ const AbstractUpload = () => {
   let abstractPaperSubmitHandler = (e) => {
     e.preventDefault();
     setLoading(true);
-  
+  console.log("before api hit", abstractDocumentPayload)
       dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
     
   };
 
   let emptyFormField = () => {
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
-    ref.current.value = "";
+    // ref.current.value = "";
     abstractDocumentPayloadCopy.abstractFileUrl = "";
     abstractDocumentPayloadCopy.filename = "";
     abstractDocumentPayloadCopy.userName = "";
@@ -116,151 +140,418 @@ const AbstractUpload = () => {
     setAbstractDocumentPayload(abstractDocumentPayloadCopy);
   };
 
+
+
+  let addCoAuthor = () => {
+    if (coAuthor.coAuthorFirstName) {
+      let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
+      let coAuthorPayloadCopy = [...abstractDocumentPayload.coAuthorDetails];
+      coAuthorPayloadCopy.push(coAuthor);
+      abstractDocumentPayloadCopy.coAuthorDetails = coAuthorPayloadCopy;
+      setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+      setCoAuthor({
+        coAuthorSaluation: "",
+        coAuthorFirstName: "",
+        coAuthorMiddleName: "",
+        coAuthorLastName: "",
+        coAuthorEmail: "",
+        coAuthorAffilation: ""
+      });
+    } else {
+      alert("Please mention the Co-Author details");
+    }
+  };
+
+  let coAuthorOnChangeHandler = (e) => {
+    let coAuthorPayloadCopy = { ...coAuthor };
+    coAuthorPayloadCopy[e.target.id] = e.target.value;
+    setCoAuthor(coAuthorPayloadCopy);
+  };
+
+  let deleteCoAuthor = (index) => {
+    let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
+    let coAuthorPayloadCopy = [...abstractDocumentPayload.coAuthorDetails];
+
+    let result = coAuthorPayloadCopy.filter((item, i) => i !== index);
+    abstractDocumentPayloadCopy.coAuthorDetails = result;
+    setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+  };
+
+  const [selectedCities, setSelectedCities] = useState(null);
+
+  const subThems = [
+    
+    { name: 'Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance', code: 'Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance' },
+    { name: 'Geospatial technologies for fostering sustainable agriculture, food security and green economies', code: 'Geospatial technologies for fostering sustainable agriculture, food security and green economies' },
+    { name: 'Geospatial technologies for sustainable water resources management', code: 'Geospatial technologies for sustainable water resources management' },
+    { name: 'Geospatial technologies for environment and energy security', code: 'Geospatial technologies for environment and energy security' },
+    { name: 'Geospatial technologies for urban studies and infrastructure planning & development', code: 'Geospatial technologies for urban studies and infrastructure planning & development' },
+    { name: 'Geospatial technologies for meteorology and climate change studies', code: 'Geospatial technologies for meteorology and climate change studies' },
+    { name: 'Geospatial technologies for building disaster resilience and emergency management', code: 'Geospatial technologies for building disaster resilience and emergency management' },
+    { name: 'Hydrographic surveys and geospatial technologies for coastal zone management and oceanography', code: 'Hydrographic surveys and geospatial technologies for coastal zone management and oceanography' },
+    { name: 'Drone/UAV based novel applications for sustainable economies', code: 'Drone/UAV based novel applications for sustainable economies' },
+    { name: 'Emerging trends in AI/ML for cartography and geospatial applications', code: 'Emerging trends in AI/ML for cartography and geospatial applications' },
+    { name: 'New geospatial and space policies for enhancing entrepreneurship and geospatial economy', code: 'New geospatial and space policies for enhancing entrepreneurship and geospatial economy' }
+
+];
+
+const handleSelectedCitiesChange = (e) => {
+  // Check if the selected values exceed the limit (3 in this case)
+  let value=""
+  if (e.value.length <= 3) {
+    setSelectedCities(e.value);
+     value = e.value
+  }
+
+  abstractDocumentPayload.themeType.push(value)
+
+  
+
+};
+
   return (
     <>
       <section className="abstract-form">
         <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
           <div className="container">
             <div className="row">
-              <div className="col-md-3">
-                  First Author
+              <div className="col-12 ms-1">
+                Author
               </div>
-            </div>
-            <div className="row">
-            <div className="col-md-3">
-                <div className="mb-3">
-                  <label htmlFor="saluation" className="form-label">
+              <div className="col-10 d-flex">
+                <div className="col-2 ms-1 relation-box-1">
+                  <label htmlFor="authorSaluation" className="form-label">
                     Saluation
-                  </label>                 
+                  </label>
                   <select
                     className="form-select"
                     aria-label="Default select example"
-                    id="saluation"
-                    value={abstractDocumentPayload.saluation}
+                    id="authorSaluation"
+                    value={abstractDocumentPayload.authorSaluation}
                     onChange={(e) => abstarctOnChangeHandler(e)}
                   >
                     <option selected>Select Saluation</option>
                     <option defaultValue="Dr."> Dr. </option>
-                    <option defaultValue="Mr."> Mr. </option>         
-                    <option defaultValue="Ms."> Ms. </option>         
-                    <option defaultValue="Mrs."> Mrs. </option>       
-                    </select>                   
-                    
+                    <option defaultValue="Mr."> Mr. </option>
+                    <option defaultValue="Ms."> Ms. </option>
+                    <option defaultValue="Mrs."> Mrs. </option>
+                  </select>
+
                 </div>
-              </div>
-              <div className="col-md-3">
-                <div className="mb-3">
-                  <label htmlFor="firstName" className="form-label">
-                    First Name
-                  </label>
-                  <input
-                    onChange={(e) => abstarctOnChangeHandler(e)}
-                    type="text"
-                    className="form-control"
-                    id="firstName"
-                    defaultValue={abstractDocumentPayload?.firstName}
-                    required
-                  />
+                <div className=" col-2 ms-1 relation-box-2">
+                  <div className="mb-3">
+                    <label htmlFor="authorFirstName" className="form-label">
+                      First Name
+                    </label>
+                    <input
+                      onChange={(e) => abstarctOnChangeHandler(e)}
+                      type="text"
+                      className="form-control"
+                      id="authorFirstName"
+                      defaultValue={abstractDocumentPayload?.authorFirstName}
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="col-md-3">
-                <div className="mb-3">
-                  <label htmlFor="middleName" className="form-label">
+                <div className="col-2 ms-1 relation-box-2">
+                  <label htmlFor="authorMiddleName" className="form-label">
                     Middle Name
                   </label>
                   <input
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
-                    id="middleName"
-                    defaultValue={abstractDocumentPayload?.middleName}
+                    id="authorMiddleName"
+                    defaultValue={abstractDocumentPayload?.authorMiddleName}
                     required
                   />
                 </div>
-              </div>
-              <div className="col-md-3">
-                <div className="mb-3">
-                  <label htmlFor="lastName" className="form-label">
+                <div className="col-2 ms-1 relation-box-2">
+                  <label htmlFor="authorLastName" className="form-label">
                     Last Name
                   </label>
                   <input
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
-                    id="lastName"
-                    defaultValue={abstractDocumentPayload?.lastName}
+                    id="authorLastName"
+                    defaultValue={abstractDocumentPayload?.authorLastName}
                     required
                   />
                 </div>
-              </div>
-
-              <div className="col-md-3">
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                   email
+                <div className="col-2 ms-1 relation-box-2">
+                  <label htmlFor="authorEmail" className="form-label">
+                    email
                   </label>
                   <input
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
-                    id="email"
-                    defaultValue={abstractDocumentPayload?.email}
+                    id="authorEmail"
+                    defaultValue={abstractDocumentPayload?.authorEmail}
                     required
                   />
                 </div>
-              </div>
-
-              <div className="col-md-3">
-                <div className="mb-3">
-                  <label htmlFor="affiliation" className="form-label">
-                   Affiliation
+                <div className="col-2 ms-1 relation-box-2">
+                  <label htmlFor="authorAffiliation" className="form-label">
+                    Affiliation
                   </label>
                   <input
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
-                    id="affiliation"
-                    defaultValue={abstractDocumentPayload?.affiliation}
+                    id="authorAffiliation"
+                    defaultValue={abstractDocumentPayload?.authorAffiliation}
                     required
                   />
                 </div>
               </div>
+              <div className="col-2 d-flex justify-content-center add-co-author-button">
+                <button className="common-btn add-and-remove-button" onClick={() => setOtherAuthor(!otherAuthor)}>Add Co-Author</button>
               </div>
+            </div>
 
-              <div className="row">
-              <div className="col-md-6">
+
+            {otherAuthor && (
+                <div className="row">
+                  <div className="col-12 ms-1">
+                    Co-Author
+                  </div>
+                  <div className="col-10 d-flex">
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label htmlFor="coAuthorSaluation" className="form-label">
+                        Saluation
+                      </label>
+                      <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        id="coAuthorSaluation"
+                        value={coAuthor?.coAuthorSaluation}
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                      >
+                        <option selected>Select Saluation</option>
+                        <option defaultValue="Dr.">Dr.</option>
+                        <option defaultValue="Mr.">Mr.</option>
+                        <option defaultValue="Ms.">Ms.</option>
+                        <option defaultValue="Mrs.">Mrs.</option>
+                      </select>
+
+                    </div>
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label htmlFor="coAuthorFirstName" className="form-label">
+                        First Name
+                      </label>
+                      <input
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        id="coAuthorFirstName"
+                        value={coAuthor?.coAuthorFirstName}
+
+                      />
+                    </div>
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label htmlFor="coAuthorMiddleName" className="form-label">
+                        Middle Name
+                      </label>
+                      <input
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        id="coAuthorMiddleName"
+                        value={coAuthor?.coAuthorMiddleName}
+
+                      />
+                    </div>
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label htmlFor="coAuthorLastName" className="form-label">
+                        Last Name
+                      </label>
+                      <input
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        id="coAuthorLastName"
+                        value={coAuthor?.coAuthorLastName}
+
+                      />
+                    </div>
+
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label htmlFor="coAuthorEmail" className="form-label">
+                        email
+                      </label>
+                      <input
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        id="coAuthorEmail"
+                        value={coAuthor?.coAuthorEmail}
+
+                      />
+                    </div>
+
+                    <div className="col-2 ms-1 relation-box-1">
+                      <div className="mb-3">
+                        <label htmlFor="coAuthorAffiliation" className="form-label">
+                          Affiliation
+                        </label>
+                        <input
+                          onChange={(e) => coAuthorOnChangeHandler(e)}
+                          type="text"
+                          className="form-control"
+                          id="coAuthorAffilation"
+                          value={coAuthor?.coAuthorAffilation}
+
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-2 d-flex justify-content-center add-co-author-button">
+                    <button
+                      className="common-btn add-and-remove-button"
+                      id="coAuthor"
+                      type="button"
+                      onClick={(e) => addCoAuthor(e)}
+                    >
+                      Add More
+                    </button>
+                  </div>
+                </div>
+            )}
+
+            {abstractDocumentPayload.coAuthorDetails.length > 0 &&
+              abstractDocumentPayload.coAuthorDetails.map((item, index) => {
+                return (
+                  <div className="row">
+                     <div className="col-10 d-flex">
+                  <div className="col-2 ms-1 relation-box-1">
+                      <label className="form-label" htmlFor="relation-name">
+                        Saluation
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={item.coAuthorSaluation}
+                        disabled
+                      />
+                    </div>
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label className="form-label" htmlFor="relation-type">
+                        First Name
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={item.coAuthorFirstName}
+                        disabled
+                      />
+                    </div>
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label className="form-label" htmlFor="relation-type">
+                        Middle Name
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={item.coAuthorMiddleName}
+                        disabled
+                      />
+                    </div>
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label className="form-label" htmlFor="relation-type">
+                        Last Name
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={item.coAuthorLastName}
+                        disabled
+                      />
+                    </div>
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label className="form-label" htmlFor="relation-type">
+                        Email
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={item.coAuthorEmail}
+                        disabled
+                      />
+                    </div>
+                    <div className="col-2 ms-1 relation-box-1">
+                      <label className="form-label" htmlFor="relation-type">
+                        Affiliation
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={item.coAuthorAffilation}
+                        disabled
+                      />
+                    </div>
+                    </div>
+                    <div className="col-2 d-flex justify-content-center add-co-author-button">
+                      <button
+                        className="common-btn add-and-remove-button"
+                        id="accompanningPerson"
+                        type="button"
+                        onClick={(e) => deleteCoAuthor(index)}
+                      >
+                        Delete
+                      </button>
+                      {/* <button
+                      className="common-btn add-and-remove-button ms-1"
+                      >
+                        Edit
+                      </button> */}
+                    </div>
+
+
+                  </div>
+                );
+              })}
+
+            <div className="row">
+            <div className="col-md-4">
                 <div className="mb-3">
-                  <label htmlFor="inputName" className="form-label">
-                    Title of the  Paper (25 words limit)
+                  <label htmlFor="paperPresentationType" className="form-label">
+                    Intended Mode of Paper Presentation
                   </label>
-                  <input
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    id="paperPresentationType"
+                    value={abstractDocumentPayload.paperPresentationType}
                     onChange={(e) => abstarctOnChangeHandler(e)}
-                    type="text"
-                    className="form-control"
-                    id="abstractPaperName"
-                    value={abstractDocumentPayload.abstractPaperName}
-                    required
-                  />
+                  >
+                    <option selected>Select Mode of Paper Presentation</option>
+                    <option defaultValue="Oral">Oral</option>
+                    <option defaultValue="Poster">Poster</option>
+                  </select>
+
                 </div>
               </div>
-
-              <div className="col-md-8">
-                <div className="mb-3">
-                  <label htmlFor="abstract" className="form-label">
-                    Paste Abstract (300 words only)
-                  </label>
-                  <textarea
-                    onChange={(e) => abstarctOnChangeHandler(e)}
-                    type="text"
-                    className="form-control"
-                    id="abstract"
-                    value={abstractDocumentPayload.abstract}
-                    required
-                    ></textarea>
-                </div>
-              </div>
-
               <div className="col-md-12">
+                <div className="col-md-12">
+                <div className="card flex mb-3">
+                <MultiSelect
+      value={selectedCities}
+      onChange={handleSelectedCitiesChange} // Update the onChange handler
+      options={subThems}
+      optionLabel="name"
+      display="chip"
+      placeholder="Select Sub-Themes"
+      maxSelectedLabels={3}
+      className="w-full md:w-20rem"
+    />
+        </div>
+                </div>
+
+              </div>
+              
+              {/* <div className="col-md-12">
                 <div className="mb-3">
                   <select
                     className="form-select"
@@ -269,7 +560,7 @@ const AbstractUpload = () => {
                     value={abstractDocumentPayload.themeType}
                     onChange={(e) => abstarctOnChangeHandler(e)}
                   >
-                    <option selected>Proposed sub-theme</option>
+                    <option selected>Sub-Theme</option>
                     <option
                       defaultValue="Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance"
                     >
@@ -333,36 +624,53 @@ const AbstractUpload = () => {
                     </option>
                   </select>
                 </div>
-              </div>
-
+              </div> */}
               <div className="col-md-12">
                 <div className="mb-3">
-                  <label htmlFor="paperPresentation" className="form-label">
-                    Intended mode of paper presentation
-                  </label>                 
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                    id="paperPresentation"
-                    value={abstractDocumentPayload.saluation}
+                  <label htmlFor="inputName" className="form-label">
+                    Title of the  Paper (25 words limit)
+                  </label>
+                  <textarea
                     onChange={(e) => abstarctOnChangeHandler(e)}
-                  >
-                    <option selected>Select Saluation</option>
-                    <option defaultValue="Oral">Oral</option>
-                    <option defaultValue="Poster">Poster</option>   
-                    </select>                   
-                    
+                    type="text"
+                    className="form-control"
+                    id="abstractPaperName"
+                    value={abstractDocumentPayload.abstractPaperName}
+                    required
+                  ></textarea>
                 </div>
+                {abstractTitleError && (
+                  <p className="text-danger">
+                    {abstractTitleError}
+                  </p>
+                )}
               </div>
-             
-             
-              
-
+              <div className="col-md-12">
+                <div className="mb-3">
+                  <label htmlFor="abstract" className="form-label">
+                    Paste Abstract (300 words only)
+                  </label>
+                  <textarea
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                    type="text"
+                    placeholder="You can copy paste abstract here"
+                    className="form-control text-area-abtract"
+                    id="abstract"
+                    value={abstractDocumentPayload.abstract}
+                    required
+                  ></textarea>
+                </div>
+                {abstractDocumentPayload.abstract && abstractError && (
+                  <p className="text-danger">
+                    {abstractError}
+                  </p>
+                )}
+              </div>
               <div className="row">
                 <div className="col-md-8">
                   <div className="mb-3">
                     <button
-                      className="common-btn"
+                      className="common-btn add-button"
                       type="submit"
                       disabled={loading}
                     >

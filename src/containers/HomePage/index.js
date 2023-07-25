@@ -13,7 +13,7 @@ import gallary2 from "../../images/gallery-2.jpg";
 import gallary3 from "../../images/gallery-3.jpg";
 import gallary4 from "../../images/gallery-4.jpg";
 import gallary5 from "../../images/gallery-5.jpg";
-import Event_2 from "../../images/INCA43rd.png";
+import Event_2 from "../../images/Capture.png";
 import inca1 from "../../images/award.jpeg";
 import inca2 from "../../images/41stINCA.png";
 import inca3 from "../../images/chandighar.jpeg";
@@ -34,6 +34,8 @@ const HomePage = () => {
   const [countdownHours, setCountdownHours] = useState("00");
   const [countdownMinutes, setCountdownMinutes] = useState("00");
   const [countdownSec, setCountdownSec] = useState("00");
+
+
 
   let interval = useRef();
 
@@ -160,7 +162,7 @@ const HomePage = () => {
                     <span></span>
                     <span></span>
                     <span></span>
-                    Registration open now
+                    REGISTER/SUBMIT ABSTRACT
                   </button>
                   {/* <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
@@ -230,7 +232,7 @@ const HomePage = () => {
   <div className="row">
             <div className="col-md-12">
               <div className="abstract-submission-date">
-            <marquee><p><b>"You can now start registration for 43<sup>rd</sup> INCA Conference 2023"</b></p></marquee>
+            <marquee><p><b>"Last date for Abstract Submission: 10<sup>th</sup> August, 2023"</b></p></marquee>
             {/* <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee> */}
             </div>
             </div>
@@ -297,9 +299,11 @@ const HomePage = () => {
                   <p className="common-para">
                     <b>
                       {" "}
-                      <h5 className="right-text">Regional Remote Sensing Centre-West</h5> National Remote
-                      Sensing Centre NRSC/ISRO, ISRO Complex,Bypass Road
-                      Sector 9,Kudi Bhagtasani Housing Board (KBHB)
+                      <h5 className="right-text">Regional Remote Sensing Centre (RRSC)-West</h5> National Remote
+                      Sensing Centre (NRSC)<br/>
+                      Indian Space Research organisation (ISRO)<br/>
+                      Bypass Road, Sector 9<br/>
+                      Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
                     <br />
                     <b>Jodhpur – 342005</b>
@@ -337,7 +341,7 @@ const HomePage = () => {
                     <b>Click here to know details.</b>
                    
                   </Link><br/>
-                  <p className="common-para">
+                  <p className="common-para mb-0">
                     <b>Last date for submission of abstract</b></p>
                   <p className="common-para pb-3">
                     <b>10/August/2023</b></p> 
@@ -372,12 +376,14 @@ const HomePage = () => {
                   <p className="common-para">
                     <b>
                       {" "}
-                      Regional Remote Sensing Centre-West National Remote
-                      Sensing Centre(NRSC), <br />
-                      ISRO Complex, Bypass Road Sector 9, <br />
-                      Kudi Bhagtasani Housing Board (KBHB) <br />
-                      Jodhpur – 342005
-                    </b>
+                      <h5 className="right-text">Regional Remote Sensing Centre (RRSC)-West</h5> National Remote
+                      Sensing Centre (NRSC)<br/>
+                      Indian Space Research organisation (ISRO)<br/>
+                      Bypass Road, Sector 9<br/>
+                      Kudi Bhagtasani Housing Board (KBHB)
+                    </b>{" "}
+                    <br />
+                    <b>Jodhpur – 342005</b>
                   </p>
                 </div>
               </div>
@@ -2432,7 +2438,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
-              <h2>SPONSOR</h2>
+              <h2>SPONSOR & EXHIBITOR</h2>
             </div>
           </div>
           <div className="sponsor-btn-temp">
@@ -2443,7 +2449,16 @@ const HomePage = () => {
             >
               BE A SPONSOR
             </button>
+            <button
+              className="common-btn ms-4"
+              type="button"
+              onClick={() => navigation("/exhibitor")}
+            >
+              BE A EXHIBITOR
+            </button>
           </div>
+          {/* <div className="sponsor-btn-temp bt">
+          </div> */}
         </div>
       </section>
 
@@ -2627,7 +2642,10 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
+              
               <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="row">
+                <div className="col-md-6">
                 <div className="contact-text">
                   <input
                     // className="form-movement"
@@ -2640,6 +2658,7 @@ const HomePage = () => {
                     <p>First name is required</p>
                   )}
                 </div>
+                
                 <div className="contact-email">
                   <input
                     // className="form-movement"
@@ -2651,7 +2670,8 @@ const HomePage = () => {
                     })}
                   />
                   {errors.email == "required" && <p>email is required</p>}
-                </div>
+                </div></div>
+                <div className="col-md-6">
                 <div className="contact-text">
                   <input
                     // className="form-movement"
@@ -2671,11 +2691,12 @@ const HomePage = () => {
                     {...register("subject", { required: true })}
                   />
                   {errors.subject === "required" && <p>Subject is required</p>}
+                </div></div>
                 </div>
                 <div className="contact-textarea">
                   <textarea
-                    className="w-100"
-                    rows="7"
+                    className="w-90"
+                    rows="5"
                     cols="51"
                     placeholder="Enter Message.."
                   ></textarea>

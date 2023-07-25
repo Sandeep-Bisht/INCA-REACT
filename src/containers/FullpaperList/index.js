@@ -32,7 +32,8 @@ const FullPaperList = () => {
 
   const columns = [
     { field: "registrationNumber", header: "Registration No" },
-    { field: "userName", header: "Author Name" },
+    { field: "fullPaperNumber", header: "Fullpaper No"},
+    { field: "authorFirstName", header: "Author Name" },
     { field: "fullPaperName", header: "Author Title" },
     { field: "themeType", header: "Theme" },
     // { field: "createdAt", header: "Date of Submission" },

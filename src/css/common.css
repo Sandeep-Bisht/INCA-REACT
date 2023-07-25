@@ -89,7 +89,7 @@ h1,h2,h3,h4,h5,h6
     font-weight: 400;
     line-height: 20.11px;
     color: #696A87;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 20px;
 }
 .common-learn-more
@@ -227,6 +227,30 @@ border: none!important;
     margin-top: 30px;
     cursor: pointer;
 }
+.add-and-remove{
+    margin-top: 29px!important;
+    width: 200px;
+}
+.add-co-author-button{
+    padding: 23px 13px;
+}
+.add-button{
+    padding: 8px 30px!important;
+    font-size: 12px!important;
+    border-radius: 0px!important;
+}
+.text-area-abtract{
+    min-height: 150px!important;
+}
+.add-button-div{
+    margin-top: 29px!important;
+}
+.add-and-remove-button{
+    padding: 8px 17px!important;
+    border-radius: 0px!important;
+    font-size: 12px!important;
+    margin-top: 9px;
+}
 .create-btn
 {
     padding: 4px 20px !important;
@@ -285,7 +309,7 @@ z-index: 10;
 }
 
 .header-wrapper.header-scrolled .nav-link {
-    color: #1c1e6bf7;
+    color: #ffffff!important;
 }
 .header-wrapper.header-scrolled .logo-text
 {
@@ -503,6 +527,23 @@ background-color:#fff;
     {
         display: none;
     }
+    .navbar-nav{
+
+        background: #212121;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    position: absolute;
+    right: -62px;
+    height: 24vh;
+    border-radius: 0;
+    margin-top: 12px;
+    width: 34vw;
+}
 
 }
 
@@ -519,9 +560,15 @@ background-color:#fff;
     {
         font-size:11px;
     }
+
+    .boxes .box-1 .right-text {
+        font-size: 11px!important;
+        font-weight: bolder!important;
+    }
+
     .common-para
     {
-        font-size:14px;
+        font-size:12px;
     }
     .common-redirect-banner{
         padding:100px 0!important;
@@ -563,10 +610,10 @@ background-color:#fff;
     list-style: none;
     position: absolute;
     right: -11px;
-    height: 100vh;
+    height: 28vh;
     border-radius: 0;
     margin-top: 12px;
-    width: 50vw;
+    width: 34vw;
     }
     .navbar-nav .nav-item
     {

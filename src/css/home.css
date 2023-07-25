@@ -19,7 +19,7 @@
     height: 26px;
     letter-spacing: 1px;
     position: absolute;
-    bottom: 80px;
+    bottom: 74px;
     left: 0;
     width: 100%;
 }
@@ -32,8 +32,8 @@
 
 }
 .home-about .right .right-text{
-    font-size: 16px!important;
-    font-weight: 600!important;
+    font-size: 13px!important;
+    font-weight: bolder!important;
 }
 
 .home-banner::before{
@@ -839,7 +839,7 @@ a{
 .contact-area .contact-text input, .contact-email input , .contact-textarea textarea
 {
     background: #f4f0f0eb;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #bebbbb;
     border-radius: 30px;
     margin: 20px 0;
@@ -883,7 +883,7 @@ a{
     background: transparent;
     font-size: 24px;
     padding-left: 30px;
-    margin-bottom: 19px;
+    margin-bottom: 6px;
 }
 .captcha-section{
     border: 1px solid #bebbbb;
@@ -905,15 +905,15 @@ a{
 }
 .contact-area .contact-move .contact-icon i
 {
-    font-size: 35px;
+    font-size: 38px;
     border: 2px solid #75b00f;
     border-radius: 50%;
    
     color: #75b00f;
     display: inline-block;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
+    width: 70px;
+    height: 70px;
+    line-height: 70px!important;
     text-align: center;
 }
 
@@ -1104,14 +1104,15 @@ a{
 @media only screen and (max-width :991px) {
    
     .home-banner .right .head-text{
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
-        line-height: 1.2;
+        line-height: 0.5;
+        
     }
     .common-btn, .common-btn-transparent {
         padding: 3px 20px;
         font-size: 12px;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
 
     .home-banner .right .theme-color {
@@ -1119,8 +1120,13 @@ a{
         line-height: 1;
     }
     .home-banner .right .banner-title .banner-small {
-        font-size: 21px;
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 7px;
     }
+    .home-banner .banner-btn-box {
+    margin-top: 0px;
+}
     .Welcome-page .welcome-text p {
         line-height: 19px;
     }
@@ -1186,13 +1192,13 @@ a{
     {
         right: calc(0% + 1px);
         position: absolute;
-        top: 86px;
+        top: 70px;
     }
     .react-multiple-carousel__arrow--left
     {
         left: calc(0% + 1px);
         position: absolute;
-        top: 86px;
+        top: 70px;
     }
     .home-about .signature-box .upper-box {
         margin-left: 0px;
@@ -1234,6 +1240,12 @@ a{
     }
 }
 @media only screen and (max-width : 575px) {
+    
+    .home-about .right .right-text {
+        font-size: 11px!important;
+        font-weight: bolder!important;
+        margin-bottom: 2px;
+    }
 
     .home-about-right .common-heading {
         font-size: 25px;
@@ -1328,7 +1340,7 @@ a{
         width: 92%!important;
         height: 170px;
         object-fit: cover;
-        margin: 10px 0;
+        margin: 10px 0 0 -24px;
         border-radius: 0;
     }
     .home-about .set-img
@@ -1530,7 +1542,7 @@ a{
         font-size: 25px;
         width: 65px;
         height: 65px;
-        line-height: 65px;
+        line-height: 50px!important;
         
     }
     .contact-area .contact-move .contact-venue h3
@@ -1833,7 +1845,7 @@ a{
 @media only screen and (max-width : 430px)
 {  
     .home-banner .right .head-text {
-        margin-bottom: 3px;
+        margin-bottom: 20px;
     }
     .common-btn, .common-btn-transparent {
         padding: 3px 20px;
@@ -1842,6 +1854,7 @@ a{
     }
     .common-btn {
         margin-bottom: 20px!important;
+        margin-top: 15px;
     }
     .section-padding{
         padding:40px 0;
@@ -1850,7 +1863,7 @@ a{
         object-fit: contain;
     }
     .home-banner .right .banner-title .banner-small {
-        font-size: 20px;
+        font-size: 19px;
         line-height: 1.8;
     }
     .home-banner .right .banner-title {
@@ -1881,7 +1894,7 @@ a{
     .home-about .home-about-event-card .right .h2
     {
         font-size:15px!important;
-        margin-bottom:5px;
+        margin-bottom:7px;
     }
     .home-about .home-about-event-card .common-para{
         margin-bottom: 0;
