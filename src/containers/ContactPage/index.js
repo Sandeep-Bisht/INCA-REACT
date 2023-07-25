@@ -87,8 +87,9 @@ const Contact = () => {
                   
                   <h3 className="h2">ADDRESS</h3>
                   <p className="common-para">
-                  <b>{" "} <h5 className="right-text">Regional Remote Sensing Centre-West</h5>
-                   National Remote Sensing Center NRSC/ISRO ISRO Complex, Bypass Road
+                  <b>{" "} <h5 className="right-text">Regional Remote Sensing Centre (RRSC)-West</h5>
+                   National Remote Sensing Center (NRSC)ISRO <br/>
+                   ISRO Complex, Bypass Road
                     Sector 9, Kudi Bhagtasani Housing Board (KBHB) </b> {" "}<br />
                      <b>Jodhpur – 342005,</b>
                   </p>
