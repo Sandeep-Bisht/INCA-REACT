@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { baseUrl, GetHeaders } from "../../utils";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Footer } from "../../components/Footer";
@@ -27,6 +29,7 @@ import FinalSercular from "../../images/INCA_43rd_First_Circular (2).pdf";
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4'
 
+
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
 
@@ -34,9 +37,11 @@ const HomePage = () => {
   const [countdownHours, setCountdownHours] = useState("00");
   const [countdownMinutes, setCountdownMinutes] = useState("00");
   const [countdownSec, setCountdownSec] = useState("00");
+  const [verified, setVerified] = useState(false);
+  const [setContactMsg, setSetContactMsg] = useState()
 
 
-
+  const navigation = useNavigate();
   let interval = useRef();
 
   const startTimer = () => {
@@ -76,18 +81,46 @@ const HomePage = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm({
     firstName: "",
     email: "",
     phoneNumber: "",
     subject: "",
+    message:""
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const onSubmit = async (data) =>{
+    // doSubmit(data)
+    console.log(data, "data")
+    let url = `${baseUrl}contact-us`
 
-  const navigation = useNavigate();
+    try {    
+      const response = await axios.post(url, data, GetHeaders());
+      if(response && response?.data?.emailSendStatus){
+        console.log(response.data, "responseee");
+        reset()
+        setSetContactMsg(response?.data?.message)
+        removeContactMsg()
+        
+      }else{
+        reset();
+        setSetContactMsg(response?.data?.message)
+        removeContactMsg()
+        
+      }
+    } catch (error) {
+       console.log(error)
+    }
+  }
+
+  const removeContactMsg = () => {
+    setTimeout(()=> {
+      setSetContactMsg("")
+    }, 3000)
+  }
+
+  
 
   const responsive = {
     desktop: {
@@ -2654,11 +2687,12 @@ const HomePage = () => {
                     placeholder="Your Name.."
                     {...register("firstName", { required: true })}
                   />
-                  {errors.firstName === "required" && (
-                    <p>First name is required</p>
+                  {errors.firstName  && (
+                    <p className="text-danger">First name is required</p>
                   )}
                 </div>
-                
+                </div>
+                <div className="col-md-6">
                 <div className="contact-email">
                   <input
                     // className="form-movement"
@@ -2669,8 +2703,9 @@ const HomePage = () => {
                       required: "Email Address is required",
                     })}
                   />
-                  {errors.email == "required" && <p>email is required</p>}
-                </div></div>
+                  {errors.email && <p className="text-danger">Email is required</p>}
+                </div>
+              </div>
                 <div className="col-md-6">
                 <div className="contact-text">
                   <input
@@ -2679,10 +2714,12 @@ const HomePage = () => {
                     placeholder="Your Number.."
                     {...register("phoneNumber", { required: true })}
                   />
-                  {errors.phoneNumber === "required" && (
-                    <p>Phone Number is required</p>
+                  {errors.phoneNumber  && (
+                    <p className="text-danger">Phone Number is required</p>
                   )}
                 </div>
+                </div>
+                <div className="col-md-6">
                 <div className="contact-text">
                   <input
                     // className="form-movement"
@@ -2690,9 +2727,11 @@ const HomePage = () => {
                     placeholder="Subject.."
                     {...register("subject", { required: true })}
                   />
-                  {errors.subject === "required" && <p>Subject is required</p>}
-                </div></div>
+                  {errors.subject && <p className="text-danger">Subject is required</p>}
                 </div>
+                </div>
+                </div>
+
                 <div className="contact-textarea">
                   <textarea
                     className="w-90"
@@ -2702,11 +2741,17 @@ const HomePage = () => {
                   ></textarea>
                 </div>
                 <div className="contact-text"> 
-                <Captcha captchaLength={6} />
+                <Captcha captchaLength={6} setVerified ={setVerified}/>
                 </div>
+               
+                      
                 <div className="contact-btn">
-                  <button className="common-btn mb-3">Send Message</button>
+                  <button disabled={!verified} className="common-btn mb-3">Send Message</button>
                 </div>
+
+                <div className="mt-2 mb-2">
+                        <p className="text-dark">{setContactMsg}</p>
+                      </div>
               </form>
             </div>
             <div className="col-md-6">

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-function Captcha({ captchaLength }) {
+function Captcha({ captchaLength, setVerified }) {
   const [captchaText, setCaptchaText] = useState(generateCaptchaText(captchaLength));
   const [userInput, setUserInput] = useState('');
 
   const handleUserInput = (event) => {
     setUserInput(event.target.value);
+    setVerified(true)
   };
 
   function generateCaptchaText(length) {
