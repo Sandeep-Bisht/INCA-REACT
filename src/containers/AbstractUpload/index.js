@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
-import { MultiSelect } from 'primereact/multiselect';
+import { MultiSelect } from "primereact/multiselect";
 
 import * as ACTIONS from "./action";
+import { useLocation } from "react-router-dom";
+import PreviewPaper from "../PreviewPaper";
 
 let obj = {
   authorSaluation: "",
@@ -18,31 +20,50 @@ let obj = {
   abstract: "",
   paperApproveStatus: null,
   themeType: [],
-  paperPresentationType: ""
+  paperPresentationType: "",
 };
 
 const AbstractUpload = () => {
   const [abstractDocumentPayload, setAbstractDocumentPayload] = useState(obj);
   const [abstractDataSavedMessage, setAbstractDataSavemessage] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [userdetails, setUserDetails] = useState();
+  const [isHidden, setIsHidden] = useState(false);
+  const [mode, setMode] = useState(undefined);
   const [loading, setLoading] = useState(false);
   const [abstractTitleError, setAbstractTitleError] = useState("");
   const [abstractError, setAbstractError] = useState("");
-  const [otherAuthor, setOtherAuthor] = useState(false)
+  const [otherAuthor, setOtherAuthor] = useState(false);
+  const [selectedThemes, setSelectedThemes] = useState(null);
   const [coAuthor, setCoAuthor] = useState({
     coAuthorSaluation: "",
     coAuthorFirstName: "",
     coAuthorMiddleName: "",
     coAuthorLastName: "",
     coAuthorEmail: "",
-    coAuthorAffilation: ""
+    coAuthorAffilation: "",
   });
 
   const state = useSelector((state) => state.AbstractUploadReducer);
 
   let dispatch = useDispatch();
   const ref = useRef();
+  let location = useLocation();
 
+  useEffect(() => {
+    if (location && location.state && location.state.mode === "preview") {
+      
+      setAbstractDocumentPayload(location.state);
+      // setPhoneNumber(location.state.phoneNumber.toString());
+      setMode(location.state.mode);
+      // setSelectedThemes(location.state.themeType)
+      setSelectedThemes(location?.state?.themeType[0]);
+      setIsDisabled(true);
+      setIsHidden(true);
+    }
+  }, []);
 
+ 
   useEffect(() => {
     if (
       state.abstractFileUploadSuccess &&
@@ -72,50 +93,50 @@ const AbstractUpload = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      let decodedToken = jwt_decode(localStorage.getItem("token"));
+      let decodedToken = jwt_decode(localStorage?.getItem("token"));
+      let user = decodedToken?.user.user;
+      setUserDetails(user);
       abstractDocumentPayload.userId = decodedToken.user.user._id;
-      // abstractDocumentPayload.userName = decodedToken.user.user.userName;
+
+      abstractDocumentPayload.userName = decodedToken.user.user.userName;
       abstractDocumentPayload.authorEmail = decodedToken.user.user.userEmail;
     }
-  }, [])
+  }, []);
 
   let getFileExtension = (fileName) => {
     return fileName.split(".").pop();
   };
 
-  let emptyFormUploadField = () => {
-    let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
-    ref.current.value = "";
-    abstractDocumentPayloadCopy.filename = "";
-    setAbstractDocumentPayload(abstractDocumentPayloadCopy);
-  };
+  // let emptyFormUploadField = () => {
+  //   let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
+  //   ref.current.value = "";
+  //   abstractDocumentPayloadCopy.filename = "";
+  //   setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+  // };
 
   const abstarctOnChangeHandler = (e) => {
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
     if (e.target.id == "abstractPaperName") {
       let userInput = e.target.value;
-      const words = userInput.split(' ');
+      const words = userInput.split(" ");
       if (words.length <= 25) {
         abstractDocumentPayloadCopy.abstractPaperName = e.target.value;
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractTitleError("");
       } else {
-        setAbstractTitleError("Please enter under 25 words")
+        setAbstractTitleError("Please enter under 25 words");
       }
-
-    }
-    else if (e.target.id == "abstract") {
+    } else if (e.target.id == "abstract") {
       let userInput = e.target.value;
-      const words = userInput.split(' ');
+      const words = userInput.split(" ");
       if (words.length <= 300) {
         abstractDocumentPayloadCopy.abstract = e.target.value;
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractError("");
       } else {
-        setAbstractError("Please enter under 300 words")
+        setAbstractError("Please enter under 300 words");
       }
-    }
-    else {
+    } else {
       abstractDocumentPayloadCopy[e.target.id] = e.target.value;
       setAbstractDocumentPayload(abstractDocumentPayloadCopy);
     }
@@ -123,9 +144,14 @@ const AbstractUpload = () => {
 
   let abstractPaperSubmitHandler = (e) => {
     e.preventDefault();
-    setLoading(true);
-  console.log("before api hit", abstractDocumentPayload)
-      dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
+    if (selectedThemes == [] || selectedThemes === null) {
+      alert('Please select at least one sub-theme.');
+    }else{
+      setLoading(true);
+    abstractDocumentPayload.themeType.push(selectedThemes);
+    console.log("before api hit", abstractDocumentPayload);
+    // dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
+    }
     
   };
 
@@ -140,8 +166,6 @@ const AbstractUpload = () => {
     setAbstractDocumentPayload(abstractDocumentPayloadCopy);
   };
 
-
-
   let addCoAuthor = () => {
     if (coAuthor.coAuthorFirstName) {
       let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
@@ -155,7 +179,7 @@ const AbstractUpload = () => {
         coAuthorMiddleName: "",
         coAuthorLastName: "",
         coAuthorEmail: "",
-        coAuthorAffilation: ""
+        coAuthorAffilation: "",
       });
     } else {
       alert("Please mention the Co-Author details");
@@ -177,37 +201,63 @@ const AbstractUpload = () => {
     setAbstractDocumentPayload(abstractDocumentPayloadCopy);
   };
 
-  const [selectedCities, setSelectedCities] = useState(null);
-
-  const subThems = [
-    
-    { name: 'Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance', code: 'Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance' },
-    { name: 'Geospatial technologies for fostering sustainable agriculture, food security and green economies', code: 'Geospatial technologies for fostering sustainable agriculture, food security and green economies' },
-    { name: 'Geospatial technologies for sustainable water resources management', code: 'Geospatial technologies for sustainable water resources management' },
-    { name: 'Geospatial technologies for environment and energy security', code: 'Geospatial technologies for environment and energy security' },
-    { name: 'Geospatial technologies for urban studies and infrastructure planning & development', code: 'Geospatial technologies for urban studies and infrastructure planning & development' },
-    { name: 'Geospatial technologies for meteorology and climate change studies', code: 'Geospatial technologies for meteorology and climate change studies' },
-    { name: 'Geospatial technologies for building disaster resilience and emergency management', code: 'Geospatial technologies for building disaster resilience and emergency management' },
-    { name: 'Hydrographic surveys and geospatial technologies for coastal zone management and oceanography', code: 'Hydrographic surveys and geospatial technologies for coastal zone management and oceanography' },
-    { name: 'Drone/UAV based novel applications for sustainable economies', code: 'Drone/UAV based novel applications for sustainable economies' },
-    { name: 'Emerging trends in AI/ML for cartography and geospatial applications', code: 'Emerging trends in AI/ML for cartography and geospatial applications' },
-    { name: 'New geospatial and space policies for enhancing entrepreneurship and geospatial economy', code: 'New geospatial and space policies for enhancing entrepreneurship and geospatial economy' }
-
-];
-
-const handleSelectedCitiesChange = (e) => {
-  // Check if the selected values exceed the limit (3 in this case)
-  let value=""
-  if (e.value.length <= 3) {
-    setSelectedCities(e.value);
-     value = e.value
-  }
-
-  abstractDocumentPayload.themeType.push(value)
-
   
 
-};
+  const subThems = [
+    {
+      name: "Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance",
+      code: "Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance",
+    },
+    {
+      name: "Geospatial technologies for fostering sustainable agriculture, food security and green economies",
+      code: "Geospatial technologies for fostering sustainable agriculture, food security and green economies",
+    },
+    {
+      name: "Geospatial technologies for sustainable water resources management",
+      code: "Geospatial technologies for sustainable water resources management",
+    },
+    {
+      name: "Geospatial technologies for environment and energy security",
+      code: "Geospatial technologies for environment and energy security",
+    },
+    {
+      name: "Geospatial technologies for urban studies and infrastructure planning & development",
+      code: "Geospatial technologies for urban studies and infrastructure planning & development",
+    },
+    {
+      name: "Geospatial technologies for meteorology and climate change studies",
+      code: "Geospatial technologies for meteorology and climate change studies",
+    },
+    {
+      name: "Geospatial technologies for building disaster resilience and emergency management",
+      code: "Geospatial technologies for building disaster resilience and emergency management",
+    },
+    {
+      name: "Hydrographic surveys and geospatial technologies for coastal zone management and oceanography",
+      code: "Hydrographic surveys and geospatial technologies for coastal zone management and oceanography",
+    },
+    {
+      name: "Drone/UAV based novel applications for sustainable economies",
+      code: "Drone/UAV based novel applications for sustainable economies",
+    },
+    {
+      name: "Emerging trends in AI/ML for cartography and geospatial applications",
+      code: "Emerging trends in AI/ML for cartography and geospatial applications",
+    },
+    {
+      name: "New geospatial and space policies for enhancing entrepreneurship and geospatial economy",
+      code: "New geospatial and space policies for enhancing entrepreneurship and geospatial economy",
+    },
+  ];
+
+  const handleSelectedSubThemesChange = (e) => {
+    // Check if the selected values exceed the limit (3 in this case)
+    let value = "";
+    if (e.value.length <= 3) {
+      setSelectedThemes(e.value);
+      value = e.value;
+    }
+  };
 
   return (
     <>
@@ -215,9 +265,7 @@ const handleSelectedCitiesChange = (e) => {
         <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
           <div className="container">
             <div className="row">
-              <div className="col-12 ms-1">
-                Author
-              </div>
+              <div className="col-12 ms-1">Author</div>
               <div className="col-10 d-flex">
                 <div className="col-2 ms-1 relation-box-1">
                   <label htmlFor="authorSaluation" className="form-label">
@@ -227,6 +275,8 @@ const handleSelectedCitiesChange = (e) => {
                     className="form-select"
                     aria-label="Default select example"
                     id="authorSaluation"
+                    disabled={isDisabled}
+                    required
                     value={abstractDocumentPayload.authorSaluation}
                     onChange={(e) => abstarctOnChangeHandler(e)}
                   >
@@ -236,7 +286,6 @@ const handleSelectedCitiesChange = (e) => {
                     <option defaultValue="Ms."> Ms. </option>
                     <option defaultValue="Mrs."> Mrs. </option>
                   </select>
-
                 </div>
                 <div className=" col-2 ms-1 relation-box-2">
                   <div className="mb-3">
@@ -247,6 +296,7 @@ const handleSelectedCitiesChange = (e) => {
                       onChange={(e) => abstarctOnChangeHandler(e)}
                       type="text"
                       className="form-control"
+                      disabled={isDisabled}
                       id="authorFirstName"
                       defaultValue={abstractDocumentPayload?.authorFirstName}
                       required
@@ -261,9 +311,9 @@ const handleSelectedCitiesChange = (e) => {
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
+                    disabled={isDisabled}
                     id="authorMiddleName"
                     defaultValue={abstractDocumentPayload?.authorMiddleName}
-                    required
                   />
                 </div>
                 <div className="col-2 ms-1 relation-box-2">
@@ -274,9 +324,10 @@ const handleSelectedCitiesChange = (e) => {
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
+                    disabled={isDisabled}
+                    required
                     id="authorLastName"
                     defaultValue={abstractDocumentPayload?.authorLastName}
-                    required
                   />
                 </div>
                 <div className="col-2 ms-1 relation-box-2">
@@ -287,6 +338,7 @@ const handleSelectedCitiesChange = (e) => {
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
+                    disabled={isDisabled}
                     id="authorEmail"
                     defaultValue={abstractDocumentPayload?.authorEmail}
                     required
@@ -300,198 +352,201 @@ const handleSelectedCitiesChange = (e) => {
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
+                    disabled={isDisabled}
                     id="authorAffiliation"
                     defaultValue={abstractDocumentPayload?.authorAffiliation}
                     required
                   />
                 </div>
               </div>
-              <div className="col-2 d-flex justify-content-center add-co-author-button">
-                <button className="common-btn add-and-remove-button" onClick={() => setOtherAuthor(!otherAuthor)}>Add Co-Author</button>
-              </div>
+              {!mode && (
+                <div className="col-2 d-flex justify-content-center add-co-author-button">
+                  <button
+                    className="common-btn add-and-remove-button"
+                    onClick={() => setOtherAuthor(!otherAuthor)}
+                  >
+                    Add Co-Author
+                  </button>
+                </div>
+              )}
             </div>
 
-
             {otherAuthor && (
-                <div className="row">
-                  <div className="col-12 ms-1">
-                    Co-Author
-                  </div>
-                  <div className="col-10 d-flex">
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label htmlFor="coAuthorSaluation" className="form-label">
-                        Saluation
-                      </label>
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                        id="coAuthorSaluation"
-                        value={coAuthor?.coAuthorSaluation}
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                      >
-                        <option selected>Select Saluation</option>
-                        <option defaultValue="Dr.">Dr.</option>
-                        <option defaultValue="Mr.">Mr.</option>
-                        <option defaultValue="Ms.">Ms.</option>
-                        <option defaultValue="Mrs.">Mrs.</option>
-                      </select>
-
-                    </div>
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label htmlFor="coAuthorFirstName" className="form-label">
-                        First Name
-                      </label>
-                      <input
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                        type="text"
-                        className="form-control"
-                        id="coAuthorFirstName"
-                        value={coAuthor?.coAuthorFirstName}
-
-                      />
-                    </div>
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label htmlFor="coAuthorMiddleName" className="form-label">
-                        Middle Name
-                      </label>
-                      <input
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                        type="text"
-                        className="form-control"
-                        id="coAuthorMiddleName"
-                        value={coAuthor?.coAuthorMiddleName}
-
-                      />
-                    </div>
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label htmlFor="coAuthorLastName" className="form-label">
-                        Last Name
-                      </label>
-                      <input
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                        type="text"
-                        className="form-control"
-                        id="coAuthorLastName"
-                        value={coAuthor?.coAuthorLastName}
-
-                      />
-                    </div>
-
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label htmlFor="coAuthorEmail" className="form-label">
-                        email
-                      </label>
-                      <input
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                        type="text"
-                        className="form-control"
-                        id="coAuthorEmail"
-                        value={coAuthor?.coAuthorEmail}
-
-                      />
-                    </div>
-
-                    <div className="col-2 ms-1 relation-box-1">
-                      <div className="mb-3">
-                        <label htmlFor="coAuthorAffiliation" className="form-label">
-                          Affiliation
-                        </label>
-                        <input
-                          onChange={(e) => coAuthorOnChangeHandler(e)}
-                          type="text"
-                          className="form-control"
-                          id="coAuthorAffilation"
-                          value={coAuthor?.coAuthorAffilation}
-
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-2 d-flex justify-content-center add-co-author-button">
-                    <button
-                      className="common-btn add-and-remove-button"
-                      id="coAuthor"
-                      type="button"
-                      onClick={(e) => addCoAuthor(e)}
+              <div className="row">
+                <div className="col-12 ms-1">Co-Author</div>
+                <div className="col-10 d-flex">
+                  <div className="col-2 ms-1 relation-box-1">
+                    <label htmlFor="coAuthorSaluation" className="form-label">
+                      Saluation
+                    </label>
+                    <select
+                      className="form-select"
+                      aria-label="Default select example"
+                      id="coAuthorSaluation"
+                      value={coAuthor?.coAuthorSaluation}
+                      onChange={(e) => coAuthorOnChangeHandler(e)}
                     >
-                      Add More
-                    </button>
+                      <option selected>Select Saluation</option>
+                      <option defaultValue="Dr.">Dr.</option>
+                      <option defaultValue="Mr.">Mr.</option>
+                      <option defaultValue="Ms.">Ms.</option>
+                      <option defaultValue="Mrs.">Mrs.</option>
+                    </select>
+                  </div>
+                  <div className="col-2 ms-1 relation-box-1">
+                    <label htmlFor="coAuthorFirstName" className="form-label">
+                      First Name
+                    </label>
+                    <input
+                      onChange={(e) => coAuthorOnChangeHandler(e)}
+                      type="text"
+                      className="form-control"
+                      id="coAuthorFirstName"
+                      value={coAuthor?.coAuthorFirstName}
+                    />
+                  </div>
+                  <div className="col-2 ms-1 relation-box-1">
+                    <label htmlFor="coAuthorMiddleName" className="form-label">
+                      Middle Name
+                    </label>
+                    <input
+                      onChange={(e) => coAuthorOnChangeHandler(e)}
+                      type="text"
+                      className="form-control"
+                      id="coAuthorMiddleName"
+                      value={coAuthor?.coAuthorMiddleName}
+                    />
+                  </div>
+                  <div className="col-2 ms-1 relation-box-1">
+                    <label htmlFor="coAuthorLastName" className="form-label">
+                      Last Name
+                    </label>
+                    <input
+                      onChange={(e) => coAuthorOnChangeHandler(e)}
+                      type="text"
+                      className="form-control"
+                      id="coAuthorLastName"
+                      value={coAuthor?.coAuthorLastName}
+                    />
+                  </div>
+
+                  <div className="col-2 ms-1 relation-box-1">
+                    <label htmlFor="coAuthorEmail" className="form-label">
+                      email
+                    </label>
+                    <input
+                      onChange={(e) => coAuthorOnChangeHandler(e)}
+                      type="text"
+                      className="form-control"
+                      id="coAuthorEmail"
+                      value={coAuthor?.coAuthorEmail}
+                    />
+                  </div>
+
+                  <div className="col-2 ms-1 relation-box-1">
+                    <div className="mb-3">
+                      <label
+                        htmlFor="coAuthorAffiliation"
+                        className="form-label"
+                      >
+                        Affiliation
+                      </label>
+                      <input
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        id="coAuthorAffilation"
+                        value={coAuthor?.coAuthorAffilation}
+                      />
+                    </div>
                   </div>
                 </div>
+                <div className="col-2 d-flex justify-content-center add-co-author-button">
+                  <button
+                    className="common-btn add-and-remove-button"
+                    id="coAuthor"
+                    type="button"
+                    onClick={(e) => addCoAuthor(e)}
+                  >
+                    Add
+                  </button>
+                </div>
+              </div>
             )}
 
             {abstractDocumentPayload.coAuthorDetails.length > 0 &&
               abstractDocumentPayload.coAuthorDetails.map((item, index) => {
                 return (
                   <div className="row">
-                     <div className="col-10 d-flex">
-                  <div className="col-2 ms-1 relation-box-1">
-                      <label className="form-label" htmlFor="relation-name">
-                        Saluation
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={item.coAuthorSaluation}
-                        disabled
-                      />
+                    <div className="col-10 d-flex">
+                      <div className="col-2 ms-1 relation-box-1">
+                        <label className="form-label" htmlFor="relation-name">
+                          Saluation
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          disabled={isDisabled}
+                          value={item.coAuthorSaluation}
+                        />
+                      </div>
+                      <div className="col-2 ms-1 relation-box-1">
+                        <label className="form-label" htmlFor="relation-type">
+                          First Name
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          value={item.coAuthorFirstName}
+                          disabled={isDisabled}
+                        />
+                      </div>
+                      <div className="col-2 ms-1 relation-box-1">
+                        <label className="form-label" htmlFor="relation-type">
+                          Middle Name
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          value={item.coAuthorMiddleName}
+                          disabled={isDisabled}
+                        />
+                      </div>
+                      <div className="col-2 ms-1 relation-box-1">
+                        <label className="form-label" htmlFor="relation-type">
+                          Last Name
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          value={item.coAuthorLastName}
+                          disabled={isDisabled}
+                        />
+                      </div>
+                      <div className="col-2 ms-1 relation-box-1">
+                        <label className="form-label" htmlFor="relation-type">
+                          Email
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          value={item.coAuthorEmail}
+                          disabled={isDisabled}
+                        />
+                      </div>
+                      <div className="col-2 ms-1 relation-box-1">
+                        <label className="form-label" htmlFor="relation-type">
+                          Affiliation
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          value={item.coAuthorAffilation}
+                          disabled={isDisabled}
+                        />
+                      </div>
                     </div>
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label className="form-label" htmlFor="relation-type">
-                        First Name
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={item.coAuthorFirstName}
-                        disabled
-                      />
-                    </div>
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label className="form-label" htmlFor="relation-type">
-                        Middle Name
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={item.coAuthorMiddleName}
-                        disabled
-                      />
-                    </div>
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label className="form-label" htmlFor="relation-type">
-                        Last Name
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={item.coAuthorLastName}
-                        disabled
-                      />
-                    </div>
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label className="form-label" htmlFor="relation-type">
-                        Email
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={item.coAuthorEmail}
-                        disabled
-                      />
-                    </div>
-                    <div className="col-2 ms-1 relation-box-1">
-                      <label className="form-label" htmlFor="relation-type">
-                        Affiliation
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={item.coAuthorAffilation}
-                        disabled
-                      />
-                    </div>
-                    </div>
+                    { !mode && (
                     <div className="col-2 d-flex justify-content-center add-co-author-button">
                       <button
                         className="common-btn add-and-remove-button"
@@ -501,20 +556,15 @@ const handleSelectedCitiesChange = (e) => {
                       >
                         Delete
                       </button>
-                      {/* <button
-                      className="common-btn add-and-remove-button ms-1"
-                      >
-                        Edit
-                      </button> */}
                     </div>
-
-
+                    ) }
                   </div>
+                    
                 );
               })}
 
             <div className="row">
-            <div className="col-md-4">
+              <div className="col-md-4">
                 <div className="mb-3">
                   <label htmlFor="paperPresentationType" className="form-label">
                     Intended Mode of Paper Presentation
@@ -524,125 +574,77 @@ const handleSelectedCitiesChange = (e) => {
                     aria-label="Default select example"
                     id="paperPresentationType"
                     value={abstractDocumentPayload.paperPresentationType}
+                    disabled={isDisabled}
                     onChange={(e) => abstarctOnChangeHandler(e)}
                   >
                     <option selected>Select Mode of Paper Presentation</option>
                     <option defaultValue="Oral">Oral</option>
                     <option defaultValue="Poster">Poster</option>
                   </select>
-
                 </div>
               </div>
+
+              { mode != "preview" ? (
               <div className="col-md-12">
                 <div className="col-md-12">
-                <div className="card flex mb-3">
-                <MultiSelect
-      value={selectedCities}
-      onChange={handleSelectedCitiesChange} // Update the onChange handler
-      options={subThems}
-      optionLabel="name"
-      display="chip"
-      placeholder="Select Sub-Themes"
-      maxSelectedLabels={3}
-      className="w-full md:w-20rem"
-    />
-        </div>
+                  <div className="card flex mb-3">
+                    <MultiSelect
+                      value={selectedThemes && selectedThemes}
+                      onChange={handleSelectedSubThemesChange} // Update the onChange handler
+                      options={subThems}
+                      optionLabel="name"
+                      disabled={isDisabled}
+                      placeholder="Select Sub-Themes"
+                      maxSelectedLabels={1}
+                      className="w-full md:w-20rem"
+                    />
+                  </div>
                 </div>
-
               </div>
-              
-              {/* <div className="col-md-12">
+              ) : (
+                <div className=" col-12 ms-1 relation-box-2" >
                 <div className="mb-3">
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                    id="themeType"
-                    value={abstractDocumentPayload.themeType}
-                    onChange={(e) => abstarctOnChangeHandler(e)}
-                  >
-                    <option selected>Sub-Theme</option>
-                    <option
-                      defaultValue="Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance"
-                    >
-                      Advances in cartography, geospatial technology and
-                      thematic mapping for management of natural resources and
-                      smart governance
-                    </option>
-                    <option
-                      defaultValue="Geospatial technologies for fostering sustainable agriculture, food security and green economies"
-                    >
-                      Geospatial technologies for fostering sustainable
-                      agriculture, food security and green economies
-                    </option>
-                    <option defaultValue="Geospatial technologies for sustainable water resources management">
-                      Geospatial technologies for sustainable water resources
-                      management
-                    </option>
-                    <option defaultValue="Geospatial technologies for environment and energy security">
-                      Geospatial technologies for environment and energy
-                      security
-                    </option>
-                    <option
-                      defaultValue="Geospatial technologies for urban studies and infrastructure planning & development"
-                    >
-                      Geospatial technologies for urban studies and
-                      infrastructure planning & development
-                    </option>
-                    <option defaultValue="Geospatial technologies for meteorology and climate change studies">
-                      Geospatial technologies for meteorology and climate change
-                      studies
-                    </option>
-
-                    <option
-                      defaultValue="Geospatial technologies for building disaster resilience and emergency management"
-                    >
-                      Geospatial technologies for building disaster resilience
-                      and emergency management
-                    </option>
-                    <option
-                      defaultValue="Hydrographic surveys and geospatial technologies for coastal zone management and oceanography"
-                    >
-                      Hydrographic surveys and geospatial technologies for
-                      coastal zone management and oceanography
-                    </option>
-                    <option
-                      defaultValue="Drone/UAV based novel applications for sustainable economies
-"
-                    >
-                      Drone/UAV based novel applications for sustainable
-                      economies
-                    </option>
-                    <option defaultValue="Emerging trends in AI/ML for cartography and geospatial applications">
-                      Emerging trends in AI/ML for cartography and geospatial
-                      applications
-                    </option>
-                    <option
-                      defaultValue="New geospatial and space policies for enhancing entrepreneurship and geospatial economy"
-                    >
-                      New geospatial and space policies for enhancing
-                      entrepreneurship and geospatial economy
-                    </option>
-                  </select>
+                  <label htmlFor="authorFirstName" className="form-label">
+                    Selected Themes
+                  </label>
+                  {selectedThemes?.length > 0 && selectedThemes.map((item, i)=>{
+                    return(
+                      <input
+                      key={i}
+                        onChange={(e) => abstarctOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        disabled={isDisabled}
+                        defaultValue={item.name}
+                        required
+                      />
+                    )                   
+                 
+                  } ) }
                 </div>
-              </div> */}
+              </div>
+             
+               
+              )
+              }
+
               <div className="col-md-12">
                 <div className="mb-3">
                   <label htmlFor="inputName" className="form-label">
-                    Title of the  Paper (25 words limit)
+                    Title of the Paper (25 words limit)
                   </label>
                   <textarea
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
                     className="form-control"
                     id="abstractPaperName"
+                    disabled={isDisabled}
                     value={abstractDocumentPayload.abstractPaperName}
                     required
                   ></textarea>
                 </div>
                 {abstractTitleError && (
-                  <p className="text-danger">
-                    {abstractTitleError}
-                  </p>
+                  <p className="text-danger">{abstractTitleError}</p>
                 )}
               </div>
               <div className="col-md-12">
@@ -653,6 +655,7 @@ const handleSelectedCitiesChange = (e) => {
                   <textarea
                     onChange={(e) => abstarctOnChangeHandler(e)}
                     type="text"
+                    disabled={isDisabled}
                     placeholder="You can copy paste abstract here"
                     className="form-control text-area-abtract"
                     id="abstract"
@@ -661,26 +664,31 @@ const handleSelectedCitiesChange = (e) => {
                   ></textarea>
                 </div>
                 {abstractDocumentPayload.abstract && abstractError && (
-                  <p className="text-danger">
-                    {abstractError}
-                  </p>
+                  <p className="text-danger">{abstractError}</p>
                 )}
               </div>
               <div className="row">
                 <div className="col-md-8">
                   <div className="mb-3">
-                    <button
-                      className="common-btn add-button"
-                      type="submit"
-                      disabled={loading}
-                    >
-                      {loading ? "uploading..." : "Submit"}
-                    </button>
-                    <p className="pt-3 fs-6">
-                      <b>Note</b>: Kindly, Fill the registeration form before
-                      uploading abstracts. For technical support in uploading of
-                      Abstracts please contact at info@43inca.org
-                    </p>
+                    {!mode && (
+                      <>
+                        <button
+                          className="common-btn add-button"
+                          type="submit"
+                          disabled={loading}
+                        >
+                          {loading ? "uploading..." : "Submit"}
+                        </button>
+
+                        <p className="pt-3 fs-6">
+                          <b>Note</b>: Kindly, Fill the registeration form
+                          before uploading abstracts. For technical support in
+                          uploading of Abstracts please contact at
+                          info@43inca.org
+                        </p>
+                      </>
+                    )}
+                    {userdetails?.role == "admin" && <PreviewPaper />}
                   </div>
                 </div>
               </div>

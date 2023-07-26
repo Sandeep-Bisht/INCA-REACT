@@ -28,17 +28,24 @@ const PreviewPaper = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.PreviewPaperReducer);
 
-  useEffect(() => {
-    if (location && location.state) {
-      let filePath = `http://144.91.110.221:4801/${location.state.abstractFileUrl}`;
-      // let filePath = `http://localhost:4801/${location.state.abstractFileUrl}`;
-      filePath = filePath.replace("\\", "/");
-      setViewPdf(filePath);
+  // useEffect(() => {
+  //   if (location && location.state) {
+  //     let filePath = `http://144.91.110.221:4801/${location.state.abstractFileUrl}`;
+  //     // let filePath = `http://localhost:4801/${location.state.abstractFileUrl}`;
+  //     filePath = filePath.replace("\\", "/");
+  //     setViewPdf(filePath);
+  //     approveDocs.userId = location.state.userId;
+  //     approveDocs.docsId = location.state._id;
+  //     setApproveDocs(approveDocs);
+  //   }
+  // }, [location]);
+
+  useEffect(()=> {
+    if(location && location.state) {
       approveDocs.userId = location.state.userId;
-      approveDocs.docsId = location.state._id;
-      setApproveDocs(approveDocs);
+       approveDocs.docsId = location.state._id;
     }
-  }, [location]);
+  })
 
   useEffect(() => {
     if (state.userAbstractPaperSuccess) {
@@ -64,7 +71,9 @@ const PreviewPaper = () => {
     } else {
       setAcceptLoader(true);
       approveDocs.paperApproveStatus = status;
-      dispatch(ACTIONS.approveFileSubmission(approveDocs));
+      
+      console.log(approveDocs, "docts accepe")
+       dispatch(ACTIONS.approveFileSubmission(approveDocs));
     }
   };
 
@@ -76,7 +85,7 @@ const PreviewPaper = () => {
   return (
     <>
       {/* show pdf conditionally (if we have one)  */}
-      {viewPdf && (
+      {/* {viewPdf && (
         <>
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
             <div className="container-fluid">
@@ -88,10 +97,10 @@ const PreviewPaper = () => {
             </div>
           </Worker>
         </>
-      )}
+      )} */}
 
       {/* if we dont have pdf or viewPdf state is null */}
-      {!viewPdf && <>No pdf file selected</>}
+      {/* {!viewPdf && <>No pdf file selected</>} */}
       <div className="row mt-3">
         <div className="col-md-10">
           <button
@@ -107,21 +116,17 @@ const PreviewPaper = () => {
           <button
             type="button"
             className="btn btn-danger ms-5"
-            //onClick={() => approvefilesubmissionHandler(false)}
-            //onClick={() => setShowModal(true)}
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
             {/* Reject */}
             {rejectLoader ? "Rejecting..." : "Reject"}
           </button>
-          <a 
-          className="btn btn-primary ms-5"
-          href={viewPdf} target="_blank">
-            Download
-          </a>
+         
         </div>
       </div>
+
+
       <div className="row mt-3">
         <div className="col-md-10">
           {message && message === "Document Approved, Email sent successfully on user email." ? (

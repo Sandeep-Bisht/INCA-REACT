@@ -34,7 +34,7 @@ const UserAbstractList = () => {
     { field: "abstractNumber", header: "Abstract Id"},
     { field: "authorEmail", header: "Email" },
     { field: "abstractPaperName", header: "Abstract Title" },
-    { field: "themeType", header: "Theme" },
+    // { field: "themeType", header: "Theme" },
   ];
 
   const dynamicColumns = columns.map((col, i) => {
@@ -100,7 +100,14 @@ const UserAbstractList = () => {
             body={actionBodyTemplate}
           ></Column> 
         </DataTable>
-      </div>      
+      </div>   
+      <div className="pt-5">
+      <p className="pt-3 fs-6">
+                          <b>Note</b>: Once your Abstract is approved, you can submit your full paper.
+                          For any technical support please contact at
+                          info@43inca.org
+                        </p>
+        </div>   
     </>
   );
 };

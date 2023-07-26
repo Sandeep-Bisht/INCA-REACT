@@ -13,6 +13,7 @@ import Signature2 from '../../images/certificatesignature2.png'
 import Pdf from "react-to-pdf";
 
 import INCA from '../../images/INCA.jpg'
+import { baseUrl } from "../../utils";
 
 const ref = React.createRef();
 const options = {
@@ -32,8 +33,7 @@ const Certificate = () => {
     }, [param.id])
 
     let getUserInfoForCertificate = async (id) => {
-        let url = `http://144.91.110.221:4801/api/generate_certificate/${id}`;
-       // let url = `http://localhost:4801/api/generate_certificate/${id}`;
+        let url = `${baseUrl}generate_certificate/${id}`;
         try {
             let response = await axios.get(url);
             setUserInfo(response.data[0])
@@ -63,7 +63,7 @@ const Certificate = () => {
                                     <img src={INCA} width="70px" height="80px" />
                                 </td>
                                 <td className="content">
-                                    <p>43<sup>RD</sup> INTERNATIONAL CONGRESS ON<br />DIGITAL CARTOGRAPHY
+                                    <p>42<sup>ND</sup> INTERNATIONAL CONGRESS ON<br />DIGITAL CARTOGRAPHY
                                         TO <br />HARNESS BLUE ECONOMY</p>
                                 </td>
                                 <td>
@@ -76,10 +76,8 @@ const Certificate = () => {
                                     <p>Organised by</p>
                                     <p>Indian National Cartographic Association</p>
                                     <p>&</p>
-                                    <p>Regional Remote Sensing Centre-West National Remote Sensing Center(NRSC),ISRO ISRO Complex, Bypass Road
-                    Sector 9, Kudi Bhagtasani Housing Board (KBHB)  <br />
-                     Jodhpur – 342005, </p>
-                                    <p>06-09<sup>th</sup> November 2023</p>
+                                    <p>National Hydrographic Office, Dehradun</p>
+                                    <p>09-11<sup>th</sup> November 2022</p>
                                 </td>
                             </tr>
                             <tr className="table_row" id="mid_row_2">
@@ -87,7 +85,7 @@ const Certificate = () => {
                             </tr>
                             <tr className="table_row" id="mid_row_3" style={{ backgroundImage: `url(${bg})` }}>
                                 <td className="mid_row_3_data">
-                                    <p className="mid_para"><i>This is to certify that Prof./Dr./Mr./Ms. <span style={{fontSize:"1.1rem", marginRight: 0 }}>{userInfo?.userName}</span></i></p>
+                                    <p className="mid_para"><i>This is to certify that <span style={{fontSize:"1.1rem", marginRight: 0 }}>{userInfo?.userName}</span></i></p>
                                     <p className="mid_para"><i> of <span style={{fontSize:"1.1rem", marginRight: 0 }}>{userInfo && userInfo.designation ? userInfo.designation : "------------"}</span></i></p>
                                     <p className="mid_para"><i>Presented paper titled <span style={{ fontSize:"1.1rem", marginRight: 0 }}>{userInfo && userInfo.abstractPaperName ? userInfo.abstractPaperName : "------------"}</span></i></p>
                                     <span className="congress"><i>in the 43<sup>rd</sup> INCA International Congress 2023.</i></span>

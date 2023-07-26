@@ -31,7 +31,7 @@ const PaymentConfirm = (props) => {
   };
 
   let sendQrOnEmailToUser = async(userId) => {
-    let url = `http://144.91.110.221:4801/api/generateqrcode/${userId}`;
+    let url = `${baseUrl}generateqrcode/${userId}`;
     try {
       let response = await axios.get(url, GetHeaders());
     } catch (error) {
