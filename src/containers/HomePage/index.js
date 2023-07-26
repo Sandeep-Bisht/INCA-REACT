@@ -341,7 +341,7 @@ const HomePage = () => {
                     <b>Click here to know details.</b>
                    
                   </Link><br/>
-                  <p className="common-para">
+                  <p className="common-para mb-0">
                     <b>Last date for submission of abstract</b></p>
                   <p className="common-para pb-3">
                     <b>10/August/2023</b></p> 
@@ -2438,7 +2438,7 @@ const HomePage = () => {
         <div className="container">
           <div className="row position-relative">
             <div className="col-md-7 mx-auto text-center">
-              <h2>SPONSOR</h2>
+              <h2>SPONSOR & EXHIBITOR</h2>
             </div>
           </div>
           <div className="sponsor-btn-temp">
@@ -2449,7 +2449,16 @@ const HomePage = () => {
             >
               BE A SPONSOR
             </button>
+            <button
+              className="common-btn ms-4"
+              type="button"
+              onClick={() => navigation("/exhibitor")}
+            >
+              BE A EXHIBITOR
+            </button>
           </div>
+          {/* <div className="sponsor-btn-temp bt">
+          </div> */}
         </div>
       </section>
 
@@ -2633,7 +2642,10 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
+              
               <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="row">
+                <div className="col-md-6">
                 <div className="contact-text">
                   <input
                     // className="form-movement"
@@ -2646,6 +2658,7 @@ const HomePage = () => {
                     <p>First name is required</p>
                   )}
                 </div>
+                
                 <div className="contact-email">
                   <input
                     // className="form-movement"
@@ -2657,7 +2670,8 @@ const HomePage = () => {
                     })}
                   />
                   {errors.email == "required" && <p>email is required</p>}
-                </div>
+                </div></div>
+                <div className="col-md-6">
                 <div className="contact-text">
                   <input
                     // className="form-movement"
@@ -2677,6 +2691,7 @@ const HomePage = () => {
                     {...register("subject", { required: true })}
                   />
                   {errors.subject === "required" && <p>Subject is required</p>}
+                </div></div>
                 </div>
                 <div className="contact-textarea">
                   <textarea
