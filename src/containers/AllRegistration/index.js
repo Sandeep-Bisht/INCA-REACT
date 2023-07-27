@@ -76,7 +76,7 @@ const AllRegistration = () => {
           <div className="ps-2">
 
             <button className="action-btn" onClick={() => redirectToCretePage(node, "edit")}>
-              <i className="fa-solid fa-pen "></i>
+              <i className="fa-solid fa-pen text-white"></i>
             </button>
           </div>
 
