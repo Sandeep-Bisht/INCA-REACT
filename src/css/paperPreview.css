@@ -1,3 +1,16 @@
 .modal-content {
     margin-top: 100px;
 }
+
+.btun{
+    background: #75b00f;
+    color: #ffff;
+}
+
+.btn .btn-danger .ms-5{
+    /* background: red; */
+}
+.action-btn{
+    background: black!important;
+    color: #ffffff!important;
+}

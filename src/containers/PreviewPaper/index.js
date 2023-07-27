@@ -106,7 +106,7 @@ const PreviewPaper = () => {
           <button
             type="button"
             //disabled={approveLoder}
-            className="btn btn-success ms-5"
+            className="btn btun"
             onClick={() => approvefilesubmissionHandler(true)}
           >
             {acceptLoader ? "Accepting..." : "Accept"}
