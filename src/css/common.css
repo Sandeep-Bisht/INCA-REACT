@@ -24,7 +24,7 @@ body
     border-radius: 5px;
     font-weight: 600;
     font-size: 12px;
-    padding: 10px;
+    padding: 5px;
     width: 140px;
 
 }
@@ -91,6 +91,13 @@ h1,h2,h3,h4,h5,h6
     color: #696A87;
     font-size: 14px;
     line-height: 20px;
+}
+.action-btn {
+    background: #fff!important;
+    /* border: 0; */
+    padding: 5px 10px!important;
+    border: none!important;
+    color: #000708!important;
 }
 .common-learn-more
 {
@@ -309,7 +316,7 @@ z-index: 10;
 }
 
 .header-wrapper.header-scrolled .nav-link {
-    color: #1c1e6bf7;
+    color: #ffffff!important;
 }
 .header-wrapper.header-scrolled .logo-text
 {
@@ -527,6 +534,24 @@ background-color:#fff;
     {
         display: none;
     }
+    .navbar-nav{
+
+        background: #212121;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    position: absolute;
+    right: -63px;
+    height: 44vh;
+    border-radius: 0;
+    margin-top: 12px;
+    width: 34vw;
+    border-radius: 19px;
+}
 
 }
 
@@ -551,7 +576,7 @@ background-color:#fff;
 
     .common-para
     {
-        font-size:13px;
+        font-size:12px;
     }
     .common-redirect-banner{
         padding:100px 0!important;
@@ -584,7 +609,7 @@ background-color:#fff;
     {
         background:#212121;
         border-radius: 5px;
-        padding:20px;
+        padding:10px;
        
         display: flex;
     flex-direction: column;
@@ -593,10 +618,10 @@ background-color:#fff;
     list-style: none;
     position: absolute;
     right: -11px;
-    height: 100vh;
-    border-radius: 0;
+    height: 28vh;
+    border-radius: 30px;
     margin-top: 12px;
-    width: 50vw;
+    width: 34vw;
     }
     .navbar-nav .nav-item
     {

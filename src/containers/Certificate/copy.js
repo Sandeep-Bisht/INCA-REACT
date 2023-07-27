@@ -12,6 +12,7 @@ import Signature1 from '../../images/certificatesignature1.png'
 import Signature2 from '../../images/certificatesignature2.png'
 
 import INCA from '../../images/INCA.jpg'
+import { baseUrl } from "../../utils";
 
 const ref = React.createRef();
 const options = {
@@ -31,8 +32,7 @@ const Certificate = () => {
     }, [param.id])
 
     let getUserInfoForCertificate = async (id) => {
-         let url = `http://144.91.110.221:4801/api/generate_certificate/${id}`;
-        //let url = `http://localhost:4801/api/generate_certificate/${id}`;
+         let url = `${baseUrl}generate_certificate/${id}`;
         try {
             let response = await axios.get(url);
             setUserInfo(response.data[0])

@@ -20,7 +20,6 @@ export function* uploadFullPaperFile(action) {
 }
 
 export function* saveFullPaperData(action) {  
-  //let url = "http://localhost:4801/api/fullPaperSubmition";
   let url = `${baseUrl}fullPaperSubmition`;
   try {
     const response = yield call(axios.post, url, action.fullPaperData, GetHeaders());

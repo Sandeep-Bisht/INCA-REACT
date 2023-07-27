@@ -4,6 +4,7 @@ import "../../css/userqrcomponentdetails.css";
 
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { baseUrl } from "../../utils";
 let UserQrInfoComponent = () => {
   const [userQrInfo, setUserQrInfo] = useState()
   let param = useParams();
@@ -16,7 +17,7 @@ let UserQrInfoComponent = () => {
   }, [param.id])
 
   let getUserInfoByqrCode = async (id) => {
-    let url = `http://144.91.110.221:4801/api/getuserqrinfo/${id}`;
+    let url = `${baseUrl}getuserqrinfo/${id}`;
     try {
       let response = await axios.get(url);
       setUserQrInfo(response.data[0])

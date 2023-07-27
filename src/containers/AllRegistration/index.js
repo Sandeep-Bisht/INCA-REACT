@@ -26,8 +26,7 @@ const AllRegistration = () => {
   }, []);
 
   let sendDownloadCertificateEmailToUser = async (id) => {
-    //let url = `http://144.91.110.221:4801/api/getsaveregistreduserinfo/${id}`;
-    let url = `http://144.91.110.221:4801/api/sendemailtodownloadcertificate/${id}`;
+    let url = `${baseUrl}sendemailtodownloadcertificate/${id}`;
     try {
       let response = await axios.get(url);
 
@@ -50,8 +49,7 @@ const AllRegistration = () => {
   }
 
   let sendEmailToUsers = async(email) => {
-    let url = `http://144.91.110.221:4801/api/sendEmailToAllUsers/${email}`;
-    //let url = `http://localhost:4801/api/generate_certificate/${id}`;
+    let url = `${baseUrl}sendEmailToAllUsers/${email}`;
     try {
         let response = await axios.get(url);
         //setUserInfo(response.data[0])
@@ -180,7 +178,7 @@ const AllRegistration = () => {
   let downloadUserInfoExcel = () => {
     try {
       axios({
-        url: 'http://144.91.110.221:4801/api/userexcel',
+        url: `${baseUrl}userexcel`,
         method: 'GET',
         responseType: 'blob',
       }).then((response) => {

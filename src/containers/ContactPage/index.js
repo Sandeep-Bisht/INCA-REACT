@@ -1,50 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import "../../css/contact.css";
 import {useForm} from "react-hook-form";
-// import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import Captcha from "../Captcha";
 import address from "../../images/rrsc_addres.png"
+import axios from "axios";
+import { baseUrl, GetHeaders } from "../../utils";
+
 
 const Contact = () => {
+  const [verified, setVerified] = useState(false);
+  const [setContactMsg, setSetContactMsg] = useState()
   const {
     register, 
     formState:{errors},
-    handleSubmit
+    handleSubmit,
+    reset
   }
      =useForm({
       firstName:"",
       email:"",
       phoneNumber:"",
+      message:"",
       subject:"",
       
      });
 
-  const onSubmit =(data) =>{
+  const onSubmit = async (data) =>{
     // doSubmit(data)
-    console.log(data)
+    console.log(data, "data")
+    let url = `${baseUrl}contact-us`
+
+    try {    
+      const response = await axios.post(url, data, GetHeaders());
+      if(response && response?.data?.emailSendStatus){
+        console.log(response.data, "responseee");
+        reset()
+        setSetContactMsg(response?.data?.message)
+        removeContactMsg()
+        
+      }else{
+        reset();
+        setSetContactMsg(response?.data?.message)
+        removeContactMsg()
+        
+      }
+    } catch (error) {
+       console.log(error)
+    }
   }
 
-//   useEffect(() => {
-//     loadCaptchaEnginge(6);
-//   }, [])
-
-
-//   let doSubmit = () => {
-//     let user_captcha = document.getElementById('user_captcha_input').value;
-
-//     if (validateCaptcha(user_captcha)===true) {
-//         alert('Captcha Matched');
-//         loadCaptchaEnginge(6); 
-//         document.getElementById('user_captcha_input').value = "";
-//     }
-
-//     else {
-//         alert('Captcha Does Not Match');
-//         document.getElementById('user_captcha_input').value = "";
-//     }
-// };
+  const removeContactMsg = () => {
+    setTimeout(()=> {
+      setSetContactMsg("")
+    }, 3000)
+  }
+ 
   return (
     <>
       <Header></Header>
@@ -139,7 +151,7 @@ const Contact = () => {
                           placeholder="Your Name.."
                          {...register("firstName", { required: true })}
                         />
-                        {errors.firstName === 'required' && <p>First name is required</p>}
+                        {errors.firstName  && <p className="text-danger">First name is required</p>}
 
                       </div>
 
@@ -152,7 +164,7 @@ const Contact = () => {
                           {...register("email", { required: "Email Address is required" })} 
 
                         />
-                        {errors.email=='required' && <p>email is required</p>}
+                        {errors.email  && <p className="text-danger">email is required</p>}
                       </div>
                     </div>
 
@@ -164,7 +176,7 @@ const Contact = () => {
                           placeholder="Your Number.."
                           {...register("phoneNumber", { required: true })}
                           />
-                          {errors.phoneNumber === 'required' && <p>Phone Number is required</p>}
+                          {errors.phoneNumber  && <p className="text-danger">Phone Number is required</p>}
                         
                       </div>
 
@@ -175,9 +187,10 @@ const Contact = () => {
                           placeholder="Your Subject.."
                           {...register("subject", { required: true })}
                           />
-                          {errors.subject === 'required' && <p>This feild is required</p>}
+                          {errors.subject  && <p className="text-danger">This feild is required</p>}
                         
                       </div>
+                      
                     </div>
 
                     <div className="row">
@@ -195,14 +208,18 @@ const Contact = () => {
                        <div><input placeholder="Enter Captcha Value" id="user_captcha_input" name="user_captcha_input" type="text"></input></div>
                    </div> */}
                    <div className="pb-2">
-                    <Captcha captchaLength={6} />
+                    <Captcha captchaLength={6} setVerified ={setVerified}/>
                     </div>
 
                     <div className="row mt-2">
                       <div className="col-md-12 pb-3">
-                        <button className="common-btn">SUBMIT MESSAGE</button>
+                        <button disabled={!verified} className="common-btn">SUBMIT MESSAGE</button>
                       </div>
                     </div>
+
+                    <div className="mt-2 mb-2">
+                        <p className="text-dark">{setContactMsg}</p>
+                      </div>
                   </div>
                 </div>
               </form>

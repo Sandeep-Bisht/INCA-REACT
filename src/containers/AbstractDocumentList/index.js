@@ -23,10 +23,10 @@ const AbstractDocumentList = () => {
 
   const columns = [
     {field:"registrationNumber",header:"Registration No"}, 
-    {field:"userName",header:"Author Name"},    
+    {field:"authorFirstName",header:"Author Name"},    
     { field: "abstractPaperName", header: "Author Title" },
     { field: "createdAt", header: "Date of Submission"},
-    { field: "themeType", header: "Theme" },    
+    // { field: "themeType", header: "Theme" },    
   ];
 
   const dynamicColumns = columns.map((col) => {
@@ -108,17 +108,22 @@ const AbstractDocumentList = () => {
   };
 
   let redirectToPaperPreviewPage = (item) => {
-    navigate("/dashboard/previewPaper", { state: item });
+    console.log(item, "itemsssssssss")
+    item.mode = "preview"
+    navigate("/dashboard/upload", { state: item });
   };
 
   const actionBodyTemplate = (node) => {
     return (
       <>
-        {/* <button onClick={() =>navigate("/dashboard/previewPaper")}> */}
         
-        <button  className="action-btn" onClick={() => redirectToPaperPreviewPage(node)}>
-          <i className="fa-solid fa-file-pdf"></i>
-        </button> 
+        <div >
+        {node.abstract}
+            <button className="action-btn" onClick={() => redirectToPaperPreviewPage(node, "view")}>
+              <i className="fa-solid fa-eye "></i>
+            </button>
+
+          </div>
       </>
     );
   };
@@ -172,7 +177,7 @@ const AbstractDocumentList = () => {
           {dynamicColumns}
           <Column
             field="Actions"
-            header="Document"
+            header="Abstract Description"
             body={actionBodyTemplate}
           ></Column>
           <Column

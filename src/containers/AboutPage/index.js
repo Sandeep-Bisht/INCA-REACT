@@ -197,10 +197,10 @@ const About = () => {
             <h3 className="pb-3">Nearby Hotels</h3>
             <div className="col-md-3">
               <div className="hotel-details">
-                <div class="card" >
-                  <img src={hotel1} class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">Sarovar Portico Hotel</h5>
+                <div className="card" >
+                  <img src={hotel1} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Sarovar Portico Hotel</h5>
                     <button type="button" className="common-btn"><a href="#">
                       Visit the Website
                     </a></button>
@@ -210,10 +210,10 @@ const About = () => {
             </div>
             <div className="col-md-3">
               <div className="hotel-details">
-                <div class="card" >
-                  <img src={hotel2} class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">Marbella Hotel</h5>
+                <div className="card" >
+                  <img src={hotel2} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Marbella Hotel</h5>
                      <button type="button" className="common-btn"><a href="#">
                       Visit the Website
                     </a></button>
@@ -223,10 +223,10 @@ const About = () => {
             </div>
             <div className="col-md-3">
               <div className="hotel-details">
-                <div class="card" >
-                  <img src={hotel3} class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">Hotel Madhuban</h5>
+                <div className="card" >
+                  <img src={hotel3} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Hotel Madhuban</h5>
                      <button type="button" className="common-btn"><a href="#">
                       Visit the Website
                     </a></button>
@@ -236,10 +236,10 @@ const About = () => {
             </div>
             <div className="col-md-3">
               <div className="hotel-details">
-                <div class="card" >
-                  <img src={hotel4} class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">Hotel Boulevard</h5>
+                <div className="card" >
+                  <img src={hotel4} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Hotel Boulevard</h5>
                      <button type="button" className="common-btn"><a href="#">
                       Visit the Website
                     </a></button>

@@ -35,7 +35,7 @@ const FullPaperList = () => {
     { field: "fullPaperNumber", header: "Fullpaper No"},
     { field: "authorFirstName", header: "Author Name" },
     { field: "fullPaperName", header: "Author Title" },
-    { field: "themeType", header: "Theme" },
+    // { field: "themeType", header: "Theme" },
     // { field: "createdAt", header: "Date of Submission" },
   ];
 
@@ -161,10 +161,10 @@ const FullPaperList = () => {
          Download
         </a>
         <button
-          className="action-btn"
+          className="action-btn ps-5 d-contents"
           onClick={() => redirectToFullPaperPreviewPage(node)}
         >
-          <i className="fa-solid fa-file-pdf"></i>
+          <i className="fa-solid fa-file-pdf ms-2 fs-4"></i>
         </button>
       </>
     );
