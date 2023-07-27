@@ -52,7 +52,7 @@ const AbstractUpload = () => {
 
   useEffect(() => {
     if (location && location.state && location.state.mode === "preview") {
-      
+      console.log(location, "locationnn");
       setAbstractDocumentPayload(location.state);
       // setPhoneNumber(location.state.phoneNumber.toString());
       setMode(location.state.mode);
