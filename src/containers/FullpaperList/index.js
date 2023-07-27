@@ -33,8 +33,8 @@ const FullPaperList = () => {
   const columns = [
     { field: "registrationNumber", header: "Registration No" },
     { field: "fullPaperNumber", header: "Fullpaper No"},
-    { field: "authorFirstName", header: "Author Name" },
-    { field: "fullPaperName", header: "Author Title" },
+    { field: "userName", header: "Author Name" },
+    { field: "fullPaperName", header: "Paper Title" },
     // { field: "themeType", header: "Theme" },
     // { field: "createdAt", header: "Date of Submission" },
   ];
@@ -160,15 +160,23 @@ const FullPaperList = () => {
         <a target="_blank" href={viewPdf} onClick={() => openPdf(node)}>
          Download
         </a>
-        <button
-          className="action-btn ps-5 d-contents"
-          onClick={() => redirectToFullPaperPreviewPage(node)}
-        >
-          <i className="fa-solid fa-file-pdf ms-2 fs-4"></i>
-        </button>
+        
       </>
     );
   };
+
+  const viewBodyTemplate = (node) => {
+    return(
+      <>
+      <button
+          className="action-btn d-contents"
+          onClick={() => redirectToFullPaperPreviewPage(node)}
+        >
+          <i className="fa-solid fa-file-pdf  fs-4"></i>
+        </button>
+      </>
+    )
+  }
 
   //   const statusBodyTemplate = (node) => {
   //     return (
@@ -228,6 +236,11 @@ const FullPaperList = () => {
                 field="Actions"
                 header="Document"
                 body={actionBodyTemplate}
+              ></Column>
+              <Column
+                field="View"
+                header="View"
+                body={viewBodyTemplate}
               ></Column>
             </DataTable>
           </div>

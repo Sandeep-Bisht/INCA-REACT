@@ -1172,7 +1172,7 @@ management of natural resources and smart governance"
                           />
                         </div>
 
-                        {location &&
+                        {/* {location &&
                           location.state &&
                           location.state.mode !== "edit" && (
                         <div className="relation-delete-box ps-3">
@@ -1185,7 +1185,7 @@ management of natural resources and smart governance"
                             Delete
                           </button>
                         </div>
-                          )}
+                          )} */}
 
                         {location &&
                           location.state &&
