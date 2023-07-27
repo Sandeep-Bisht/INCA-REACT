@@ -213,6 +213,11 @@
     height: 130px;
 }
 
+ .logout-btn{
+      height: 37px;
+      padding: 0 0.5rem 0 28px!important;
+}
+
 /* .form-section button
 {
   color: #fff;
