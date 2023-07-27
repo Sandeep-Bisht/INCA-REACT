@@ -150,7 +150,7 @@ const AbstractUpload = () => {
       setLoading(true);
     abstractDocumentPayload.themeType.push(selectedThemes);
     console.log("before api hit", abstractDocumentPayload);
-    // dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
+    dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
     }
     
   };
