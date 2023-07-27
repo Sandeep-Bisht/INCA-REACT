@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { MultiSelect } from "primereact/multiselect";
 import { useDispatch, useSelector } from 'react-redux';
 import * as ACTIONS from './action'
 import jwt_decode from "jwt-decode";
@@ -17,7 +18,7 @@ const FullPaper = () => {
     fullPaperName: "",     
     mimetype: "",
     fullPaperFileUrl: "",
-    themeType: "",
+    themeType: [],
     paperPresentationType:""
   }
 
@@ -31,7 +32,9 @@ const FullPaper = () => {
   let [fullPaperName, setFullPaperName] = useState();
   let [themeType, setThemeType] = useState();
   let [fullPaperPayload, setFullPaperPayload] = useState(obj);
-  const [otherAuthor, setOtherAuthor] = useState(false)
+  const [otherAuthor, setOtherAuthor] = useState(false);
+  const [selectedThemes, setSelectedThemes] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false);
   const [coAuthor, setCoAuthor] = useState({
     coAuthorSaluation: "",
     coAuthorFirstName: "",
@@ -105,17 +108,22 @@ const FullPaper = () => {
 
   let fullPaperSubmitHandler = (e) => {
     e.preventDefault();
+    if (selectedThemes == [] || selectedThemes === null) {
+      alert('Please select at least one sub-theme.');
+    }else{
     setLoading(true)
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage.getItem("token"));
       // fullPaperPayload.fullPaperName = fullPaperName;
-      fullPaperPayload.themeType = themeType;
+      // fullPaperPayload.themeType = themeType;
+      fullPaperPayload.themeType.push(selectedThemes);
       fullPaperPayload.userId = decodedToken.user.user._id;
-      // fullPaperPayload.userName = decodedToken.user.user.userName;
+      fullPaperPayload.userName = decodedToken.user.user.userName;
       fullPaperPayload.userEmail = decodedToken.user.user.userEmail;
       console.log("full paper fullPaperPayload ", fullPaperPayload)
       dispatch(ACTIONS.saveFullPaperData(fullPaperPayload))
     }
+  }
   }
 
   let emptyFormUploadField = () => {
@@ -194,6 +202,62 @@ const FullPaper = () => {
     setCoAuthor(coAuthorPayloadCopy);
   };
 
+  const subThems = [
+    {
+      name: "Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance",
+      code: "Advances in cartography, geospatial technology and thematic mapping for management of natural resources and smart governance",
+    },
+    {
+      name: "Geospatial technologies for fostering sustainable agriculture, food security and green economies",
+      code: "Geospatial technologies for fostering sustainable agriculture, food security and green economies",
+    },
+    {
+      name: "Geospatial technologies for sustainable water resources management",
+      code: "Geospatial technologies for sustainable water resources management",
+    },
+    {
+      name: "Geospatial technologies for environment and energy security",
+      code: "Geospatial technologies for environment and energy security",
+    },
+    {
+      name: "Geospatial technologies for urban studies and infrastructure planning & development",
+      code: "Geospatial technologies for urban studies and infrastructure planning & development",
+    },
+    {
+      name: "Geospatial technologies for meteorology and climate change studies",
+      code: "Geospatial technologies for meteorology and climate change studies",
+    },
+    {
+      name: "Geospatial technologies for building disaster resilience and emergency management",
+      code: "Geospatial technologies for building disaster resilience and emergency management",
+    },
+    {
+      name: "Hydrographic surveys and geospatial technologies for coastal zone management and oceanography",
+      code: "Hydrographic surveys and geospatial technologies for coastal zone management and oceanography",
+    },
+    {
+      name: "Drone/UAV based novel applications for sustainable economies",
+      code: "Drone/UAV based novel applications for sustainable economies",
+    },
+    {
+      name: "Emerging trends in AI/ML for cartography and geospatial applications",
+      code: "Emerging trends in AI/ML for cartography and geospatial applications",
+    },
+    {
+      name: "New geospatial and space policies for enhancing entrepreneurship and geospatial economy",
+      code: "New geospatial and space policies for enhancing entrepreneurship and geospatial economy",
+    },
+  ];
+
+  const handleSelectedSubThemesChange = (e) => {
+    // Check if the selected values exceed the limit (3 in this case)
+    let value = "";
+    if (e.value.length <= 3) {
+      setSelectedThemes(e.value);
+      value = e.value;
+    }
+  };
+
   
   return (
     <>
@@ -247,7 +311,7 @@ const FullPaper = () => {
                     className="form-control"
                     id="authorMiddleName"
                     defaultValue={fullPaperPayload?.authorMiddleName}
-                    required
+                    
                   />
                 </div>
               <div className="col-2 ms-1 relation-box-2">
@@ -329,7 +393,7 @@ const FullPaper = () => {
                      onChange={(e) => coAuthorOnChangeHandler(e)}
                      type="text"
                      className="form-control"
-                     id="coAuthorFirstName"
+                     id="coAuthorFirstName"                                        
                      value={coAuthor?.coAuthorFirstName}
                      
                    />
@@ -355,7 +419,7 @@ const FullPaper = () => {
                      onChange={(e) => coAuthorOnChangeHandler(e)}
                      type="text"
                      className="form-control"
-                     id="coAuthorLastName"
+                     id="coAuthorLastName"                     
                      value={coAuthor?.coAuthorLastName}
                      
                    />
@@ -369,7 +433,7 @@ const FullPaper = () => {
                      onChange={(e) => coAuthorOnChangeHandler(e)}
                      type="text"
                      className="form-control"
-                     id="coAuthorEmail"
+                     id="coAuthorEmail"                     
                      value={coAuthor?.coAuthorEmail}
                      
                    />
@@ -383,7 +447,7 @@ const FullPaper = () => {
                      onChange={(e) => coAuthorOnChangeHandler(e)}
                      type="text"
                      className="form-control"
-                     id="coAuthorAffilation"
+                     id="coAuthorAffilation"                     
                      value={coAuthor?.coAuthorAffilation}
                      
                    />
@@ -509,29 +573,23 @@ const FullPaper = () => {
                     
                 </div>
               </div>
+              
               <div className="col-md-12">
-                <div className="mb-3">
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                    id="themeType"
-                    value={fullPaperPayload.themeType}
-                    onChange={(e) => fullPaperOnChangeHandler(e)}
-                  >
-                    <option selected>Sub-Theme</option>                 
-                    
-                   
-                    <option
-                      defaultValue="Hydrographic surveys and geospatial technologies for coastal zone management and oceanography"
-                    >
-                      Hydrographic surveys and geospatial technologies for
-                      coastal zone management and oceanography
-                    </option>
-                  
-                   
-                  </select>
+                <div className="col-md-12">
+                  <div className="card flex mb-3">
+                    <MultiSelect
+                      value={selectedThemes && selectedThemes}
+                      onChange={handleSelectedSubThemesChange} // Update the onChange handler
+                      options={subThems}
+                      optionLabel="name"
+                      disabled={isDisabled}
+                      placeholder="Select Sub-Themes"
+                      maxSelectedLabels={1}
+                      className="w-full md:w-20rem"
+                    />
+                  </div>
                 </div>
-              </div> 
+              </div>
               <div className="col-md-12">
             <div className="mb-3">
               <label htmlFor="inputName" className="form-label">

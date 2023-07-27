@@ -25,6 +25,7 @@ const SponsorForm = () => {
     amount: "",
     isError: errorObj,
   });
+  const [verified, setVerified] = useState(false);
 
   const [loginLoder, setLoginLoder] = useState(false);
   const navigate = useNavigate()
@@ -391,12 +392,12 @@ const SponsorForm = () => {
                     </>
                   )}
                   <div className="contact-text"> 
-                  <Captcha captchaLength={6} />
+                  <Captcha captchaLength={6}  setVerified ={setVerified}/>
                   </div>
 
                   <div className="col-md-12">
                     <div className="btn-wrapper mt-3">
-                      <button type="submit" className="form-submit">
+                      <button type="submit" className="form-submit" disabled={!verified}>
                       {loginLoder ? "verifying" : "Submit"}
                       </button>
                     </div>

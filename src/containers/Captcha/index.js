@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-function Captcha({ captchaLength }) {
+function Captcha({ captchaLength, setVerified }) {
   const [captchaText, setCaptchaText] = useState(generateCaptchaText(captchaLength));
   const [userInput, setUserInput] = useState('');
 
   const handleUserInput = (event) => {
     setUserInput(event.target.value);
+    setVerified(true)
   };
 
   function generateCaptchaText(length) {
@@ -28,7 +29,7 @@ function Captcha({ captchaLength }) {
   return (
   <>    
   <div className='captcha-form'>
-      <label className='pt-3'>Enter the text you see below:</label>
+      <label className='pt-1 text-danger'>Enter the text you see below:</label>
       
     
     </div>
@@ -36,7 +37,7 @@ function Captcha({ captchaLength }) {
       <input type="text" className='form-movement me-5' value={userInput} onChange={handleUserInput} />
       <div className='captcha-align'>
       <span className='captcha-section fs-4'>{captchaText}</span>
-      <button className="common" onClick={regenerateCaptcha}><i class="fa-solid fa-arrows-rotate"></i></button>
+      <button className="common" onClick={regenerateCaptcha}><i className="fa-solid fa-arrows-rotate"></i></button>
   </div>
     
     {/* <input type="text" className='form-movement' value={userInput} onChange={handleUserInput} /> */}
