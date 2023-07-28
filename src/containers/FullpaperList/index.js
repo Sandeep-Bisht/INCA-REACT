@@ -138,7 +138,6 @@ const FullPaperList = () => {
   // };
 
   let openPdf = (item) => {
-    console.log("clicked", item);
     if (item) {
       let filePath = `http://144.91.110.221:4801/${item.fullPaperFileUrl}`;
       // let filePath = `http://localhost:4801/${item.fullPaperFileUrl}`;
@@ -157,15 +156,26 @@ const FullPaperList = () => {
   const actionBodyTemplate = (node, column) => {
     return (
       <>
-        <a target="_blank" href={viewPdf} onClick={() => openPdf(node)}>
+        {/* <a target="_blank" href={viewPdf} onClick={() => openPdf(node)}>
          Download
-        </a>
+        </a> */}
+        <button className="action-btn" onClick={()=>handleDownload(node.fullPaperFileUrl)}>Download File</button>
         
       </>
     );
   };
 
+  const handleDownload = (fileUrl) => {
+    // Create a temporary anchor element to trigger the download
+    const link = document.createElement('a');
+    link.href = `http://localhost:4801/${fileUrl}`
+    // link.target = '_blank'; // Optional: Open the link in a new tab
+    link.download =  `http://localhost:4801/${fileUrl}`;  // Customize the downloaded file name (optional)
+    link.click();
+  };
+
   const viewBodyTemplate = (node) => {
+    console.log("nodeeeeeeeeeee full paper", node)
     return(
       <>
       <button
