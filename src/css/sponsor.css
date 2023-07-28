@@ -155,3 +155,24 @@ input[type="text"]:focus
     padding-left: 45px;
     width: 100%;
 }
+
+@media only screen and (max-width : 767px){
+    .actual-form-1 {
+        position: relative;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 34px -15px rgb(0 0 0 / 24%);
+        width: 85%;
+        margin: auto;
+        padding: 30px 5px;
+    }
+
+    .common {
+        border: none;
+        background: transparent;
+        font-size: 22px;
+        padding-left: 27px;
+        margin-top: 4px;
+        margin-right: 8px;
+    }
+}
