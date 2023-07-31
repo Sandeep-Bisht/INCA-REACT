@@ -139,7 +139,7 @@ const FullPaperList = () => {
 
   let openPdf = (item) => {
     if (item) {
-      let filePath = `http://144.91.110.221:4801/${item.fullPaperFileUrl}`;
+      let filePath = `http://43inca.org/app//${item.fullPaperFileUrl}`;
       // let filePath = `http://localhost:4801/${item.fullPaperFileUrl}`;
       // let filePath = location.state.fullPaperFileUrl
       filePath = filePath.replace("\\", "/");
@@ -168,9 +168,11 @@ const FullPaperList = () => {
   const handleDownload = (fileUrl) => {
     // Create a temporary anchor element to trigger the download
     const link = document.createElement('a');
-    link.href = `http://localhost:4801/${fileUrl}`
+    // link.href = `http://localhost:4801/${fileUrl}`
+    link.href = `https://43inca.org/app//${fileUrl}`
     // link.target = '_blank'; // Optional: Open the link in a new tab
-    link.download =  `http://localhost:4801/${fileUrl}`;  // Customize the downloaded file name (optional)
+    // link.download =  `http://localhost:4801/${fileUrl}`;  // Customize the downloaded file name (optional)
+    link.download = `https://43inca.org/app//${fileUrl}`
     link.click();
   };
 

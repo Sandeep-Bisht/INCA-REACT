@@ -8,7 +8,8 @@ const FullPaperPreview = () => {
 
   useEffect(() => {
     if (location && location.state) {
-      let filePath = `http://localhost:4801/${location.state.fullPaperFileUrl}`;
+      // let filePath = `http://localhost:4801/${location.state.fullPaperFileUrl}`;
+      let filePath = `https://43inca.org/app//${location.state.fullPaperFileUrl}`;
       filePath = filePath.replace('\\', '/');
       setViewPdf(filePath);
     }
