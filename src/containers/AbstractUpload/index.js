@@ -259,7 +259,6 @@ const AbstractUpload = () => {
     }
   };
 
-  console.log("abstractDocumentPayload", abstractDocumentPayload)
 
   return (
     <>
