@@ -259,6 +259,7 @@ const AbstractUpload = () => {
     }
   };
 
+
   return (
     <>
       <section className="abstract-form">
@@ -573,7 +574,7 @@ const AbstractUpload = () => {
                     className="form-select"
                     aria-label="Default select example"
                     id="paperPresentationType"
-                    value={abstractDocumentPayload.paperPresentationType}
+                    value={abstractDocumentPayload?.paperPresentationType}
                     disabled={isDisabled}
                     onChange={(e) => abstarctOnChangeHandler(e)}
                   >

@@ -19,7 +19,7 @@
     height: 26px;
     letter-spacing: 1px;
     position: absolute;
-    bottom: 74px;
+    bottom: 100px;
     left: 0;
     width: 100%;
 }
@@ -1025,6 +1025,7 @@ a{
     }
 
 }
+
 @media only screen and (max-width : 1199px)
 {
     .home-banner .right .banner-title .banner-small {
@@ -1181,7 +1182,27 @@ a{
         font-size:14px;
     }
 }
-
+@media only screen and (max-width : 820px){
+    .common-btn{
+        padding: 3px 20px;
+    font-size: 12px;
+    margin-bottom: 2px;
+    }
+    .home-banner .right .banner-title .banner-small{
+        font-size: 19px;
+    line-height: 18px;
+    margin-bottom: 7px;
+    }
+    .abstract-submission-date {
+        background: #0a0a0a8f;
+        height: 26px;
+        letter-spacing: 1px;
+        position: absolute;
+        bottom: 80px;
+        left: 0;
+        width: 100%;
+    }
+}
 @media only screen and (max-width : 767px) {
     
     .Welcome-page .welcome-text
@@ -1852,6 +1873,15 @@ a{
         font-size: 12px;
         /* margin-bottom: 23px; */
     }
+    .abstract-submission-date {
+        background: #0a0a0a8f;
+        height: 28px;
+        letter-spacing: 1px;
+        position: absolute;
+        bottom: 74px;
+        left: 0;
+        width: 100%;
+    }
     .common-btn {
         margin-bottom: 20px!important;
         margin-top: 15px;
@@ -2033,6 +2063,16 @@ a{
         display: flex;
         align-items: start;
         margin: 25px 0;
+    }
+
+    .abstract-submission-date {
+        background: #0a0a0a8f;
+        height: 28px;
+        letter-spacing: 1px;
+        position: absolute;
+        bottom: 71px;
+        left: 0;
+        width: 100%;
     }
     /* .home-register-step ul li {
         height: auto;

@@ -92,12 +92,16 @@ h1,h2,h3,h4,h5,h6
     font-size: 14px;
     line-height: 20px;
 }
+.btun{
+    background: #75b00f;
+    color: #ffff;
+}
 .action-btn {
-    background: #fff!important;
+    background: #000!important;
     /* border: 0; */
     padding: 5px 10px!important;
     border: none!important;
-    color: #000708!important;
+    color: #fff!important;
 }
 .common-learn-more
 {
@@ -301,6 +305,9 @@ border: none!important;
 .text-justify
 {
     text-align: justify;
+}
+button .btn{
+    background: #75b00f;
 }
 .header-scrolled
 {
@@ -618,9 +625,9 @@ background-color:#fff;
     list-style: none;
     position: absolute;
     right: -11px;
-    height: 28vh;
+    height: 33vh;
     border-radius: 30px;
-    margin-top: 12px;
+    margin-top: 0px;
     width: 34vw;
     }
     .navbar-nav .nav-item

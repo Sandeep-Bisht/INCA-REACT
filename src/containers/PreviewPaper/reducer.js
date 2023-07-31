@@ -15,6 +15,12 @@ export default (state = INITIAL_STATE, action) => {
         userAbstractPaperFailure: action.error,
       };
 
+      case CONSTANTS.RESET_ABSTRACT_RESPONSE_TO_INITIAL_STATE:
+      return {
+        ...state,
+        userAbstractPaperSuccess : ""
+      }
+
     default:
       return state;
   }

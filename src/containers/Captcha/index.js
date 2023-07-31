@@ -29,12 +29,12 @@ function Captcha({ captchaLength, setVerified }) {
   return (
   <>    
   <div className='captcha-form'>
-      <label className='pt-1 text-danger'>Enter the text you see below:</label>
+      <label className='pt-1 text-danger ms-2'>Enter the text you see below:</label>
       
     
     </div>
     <div className='captcha-box'>
-      <input type="text" className='form-movement me-5' value={userInput} onChange={handleUserInput} />
+      <input type="text" className='form-movement me-3 ms-2' value={userInput} onChange={handleUserInput} />
       <div className='captcha-align'>
       <span className='captcha-section fs-4'>{captchaText}</span>
       <button className="common" onClick={regenerateCaptcha}><i className="fa-solid fa-arrows-rotate"></i></button>

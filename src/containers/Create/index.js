@@ -12,6 +12,7 @@ import PaymentConfirm from "../PaymentConfirm";
 import { baseUrl, countries } from "../../utils";
 import * as ACTIONS from "./action";
 
+
 const obj = {
   name: "",
   designation: "",
@@ -1172,7 +1173,7 @@ management of natural resources and smart governance"
                           />
                         </div>
 
-                        {location &&
+                        {/* {location &&
                           location.state &&
                           location.state.mode !== "edit" && (
                         <div className="relation-delete-box ps-3">
@@ -1185,7 +1186,7 @@ management of natural resources and smart governance"
                             Delete
                           </button>
                         </div>
-                          )}
+                          )} */}
 
                         {location &&
                           location.state &&

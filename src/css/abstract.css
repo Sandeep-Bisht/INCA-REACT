@@ -8,6 +8,10 @@
 
 }
 
+.btn{
+    background: #75b00f;
+}
+
 .common-redirect-banner::before {
     position: absolute;
     top: 0;
