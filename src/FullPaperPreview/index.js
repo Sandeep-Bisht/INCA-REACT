@@ -9,9 +9,10 @@ const FullPaperPreview = () => {
   useEffect(() => {
     if (location && location.state) {
       // let filePath = `http://localhost:4801/${location.state.fullPaperFileUrl}`;
-      let filePath = `https://43inca.org/app//${location.state.fullPaperFileUrl}`;
+      let filePath = `https://43inca.org/${location.state.fullPaperFileUrl}`;
       filePath = filePath.replace('\\', '/');
       setViewPdf(filePath);
+      console.log("filePath filePath", filePath)
     }
   }, [location]);
 
