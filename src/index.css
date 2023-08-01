@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.p-multiselect-item {
+  text-wrap:balanced !important;
+}
+.p-multiselect-items-wrapper {
+  max-width: 50% !important;
+}
+.p-multiselect-items-wrapper {
+  max-width: 50% !important;
+  min-width: 50% !important;
+}

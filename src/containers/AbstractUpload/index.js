@@ -596,15 +596,16 @@ const AbstractUpload = () => {
 
               { mode != "preview" ? (
                 <>
-                <div>
+                {/* <div>
+                  
+                  </div>
+               */}
+                <div className="col-md-12">
+                  <div className="mb-3">
                   <label htmlFor="paperPresentationType" className="form-label asterisk">
                     Select Sub-Themes
                   </label>
-                  </div>
-              
-                <div className="col-md-12 ">
-                  <div className="card flex mb-3">
-                    <MultiSelect
+                  <MultiSelect
                       value={selectedThemes && selectedThemes}
                       onChange={handleSelectedSubThemesChange} // Update the onChange handler
                       options={subThems}

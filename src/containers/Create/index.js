@@ -348,6 +348,7 @@ const CreateForm = (props) => {
 
 
   const validateForm = () => {
+    console.log("result", userInformation)
     let formIsValid = true;
 
     if (!userInformation?.name) {
@@ -406,6 +407,7 @@ const CreateForm = (props) => {
         userInformation.registrationFee = value;
         userInformation.phoneNumber = phoneNumber;
         delete userInformation.isError;
+        console.log("ssave se oedje", userInformation)
         dispatch(ACTIONS.saveRegisterdUserData(userInformation));
       } else {
         let userInformationCopy = { ...userInformation };
@@ -758,7 +760,6 @@ const CreateForm = (props) => {
                       Phone
                     </label>
                     <PhoneInput
-                    className="phone-input-box"
                       country="in"
                       value={phoneNumber}
                       disabled={loggedInUser && userInformation && phoneNumber}
@@ -824,11 +825,15 @@ const CreateForm = (props) => {
                 </div>
               </div>
             </div>
-          
+
+            {/* Theme */}
+            
+            {/* Theme end */}
 
             {/* Registration Category Start */}
             <div className="row mb-4">
-              <div className="col-md-4">
+
+              <div className="col-md-6">
                 <label
                   htmlFor="participationType"
                   className="form-label asterisk"
@@ -862,27 +867,8 @@ const CreateForm = (props) => {
                 )}
               </div>
 
-              {userInformation.participationType !== "" &&
-                userInformation.participationType !== "delegate" && (
-                  <div className="col-md-4">
-                    <label htmlFor="title" className="form-label">
-                      Title of the paper/poster
-                    </label>
-                    <textarea
-                      id="title"
-                      value={userInformation && userInformation.title}
-                      disabled={isDisabled}
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      className={
-                        isError && isError.title.length > 0
-                          ? "is-invalid form-control"
-                          : "form-control"
-                      }
-                    ></textarea>
-                  </div>
-                )}
 
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <label
                   htmlFor="registrationCategory"
                   className="form-label asterisk"
@@ -913,6 +899,31 @@ const CreateForm = (props) => {
                   <p className="text-danger">{isError.registrationCategory}</p>
                 )}
               </div>
+              </div>
+              
+
+              <div className="row">
+              {userInformation.participationType !== "" &&
+                userInformation.participationType !== "delegate" && (
+                  
+                  <div className="col-md-6">
+                    <label htmlFor="title" className="form-label">
+                      Title of the paper/poster
+                    </label>
+                    <textarea
+                      id="title"
+                      value={userInformation && userInformation.title}
+                      disabled={isDisabled}
+                      onChange={(e) => userInformationOnchangeHandler(e)}
+                      className={
+                        isError && isError.title.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
+                    ></textarea>
+                  </div>
+                  
+                )}
 
               {userInformation?.registrationCategory == "Life Members" ? (
                 <div className="col-md-4">
@@ -931,7 +942,7 @@ const CreateForm = (props) => {
                   )}
                 </div>
               ) : userInformation?.registrationCategory == "For Students" ? (
-                <div className="col-md-4">
+                <div className="col-md-6">
                   <label htmlFor="universityName" className="form-label">
                     University Name
                   </label>
@@ -950,7 +961,49 @@ const CreateForm = (props) => {
                 ""
               )}
 
-              <div className="col-md-4 mt-3">
+              <div className="col-md-6">
+                <div>
+                  <p className="form-label">Nationality :</p>
+                </div>
+                <div className="radio-button-box d-flex">
+                  <label className="pe-2" htmlFor="nationality">
+                    Foreign
+                  </label>
+                  <input
+                    type="radio"
+                    id="nationality"
+                    className="w-auto"
+                    name="nationality"
+                    checked={userInformation.nationality === "foreigner"}
+                    disabled={isDisabled}
+                    value="foreigner"
+                    onChange={(e) => userInformationOnchangeHandler(e)}
+                  />
+                  <label className="ps-4 pe-1" htmlFor="nationality">
+                    Indian
+                  </label>
+                  <input
+                    type="radio"
+                    id="nationality"
+                    className="w-auto"
+                    name="nationality"
+                    checked={userInformation.nationality === "indian"}
+                    disabled={isDisabled}
+                    value="indian"
+                    onChange={(e) => userInformationOnchangeHandler(e)}
+                  />
+                </div>
+                {isError && isError.nationality && (
+                  <p className="text-danger">{isError.nationality}</p>
+                )}
+              </div>
+                </div>          
+
+{/* Registration Category end */}
+
+            <div className="row">
+           
+            <div className="col-md-6 mt-3 mb-3">
                 <div className="accompany-box d-flex pb-2">
                   <div className="accompany-box-1 pt-1">
                     <h6 className="form-label m-0">Accompanying Person :</h6>
@@ -1064,9 +1117,7 @@ const CreateForm = (props) => {
                           />
                         </div>
 
-                        {/* {location &&
-                          location.state &&
-                          location.state.mode !== "edit" && (
+                        {!isDisabled && (
                         <div className="relation-delete-box ps-3">
                           <button
                             className="common-btn add-button"
@@ -1077,7 +1128,7 @@ const CreateForm = (props) => {
                             Delete
                           </button>
                         </div>
-                          )} */}
+                        ) }
 
                         {location &&
                           location.state &&
@@ -1094,7 +1145,11 @@ const CreateForm = (props) => {
                   })}
               </div>
 
-              <div className="col-md-4">
+              
+            </div>
+
+            <div className="row">
+            <div className="col-md-6">
                 {isDisabled && (
                   <>
                     <label htmlFor="InputFee" className="form-label">
@@ -1121,7 +1176,6 @@ const CreateForm = (props) => {
                 )}
               </div>
             </div>
-            {/* Registration Category end */}
           
 
           <div className="row">
