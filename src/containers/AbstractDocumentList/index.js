@@ -177,7 +177,13 @@ const AbstractDocumentList = () => {
           filterDisplay="menu"
           value={abstractList}
           responsiveLayout="scroll"
-          globalFilterFields={["abstractPaperName"]}
+          globalFilterFields={[
+            "abstractPaperName",
+            "authorFirstName",
+            "registrationNumber",
+            "abstractNumber"
+
+          ]}
           header={header1}
         >
           
