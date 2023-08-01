@@ -14,3 +14,10 @@ export const saveAbstractData = (payload) => {
     }
 }
 
+export const resetAbstractDataToInitialState = () => {
+    return{
+        type:CONSTANTS.RESET_ABSTRACT_DATA_SUCCESS_TO_INITIAL_STATE,
+        
+    }
+}
+

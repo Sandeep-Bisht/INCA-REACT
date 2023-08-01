@@ -97,18 +97,18 @@ const AllRegistration = () => {
 
           </div>
 
-          <div className="ps-2">
+          {/* <div className="ps-2">
             <button className="action-btn" onClick={() => { generateUserQrCode(node) }}>
               Generate Qr
             </button>
 
-          </div>
+          </div> */}
             
-          <div className="ps-2">
+          {/* <div className="ps-2">
         <button className="action-btn" onClick={() => { sendEmailToUsers(node.email) }}>
               Send General email
             </button>
-            </div>
+            </div> */}
         </div>
       </>
     );
