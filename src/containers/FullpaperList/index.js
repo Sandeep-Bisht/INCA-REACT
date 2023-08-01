@@ -240,7 +240,12 @@ const FullPaperList = () => {
               filterDisplay="menu"
               value={fullPaperList}
               responsiveLayout="scroll"
-              globalFilterFields={["fullPaperName"]}
+              globalFilterFields={[
+                "fullPaperName",
+              "userName",
+              "registrationNumber",
+              "fullPaperNumber"
+            ]}
               header={header1}
             >
               {dynamicColumns}
@@ -268,7 +273,10 @@ const FullPaperList = () => {
             filterDisplay="menu"
             value={userFullPaperList}
             responsiveLayout="scroll"
-            globalFilterFields={["fullPaperName"]}
+            globalFilterFields={[
+              "fullPaperName",
+              ""
+            ]}
             header={header1}
           >
             {dynamicColumns}

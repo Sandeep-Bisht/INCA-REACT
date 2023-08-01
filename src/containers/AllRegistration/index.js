@@ -318,6 +318,7 @@ const AllRegistration = () => {
             globalFilterFields={[
               "name",
               "email",
+              "registrationNumber",
               "designation",
               "participationType",
             ]}
