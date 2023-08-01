@@ -26,6 +26,7 @@ import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
 import FinalSercular from "../../images/INCA_43rd_First_Circular (2).pdf";
+import FirstCircular from "../../SampleFiles/INCA_43rd_First_Circular_28072023_230731_190021.pdf"
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4'
 
@@ -207,13 +208,13 @@ const HomePage = () => {
                 <div className="banner-btn-box pt-2">
                   <button
                     className=" common-btn register-home-btn"
-                    onClick={() => navigation("/register")}
+                    // onClick={() => navigation("/register")}
                   >
                    <span></span>
                    <span></span>
                    <span></span>
                    <span></span>
-                   <a target="_blank" href={FinalSercular}>
+                   <a target="_blank" href={FirstCircular}>
                    First Circular 
                    </a>
                   </button>
@@ -2506,7 +2507,7 @@ const HomePage = () => {
           <div className="row">
             <div className="col-lg-3">
               <div className="blog-card">
-                <a target="_blank" href={FinalSercular}>
+                <a target="_blank" href={FirstCircular}>
                   <div className="blog-card-pic">
                     <img src={Event_2} alt="Second-Circular"></img>
                   </div>

@@ -169,10 +169,10 @@ const FullPaperList = () => {
     // Create a temporary anchor element to trigger the download
     const link = document.createElement('a');
     // link.href = `http://localhost:4801/${fileUrl}`
-    link.href = `https://43inca.org/${fileUrl}`
+    link.href = `https://43inca.org/app//${fileUrl}`
     // link.target = '_blank'; // Optional: Open the link in a new tab
     // link.download =  `http://localhost:4801/${fileUrl}`;  // Customize the downloaded file name (optional)
-    link.download = `https://43inca.org/${fileUrl}`
+    link.download = `https://43inca.org/app//${fileUrl}`
     link.click();
   };
 

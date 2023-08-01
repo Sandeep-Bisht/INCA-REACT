@@ -651,7 +651,7 @@ const AbstractUpload = () => {
               <div className="col-md-12">
                 <div className="mb-3">
                   <label htmlFor="abstract" className="form-label">
-                    Paste Abstract (300 words only)
+                    Abstract (300 words only)
                   </label>
                   <textarea
                     onChange={(e) => abstarctOnChangeHandler(e)}
