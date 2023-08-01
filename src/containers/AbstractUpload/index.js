@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import { MultiSelect } from "primereact/multiselect";
-
 import * as ACTIONS from "./action";
 import { useLocation } from "react-router-dom";
 import PreviewPaper from "../PreviewPaper";
@@ -274,7 +273,7 @@ const AbstractUpload = () => {
               <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
                 <div className="row"> 
                 <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
-                  <label htmlFor="authorSaluation" className="form-label">
+                  <label htmlFor="authorSaluation" className="form-label asterisk">
                     Saluation
                   </label>
                   <select
@@ -295,7 +294,7 @@ const AbstractUpload = () => {
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
                   <div className="mb-3">
-                    <label htmlFor="authorFirstName" className="form-label">
+                    <label htmlFor="authorFirstName" className="form-label asterisk">
                       First Name
                     </label>
                     <input
@@ -337,7 +336,7 @@ const AbstractUpload = () => {
                   />
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
-                  <label htmlFor="authorEmail" className="form-label">
+                  <label htmlFor="authorEmail" className="form-label asterisk">
                     email
                   </label>
                   <input
@@ -351,7 +350,7 @@ const AbstractUpload = () => {
                   />
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
-                  <label htmlFor="authorAffiliation" className="form-label">
+                  <label htmlFor="authorAffiliation" className="form-label asterisk">
                     Affiliation
                   </label>
                   <input
@@ -385,7 +384,7 @@ const AbstractUpload = () => {
                 <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
                   <div className="row">
                   <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
-                    <label htmlFor="coAuthorSaluation" className="form-label">
+                    <label htmlFor="coAuthorSaluation" className="form-label asterisk">
                       Saluation
                     </label>
                     <select
@@ -403,7 +402,7 @@ const AbstractUpload = () => {
                     </select>
                   </div>
                   <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
-                    <label htmlFor="coAuthorFirstName" className="form-label">
+                    <label htmlFor="coAuthorFirstName" className="form-label asterisk">
                       First Name
                     </label>
                     <input
@@ -440,7 +439,7 @@ const AbstractUpload = () => {
                   </div>
 
                   <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
-                    <label htmlFor="coAuthorEmail" className="form-label">
+                    <label htmlFor="coAuthorEmail" className="form-label asterisk">
                       email
                     </label>
                     <input
@@ -456,7 +455,7 @@ const AbstractUpload = () => {
                     <div className="mb-3">
                       <label
                         htmlFor="coAuthorAffiliation"
-                        className="form-label"
+                        className="form-label asterisk"
                       >
                         Affiliation
                       </label>
@@ -574,7 +573,7 @@ const AbstractUpload = () => {
             <div className="row">
               <div className="col-md-4">
                 <div className="mb-3">
-                  <label htmlFor="paperPresentationType" className="form-label">
+                  <label htmlFor="paperPresentationType" className="form-label asterisk">
                     Intended Mode of Paper Presentation
                   </label>
                   <select
@@ -593,8 +592,14 @@ const AbstractUpload = () => {
               </div>
 
               { mode != "preview" ? (
-              <div className="col-md-12">
-                <div className="col-md-12">
+                <>
+                <div>
+                  <label htmlFor="paperPresentationType" className="form-label asterisk">
+                    Select Sub-Themes
+                  </label>
+                  </div>
+              
+                <div className="col-md-12 ">
                   <div className="card flex mb-3">
                     <MultiSelect
                       value={selectedThemes && selectedThemes}
@@ -604,11 +609,12 @@ const AbstractUpload = () => {
                       disabled={isDisabled}
                       placeholder="Select Sub-Themes"
                       maxSelectedLabels={1}
-                      className="w-full md:w-20rem"
+                      className="w-full md:w-20rem "
                     />
                   </div>
                 </div>
-              </div>
+                </>
+              
               ) : (
                 <div className=" col-12 ms-1 relation-box-2" >
                 <div className="mb-3">
@@ -638,7 +644,7 @@ const AbstractUpload = () => {
 
               <div className="col-md-12">
                 <div className="mb-3">
-                  <label htmlFor="inputName" className="form-label">
+                  <label htmlFor="inputName" className="form-label asterisk">
                     Title of the Paper (25 words limit)
                   </label>
                   <textarea
@@ -657,7 +663,7 @@ const AbstractUpload = () => {
               </div>
               <div className="col-md-12">
                 <div className="mb-3">
-                  <label htmlFor="abstract" className="form-label">
+                  <label htmlFor="abstract" className="form-label asterisk">
                     Abstract (300 words only)
                   </label>
                   <textarea

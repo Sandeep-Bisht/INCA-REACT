@@ -274,7 +274,7 @@ const FullPaper = () => {
             <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
             <div className="row"> 
             <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
-                  <label htmlFor="authorSaluation" className="form-label">
+                  <label htmlFor="authorSaluation" className="form-label asterisk">
                     Saluation
                   </label>                 
                   <select
@@ -293,7 +293,7 @@ const FullPaper = () => {
                     
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
-                  <label htmlFor="authorFirstName" className="form-label">
+                  <label htmlFor="authorFirstName" className="form-label asterisk">
                     First Name
                   </label>
                   <input
@@ -332,7 +332,7 @@ const FullPaper = () => {
                   />
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
-                  <label htmlFor="authorEmail" className="form-label">
+                  <label htmlFor="authorEmail" className="form-label asterisk">
                    email
                   </label>
                   <input
@@ -345,7 +345,7 @@ const FullPaper = () => {
                   />
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
-                  <label htmlFor="authorAffiliation" className="form-label">
+                  <label htmlFor="authorAffiliation" className="form-label asterisk">
                    Affiliation
                   </label>
                   <input
@@ -377,7 +377,7 @@ const FullPaper = () => {
                  <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
                  <div className="row"> 
                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
-                   <label htmlFor="coAuthorSaluation" className="form-label">
+                   <label htmlFor="coAuthorSaluation" className="form-label asterisk">
                      Saluation
                    </label>                 
                    <select
@@ -396,7 +396,7 @@ const FullPaper = () => {
                      
                  </div>
                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
-                   <label htmlFor="coAuthorFirstName" className="form-label">
+                   <label htmlFor="coAuthorFirstName" className="form-label asterisk">
                      First Name
                    </label>
                    <input
@@ -436,7 +436,7 @@ const FullPaper = () => {
                  </div>
                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
                  <div className="mb-3">
-                   <label htmlFor="coAuthorEmail" className="form-label">
+                   <label htmlFor="coAuthorEmail" className="form-label asterisk">
                     email
                    </label>
                    <input
@@ -450,7 +450,7 @@ const FullPaper = () => {
                  </div>
                </div>
                <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
-                   <label htmlFor="coAuthorAffiliation" className="form-label">
+                   <label htmlFor="coAuthorAffiliation" className="form-label asterisk">
                     Affiliation
                    </label>
                    <input
@@ -571,7 +571,7 @@ const FullPaper = () => {
         <div className="row">
         <div className="col-md-4">
                 <div className="mb-3">
-                  <label htmlFor="paperPresentationType" className="form-label">
+                  <label htmlFor="paperPresentationType" className="form-label asterisk">
                   Intended Mode of Paper Presentation
                   </label>                 
                   <select
@@ -589,7 +589,12 @@ const FullPaper = () => {
                 </div>
               </div>
               
-              <div className="col-md-12">
+              <div>
+                  <label htmlFor="paperPresentationType" className="form-label asterisk">
+                    Select Sub-Themes
+                  </label>
+                  </div>
+              
                 <div className="col-md-12">
                   <div className="card flex mb-3">
                     <MultiSelect
@@ -603,11 +608,10 @@ const FullPaper = () => {
                       className="w-full md:w-20rem"
                     />
                   </div>
-                </div>
               </div>
               <div className="col-md-12">
             <div className="mb-3">
-              <label htmlFor="inputName" className="form-label">
+              <label htmlFor="inputName" className="form-label asterisk">
               Title of the  Paper (25 words limit)
               </label>
               <textarea 
@@ -626,7 +630,7 @@ const FullPaper = () => {
           </div>
           <div className="col-md-8">
                 <div className="mb-3">
-                  <label htmlFor="inputFile" className="form-label">
+                  <label htmlFor="inputFile" className="form-label asterisk">
                   Full Paper Upload (File size should not be more 20mb )
                   </label>
                   <input
