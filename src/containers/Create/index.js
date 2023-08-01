@@ -25,7 +25,7 @@ const obj = {
   participationType: "",
   nationality: "",
   title: "",
-  theme: "",
+  // theme: "",
   registrationCategory: "",
   lifeMemberNo: "",
   universityName: "",
@@ -43,7 +43,7 @@ const obj = {
     participationType: "",
     nationality: "",
     title: "",
-    theme: "",
+    // theme: "",
     registrationCategory: "",
     lifeMemberNo: "",
     universityName: "",
@@ -175,7 +175,7 @@ const CreateForm = (props) => {
         participationType: "",
         nationality: "",
         title: "",
-        theme: "",
+        // theme: "",
         registrationCategory: "",
         lifeMemberNo: "",
         universityName: "",
@@ -325,11 +325,11 @@ const CreateForm = (props) => {
         setUserInformation(userInformationCopy);
         break;
 
-      case "theme":
-        userInformationCopy.isError.theme =
-          value.length < 0 ? "Theme is Required" : "";
-        setUserInformation(userInformationCopy);
-        break;
+      // case "theme":
+      //   userInformationCopy.isError.theme =
+      //     value.length < 0 ? "Theme is Required" : "";
+      //   setUserInformation(userInformationCopy);
+      //   break;
 
       case "registrationCategory":
         userInformationCopy.isError.registrationCategory =
@@ -377,9 +377,9 @@ const CreateForm = (props) => {
       formIsValid = false;
     }
 
-    if (!userInformation?.theme) {
-      formIsValid = false;
-    }
+    // if (!userInformation?.theme) {
+    //   formIsValid = false;
+    // }
 
     if (!userInformation?.registrationCategory) {
       formIsValid = false;
@@ -758,6 +758,7 @@ const CreateForm = (props) => {
                       Phone
                     </label>
                     <PhoneInput
+                    className="phone-input-box"
                       country="in"
                       value={phoneNumber}
                       disabled={loggedInUser && userInformation && phoneNumber}
@@ -823,117 +824,7 @@ const CreateForm = (props) => {
                 </div>
               </div>
             </div>
-
-            {/* Theme */}
-            <div className="row mb-4">
-              <div className="col-md-8">
-                <label htmlFor="theme" className="form-label asterisk">
-                  Sub Themes
-                </label>
-                <select
-                  className="form-select"
-                  onChange={(e) => userInformationOnchangeHandler(e)}
-                  aria-label="Default select example"
-                  value={userInformation && userInformation.theme}
-                  disabled={isDisabled}
-                  id="theme"
-                >
-                  <option defaultValue hidden>
-                    Please Select Sub-Themes
-                  </option>
-                  <option
-                    value="Advances in cartography, geospatial technology and thematic mapping for
-management of natural resources and smart governance"
-                  >
-                    Advances in cartography, geospatial technology and thematic
-                    mapping htmlFor management of natural resources and smart
-                    governance
-                  </option>
-                  {/* <option value="delegate">Delegate</option> */}
-                  <option value="Geospatial technologies for fostering sustainable agriculture, food security and green economies">
-                    Geospatial technologies for fostering sustainable
-                    agriculture, food security and green economies
-                  </option>
-                  <option value="Geospatial technologies for sustainable water resources management">
-                    Geospatial technologies for sustainable water resources
-                    management
-                  </option>
-                  <option value="Geospatial technologies for environment and energy security">
-                    Geospatial technologies for environment and energy
-                    security
-                  </option>
-                  <option value="Geospatial technologies for urban studies and infrastructure planning & development">
-                    Geospatial technologies for urban studies and
-                    infrastructure planning & development
-                  </option>
-                  <option value="Geospatial technologies for meteorology and climate change studies">
-                    Geospatial technologies for meteorology and climate
-                    change studies
-                  </option>
-                  <option value="Geospatial technologies for building disaster resilience and emergency management">
-                    Geospatial technologies for building disaster resilience
-                    and emergency management
-                  </option>
-                  <option value=" Hydrographic surveys and geospatial technologies for coastal zone management and oceanography">
-                    Hydrographic surveys and geospatial technologies for
-                    coastal zone management and oceanography
-                  </option>
-                  <option value="Drone/UAV based novel applications for sustainable economies">
-                    Drone/UAV based novel applications for sustainable
-                    economies
-                  </option>
-                  <option value="Emerging trends in AI/ML for cartography and geospatial applications">
-                    Emerging trends in AI/ML for cartography and geospatial
-                    applications
-                  </option>
-                  <option value="New geospatial and space policies for enhancing entrepreneurship and geospatial economy">
-                    New geospatial and space policies for enhancing
-                    entrepreneurship and geospatial economy
-                  </option>
-                </select>
-                {isError && isError.registrationCategory && (
-                  <p className="text-danger">{isError.registrationCategory}</p>
-                )}
-              </div>
-
-              <div className="col-md-4">
-                <div>
-                  <p className="form-label">Nationality :</p>
-                </div>
-                <div className="radio-button-box d-flex">
-                  <label className="pe-2" htmlFor="nationality">
-                    Foreign
-                  </label>
-                  <input
-                    type="radio"
-                    id="nationality"
-                    className="w-auto"
-                    name="nationality"
-                    checked={userInformation.nationality === "foreigner"}
-                    disabled={isDisabled}
-                    value="foreigner"
-                    onChange={(e) => userInformationOnchangeHandler(e)}
-                  />
-                  <label className="ps-4 pe-1" htmlFor="nationality">
-                    Indian
-                  </label>
-                  <input
-                    type="radio"
-                    id="nationality"
-                    className="w-auto"
-                    name="nationality"
-                    checked={userInformation.nationality === "indian"}
-                    disabled={isDisabled}
-                    value="indian"
-                    onChange={(e) => userInformationOnchangeHandler(e)}
-                  />
-                </div>
-                {isError && isError.nationality && (
-                  <p className="text-danger">{isError.nationality}</p>
-                )}
-              </div>
-            </div>
-            {/* Theme end */}
+          
 
             {/* Registration Category Start */}
             <div className="row mb-4">

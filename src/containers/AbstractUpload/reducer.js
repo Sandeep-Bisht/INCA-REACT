@@ -27,6 +27,12 @@ export default (state = INITIAL_STATE, action) => {
         abstractDataSaveFailure: action.error,
       };
 
+      case CONSTANTS.RESET_ABSTRACT_DATA_SUCCESS_TO_INITIAL_STATE:
+        return {
+          ...state,
+          abstractDataSaveSuccess: "",
+        };
+
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import { MultiSelect } from "primereact/multiselect";
 import * as ACTIONS from "./action";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import PreviewPaper from "../PreviewPaper";
 
 let obj = {
@@ -48,6 +48,7 @@ const AbstractUpload = () => {
   let dispatch = useDispatch();
   const ref = useRef();
   let location = useLocation();
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (location && location.state && location.state.mode === "preview") {
@@ -78,7 +79,7 @@ const AbstractUpload = () => {
   }, [state.abstractFileUploadSuccess]);
 
   useEffect(() => {
-    if (state && state.abstractDataSaveSuccess) {
+    if (state && state?.abstractDataSaveSuccess) {
       setLoading(false);
       emptyFormField();
       setAbstractDataSavemessage(
@@ -86,7 +87,9 @@ const AbstractUpload = () => {
       );
       setTimeout(() => {
         setAbstractDataSavemessage("");
-      }, 10000);
+        dispatch(ACTIONS.resetAbstractDataToInitialState())
+        navigate("/dashboard/userabstractlist")
+      }, 3000);
     }
   }, [state.abstractDataSaveSuccess]);
 
@@ -607,9 +610,9 @@ const AbstractUpload = () => {
                       options={subThems}
                       optionLabel="name"
                       disabled={isDisabled}
-                      placeholder="Select Sub-Themes"
+                      placeholder="Select Sub-Themes (You can select upto 3)"
                       maxSelectedLabels={1}
-                      className="w-full md:w-20rem "
+                      className="w-full md:w-20rem"
                     />
                   </div>
                 </div>
@@ -677,7 +680,7 @@ const AbstractUpload = () => {
                     required
                   ></textarea>
                 </div>
-                {abstractDocumentPayload.abstract && abstractError && (
+                {abstractError && (
                   <p className="text-danger">{abstractError}</p>
                 )}
               </div>
