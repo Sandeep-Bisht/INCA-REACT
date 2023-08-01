@@ -1182,6 +1182,20 @@ a{
         font-size:14px;
     }
 }
+
+@media only screen and (max-width: 950px){
+    .abstract-submission-date {
+        background: #0a0a0a8f;
+        height: 26px;
+        letter-spacing: 1px;
+        position: absolute;
+        bottom: 90px;
+        left: 0;
+        width: 100%;
+    }
+    
+}
+
 @media only screen and (max-width : 820px){
     .common-btn{
         padding: 3px 20px;
@@ -1215,6 +1229,29 @@ a{
         position: absolute;
         top: 70px;
     }
+
+    .abstract-submission-date {
+        background: #0a0a0a8f;
+        height: 26px;
+        letter-spacing: 1px;
+        position: absolute;
+        bottom: 86px;
+        left: 0;
+        width: 100%;
+    }
+
+    .home-banner .right .banner-title .banner-small {
+        font-size: 21px;
+        line-height: 29px;
+        margin-bottom: 25px;
+    }
+
+    .common-btn {
+        padding: 3px 20px;
+        font-size: 12px;
+        margin-bottom: 23px;
+    }
+
     .react-multiple-carousel__arrow--left
     {
         left: calc(0% + 1px);
