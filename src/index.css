@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.p-multiselect-item {
+/* .p-multiselect-item {
   text-wrap:balanced !important;
 }
 .p-multiselect-items-wrapper {
@@ -21,4 +21,4 @@ code {
 .p-multiselect-items-wrapper {
   max-width: 50% !important;
   min-width: 50% !important;
-}
+} */
