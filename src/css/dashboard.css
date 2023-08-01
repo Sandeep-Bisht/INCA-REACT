@@ -64,6 +64,7 @@
     top: 0;
     z-index: 1020;
     padding: 120px 0px 0px 0px;
+    margin-top: 43px;
     
 }
 
@@ -216,6 +217,7 @@
  .logout-btn{
       height: 37px;
       padding: 0 0.5rem 0 28px!important;
+      background-color: #152137!important;
 }
 
 /* .form-section button
@@ -282,4 +284,13 @@
 .toggle-btn input
 {
   display: none;
+}
+
+@media only screen and (max-width : 767px){
+
+
+.dash-body .left-part {
+  min-height: 41vh;
+  background: #1b2a47;
+}
 }

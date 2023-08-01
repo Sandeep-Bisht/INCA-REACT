@@ -655,6 +655,12 @@ background-color:#fff;
     .without-carousel{
         display:none;
     }
+    .add-and-remove-button {
+        padding: 8px 14px!important;
+        border-radius: 0px!important;
+        font-size: 12px!important;
+        margin-top: 9px;
+    }
     /* ------carousel btn style----------- */
     .react-multiple-carousel__arrow{
         min-width:30px!important;
