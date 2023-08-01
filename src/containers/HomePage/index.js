@@ -150,7 +150,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-            //  src={homepageBackgroundVideo}
+             src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
