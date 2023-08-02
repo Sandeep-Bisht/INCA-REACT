@@ -274,7 +274,7 @@ const FullPaper = () => {
               </div>
               <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
                 <div className="row">
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label
                       htmlFor="authorSaluation"
                       className="form-label asterisk"
@@ -295,7 +295,7 @@ const FullPaper = () => {
                       <option defaultValue="Mrs."> Mrs. </option>
                     </select>
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label
                       htmlFor="authorFirstName"
                       className="form-label asterisk"
@@ -311,7 +311,7 @@ const FullPaper = () => {
                       required
                     />
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label htmlFor="authorMiddleName" className="form-label">
                       Middle Name
                     </label>
@@ -323,7 +323,7 @@ const FullPaper = () => {
                       defaultValue={fullPaperPayload?.authorMiddleName}
                     />
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label htmlFor="authorLastName" className="form-label">
                       Last Name
                     </label>
@@ -335,7 +335,7 @@ const FullPaper = () => {
                       defaultValue={fullPaperPayload?.authorLastName}
                     />
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label
                       htmlFor="authorEmail"
                       className="form-label asterisk"
@@ -351,7 +351,7 @@ const FullPaper = () => {
                       required
                     />
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label
                       htmlFor="authorAffiliation"
                       className="form-label asterisk"
@@ -370,7 +370,7 @@ const FullPaper = () => {
                 </div>
               </div>
               <div
-                className="col-lg-2 col-md-2 col-sm-4  col-6 d-flex justify-content-lg-center 
+                className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
               >
                 <button
@@ -389,7 +389,7 @@ const FullPaper = () => {
                 </div>
                 <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
                   <div className="row">
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label
                         htmlFor="coAuthorSaluation"
                         className="form-label asterisk"
@@ -410,7 +410,7 @@ const FullPaper = () => {
                         <option defaultValue="Mrs.">Mrs.</option>
                       </select>
                     </div>
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label
                         htmlFor="coAuthorFirstName"
                         className="form-label asterisk"
@@ -425,7 +425,7 @@ const FullPaper = () => {
                         value={coAuthor?.coAuthorFirstName}
                       />
                     </div>
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label
                         htmlFor="coAuthorMiddleName"
                         className="form-label"
@@ -440,7 +440,7 @@ const FullPaper = () => {
                         value={coAuthor?.coAuthorMiddleName}
                       />
                     </div>
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label htmlFor="coAuthorLastName" className="form-label">
                         Last Name
                       </label>
@@ -452,7 +452,7 @@ const FullPaper = () => {
                         value={coAuthor?.coAuthorLastName}
                       />
                     </div>
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <div className="mb-3">
                         <label
                           htmlFor="coAuthorEmail"
@@ -469,7 +469,7 @@ const FullPaper = () => {
                         />
                       </div>
                     </div>
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label
                         htmlFor="coAuthorAffiliation"
                         className="form-label asterisk"
@@ -487,7 +487,7 @@ const FullPaper = () => {
                   </div>
                 </div>
                 <div
-                  className="col-lg-2 col-md-2 col-sm-4  col-6 d-flex justify-content-lg-center 
+                  className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
                 >
                   <button
@@ -508,7 +508,7 @@ const FullPaper = () => {
                   <div className="row">
                     <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
                       <div className="row">
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                           <label className="form-label" htmlFor="relation-name">
                             Saluation
                           </label>
@@ -519,7 +519,7 @@ const FullPaper = () => {
                             disabled
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                           <label className="form-label" htmlFor="relation-type">
                             First Name
                           </label>
@@ -530,7 +530,7 @@ const FullPaper = () => {
                             disabled
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                           <label className="form-label" htmlFor="relation-type">
                             Middle Name
                           </label>
@@ -541,7 +541,7 @@ const FullPaper = () => {
                             disabled
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                           <label className="form-label" htmlFor="relation-type">
                             Last Name
                           </label>
@@ -552,7 +552,7 @@ const FullPaper = () => {
                             disabled
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                           <label className="form-label" htmlFor="relation-type">
                             Email
                           </label>
@@ -563,7 +563,7 @@ const FullPaper = () => {
                             disabled
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                           <label className="form-label" htmlFor="relation-type">
                             Affiliation
                           </label>
@@ -577,7 +577,7 @@ const FullPaper = () => {
                       </div>
                     </div>
                     <div
-                      className="col-lg-2 col-md-2 col-sm-4  col-6 d-flex justify-content-lg-center 
+                      className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
                     >
                       <button
@@ -594,7 +594,7 @@ const FullPaper = () => {
               })}
 
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-lg-6 col-md-6">
                 <div className="mb-3">
                   <label
                     htmlFor="paperPresentationType"
@@ -657,7 +657,7 @@ const FullPaper = () => {
                   <p className="text-danger">{fullPaperError}</p>
                 )}
               </div>
-              <div className="col-md-8">
+              <div className="col-lg-6 col-md-10">
                 <div className="mb-3">
                   <label htmlFor="inputFile" className="form-label asterisk">
                     Full Paper Upload (File size should not be more 20mb )
