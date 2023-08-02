@@ -266,14 +266,14 @@ const AbstractUpload = () => {
     <>
       <section className="abstract-form">
         <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
-          <div className="containe abstract-form-wrapper-container">
+          <div className=" abstract-form-wrapper-container">
             <div className="row">
               <div className="col-12 mb-2">
                 <b>
                   Author
                 </b>
               </div>
-              <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
+              <div className="col-lg-10 col-md-12 col-sm-12 d-flex">
                 <div className="row">
                   <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                     <label htmlFor="authorSaluation" className="form-label asterisk">
@@ -372,7 +372,7 @@ const AbstractUpload = () => {
                 <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
                   <button
-                    className="common-btn add-and-remove-button"
+                    className="common-btn add-and-remove-button w-100"
                     onClick={() => setOtherAuthor(!otherAuthor)}
                   >
                     Add Co-Author
@@ -384,7 +384,7 @@ const AbstractUpload = () => {
             {otherAuthor && (
               <div className="row">
                 <div className="col-12 mb-2"><b>Co-Author</b></div>
-                <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
+                <div className="col-lg-10 col-md-12 col-sm-12 d-flex">
                   <div className="row">
                     <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label htmlFor="coAuthorSaluation" className="form-label asterisk">
@@ -476,7 +476,7 @@ const AbstractUpload = () => {
                 <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
                   <button
-                    className="common-btn add-and-remove-button"
+                    className="common-btn add-and-remove-button w-100"
                     id="coAuthor"
                     type="button"
                     onClick={(e) => addCoAuthor(e)}
@@ -559,7 +559,7 @@ const AbstractUpload = () => {
                       <div className="row">
                         <div className="col-lg-2 col-md-4 col-sm-4">
                           <button
-                            className="common-btn add-and-remove-button"
+                            className="common-btn add-and-remove-button w-100"
                             id="accompanningPerson"
                             type="button"
                             onClick={(e) => deleteCoAuthor(index)}

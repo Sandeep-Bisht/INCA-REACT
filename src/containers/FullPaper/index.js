@@ -267,12 +267,12 @@ const FullPaper = () => {
     <>
       <section className="abstract-form">
         <form onSubmit={(e) => fullPaperSubmitHandler(e)}>
-          <div className="container">
+          <div className="container px-0">
             <div className="row">
               <div className="col-md-12 mb-2">
                 <b>Author</b>
               </div>
-              <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
+              <div className="col-lg-10 col-md-12 col-sm-12 d-flex">
                 <div className="row">
                   <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label
@@ -374,7 +374,7 @@ const FullPaper = () => {
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
               >
                 <button
-                  className="common-btn add-and-remove-button"
+                  className="common-btn add-and-remove-button w-100"
                   onClick={() => setOtherAuthor(!otherAuthor)}
                 >
                   Add Co-Author
@@ -387,7 +387,7 @@ const FullPaper = () => {
                 <div className="col-12 mb-2">
                   <b>Co-Author</b>
                 </div>
-                <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
+                <div className="col-lg-10 col-md-12 col-sm-12 d-flex">
                   <div className="row">
                     <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label
@@ -491,7 +491,7 @@ const FullPaper = () => {
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
                 >
                   <button
-                    className="common-btn add-and-remove-button"
+                    className="common-btn add-and-remove-button w-100"
                     id="coAuthor"
                     type="button"
                     onClick={(e) => addCoAuthor(e)}
@@ -506,7 +506,7 @@ const FullPaper = () => {
               fullPaperPayload.coAuthorDetails.map((item, index) => {
                 return (
                   <div className="row">
-                    <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
+                    <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
                       <div className="row">
                         <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                           <label className="form-label" htmlFor="relation-name">
@@ -581,7 +581,7 @@ const FullPaper = () => {
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
                     >
                       <button
-                        className="common-btn add-and-remove-button"
+                        className="common-btn add-and-remove-button w-100"
                         id="accompanningPerson"
                         type="button"
                         onClick={(e) => deleteCoAuthor(index)}
