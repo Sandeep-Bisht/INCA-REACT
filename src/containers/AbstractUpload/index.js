@@ -275,7 +275,7 @@ const AbstractUpload = () => {
               </div>
               <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
                 <div className="row">
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                     <label htmlFor="authorSaluation" className="form-label asterisk">
                       Saluation
                     </label>
@@ -295,7 +295,7 @@ const AbstractUpload = () => {
                       <option defaultValue="Mrs."> Mrs. </option>
                     </select>
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <div className="mb-3">
                       <label htmlFor="authorFirstName" className="form-label asterisk">
                         First Name
@@ -311,7 +311,7 @@ const AbstractUpload = () => {
                       />
                     </div>
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label htmlFor="authorMiddleName" className="form-label">
                       Middle Name
                     </label>
@@ -324,7 +324,7 @@ const AbstractUpload = () => {
                       defaultValue={abstractDocumentPayload?.authorMiddleName}
                     />
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label htmlFor="authorLastName" className="form-label">
                       Last Name
                     </label>
@@ -338,7 +338,7 @@ const AbstractUpload = () => {
                       defaultValue={abstractDocumentPayload?.authorLastName}
                     />
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label htmlFor="authorEmail" className="form-label asterisk">
                       email
                     </label>
@@ -352,7 +352,7 @@ const AbstractUpload = () => {
                       required
                     />
                   </div>
-                  <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-2">
+                  <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label htmlFor="authorAffiliation" className="form-label asterisk">
                       Affiliation
                     </label>
@@ -369,7 +369,7 @@ const AbstractUpload = () => {
               </div>
               {!mode && (
 
-                <div className="col-lg-2 col-md-2 col-sm-4  col-6 d-flex justify-content-lg-center 
+                <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
                   <button
                     className="common-btn add-and-remove-button"
@@ -386,7 +386,7 @@ const AbstractUpload = () => {
                 <div className="col-12 mb-2"><b>Co-Author</b></div>
                 <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
                   <div className="row">
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label htmlFor="coAuthorSaluation" className="form-label asterisk">
                         Saluation
                       </label>
@@ -404,7 +404,7 @@ const AbstractUpload = () => {
                         <option defaultValue="Mrs.">Mrs.</option>
                       </select>
                     </div>
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label htmlFor="coAuthorFirstName" className="form-label asterisk">
                         First Name
                       </label>
@@ -416,7 +416,7 @@ const AbstractUpload = () => {
                         value={coAuthor?.coAuthorFirstName}
                       />
                     </div>
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label htmlFor="coAuthorMiddleName" className="form-label">
                         Middle Name
                       </label>
@@ -428,7 +428,7 @@ const AbstractUpload = () => {
                         value={coAuthor?.coAuthorMiddleName}
                       />
                     </div>
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label htmlFor="coAuthorLastName" className="form-label">
                         Last Name
                       </label>
@@ -441,7 +441,7 @@ const AbstractUpload = () => {
                       />
                     </div>
 
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label htmlFor="coAuthorEmail" className="form-label asterisk">
                         email
                       </label>
@@ -454,7 +454,7 @@ const AbstractUpload = () => {
                       />
                     </div>
 
-                    <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <div className="mb-3">
                         <label
                           htmlFor="coAuthorAffiliation"
@@ -473,7 +473,7 @@ const AbstractUpload = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-2 col-md-2 col-sm-4  col-6 d-flex justify-content-lg-center 
+                <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
                   <button
                     className="common-btn add-and-remove-button"
@@ -493,7 +493,7 @@ const AbstractUpload = () => {
                   <div className="row">
                     <div className="col-12 ">
                       <div className="row">
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                           <label className="form-label" htmlFor="relation-name">
                             Saluation
                           </label>
@@ -504,7 +504,7 @@ const AbstractUpload = () => {
                             value={item.coAuthorSaluation}
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
                           First Name
                         </label>
                           <input
@@ -514,7 +514,7 @@ const AbstractUpload = () => {
                             disabled={isDisabled}
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
                           Middle Name
                         </label>
                           <input
@@ -524,7 +524,7 @@ const AbstractUpload = () => {
                             disabled={isDisabled}
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
                           Last Name
                         </label>
                           <input
@@ -534,7 +534,7 @@ const AbstractUpload = () => {
                             disabled={isDisabled}
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
                           Email
                         </label>
                           <input
@@ -544,7 +544,7 @@ const AbstractUpload = () => {
                             disabled={isDisabled}
                           />
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
                           Affiliation
                         </label>
                           <input
@@ -557,7 +557,7 @@ const AbstractUpload = () => {
                       </div></div>
                     {!mode && (
                       <div className="row">
-                        <div className="col-lg-2 col-md-2 col-sm-4 d-flex justify-content-center add-co-author-button">
+                        <div className="col-lg-2 col-md-4 col-sm-4">
                           <button
                             className="common-btn add-and-remove-button"
                             id="accompanningPerson"
@@ -573,8 +573,8 @@ const AbstractUpload = () => {
                 );
               })}
 
-            <div className="row">
-              <div className="col-md-4">
+            <div className="row mt-2">
+              <div className="col-lg-6 col-md-6">
                 <div className="mb-3">
                   <label htmlFor="paperPresentationType" className="form-label asterisk">
                     Intended Mode of Paper Presentation
