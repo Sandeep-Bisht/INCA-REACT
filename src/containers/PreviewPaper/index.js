@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as ACTIONS from "./action";
 import "../../css/paperPreview.css";
@@ -25,6 +25,7 @@ const PreviewPaper = () => {
   });
 
   let location = useLocation();
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.PreviewPaperReducer);
 
@@ -44,8 +45,9 @@ const PreviewPaper = () => {
     if(location && location.state) {
       approveDocs.userId = location.state.userId;
        approveDocs.docsId = location.state._id;
+       console.log("locatiooonnnnnnnnnnnn", location.state)
     }
-  })
+  }, [])
 
   useEffect(() => {
     if (state.userAbstractPaperSuccess) {
@@ -56,12 +58,24 @@ const PreviewPaper = () => {
       ) {
         setAcceptLoader(false);
         setMessage("Document Approved, Email sent successfully on user email.");
+        emptyMsg()
+        
       } else {
         setRejectLoader(false);
         setMessage("Document Rejected, Email sent successfully on user email");
+        emptyMsg()
       }
     }
   }, [state.userAbstractPaperSuccess]);
+
+
+  const emptyMsg = () => {
+    setTimeout(()=>{
+      setMessage("");
+      dispatch(ACTIONS.resetToInitialState())
+      navigate("/dashboard/abstract")
+    }, [2000])
+  }
 
   const approvefilesubmissionHandler = (status) => {
     if (approveDocs?.paperApproveStatus == false) {
@@ -105,7 +119,7 @@ const PreviewPaper = () => {
         <div className="col-md-10">
           <button
             type="button"
-            //disabled={approveLoder}
+            disabled={location?.state?.paperApproveStatus != null}
             className="btn btun"
             onClick={() => approvefilesubmissionHandler(true)}
           >
@@ -115,6 +129,7 @@ const PreviewPaper = () => {
 
           <button
             type="button"
+            disabled={location?.state?.paperApproveStatus != null}
             className="btn btn-danger ms-5"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"

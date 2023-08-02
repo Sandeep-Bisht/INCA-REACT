@@ -33,8 +33,8 @@ const FullPaperList = () => {
   const columns = [
     { field: "registrationNumber", header: "Registration No" },
     { field: "fullPaperNumber", header: "Fullpaper No"},
-    { field: "authorFirstName", header: "Author Name" },
-    { field: "fullPaperName", header: "Author Title" },
+    { field: "userName", header: "Author Name" },
+    { field: "fullPaperName", header: "Paper Title" },
     // { field: "themeType", header: "Theme" },
     // { field: "createdAt", header: "Date of Submission" },
   ];
@@ -138,9 +138,8 @@ const FullPaperList = () => {
   // };
 
   let openPdf = (item) => {
-    console.log("clicked", item);
     if (item) {
-      let filePath = `http://144.91.110.221:4801/${item.fullPaperFileUrl}`;
+      let filePath = `http://43inca.org/${item.fullPaperFileUrl}`;
       // let filePath = `http://localhost:4801/${item.fullPaperFileUrl}`;
       // let filePath = location.state.fullPaperFileUrl
       filePath = filePath.replace("\\", "/");
@@ -157,18 +156,39 @@ const FullPaperList = () => {
   const actionBodyTemplate = (node, column) => {
     return (
       <>
-        <a target="_blank" href={viewPdf} onClick={() => openPdf(node)}>
+        {/* <a target="_blank" href={viewPdf} onClick={() => openPdf(node)}>
          Download
-        </a>
-        <button
-          className="action-btn ps-5 d-contents"
-          onClick={() => redirectToFullPaperPreviewPage(node)}
-        >
-          <i className="fa-solid fa-file-pdf ms-2 fs-4"></i>
-        </button>
+        </a> */}
+        <button className="action-btn" onClick={()=>handleDownload(node.fullPaperFileUrl)}>Download File</button>
+        
       </>
     );
   };
+
+  const handleDownload = (fileUrl) => {
+    // Create a temporary anchor element to trigger the download
+    const link = document.createElement('a');
+    // link.href = `http://localhost:4801/${fileUrl}`
+    link.href = `https://43inca.org/app//${fileUrl}`
+    // link.target = '_blank'; // Optional: Open the link in a new tab
+    // link.download =  `http://localhost:4801/${fileUrl}`;  // Customize the downloaded file name (optional)
+    link.download = `https://43inca.org/app//${fileUrl}`
+    link.click();
+  };
+
+  const viewBodyTemplate = (node) => {
+    console.log("nodeeeeeeeeeee full paper", node)
+    return(
+      <>
+      <button
+          className="action-btn d-contents"
+          onClick={() => redirectToFullPaperPreviewPage(node)}
+        >
+          <i className="fa-solid fa-file-pdf  fs-4"></i>
+        </button>
+      </>
+    )
+  }
 
   //   const statusBodyTemplate = (node) => {
   //     return (
@@ -220,7 +240,12 @@ const FullPaperList = () => {
               filterDisplay="menu"
               value={fullPaperList}
               responsiveLayout="scroll"
-              globalFilterFields={["fullPaperName"]}
+              globalFilterFields={[
+                "fullPaperName",
+              "userName",
+              "registrationNumber",
+              "fullPaperNumber"
+            ]}
               header={header1}
             >
               {dynamicColumns}
@@ -228,6 +253,11 @@ const FullPaperList = () => {
                 field="Actions"
                 header="Document"
                 body={actionBodyTemplate}
+              ></Column>
+              <Column
+                field="View"
+                header="View"
+                body={viewBodyTemplate}
               ></Column>
             </DataTable>
           </div>
@@ -243,7 +273,10 @@ const FullPaperList = () => {
             filterDisplay="menu"
             value={userFullPaperList}
             responsiveLayout="scroll"
-            globalFilterFields={["fullPaperName"]}
+            globalFilterFields={[
+              "fullPaperName",
+              ""
+            ]}
             header={header1}
           >
             {dynamicColumns}

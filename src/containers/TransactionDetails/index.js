@@ -84,7 +84,7 @@ function TransactionDetails() {
   }
   return (
     <>
-      <section className="transaction-section">
+      {/* <section className="transaction-section">
         <div className="container">
             <form onSubmit={(e)=>onSubmitHandler(e)}>
           <div className="row">
@@ -141,13 +141,7 @@ function TransactionDetails() {
                     <span>Account Type</span>
                     <input className="form-control" required name="accountHolderName" value={transactionDetails && transactionDetails.accountHolderName} onChange={(e)=>transactionDetailHandler(e)} type="text" />
                   </div>
-                </div>
-                {/* <div className='col-md-6'>
-                <div className='upload-box'>
-                    <input className='form-control' type='file' />
-                   <span><button>Upload</button></span>
-                </div>
-            </div> */}
+                </div>             
               </div>
               <div className="row">
                 <div className="col-md-6">
@@ -174,6 +168,15 @@ function TransactionDetails() {
             </div>
           </div>
           </form>
+        </div>
+      </section> */}
+      <section className="transaction-section">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h5>Payment page will be available soon</h5>
+            </div>
+          </div>
         </div>
       </section>
     </>

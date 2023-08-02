@@ -17,6 +17,7 @@ function ExhibitorForm() {
   const [mobile, setMobile] = useState("");
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState("")
+  const [verified, setVerified] = useState(false);
 
   let exibitionOnChangeHandler = (e) => {
       let exhibitorPayloadCopy = {...exhibitorPayload}
@@ -124,12 +125,12 @@ function ExhibitorForm() {
                   </div>
 
                   <div className='contact-text'>
-                  <Captcha captchaLength={6} />
+                  <Captcha captchaLength={6} setVerified ={setVerified}/>
                   </div>
 
                   <div className="col-md-12">
                     <div className="btn-wrapper mt-3">
-                      <button type="submit" className="form-submit">
+                      <button type="submit" className="form-submit" disabled={!verified}>
                     Submit
                       </button>
                     </div>

@@ -286,6 +286,112 @@
   display: none;
 }
 
+/* ------------------------pra custom multiselect css------------------- */
+
+
+
+
+@media only screen and (max-width : 1300px)
+{
+  
+.p-multiselect-panel .p-multiselect-items
+{
+  width: 900px;
+}
+.p-component, .p-component *
+{
+  text-wrap: balance;
+
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item
+{
+  padding: 5px 5px;
+}
+.p-checkbox .p-checkbox-box
+{
+  width: 18px;
+  height: 18px;
+}
+.pi-check:before
+{
+  font-size: 12px;
+}
+
+}
+@media only screen and (max-width : 1200px)
+{
+  .p-component, .p-component *
+  {
+    font-size: 13px;
+  
+  }
+
+}
+@media only screen and (max-width : 1100px)
+{
+  .p-multiselect-panel .p-multiselect-items
+{
+  width: 650px;
+}
+}
+
+@media only screen and (max-width : 991px)
+{
+  .p-multiselect-panel .p-multiselect-items
+  {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width : 800px)
+{
+  .p-multiselect-panel .p-multiselect-items
+  {
+    width: 400px;
+  }
+  .p-component, .p-component *
+  {
+    font-size: 12px;
+  
+  }
+}
+@media only screen and (max-width : 500px)
+{
+  .p-multiselect-panel .p-multiselect-items
+  {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width : 450px)
+{
+  .p-multiselect-panel .p-multiselect-items
+  {
+    width: 300px;
+  }
+  .abstract-form-wrapper-container
+  {
+     padding: 0;
+  }
+  .p-multiselect-panel .p-multiselect-header
+  {
+    padding: 5px;
+  }
+  .p-checkbox .p-checkbox-box
+  {
+    width: 15px;
+    height: 15px;
+    border-radius: 0;
+  }
+  .pi-check:before
+  {
+    font-size: 10px;
+    position: relative;
+    bottom: 2px;
+  }
+}
+
+
 @media only screen and (max-width : 767px){
 
 

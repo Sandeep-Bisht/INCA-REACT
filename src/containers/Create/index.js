@@ -12,6 +12,7 @@ import PaymentConfirm from "../PaymentConfirm";
 import { baseUrl, countries } from "../../utils";
 import * as ACTIONS from "./action";
 
+
 const obj = {
   name: "",
   designation: "",
@@ -24,7 +25,7 @@ const obj = {
   participationType: "",
   nationality: "",
   title: "",
-  theme: "",
+  // theme: "",
   registrationCategory: "",
   lifeMemberNo: "",
   universityName: "",
@@ -42,7 +43,7 @@ const obj = {
     participationType: "",
     nationality: "",
     title: "",
-    theme: "",
+    // theme: "",
     registrationCategory: "",
     lifeMemberNo: "",
     universityName: "",
@@ -174,7 +175,7 @@ const CreateForm = (props) => {
         participationType: "",
         nationality: "",
         title: "",
-        theme: "",
+        // theme: "",
         registrationCategory: "",
         lifeMemberNo: "",
         universityName: "",
@@ -324,11 +325,11 @@ const CreateForm = (props) => {
         setUserInformation(userInformationCopy);
         break;
 
-      case "theme":
-        userInformationCopy.isError.theme =
-          value.length < 0 ? "Theme is Required" : "";
-        setUserInformation(userInformationCopy);
-        break;
+      // case "theme":
+      //   userInformationCopy.isError.theme =
+      //     value.length < 0 ? "Theme is Required" : "";
+      //   setUserInformation(userInformationCopy);
+      //   break;
 
       case "registrationCategory":
         userInformationCopy.isError.registrationCategory =
@@ -347,6 +348,7 @@ const CreateForm = (props) => {
 
 
   const validateForm = () => {
+    console.log("result", userInformation)
     let formIsValid = true;
 
     if (!userInformation?.name) {
@@ -376,9 +378,9 @@ const CreateForm = (props) => {
       formIsValid = false;
     }
 
-    if (!userInformation?.theme) {
-      formIsValid = false;
-    }
+    // if (!userInformation?.theme) {
+    //   formIsValid = false;
+    // }
 
     if (!userInformation?.registrationCategory) {
       formIsValid = false;
@@ -405,6 +407,7 @@ const CreateForm = (props) => {
         userInformation.registrationFee = value;
         userInformation.phoneNumber = phoneNumber;
         delete userInformation.isError;
+        console.log("ssave se oedje", userInformation)
         dispatch(ACTIONS.saveRegisterdUserData(userInformation));
       } else {
         let userInformationCopy = { ...userInformation };
@@ -757,6 +760,7 @@ const CreateForm = (props) => {
                       Phone
                     </label>
                     <PhoneInput
+                     class="w-100"
                       country="in"
                       value={phoneNumber}
                       disabled={loggedInUser && userInformation && phoneNumber}
@@ -824,78 +828,141 @@ const CreateForm = (props) => {
             </div>
 
             {/* Theme */}
+            
+            {/* Theme end */}
+
+            {/* Registration Category Start */}
             <div className="row mb-4">
-              <div className="col-md-8">
-                <label htmlFor="theme" className="form-label asterisk">
-                  Sub Themes
+
+              <div className="col-md-6">
+                <label
+                  htmlFor="participationType"
+                  className="form-label asterisk"
+                >
+                  I wish to participate in the conference for
                 </label>
                 <select
                   className="form-select"
                   onChange={(e) => userInformationOnchangeHandler(e)}
                   aria-label="Default select example"
-                  value={userInformation && userInformation.theme}
+                  value={userInformation && userInformation.participationType}
                   disabled={isDisabled}
-                  id="theme"
+                  id="participationType"
                 >
                   <option defaultValue hidden>
-                    Please Select Sub-Themes
+                    Please Select
                   </option>
-                  <option
-                    value="Advances in cartography, geospatial technology and thematic mapping for
-management of natural resources and smart governance"
-                  >
-                    Advances in cartography, geospatial technology and thematic
-                    mapping htmlFor management of natural resources and smart
-                    governance
+                  <option value="delegate">Delegate</option>
+                  <option value="Research Paper Presentation">
+                    Research Paper Presentation
                   </option>
+                  <option value="Poster Presentation">
+                    Poster Presentation
+                  </option>
+                  <option value="Both">
+                    Research Paper & Poster Presentation
+                  </option>
+                </select>
+                {isError && isError.participationType && (
+                  <p className="text-danger">{isError.participationType}</p>
+                )}
+              </div>
+
+
+              <div className="col-md-6">
+                <label
+                  htmlFor="registrationCategory"
+                  className="form-label asterisk"
+                >
+                  Registration Category
+                </label>
+                <select
+                  className="form-select"
+                  onChange={(e) => userInformationOnchangeHandler(e)}
+                  aria-label="Default select example"
+                  value={
+                    userInformation && userInformation.registrationCategory
+                  }
+                  disabled={isDisabled}
+                  id="registrationCategory"
+                >
+                  <option defaultValue hidden>
+                    Please Select
+                  </option>
+                  <option value="Life Members">Life Members</option>
                   {/* <option value="delegate">Delegate</option> */}
-                  <option value="Geospatial technologies for fostering sustainable agriculture, food security and green economies">
-                    Geospatial technologies for fostering sustainable
-                    agriculture, food security and green economies
-                  </option>
-                  <option value="Geospatial technologies for sustainable water resources management">
-                    Geospatial technologies for sustainable water resources
-                    management
-                  </option>
-                  <option value="Geospatial technologies for environment and energy security">
-                    Geospatial technologies for environment and energy
-                    security
-                  </option>
-                  <option value="Geospatial technologies for urban studies and infrastructure planning & development">
-                    Geospatial technologies for urban studies and
-                    infrastructure planning & development
-                  </option>
-                  <option value="Geospatial technologies for meteorology and climate change studies">
-                    Geospatial technologies for meteorology and climate
-                    change studies
-                  </option>
-                  <option value="Geospatial technologies for building disaster resilience and emergency management">
-                    Geospatial technologies for building disaster resilience
-                    and emergency management
-                  </option>
-                  <option value=" Hydrographic surveys and geospatial technologies for coastal zone management and oceanography">
-                    Hydrographic surveys and geospatial technologies for
-                    coastal zone management and oceanography
-                  </option>
-                  <option value="Drone/UAV based novel applications for sustainable economies">
-                    Drone/UAV based novel applications for sustainable
-                    economies
-                  </option>
-                  <option value="Emerging trends in AI/ML for cartography and geospatial applications">
-                    Emerging trends in AI/ML for cartography and geospatial
-                    applications
-                  </option>
-                  <option value="New geospatial and space policies for enhancing entrepreneurship and geospatial economy">
-                    New geospatial and space policies for enhancing
-                    entrepreneurship and geospatial economy
+                  <option value="For Students">For Students</option>
+                  <option value="Others (participants/delegates/members)">
+                    Others (Participants/Delegates/Members)
                   </option>
                 </select>
                 {isError && isError.registrationCategory && (
                   <p className="text-danger">{isError.registrationCategory}</p>
                 )}
               </div>
+              </div>
+              
 
-              <div className="col-md-4">
+              <div className="row">
+              {userInformation.participationType !== "" &&
+                userInformation.participationType !== "delegate" && (
+                  
+                  <div className="col-md-6">
+                    <label htmlFor="title" className="form-label">
+                      Title of the paper/poster
+                    </label>
+                    <textarea
+                      id="title"
+                      value={userInformation && userInformation.title}
+                      disabled={isDisabled}
+                      onChange={(e) => userInformationOnchangeHandler(e)}
+                      className={
+                        isError && isError.title.length > 0
+                          ? "is-invalid form-control"
+                          : "form-control"
+                      }
+                    ></textarea>
+                  </div>
+                  
+                )}
+
+              {userInformation?.registrationCategory == "Life Members" ? (
+                <div className="col-md-4">
+                  <label htmlFor="lifeMemberNo" className="form-label">
+                    Life Member No
+                  </label>
+                  <input
+                    id="lifeMemberNo"
+                    value={userInformation && userInformation.lifeMemberNo}
+                    disabled={isDisabled}
+                    onChange={(e) => userInformationOnchangeHandler(e)}
+                    className={"form-control"}
+                  />
+                  {isError && isError.lifeMemberNo && (
+                    <p className="text-danger">{isError.lifeMemberNo}</p>
+                  )}
+                </div>
+              ) : userInformation?.registrationCategory == "For Students" ? (
+                <div className="col-md-6">
+                  <label htmlFor="universityName" className="form-label">
+                    University Name
+                  </label>
+                  <input
+                    id="universityName"
+                    value={userInformation && userInformation.universityName}
+                    disabled={isDisabled}
+                    onChange={(e) => userInformationOnchangeHandler(e)}
+                    className={"form-control"}
+                  />
+                  {isError && isError.universityName && (
+                    <p className="text-danger">{isError.universityName}</p>
+                  )}
+                </div>
+              ) : (
+                ""
+              )}
+
+              <div className="col-md-6">
                 <div>
                   <p className="form-label">Nationality :</p>
                 </div>
@@ -931,134 +998,13 @@ management of natural resources and smart governance"
                   <p className="text-danger">{isError.nationality}</p>
                 )}
               </div>
-            </div>
-            {/* Theme end */}
+                </div>          
 
-            {/* Registration Category Start */}
-            <div className="row mb-4">
-              <div className="col-md-4">
-                <label
-                  htmlFor="participationType"
-                  className="form-label asterisk"
-                >
-                  I wish to participate in the conference for
-                </label>
-                <select
-                  className="form-select"
-                  onChange={(e) => userInformationOnchangeHandler(e)}
-                  aria-label="Default select example"
-                  value={userInformation && userInformation.participationType}
-                  disabled={isDisabled}
-                  id="participationType"
-                >
-                  <option defaultValue hidden>
-                    Please Select
-                  </option>
-                  <option value="delegate">Delegate</option>
-                  <option value="Research Paper Presentation">
-                    Research Paper Presentation
-                  </option>
-                  <option value="Poster Presentation">
-                    Poster Presentation
-                  </option>
-                  <option value="Both">
-                    Research Paper & Poster Presentation
-                  </option>
-                </select>
-                {isError && isError.participationType && (
-                  <p className="text-danger">{isError.participationType}</p>
-                )}
-              </div>
+{/* Registration Category end */}
 
-              {userInformation.participationType !== "" &&
-                userInformation.participationType !== "delegate" && (
-                  <div className="col-md-4">
-                    <label htmlFor="title" className="form-label">
-                      Title of the paper/poster
-                    </label>
-                    <textarea
-                      id="title"
-                      value={userInformation && userInformation.title}
-                      disabled={isDisabled}
-                      onChange={(e) => userInformationOnchangeHandler(e)}
-                      className={
-                        isError && isError.title.length > 0
-                          ? "is-invalid form-control"
-                          : "form-control"
-                      }
-                    ></textarea>
-                  </div>
-                )}
-
-              <div className="col-md-4">
-                <label
-                  htmlFor="registrationCategory"
-                  className="form-label asterisk"
-                >
-                  Registration Category
-                </label>
-                <select
-                  className="form-select"
-                  onChange={(e) => userInformationOnchangeHandler(e)}
-                  aria-label="Default select example"
-                  value={
-                    userInformation && userInformation.registrationCategory
-                  }
-                  disabled={isDisabled}
-                  id="registrationCategory"
-                >
-                  <option defaultValue hidden>
-                    Please Select
-                  </option>
-                  <option value="Life Members">Life Members</option>
-                  {/* <option value="delegate">Delegate</option> */}
-                  <option value="For Students">For Students</option>
-                  <option value="Others (participants/delegates/members)">
-                    Others (Participants/Delegates/Members)
-                  </option>
-                </select>
-                {isError && isError.registrationCategory && (
-                  <p className="text-danger">{isError.registrationCategory}</p>
-                )}
-              </div>
-
-              {userInformation?.registrationCategory == "Life Members" ? (
-                <div className="col-md-4">
-                  <label htmlFor="lifeMemberNo" className="form-label">
-                    Life Member No
-                  </label>
-                  <input
-                    id="lifeMemberNo"
-                    value={userInformation && userInformation.lifeMemberNo}
-                    disabled={isDisabled}
-                    onChange={(e) => userInformationOnchangeHandler(e)}
-                    className={"form-control"}
-                  />
-                  {isError && isError.lifeMemberNo && (
-                    <p className="text-danger">{isError.lifeMemberNo}</p>
-                  )}
-                </div>
-              ) : userInformation?.registrationCategory == "For Students" ? (
-                <div className="col-md-4">
-                  <label htmlFor="universityName" className="form-label">
-                    University Name
-                  </label>
-                  <input
-                    id="universityName"
-                    value={userInformation && userInformation.universityName}
-                    disabled={isDisabled}
-                    onChange={(e) => userInformationOnchangeHandler(e)}
-                    className={"form-control"}
-                  />
-                  {isError && isError.universityName && (
-                    <p className="text-danger">{isError.universityName}</p>
-                  )}
-                </div>
-              ) : (
-                ""
-              )}
-
-              <div className="col-md-4 mt-3">
+            <div className="row">
+           
+            <div className="col-md-6 mt-3 mb-3">
                 <div className="accompany-box d-flex pb-2">
                   <div className="accompany-box-1 pt-1">
                     <h6 className="form-label m-0">Accompanying Person :</h6>
@@ -1172,9 +1118,7 @@ management of natural resources and smart governance"
                           />
                         </div>
 
-                        {location &&
-                          location.state &&
-                          location.state.mode !== "edit" && (
+                        {!isDisabled && (
                         <div className="relation-delete-box ps-3">
                           <button
                             className="common-btn add-button"
@@ -1185,7 +1129,7 @@ management of natural resources and smart governance"
                             Delete
                           </button>
                         </div>
-                          )}
+                        ) }
 
                         {location &&
                           location.state &&
@@ -1202,7 +1146,11 @@ management of natural resources and smart governance"
                   })}
               </div>
 
-              <div className="col-md-4">
+              
+            </div>
+
+            <div className="row">
+            <div className="col-md-6">
                 {isDisabled && (
                   <>
                     <label htmlFor="InputFee" className="form-label">
@@ -1229,7 +1177,6 @@ management of natural resources and smart governance"
                 )}
               </div>
             </div>
-            {/* Registration Category end */}
           
 
           <div className="row">

@@ -23,9 +23,11 @@ const AbstractDocumentList = () => {
 
   const columns = [
     {field:"registrationNumber",header:"Registration No"}, 
+    { field: "abstractNumber", header: "Abstract Number"},
     {field:"authorFirstName",header:"Author Name"},    
-    { field: "abstractPaperName", header: "Author Title" },
-    { field: "createdAt", header: "Date of Submission"},
+    { field: "abstractPaperName", header: "Abstract Title" },
+    
+    // { field: "createdAt", header: "Date of Submission"},
     // { field: "themeType", header: "Theme" },    
   ];
 
@@ -114,11 +116,10 @@ const AbstractDocumentList = () => {
   };
 
   const actionBodyTemplate = (node) => {
-    return (
-      <>
+    return (      <>
         
         <div >
-        {node.abstract}
+        {/* {node.abstract} */}
             <button className="action-btn" onClick={() => redirectToPaperPreviewPage(node, "view")}>
               <i className="fa-solid fa-eye "></i>
             </button>
@@ -128,6 +129,11 @@ const AbstractDocumentList = () => {
     );
   };
 
+  const dateBodyTemplate = (node) => {
+    const date = new Date(node.createdAt);
+      const formatedDate =  date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    return formatedDate;
+  };
   const statusBodyTemplate = (node) => {
     return (
       <>
@@ -171,15 +177,28 @@ const AbstractDocumentList = () => {
           filterDisplay="menu"
           value={abstractList}
           responsiveLayout="scroll"
-          globalFilterFields={["abstractPaperName"]}
+          globalFilterFields={[
+            "abstractPaperName",
+            "authorFirstName",
+            "registrationNumber",
+            "abstractNumber"
+
+          ]}
           header={header1}
         >
+          
           {dynamicColumns}
           <Column
-            field="Actions"
-            header="Abstract Description"
+            field="Date of Submission"
+            header="Date of Submission"
+            body={dateBodyTemplate}
+          ></Column>
+          <Column
+            field="createdAt"
+            header="Action"
             body={actionBodyTemplate}
           ></Column>
+          
           <Column
             field="Status"
             header="Status"
