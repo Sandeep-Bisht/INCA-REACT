@@ -42,10 +42,10 @@ export const Header = () => {
           <div className="row">
             <div className="col-md-12">
               <nav className="navbar navbar-expand-lg">
-                <a className="navbar-brand p-0 m-0" href="/">
+                <Link className="navbar-brand p-0 m-0" to="/">
                   <img src={logo} className="img-fluid" />
                   {/* <span className="logo-text f2">Inca 2023</span> */}
-                </a>
+                </Link>
                 <button
                   className="navbar-toggler"
                   type="button"
@@ -70,49 +70,49 @@ export const Header = () => {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/about">
+                      <Link className="nav-link" to="/about">
                         About
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/importantdates">
+                      <Link className="nav-link" to="/importantdates">
                        Schedule
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/Theme">
+                      <Link className="nav-link" to="/Theme">
                         Theme
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item d-none">
-                      <a className="nav-link" href="/sponsorship">
+                      <Link className="nav-link" to="/sponsorship">
                         Sponsorship
-                      </a>
+                      </Link>
                     </li>
 
                     <li className="nav-item">
-                      <a className="nav-link" href="/contact">
+                      <Link className="nav-link" to="/contact">
                         Contact
-                      </a>
+                      </Link>
                     </li>
                     { !token ? (
                       <>
                     <li className="nav-item">
-                      <a className="nav-link" href="/login">
+                      <Link className="nav-link" to="/login">
                         Login
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/register">
+                      <Link className="nav-link" to="/register">
                         Register
-                      </a>
+                      </Link>
                     </li>
                     </>
                     ) : (
                       <li className="nav-item">
-                      <a className="nav-link" href="/dashboard">
+                      <Link className="nav-link" to="/dashboard">
                         Dashboard
-                      </a>
+                      </Link>
                     </li>
                     ) }
                   </ul>
