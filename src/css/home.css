@@ -1235,7 +1235,7 @@ a{
         height: 26px;
         letter-spacing: 1px;
         position: absolute;
-        bottom: 86px;
+        margin-bottom: -4px!important;
         left: 0;
         width: 100%;
     }
