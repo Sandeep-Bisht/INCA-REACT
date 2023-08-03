@@ -6,6 +6,7 @@ import G20 from "../../images/G20_100_70.png";
 import azadi from "../../images/azadi.png";
 import jwt_decode from "jwt-decode";
 
+
 export const Header = () => {
 
   let [token, setToken] = useState(undefined)
@@ -16,6 +17,7 @@ export const Header = () => {
       setToken(decodedToken)
     }
   }, [])
+
   useEffect(() => {   
     
     let nav = document.querySelector(".header-wrapper");
@@ -31,6 +33,7 @@ export const Header = () => {
       }
     };
   }, []);
+
 
   return (
     <>

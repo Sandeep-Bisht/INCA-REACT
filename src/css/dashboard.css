@@ -318,6 +318,19 @@
 }
 
 }
+
+
+@media only screen and (max-width : 1250px)
+{
+ 
+  .dash-body .right-part .add-and-remove-button
+  {
+    padding: 8px 5px!important;
+
+  }
+}
+
+
 @media only screen and (max-width : 1200px)
 {
   .p-component, .p-component *
@@ -334,6 +347,18 @@
   width: 650px;
 }
 }
+
+
+@media only screen and (max-width : 1019px)
+{
+  .dash-body .right-part .add-and-remove-button
+  {
+    font-size: 11px!important;
+  }
+}
+
+
+
 
 @media only screen and (max-width : 991px)
 {
