@@ -96,7 +96,7 @@ const Dashboard = (props) => {
         <header className="dashboard-header ">
           <nav className="navbar navbar-expand-lg py-0">
             <div className="container-fluid">
-              <Link className="navbar-brand d-flex align-items-center" href="/">
+              <Link className="navbar-brand d-flex align-items-center" to="/">
                 <img src={Dashlogo} className="img-fluid w-75" />
                 <h1 className="dashboard-title ms-2">
                   <span></span>INCA
@@ -457,13 +457,13 @@ const Dashboard = (props) => {
               </div>
               <div className="col-md-9 col-lg-10 right-part">
                 {loggedInUser.role == "admin" &&
-                  location.pathname === "/dashboard" && <Card data={data} />}
+                  location?.pathname === "/dashboard" && <Card data={data} />}
                 {loggedInUser.role == "admin" &&
-                  location.pathname === "/dashboard" && (
+                  location?.pathname === "/dashboard" && (
                     <PieChart data={data} />
                   )}
-                {loggedInUser.role !== "admin" &&
-                  location.pathname === "/dashboard" && <CreateForm />}
+                {loggedInUser?.role !== "admin" &&
+                  location?.pathname === "/dashboard" && <CreateForm />}
 
                 <Outlet />
               </div>
