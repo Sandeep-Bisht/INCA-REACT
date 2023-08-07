@@ -49,7 +49,7 @@ const UserAbstractList = () => {
         {node.paperApproveStatus
           ? "Approved"
           : node.paperApproveStatus == null
-          ? "Pending"
+          ? "Review pending"
           : "Reject"}
       </>
     );
