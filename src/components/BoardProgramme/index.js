@@ -16,7 +16,7 @@ function index() {
                     <table>
                         <div className='board-timing-boxes'>
                         <div className='board-timings'>
-                        <h2>8 <sup>th</sup> November 2023</h2>
+                        <h2>6 <sup>th</sup> November 2023</h2>
                         <tr>
                             <td>Reception and Registration of Delegates</td>
                             <td>10:00 AM to 18:00 PM</td>
@@ -27,7 +27,7 @@ function index() {
                         </tr>
                         </div>
                         <div className='board-timings'>
-                        <h2>9 <sup>th</sup> November 2023</h2>
+                        <h2>7 <sup>th</sup> November 2023</h2>
                         <tr>
                             <td>Registration of Delegates at NRSC</td>
                             <td>9:00 AM to 11:00 AM</td>
@@ -66,7 +66,7 @@ function index() {
                         </tr>
                         </div>
                         <div className='board-timings'>
-                        <h2>10 <sup>th</sup> November 2023</h2>
+                        <h2>8 <sup>th</sup> November 2023</h2>
                         <tr>
                             <td>Technical Sessions</td>
                             <td>9:00 AM to 10:30 AM</td>
