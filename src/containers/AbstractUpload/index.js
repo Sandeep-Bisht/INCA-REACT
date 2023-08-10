@@ -52,7 +52,6 @@ const AbstractUpload = () => {
 
   useEffect(() => {
     if (location && location.state && location.state.mode === "preview") {
-      console.log(location, "locationnn");
       setAbstractDocumentPayload(location.state);
       // setPhoneNumber(location.state.phoneNumber.toString());
       setMode(location.state.mode);
@@ -89,7 +88,7 @@ const AbstractUpload = () => {
         setAbstractDataSavemessage("");
         dispatch(ACTIONS.resetAbstractDataToInitialState())
         navigate("/dashboard/userabstractlist")
-      }, 3000);
+      }, 4000);
     }
   }, [state.abstractDataSaveSuccess]);
 
@@ -151,7 +150,6 @@ const AbstractUpload = () => {
     } else {
       setLoading(true);
       abstractDocumentPayload.themeType.push(selectedThemes);
-      console.log("before api hit", abstractDocumentPayload);
       dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
     }
 
@@ -261,6 +259,7 @@ const AbstractUpload = () => {
     }
   };
 
+ 
 
   return (
     <>
@@ -372,6 +371,7 @@ const AbstractUpload = () => {
                 <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
                   <button
+                  type="button"
                     className="common-btn add-and-remove-button w-100"
                     onClick={() => setOtherAuthor(!otherAuthor)}
                   >
@@ -414,6 +414,7 @@ const AbstractUpload = () => {
                         className="form-control"
                         id="coAuthorFirstName"
                         value={coAuthor?.coAuthorFirstName}
+                        required={otherAuthor}
                       />
                     </div>
                     <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
@@ -689,7 +690,9 @@ const AbstractUpload = () => {
                   <p className="text-danger">{abstractError}</p>
                 )}
               </div>
-              <div className="row">
+              
+            </div>
+            <div className="row">
                 <div className="col-md-8">
                   <div className="mb-3">
                     {!mode && (
@@ -717,7 +720,6 @@ const AbstractUpload = () => {
               {abstractDataSavedMessage && (
                 <p className="text-success">{abstractDataSavedMessage}</p>
               )}
-            </div>
           </div>
         </form>
       </section>
