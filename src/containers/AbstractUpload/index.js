@@ -125,17 +125,18 @@ const AbstractUpload = () => {
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractTitleError("");
       } else {
-        setAbstractTitleError("Please enter under 25 words");
+        setAbstractTitleError(`Please enter under 25 words, you have entered ${words.length}`);
       }
     } else if (e.target.id == "abstract") {
       let userInput = e.target.value;
+      console.log("counting words", userInput)
       const words = userInput.split(" ");
       if (words.length <= 300) {
         abstractDocumentPayloadCopy.abstract = e.target.value;
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractError("");
       } else {
-        setAbstractError("Please enter under 300 words");
+        setAbstractError(`Please enter under 300 words, you are trying to paste ${words.length} words.`);
       }
     } else {
       abstractDocumentPayloadCopy[e.target.id] = e.target.value;
