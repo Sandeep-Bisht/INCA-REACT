@@ -24,7 +24,7 @@ const obj = {
   conferenceMode: "offline",
   participationType: "",
   nationality: "",
-  title: "",
+  // title: "",
   // theme: "",
   registrationCategory: "",
   lifeMemberNo: "",
@@ -42,7 +42,7 @@ const obj = {
     conferenceMode: "",
     participationType: "",
     nationality: "",
-    title: "",
+    // title: "",
     // theme: "",
     registrationCategory: "",
     lifeMemberNo: "",
@@ -174,7 +174,7 @@ const CreateForm = (props) => {
         conferenceMode: "offline",
         participationType: "",
         nationality: "",
-        title: "",
+        // title: "",
         // theme: "",
         registrationCategory: "",
         lifeMemberNo: "",
@@ -348,7 +348,6 @@ const CreateForm = (props) => {
 
 
   const validateForm = () => {
-    console.log("result", userInformation)
     let formIsValid = true;
 
     if (!userInformation?.name) {
@@ -398,6 +397,7 @@ const CreateForm = (props) => {
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
     
+    
     if (systemRole == "admin") {
       userInformation.systemRole = systemRole;
     }
@@ -407,7 +407,6 @@ const CreateForm = (props) => {
         userInformation.registrationFee = value;
         userInformation.phoneNumber = phoneNumber;
         delete userInformation.isError;
-        console.log("ssave se oedje", userInformation)
         dispatch(ACTIONS.saveRegisterdUserData(userInformation));
       } else {
         let userInformationCopy = { ...userInformation };
@@ -440,7 +439,7 @@ const CreateForm = (props) => {
         conferenceMode: "offline",
         participationType: "",
         nationality: "",
-        title: "",
+        // title: "",
         registrationCategory: "",
         universityName: "",
         lifeMemberNo: "",
@@ -904,7 +903,7 @@ const CreateForm = (props) => {
               
 
               <div className="row">
-              {userInformation.participationType !== "" &&
+              {/* {userInformation.participationType !== "" &&
                 userInformation.participationType !== "delegate" && (
                   
                   <div className="col-md-6">
@@ -924,7 +923,7 @@ const CreateForm = (props) => {
                     ></textarea>
                   </div>
                   
-                )}
+                )} */}
 
               {userInformation?.registrationCategory == "Life Members" ? (
                 <div className="col-md-4">
@@ -1154,7 +1153,7 @@ const CreateForm = (props) => {
                 {isDisabled && (
                   <>
                     <label htmlFor="InputFee" className="form-label">
-                      Registration Fee
+                      Registration Fee (To be paid before 30th September 2023)
                     </label>
                     <input
                       disabled={isDisabled}
