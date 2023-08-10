@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import EventBlog from "../containers/EventBlog";
 import ExhibitorList from "../containers/ExhibitorList";
 import FullPaperPreview from "../FullPaperPreview";
+import Test from "../css/test";
 
 const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
 const AbstractPage = lazy(() => import("../containers/AbstractPage"))
@@ -103,7 +104,8 @@ export const ApplicationRoutes = ({ path }) => {
               <Route path="/dashboard/fullPaperpreview" element={<FullPaperPreview />} />
               <Route path="/dashboard/fullPaper" element={<FullPaper />} /> 
               <Route path="/dashboard/fullPaperList" element={<FullPaperList />} />
-              <Route path ="/dashboard/exhibitorlist" element={<ExhibitorList />}/>          
+              <Route path ="/dashboard/exhibitorlist" element={<ExhibitorList />}/>     
+                   
             
           </Route>
           <Route path="/contact" element={<Contact />} />
@@ -117,6 +119,8 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/userdetails/:id" element={<UserDetails />} />
           <Route path="/boardlists" element={<BoardList />} />
           <Route path="*" element={<Error />} />
+          {/* <Route path="TEST" element={<Test />}/> */}
+
         </Routes>
       </Suspense>
     </>

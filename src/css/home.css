@@ -1099,6 +1099,15 @@ a{
     .home-register-step ul li{
         width: 95%;
     }
+    .abstract-submission-date {
+        background: #0a0a0a8f;
+        height: 26px;
+        letter-spacing: 1px;
+        position: absolute;
+        bottom: 100px;
+        left: 0;
+        width: 100%;
+    }
 
 }
 
@@ -2107,7 +2116,7 @@ a{
         height: 28px;
         letter-spacing: 1px;
         position: absolute;
-        bottom: 71px;
+        bottom: 93px!important;
         left: 0;
         width: 100%;
     }

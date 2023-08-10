@@ -90,7 +90,7 @@ h1,h2,h3,h4,h5,h6
     line-height: 20.11px;
     color: #696A87;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 19px;
 }
 .btun{
     background: #75b00f;
@@ -533,7 +533,15 @@ background-color:#fff;
 }
   /* -----common responsive css---- */
   @media only screen and (max-width : 1024px) {
-
+    .common-para
+    {
+        font-family: 'Mulish', sans-serif;
+        font-weight: 400;
+        line-height: 20.11px; 
+        color: #696A87;
+        font-size: 9px;
+        line-height: 15px;
+    }
 }
 
 @media only screen and (max-width :991px) {
@@ -683,6 +691,8 @@ background-color:#fff;
 
 
 }
+
+    
 
 
 @media only screen and (max-width : 480px) {
