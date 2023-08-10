@@ -25,8 +25,8 @@ import inca6 from "../../images/DS.jpeg";
 import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
-import FinalSercular from "../../images/INCA_43rd_First_Circular (2).pdf";
-import FirstCircular from "../../SampleFiles/INCA_43rd_First_Circular_28072023_230731_190021.pdf"
+import FinalSercular from "../../images/INCA_43rd_Revised_First_Circular_10.08.2023.pdf";
+import FirstCircular from "../../SampleFiles/INCA_43rd_Revised_First_Circular_10.08.2023.pdf"
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4'
 
@@ -264,7 +264,7 @@ const HomePage = () => {
   <div className="row">
             <div className="col-md-12">
               <div className="abstract-submission-date">
-            <marquee><p><b>"Last date for Abstract Submission: 10<sup>th</sup> August, 2023"</b></p></marquee>
+            <marquee><p><b>"Last date for Abstract Submission: 18<sup>th</sup> August, 2023"</b></p></marquee>
             {/* <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee> */}
             </div>
             </div>
@@ -376,7 +376,7 @@ const HomePage = () => {
                   <p className="common-para mb-0">
                     <b>Last date for submission of abstract</b></p>
                   <p className="common-para pb-3">
-                    <b>10/August/2023</b></p> 
+                    <b>18/August/2023</b></p> 
                   {/* <p className="common-para">
                     Last date for submitting the abstracts
                   </p>
