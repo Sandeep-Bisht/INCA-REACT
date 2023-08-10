@@ -439,6 +439,7 @@ const AbstractUpload = () => {
                         className="form-control"
                         id="coAuthorLastName"
                         value={coAuthor?.coAuthorLastName}
+                        required={otherAuthor}
                       />
                     </div>
 
@@ -452,6 +453,7 @@ const AbstractUpload = () => {
                         className="form-control"
                         id="coAuthorEmail"
                         value={coAuthor?.coAuthorEmail}
+                        required={otherAuthor}
                       />
                     </div>
 
@@ -469,6 +471,7 @@ const AbstractUpload = () => {
                           className="form-control"
                           id="coAuthorAffilation"
                           value={coAuthor?.coAuthorAffilation}
+                          required={otherAuthor}
                         />
                       </div>
                     </div>

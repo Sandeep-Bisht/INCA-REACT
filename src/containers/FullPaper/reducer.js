@@ -27,6 +27,12 @@ export default (state = INITIAL_STATE, action) => {
         fullPaperDataSaveFailure: action.error,
       };
 
+      case CONSTANTS.RESET_FULL_PAPER_DATA_SUCCESS_TO_INITIAL_STATE:
+        return {
+          ...state,
+          fullPaperDataSaveSuccess: "",
+        };
+
     default:
       return state;
   }
