@@ -118,7 +118,6 @@ const FullPaper = () => {
         fullPaperPayload.userId = decodedToken.user.user._id;
         fullPaperPayload.userName = decodedToken.user.user.userName;
         fullPaperPayload.userEmail = decodedToken.user.user.userEmail;
-        console.log("full paper fullPaperPayload ", fullPaperPayload);
         dispatch(ACTIONS.saveFullPaperData(fullPaperPayload));
       }
     }

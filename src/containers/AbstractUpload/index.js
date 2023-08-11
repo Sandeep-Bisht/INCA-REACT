@@ -129,7 +129,6 @@ const AbstractUpload = () => {
       }
     } else if (e.target.id == "abstract") {
       let userInput = e.target.value;
-      console.log("counting words", userInput)
       const words = userInput.split(" ");
       if (words.length <= 300) {
         abstractDocumentPayloadCopy.abstract = e.target.value;

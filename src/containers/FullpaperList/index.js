@@ -143,7 +143,6 @@ const FullPaperList = () => {
       // let filePath = `http://localhost:4801/${item.fullPaperFileUrl}`;
       // let filePath = location.state.fullPaperFileUrl
       filePath = filePath.replace("\\", "/");
-      console.log(filePath, "filepath");
 
       setViewPdf(filePath);
     }
@@ -177,7 +176,6 @@ const FullPaperList = () => {
   };
 
   const viewBodyTemplate = (node) => {
-    console.log("nodeeeeeeeeeee full paper", node)
     return(
       <>
       <button
