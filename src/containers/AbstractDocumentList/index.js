@@ -110,7 +110,6 @@ const AbstractDocumentList = () => {
   };
 
   let redirectToPaperPreviewPage = (item) => {
-    console.log(item, "itemsssssssss")
     item.mode = "preview"
     navigate("/dashboard/upload", { state: item });
   };
