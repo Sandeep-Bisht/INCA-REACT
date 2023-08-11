@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { MultiSelect } from "primereact/multiselect";
 import { useDispatch, useSelector } from "react-redux";
 import * as ACTIONS from "./action";
@@ -44,6 +44,7 @@ const FullPaper = () => {
     coAuthorAffilation: "",
   });
   const [fullPaperError, setFullPaperError] = useState(undefined);
+  let navigate = useNavigate()
 
   useEffect(() => {
     if (location && location.state) {
@@ -117,7 +118,6 @@ const FullPaper = () => {
         fullPaperPayload.userId = decodedToken.user.user._id;
         fullPaperPayload.userName = decodedToken.user.user.userName;
         fullPaperPayload.userEmail = decodedToken.user.user.userEmail;
-        console.log("full paper fullPaperPayload ", fullPaperPayload);
         dispatch(ACTIONS.saveFullPaperData(fullPaperPayload));
       }
     }
@@ -160,15 +160,17 @@ const FullPaper = () => {
   };
 
   useEffect(() => {
-    if (state && state.fullPaperDataSaveSuccess) {
+    if (state && state?.fullPaperDataSaveSuccess) {
       setLoading(false);
       emptyFormField();
       setFullPaperDataSavedMessage(
-        "Your file submitted successfully. we will update you on email after verification"
+        "Your file submitted successfully. We will update you on email after verification"
       );
       setTimeout(() => {
         setFullPaperDataSavedMessage("");
-      }, 10000);
+        dispatch(ACTIONS.resetFullPaperDataToInitialState())
+        navigate("/dashboard/fullPaperList")
+      }, 4000);
     }
   }, [state.fullPaperDataSaveSuccess]);
 
@@ -374,6 +376,7 @@ const FullPaper = () => {
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
               >
                 <button
+                type="button"
                   className="common-btn add-and-remove-button w-100"
                   onClick={() => setOtherAuthor(!otherAuthor)}
                 >
@@ -423,6 +426,7 @@ const FullPaper = () => {
                         className="form-control"
                         id="coAuthorFirstName"
                         value={coAuthor?.coAuthorFirstName}
+                        required={otherAuthor}
                       />
                     </div>
                     <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
@@ -450,6 +454,7 @@ const FullPaper = () => {
                         className="form-control"
                         id="coAuthorLastName"
                         value={coAuthor?.coAuthorLastName}
+                        required={otherAuthor}
                       />
                     </div>
                     <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
@@ -466,6 +471,7 @@ const FullPaper = () => {
                           className="form-control"
                           id="coAuthorEmail"
                           value={coAuthor?.coAuthorEmail}
+                          required={otherAuthor}
                         />
                       </div>
                     </div>
@@ -482,6 +488,7 @@ const FullPaper = () => {
                         className="form-control"
                         id="coAuthorAffilation"
                         value={coAuthor?.coAuthorAffilation}
+                        required={otherAuthor}
                       />
                     </div>
                   </div>

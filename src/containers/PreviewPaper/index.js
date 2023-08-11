@@ -45,7 +45,6 @@ const PreviewPaper = () => {
     if(location && location.state) {
       approveDocs.userId = location.state.userId;
        approveDocs.docsId = location.state._id;
-       console.log("locatiooonnnnnnnnnnnn", location.state)
     }
   }, [])
 
@@ -86,7 +85,6 @@ const PreviewPaper = () => {
       setAcceptLoader(true);
       approveDocs.paperApproveStatus = status;
       
-      console.log(approveDocs, "docts accepe")
        dispatch(ACTIONS.approveFileSubmission(approveDocs));
     }
   };

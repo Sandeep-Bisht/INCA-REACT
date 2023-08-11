@@ -8,7 +8,7 @@ import "../../css/register.css";
 const ForgotPassword = () => {
   const emailRegExp = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 
-  let [userEmail, setUserEmail] = useState('');
+  let [userEmail, setUserEmail] = useState("");
   let [userEmailValidationError, setUserEmailValidationError] = useState('')
   let [isDisabled, setIsDisabled] = useState(false)
   
@@ -17,9 +17,9 @@ const ForgotPassword = () => {
   const state = useSelector((state) => state.UserForgotPasswordReducer);
 
   useEffect(() => {
-      if(state.userForgotPasswordSuccess){
-        setUserEmail("")
+      if(state.userForgotPasswordSuccess){        
         setIsDisabled(false)
+        // setUserEmail(''); // Reset the userEmail state to clear the input field
         setForgotPassowrdMessage(state.userForgotPasswordSuccess.message);
         dispatch(ACTIONS.resetToInitialState());
         clearMessage();
@@ -27,10 +27,10 @@ const ForgotPassword = () => {
   }, [state.userForgotPasswordSuccess])
 
   let clearMessage = () => {
-    setTimeout(()=> {
+    setTimeout(()=> {      
       setUserEmailValidationError("");
       setForgotPassowrdMessage("");
-    }, 3000)
+    }, 4000)
   }
 
   useEffect(() => {
@@ -44,6 +44,7 @@ const ForgotPassword = () => {
   let dispatch = useDispatch()
 
   let emailOnChangeHandler = (e) => {
+    e.preventDefault();
       if(e.target.id == "userEmail"){
         if(emptyFormAndEmailValidationFunc(e.target.value)){
           setUserEmailValidationError('')
@@ -65,12 +66,13 @@ const ForgotPassword = () => {
   }
 
   let forgotPasswordHandler = (e) => {
-    e.preventDefault()
-    if(emptyFormAndEmailValidationFunc(userEmail)){
-      setIsDisabled(true)
-      dispatch(ACTIONS.ForgotPassword(userEmail))
+    e.preventDefault();
+    if (emptyFormAndEmailValidationFunc(userEmail)) {
+      setIsDisabled(true);
+      dispatch(ACTIONS.ForgotPassword(userEmail));
+   
     }
-  }
+  };
   return (
     <>
       <Header></Header>
@@ -107,15 +109,19 @@ const ForgotPassword = () => {
                           <i className="fa-solid fa-envelope me-2"></i>E-mail
                         </label>
                       </div>
+                      {userEmailValidationError && <p className="text-center text-danger mt-2">{userEmailValidationError}</p>}
                     </div>
                   </div>
                   <div className="col-md-12">
                     <div className="btn-wrapper">
-                      <button type="submit" className=" form-submit " disabled={isDisabled} >
+                      <button 
+                      type="submit" 
+                      className=" form-submit"
+                       disabled={isDisabled} >
                        { isDisabled ?  "Requesting" :  "Send" }
                       </button>
-                      {userEmailValidationError && <p className="text-danger">{userEmailValidationError}</p>}
-                      {forgotPassowrdMessage  && <p className={`${forgotPassowrdMessage == "Please send the registred email address" ? "text-danger" : "text-success"}`}>{forgotPassowrdMessage}</p>}
+                      
+                      {forgotPassowrdMessage  && <p className={`mt-2 ${forgotPassowrdMessage == "Please send the registred email address" ? "text-danger" : "text-success"}`}>{forgotPassowrdMessage}</p>}
                     </div>
                   </div>
                 </div>

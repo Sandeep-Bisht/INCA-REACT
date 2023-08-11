@@ -125,7 +125,7 @@ const AbstractUpload = () => {
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractTitleError("");
       } else {
-        setAbstractTitleError("Please enter under 25 words");
+        setAbstractTitleError(`Please enter under 25 words, you have entered ${words.length}`);
       }
     } else if (e.target.id == "abstract") {
       let userInput = e.target.value;
@@ -135,7 +135,7 @@ const AbstractUpload = () => {
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractError("");
       } else {
-        setAbstractError("Please enter under 300 words");
+        setAbstractError(`Please enter under 300 words, you are trying to paste ${words.length} words.`);
       }
     } else {
       abstractDocumentPayloadCopy[e.target.id] = e.target.value;
@@ -439,6 +439,7 @@ const AbstractUpload = () => {
                         className="form-control"
                         id="coAuthorLastName"
                         value={coAuthor?.coAuthorLastName}
+                        required={otherAuthor}
                       />
                     </div>
 
@@ -452,6 +453,7 @@ const AbstractUpload = () => {
                         className="form-control"
                         id="coAuthorEmail"
                         value={coAuthor?.coAuthorEmail}
+                        required={otherAuthor}
                       />
                     </div>
 
@@ -469,6 +471,7 @@ const AbstractUpload = () => {
                           className="form-control"
                           id="coAuthorAffilation"
                           value={coAuthor?.coAuthorAffilation}
+                          required={otherAuthor}
                         />
                       </div>
                     </div>

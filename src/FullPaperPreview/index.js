@@ -12,7 +12,6 @@ const FullPaperPreview = () => {
       let filePath = `https://43inca.org/app//${location.state.fullPaperFileUrl}`;
       filePath = filePath.replace('\\', '/');
       setViewPdf(filePath);
-      console.log("filePath filePath", filePath)
     }
   }, [location]);
 

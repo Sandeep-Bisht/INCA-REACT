@@ -39,7 +39,7 @@ const AllRegistration = () => {
     const qrCodeURL = document.getElementById('qrCodeEl')
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream");
-    console.log(qrCodeURL)
+    // console.log(qrCodeURL)
     let aEl = document.createElement("a");
     aEl.href = qrCodeURL;
     aEl.download = "QR_Code.png";
