@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { DataTable } from "primereact/datatable";
 import { useNavigate } from "react-router-dom";
 import { Column } from "primereact/column";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import * as ACTIONS from "./action";
+import axios from "axios";
+import { baseUrl } from "../../utils";
+import { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
+import { Button } from 'primereact/button';
+import { Toast } from 'primereact/toast'
 
 const UserAbstractList = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +21,18 @@ const UserAbstractList = () => {
   const state = useSelector((state) => state.UserAbstractListReducer);
 
   let dispatch = useDispatch();
+  const [visible, setVisible] = useState(false);
+    const toast = useRef(null);
+    const buttonEl = useRef(null);
+
+    const accept = (id) => {
+      
+      deleteAbstractDetails(id)
+  };
+
+  const reject = () => {
+      toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+  };
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -43,6 +62,8 @@ const UserAbstractList = () => {
     );
   });
 
+
+
   const statusBodyTemplate = (node) => {
     return (
       <>
@@ -71,6 +92,56 @@ const UserAbstractList = () => {
     );
   };
 
+  const deleteAbstractTemplate = (userAbstractList) => {
+    return (
+      <>
+       {!userAbstractList?.paperApproveStatus && (
+        <>
+        <Toast ref={toast} />
+<ConfirmPopup target={buttonEl.current} visible={visible} onHide={() => setVisible(false)} 
+    message="Are you sure you want to delete Abstract?" icon="pi pi-exclamation-triangle" accept={() => accept(userAbstractList._id)} reject={reject} />
+{/* <Button ref={buttonEl} onClick={() => setVisible(true)} icon="pi pi-check" label="Confirm" /> */}
+<i  ref={buttonEl} onClick={() => setVisible(true)} class="fa fa-trash" aria-hidden="true"></i>
+      </>
+       )
+      //  <span <i class="fa fa-trash" aria-hidden="true"></i></Popconfirm>
+      //  className="text-danger cursior-pointer" 
+      //  onClick={() => {
+      //       deleteAbstractDetails(userAbstractList._id)
+      //     }}
+      //   >
+       
+      //  </span>
+      //  <button className="abstracts-common-btn" onClick={() => {
+      //     deleteAbstractDetails(userAbstractList._id)
+      //   }}></button>
+        }
+      </>
+    );
+  };
+  
+
+  const deleteAbstractDetails = async (abstractId) => {
+    try {
+       let url= `${baseUrl}delete_abstract_by_id/${abstractId}`
+       let response = await axios.delete(url)
+        if(response){
+          toast.current.show({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+          console.log("response", response)
+          let token = jwt_decode(localStorage.getItem("token"));      
+          dispatch(ACTIONS.getUserAbstractList(token.user.user._id));        }      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const dateBodyTemplate = (node) => {
+    const date = new Date(node.createdAt);
+      const formatedDate =  date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    return formatedDate;
+  };
+
+
 
   // const header1 = renderHeader1();
 
@@ -90,14 +161,24 @@ const UserAbstractList = () => {
         >
           {dynamicColumns}
           <Column
+            field="Date of Submission"
+            header="Date of Submission"
+            body={dateBodyTemplate}
+          ></Column>
+          <Column
             field="Status"
             header="Status"
             body={statusBodyTemplate}
           ></Column>
            <Column
-            field="Actions"
-            header="Actions"
+            field="View"
+            header="View"
             body={actionBodyTemplate}
+          ></Column> 
+          <Column
+            field="ACTION"
+            header="Action"
+            body={deleteAbstractTemplate}
           ></Column> 
         </DataTable>
       </div>   
@@ -108,6 +189,8 @@ const UserAbstractList = () => {
                           info@43inca.org
                         </p>
         </div>   
+
+        
     </>
   );
 };

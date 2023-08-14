@@ -87,7 +87,9 @@ const AllRegistration = () => {
 
           </div>
 
-          <div className="ps-2">
+
+{/* // Certificate */}
+          {/* <div className="ps-2">
             <div>
 
             </div>
@@ -95,7 +97,7 @@ const AllRegistration = () => {
               Send Email
             </button>
 
-          </div>
+          </div> */}
 
           {/* <div className="ps-2">
             <button className="action-btn" onClick={() => { generateUserQrCode(node) }}>

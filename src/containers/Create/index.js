@@ -1023,6 +1023,7 @@ const CreateForm = (props) => {
                         id="yes"
                         name="add"
                         value="yes"
+                        checked={userInformation?.accompanningPerson?.length > 0}
                         disabled={isDisabled}
                         onClick={(e) => anotherPersonHandler(true)}
                       />
@@ -1034,6 +1035,7 @@ const CreateForm = (props) => {
                         id="no"
                         name="add"
                         value="no"
+                        checked={!userInformation?.accompanningPerson?.length > 0}
                         disabled={isDisabled}
                         onClick={(e) => anotherPersonHandler(false)}
                       />
@@ -1043,7 +1045,7 @@ const CreateForm = (props) => {
 
                 {location &&
                 location.state &&
-                location.state.mode === "view" ? (
+                location.state.mode === "view" || userInformation.accompanningPerson.length > 0 ? (
                   ""
                 ) : (
                   <small>(max. of 3 persons are allowed.)</small>
