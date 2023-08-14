@@ -42,6 +42,7 @@ const AbstractUpload = () => {
     coAuthorEmail: "",
     coAuthorAffilation: "",
   });
+  const [proceed, setProceed] = useState(false)
 
   const state = useSelector((state) => state.AbstractUploadReducer);
 
@@ -119,12 +120,14 @@ const AbstractUpload = () => {
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
     if (e.target.id == "abstractPaperName") {
       let userInput = e.target.value;
+      validateAbstractForm()
       const words = userInput.split(" ");
       if (words.length <= 25) {
         abstractDocumentPayloadCopy.abstractPaperName = e.target.value;
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractTitleError("");
       } else {
+        alert(`Please enter under 25 words, you have entered ${words.length}`)
         setAbstractTitleError(`Please enter under 25 words, you have entered ${words.length}`);
       }
     } else if (e.target.id == "abstract") {
@@ -134,7 +137,9 @@ const AbstractUpload = () => {
         abstractDocumentPayloadCopy.abstract = e.target.value;
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractError("");
+        // validateAbstractForm()
       } else {
+        alert(`Please enter under 300 words, you are trying to paste ${words.length} words.`);
         setAbstractError(`Please enter under 300 words, you are trying to paste ${words.length} words.`);
       }
     } else {
@@ -143,7 +148,7 @@ const AbstractUpload = () => {
     }
   };
 
-  let abstractPaperSubmitHandler = (e) => {
+  let abstractPaperSubmitHandler = async(e) => {
     e.preventDefault();
     if (selectedThemes == [] || selectedThemes === null) {
       alert('Please select at least one sub-theme.');
@@ -258,6 +263,50 @@ const AbstractUpload = () => {
       value = e.value;
     }
   };
+  var previewPayload;
+  
+  const validateAbstractForm = () => {
+     previewPayload = true;
+
+    // debugger;
+    if (!abstractDocumentPayload?.authorSaluation) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.authorFirstName) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.authorLastName) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.authorEmail) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.authorAffiliation) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.abstractPaperName) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.abstract) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.paperPresentationType) {
+      previewPayload = false;
+    }
+    if (!selectedThemes?.length <= 0) {
+      previewPayload = false;
+    }
+
+    
+      return previewPayload;
+    
+    //else{
+    //   return alert(`Please filll   ${previewPayload}`)
+    // }
+  }
+
+  
+
 
  
 
@@ -375,13 +424,13 @@ const AbstractUpload = () => {
                     className="common-btn add-and-remove-button w-100"
                     onClick={() => setOtherAuthor(!otherAuthor)}
                   >
-                    Add Co-Author
+                    {otherAuthor && otherAuthor ? "Remove Author" : " Add Co-Author"}
                   </button>
                 </div>
               )}
             </div>
 
-            {otherAuthor && (
+            {otherAuthor && abstractDocumentPayload?.coAuthorDetails?.length < 9 &&  (
               <div className="row">
                 <div className="col-12 mb-2"><b>Co-Author</b></div>
                 <div className="col-lg-10 col-md-12 col-sm-12 d-flex">
@@ -477,6 +526,7 @@ const AbstractUpload = () => {
                     </div>
                   </div>
                 </div>
+                {abstractDocumentPayload?.coAuthorDetails?.length < 9 &&
                 <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
                   <button
@@ -488,6 +538,7 @@ const AbstractUpload = () => {
                     Add
                   </button>
                 </div>
+}
               </div>
             )}
 
@@ -700,13 +751,29 @@ const AbstractUpload = () => {
                   <div className="mb-3">
                     {!mode && (
                       <>
-                        <button
-                          className="common-btn add-button"
-                          type="submit"
-                          disabled={loading}
+                      { !proceed &&
+                      <button 
+                      type="button"
+                       className="ms-3 common-btn add-button"
+                        data-bs-toggle="modal"
+                        // onClick={() => {
+                        //   if (validateAbstractForm()) {
+                        //     // Open the modal here
+                        //      const previewModal = document.getElementById('previewModal');
+                        //      previewModal.show();
+                        //   }
+                        // }}
+                        // onClick={() => validateAbstractForm()}
+                         data-bs-target="#previewModal"
                         >
-                          {loading ? "uploading..." : "Submit"}
-                        </button>
+                      Preview 
+                        </button> } 
+                        
+                        {/* {proceed &&
+
+                         } */}
+
+                      
 
                         <p className="pt-3 fs-6">
                           <b>Note</b>: Kindly, Fill the registeration form
@@ -724,7 +791,92 @@ const AbstractUpload = () => {
                 <p className="text-success">{abstractDataSavedMessage}</p>
               )}
           </div>
-        </form>
+       
+
+      {/* <!-- Button trigger modal --> */}
+
+
+{/* <!-- Modal --> */}
+<div className="modal fade" id="previewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div className="modal-dialog modal-lg">
+    <div className="modal-content">
+      <div className="modal-header " style={{ display: 'flex', justifyContent: 'center' }}>
+        <h5 className="modal-title" id="staticBackdropLabel">Abstract Detail</h5>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div className="modal-body">
+        {
+          abstractDocumentPayload && (
+            <>
+            <ul>
+              <li>
+                <b>
+                Author
+                </b>
+                </li>
+              <li>
+                <h6>Author Name</h6> : {abstractDocumentPayload.authorSaluation +" "+ abstractDocumentPayload.authorFirstName
+                + " " + abstractDocumentPayload?.authorMiddleName  + " " + abstractDocumentPayload.authorLastName
+                }
+              </li>
+              {abstractDocumentPayload?.coAuthorDetails?.length > 0 &&
+              <li><b>Co-Author</b></li>
+              }
+              {abstractDocumentPayload?.coAuthorDetails?.length > 0 && abstractDocumentPayload.coAuthorDetails.map((item, index) => {
+                return(
+                  <li><h6>
+                  Co-Author Name </h6>: {item.coAuthorSaluation +" "+ item.coAuthorFirstName
+                  + " " + item?.coAuthorMiddleName  + " " + item.coAuthorLastName
+                  }
+                </li>
+                )
+              })             
+                }
+              <li>
+              <h6> Intended Mode of Paper Presentation </h6>:  { abstractDocumentPayload.paperPresentationType } 
+              </li>
+              <li>
+                <b>
+              Select Sub-Themess
+              </b>
+              </li>
+              { selectedThemes && selectedThemes.map((item, ind) => {
+                return(
+                  <li>
+                { item.name } 
+              </li>
+                )
+              })
+              
+                }
+              <li>
+              <h6>Title of the Paper </h6>: { abstractDocumentPayload.abstractPaperName } 
+              </li>
+              <li>
+              <h6>Abstract </h6> : { abstractDocumentPayload.abstract } 
+              </li>
+            </ul>
+            </>
+          )
+
+        }
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Edit</button>
+       
+       {abstractDocumentPayload && abstractDocumentPayload.authorFirstName && abstractDocumentPayload.paperPresentationType 
+       && abstractDocumentPayload.abstractPaperName && abstractDocumentPayload.abstract && selectedThemes?.length > 0 &&
+        // <button type="button" className="common-btn add-button" data-bs-dismiss="modal" onClick={()=>setProceed(!proceed)}>Proceed</button>
+        <button className="ms-3 common-btn add-button" data-bs-dismiss="modal" type="submit" disabled={loading}>
+                        {loading ? "uploading..." : "Submit"}
+                        </button>
+       }
+      </div>
+    </div>
+  </div>
+</div>
+
+</form>
       </section>
     </>
   );
