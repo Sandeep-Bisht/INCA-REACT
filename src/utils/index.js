@@ -16,9 +16,9 @@ export function getBaseUrl() {
     : window.location.origin + "/";
 }
 
-// export const baseUrl ="https://43inca.org/app//api/"
+export const baseUrl ="https://43inca.org/app//api/"
 // export const baseUrl ="http://144.91.110.221:4801/api/";
-export const baseUrl = "http://localhost:4801/api/";
+// export const baseUrl = "http://localhost:4801/api/";
 
 export const countries = [
   "Afghanistan",
