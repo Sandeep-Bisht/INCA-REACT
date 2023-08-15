@@ -5,6 +5,7 @@ import { MultiSelect } from "primereact/multiselect";
 import * as ACTIONS from "./action";
 import { useLocation, useNavigate } from "react-router-dom";
 import PreviewPaper from "../PreviewPaper";
+import "../../css/abstractUpload.css"
 
 let obj = {
   authorSaluation: "",
@@ -34,6 +35,7 @@ const AbstractUpload = () => {
   const [abstractError, setAbstractError] = useState("");
   const [otherAuthor, setOtherAuthor] = useState(false);
   const [selectedThemes, setSelectedThemes] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const [coAuthor, setCoAuthor] = useState({
     coAuthorSaluation: "",
     coAuthorFirstName: "",
@@ -116,9 +118,42 @@ const AbstractUpload = () => {
   //   setAbstractDocumentPayload(abstractDocumentPayloadCopy);
   // };
 
-  const abstarctOnChangeHandler = (e) => {
+  let emptyFormUploadField = () => {
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
-    if (e.target.id == "abstractPaperName") {
+    ref.current.value = "";
+    abstractDocumentPayloadCopy.filename = "";
+    setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+  };
+
+  function getFileExtensionToLowerCase(filename) {
+    return filename.split(".").pop().toLowerCase();
+  }
+
+
+  const abstarctOnChangeHandler = async (e) => {
+    let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
+
+    if (e.target.id == "file") {
+      const allowedExtensions = ["doc", "docx"];
+      const fileExtension = await getFileExtensionToLowerCase(
+        e.target.files[0].name
+      );
+      if (!allowedExtensions.includes(fileExtension)) {
+        emptyFormUploadField();
+        setErrorMessage("Please upload word file only.");
+      } else {
+        if (e.target.files[0].size <= 20000000) {
+          let formData = new FormData();
+          formData.append("file", e.target.files[0]);
+          abstractDocumentPayloadCopy.fullPaperFileUrl = e.target.files[0].name;
+          setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+          setErrorMessage("");
+          dispatch(ACTIONS.abstratcFileUpload(formData));
+        } else {
+          setErrorMessage("File size should not be more than 10Mb");
+        }
+      }
+    }else if (e.target.id == "abstractPaperName") {
       let userInput = e.target.value;
       validateAbstractForm()
       const words = userInput.split(" ");
@@ -154,7 +189,9 @@ const AbstractUpload = () => {
       alert('Please select at least one sub-theme.');
     } else {
       setLoading(true);
+      let decodedToken = await jwt_decode(localStorage.getItem("token"));
       abstractDocumentPayload.themeType.push(selectedThemes);
+      abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
       dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
     }
 
@@ -305,12 +342,7 @@ const AbstractUpload = () => {
     // }
   }
 
-  
-
-
- 
-
-  return (
+return (
     <>
       <section className="abstract-form">
         <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
@@ -419,18 +451,21 @@ const AbstractUpload = () => {
 
                 <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
-                  <button
+                  {/* <button
                   type="button"
                     className="common-btn add-and-remove-button w-100"
                     onClick={() => setOtherAuthor(!otherAuthor)}
                   >
                     {otherAuthor && otherAuthor ? "Remove Author" : " Add Co-Author"}
-                  </button>
+                  </button> */}
+                  <button type="button"className="common-btn add-and-remove-button w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  Add Co-Author
+                </button>
                 </div>
               )}
             </div>
 
-            {otherAuthor && abstractDocumentPayload?.coAuthorDetails?.length < 9 &&  (
+            {/* {otherAuthor && abstractDocumentPayload?.coAuthorDetails?.length < 9 &&  (
               <div className="row">
                 <div className="col-12 mb-2"><b>Co-Author</b></div>
                 <div className="col-lg-10 col-md-12 col-sm-12 d-flex">
@@ -540,9 +575,60 @@ const AbstractUpload = () => {
                 </div>
 }
               </div>
-            )}
+            )} */}
 
-            {abstractDocumentPayload.coAuthorDetails.length > 0 &&
+                          <div className="row">
+                          {abstractDocumentPayload &&
+                            abstractDocumentPayload?.coAuthorDetails.length > 0 &&
+                            abstractDocumentPayload?.coAuthorDetails.map((item, index) => {                              
+                              return (
+                              <div className="col-md-4 col-6" key={index}>
+                                    <div className="card">
+                                      <div className="save-address">
+                                        <div className="default-add">
+                                          <span className="default-address">
+                                            <b>Co-Author: </b>
+                                          </span>
+                                          <span className="address-logo">
+                                            <b>{index + 1}</b>
+                                          </span>
+                                        </div>
+                                        <div className="co-author-detail">
+                                          <div className="address-selection">
+                                            <p className="name">
+                                              Name : {" "}
+                                              {item.coAuthorSaluation} {" "} {item.coAuthorFirstName}
+                                              {" "} {item.coAuthorMiddleName} {" "} {item.coAuthorLastName}
+                                            </p>                                           
+                                          </div>
+
+                                          <p className="email">
+                                          Email :{" "}
+                                            {item.coAuthorEmail}
+                                          </p>
+                                          <p className="affiliation">
+                                            Affiliation : {" "} {item.coAuthorAffilation}
+                                          </p>
+                                        </div>
+                                        <div className="">
+                                        <button
+                            className="delete-button w-100"
+                            id="accompanningPerson"
+                            type="button"
+                            onClick={(e) => deleteCoAuthor(index)}
+                          >
+                            Delete
+                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              );
+                            })}
+                         
+                        </div>
+
+            {/* {abstractDocumentPayload.coAuthorDetails.length > 0 &&
               abstractDocumentPayload.coAuthorDetails.map((item, index) => {
                 return (
                   <div className="row">
@@ -626,7 +712,7 @@ const AbstractUpload = () => {
                   </div>
 
                 );
-              })}
+              })} */}
 
             <div className="row mt-2">
               <div className="col-lg-6 col-md-6">
@@ -768,10 +854,30 @@ const AbstractUpload = () => {
                         >
                       Preview 
                         </button> } 
-                        
-                        {/* {proceed &&
 
-                         } */}
+                        <div className="col-md-12 mt-3">
+                          <p>If you are unable to submit your abstract using the above form, please upload the abstract in .docx format using the "Upload Document" button given below (optional).</p>
+                        </div>
+                        
+                        <div className="col-lg-6 col-md-10 mt-3">
+                <div className="mb-3">
+                  <label htmlFor="inputFile" className="form-label asterisk">
+                    Full Paper Upload (File size should not be more 20mb )
+                  </label>
+                  <input
+                    type="file"
+                    className="form-control"
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                    aria-label="file example"
+                    id="file"
+                    ref={ref}
+                    
+                  />
+                  {errorMessage && (
+                    <p className="text-danger">{errorMessage}</p>
+                  )}
+                </div>
+              </div>
 
                       
 
@@ -796,7 +902,7 @@ const AbstractUpload = () => {
       {/* <!-- Button trigger modal --> */}
 
 
-{/* <!-- Modal --> */}
+{/* Preiew <!-- Modal --> */}
 <div className="modal fade" id="previewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div className="modal-dialog modal-lg">
     <div className="modal-content">
@@ -809,37 +915,56 @@ const AbstractUpload = () => {
           abstractDocumentPayload && (
             <>
             <ul>
-              <li>
                 <b>
                 Author
                 </b>
-                </li>
               <li>
-                <h6>Author Name</h6> : {abstractDocumentPayload.authorSaluation +" "+ abstractDocumentPayload.authorFirstName
+                <b>Author Name</b> : {abstractDocumentPayload.authorSaluation +" "+ abstractDocumentPayload.authorFirstName
                 + " " + abstractDocumentPayload?.authorMiddleName  + " " + abstractDocumentPayload.authorLastName
                 }
               </li>
+              <li>
+              <b>Author Email</b> : { abstractDocumentPayload.authorEmail }
+              </li>
+              <li>
+              <b>Affiliation</b> : { abstractDocumentPayload.authorAffiliation }
+              </li>
+              </ul>
+              <ul>
               {abstractDocumentPayload?.coAuthorDetails?.length > 0 &&
-              <li><b>Co-Author</b></li>
+              <b>Co-Author</b>
               }
               {abstractDocumentPayload?.coAuthorDetails?.length > 0 && abstractDocumentPayload.coAuthorDetails.map((item, index) => {
                 return(
-                  <li><h6>
-                  Co-Author Name </h6>: {item.coAuthorSaluation +" "+ item.coAuthorFirstName
+                  <>
+                  <li>
+                  <b>
+                  Co-Author Name {index + 1} </b>: {item.coAuthorSaluation +" "+ item.coAuthorFirstName
                   + " " + item?.coAuthorMiddleName  + " " + item.coAuthorLastName
                   }
                 </li>
+                <li>
+                <b>
+                Co-Author Email</b>: {item.coAuthorEmail }
+              </li>
+              <li className="pb-3">
+                <b>
+                Co-Author Affiliation</b>: {item.coAuthorAffilation }
+              </li>
+              </>
                 )
               })             
                 }
-              <li>
-              <h6> Intended Mode of Paper Presentation </h6>:  { abstractDocumentPayload.paperPresentationType } 
+                </ul>
+                <ul>
+              <li className="mb-2">
+              <b> Intended Mode of Paper Presentation </b>:  { abstractDocumentPayload.paperPresentationType } 
               </li>
-              <li>
+              </ul>
+              <ul>              
                 <b>
               Select Sub-Themess
               </b>
-              </li>
               { selectedThemes && selectedThemes.map((item, ind) => {
                 return(
                   <li>
@@ -849,11 +974,11 @@ const AbstractUpload = () => {
               })
               
                 }
-              <li>
-              <h6>Title of the Paper </h6>: { abstractDocumentPayload.abstractPaperName } 
+              <li className="mt-2">
+              <b>Title of the Paper </b>: { abstractDocumentPayload.abstractPaperName } 
               </li>
-              <li>
-              <h6>Abstract </h6> : { abstractDocumentPayload.abstract } 
+              <li className="mt-2">
+              <b>Abstract </b> : { abstractDocumentPayload.abstract } 
               </li>
             </ul>
             </>
@@ -871,6 +996,146 @@ const AbstractUpload = () => {
                         {loading ? "uploading..." : "Submit"}
                         </button>
        }
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{/* <!-- add Co author Button trigger modal --> */}
+
+
+{/* <!-- Add coauthor modal Modal --> */}
+<div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Co-Author</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div className="row">
+                <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
+                  <div className="row">
+                    <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                      <label htmlFor="coAuthorSaluation" className="form-label asterisk">
+                        Saluation
+                      </label>
+                      <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        id="coAuthorSaluation"
+                        value={coAuthor?.coAuthorSaluation}
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                      >
+                        <option selected>Select Saluation</option>
+                        <option defaultValue="Dr.">Dr.</option>
+                        <option defaultValue="Mr.">Mr.</option>
+                        <option defaultValue="Ms.">Ms.</option>
+                        <option defaultValue="Mrs.">Mrs.</option>
+                      </select>
+                    </div>
+                    <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                      <label htmlFor="coAuthorFirstName" className="form-label asterisk">
+                        First Name
+                      </label>
+                      <input
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        id="coAuthorFirstName"
+                        value={coAuthor?.coAuthorFirstName}
+                        required={otherAuthor}
+                      />
+                    </div>
+                    <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                      <label htmlFor="coAuthorMiddleName" className="form-label">
+                        Middle Name
+                      </label>
+                      <input
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        id="coAuthorMiddleName"
+                        value={coAuthor?.coAuthorMiddleName}
+                      />
+                    </div>
+                    <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                      <label htmlFor="coAuthorLastName" className="form-label">
+                        Last Name
+                      </label>
+                      <input
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        id="coAuthorLastName"
+                        value={coAuthor?.coAuthorLastName}
+                        required={otherAuthor}
+                      />
+                    </div>
+
+                    <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                      <label htmlFor="coAuthorEmail" className="form-label asterisk">
+                        email
+                      </label>
+                      <input
+                        onChange={(e) => coAuthorOnChangeHandler(e)}
+                        type="text"
+                        className="form-control"
+                        id="coAuthorEmail"
+                        value={coAuthor?.coAuthorEmail}
+                        required={otherAuthor}
+                      />
+                    </div>
+
+                    <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                      <div className="mb-3">
+                        <label
+                          htmlFor="coAuthorAffiliation"
+                          className="form-label asterisk"
+                        >
+                          Affiliation
+                        </label>
+                        <input
+                          onChange={(e) => coAuthorOnChangeHandler(e)}
+                          type="text"
+                          className="form-control"
+                          id="coAuthorAffilation"
+                          value={coAuthor?.coAuthorAffilation}
+                          required={otherAuthor}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* {abstractDocumentPayload?.coAuthorDetails?.length < 9 &&
+                <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
+                justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
+                  <button
+                    className="common-btn add-and-remove-button w-100"
+                    id="coAuthor"
+                    type="button"
+                    onClick={(e) => addCoAuthor(e)}
+                  >
+                    Add
+                  </button>
+                </div>
+} */}
+              </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+        <button
+         className="common-btn add-and-remove-button"
+         data-bs-dismiss="modal"
+         id="coAuthor"
+         type="button"
+         onClick={(e) => addCoAuthor(e)}
+         disabled ={ !coAuthor.coAuthorAffilation && !coAuthor.coAuthorFirstName && !coAuthor.coAuthorLastName && !coAuthor.coAuthorEmail
+          && !coAuthor.coAuthorSaluation}
+        >Add</button> 
+        
       </div>
     </div>
   </div>
