@@ -950,7 +950,6 @@ const AbstractUpload = () => {
                       <ul>
                         <b>Author</b>
                         <li>
-                          <b>Author Name</b> :{" "}
                           {abstractDocumentPayload.authorSaluation +
                             " " +
                             abstractDocumentPayload.authorFirstName +
@@ -960,11 +959,9 @@ const AbstractUpload = () => {
                             abstractDocumentPayload.authorLastName}
                         </li>
                         <li>
-                          <b>Author Email</b> :{" "}
                           {abstractDocumentPayload.authorEmail}
                         </li>
                         <li>
-                          <b>Affiliation</b> :{" "}
                           {abstractDocumentPayload.authorAffiliation}
                         </li>
                       </ul>
