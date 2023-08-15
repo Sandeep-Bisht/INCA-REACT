@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import { MultiSelect } from "primereact/multiselect";
 import * as ACTIONS from "./action";
+import * as FULL_ACTIONS from "../FullPaper/action"
 import { useLocation, useNavigate } from "react-router-dom";
 import PreviewPaper from "../PreviewPaper";
 
@@ -34,6 +35,7 @@ const AbstractUpload = () => {
   const [abstractError, setAbstractError] = useState("");
   const [otherAuthor, setOtherAuthor] = useState(false);
   const [selectedThemes, setSelectedThemes] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const [coAuthor, setCoAuthor] = useState({
     coAuthorSaluation: "",
     coAuthorFirstName: "",
@@ -116,9 +118,42 @@ const AbstractUpload = () => {
   //   setAbstractDocumentPayload(abstractDocumentPayloadCopy);
   // };
 
-  const abstarctOnChangeHandler = (e) => {
+  let emptyFormUploadField = () => {
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
-    if (e.target.id == "abstractPaperName") {
+    ref.current.value = "";
+    abstractDocumentPayloadCopy.filename = "";
+    setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+  };
+
+  function getFileExtensionToLowerCase(filename) {
+    return filename.split(".").pop().toLowerCase();
+  }
+
+
+  const abstarctOnChangeHandler = async (e) => {
+    let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
+
+    if (e.target.id == "file") {
+      const allowedExtensions = ["doc", "docx"];
+      const fileExtension = await getFileExtensionToLowerCase(
+        e.target.files[0].name
+      );
+      if (!allowedExtensions.includes(fileExtension)) {
+        emptyFormUploadField();
+        setErrorMessage("Please upload word file only.");
+      } else {
+        if (e.target.files[0].size <= 20000000) {
+          let formData = new FormData();
+          formData.append("file", e.target.files[0]);
+          abstractDocumentPayloadCopy.fullPaperFileUrl = e.target.files[0].name;
+          setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+          setErrorMessage("");
+          dispatch(ACTIONS.abstratcFileUpload(formData));
+        } else {
+          setErrorMessage("File size should not be more than 10Mb");
+        }
+      }
+    }else if (e.target.id == "abstractPaperName") {
       let userInput = e.target.value;
       validateAbstractForm()
       const words = userInput.split(" ");
@@ -154,7 +189,9 @@ const AbstractUpload = () => {
       alert('Please select at least one sub-theme.');
     } else {
       setLoading(true);
+      let decodedToken = await jwt_decode(localStorage.getItem("token"));
       abstractDocumentPayload.themeType.push(selectedThemes);
+      abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
       dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
     }
 
@@ -768,10 +805,30 @@ const AbstractUpload = () => {
                         >
                       Preview 
                         </button> } 
-                        
-                        {/* {proceed &&
 
-                         } */}
+                        <div className="col-md-12 mt-3">
+                          <p>If you are unable to submit your abstract using the above form, please upload the abstract in .docx format using the "Upload Document" button given below (optional).</p>
+                        </div>
+                        
+                        <div className="col-lg-6 col-md-10 mt-3">
+                <div className="mb-3">
+                  <label htmlFor="inputFile" className="form-label asterisk">
+                    Full Paper Upload (File size should not be more 20mb )
+                  </label>
+                  <input
+                    type="file"
+                    className="form-control"
+                    onChange={(e) => abstarctOnChangeHandler(e)}
+                    aria-label="file example"
+                    id="file"
+                    ref={ref}
+                    required
+                  />
+                  {errorMessage && (
+                    <p className="text-danger">{errorMessage}</p>
+                  )}
+                </div>
+              </div>
 
                       
 

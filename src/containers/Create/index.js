@@ -68,6 +68,15 @@ const CreateForm = (props) => {
     relation_type: "",
   });
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
+  const [selectedOption, setSelectedOption] = useState(
+    userInformation?.accompanningPerson?.length > 0 ? 'yes' : 'no'
+  );
+
+  const handleOptionChange = (option) => {
+    setSelectedOption(option);
+    anotherPersonHandler(option === 'yes');
+  };
+
 
   const [phoneNumber, setPhoneNumber] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(false);
@@ -407,6 +416,7 @@ const CreateForm = (props) => {
         userInformation.registrationFee = value;
         userInformation.phoneNumber = phoneNumber;
         delete userInformation.isError;
+        console.log("Inside submit",userInformation)
         dispatch(ACTIONS.saveRegisterdUserData(userInformation));
       } else {
         let userInformationCopy = { ...userInformation };
@@ -1023,9 +1033,13 @@ const CreateForm = (props) => {
                         id="yes"
                         name="add"
                         value="yes"
-                        checked={userInformation?.accompanningPerson?.length > 0}
+                        // checked={anotherPerson || userInformation?.accompanningPerson?.length > 0}
+                        checked={selectedOption === 'yes'}
                         disabled={isDisabled}
-                        onClick={(e) => anotherPersonHandler(true)}
+                        // onClick={(e) => anotherPersonHandler(true)}
+                        // onChange={() => anotherPersonHandler(true)}
+                        onChange={() => handleOptionChange('yes')}
+                        
                       />
                       <label className="ps-4 pe-1" htmlFor="no">
                         No
@@ -1035,9 +1049,11 @@ const CreateForm = (props) => {
                         id="no"
                         name="add"
                         value="no"
-                        checked={!userInformation?.accompanningPerson?.length > 0}
+                        // checked={!userInformation?.accompanningPerson?.length > 0}
+                        checked={selectedOption === 'no'}
                         disabled={isDisabled}
                         onClick={(e) => anotherPersonHandler(false)}
+                        onChange={() => handleOptionChange('no')}
                       />
                     </div>
                   )}
@@ -1095,7 +1111,7 @@ const CreateForm = (props) => {
                 {userInformation.accompanningPerson.length > 0 &&
                   userInformation.accompanningPerson.map((item, index) => {
                     return (
-                      <div className="exhibitor-relation d-flex mt-3">
+                      <div className="exhibitor-relation d-flex mt-3" key={index}>
                         <div className="relation-box-1">
                           <label className="form-label" htmlFor="relation-name">
                             Full Name 

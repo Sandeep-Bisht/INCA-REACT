@@ -46,6 +46,8 @@ const FullPaper = () => {
   const [fullPaperError, setFullPaperError] = useState(undefined);
   let navigate = useNavigate()
 
+  
+
   useEffect(() => {
     if (location && location.state) {
       setFullPaperName(location.state.abstractPaperName);
