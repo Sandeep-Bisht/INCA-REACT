@@ -81,10 +81,8 @@ const AbstractUpload = () => {
       state.abstractFileUploadSuccess.data
     ) {
       let abstractfilePayloadCopy = { ...abstractfilePayload };
-      abstractfilePayloadCopy.mimetype =
-        state.abstractFileUploadSuccess.data.mimetype;
-        abstractfilePayloadCopy.abstractPaperFileUrl =
-        state.abstractFileUploadSuccess.data.path;
+      abstractfilePayloadCopy.mimetype = state.abstractFileUploadSuccess.data.mimetype;
+        abstractfilePayloadCopy.abstractPaperFileUrl = state.abstractFileUploadSuccess.data.path;
         setAbstractfilePayload(abstractfilePayloadCopy);
     }
   }, [state.abstractFileUploadSuccess]);
@@ -353,8 +351,8 @@ const AbstractUpload = () => {
     abstractfilePayload.authorEmail = decodedToken.user.user.userEmail;
     abstractfilePayload.userId = decodedToken.user.user._id;
     abstractfilePayload.userName = decodedToken.user.user.userName;
-    console.log("inside submit Abstract", abstractfilePayload)
-    dispatch(ACTIONS.saveOnlyAbstractFile(abstractfilePayload));
+    console.log("before api abstractfilePayload",abstractfilePayload )
+    // dispatch(ACTIONS.saveOnlyAbstractFile(abstractfilePayload));
   }
 
   const abstarctFileOnChangeHandler = async (e) => {
@@ -376,6 +374,8 @@ const AbstractUpload = () => {
           formData.append("file", e.target.files[0]);
           formData.append('userEmail', userEmail)
           abstractfilePayloadCopy.abstractPaperFileUrl = e.target.files[0].name;
+          // abstractfilePayloadCopy.abstractPaperFile = e.target.files[0].name;
+
           setAbstractfilePayload(abstractfilePayloadCopy);
           setErrorMessage("");
           
@@ -560,6 +560,7 @@ const AbstractUpload = () => {
                               Affiliation : {item.coAuthorAffilation}
                             </p>
                           </div>
+                          { !isDisabled &&
                           <div className="">
                             <button
                               className="delete-button w-100"
@@ -570,6 +571,7 @@ const AbstractUpload = () => {
                               Delete
                             </button>
                           </div>
+                }
                         </div>
                       </div>
                     </div>
@@ -1039,53 +1041,58 @@ const AbstractUpload = () => {
             </div>
           </div>
         </form>
-        <div className="row">
-        <div className="col-md-12 mt-3">
-                        <p>
-                          If you are unable to submit your abstract using the
-                          above form, please upload the abstract in .docx format
-                          using the "Upload Document" button given below
-                          (optional).
-                        </p>
-                      </div>  
-        <div className="col-lg-6 col-md-10 mt-1">
-                        <div className="mb-3">
-                          <label
-                            htmlFor="inputFile"
-                            className="form-label asterisk"
-                          >
-                            Abstract Upload (File size should not be more 2mb
-                            )
-                          </label>
-                          <input
-                            type="file"
-                            className="form-control"
-                            onChange={(e) => abstarctFileOnChangeHandler(e)}
-                            aria-label="file example"
-                            id="file"
-                            ref={ref}
-                          />
-                          {errorMessage && (
-                            <p className="text-danger">{errorMessage}</p>
-                          )}
-                        </div>
-                      </div>
-                        
-                        
-                      <div>
-                        <button
-                        className="common-btn add-button"
-                        type="button"
-                        onClick={()=>submitAbstractFile()}
-                        disabled={errorMessage || !abstractfilePayload.abstractPaperFileUrl || abstractFileMessage}
+     {   !isDisabled && (
+      <>
+      <div className="row">
+      <div className="col-md-12 mt-3">
+                      <p>
+                        If you are unable to submit your abstract using the
+                        above form, please upload the abstract in .docx format
+                        using the "Upload Document" button given below
+                        (optional).
+                      </p>
+                    </div>  
+      <div className="col-lg-6 col-md-10 mt-1">
+                      <div className="mb-3">
+                        <label
+                          htmlFor="inputFile"
+                          className="form-label asterisk"
                         >
-                          Submit Abstract File</button>
+                          Abstract Upload (File size should not be more 2mb
+                          )
+                        </label>
+                        <input
+                          type="file"
+                          className="form-control"
+                          onChange={(e) => abstarctFileOnChangeHandler(e)}
+                          aria-label="file example"
+                          id="file"
+                          ref={ref}
+                        />
+                        {errorMessage && (
+                          <p className="text-danger">{errorMessage}</p>
+                        )}
                       </div>
+                    </div>
+                      
+                      
+                    <div>
+                      <button
+                      className="common-btn add-button"
+                      type="button"
+                      onClick={()=>submitAbstractFile()}
+                      disabled={errorMessage || !abstractfilePayload.abstractPaperFileUrl || abstractFileMessage}
+                      >
+                        Submit Abstract File</button>
+                    </div>
 
-        </div>
-        {abstractFileMessage && (
-              <p className="text-success">{abstractFileMessage}</p>
-            )}
+      </div>
+      {abstractFileMessage && (
+            <p className="text-success">{abstractFileMessage}</p>
+          )} 
+          </>
+     )
+      }
       </section>
     </>
   );
