@@ -35,6 +35,22 @@ export function* saveAbstractData(action) {
     }
   }
 
+  export function* saveOnlyAbstractFile(action) {
+    let url = `${baseUrl}saveOnlyAbstractFile`;
+   try {
+     const response = yield call(axios.post, url, action.payload, GetHeaders());
+     yield put({
+       type: CONSTANTS.UPLOAD_ONLY_ABSTRACT_FILE_SUCCESS,
+       response: response.data,
+     });
+   } catch (error) {
+     yield put({
+       type: CONSTANTS.UPLOAD_ONLY_ABSTRACT_FILE_FAILURE,
+       error: error.response.data,
+     });
+   }
+ }
+
 export default function* abstractUploadFile() {
   yield takeLatest(
     CONSTANTS.UPLOAD_ABSTRACT_FILE,
@@ -43,5 +59,9 @@ export default function* abstractUploadFile() {
   yield takeLatest(
     CONSTANTS.ABSTRACT_DATA,
     saveAbstractData
+  );
+  yield takeLatest(
+    CONSTANTS.UPLOAD_ONLY_ABSTRACT_FILE,
+    saveOnlyAbstractFile
   );
 }
