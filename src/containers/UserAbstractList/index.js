@@ -9,7 +9,7 @@ import jwt_decode from "jwt-decode";
 import * as ACTIONS from "./action";
 import axios from "axios";
 import { baseUrl } from "../../utils";
-import { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
+import { ConfirmPopup } from 'primereact/confirmpopup';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast'
 
@@ -24,6 +24,7 @@ const UserAbstractList = () => {
   const [visible, setVisible] = useState(false);
     const toast = useRef(null);
     const buttonEl = useRef(null);
+    const [submitFullPaper, setSubmitFullPaper] = useState(false)
 
     const accept = (id) => {
       
@@ -45,13 +46,19 @@ const UserAbstractList = () => {
     if (state && state.getUserAbstractListSuccess) {
       setIsLoading(false);
       setUserAbstractList(state.getUserAbstractListSuccess.data);
+      let userAbstractdata = state.getUserAbstractListSuccess.data;
+      let submitFullpaper = userAbstractdata.find((item) => item.paperApproveStatus === true );
+      console.log(submitFullpaper,"submitFullpaper submitFullpaper")
+      if(submitFullpaper){
+        setSubmitFullPaper(true)
+      }
     }
   }, [state.getUserAbstractListSuccess]);
 
   const columns = [
     { field: "registrationNumber", header: "Registration No" },
     { field: "abstractNumber", header: "Abstract Id"},
-    { field: "authorEmail", header: "Email" },
+    // { field: `authorEmail `, header: "Email" },
     { field: "abstractPaperName", header: "Abstract Title" },
     // { field: "themeType", header: "Theme" },
   ];
@@ -76,21 +83,21 @@ const UserAbstractList = () => {
     );
   };
 
-  const actionBodyTemplate = (userAbstractList) => {
-    return (
-      <>
-        {/* <button className="btn btn-success" disabled={!node.paperApproveStatus}>
-          Payment
-        </button> */}
-       {userAbstractList?.paperApproveStatus && <button className="abstracts-common-btn" onClick={() => {
-          navigate(`/dashboard/fullPaper` , { state : userAbstractList})
-        }}>Full Paper Submission</button>}
-        {/* <button className="abstracts-common-btn" onClick={() => {
-          navigate(`/dashboard/fullPaper` , { state : userAbstractList})
-        }}>Full Paper Submission</button> */}
-      </>
-    );
-  };
+  // const actionBodyTemplate = (userAbstractList) => {
+  //   return (
+  //     <>
+  //       {/* <button className="btn btn-success" disabled={!node.paperApproveStatus}>
+  //         Payment
+  //       </button> */}
+  //      {userAbstractList?.paperApproveStatus && <button className="abstracts-common-btn" onClick={() => {
+  //         navigate(`/dashboard/fullPaper` , { state : userAbstractList})
+  //       }}>Full Paper Submission</button>}
+  //       {/* <button className="abstracts-common-btn" onClick={() => {
+  //         navigate(`/dashboard/fullPaper` , { state : userAbstractList})
+  //       }}>Full Paper Submission</button> */}
+  //     </>
+  //   );
+  // };
 
   const deleteAbstractTemplate = (userAbstractList) => {
     return (
@@ -141,6 +148,11 @@ const UserAbstractList = () => {
     return formatedDate;
   };
 
+  const emailBodyTemplate = (node) => {
+     
+    return  node.authorEmail ? node.authorEmail : node.userEmail;
+  };
+
 
 
   // const header1 = renderHeader1();
@@ -161,6 +173,11 @@ const UserAbstractList = () => {
         >
           {dynamicColumns}
           <Column
+            field="Email"
+            header="Email"
+            body={emailBodyTemplate}
+          ></Column>
+          <Column
             field="Date of Submission"
             header="Date of Submission"
             body={dateBodyTemplate}
@@ -170,19 +187,30 @@ const UserAbstractList = () => {
             header="Status"
             body={statusBodyTemplate}
           ></Column>
-           <Column
+           {/* <Column
             field="View"
             header="View"
             body={actionBodyTemplate}
-          ></Column> 
+          ></Column>  */}
           <Column
             field="ACTION"
             header="Action"
             body={deleteAbstractTemplate}
           ></Column> 
         </DataTable>
-      </div>   
-      <div className="pt-5">
+      </div>  
+
+      
+      {submitFullPaper &&
+      <div>
+         <button className="abstracts-common-btn" onClick={() => {
+          navigate(`/dashboard/fullPaper` , { state : userAbstractList})
+        }}>
+          Full Paper Submission
+          </button>
+        </div> 
+        }
+      <div className="pt-3">
       <p className="pt-3 fs-6">
                           <b>Note</b>: Once your Abstract is approved, you can submit your full paper.
                           For any technical support please contact at

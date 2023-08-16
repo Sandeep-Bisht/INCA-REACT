@@ -3,18 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import "../../css/transaction.css";
 import * as ACTIONS from "../Create/action";
-import * as TRANSACTIONACTIONS from "./action"; 
+import * as TRANSACTIONACTIONS from "./action";
 
 function TransactionDetails() {
   const [transactionDetails, setTransactionDetails] = useState({
-    email:""
+    email: "",
   });
   const [message, setMessage] = useState();
   const [loggedInUser, setLoggedInUser] = useState({});
   //const [userInformation, setUserInformation] = useState();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
-  const transactionState = useSelector((state) => state.TransactionDetailsReducer)
+  const transactionState = useSelector(
+    (state) => state.TransactionDetailsReducer
+  );
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -24,35 +26,30 @@ function TransactionDetails() {
     }
   }, []);
 
-  
-
   useEffect(() => {
-    if(transactionState && transactionState.transactionDetailSuccess){
-         emptyFormField()
-        setMessage(transactionState.transactionDetailSuccess.message)
+    if (transactionState && transactionState.transactionDetailSuccess) {
+      emptyFormField();
+      setMessage(transactionState.transactionDetailSuccess.message);
     }
-    
-  }, [transactionState.transactionDetailSuccess])
+  }, [transactionState.transactionDetailSuccess]);
 
-  const emptyMessage = ()=>{
-        setTimeout(() => {
-            setMessage("")
-           
-        }, 5000)
-  }
+  const emptyMessage = () => {
+    setTimeout(() => {
+      setMessage("");
+    }, 5000);
+  };
 
-  const emptyFormField = ()=> {
-    let transactionDetailsCopy = {...transactionDetails}
+  const emptyFormField = () => {
+    let transactionDetailsCopy = { ...transactionDetails };
     Object.keys(transactionDetailsCopy).map((item, i) => {
-        transactionDetailsCopy[item] = ""
-    })
-    setTransactionDetails(transactionDetailsCopy)
-   
-  }
+      transactionDetailsCopy[item] = "";
+    });
+    setTransactionDetails(transactionDetailsCopy);
+  };
 
   useEffect(() => {
-    emptyMessage()
-  }, [message])
+    emptyMessage();
+  }, [message]);
 
   useEffect(() => {
     if (
@@ -60,28 +57,30 @@ function TransactionDetails() {
       state.loggedInUserSuccess &&
       state.loggedInUserSuccess.length > 0
     ) {
-        let transactionDetailsCopy = {...transactionDetails}
-        transactionDetailsCopy.email = state.loggedInUserSuccess[0].email
-        transactionDetailsCopy.registrationNumber = state.loggedInUserSuccess[0].registrationNumber
-        transactionDetailsCopy.userId = state.loggedInUserSuccess[0]._id
-        setTransactionDetails(transactionDetailsCopy);
-    //   setIsDisabled(true);
-    //   setUserInformation(state.loggedInUserSuccess[0]);
-
+      console.log("transactional detialsss", state.loggedInUserSuccess)
+      let transactionDetailsCopy = { ...transactionDetails };
+      transactionDetailsCopy.email = state.loggedInUserSuccess[0].email;
+      transactionDetailsCopy.registrationNumber =
+        state.loggedInUserSuccess[0].registrationNumber;
+      transactionDetailsCopy.userId = state.loggedInUserSuccess[0]._id;
+      setTransactionDetails(transactionDetailsCopy);
+      //   setIsDisabled(true);
+      //   setUserInformation(state.loggedInUserSuccess[0]);
     }
   }, [state.loggedInUserSuccess]);
 
+  
+
   const transactionDetailHandler = (e) => {
-    let transactionDetailsCopy = {...transactionDetails}
-    transactionDetailsCopy[e.target.name] = e.target.value
+    let transactionDetailsCopy = { ...transactionDetails };
+    transactionDetailsCopy[e.target.name] = e.target.value;
     setTransactionDetails(transactionDetailsCopy);
-  }
- 
+  };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    dispatch(TRANSACTIONACTIONS.transactionDetailsHandler(transactionDetails))
-  }
+    dispatch(TRANSACTIONACTIONS.transactionDetailsHandler(transactionDetails));
+  };
   return (
     <>
       {/* <section className="transaction-section">
@@ -179,6 +178,41 @@ function TransactionDetails() {
           </div>
         </div>
       </section>
+      {/* <section className="transaction-section">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h5>Please follow the instruction given below</h5>
+              <ul>
+                <li>
+                  You will be redirected to SBI collect platform, please select
+                  correct category in SBI collect.
+                </li>
+              </ul>
+              <div className="row">
+                <div className="col-md-4 agree-condition">
+                  <div>
+                    <input type="checkbox" name="agree" />
+                  </div>
+                  <div className="ms-3">I agree and confirm</div>
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div className="col-md-6">
+                    <p>You have Pay</p>
+                    Rs Amount
+                    </div>
+                    <div className="col-md-6">
+                      <button className="btn btn-success">
+                        Pay Now
+                      </button>
+                    </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
     </>
   );
 }

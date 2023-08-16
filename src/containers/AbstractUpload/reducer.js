@@ -27,10 +27,28 @@ export default (state = INITIAL_STATE, action) => {
         abstractDataSaveFailure: action.error,
       };
 
+      case CONSTANTS.UPLOAD_ONLY_ABSTRACT_FILE_SUCCESS:
+        return {
+          ...state,
+          onlyAbstractFileSaveSuccess: action.response,
+        };
+  
+      case CONSTANTS.UPLOAD_ONLY_ABSTRACT_FILE_FAILURE:
+        return {
+          ...state,
+          onlyAbstractFileSaveFailure: action.error,
+        };
+
       case CONSTANTS.RESET_ABSTRACT_DATA_SUCCESS_TO_INITIAL_STATE:
         return {
           ...state,
           abstractDataSaveSuccess: "",
+        };
+
+        case CONSTANTS.RESET_ONLY_ABSTRACT_DATA_SUCCESS_TO_INITIAL_STATE:
+        return {
+          ...state,
+          onlyAbstractFileSaveSuccess: "",
         };
 
     default:

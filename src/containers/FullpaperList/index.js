@@ -219,6 +219,12 @@ const FullPaperList = () => {
     } catch (error) {}
   };
 
+  const dateBodyTemplate = (node) => {
+    const date = new Date(node.createdAt);
+      const formatedDate =  date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    return formatedDate;
+  };
+
   return (
     <>
       {role == "admin" ? (
@@ -278,6 +284,11 @@ const FullPaperList = () => {
             header={header1}
           >
             {dynamicColumns}
+            <Column
+            field="Date of Submission"
+            header="Date of Submission"
+            body={dateBodyTemplate}
+          ></Column>
             <Column
               field="Actions"
               header="Document"
