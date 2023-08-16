@@ -123,7 +123,7 @@ const FullPaper = () => {
         fullPaperPayload.userName = decodedToken.user.user.userName;
         fullPaperPayload.userEmail = decodedToken.user.user.userEmail;
         console.log("full papper data before submit", fullPaperPayload)
-        // dispatch(ACTIONS.saveFullPaperData(fullPaperPayload));
+         dispatch(ACTIONS.saveFullPaperData(fullPaperPayload));
       }
     }
   };

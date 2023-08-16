@@ -26,13 +26,12 @@ const UserAbstractList = () => {
     const buttonEl = useRef(null);
     const [submitFullPaper, setSubmitFullPaper] = useState(false)
 
-    const accept = (id) => {
-      
+    const accept = (id) => {      
       deleteAbstractDetails(id)
   };
 
   const reject = () => {
-      toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+      toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'Delete Cancelled', life: 5000 });
   };
 
   useEffect(() => {
@@ -58,9 +57,7 @@ const UserAbstractList = () => {
   const columns = [
     { field: "registrationNumber", header: "Registration No" },
     { field: "abstractNumber", header: "Abstract Id"},
-    // { field: `authorEmail `, header: "Email" },
     { field: "abstractPaperName", header: "Abstract Title" },
-    // { field: "themeType", header: "Theme" },
   ];
 
   const dynamicColumns = columns.map((col, i) => {
@@ -133,7 +130,7 @@ const UserAbstractList = () => {
        let url= `${baseUrl}delete_abstract_by_id/${abstractId}`
        let response = await axios.delete(url)
         if(response){
-          toast.current.show({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+          toast.current.show({ severity: 'info', summary: 'Confirmed', detail: 'Abstract Deleted', life: 4000 });
           console.log("response", response)
           let token = jwt_decode(localStorage.getItem("token"));      
           dispatch(ACTIONS.getUserAbstractList(token.user.user._id));        }      
