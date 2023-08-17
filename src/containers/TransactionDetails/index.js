@@ -169,7 +169,7 @@ function TransactionDetails() {
           </form>
         </div>
       </section> */}
-      <section className="transaction-section">
+      {/* <section className="transaction-section">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -177,8 +177,8 @@ function TransactionDetails() {
             </div>
           </div>
         </div>
-      </section>
-      {/* <section className="transaction-section">
+      </section> */}
+      <section className="transaction-section">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -212,7 +212,7 @@ function TransactionDetails() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   );
 }

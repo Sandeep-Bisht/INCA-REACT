@@ -47,8 +47,9 @@ function ExhibitorForm() {
     checkValidation();
     if (validateForm()) {
     exhibitorPayload.mobile = mobile;
-    console.log("before api ", exhibitorPayload)
+    // console.log("before api ", exhibitorPayload)
     delete exhibitorPayload.isError;
+    // console.log("exhibitorPayload exhibitorPayload", exhibitorPayload)
     let url = `${baseUrl}exhibitor`
         try {
           let response = await axios.post(url, exhibitorPayload);

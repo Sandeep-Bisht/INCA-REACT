@@ -17,6 +17,7 @@ const UserAbstractList = () => {
   const [isLoading, setIsLoading] = useState(true);
   let navigate = useNavigate();
   const [userAbstractList, setUserAbstractList] = useState([]);
+  const [currentId,setCurrentId] = useState()
   // const [approveStatus, setApproveStatus] = useState("false")
   const state = useSelector((state) => state.UserAbstractListReducer);
 
@@ -26,8 +27,9 @@ const UserAbstractList = () => {
   const buttonEl = useRef(null);
   const [submitFullPaper, setSubmitFullPaper] = useState(false);
 
-  const accept = (id) => {
-    deleteAbstractDetails(id);
+  const accept = () => {
+    console.log("this is id", currentId)
+    deleteAbstractDetails(currentId);
   };
 
   const reject = () => {
@@ -100,32 +102,45 @@ const UserAbstractList = () => {
   //   );
   // };
 
-  const deleteAbstractTemplate = (userAbstractList) => {
+  const deleteAbstractTemplate = (node) => {
+    // return(
+    //   <span onClick={() => {
+    //     accept(node._id)
+    //   }}>
+    //     <i className="fa fa-trash" aria-hidden="true">
+        
+    //     </i>
+
+    //   </span>
+      
+      
+    // )
+    // let id = node._id;
     return (
       <>
         {
-          !userAbstractList?.paperApproveStatus && (
+          !node?.paperApproveStatus && (
             <>
-              <Toast ref={toast} />
+              
               <ConfirmPopup
                 target={buttonEl.current}
                 visible={visible}
                 onHide={() => setVisible(false)}
                 message="Are you sure you want to delete Abstract?"
                 icon="pi pi-exclamation-triangle"
-                accept={() => accept(userAbstractList._id)}
+                accept={() => accept()}
                 reject={reject}
               />
               {/* <Button ref={buttonEl} onClick={() => setVisible(true)} icon="pi pi-check" label="Confirm" /> */}
               <i
                 ref={buttonEl}
-                onClick={() => setVisible(true)}
-                class="fa fa-trash"
+                onClick={() => {setVisible(true); setCurrentId(node._id)}}
+                className="fa fa-trash"
                 aria-hidden="true"
               ></i>
             </>
           )
-          //  <span <i class="fa fa-trash" aria-hidden="true"></i></Popconfirm>
+          //  <span <i className="fa fa-trash" aria-hidden="true"></i></Popconfirm>
           //  className="text-danger cursior-pointer"
           //  onClick={() => {
           //       deleteAbstractDetails(userAbstractList._id)
@@ -178,6 +193,7 @@ const UserAbstractList = () => {
 
   return (
     <>
+    <Toast ref={toast} />
       <div className="card">
         <DataTable
           loading={isLoading}

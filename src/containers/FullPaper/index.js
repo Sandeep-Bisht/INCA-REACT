@@ -907,7 +907,7 @@ const FullPaper = () => {
 
           {/* <!-- Add coauthor modal Modal --> */}
           <div
-            class="modal fade "
+            className="modal fade "
             id="staticBackdrop"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
@@ -915,20 +915,20 @@ const FullPaper = () => {
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
           >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="staticBackdropLabel">
                     Add Co-Author
                   </h5>
                   <button
                     type="button"
-                    class="btn-close"
+                    className="btn-close"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   ></button>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body">
                   <div className="row">
                     <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
                       <div className="row">
@@ -1040,10 +1040,10 @@ const FullPaper = () => {
                     </div>                   
                   </div>
                 </div>
-                <div class="modal-footer">
+                <div className="modal-footer">
                   <button
                     type="button"
-                    class="btn btn-secondary"
+                    className="btn btn-secondary"
                     data-bs-dismiss="modal"
                   >
                     Close
