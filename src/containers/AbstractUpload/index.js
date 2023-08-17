@@ -31,6 +31,7 @@ let filePayload ={
 }
 
 const AbstractUpload = () => {
+
   const [abstractDocumentPayload, setAbstractDocumentPayload] = useState(obj);
   const [abstractfilePayload, setAbstractfilePayload] = useState(filePayload)
   const [abstractDataSavedMessage, setAbstractDataSavemessage] = useState("");
@@ -66,9 +67,7 @@ const AbstractUpload = () => {
   useEffect(() => {
     if (location && location.state && location.state.mode === "preview") {
       setAbstractDocumentPayload(location.state);
-      // setPhoneNumber(location.state.phoneNumber.toString());
       setMode(location.state.mode);
-      // setSelectedThemes(location.state.themeType)
       setSelectedThemes(location?.state?.themeType[0]);
       setIsDisabled(true);
       setIsHidden(true);
@@ -102,20 +101,20 @@ const AbstractUpload = () => {
     }
   }, [state.abstractDataSaveSuccess]);
 
-  useEffect(() => {
-    if (state && state?.onlyAbstractFileSaveSuccess) {
-      console.log("inside onlyAbstractFileSaveSuccess")
-      setLoading(false);
-      setAbstractFileMessage(
-        "Your file submitted successfully. We will update you on email after verification"
-      );
-      setTimeout(() => {
-        setAbstractFileMessage("");
-        dispatch(ACTIONS.resetOnlyAbstractFileToInitialState());
-        navigate("/dashboard/userabstractlist");
-      }, 4000);
-    }
-  }, [state.onlyAbstractFileSaveSuccess]);
+  // useEffect(() => {
+  //   if (state && state?.onlyAbstractFileSaveSuccess) {
+  //     console.log("inside onlyAbstractFileSaveSuccess")
+  //     setLoading(false);
+  //     setAbstractFileMessage(
+  //       "Your file submitted successfully. We will update you on email after verification"
+  //     );
+  //     setTimeout(() => {
+  //       setAbstractFileMessage("");
+  //       dispatch(ACTIONS.resetOnlyAbstractFileToInitialState());
+  //       navigate("/dashboard/userabstractlist");
+  //     }, 4000);
+  //   }
+  // }, [state.onlyAbstractFileSaveSuccess]);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -353,6 +352,7 @@ const AbstractUpload = () => {
     abstractfilePayload.userName = decodedToken.user.user.userName;
     console.log("before api abstractfilePayload",abstractfilePayload )
     // dispatch(ACTIONS.saveOnlyAbstractFile(abstractfilePayload));
+    dispatch(ACTIONS.saveAbstractData(abstractfilePayload));
   }
 
   const abstarctFileOnChangeHandler = async (e) => {
@@ -718,7 +718,7 @@ const AbstractUpload = () => {
                       </p>
                     </>
                   )}
-                  {userdetails?.role == "admin" && <PreviewPaper />}
+                  {userdetails?.role == "admin" && <PreviewPaper data={true} />}
                 </div>
               </div>
             </div>
@@ -1087,9 +1087,9 @@ const AbstractUpload = () => {
                     </div>
 
       </div>
-      {abstractFileMessage && (
-            <p className="text-success">{abstractFileMessage}</p>
-          )} 
+      {abstractDataSavedMessage && (
+              <p className="text-success">{abstractDataSavedMessage}</p>
+            )}
           </>
      )
       }
