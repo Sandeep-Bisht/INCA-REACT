@@ -110,8 +110,16 @@ const AbstractDocumentList = () => {
   };
 
   let redirectToPaperPreviewPage = (item) => {
-    item.mode = "preview"
-    navigate("/dashboard/upload", { state: item });
+    console.log("inisde redirect page", item.abstractPaperFileUrl)
+    if(item.abstractPaperFileUrl){
+      item.mode = "preview"
+      navigate("/dashboard/previewPaper", { state: item });      
+    }else{
+      item.mode = "preview"
+      navigate("/dashboard/upload", { state: item });   
+      
+    }
+   
   };
 
   const actionBodyTemplate = (node) => {
@@ -140,6 +148,25 @@ const AbstractDocumentList = () => {
       </>
     );
   };
+
+  const viewAbstractDocument = (node) => {
+    console.log("Nodeeeeeeee", node)
+  }
+
+  const abstractBodyTemplate = (node) => {
+    
+    return (
+      <>
+      {node.abstractPaperFileUrl &&
+      <span className="word-file" onClick={()=>viewAbstractDocument(node)}>
+      <i className="fas fa-file-word"></i>
+      </span>
+      }
+      </>
+    );
+  };
+
+  
 
   const header1 = renderHeader1();
 
@@ -197,6 +224,11 @@ const AbstractDocumentList = () => {
             header="Action"
             body={actionBodyTemplate}
           ></Column>
+          {/* <Column
+            field="Document"
+            header="Document"
+            body={abstractBodyTemplate}
+          ></Column> */}
           
           <Column
             field="Status"
