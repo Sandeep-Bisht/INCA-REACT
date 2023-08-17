@@ -1,0 +1,12 @@
+.deactivate-user {
+    background: #e24c4c;
+    color: #fff;
+    border: none;
+}
+
+.activate-user {
+    background: #196d04;
+    color: #fff;
+    border: none;
+    padding: 2px 17px;
+}

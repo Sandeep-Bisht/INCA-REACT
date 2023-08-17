@@ -2,16 +2,16 @@ import React, { useEffect, useState, useRef } from "react";
 import { DataTable } from "primereact/datatable";
 import { useNavigate } from "react-router-dom";
 import { Column } from "primereact/column";
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import * as ACTIONS from "./action";
 import axios from "axios";
 import { baseUrl } from "../../utils";
-import { ConfirmPopup } from 'primereact/confirmpopup';
-import { Button } from 'primereact/button';
-import { Toast } from 'primereact/toast'
+import { ConfirmPopup } from "primereact/confirmpopup";
+import { Button } from "primereact/button";
+import { Toast } from "primereact/toast";
 
 const UserAbstractList = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,16 +22,21 @@ const UserAbstractList = () => {
 
   let dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
-    const toast = useRef(null);
-    const buttonEl = useRef(null);
-    const [submitFullPaper, setSubmitFullPaper] = useState(false)
+  const toast = useRef(null);
+  const buttonEl = useRef(null);
+  const [submitFullPaper, setSubmitFullPaper] = useState(false);
 
-    const accept = (id) => {      
-      deleteAbstractDetails(id)
+  const accept = (id) => {
+    deleteAbstractDetails(id);
   };
 
   const reject = () => {
-      toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'Delete Cancelled', life: 5000 });
+    toast.current.show({
+      severity: "warn",
+      summary: "Rejected",
+      detail: "Delete Cancelled",
+      life: 5000,
+    });
   };
 
   useEffect(() => {
@@ -46,17 +51,18 @@ const UserAbstractList = () => {
       setIsLoading(false);
       setUserAbstractList(state.getUserAbstractListSuccess.data);
       let userAbstractdata = state.getUserAbstractListSuccess.data;
-      let submitFullpaper = userAbstractdata.find((item) => item.paperApproveStatus === true );
-      console.log(submitFullpaper,"submitFullpaper submitFullpaper")
-      if(submitFullpaper){
-        setSubmitFullPaper(true)
+      let submitFullpaper = userAbstractdata.find(
+        (item) => item.paperApproveStatus === true
+      );
+      if (submitFullpaper) {
+        setSubmitFullPaper(true);
       }
     }
   }, [state.getUserAbstractListSuccess]);
 
   const columns = [
     { field: "registrationNumber", header: "Registration No" },
-    { field: "abstractNumber", header: "Abstract Id"},
+    { field: "abstractNumber", header: "Abstract Id" },
     { field: "abstractPaperName", header: "Abstract Title" },
   ];
 
@@ -65,8 +71,6 @@ const UserAbstractList = () => {
       <Column key={col.field} field={col.field} header={col.header} sortable />
     );
   });
-
-
 
   const statusBodyTemplate = (node) => {
     return (
@@ -99,58 +103,76 @@ const UserAbstractList = () => {
   const deleteAbstractTemplate = (userAbstractList) => {
     return (
       <>
-       {!userAbstractList?.paperApproveStatus && (
-        <>
-        <Toast ref={toast} />
-<ConfirmPopup target={buttonEl.current} visible={visible} onHide={() => setVisible(false)} 
-    message="Are you sure you want to delete Abstract?" icon="pi pi-exclamation-triangle" accept={() => accept(userAbstractList._id)} reject={reject} />
-{/* <Button ref={buttonEl} onClick={() => setVisible(true)} icon="pi pi-check" label="Confirm" /> */}
-<i  ref={buttonEl} onClick={() => setVisible(true)} class="fa fa-trash" aria-hidden="true"></i>
-      </>
-       )
-      //  <span <i class="fa fa-trash" aria-hidden="true"></i></Popconfirm>
-      //  className="text-danger cursior-pointer" 
-      //  onClick={() => {
-      //       deleteAbstractDetails(userAbstractList._id)
-      //     }}
-      //   >
-       
-      //  </span>
-      //  <button className="abstracts-common-btn" onClick={() => {
-      //     deleteAbstractDetails(userAbstractList._id)
-      //   }}></button>
+        {
+          !userAbstractList?.paperApproveStatus && (
+            <>
+              <Toast ref={toast} />
+              <ConfirmPopup
+                target={buttonEl.current}
+                visible={visible}
+                onHide={() => setVisible(false)}
+                message="Are you sure you want to delete Abstract?"
+                icon="pi pi-exclamation-triangle"
+                accept={() => accept(userAbstractList._id)}
+                reject={reject}
+              />
+              {/* <Button ref={buttonEl} onClick={() => setVisible(true)} icon="pi pi-check" label="Confirm" /> */}
+              <i
+                ref={buttonEl}
+                onClick={() => setVisible(true)}
+                class="fa fa-trash"
+                aria-hidden="true"
+              ></i>
+            </>
+          )
+          //  <span <i class="fa fa-trash" aria-hidden="true"></i></Popconfirm>
+          //  className="text-danger cursior-pointer"
+          //  onClick={() => {
+          //       deleteAbstractDetails(userAbstractList._id)
+          //     }}
+          //   >
+
+          //  </span>
+          //  <button className="abstracts-common-btn" onClick={() => {
+          //     deleteAbstractDetails(userAbstractList._id)
+          //   }}></button>
         }
       </>
     );
   };
-  
 
   const deleteAbstractDetails = async (abstractId) => {
     try {
-       let url= `${baseUrl}delete_abstract_by_id/${abstractId}`
-       let response = await axios.delete(url)
-        if(response){
-          toast.current.show({ severity: 'info', summary: 'Confirmed', detail: 'Abstract Deleted', life: 4000 });
-          console.log("response", response)
-          let token = jwt_decode(localStorage.getItem("token"));      
-          dispatch(ACTIONS.getUserAbstractList(token.user.user._id));        }      
+      let url = `${baseUrl}delete_abstract_by_id/${abstractId}`;
+      let response = await axios.delete(url);
+      if (response) {
+        toast.current.show({
+          severity: "info",
+          summary: "Confirmed",
+          detail: "Abstract Deleted",
+          life: 4000,
+        });
+        let token = jwt_decode(localStorage.getItem("token"));
+        dispatch(ACTIONS.getUserAbstractList(token.user.user._id));
+      }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const dateBodyTemplate = (node) => {
     const date = new Date(node.createdAt);
-      const formatedDate =  date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    const formatedDate = date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
     return formatedDate;
   };
 
   const emailBodyTemplate = (node) => {
-     
-    return  node.authorEmail ? node.authorEmail : node.userEmail;
+    return node.authorEmail ? node.authorEmail : node.userEmail;
   };
-
-
 
   // const header1 = renderHeader1();
 
@@ -184,7 +206,7 @@ const UserAbstractList = () => {
             header="Status"
             body={statusBodyTemplate}
           ></Column>
-           {/* <Column
+          {/* <Column
             field="View"
             header="View"
             body={actionBodyTemplate}
@@ -193,29 +215,28 @@ const UserAbstractList = () => {
             field="ACTION"
             header="Action"
             body={deleteAbstractTemplate}
-          ></Column> 
+          ></Column>
         </DataTable>
-      </div>  
+      </div>
 
-      
-      {submitFullPaper &&
-      <div>
-         <button className="abstracts-common-btn" onClick={() => {
-          navigate(`/dashboard/fullPaper` , { state : userAbstractList})
-        }}>
-          Full Paper Submission
+      {submitFullPaper && (
+        <div>
+          <button
+            className="abstracts-common-btn"
+            onClick={() => {
+              navigate(`/dashboard/fullPaper`, { state: userAbstractList });
+            }}
+          >
+            Full Paper Submission
           </button>
-        </div> 
-        }
+        </div>
+      )}
       <div className="pt-3">
-      <p className="pt-3 fs-6">
-                          <b>Note</b>: Once your Abstract is approved, you can submit your full paper.
-                          For any technical support please contact at
-                          info@43inca.org
-                        </p>
-        </div>   
-
-        
+        <p className="pt-3 fs-6">
+          <b>Note</b>: Once your Abstract is approved, you can submit your full
+          paper. For any technical support please contact at info@43inca.org
+        </p>
+      </div>
     </>
   );
 };
