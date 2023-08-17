@@ -120,7 +120,7 @@ let RegisteredUser = () => {
       //   <i
       //     ref={buttonEl}
       //     onClick={() => setVisible(true)}
-      //     class="fa fa-trash"
+      //     className="fa fa-trash"
       //     aria-hidden="true"
       //   ></i>
       // </>

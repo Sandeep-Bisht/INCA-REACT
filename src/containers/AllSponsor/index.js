@@ -114,18 +114,7 @@ let AllSponsor = () => {
       </div>
     );
   };
-  // const actionBodyTemplate = () => {
-  //   return (
-  //     <>
-  //       <button>
-  //         <i className="fa-solid fa-pen"></i>
-  //       </button>
-  //       <button className="icons">
-  //         <i className="fa-solid fa-trash-can icon"></i>
-  //       </button>{" "}
-  //     </>
-  //   );
-  // };
+ 
   const header1 = renderHeader1();
 
   return (
@@ -145,11 +134,7 @@ let AllSponsor = () => {
             header={header1}
           >
             {dynamicColumns}
-            {/* <Column
-              field="Actions"
-              header="Actions"
-              body={actionBodyTemplate}
-            ></Column> */}
+           
           </DataTable>
         </div>
       </div>      

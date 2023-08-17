@@ -769,7 +769,7 @@ const CreateForm = (props) => {
                       Phone
                     </label>
                     <PhoneInput
-                     class="w-100"
+                     className="w-100"
                       country="in"
                       value={phoneNumber}
                       disabled={loggedInUser && userInformation && phoneNumber}
