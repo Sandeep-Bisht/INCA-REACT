@@ -25,7 +25,14 @@ function ImportantDates() {
   <tbody>
     <tr>
       <td className='imp-table-date'>Last date for submission of abstract</td>
-      <td className='d-flex justify-content-end'><div className='dates'>18/August/2023</div></td>
+      <td className='d-flex justify-content-end'>
+        <div className='dates strikethrough'>
+            18/August/2023
+        </div>
+        <div className='dates'>
+            25/August/2023
+        </div>
+        </td>
     </tr>
     <tr>
       <td className='imp-table-date'>Intimation of acceptance of abstract</td>
