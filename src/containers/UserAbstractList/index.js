@@ -122,15 +122,7 @@ const UserAbstractList = () => {
           !node?.paperApproveStatus && (
             <>
               
-              <ConfirmPopup
-                target={buttonEl.current}
-                visible={visible}
-                onHide={() => setVisible(false)}
-                message="Are you sure you want to delete Abstract?"
-                icon="pi pi-exclamation-triangle"
-                accept={() => accept()}
-                reject={reject}
-              />
+              
               {/* <Button ref={buttonEl} onClick={() => setVisible(true)} icon="pi pi-check" label="Confirm" /> */}
               <i
                 ref={buttonEl}
@@ -194,6 +186,15 @@ const UserAbstractList = () => {
   return (
     <>
     <Toast ref={toast} />
+    <ConfirmPopup
+                target={buttonEl.current}
+                visible={visible}
+                onHide={() => setVisible(false)}
+                message="Are you sure you want to delete Abstract?"
+                icon="pi pi-exclamation-triangle"
+                accept={() => accept()}
+                reject={reject}
+              />
       <div className="card">
         <DataTable
           loading={isLoading}
