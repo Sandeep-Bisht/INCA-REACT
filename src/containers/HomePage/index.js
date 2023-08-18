@@ -265,8 +265,8 @@ const HomePage = () => {
             <div className="col-md-12">
               <div className="abstract-submission-date">
             <marquee>
-              <p><b>"Last date for Abstract Submission: <span className="strikethrough me-2">18<sup>th</sup> August, 2023"</span>
-              <span >25<sup>th</sup> August, 2023"</span>
+              <p className="text-white"><b>"Last date for Abstract Submission: <span className=" me-2">18<sup>th</sup> August, 2023"</span>
+              {/* <span >25<sup>th</sup> August, 2023"</span> */}
               </b></p>
               </marquee>
             {/* <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee> */}
@@ -380,9 +380,9 @@ const HomePage = () => {
                   <p className="common-para mb-0">
                     <b>Last date for submission of abstract</b></p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="strikethrough">18/August/2023</b></p> 
-                    <p className="common-para pb-3">
-                    <b>25/August/2023</b></p> 
+                    <b className="">18/August/2023</b></p> 
+                    {/* <p className="common-para pb-3">
+                    <b>25/August/2023</b></p>  */}
                   {/* <p className="common-para">
                     Last date for submitting the abstracts
                   </p>
@@ -457,9 +457,9 @@ const HomePage = () => {
                   <p className="common-para mb-0">
                     <b>Last date for submission of abstract</b></p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="strikethrough">18/August/2023</b></p> 
-                    <p className="common-para pb-3">
-                    <b>25/August/2023</b></p> 
+                    <b className="">18/August/2023</b></p> 
+                    {/* <p className="common-para pb-3">
+                    <b>18/August/2023</b></p>  */}
                 </div>
               </div>
             </div>
