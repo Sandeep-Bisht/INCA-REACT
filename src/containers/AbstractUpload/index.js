@@ -711,7 +711,7 @@ const AbstractUpload = () => {
                         </button>
                       )}                                        
 
-                      <p className="pt-3 fs-6">
+                      <p className="pt-3 fs-6 text-dark">
                         <b>Note</b>: Kindly, Fill the registeration form before
                         uploading abstracts. For technical support in uploading
                         of Abstracts please contact at info@43inca.org
@@ -1045,7 +1045,7 @@ const AbstractUpload = () => {
       <>
       <div className="row">
       <div className="col-md-12 mt-3">
-                      <p>
+                      <p className="text-dark">
                         If you are unable to submit your abstract using the
                         above form, please upload the abstract in .docx format
                         using the "Upload Document" button given below

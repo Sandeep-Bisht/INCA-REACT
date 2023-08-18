@@ -4,13 +4,17 @@ import jwt_decode from "jwt-decode";
 import "../../css/transaction.css";
 import * as ACTIONS from "../Create/action";
 import * as TRANSACTIONACTIONS from "./action";
+import { useNavigate } from "react-router-dom";
 
 function TransactionDetails() {
   const [transactionDetails, setTransactionDetails] = useState({
     email: "",
   });
+  let navigate = useNavigate()
   const [message, setMessage] = useState();
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [registrationFeeData, setRegistrationFeeData] = useState();
+  const [isChecked, setIsChecked] = useState(false);
   //const [userInformation, setUserInformation] = useState();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
@@ -64,6 +68,7 @@ function TransactionDetails() {
         state.loggedInUserSuccess[0].registrationNumber;
       transactionDetailsCopy.userId = state.loggedInUserSuccess[0]._id;
       setTransactionDetails(transactionDetailsCopy);
+      setRegistrationFeeData(state.loggedInUserSuccess[0]);
       //   setIsDisabled(true);
       //   setUserInformation(state.loggedInUserSuccess[0]);
     }
@@ -81,6 +86,18 @@ function TransactionDetails() {
     e.preventDefault();
     dispatch(TRANSACTIONACTIONS.transactionDetailsHandler(transactionDetails));
   };
+
+
+  const handlePaynow = async () => {
+    if(isChecked){
+      console.log("Ready to pay")
+      // navigate("https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=5687220")
+      const newTab = window.open("https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=5687220", '_blank');
+      newTab.focus();
+    } else{
+      alert("Please agree the terms")
+    }
+  }
   return (
     <>
       {/* <section className="transaction-section">
@@ -180,6 +197,11 @@ function TransactionDetails() {
       </section> */}
       <section className="transaction-section">
         <div className="container">
+          <div className="row mb-3">
+            <div className="col-md-12">
+              <h3 className="text-center">Registration Fee for 43<sup>rd</sup> INCA</h3>
+            </div>
+          </div>
           <div className="row">
             <div className="col-md-12">
               <h5>Please follow the instruction given below</h5>
@@ -188,11 +210,20 @@ function TransactionDetails() {
                   You will be redirected to SBI collect platform, please select
                   correct category in SBI collect.
                 </li>
+                <li>
+                  Please select the correct category of your registration.
+                </li>
+                <li>
+                  Please enter same details as submitted in registration.
+                </li>
+                <li>
+                  Use the same email Id in payment options.
+                </li>
               </ul>
               <div className="row">
                 <div className="col-md-4 agree-condition">
                   <div>
-                    <input type="checkbox" name="agree" />
+                    <input onChange={()=>setIsChecked(!isChecked)} type="checkbox" name="agree" />
                   </div>
                   <div className="ms-3">I agree and confirm</div>
                 </div>
@@ -200,10 +231,15 @@ function TransactionDetails() {
               <div className="row mt-3">
                 <div className="col-md-6">
                     <p>You have Pay</p>
-                    Rs Amount
+                    Rs { registrationFeeData?.registrationFee  }
                     </div>
-                    <div className="col-md-6">
-                      <button className="btn btn-success">
+                    <div className="col-md-6 d-flex align-items-end">
+                      <button 
+                      className="btn btn-success"
+                      type="button"
+                      onClick={()=> handlePaynow()}
+
+                        >
                         Pay Now
                       </button>
                     </div>
