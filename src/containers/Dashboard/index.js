@@ -90,6 +90,12 @@ const Dashboard = (props) => {
     navigate("/");
   };
 
+  let resetPasswordHandler = () => {
+    localStorage.removeItem("token");
+    navigate("/forgot");
+    
+  }
+
   return (
     <>
       <div className="dash-wrapper">
@@ -152,6 +158,14 @@ const Dashboard = (props) => {
                           className="dropdown-item logout-btn"
                         >
                           Logout
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          onClick={() => resetPasswordHandler()}
+                          className="dropdown-item logout-btn"
+                        >
+                          Reset Password
                         </button>
                       </li>
                     </ul>

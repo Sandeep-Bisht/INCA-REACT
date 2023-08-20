@@ -266,7 +266,7 @@ const HomePage = () => {
             <div className="col-md-12">
               <div className="abstract-submission-date">
             <marquee>
-              <p className="text-white"><b>"Last date for Abstract Submission: <span className="strikethrough me-2">18<sup>th</sup> August, 2023"</span>
+              <p className="text-white"><b>"Last date for Abstract Submission: <span className="strikethrough me-2">18<sup>th</sup> August, 2023</span>
               <span >25<sup>th</sup> August, 2023"</span>
               </b></p>
               </marquee>
