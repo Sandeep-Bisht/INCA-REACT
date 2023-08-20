@@ -92,7 +92,7 @@ const ForgotPassword = () => {
                        <i className="fa-solid fa-arrow-left "></i>
                       </Link>
                       <p className="common-form-heading mb-0">
-                        Forgot Password
+                        Reset Password
                       </p>
                     </div>
                   </div>
