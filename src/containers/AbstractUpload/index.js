@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import { MultiSelect } from "primereact/multiselect";
 import * as ACTIONS from "./action";
+import * as  CREATE_ACTIONS from "../Create/action"
 import { useLocation, useNavigate } from "react-router-dom";
 import PreviewPaper from "../PreviewPaper";
 import "../../css/abstractUpload.css";
@@ -56,13 +57,73 @@ const AbstractUpload = () => {
   });
   const [proceed, setProceed] = useState(false);
 
+  const [registeredUser, setRegisteredUser] = useState(false)
+  let [countdownTime, setCountdownTime] = useState(5);
+
   const state = useSelector((state) => state.AbstractUploadReducer);
+  const registration_state = useSelector((state) => state.RegisteredUserInfoReducer);
 
 
   let dispatch = useDispatch();
   const ref = useRef();
   let location = useLocation();
   let navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      let decodedToken = jwt_decode(localStorage.getItem("token"));
+      // setLoggedInUser(decodedToken.user.user);
+      dispatch(CREATE_ACTIONS.getLoggedInUser(decodedToken.user.user._id));
+    }
+  }, []);
+
+
+  useEffect(() => {
+    if (
+      registration_state &&
+      registration_state.loggedInUserSuccess && 
+      registration_state.loggedInUserSuccess.length > 0
+    ) {
+      console.log("state.loggedInUserSuccess state.loggedInUserSuccess", registration_state.loggedInUserSuccess)
+      setRegisteredUser(true)
+    }
+    
+    if(registration_state &&
+      registration_state.loggedInUserSuccess && 
+      registration_state.loggedInUserSuccess.length === 0){
+        
+      const countdownInterval = setInterval(() => {
+        if (countdownTime <= 0) {
+          clearInterval(countdownInterval);
+          redirectToRegistrationPage();
+        } else {
+          countdownTime = countdownTime - 1
+          setCountdownTime(countdownTime)
+        }
+      }, 1000);
+      }
+
+  }, [registration_state.loggedInUserSuccess]);
+
+  // useEffect(() => {
+  //   if(!registeredUser){
+    
+  //   }
+  // }, [registeredUser])
+
+  // Function to redirect after the countdown
+function redirectToRegistrationPage() {
+  // Replace this with the actual redirection code to your registration page
+  navigate("/dashboard")
+}
+
+  // Function to update the countdown timer display
+function updateCountdownDisplay(count) {
+  const countdownTimer = document.getElementById('countdownTimer');
+  countdownTimer.textContent = count;
+}
+
+
 
   useEffect(() => {
     if (location && location.state && location.state.mode === "preview") {
@@ -389,6 +450,7 @@ const AbstractUpload = () => {
 
   return (
     <>
+    { registeredUser ? (
       <section className="abstract-form">
         <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
           <div className=" abstract-form-wrapper-container">
@@ -735,7 +797,7 @@ const AbstractUpload = () => {
             id="previewModal"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
-            tabindex="-1"
+            tabIndex="-1"
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
           >
@@ -869,7 +931,7 @@ const AbstractUpload = () => {
             id="staticBackdrop"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
-            tabindex="-1"
+            tabIndex="-1"
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
           >
@@ -1094,6 +1156,17 @@ const AbstractUpload = () => {
      )
       }
       </section>
+    )
+      : (
+        <div className="card" id="countdownCard">
+  <h3 className="text-center mt-4">Please fill the registration form first.</h3>
+  <span className="text-center">Redirecting to the registration page.</span>
+  <div id="countdownTimer" className="text-center mt-1">
+    <span><h3>{countdownTime}</h3></span></div>
+</div>
+         
+      )
+    }
     </>
   );
 };
