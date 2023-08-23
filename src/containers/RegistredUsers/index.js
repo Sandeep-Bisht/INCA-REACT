@@ -44,6 +44,8 @@ let RegisteredUser = () => {
   //   });
   // };
 
+
+
   useEffect(() => {
     if (state && state.allUserSuccess) {
       setIsLoading(false);
@@ -206,9 +208,35 @@ let RegisteredUser = () => {
   };
   const header1 = renderHeader1();
 
+  
+
+  let downloadExcel = () => {
+    try {
+       axios({
+        url: `${baseUrl}downloadUserexcel`,
+        method: 'GET',
+        responseType: 'blob',
+      }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'registreduser.xlsx');
+        document.body.appendChild(link);
+        link.click();
+      });
+    } catch (error) {
+    }
+  }
+
   return (
     <>
       <div>
+      <div className="moving-box mb-2">
+        <div >
+           
+          </div>
+          <button onClick={() => downloadExcel()}  >Download Excel</button>
+        </div>
         <div className="card">
           <DataTable
             loading={isLoading}
