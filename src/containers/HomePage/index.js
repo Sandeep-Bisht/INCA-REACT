@@ -27,7 +27,7 @@ import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
 import FirstCircular from "../../SampleFiles/INCA_43rd_Revised_First_Circular_10.08.2023.pdf"
-import SecondCircular from "../../SampleFiles/INCA_43rd_Second_Circular_18.08.2023.pdf"
+import SecondCircular from "../../SampleFiles/INCA_43rd_Second_Circular_24.08.2023.pdf"
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4'
 
