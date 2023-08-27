@@ -79,18 +79,20 @@ const AbstractUpload = () => {
 
 
   useEffect(() => {
+    if (localStorage.getItem("token")) {
+    let decodedToken = jwt_decode(localStorage?.getItem("token"));
+    let user = decodedToken?.user.user;    
     if (
       registration_state &&
       registration_state.loggedInUserSuccess && 
       registration_state.loggedInUserSuccess.length > 0
     ) {
-      console.log("state.loggedInUserSuccess state.loggedInUserSuccess", registration_state.loggedInUserSuccess)
       setRegisteredUser(true)
     }
     
-    if(registration_state &&
+    if( user.role !== "admin" && registration_state &&
       registration_state.loggedInUserSuccess && 
-      registration_state.loggedInUserSuccess.length === 0){
+      registration_state.loggedInUserSuccess.length === 0) {
         
       const countdownInterval = setInterval(() => {
         if (countdownTime <= 0) {
@@ -102,6 +104,7 @@ const AbstractUpload = () => {
         }
       }, 1000);
       }
+    }
 
   }, [registration_state.loggedInUserSuccess]);
 
@@ -182,12 +185,14 @@ function updateCountdownDisplay(count) {
       let decodedToken = jwt_decode(localStorage?.getItem("token"));
       let user = decodedToken?.user.user;
       setUserDetails(user);
+      
       abstractDocumentPayload.userId = decodedToken.user.user._id;
 
       abstractDocumentPayload.userName = decodedToken.user.user.userName;
       abstractDocumentPayload.authorEmail = decodedToken.user.user.userEmail;
     }
   }, []);
+
 
   let getFileExtension = (fileName) => {
     return fileName.split(".").pop();
@@ -411,7 +416,6 @@ function updateCountdownDisplay(count) {
     abstractfilePayload.authorEmail = decodedToken.user.user.userEmail;
     abstractfilePayload.userId = decodedToken.user.user._id;
     abstractfilePayload.userName = decodedToken.user.user.userName;
-    console.log("before api abstractfilePayload",abstractfilePayload )
     // dispatch(ACTIONS.saveOnlyAbstractFile(abstractfilePayload));
     dispatch(ACTIONS.saveAbstractData(abstractfilePayload));
   }
@@ -450,8 +454,19 @@ function updateCountdownDisplay(count) {
 
   return (
     <>
-    { registeredUser ? (
-      <section className="abstract-form">
+    {  userdetails && userdetails.role !== "admin" && !registeredUser   ? (
+       <div className="card" id="countdownCard">
+       <h3 className="text-center mt-4">Please fill the registration form first.</h3>
+       <span className="text-center">Redirecting to the registration page.</span>
+       <div id="countdownTimer" className="text-center mt-1">
+         <span><h3>{countdownTime}</h3></span></div>
+     </div>
+      
+    )
+      :   ( 
+       
+
+<section className="abstract-form">
         <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
           <div className=" abstract-form-wrapper-container">
             <div className="row">
@@ -1156,16 +1171,8 @@ function updateCountdownDisplay(count) {
      )
       }
       </section>
-    )
-      : (
-        <div className="card" id="countdownCard">
-  <h3 className="text-center mt-4">Please fill the registration form first.</h3>
-  <span className="text-center">Redirecting to the registration page.</span>
-  <div id="countdownTimer" className="text-center mt-1">
-    <span><h3>{countdownTime}</h3></span></div>
-</div>
          
-      )
+      ) 
     }
     </>
   );
