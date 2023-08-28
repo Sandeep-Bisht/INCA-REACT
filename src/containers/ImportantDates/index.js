@@ -24,10 +24,10 @@ function ImportantDates() {
             <table className="table table-striped">
   <tbody>
     <tr>
-      <td className='imp-table-date'>Last date for submission of abstract</td>
+      <td className='imp-table-date'>final Abstract Submission Deadline</td>
       <td className='d-flex justify-content-end'>       
         <div className='dates'>
-            25/August/2023
+            5/September/2023
         </div>
         </td>
     </tr>
