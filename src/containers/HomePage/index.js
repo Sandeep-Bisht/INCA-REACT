@@ -26,8 +26,8 @@ import inca6 from "../../images/DS.jpeg";
 import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
-import FirstCircular from "../../SampleFiles/INCA_43rd_Revised_First_Circular_10.08.2023.pdf"
-import SecondCircular from "../../SampleFiles/INCA_43rd_Second_Circular_24.08.2023.pdf"
+// import FirstCircular from "../../SampleFiles/INCA_43rd_Revised_First_Circular_10.08.2023.pdf"
+import SecondCircular from "../../SampleFiles/INCA_43rd_Second_Circular_26.08.2023.pdf"
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4'
 
@@ -266,8 +266,8 @@ const HomePage = () => {
             <div className="col-md-12">
               <div className="abstract-submission-date">
             <marquee>
-              <p className="text-white"><b>"Last date for Abstract Submission: <span className="strikethrough me-2">18<sup>th</sup> August, 2023</span>
-              <span >25<sup>th</sup> August, 2023"</span>
+              <p className="text-white"><b>"Final Abstract Submission Deadline: 
+              <span > 5<sup>th</sup> September, 2023"</span>
               </b></p>
               </marquee>
             {/* <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee> */}
@@ -379,11 +379,11 @@ const HomePage = () => {
                    
                   </Link><br/>
                   <p className="common-para mb-0">
-                    <b>Last date for submission of abstract</b></p>
+                    <b>Final Abstract Submission Deadline</b></p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="strikethrough">18/August/2023</b></p> 
-                    <p className="common-para pb-3">
-                    <b>25/August/2023</b></p> 
+                    <b className="">5/September/2023</b></p> 
+                    {/* <p className="common-para pb-3"> */}
+                    {/* <b>25/August/2023</b></p>  */}
                   {/* <p className="common-para">
                     Last date for submitting the abstracts
                   </p>
@@ -456,11 +456,11 @@ const HomePage = () => {
                     Click here to know details.
                   </Link>
                   <p className="common-para mb-0">
-                    <b>Last date for submission of abstract</b></p>
+                    <b>Final Abstract Submission Deadline</b></p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="strikethrough">18/August/2023</b></p> 
-                    <p className="common-para pb-3">
-                    <b>25/August/2023</b></p> 
+                    <b className="">5/September/2023</b></p> 
+                    {/* <p className="common-para pb-3">
+                    <b>25/August/2023</b></p>  */}
                 </div>
               </div>
             </div>
@@ -2516,7 +2516,7 @@ const HomePage = () => {
           </div>
 
           <div className="row">
-            <div className="col-lg-3">
+            {/* <div className="col-lg-3">
               <div className="blog-card">
                 <a target="_blank" href={FirstCircular}>
                   <div className="blog-card-pic">
@@ -2529,7 +2529,7 @@ const HomePage = () => {
                   </h3>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="col-lg-3">
               <div className="blog-card">
                 <a target="_blank" href={SecondCircular}>
