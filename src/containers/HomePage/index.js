@@ -27,9 +27,11 @@ import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
 // import FirstCircular from "../../SampleFiles/INCA_43rd_Revised_First_Circular_10.08.2023.pdf"
-import SecondCircular from "../../SampleFiles/INCA_43rd_Second_Circular_26.08.2023.pdf"
+// import SecondCircular from "../../SampleFiles/INCA_43rd_Second_Circular_26.08.2023.pdf"
+import updatedInformationBrochure from "../../SampleFiles/INCA_43rd_General_Information_07_09_2023.pdf"
 import Captcha from "../Captcha";
-import homepageBackgroundVideo from '../../video/INCA-video.mp4'
+import homepageBackgroundVideo from '../../video/INCA-video.mp4';
+import IncaLogo from "../../images/43inca_LOGO.png"
 
 
 const HomePage = () => {
@@ -161,10 +163,12 @@ const HomePage = () => {
             <div className="col-md-7 d-flex flex-column justify-content-center">
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
-                  <span className="banner-small text-white">
+                  {/* <span className="banner-small text-white">
                     43<sup>rd</sup> INCA International Congress <br />
                     on
-                  </span>
+                  </span> */}
+                  <img src={IncaLogo} className="inca-new-logo img-fluid"
+                  />
 
                   <p className="head-text">
                     Emerging Trends in Digital 
@@ -195,7 +199,7 @@ const HomePage = () => {
                     <span></span>
                     <span></span>
                     <span></span>
-                    REGISTER/SUBMIT ABSTRACT
+                    REGISTER
                   </button>
                   {/* <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
@@ -213,8 +217,8 @@ const HomePage = () => {
                    <span></span>
                    <span></span>
                    <span></span>
-                   <a target="_blank" href={SecondCircular}>
-                   Second Circular 
+                   <a target="_blank" href={updatedInformationBrochure}>
+                   Information Brochure
                    </a>
                   </button>
                   </div>
@@ -266,9 +270,7 @@ const HomePage = () => {
             <div className="col-md-12">
               <div className="abstract-submission-date">
             <marquee>
-              <p className="text-white"><b>"Final Abstract Submission Deadline: 
-              <span > 5<sup>th</sup> September, 2023"</span>
-              </b></p>
+              <p className="text-white">Register Now</p>
               </marquee>
             {/* <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee> */}
             </div>
@@ -381,7 +383,7 @@ const HomePage = () => {
                   <p className="common-para mb-0">
                     <b>Final Abstract Submission Deadline</b></p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="">5/September/2023</b></p> 
+                    <b className="">Register Now</b></p> 
                     {/* <p className="common-para pb-3"> */}
                     {/* <b>25/August/2023</b></p>  */}
                   {/* <p className="common-para">
@@ -458,7 +460,7 @@ const HomePage = () => {
                   <p className="common-para mb-0">
                     <b>Final Abstract Submission Deadline</b></p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="">5/September/2023</b></p> 
+                    <b className="">Register Now</b></p> 
                     {/* <p className="common-para pb-3">
                     <b>25/August/2023</b></p>  */}
                 </div>
@@ -2532,7 +2534,7 @@ const HomePage = () => {
             </div> */}
             <div className="col-lg-3">
               <div className="blog-card">
-                <a target="_blank" href={SecondCircular}>
+                <a target="_blank" href={updatedInformationBrochure}>
                   <div className="blog-card-pic" style={{borderRadius:'0px !important!'}}>
                     <img src={Second} alt="Second-Circular"></img>
                   </div>

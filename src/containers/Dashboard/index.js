@@ -410,7 +410,7 @@ const Dashboard = (props) => {
                               >
                                 <div className="accordion-body p-0">
                                   <ul className="ps-0 list-unstyled ">
-                                    <li className="ps-3">
+                                    {/* <li className="ps-3">
                                       <button
                                         className="common-blue btn"
                                         onClick={() =>
@@ -422,7 +422,7 @@ const Dashboard = (props) => {
                                         </span>
                                         Abstract
                                       </button>
-                                    </li>
+                                    </li> */}
 
                                     <li className="ps-3">
                                       <button
