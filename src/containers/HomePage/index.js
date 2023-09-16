@@ -34,6 +34,7 @@ import homepageBackgroundVideo from '../../video/INCA-video.mp4';
 import IncaLogo from "../../images/43inca_LOGO.png"
 
 
+
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
 
@@ -192,7 +193,7 @@ const HomePage = () => {
                 </p> */}
                 <div className="banner-btn-box pt-2">
                   <button
-                    className=" common-btn register-home-btn"
+                    className="me-2 common-btn register-home-btn"
                     onClick={() => navigation("/register")}
                   >
                     <span></span>
@@ -201,6 +202,18 @@ const HomePage = () => {
                     <span></span>
                     REGISTER
                   </button>
+
+                  <button
+                    className=" common-btn register-home-btn"
+                    onClick={() => navigation("/about")}
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Accommodation
+                  </button>
+                  
                   {/* <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
                     onClick={() => navigation("/abstractpage")}
