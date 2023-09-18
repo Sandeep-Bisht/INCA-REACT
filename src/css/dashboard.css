@@ -319,6 +319,19 @@
 }
 
 }
+
+
+@media only screen and (max-width : 1250px)
+{
+ 
+  .dash-body .right-part .add-and-remove-button
+  {
+    padding: 8px 5px!important;
+
+  }
+}
+
+
 @media only screen and (max-width : 1200px)
 {
   .p-component, .p-component *
@@ -336,6 +349,7 @@
 }
 }
 
+<<<<<<< HEAD
 @media screen and (max-width : 1024px){
   
   .react-tel-input .form-control {
@@ -344,6 +358,20 @@
 }
 }
 
+=======
+
+@media only screen and (max-width : 1019px)
+{
+  .dash-body .right-part .add-and-remove-button
+  {
+    font-size: 11px!important;
+  }
+}
+
+
+
+
+>>>>>>> 7cc31cea4e58e6dd1357dd45dae6e325e91b67f2
 @media only screen and (max-width : 991px)
 {
   .p-multiselect-panel .p-multiselect-items

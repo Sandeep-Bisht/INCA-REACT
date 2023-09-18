@@ -35,10 +35,19 @@ const UserRegistration = () => {
 
   useEffect(() => {
     if (state && state.userRegisterSuccess) {
-      setIsHidden(true);
-      setMessage(state.userRegisterSuccess.message);
-      setLoginLoder(false);
-      dispatch(ACTIONS.resetToInitialState());
+      if(state?.userRegisterSuccess?.message == "Please fill all the fields"){
+        setIsHidden(true);
+        setLoginLoder(false);
+        console.log("inside error",state.userRegisterSuccess.message)
+        setMessage(state.userRegisterSuccess.message)
+      } else{
+        setIsHidden(true);
+        console.log("inside else",state.userRegisterSuccess.message)
+        setMessage(state.userRegisterSuccess.message);
+        setLoginLoder(false);
+        dispatch(ACTIONS.resetToInitialState());
+      }
+     
     }
   }, [state.userRegisterSuccess]);
 
@@ -83,7 +92,7 @@ const UserRegistration = () => {
           break;
         case "userEmail":
           regitrationPayloadCopy.isError.userEmail =
-            regitrationPayloadCopy.userEmail ? "" : "Field is required";
+            regitrationPayloadCopy.userEmail ? "" : "Field is required";        
           break;
         default:
           break;
@@ -117,8 +126,7 @@ const UserRegistration = () => {
   let registrationSubmitRequest = (e) => {
     e.preventDefault();
     checkValidation();
-
-    if (validateRegisterForm()) {
+    if (validateRegisterForm() ) {
       registrationPayload.mobileNumber = phoneNumber;
       delete registrationPayload.isError;
       setLoginLoder(true);
@@ -137,7 +145,7 @@ const UserRegistration = () => {
   return (
     <>
       <Header></Header>
-      {message == "user is already registered with this email" ? (
+      {message == "user is already registered with this email" || message == "Please fill all the fields" ? (
         <section className="register-form">
           <form
             className="login-form"
@@ -219,10 +227,12 @@ const UserRegistration = () => {
                         <div className="input-wrap">
                           <PhoneInput
                             country={"in"}
+                            id="phoneNumber"
                             value={phoneNumber}
                             onChange={(phone) => phoneNumberInputHandler(phone)}
                             className="padding-left"
                           />
+                             
                         </div>
                       </div>
                     </div>

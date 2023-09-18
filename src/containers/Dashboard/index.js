@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import * as ACTIONS from "./action";
@@ -90,18 +90,24 @@ const Dashboard = (props) => {
     navigate("/");
   };
 
+  let resetPasswordHandler = () => {
+    localStorage.removeItem("token");
+    navigate("/forgot");
+    
+  }
+
   return (
     <>
       <div className="dash-wrapper">
         <header className="dashboard-header ">
           <nav className="navbar navbar-expand-lg py-0">
             <div className="container-fluid">
-              <a className="navbar-brand d-flex align-items-center" href="/">
+              <Link className="navbar-brand d-flex align-items-center" to="/">
                 <img src={Dashlogo} className="img-fluid w-75" />
                 <h1 className="dashboard-title ms-2">
                   <span></span>INCA
                 </h1>
-              </a>
+              </Link>
               <button
                 className="navbar-toggler"
                 type="button"
@@ -152,6 +158,14 @@ const Dashboard = (props) => {
                           className="dropdown-item logout-btn"
                         >
                           Logout
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          onClick={() => resetPasswordHandler()}
+                          className="dropdown-item logout-btn"
+                        >
+                          Reset Password
                         </button>
                       </li>
                     </ul>
@@ -457,13 +471,13 @@ const Dashboard = (props) => {
               </div>
               <div className="col-md-9 col-lg-10 right-part">
                 {loggedInUser.role == "admin" &&
-                  location.pathname === "/dashboard" && <Card data={data} />}
+                  location?.pathname === "/dashboard" && <Card data={data} />}
                 {loggedInUser.role == "admin" &&
-                  location.pathname === "/dashboard" && (
+                  location?.pathname === "/dashboard" && (
                     <PieChart data={data} />
                   )}
-                {loggedInUser.role !== "admin" &&
-                  location.pathname === "/dashboard" && <CreateForm />}
+                {loggedInUser?.role !== "admin" &&
+                  location?.pathname === "/dashboard" && <CreateForm />}
 
                 <Outlet />
               </div>

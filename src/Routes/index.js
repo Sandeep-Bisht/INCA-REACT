@@ -6,7 +6,11 @@ import { useLocation } from "react-router-dom";
 import EventBlog from "../containers/EventBlog";
 import ExhibitorList from "../containers/ExhibitorList";
 import FullPaperPreview from "../FullPaperPreview";
+<<<<<<< HEAD
 import Test from "../css/test";
+=======
+import ResetPassword from "../containers/ResetPassword";
+>>>>>>> 7cc31cea4e58e6dd1357dd45dae6e325e91b67f2
 
 const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
 const AbstractPage = lazy(() => import("../containers/AbstractPage"))
@@ -88,6 +92,7 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/importantdates" element={<ImportantDates />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot" element={<ForgotPassword />} />  
+          <Route path="/reset-password/:id" element={<ResetPassword />} />  
           <Route path="/eventattendance/:id" element={<EventAttendance />} />                
           <Route path="/dashboard" element={<Dashboard />} >
           <Route path="/dashboard/create" element={<CreateForm />} />        

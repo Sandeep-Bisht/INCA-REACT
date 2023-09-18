@@ -39,7 +39,7 @@ const AllRegistration = () => {
     const qrCodeURL = document.getElementById('qrCodeEl')
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream");
-    console.log(qrCodeURL)
+    // console.log(qrCodeURL)
     let aEl = document.createElement("a");
     aEl.href = qrCodeURL;
     aEl.download = "QR_Code.png";
@@ -87,7 +87,9 @@ const AllRegistration = () => {
 
           </div>
 
-          <div className="ps-2">
+
+{/* // Certificate */}
+          {/* <div className="ps-2">
             <div>
 
             </div>
@@ -95,7 +97,7 @@ const AllRegistration = () => {
               Send Email
             </button>
 
-          </div>
+          </div> */}
 
           {/* <div className="ps-2">
             <button className="action-btn" onClick={() => { generateUserQrCode(node) }}>

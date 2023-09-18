@@ -24,16 +24,20 @@ function ImportantDates() {
             <table className="table table-striped">
   <tbody>
     <tr>
-      <td className='imp-table-date'>Last date for submission of abstract</td>
-      <td className='d-flex justify-content-end'><div className='dates'>10/August/2023</div></td>
+      <td className='imp-table-date'>final Abstract Submission Deadline</td>
+      <td className='d-flex justify-content-end'>       
+        <div className='dates'>
+            5/September/2023
+        </div>
+        </td>
     </tr>
     <tr>
       <td className='imp-table-date'>Intimation of acceptance of abstract</td>
-      <td className='d-flex justify-content-end'><div className='dates'>31/August/2023</div></td>
+      <td className='d-flex justify-content-end'><div className='dates'>15/September/2023</div></td>
     </tr>
     <tr>
       <td className='imp-table-date'>Last date for submission of full paper</td>
-      <td className='d-flex justify-content-end'><div className='dates'>30/September/2023</div></td>
+      <td className='d-flex justify-content-end'><div className='dates'>15/October/2023</div></td>
     </tr>
     <tr>
       <td className='imp-table-date'>Payment of registration fee</td>

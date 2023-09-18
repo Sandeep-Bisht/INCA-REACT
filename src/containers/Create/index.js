@@ -24,7 +24,7 @@ const obj = {
   conferenceMode: "offline",
   participationType: "",
   nationality: "",
-  title: "",
+  // title: "",
   // theme: "",
   registrationCategory: "",
   lifeMemberNo: "",
@@ -42,7 +42,7 @@ const obj = {
     conferenceMode: "",
     participationType: "",
     nationality: "",
-    title: "",
+    // title: "",
     // theme: "",
     registrationCategory: "",
     lifeMemberNo: "",
@@ -68,6 +68,15 @@ const CreateForm = (props) => {
     relation_type: "",
   });
   const state = useSelector((state) => state.RegisteredUserInfoReducer);
+  const [selectedOption, setSelectedOption] = useState(
+    userInformation?.accompanningPerson?.length > 0 ? 'yes' : 'no'
+  );
+
+  const handleOptionChange = (option) => {
+    setSelectedOption(option);
+    anotherPersonHandler(option === 'yes');
+  };
+
 
   const [phoneNumber, setPhoneNumber] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(false);
@@ -174,7 +183,7 @@ const CreateForm = (props) => {
         conferenceMode: "offline",
         participationType: "",
         nationality: "",
-        title: "",
+        // title: "",
         // theme: "",
         registrationCategory: "",
         lifeMemberNo: "",
@@ -348,7 +357,6 @@ const CreateForm = (props) => {
 
 
   const validateForm = () => {
-    console.log("result", userInformation)
     let formIsValid = true;
 
     if (!userInformation?.name) {
@@ -398,6 +406,7 @@ const CreateForm = (props) => {
   let submitRegisterUserInformation = (e) => {
     e.preventDefault();
     
+    
     if (systemRole == "admin") {
       userInformation.systemRole = systemRole;
     }
@@ -407,7 +416,7 @@ const CreateForm = (props) => {
         userInformation.registrationFee = value;
         userInformation.phoneNumber = phoneNumber;
         delete userInformation.isError;
-        console.log("ssave se oedje", userInformation)
+        console.log("Inside submit",userInformation)
         dispatch(ACTIONS.saveRegisterdUserData(userInformation));
       } else {
         let userInformationCopy = { ...userInformation };
@@ -440,7 +449,7 @@ const CreateForm = (props) => {
         conferenceMode: "offline",
         participationType: "",
         nationality: "",
-        title: "",
+        // title: "",
         registrationCategory: "",
         universityName: "",
         lifeMemberNo: "",
@@ -760,7 +769,7 @@ const CreateForm = (props) => {
                       Phone
                     </label>
                     <PhoneInput
-                     class="w-100"
+                     className="w-100"
                       country="in"
                       value={phoneNumber}
                       disabled={loggedInUser && userInformation && phoneNumber}
@@ -904,7 +913,7 @@ const CreateForm = (props) => {
               
 
               <div className="row">
-              {userInformation.participationType !== "" &&
+              {/* {userInformation.participationType !== "" &&
                 userInformation.participationType !== "delegate" && (
                   
                   <div className="col-md-6">
@@ -924,7 +933,7 @@ const CreateForm = (props) => {
                     ></textarea>
                   </div>
                   
-                )}
+                )} */}
 
               {userInformation?.registrationCategory == "Life Members" ? (
                 <div className="col-md-4">
@@ -1024,8 +1033,13 @@ const CreateForm = (props) => {
                         id="yes"
                         name="add"
                         value="yes"
+                        // checked={anotherPerson || userInformation?.accompanningPerson?.length > 0}
+                        checked={selectedOption === 'yes'}
                         disabled={isDisabled}
-                        onClick={(e) => anotherPersonHandler(true)}
+                        // onClick={(e) => anotherPersonHandler(true)}
+                        // onChange={() => anotherPersonHandler(true)}
+                        onChange={() => handleOptionChange('yes')}
+                        
                       />
                       <label className="ps-4 pe-1" htmlFor="no">
                         No
@@ -1035,8 +1049,11 @@ const CreateForm = (props) => {
                         id="no"
                         name="add"
                         value="no"
+                        // checked={!userInformation?.accompanningPerson?.length > 0}
+                        checked={selectedOption === 'no'}
                         disabled={isDisabled}
                         onClick={(e) => anotherPersonHandler(false)}
+                        onChange={() => handleOptionChange('no')}
                       />
                     </div>
                   )}
@@ -1044,7 +1061,7 @@ const CreateForm = (props) => {
 
                 {location &&
                 location.state &&
-                location.state.mode === "view" ? (
+                location.state.mode === "view" || userInformation.accompanningPerson.length > 0 ? (
                   ""
                 ) : (
                   <small>(max. of 3 persons are allowed.)</small>
@@ -1094,7 +1111,7 @@ const CreateForm = (props) => {
                 {userInformation.accompanningPerson.length > 0 &&
                   userInformation.accompanningPerson.map((item, index) => {
                     return (
-                      <div className="exhibitor-relation d-flex mt-3">
+                      <div className="exhibitor-relation d-flex mt-3" key={index}>
                         <div className="relation-box-1">
                           <label className="form-label" htmlFor="relation-name">
                             Full Name 
@@ -1154,7 +1171,7 @@ const CreateForm = (props) => {
                 {isDisabled && (
                   <>
                     <label htmlFor="InputFee" className="form-label">
-                      Registration Fee
+                      Registration Fee (To be paid before 30th September 2023)
                     </label>
                     <input
                       disabled={isDisabled}

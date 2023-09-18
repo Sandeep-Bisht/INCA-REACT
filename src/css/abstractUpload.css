@@ -1,0 +1,100 @@
+
+
+
+.abstract-form .card
+{
+    margin: 15px 0;
+    cursor: pointer;
+    border: none;
+}
+
+.abstract-form .save-address {
+    height: 150px;
+    width: 100%;
+    border-width: 1px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border-color: #C7C7C7;
+    /* box-shadow: 0 3px 1px 0 rgb(0 0 0 / 10%); */
+    /* border-style: solid; */
+    /* margin-bottom: 20px; */
+}
+
+.abstract-form .default-add {
+    border-bottom: 1px solid #f2f2f2;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.abstract-form .default-address
+{
+    font-size: 14px;
+    color: #777;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    font-family: 'Lato', sans-serif;
+}
+
+.abstract-form .address-logo
+{
+    font-size: 14px;
+    color: #777;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    font-family: 'Lato', sans-serif;
+    padding-left: 5px;
+}
+
+.abstract-form .co-author-detail
+{
+    padding: 10px;
+}
+
+.abstract-form .address-selection
+{
+    position: relative;
+}
+
+.abstract-form  .co-author-detail .name
+{
+    padding-top: 0;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 2px;
+    color: #777;
+}
+
+.abstract-form .co-author-detail .email
+{
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 2px;
+    color: #777;
+}
+
+.abstract-form  .co-author-detail .affiliation
+{
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    color: #777;
+}
+
+.abstract-form .delete-button{
+    padding: 8px 14px!important;
+    border-radius: 0px!important;
+    font-size: 12px!important;
+    /* margin-top: 9px; */
+
+     color: #fff;
+     background: #ea574d;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 5px;
+}

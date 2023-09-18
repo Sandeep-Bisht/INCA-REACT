@@ -2,3 +2,12 @@
     padding: 30px;
     background: #fff;
 }
+.transaction-section .agree-condition{
+    display: flex;
+
+}
+
+.transaction-section  .transaction-card {
+    background-color: rgb(109, 109, 110);
+    display: flex;
+}

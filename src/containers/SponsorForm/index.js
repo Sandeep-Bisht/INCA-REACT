@@ -173,19 +173,19 @@ const SponsorForm = () => {
     let sponsorFormCopy = { ...sponsorForm };
     if (e.target.value == "Strategic Sponsor") {
       sponsorFormCopy.amount =
-        "Rs. 7.5 lakh (with free registration of 7 delegates)";
+        "Rs. 7.5 lakh + 18% GST (with free registration of 7 delegates)";
       sponsorFormCopy[e.target.name] = e.target.value;
     } else if (e.target.value == "Platinum Sponsor") {
       sponsorFormCopy.amount =
-        "Rs. 5.0 lakh (with free registration of 5 delegates)";
+        "Rs. 5.0 lakh + 18% GST (with free registration of 5 delegates)";
       sponsorFormCopy[e.target.name] = e.target.value;
     } else if (e.target.value == "Gold Sponsor") {
       sponsorFormCopy.amount =
-        "Rs. 3.5 lakh (with free registration of 3 delegates)";
+        "Rs. 3.5 lakh + 18% GST (with free registration of 3 delegates)";
       sponsorFormCopy[e.target.name] = e.target.value;
     } else {
       sponsorFormCopy.amount =
-        "Rs. 2.5 lakh (with free registration of 2 delegates)";
+        "Rs. 2.5 lakh + 18% GST (with free registration of 2 delegates)";
       sponsorFormCopy[e.target.name] = e.target.value;
     }
 

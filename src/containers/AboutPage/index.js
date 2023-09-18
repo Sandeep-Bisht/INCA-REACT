@@ -1,6 +1,7 @@
 import React from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+// import LiaDownloadSolid from "re"
 import "../../css/contact.css";
 import "../../css/about.css";
 import buddhaTemple from "../../images/mehrangarh-fort.jpeg";
@@ -12,6 +13,7 @@ import doonWeather1 from "../../images/weather-1.jpg";
 import doonWeather2 from "../../images/weather-2.jpg";
 import doonWeather3 from "../../images/weather-3.jpg";
 import NHOBuilding from "../../images/RCW_Building.jpg";
+import Accommodation from "../../SampleFiles/Details of Hotel Accommodation for 43 INCA.docx"
 
 const About = () => {
   return (
@@ -127,6 +129,24 @@ const About = () => {
                 will be provided from the hotels/ guest houses identified by the
                 organisers to the conference venue.
               </p>
+              <div className="banner-btn-box pt-2">                 
+
+<button
+  className=" common-btn"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <a target="_blank" href={Accommodation} className="text-decoration-none text-white">
+  Accommodation Information
+
+  <svg className="ms-2" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 32 32" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M 15 4 L 15 20.5625 L 9.71875 15.28125 L 8.28125 16.71875 L 15.28125 23.71875 L 16 24.40625 L 16.71875 23.71875 L 23.71875 16.71875 L 22.28125 15.28125 L 17 20.5625 L 17 4 Z M 7 26 L 7 28 L 25 28 L 25 26 Z"></path></svg>
+
+ </a>
+  
+</button>
+</div>
             </div>
             <div className="col-md-4">
               <div className="doon-pics mt-5">
@@ -151,6 +171,10 @@ const About = () => {
                     <img src={doonStadium} alt="" />
                   </div>
                 </div>
+
+               
+
+                
               </div>
             </div>
           </div>

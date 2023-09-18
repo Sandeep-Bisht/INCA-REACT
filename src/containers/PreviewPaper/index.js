@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as ACTIONS from "./action";
 import "../../css/paperPreview.css";
+import FileViewer from 'react-file-viewer';
 
 import { Button, Viewer } from "@react-pdf-viewer/core"; // install this library
 
@@ -10,7 +11,8 @@ import "@react-pdf-viewer/core/lib/styles/index.css";
 // Worker
 import { Worker } from "@react-pdf-viewer/core"; // install this library
 
-const PreviewPaper = () => {
+const PreviewPaper = (props) => {
+  const { data } = props;
   const [viewPdf, setViewPdf] = useState("");
   const [message, setMessage] = useState("");
   const [string, setString] = useState("");
@@ -29,23 +31,23 @@ const PreviewPaper = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.PreviewPaperReducer);
 
-  // useEffect(() => {
-  //   if (location && location.state) {
-  //     let filePath = `http://144.91.110.221:4801/${location.state.abstractFileUrl}`;
-  //     // let filePath = `http://localhost:4801/${location.state.abstractFileUrl}`;
-  //     filePath = filePath.replace("\\", "/");
-  //     setViewPdf(filePath);
-  //     approveDocs.userId = location.state.userId;
-  //     approveDocs.docsId = location.state._id;
-  //     setApproveDocs(approveDocs);
-  //   }
-  // }, [location]);
+  useEffect(() => {
+    if (location && location.state) {
+      let filePath = `https://43inca.org/app//${location.state.abstractPaperFileUrl}`;
+      // let filePath = `http://localhost:4801/${location.state.abstractPaperFileUrl}`;
+      filePath = filePath.replace("\\", "/");
+      setViewPdf(filePath);
+      approveDocs.userId = location.state.userId;
+      approveDocs.docsId = location.state._id;
+      setApproveDocs(approveDocs);
+    }
+  }, [location]);
+
 
   useEffect(()=> {
     if(location && location.state) {
       approveDocs.userId = location.state.userId;
        approveDocs.docsId = location.state._id;
-       console.log("locatiooonnnnnnnnnnnn", location.state)
     }
   }, [])
 
@@ -86,7 +88,6 @@ const PreviewPaper = () => {
       setAcceptLoader(true);
       approveDocs.paperApproveStatus = status;
       
-      console.log(approveDocs, "docts accepe")
        dispatch(ACTIONS.approveFileSubmission(approveDocs));
     }
   };
@@ -115,6 +116,15 @@ const PreviewPaper = () => {
 
       {/* if we dont have pdf or viewPdf state is null */}
       {/* {!viewPdf && <>No pdf file selected</>} */}
+
+      {!data && viewPdf ? (
+        <>
+        <FileViewer
+          fileType="docx"
+          filePath={viewPdf}
+          
+        />
+      
       <div className="row mt-3">
         <div className="col-md-10">
           <button
@@ -140,6 +150,34 @@ const PreviewPaper = () => {
          
         </div>
       </div>
+      </>
+      ) : (
+        <div className="row mt-3">
+        <div className="col-md-10">
+          <button
+            type="button"
+            disabled={location?.state?.paperApproveStatus != null}
+            className="btn btun"
+            onClick={() => approvefilesubmissionHandler(true)}
+          >
+            {acceptLoader ? "Accepting..." : "Accept"}
+            {/* Accept */}
+          </button>
+
+          <button
+            type="button"
+            disabled={location?.state?.paperApproveStatus != null}
+            className="btn btn-danger ms-5"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            {/* Reject */}
+            {rejectLoader ? "Rejecting..." : "Reject"}
+          </button>
+         
+        </div>
+      </div>
+      )}
 
 
       <div className="row mt-3">

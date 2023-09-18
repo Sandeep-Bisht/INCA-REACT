@@ -143,7 +143,6 @@ const FullPaperList = () => {
       // let filePath = `http://localhost:4801/${item.fullPaperFileUrl}`;
       // let filePath = location.state.fullPaperFileUrl
       filePath = filePath.replace("\\", "/");
-      console.log(filePath, "filepath");
 
       setViewPdf(filePath);
     }
@@ -177,7 +176,6 @@ const FullPaperList = () => {
   };
 
   const viewBodyTemplate = (node) => {
-    console.log("nodeeeeeeeeeee full paper", node)
     return(
       <>
       <button
@@ -219,6 +217,12 @@ const FullPaperList = () => {
         link.click();
       });
     } catch (error) {}
+  };
+
+  const dateBodyTemplate = (node) => {
+    const date = new Date(node.createdAt);
+      const formatedDate =  date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    return formatedDate;
   };
 
   return (
@@ -280,6 +284,11 @@ const FullPaperList = () => {
             header={header1}
           >
             {dynamicColumns}
+            <Column
+            field="Date of Submission"
+            header="Date of Submission"
+            body={dateBodyTemplate}
+          ></Column>
             <Column
               field="Actions"
               header="Document"

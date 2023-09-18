@@ -33,7 +33,11 @@ let { data } = props
      <section className='chart-plus-card py-3'>
        <div className='container'>
            <div className='row'>
+<<<<<<< HEAD
                <div className='col-md-8'><div id="chartdiv" className='p-4' style={{ width: "100%", height: "417px" }}></div></div>
+=======
+               <div className='col-md-8'><div id="chartdiv" className='p-4' style={{ width: "100%", height: "480px" }}></div></div>
+>>>>>>> 7cc31cea4e58e6dd1357dd45dae6e325e91b67f2
                <div className='col-md-4'>
                <div className="default-dashboard-view">
                 <div className="container">

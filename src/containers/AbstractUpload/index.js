@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import { MultiSelect } from "primereact/multiselect";
 import * as ACTIONS from "./action";
+import * as  CREATE_ACTIONS from "../Create/action"
 import { useLocation, useNavigate } from "react-router-dom";
 import PreviewPaper from "../PreviewPaper";
+import "../../css/abstractUpload.css";
 
 let obj = {
   authorSaluation: "",
@@ -21,10 +23,20 @@ let obj = {
   themeType: [],
   paperPresentationType: "",
 };
+let filePayload ={
+  userName :"",
+  userEmail: "",
+  userId : "",
+  paperApproveStatus: null,
+  mimetype : "",
+}
 
 const AbstractUpload = () => {
+
   const [abstractDocumentPayload, setAbstractDocumentPayload] = useState(obj);
+  const [abstractfilePayload, setAbstractfilePayload] = useState(filePayload)
   const [abstractDataSavedMessage, setAbstractDataSavemessage] = useState("");
+  const [abstractFileMessage, setAbstractFileMessage] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const [userdetails, setUserDetails] = useState();
   const [isHidden, setIsHidden] = useState(false);
@@ -34,6 +46,7 @@ const AbstractUpload = () => {
   const [abstractError, setAbstractError] = useState("");
   const [otherAuthor, setOtherAuthor] = useState(false);
   const [selectedThemes, setSelectedThemes] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const [coAuthor, setCoAuthor] = useState({
     coAuthorSaluation: "",
     coAuthorFirstName: "",
@@ -42,8 +55,14 @@ const AbstractUpload = () => {
     coAuthorEmail: "",
     coAuthorAffilation: "",
   });
+  const [proceed, setProceed] = useState(false);
+
+  const [registeredUser, setRegisteredUser] = useState(false)
+  let [countdownTime, setCountdownTime] = useState(5);
 
   const state = useSelector((state) => state.AbstractUploadReducer);
+  const registration_state = useSelector((state) => state.RegisteredUserInfoReducer);
+
 
   let dispatch = useDispatch();
   const ref = useRef();
@@ -51,30 +70,83 @@ const AbstractUpload = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
+    if (localStorage.getItem("token")) {
+      let decodedToken = jwt_decode(localStorage.getItem("token"));
+      // setLoggedInUser(decodedToken.user.user);
+      dispatch(CREATE_ACTIONS.getLoggedInUser(decodedToken.user.user._id));
+    }
+  }, []);
+
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+    let decodedToken = jwt_decode(localStorage?.getItem("token"));
+    let user = decodedToken?.user.user;    
+    if (
+      registration_state &&
+      registration_state.loggedInUserSuccess && 
+      registration_state.loggedInUserSuccess.length > 0
+    ) {
+      setRegisteredUser(true)
+    }
+    
+    if( user.role !== "admin" && registration_state &&
+      registration_state.loggedInUserSuccess && 
+      registration_state.loggedInUserSuccess.length === 0) {
+        
+      const countdownInterval = setInterval(() => {
+        if (countdownTime <= 0) {
+          clearInterval(countdownInterval);
+          redirectToRegistrationPage();
+        } else {
+          countdownTime = countdownTime - 1
+          setCountdownTime(countdownTime)
+        }
+      }, 1000);
+      }
+    }
+
+  }, [registration_state.loggedInUserSuccess]);
+
+  // useEffect(() => {
+  //   if(!registeredUser){
+    
+  //   }
+  // }, [registeredUser])
+
+  // Function to redirect after the countdown
+function redirectToRegistrationPage() {
+  // Replace this with the actual redirection code to your registration page
+  navigate("/dashboard")
+}
+
+  // Function to update the countdown timer display
+function updateCountdownDisplay(count) {
+  const countdownTimer = document.getElementById('countdownTimer');
+  countdownTimer.textContent = count;
+}
+
+
+
+  useEffect(() => {
     if (location && location.state && location.state.mode === "preview") {
-      console.log(location, "locationnn");
       setAbstractDocumentPayload(location.state);
-      // setPhoneNumber(location.state.phoneNumber.toString());
       setMode(location.state.mode);
-      // setSelectedThemes(location.state.themeType)
       setSelectedThemes(location?.state?.themeType[0]);
       setIsDisabled(true);
       setIsHidden(true);
     }
   }, []);
 
-
   useEffect(() => {
     if (
       state.abstractFileUploadSuccess &&
       state.abstractFileUploadSuccess.data
     ) {
-      let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
-      abstractDocumentPayloadCopy.mimetype =
-        state.abstractFileUploadSuccess.data.mimetype;
-      abstractDocumentPayloadCopy.abstractFileUrl =
-        state.abstractFileUploadSuccess.data.path;
-      setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+      let abstractfilePayloadCopy = { ...abstractfilePayload };
+      abstractfilePayloadCopy.mimetype = state.abstractFileUploadSuccess.data.mimetype;
+        abstractfilePayloadCopy.abstractPaperFileUrl = state.abstractFileUploadSuccess.data.path;
+        setAbstractfilePayload(abstractfilePayloadCopy);
     }
   }, [state.abstractFileUploadSuccess]);
 
@@ -87,23 +159,40 @@ const AbstractUpload = () => {
       );
       setTimeout(() => {
         setAbstractDataSavemessage("");
-        dispatch(ACTIONS.resetAbstractDataToInitialState())
-        navigate("/dashboard/userabstractlist")
-      }, 3000);
+        dispatch(ACTIONS.resetAbstractDataToInitialState());
+        navigate("/dashboard/userabstractlist");
+      }, 4000);
     }
   }, [state.abstractDataSaveSuccess]);
+
+  // useEffect(() => {
+  //   if (state && state?.onlyAbstractFileSaveSuccess) {
+  //     console.log("inside onlyAbstractFileSaveSuccess")
+  //     setLoading(false);
+  //     setAbstractFileMessage(
+  //       "Your file submitted successfully. We will update you on email after verification"
+  //     );
+  //     setTimeout(() => {
+  //       setAbstractFileMessage("");
+  //       dispatch(ACTIONS.resetOnlyAbstractFileToInitialState());
+  //       navigate("/dashboard/userabstractlist");
+  //     }, 4000);
+  //   }
+  // }, [state.onlyAbstractFileSaveSuccess]);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       let decodedToken = jwt_decode(localStorage?.getItem("token"));
       let user = decodedToken?.user.user;
       setUserDetails(user);
+      
       abstractDocumentPayload.userId = decodedToken.user.user._id;
 
       abstractDocumentPayload.userName = decodedToken.user.user.userName;
       abstractDocumentPayload.authorEmail = decodedToken.user.user.userEmail;
     }
   }, []);
+
 
   let getFileExtension = (fileName) => {
     return fileName.split(".").pop();
@@ -116,17 +205,33 @@ const AbstractUpload = () => {
   //   setAbstractDocumentPayload(abstractDocumentPayloadCopy);
   // };
 
-  const abstarctOnChangeHandler = (e) => {
+  let emptyFormUploadField = () => {
     let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
-    if (e.target.id == "abstractPaperName") {
+    ref.current.value = "";
+    abstractDocumentPayloadCopy.filename = "";
+    setAbstractDocumentPayload(abstractDocumentPayloadCopy);
+  };
+
+  function getFileExtensionToLowerCase(filename) {
+    return filename.split(".").pop().toLowerCase();
+  }
+
+  const abstarctOnChangeHandler = async (e) => {
+    let abstractDocumentPayloadCopy = { ...abstractDocumentPayload };
+
+     if (e.target.id == "abstractPaperName") {
       let userInput = e.target.value;
+      validateAbstractForm();
       const words = userInput.split(" ");
       if (words.length <= 25) {
         abstractDocumentPayloadCopy.abstractPaperName = e.target.value;
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractTitleError("");
       } else {
-        setAbstractTitleError("Please enter under 25 words");
+        alert(`Please enter under 25 words, you have entered ${words.length}`);
+        setAbstractTitleError(
+          `Please enter under 25 words, you have entered ${words.length}`
+        );
       }
     } else if (e.target.id == "abstract") {
       let userInput = e.target.value;
@@ -136,7 +241,12 @@ const AbstractUpload = () => {
         setAbstractDocumentPayload(abstractDocumentPayloadCopy);
         setAbstractError("");
       } else {
-        setAbstractError("Please enter under 300 words");
+        alert(
+          `Please enter under 300 words, you are trying to paste ${words.length} words.`
+        );
+        setAbstractError(
+          `Please enter under 300 words, you are trying to paste ${words.length} words.`
+        );
       }
     } else {
       abstractDocumentPayloadCopy[e.target.id] = e.target.value;
@@ -144,17 +254,17 @@ const AbstractUpload = () => {
     }
   };
 
-  let abstractPaperSubmitHandler = (e) => {
+  let abstractPaperSubmitHandler = async (e) => {
     e.preventDefault();
     if (selectedThemes == [] || selectedThemes === null) {
-      alert('Please select at least one sub-theme.');
+      alert("Please select at least one sub-theme.");
     } else {
       setLoading(true);
+      let decodedToken = await jwt_decode(localStorage.getItem("token"));
       abstractDocumentPayload.themeType.push(selectedThemes);
-      console.log("before api hit", abstractDocumentPayload);
+      abstractDocumentPayload.userEmail = decodedToken.user.user.userEmail;
       dispatch(ACTIONS.saveAbstractData(abstractDocumentPayload));
     }
-
   };
 
   let emptyFormField = () => {
@@ -202,8 +312,6 @@ const AbstractUpload = () => {
     abstractDocumentPayloadCopy.coAuthorDetails = result;
     setAbstractDocumentPayload(abstractDocumentPayloadCopy);
   };
-
-
 
   const subThems = [
     {
@@ -260,23 +368,118 @@ const AbstractUpload = () => {
       value = e.value;
     }
   };
+  var previewPayload;
 
+  const validateAbstractForm = () => {
+    previewPayload = true;
+
+    // debugger;
+    if (!abstractDocumentPayload?.authorSaluation) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.authorFirstName) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.authorLastName) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.authorEmail) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.authorAffiliation) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.abstractPaperName) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.abstract) {
+      previewPayload = false;
+    }
+    if (!abstractDocumentPayload?.paperPresentationType) {
+      previewPayload = false;
+    }
+    if (!selectedThemes?.length <= 0) {
+      previewPayload = false;
+    }
+
+    return previewPayload;
+
+    //else{
+    //   return alert(`Please filll   ${previewPayload}`)
+    // }
+  };
+
+  const submitAbstractFile = async () => {
+   
+    let decodedToken = await jwt_decode(localStorage.getItem("token"));
+    abstractfilePayload.userEmail = decodedToken.user.user.userEmail;
+    abstractfilePayload.authorEmail = decodedToken.user.user.userEmail;
+    abstractfilePayload.userId = decodedToken.user.user._id;
+    abstractfilePayload.userName = decodedToken.user.user.userName;
+    // dispatch(ACTIONS.saveOnlyAbstractFile(abstractfilePayload));
+    dispatch(ACTIONS.saveAbstractData(abstractfilePayload));
+  }
+
+  const abstarctFileOnChangeHandler = async (e) => {
+    let abstractfilePayloadCopy = { ...abstractfilePayload };
+    
+    if (e.target.id == "file") {      
+      const allowedExtensions = ["doc", "docx"];
+      const fileExtension = await getFileExtensionToLowerCase(
+        e.target.files[0].name
+      );
+      if (!allowedExtensions.includes(fileExtension)) {
+        emptyFormUploadField();
+        setErrorMessage("Please upload word file only.");
+      } else {
+        if (e.target.files[0].size <= 2000000) {
+          let decodedToken = await jwt_decode(localStorage.getItem("token"));
+      let userEmail = decodedToken.user.user.userEmail;
+          let formData = new FormData();
+          formData.append("file", e.target.files[0]);
+          formData.append('userEmail', userEmail)
+          abstractfilePayloadCopy.abstractPaperFileUrl = e.target.files[0].name;
+          // abstractfilePayloadCopy.abstractPaperFile = e.target.files[0].name;
+
+          setAbstractfilePayload(abstractfilePayloadCopy);
+          setErrorMessage("");
+          
+          dispatch(ACTIONS.abstratcFileUpload(formData));
+        } else {
+          setErrorMessage("File size should not be more than 2 Mb");
+        }
+      }
+    }
+  }
 
   return (
     <>
-      <section className="abstract-form">
+    {  userdetails && userdetails.role !== "admin" && !registeredUser   ? (
+       <div className="card" id="countdownCard">
+       <h3 className="text-center mt-4">Please fill the registration form first.</h3>
+       <span className="text-center">Redirecting to the registration page.</span>
+       <div id="countdownTimer" className="text-center mt-1">
+         <span><h3>{countdownTime}</h3></span></div>
+     </div>
+      
+    )
+      :   ( 
+       
+
+<section className="abstract-form">
         <form onSubmit={(e) => abstractPaperSubmitHandler(e)}>
-          <div className="containe abstract-form-wrapper-container">
+          <div className=" abstract-form-wrapper-container">
             <div className="row">
               <div className="col-12 mb-2">
-                <b>
-                  Author
-                </b>
+                <b>Author</b>
               </div>
-              <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
+              <div className="col-lg-10 col-md-12 col-sm-12 d-flex">
                 <div className="row">
                   <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
-                    <label htmlFor="authorSaluation" className="form-label asterisk">
+                    <label
+                      htmlFor="authorSaluation"
+                      className="form-label asterisk"
+                    >
                       Saluation
                     </label>
                     <select
@@ -297,7 +500,10 @@ const AbstractUpload = () => {
                   </div>
                   <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <div className="mb-3">
-                      <label htmlFor="authorFirstName" className="form-label asterisk">
+                      <label
+                        htmlFor="authorFirstName"
+                        className="form-label asterisk"
+                      >
                         First Name
                       </label>
                       <input
@@ -339,7 +545,10 @@ const AbstractUpload = () => {
                     />
                   </div>
                   <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
-                    <label htmlFor="authorEmail" className="form-label asterisk">
+                    <label
+                      htmlFor="authorEmail"
+                      className="form-label asterisk"
+                    >
                       email
                     </label>
                     <input
@@ -353,7 +562,10 @@ const AbstractUpload = () => {
                     />
                   </div>
                   <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
-                    <label htmlFor="authorAffiliation" className="form-label asterisk">
+                    <label
+                      htmlFor="authorAffiliation"
+                      className="form-label asterisk"
+                    >
                       Affiliation
                     </label>
                     <input
@@ -365,218 +577,94 @@ const AbstractUpload = () => {
                       defaultValue={abstractDocumentPayload?.authorAffiliation}
                       required
                     />
-                  </div></div>
+                  </div>
+                </div>
               </div>
               {!mode && (
-
-                <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
-                justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
-                  <button
-                    className="common-btn add-and-remove-button"
+                <div
+                  className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
+                justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
+                >
+                  {/* <button
+                  type="button"
+                    className="common-btn add-and-remove-button w-100"
                     onClick={() => setOtherAuthor(!otherAuthor)}
+                  >
+                    {otherAuthor && otherAuthor ? "Remove Author" : " Add Co-Author"}
+                  </button> */}
+                  <button
+                    type="button"
+                    className="common-btn add-and-remove-button w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
                   >
                     Add Co-Author
                   </button>
                 </div>
               )}
-            </div>
+            </div>         
 
-            {otherAuthor && (
-              <div className="row">
-                <div className="col-12 mb-2"><b>Co-Author</b></div>
-                <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
-                  <div className="row">
-                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
-                      <label htmlFor="coAuthorSaluation" className="form-label asterisk">
-                        Saluation
-                      </label>
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                        id="coAuthorSaluation"
-                        value={coAuthor?.coAuthorSaluation}
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                      >
-                        <option selected>Select Saluation</option>
-                        <option defaultValue="Dr.">Dr.</option>
-                        <option defaultValue="Mr.">Mr.</option>
-                        <option defaultValue="Ms.">Ms.</option>
-                        <option defaultValue="Mrs.">Mrs.</option>
-                      </select>
-                    </div>
-                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
-                      <label htmlFor="coAuthorFirstName" className="form-label asterisk">
-                        First Name
-                      </label>
-                      <input
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                        type="text"
-                        className="form-control"
-                        id="coAuthorFirstName"
-                        value={coAuthor?.coAuthorFirstName}
-                      />
-                    </div>
-                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
-                      <label htmlFor="coAuthorMiddleName" className="form-label">
-                        Middle Name
-                      </label>
-                      <input
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                        type="text"
-                        className="form-control"
-                        id="coAuthorMiddleName"
-                        value={coAuthor?.coAuthorMiddleName}
-                      />
-                    </div>
-                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
-                      <label htmlFor="coAuthorLastName" className="form-label">
-                        Last Name
-                      </label>
-                      <input
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                        type="text"
-                        className="form-control"
-                        id="coAuthorLastName"
-                        value={coAuthor?.coAuthorLastName}
-                      />
-                    </div>
+            <div className="row">
+              {abstractDocumentPayload &&
+                abstractDocumentPayload?.coAuthorDetails.length > 0 &&
+                abstractDocumentPayload?.coAuthorDetails.map((item, index) => {
+                  return (
+                    <div className="col-md-4 col-6" key={index}>
+                      <div className="card">
+                        <div className="save-address">
+                          <div className="default-add">
+                            <span className="default-address">
+                              <b>Co-Author: </b>
+                            </span>
+                            <span className="address-logo">
+                              <b>{index + 1}</b>
+                            </span>
+                          </div>
+                          <div className="co-author-detail">
+                            <div className="address-selection">
+                              <p className="name">
+                                Name : {item.coAuthorSaluation}{" "}
+                                {item.coAuthorFirstName}{" "}
+                                {item.coAuthorMiddleName}{" "}
+                                {item.coAuthorLastName}
+                              </p>
+                            </div>
 
-                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
-                      <label htmlFor="coAuthorEmail" className="form-label asterisk">
-                        email
-                      </label>
-                      <input
-                        onChange={(e) => coAuthorOnChangeHandler(e)}
-                        type="text"
-                        className="form-control"
-                        id="coAuthorEmail"
-                        value={coAuthor?.coAuthorEmail}
-                      />
-                    </div>
-
-                    <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
-                      <div className="mb-3">
-                        <label
-                          htmlFor="coAuthorAffiliation"
-                          className="form-label asterisk"
-                        >
-                          Affiliation
-                        </label>
-                        <input
-                          onChange={(e) => coAuthorOnChangeHandler(e)}
-                          type="text"
-                          className="form-control"
-                          id="coAuthorAffilation"
-                          value={coAuthor?.coAuthorAffilation}
-                        />
+                            <p className="email">
+                              Email : {item.coAuthorEmail}
+                            </p>
+                            <p className="affiliation">
+                              Affiliation : {item.coAuthorAffilation}
+                            </p>
+                          </div>
+                          { !isDisabled &&
+                          <div className="">
+                            <button
+                              className="delete-button w-100"
+                              id="accompanningPerson"
+                              type="button"
+                              onClick={(e) => deleteCoAuthor(index)}
+                            >
+                              Delete
+                            </button>
+                          </div>
+                }
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
-                justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
-                  <button
-                    className="common-btn add-and-remove-button"
-                    id="coAuthor"
-                    type="button"
-                    onClick={(e) => addCoAuthor(e)}
-                  >
-                    Add
-                  </button>
-                </div>
-              </div>
-            )}
+                  );
+                })}
+            </div>
 
-            {abstractDocumentPayload.coAuthorDetails.length > 0 &&
-              abstractDocumentPayload.coAuthorDetails.map((item, index) => {
-                return (
-                  <div className="row">
-                    <div className="col-12 ">
-                      <div className="row">
-                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
-                          <label className="form-label" htmlFor="relation-name">
-                            Saluation
-                          </label>
-                          <input
-                            className="form-control"
-                            type="text"
-                            disabled={isDisabled}
-                            value={item.coAuthorSaluation}
-                          />
-                        </div>
-                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
-                          First Name
-                        </label>
-                          <input
-                            className="form-control"
-                            type="text"
-                            value={item.coAuthorFirstName}
-                            disabled={isDisabled}
-                          />
-                        </div>
-                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
-                          Middle Name
-                        </label>
-                          <input
-                            className="form-control"
-                            type="text"
-                            value={item.coAuthorMiddleName}
-                            disabled={isDisabled}
-                          />
-                        </div>
-                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
-                          Last Name
-                        </label>
-                          <input
-                            className="form-control"
-                            type="text"
-                            value={item.coAuthorLastName}
-                            disabled={isDisabled}
-                          />
-                        </div>
-                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
-                          Email
-                        </label>
-                          <input
-                            className="form-control"
-                            type="text"
-                            value={item.coAuthorEmail}
-                            disabled={isDisabled}
-                          />
-                        </div>
-                        <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">                        <label className="form-label" htmlFor="relation-type">
-                          Affiliation
-                        </label>
-                          <input
-                            className="form-control"
-                            type="text"
-                            value={item.coAuthorAffilation}
-                            disabled={isDisabled}
-                          />
-                        </div>
-                      </div></div>
-                    {!mode && (
-                      <div className="row">
-                        <div className="col-lg-2 col-md-4 col-sm-4">
-                          <button
-                            className="common-btn add-and-remove-button"
-                            id="accompanningPerson"
-                            type="button"
-                            onClick={(e) => deleteCoAuthor(index)}
-                          >
-                            Delete
-                          </button>
-                        </div></div>
-                    )}
-                  </div>
-
-                );
-              })}
+           
 
             <div className="row mt-2">
               <div className="col-lg-6 col-md-6">
                 <div className="mb-3">
-                  <label htmlFor="paperPresentationType" className="form-label asterisk">
+                  <label
+                    htmlFor="paperPresentationType"
+                    className="form-label asterisk"
+                  >
                     Intended Mode of Paper Presentation
                   </label>
                   <select
@@ -597,58 +685,52 @@ const AbstractUpload = () => {
               {mode != "preview" ? (
                 <>
                   <div>
-                    <label htmlFor="paperPresentationType" className="form-label asterisk">
+                    <label
+                      htmlFor="paperPresentationType"
+                      className="form-label asterisk"
+                    >
                       Select Sub-Themes
                     </label>
                   </div>
 
                   <div className="col-md-12 ">
-                    
-                      <div className="card flex mb-3 justify-content-center">
-
-                        <MultiSelect
-                          value={selectedThemes && selectedThemes}
-                          onChange={handleSelectedSubThemesChange} // Update the onChange handler
-                          options={subThems}
-                          optionLabel="name"
-                          disabled={isDisabled}
-                          placeholder="Select Sub-Themes (You can select upto 3)"
-                          maxSelectedLabels={1}
-                          className="w-full md:w-20rem"
-                        />
-                      </div>
-                    
+                    <div className="card flex mb-3 justify-content-center">
+                      <MultiSelect
+                        value={selectedThemes && selectedThemes}
+                        onChange={handleSelectedSubThemesChange} // Update the onChange handler
+                        options={subThems}
+                        optionLabel="name"
+                        disabled={isDisabled}
+                        placeholder="Select Sub-Themes (You can select upto 3)"
+                        maxSelectedLabels={1}
+                        className="w-full md:w-20rem"
+                      />
+                    </div>
                   </div>
-
-
                 </>
-
               ) : (
-                <div className=" col-12 ms-1 relation-box-2" >
+                <div className=" col-12 ms-1 relation-box-2">
                   <div className="mb-3">
                     <label htmlFor="authorFirstName" className="form-label">
                       Selected Themes
                     </label>
-                    {selectedThemes?.length > 0 && selectedThemes.map((item, i) => {
-                      return (
-                        <input
-                          key={i}
-                          onChange={(e) => abstarctOnChangeHandler(e)}
-                          type="text"
-                          className="form-control"
-                          disabled={isDisabled}
-                          defaultValue={item.name}
-                          required
-                        />
-                      )
-
-                    })}
+                    {selectedThemes?.length > 0 &&
+                      selectedThemes.map((item, i) => {
+                        return (
+                          <input
+                            key={i}
+                            onChange={(e) => abstarctOnChangeHandler(e)}
+                            type="text"
+                            className="form-control"
+                            disabled={isDisabled}
+                            defaultValue={item.name}
+                            required
+                          />
+                        );
+                      })}
                   </div>
                 </div>
-
-
-              )
-              }
+              )}
 
               <div className="col-md-12">
                 <div className="mb-3">
@@ -689,40 +771,411 @@ const AbstractUpload = () => {
                   <p className="text-danger">{abstractError}</p>
                 )}
               </div>
-              <div className="row">
-                <div className="col-md-8">
-                  <div className="mb-3">
-                    {!mode && (
-                      <>
+            </div>
+            <div className="row">
+              <div className="col-md-8">
+                <div className="mb-3">
+                  {!mode && (
+                    <>
+                      {!proceed && (
                         <button
-                          className="common-btn add-button"
-                          type="submit"
-                          disabled={loading}
+                          type="button"
+                          className="ms-3 common-btn add-button"
+                          data-bs-toggle="modal"                          
+                          data-bs-target="#previewModal"
                         >
-                          {loading ? "uploading..." : "Submit"}
+                          Preview
                         </button>
+                      )}                                        
 
-                        <p className="pt-3 fs-6">
-                          <b>Note</b>: Kindly, Fill the registeration form
-                          before uploading abstracts. For technical support in
-                          uploading of Abstracts please contact at
-                          info@43inca.org
-                        </p>
-                      </>
-                    )}
-                    {userdetails?.role == "admin" && <PreviewPaper />}
-                  </div>
+                      <p className="pt-3 fs-6 text-dark">
+                        <b>Note</b>: Kindly, Fill the registeration form before
+                        uploading abstracts. For technical support in uploading
+                        of Abstracts please contact at info@43inca.org
+                      </p>
+                    </>
+                  )}
+                  {userdetails?.role == "admin" && <PreviewPaper data={true} />}
                 </div>
               </div>
-              {abstractDataSavedMessage && (
-                <p className="text-success">{abstractDataSavedMessage}</p>
-              )}
+            </div>
+            {abstractDataSavedMessage && (
+              <p className="text-success">{abstractDataSavedMessage}</p>
+            )}
+          </div>
+
+          {/* <!-- Button trigger modal --> */}
+
+          {/* Preiew <!-- Modal --> */}
+          <div
+            className="modal fade"
+            id="previewModal"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabIndex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-lg">
+              <div className="modal-content">
+                <div
+                  className="modal-header "
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <h5 className="modal-title" id="staticBackdropLabel">
+                    Abstract Detail
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  {abstractDocumentPayload && (
+                    <>
+                      <ul>
+                        <b>Author</b>
+                        <li>
+                          {abstractDocumentPayload.authorSaluation +
+                            " " +
+                            abstractDocumentPayload.authorFirstName +
+                            " " +
+                            abstractDocumentPayload?.authorMiddleName +
+                            " " +
+                            abstractDocumentPayload.authorLastName}
+                        </li>
+                        <li>
+                          {abstractDocumentPayload.authorEmail}
+                        </li>
+                        <li>
+                          {abstractDocumentPayload.authorAffiliation}
+                        </li>
+                      </ul>
+                      <ul>
+                        {/* {abstractDocumentPayload?.coAuthorDetails?.length >
+                          0 && <b>Co-Author</b>} */}
+                        {abstractDocumentPayload?.coAuthorDetails?.length > 0 &&
+                          abstractDocumentPayload.coAuthorDetails.map(
+                            (item, index) => {
+                              return (
+                                <>
+                                <b>Co-Author {index + 1}</b>
+                                  <li>
+                                    {/* <b>Co-Author Name</b>:{" "} */}
+                                    {item.coAuthorSaluation +
+                                      " " +
+                                      item.coAuthorFirstName +
+                                      " " +
+                                      item?.coAuthorMiddleName +
+                                      " " +
+                                      item.coAuthorLastName}
+                                  </li>
+                                  <li>
+                                    {/* <b>Co-Author Email</b>: {item.coAuthorEmail} */}
+                                    {item.coAuthorEmail}
+                                  </li>
+                                  <li className="pb-3">
+                                    {/* <b>Co-Author Affiliation</b>:{" "} */}
+                                    {item.coAuthorAffilation}
+                                  </li>
+                                </>
+                              );
+                            }
+                          )}
+                      </ul>
+                      <ul>
+                        <li className="mb-2">
+                          <b> Intended Mode of Paper Presentation </b>:{" "}
+                          {abstractDocumentPayload.paperPresentationType}
+                        </li>
+                      </ul>
+                      <ul>
+                        <b>Select Sub-Themess</b>
+                        {selectedThemes &&
+                          selectedThemes.map((item, ind) => {
+                            return <li>{item.name}</li>;
+                          })}
+                        <li className="mt-2">
+                          <b>Title of the Paper </b>:{" "}
+                          {abstractDocumentPayload.abstractPaperName}
+                        </li>
+                        <li className="mt-2">
+                          <b>Abstract </b> : {abstractDocumentPayload.abstract}
+                        </li>
+                      </ul>
+                    </>
+                  )}
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
+                    Edit
+                  </button>
+
+                  {abstractDocumentPayload &&
+                    abstractDocumentPayload.authorFirstName &&
+                    abstractDocumentPayload.paperPresentationType &&
+                    abstractDocumentPayload.abstractPaperName &&
+                    abstractDocumentPayload.abstract &&
+                    selectedThemes?.length > 0 && (
+                      // <button type="button" className="common-btn add-button" data-bs-dismiss="modal" onClick={()=>setProceed(!proceed)}>Proceed</button>
+                      <button
+                        className="ms-3 common-btn add-button"
+                        data-bs-dismiss="modal"
+                        type="submit"
+                        disabled={loading}
+                      >
+                        {loading ? "uploading..." : "Submit"}
+                      </button>
+                    )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* <!-- add Co author Button trigger modal --> */}
+
+          {/* <!-- Add coauthor modal Modal --> */}
+          <div
+            className="modal fade "
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabIndex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="staticBackdropLabel">
+                    Add Co-Author
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <div className="row">
+                    <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
+                      <div className="row">
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorSaluation"
+                            className="form-label asterisk"
+                          >
+                            Saluation
+                          </label>
+                          <select
+                            className="form-select"
+                            aria-label="Default select example"
+                            id="coAuthorSaluation"
+                            value={coAuthor?.coAuthorSaluation}
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                          >
+                            <option selected>Select Saluation</option>
+                            <option defaultValue="Dr.">Dr.</option>
+                            <option defaultValue="Mr.">Mr.</option>
+                            <option defaultValue="Ms.">Ms.</option>
+                            <option defaultValue="Mrs.">Mrs.</option>
+                          </select>
+                        </div>
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorFirstName"
+                            className="form-label asterisk"
+                          >
+                            First Name
+                          </label>
+                          <input
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                            type="text"
+                            className="form-control"
+                            id="coAuthorFirstName"
+                            value={coAuthor?.coAuthorFirstName}
+                            required={otherAuthor}
+                          />
+                        </div>
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorMiddleName"
+                            className="form-label"
+                          >
+                            Middle Name
+                          </label>
+                          <input
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                            type="text"
+                            className="form-control"
+                            id="coAuthorMiddleName"
+                            value={coAuthor?.coAuthorMiddleName}
+                          />
+                        </div>
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorLastName"
+                            className="form-label"
+                          >
+                            Last Name
+                          </label>
+                          <input
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                            type="text"
+                            className="form-control"
+                            id="coAuthorLastName"
+                            value={coAuthor?.coAuthorLastName}
+                            required={otherAuthor}
+                          />
+                        </div>
+
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorEmail"
+                            className="form-label asterisk"
+                          >
+                            email
+                          </label>
+                          <input
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                            type="text"
+                            className="form-control"
+                            id="coAuthorEmail"
+                            value={coAuthor?.coAuthorEmail}
+                            required={otherAuthor}
+                          />
+                        </div>
+
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <div className="mb-3">
+                            <label
+                              htmlFor="coAuthorAffiliation"
+                              className="form-label asterisk"
+                            >
+                              Affiliation
+                            </label>
+                            <input
+                              onChange={(e) => coAuthorOnChangeHandler(e)}
+                              type="text"
+                              className="form-control"
+                              id="coAuthorAffilation"
+                              value={coAuthor?.coAuthorAffilation}
+                              required={otherAuthor}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* {abstractDocumentPayload?.coAuthorDetails?.length < 9 &&
+                <div className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
+                justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button">
+                  <button
+                    className="common-btn add-and-remove-button w-100"
+                    id="coAuthor"
+                    type="button"
+                    onClick={(e) => addCoAuthor(e)}
+                  >
+                    Add
+                  </button>
+                </div>
+} */}
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+
+                  <button
+                    className="common-btn add-and-remove-button"
+                    data-bs-dismiss="modal"
+                    id="coAuthor"
+                    type="button"
+                    onClick={(e) => addCoAuthor(e)}
+                    disabled={
+                      !coAuthor.coAuthorAffilation ||
+                      !coAuthor.coAuthorFirstName ||
+                      !coAuthor.coAuthorLastName ||
+                      !coAuthor.coAuthorEmail ||
+                      !coAuthor.coAuthorSaluation
+                    }
+                  >
+                    Add
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </form>
+     {   !isDisabled && (
+      <>
+      <div className="row">
+      <div className="col-md-12 mt-3">
+                      <p className="text-dark">
+                        If you are unable to submit your abstract using the
+                        above form, please upload the abstract in .docx format
+                        using the "Upload Document" button given below
+                        (optional).
+                      </p>
+                    </div>  
+      <div className="col-lg-6 col-md-10 mt-1">
+                      <div className="mb-3">
+                        <label
+                          htmlFor="inputFile"
+                          className="form-label asterisk"
+                        >
+                          Abstract Upload (File size should not be more 2mb
+                          )
+                        </label>
+                        <input
+                          type="file"
+                          className="form-control"
+                          onChange={(e) => abstarctFileOnChangeHandler(e)}
+                          aria-label="file example"
+                          id="file"
+                          ref={ref}
+                        />
+                        {errorMessage && (
+                          <p className="text-danger">{errorMessage}</p>
+                        )}
+                      </div>
+                    </div>
+                      
+                      
+                    <div>
+                      <button
+                      className="common-btn add-button"
+                      type="button"
+                      onClick={()=>submitAbstractFile()}
+                      disabled={errorMessage || !abstractfilePayload.abstractPaperFileUrl || abstractFileMessage}
+                      >
+                        Submit Abstract File</button>
+                    </div>
+
+      </div>
+      {abstractDataSavedMessage && (
+              <p className="text-success">{abstractDataSavedMessage}</p>
+            )}
+          </>
+     )
+      }
       </section>
+         
+      ) 
+    }
     </>
   );
 };
 
-export default AbstractUpload;
+export default AbstractUpload;  

@@ -29,13 +29,11 @@ const Contact = () => {
 
   const onSubmit = async (data) =>{
     // doSubmit(data)
-    console.log(data, "data")
     let url = `${baseUrl}contact-us`
 
     try {    
       const response = await axios.post(url, data, GetHeaders());
       if(response && response?.data?.emailSendStatus){
-        console.log(response.data, "responseee");
         reset()
         setSetContactMsg(response?.data?.message)
         removeContactMsg()

@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { MultiSelect } from "primereact/multiselect";
 import { useDispatch, useSelector } from "react-redux";
 import * as ACTIONS from "./action";
 import jwt_decode from "jwt-decode";
+import "../../css/abstractUpload.css"
 
 const FullPaper = () => {
   let obj = {
@@ -44,6 +45,9 @@ const FullPaper = () => {
     coAuthorAffilation: "",
   });
   const [fullPaperError, setFullPaperError] = useState(undefined);
+  let navigate = useNavigate()
+
+  
 
   useEffect(() => {
     if (location && location.state) {
@@ -83,7 +87,7 @@ const FullPaper = () => {
           setFullPaperPayload(fullPaperPayloadCopy);
           setErrorMessage("");
           dispatch(ACTIONS.fullPaperFileUpload(formData));
-        } else {
+        } else {        
           setErrorMessage("File size should not be more than 10Mb");
         }
       }
@@ -95,6 +99,7 @@ const FullPaper = () => {
         setFullPaperPayload(fullPaperPayloadCopy);
         setFullPaperError("");
       } else {
+        alert(`Please enter under 25 words, you have entered ${words.length}`);
         setFullPaperError("Please enter under 25 words");
       }
     } else {
@@ -117,8 +122,8 @@ const FullPaper = () => {
         fullPaperPayload.userId = decodedToken.user.user._id;
         fullPaperPayload.userName = decodedToken.user.user.userName;
         fullPaperPayload.userEmail = decodedToken.user.user.userEmail;
-        console.log("full paper fullPaperPayload ", fullPaperPayload);
-        dispatch(ACTIONS.saveFullPaperData(fullPaperPayload));
+        console.log("full papper data before submit", fullPaperPayload)
+         dispatch(ACTIONS.saveFullPaperData(fullPaperPayload));
       }
     }
   };
@@ -160,15 +165,17 @@ const FullPaper = () => {
   };
 
   useEffect(() => {
-    if (state && state.fullPaperDataSaveSuccess) {
+    if (state && state?.fullPaperDataSaveSuccess) {
       setLoading(false);
       emptyFormField();
       setFullPaperDataSavedMessage(
-        "Your file submitted successfully. we will update you on email after verification"
+        "Your file submitted successfully. We will update you on email after verification"
       );
       setTimeout(() => {
         setFullPaperDataSavedMessage("");
-      }, 10000);
+        dispatch(ACTIONS.resetFullPaperDataToInitialState())
+        navigate("/dashboard/fullPaperList")
+      }, 4000);
     }
   }, [state.fullPaperDataSaveSuccess]);
 
@@ -267,12 +274,12 @@ const FullPaper = () => {
     <>
       <section className="abstract-form">
         <form onSubmit={(e) => fullPaperSubmitHandler(e)}>
-          <div className="container">
+          <div className="container px-0">
             <div className="row">
               <div className="col-md-12 mb-2">
                 <b>Author</b>
               </div>
-              <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
+              <div className="col-lg-10 col-md-12 col-sm-12 d-flex">
                 <div className="row">
                   <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-2">
                     <label
@@ -373,21 +380,80 @@ const FullPaper = () => {
                 className="col-lg-2 col-md-4 col-sm-4  col-6 d-flex justify-content-lg-center 
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
               >
-                <button
-                  className="common-btn add-and-remove-button"
+                {/* <button
+                type="button"
+                  className="common-btn add-and-remove-button w-100"
                   onClick={() => setOtherAuthor(!otherAuthor)}
                 >
                   Add Co-Author
-                </button>
+                </button> */}
+                <button
+                    type="button"
+                    className="common-btn add-and-remove-button w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    Add Co-Author
+                  </button>
               </div>
             </div>
 
-            {otherAuthor && (
+            <div className="row">
+              {fullPaperPayload &&
+                fullPaperPayload?.coAuthorDetails.length > 0 &&
+                fullPaperPayload?.coAuthorDetails.map((item, index) => {
+                  return (
+                    <div className="col-md-4 col-6" key={index}>
+                      <div className="card">
+                        <div className="save-address">
+                          <div className="default-add">
+                            <span className="default-address">
+                              <b>Co-Author: </b>
+                            </span>
+                            <span className="address-logo">
+                              <b>{index + 1}</b>
+                            </span>
+                          </div>
+                          <div className="co-author-detail">
+                            <div className="address-selection">
+                              <p className="name">
+                                Name : {item.coAuthorSaluation}{" "}
+                                {item.coAuthorFirstName}{" "}
+                                {item.coAuthorMiddleName}{" "}
+                                {item.coAuthorLastName}
+                              </p>
+                            </div>
+
+                            <p className="email">
+                              Email : {item.coAuthorEmail}
+                            </p>
+                            <p className="affiliation">
+                              Affiliation : {item.coAuthorAffilation}
+                            </p>
+                          </div>
+                          <div className="">
+                            <button
+                              className="delete-button w-100"
+                              id="accompanningPerson"
+                              type="button"
+                              onClick={(e) => deleteCoAuthor(index)}
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+
+            {/* {otherAuthor && (
               <div className="row">
                 <div className="col-12 mb-2">
                   <b>Co-Author</b>
                 </div>
-                <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
+                <div className="col-lg-10 col-md-12 col-sm-12 d-flex">
                   <div className="row">
                     <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                       <label
@@ -423,6 +489,7 @@ const FullPaper = () => {
                         className="form-control"
                         id="coAuthorFirstName"
                         value={coAuthor?.coAuthorFirstName}
+                        required={otherAuthor}
                       />
                     </div>
                     <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
@@ -450,6 +517,7 @@ const FullPaper = () => {
                         className="form-control"
                         id="coAuthorLastName"
                         value={coAuthor?.coAuthorLastName}
+                        required={otherAuthor}
                       />
                     </div>
                     <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
@@ -466,6 +534,7 @@ const FullPaper = () => {
                           className="form-control"
                           id="coAuthorEmail"
                           value={coAuthor?.coAuthorEmail}
+                          required={otherAuthor}
                         />
                       </div>
                     </div>
@@ -482,6 +551,7 @@ const FullPaper = () => {
                         className="form-control"
                         id="coAuthorAffilation"
                         value={coAuthor?.coAuthorAffilation}
+                        required={otherAuthor}
                       />
                     </div>
                   </div>
@@ -491,7 +561,7 @@ const FullPaper = () => {
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
                 >
                   <button
-                    className="common-btn add-and-remove-button"
+                    className="common-btn add-and-remove-button w-100"
                     id="coAuthor"
                     type="button"
                     onClick={(e) => addCoAuthor(e)}
@@ -500,13 +570,13 @@ const FullPaper = () => {
                   </button>
                 </div>
               </div>
-            )}
+            )} */}
 
-            {fullPaperPayload.coAuthorDetails.length > 0 &&
+            {/* {fullPaperPayload.coAuthorDetails.length > 0 &&
               fullPaperPayload.coAuthorDetails.map((item, index) => {
                 return (
                   <div className="row">
-                    <div className="col-lg-10 col-md-10 col-sm-12 d-flex">
+                    <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
                       <div className="row">
                         <div className="col-lg-2 col-md-4 col-sm-4 col-6 relation-box-1">
                           <label className="form-label" htmlFor="relation-name">
@@ -581,7 +651,7 @@ const FullPaper = () => {
                 justify-content-md-center justify-content-sm-center  justify-content-start add-co-author-button"
                     >
                       <button
-                        className="common-btn add-and-remove-button"
+                        className="common-btn add-and-remove-button w-100"
                         id="accompanningPerson"
                         type="button"
                         onClick={(e) => deleteCoAuthor(index)}
@@ -591,7 +661,7 @@ const FullPaper = () => {
                     </div>
                   </div>
                 );
-              })}
+              })} */}
 
             <div className="row">
               <div className="col-lg-6 col-md-6">
@@ -680,13 +750,21 @@ const FullPaper = () => {
                 <div className="col-md-12">
                   <div className="mb-3">
                     <div className="mb-3">
-                      <button
+                        <button
+                          type="button"
+                          className="ms-3 common-btn add-button"
+                          data-bs-toggle="modal"                          
+                          data-bs-target="#previewModal"
+                        >
+                          Preview
+                        </button>
+                      {/* <button
                         className="common-btn add-button"
                         type="submit"
                         disabled={isDisabled}
                       >
                         {loading ? "uploading" : "Submit"}
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>
@@ -696,6 +774,302 @@ const FullPaper = () => {
               </div>
             </div>
           </div>
+
+            {/* Preiew <!-- Modal --> */}
+            <div
+            className="modal fade"
+            id="previewModal"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabIndex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-lg">
+              <div className="modal-content">
+                <div
+                  className="modal-header "
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <h5 className="modal-title" id="staticBackdropLabel">
+                    Abstract Detail
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  {fullPaperPayload && (
+                    <>
+                      <ul>
+                        <b>Author</b>
+                        <li>
+                          {fullPaperPayload.authorSaluation +
+                            " " +
+                            fullPaperPayload.authorFirstName +
+                            " " +
+                            fullPaperPayload?.authorMiddleName +
+                            " " +
+                            fullPaperPayload.authorLastName}
+                        </li>
+                        <li>
+                          {fullPaperPayload.authorEmail}
+                        </li>
+                        <li>
+                          {fullPaperPayload.authorAffiliation}
+                        </li>
+                      </ul>
+                      <ul>
+                        {/* {abstractDocumentPayload?.coAuthorDetails?.length >
+                          0 && <b>Co-Author</b>} */}
+                        {fullPaperPayload?.coAuthorDetails?.length > 0 &&
+                          fullPaperPayload.coAuthorDetails.map(
+                            (item, index) => {
+                              return (
+                                <>
+                                <b>Co-Author {index + 1}</b>
+                                  <li>
+                                    {/* <b>Co-Author Name</b>:{" "} */}
+                                    {item.coAuthorSaluation +
+                                      " " +
+                                      item.coAuthorFirstName +
+                                      " " +
+                                      item?.coAuthorMiddleName +
+                                      " " +
+                                      item.coAuthorLastName}
+                                  </li>
+                                  <li>
+                                    {/* <b>Co-Author Email</b>: {item.coAuthorEmail} */}
+                                    {item.coAuthorEmail}
+                                  </li>
+                                  <li className="pb-3">
+                                    {/* <b>Co-Author Affiliation</b>:{" "} */}
+                                    {item.coAuthorAffilation}
+                                  </li>
+                                </>
+                              );
+                            }
+                          )}
+                      </ul>
+                      <ul>
+                        <li className="mb-2">
+                          <b> Intended Mode of Paper Presentation </b>:{" "}
+                          {fullPaperPayload.paperPresentationType}
+                        </li>
+                      </ul>
+                      <ul>
+                        <b>Select Sub-Themess</b>
+                        {selectedThemes &&
+                          selectedThemes.map((item, ind) => {
+                            return <li>{item.name}</li>;
+                          })}
+                        <li className="mt-2">
+                          <b>Title of the Paper </b>:{" "}
+                          {fullPaperPayload.fullPaperName}
+                        </li>
+                       
+                      </ul>
+                    </>
+                  )}
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
+                    Edit
+                  </button>
+
+                  {fullPaperPayload &&
+                    fullPaperPayload.authorFirstName &&
+                    fullPaperPayload.paperPresentationType &&
+                    fullPaperPayload.fullPaperName &&
+                    fullPaperPayload.fullPaperFileUrl &&
+                    selectedThemes?.length > 0 && (
+                      // <button type="button" className="common-btn add-button" data-bs-dismiss="modal" onClick={()=>setProceed(!proceed)}>Proceed</button>
+                      <button
+                        className="ms-3 common-btn add-button"
+                        data-bs-dismiss="modal"
+                        type="submit"
+                        disabled={loading}
+                      >
+                        {loading ? "uploading..." : "Submit"}
+                      </button>
+                    )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* <!-- Add coauthor modal Modal --> */}
+          <div
+            className="modal fade "
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabIndex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="staticBackdropLabel">
+                    Add Co-Author
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <div className="row">
+                    <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
+                      <div className="row">
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorSaluation"
+                            className="form-label asterisk"
+                          >
+                            Saluation
+                          </label>
+                          <select
+                            className="form-select"
+                            aria-label="Default select example"
+                            id="coAuthorSaluation"
+                            value={coAuthor?.coAuthorSaluation}
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                          >
+                            <option selected>Select Saluation</option>
+                            <option defaultValue="Dr.">Dr.</option>
+                            <option defaultValue="Mr.">Mr.</option>
+                            <option defaultValue="Ms.">Ms.</option>
+                            <option defaultValue="Mrs.">Mrs.</option>
+                          </select>
+                        </div>
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorFirstName"
+                            className="form-label asterisk"
+                          >
+                            First Name
+                          </label>
+                          <input
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                            type="text"
+                            className="form-control"
+                            id="coAuthorFirstName"
+                            value={coAuthor?.coAuthorFirstName}
+                            required={otherAuthor}
+                          />
+                        </div>
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorMiddleName"
+                            className="form-label"
+                          >
+                            Middle Name
+                          </label>
+                          <input
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                            type="text"
+                            className="form-control"
+                            id="coAuthorMiddleName"
+                            value={coAuthor?.coAuthorMiddleName}
+                          />
+                        </div>
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorLastName"
+                            className="form-label"
+                          >
+                            Last Name
+                          </label>
+                          <input
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                            type="text"
+                            className="form-control"
+                            id="coAuthorLastName"
+                            value={coAuthor?.coAuthorLastName}
+                            required={otherAuthor}
+                          />
+                        </div>
+
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <label
+                            htmlFor="coAuthorEmail"
+                            className="form-label asterisk"
+                          >
+                            email
+                          </label>
+                          <input
+                            onChange={(e) => coAuthorOnChangeHandler(e)}
+                            type="text"
+                            className="form-control"
+                            id="coAuthorEmail"
+                            value={coAuthor?.coAuthorEmail}
+                            required={otherAuthor}
+                          />
+                        </div>
+
+                        <div className="col-lg-6 col-md-4 col-sm-4 col-6 relation-box-1">
+                          <div className="mb-3">
+                            <label
+                              htmlFor="coAuthorAffiliation"
+                              className="form-label asterisk"
+                            >
+                              Affiliation
+                            </label>
+                            <input
+                              onChange={(e) => coAuthorOnChangeHandler(e)}
+                              type="text"
+                              className="form-control"
+                              id="coAuthorAffilation"
+                              value={coAuthor?.coAuthorAffilation}
+                              required={otherAuthor}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>                   
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+
+                  <button
+                    className="common-btn add-and-remove-button"
+                    data-bs-dismiss="modal"
+                    id="coAuthor"
+                    type="button"
+                    onClick={(e) => addCoAuthor(e)}
+                    disabled={
+                      !coAuthor.coAuthorAffilation ||
+                      !coAuthor.coAuthorFirstName ||
+                      !coAuthor.coAuthorLastName ||
+                      !coAuthor.coAuthorEmail ||
+                      !coAuthor.coAuthorSaluation
+                    }
+                  >
+                    Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </form>
       </section>
     </>
