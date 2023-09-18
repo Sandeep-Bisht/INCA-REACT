@@ -6,11 +6,7 @@ import { useLocation } from "react-router-dom";
 import EventBlog from "../containers/EventBlog";
 import ExhibitorList from "../containers/ExhibitorList";
 import FullPaperPreview from "../FullPaperPreview";
-<<<<<<< HEAD
-import Test from "../css/test";
-=======
 import ResetPassword from "../containers/ResetPassword";
->>>>>>> 7cc31cea4e58e6dd1357dd45dae6e325e91b67f2
 
 const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
 const AbstractPage = lazy(() => import("../containers/AbstractPage"))

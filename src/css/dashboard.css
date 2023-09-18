@@ -349,16 +349,6 @@
 }
 }
 
-<<<<<<< HEAD
-@media screen and (max-width : 1024px){
-  
-  .react-tel-input .form-control {
-    margin-bottom: 15px!important;
-    width: 100%!important;
-}
-}
-
-=======
 
 @media only screen and (max-width : 1019px)
 {
@@ -371,7 +361,6 @@
 
 
 
->>>>>>> 7cc31cea4e58e6dd1357dd45dae6e325e91b67f2
 @media only screen and (max-width : 991px)
 {
   .p-multiselect-panel .p-multiselect-items

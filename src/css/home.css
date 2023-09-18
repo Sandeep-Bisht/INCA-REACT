@@ -1084,7 +1084,7 @@ a{
 
 
 @media only screen and (max-width : 1024px) {
-
+     
     .Welcome-page .welcome-text p {
         line-height: 26px;
     }
@@ -1113,6 +1113,11 @@ a{
         left: 0;
         width: 100%;
     }
+
+    .home-banner .container-home .inca-new-logo {
+        width: 288px;
+        margin-right: 40px;}
+    
 
 }
 
@@ -1226,7 +1231,7 @@ a{
         height: 26px;
         letter-spacing: 1px;
         position: absolute;
-        bottom: 80px;
+        bottom: 62px;
         left: 0;
         width: 100%;
     }
@@ -1934,8 +1939,8 @@ a{
         width: 100%;
     }
     .common-btn {
-        margin-bottom: 20px!important;
-        margin-top: 15px;
+        margin-bottom: 29px!important;
+        margin-top: 10px;
     }
     .section-padding{
         padding:40px 0;
