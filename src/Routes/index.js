@@ -39,7 +39,7 @@ const BoardList = lazy (()=> import('../components/BoardProgramme'));
 const UserQrInfoComponent = lazy(() => import('../containers/UserQrInfoComponent'));
 
 const UserDetails = lazy(() => import('../containers/UserDetails'));
-
+const Accommodation = lazy(()=> import('../components/Accommodation/Accommodation.js'))
 const Certificate = lazy(() => import('../containers/Certificate'));
 // Certificate
 
@@ -83,6 +83,7 @@ export const ApplicationRoutes = ({ path }) => {
       >
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/accommodation" element={<Accommodation/>} />
           <Route path="/register" element={<UserRegistration />} />
           <Route path="/theme" element={<Theme />} />
           <Route path="/importantdates" element={<ImportantDates />} />

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.25",
+    "@cyntler/react-doc-viewer": "^1.13.0",
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@testing-library/jest-dom": "^5.16.2",
@@ -17,6 +18,7 @@
     "qrcode.react": "^3.1.0",
     "react": "^17.0.2",
     "react-dialog-confirm": "^1.0.3",
+    "react-doc-viewer": "^0.1.5",
     "react-dom": "^17.0.2",
     "react-file-viewer": "^1.2.1",
     "react-hook-form": "^7.45.2",

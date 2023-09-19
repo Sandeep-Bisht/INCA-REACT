@@ -1,0 +1,10 @@
+.pg-viewer-wrapper .document-container{
+    width: 100%;
+}
+.word-document-container {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 20px;
+  }
+  
