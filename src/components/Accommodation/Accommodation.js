@@ -1,23 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
-import '../../css/accommodation.css';
+import React from 'react';
 
 function Accommodation() {
-  const [error, setError] = useState(null);
-  const [isMounted, setIsMounted] = useState(true);
-  const [docs, setDocs] = useState([
-    {
-      uri:"/details.docx",
-      fileType: "docx",
-      fileName: "details.docx"
-    }
-  ]);
-
-  useEffect(() => {
-    return () => {
-      setIsMounted(false);
-    };
-  }, []);
 
   return (
 <>
@@ -412,7 +395,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "decimal",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -423,9 +407,10 @@ function Accommodation() {
                   marginLeft: "0in",
                   fontSize: "11.0pt",
                   fontFamily: '"Calibri",sans-serif'
+                  
                 }}
               >
-                &nbsp;
+              1
               </li>
             </ol>
           </div>
@@ -824,7 +809,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -837,7 +823,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                &nbsp;
+                2
               </li>
             </ol>
           </div>
@@ -1277,7 +1263,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -1290,7 +1277,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>3</strong>
               </li>
             </ol>
           </div>
@@ -1714,7 +1701,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -1727,7 +1715,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>4</strong>
               </li>
             </ol>
           </div>
@@ -2160,7 +2148,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -2173,7 +2162,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>5</strong>
               </li>
             </ol>
           </div>
@@ -2612,7 +2601,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -2625,7 +2615,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>6</strong>
               </li>
             </ol>
           </div>
@@ -3043,7 +3033,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -3056,7 +3047,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>7</strong>
               </li>
             </ol>
           </div>
@@ -3377,7 +3368,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -3390,7 +3382,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>8</strong>
               </li>
             </ol>
           </div>
@@ -3783,7 +3775,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -3796,7 +3789,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>9</strong>
               </li>
             </ol>
           </div>
@@ -4180,7 +4173,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -4193,7 +4187,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>10</strong>
               </li>
             </ol>
           </div>
@@ -4507,7 +4501,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -4520,7 +4515,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>11</strong>
               </li>
             </ol>
           </div>
@@ -4972,7 +4967,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -4985,7 +4981,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>12</strong>
               </li>
             </ol>
           </div>
@@ -5444,7 +5440,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -5457,7 +5454,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>13</strong>
               </li>
             </ol>
           </div>
@@ -5855,7 +5852,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -5868,7 +5866,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>14</strong>
               </li>
             </ol>
           </div>
@@ -6196,7 +6194,8 @@ function Accommodation() {
               style={{
                 marginBottom: "0in",
                 listStyleType: "undefined",
-                marginLeft: "-0.25in"
+                marginLeft: "-0.25in",
+                listStyle:"none"
               }}
             >
               <li
@@ -6209,7 +6208,7 @@ function Accommodation() {
                   fontFamily: '"Calibri",sans-serif'
                 }}
               >
-                <strong>&nbsp;</strong>
+                <strong>15</strong>
               </li>
             </ol>
           </div>

@@ -83,7 +83,7 @@ export const ApplicationRoutes = ({ path }) => {
       >
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/accommodation" element={<Accommodation/>} />
+          <Route path="/accommodation-details" element={<Accommodation/>} />
           <Route path="/register" element={<UserRegistration />} />
           <Route path="/theme" element={<Theme />} />
           <Route path="/importantdates" element={<ImportantDates />} />
@@ -106,7 +106,8 @@ export const ApplicationRoutes = ({ path }) => {
               <Route path="/dashboard/fullPaperpreview" element={<FullPaperPreview />} />
               <Route path="/dashboard/fullPaper" element={<FullPaper />} /> 
               <Route path="/dashboard/fullPaperList" element={<FullPaperList />} />
-              <Route path ="/dashboard/exhibitorlist" element={<ExhibitorList />}/>          
+              <Route path ="/dashboard/exhibitorlist" element={<ExhibitorList />}/>     
+                   
             
           </Route>
           <Route path="/contact" element={<Contact />} />
@@ -120,6 +121,8 @@ export const ApplicationRoutes = ({ path }) => {
           <Route path="/userdetails/:id" element={<UserDetails />} />
           <Route path="/boardlists" element={<BoardList />} />
           <Route path="*" element={<Error />} />
+          {/* <Route path="TEST" element={<Test />}/> */}
+
         </Routes>
       </Suspense>
     </>
