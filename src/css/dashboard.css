@@ -156,6 +156,7 @@
 }
 .react-tel-input .form-control{
   margin-bottom: 15px!important;
+  width: 100%!important;
 }
 .form-select{
   margin-bottom: 15px2;
