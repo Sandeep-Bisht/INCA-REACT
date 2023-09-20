@@ -143,7 +143,11 @@ const HomePage = () => {
     },
   };
 
-  const deviceType = "desktop";
+  // const deviceType = "desktop";
+
+  const handleAccomodation = () => {
+    window.open('https://43inca.org/accommodation-details', '_blank');
+  }
 
   return (
     <>
@@ -152,7 +156,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-             src={homepageBackgroundVideo}
+            //  src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
@@ -205,8 +209,11 @@ const HomePage = () => {
 
                   <button
                     className=" common-btn register-home-btn"
-                    onClick={() => navigation("/about")}
+                    target="_blank"
+                    //  href="/accommodation-details" 
+                    onClick={() => handleAccomodation()}
                   >
+                    
                     <span></span>
                     <span></span>
                     <span></span>
