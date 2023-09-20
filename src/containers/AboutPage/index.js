@@ -13,7 +13,7 @@ import doonWeather1 from "../../images/weather-1.jpg";
 import doonWeather2 from "../../images/weather-2.jpg";
 import doonWeather3 from "../../images/weather-3.jpg";
 import NHOBuilding from "../../images/RCW_Building.jpg";
-import Accommodation from "../../SampleFiles/Details of Hotel Accommodation for 43 INCA.docx"
+
 
 const About = () => {
   return (
@@ -122,9 +122,8 @@ const About = () => {
                 are only indicative and may vary. Limited guest house
                 accommodation will be available on payment (tariff as per
                 respective institution’s rule) and on first-come-first-serve
-                basis. List of hotels with their indicative tariff and contact
-                number will be available shortly on website
-                https://www.43inca.org. Participants should book their
+                basis. The list of hotels with their indicative tariff may be seen by clicking on the button below.
+                Participants should book their
                 accommodation in advance to avoid last minute rush. Transport
                 will be provided from the hotels/ guest houses identified by the
                 organisers to the conference venue.
@@ -141,7 +140,7 @@ const About = () => {
   <a target="_blank" href="/accommodation-details" className="text-decoration-none text-white">
   Accommodation Information
 
-  <svg className="ms-2" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 32 32" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M 15 4 L 15 20.5625 L 9.71875 15.28125 L 8.28125 16.71875 L 15.28125 23.71875 L 16 24.40625 L 16.71875 23.71875 L 23.71875 16.71875 L 22.28125 15.28125 L 17 20.5625 L 17 4 Z M 7 26 L 7 28 L 25 28 L 25 26 Z"></path></svg>
+  {/* <svg className="ms-2" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 32 32" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M 15 4 L 15 20.5625 L 9.71875 15.28125 L 8.28125 16.71875 L 15.28125 23.71875 L 16 24.40625 L 16.71875 23.71875 L 23.71875 16.71875 L 22.28125 15.28125 L 17 20.5625 L 17 4 Z M 7 26 L 7 28 L 25 28 L 25 26 Z"></path></svg> */}
 
  </a>
   

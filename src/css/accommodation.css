@@ -16,4 +16,13 @@
 .accommodation-table tr:nth-child(odd) {
     background-color: #deeaf6;
 }
+
+
+.download-button {
+  background: #75b00f;
+    color: #fff;
+    margin-left: 9px;
+    padding: 3px 5px;
+    border: none;
+}
   

@@ -143,7 +143,11 @@ const HomePage = () => {
     },
   };
 
-  const deviceType = "desktop";
+  // const deviceType = "desktop";
+
+  const handleAccomodation = () => {
+    window.open('https://43inca.org/accommodation-details', '_blank');
+  }
 
   return (
     <>
@@ -205,8 +209,11 @@ const HomePage = () => {
 
                   <button
                     className=" common-btn register-home-btn"
-                    onClick={() => navigation("/about")}
+                    target="_blank"
+                    //  href="/accommodation-details" 
+                    onClick={() => handleAccomodation()}
                   >
+                    
                     <span></span>
                     <span></span>
                     <span></span>
