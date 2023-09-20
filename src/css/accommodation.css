@@ -7,4 +7,13 @@
     line-height: 1.5;
     margin: 20px;
   }
+  .accommodation-thead{
+    background-color: #5b9bd5;
+  }
+  .accommodation-table tr:nth-child(even) {
+    background-color:#fff;
+}
+.accommodation-table tr:nth-child(odd) {
+    background-color: #deeaf6;
+}
   
