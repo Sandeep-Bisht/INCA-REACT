@@ -31,7 +31,8 @@ import inca9 from "../../images/inca-image-9.jpg";
 import updatedInformationBrochure from "../../SampleFiles/INCA_43rd_General_Information_07_09_2023.pdf"
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4';
-import IncaLogo from "../../images/43inca_LOGO.png"
+import IncaLogo from "../../images/43inca_LOGO.png";
+import FullpaperGuide from "../../SampleFiles/Template_43inca_manuscript.docx"
 
 
 
@@ -43,7 +44,8 @@ const HomePage = () => {
   const [countdownMinutes, setCountdownMinutes] = useState("00");
   const [countdownSec, setCountdownSec] = useState("00");
   const [verified, setVerified] = useState(false);
-  const [setContactMsg, setSetContactMsg] = useState()
+  const [setContactMsg, setSetContactMsg] = useState();
+  const navigate = useNavigate()
 
 
   const navigation = useNavigate();
@@ -147,6 +149,11 @@ const HomePage = () => {
 
   const handleAccomodation = () => {
     window.open('https://43inca.org/accommodation-details', '_blank');
+  }
+
+  const handleFullPaperLink =() => {
+    console.log("i am clicked to see full opaper")
+    navigate("/fullpaper-submission-guide")
   }
 
   return (
@@ -290,9 +297,9 @@ const HomePage = () => {
             <div className="col-md-12">
               <div className="abstract-submission-date">
             <marquee>
-              <p className="text-white">Register Now</p>
-              </marquee>
-            {/* <marquee><p><b>"The Full paper Submission Date for 42nd INCA Conference is  (Extended) 10<sup>th</sup>October 2023"</b></p></marquee> */}
+              <p className="text-white">Register Now &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a target="_blank" href={`https://docs.google.com/viewer?url=https://43inca.org/Template_43inca_manuscript.docx`}>
+                  
+                   <b>"MS Word Template for Full Paper Submission"</b></a></p></marquee> 
             </div>
             </div>
           </div>

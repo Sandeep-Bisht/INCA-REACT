@@ -7,6 +7,7 @@ import EventBlog from "../containers/EventBlog";
 import ExhibitorList from "../containers/ExhibitorList";
 import FullPaperPreview from "../FullPaperPreview";
 import ResetPassword from "../containers/ResetPassword";
+import FullPaperInstruction from "../components/FullPaperInstruction/FullPaperInstruction";
 
 const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
 const AbstractPage = lazy(() => import("../containers/AbstractPage"))
@@ -84,6 +85,7 @@ export const ApplicationRoutes = ({ path }) => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/accommodation-details" element={<Accommodation/>} />
+          <Route path="/fullpaper-submission-guide" element={<FullPaperInstruction/>} />
           <Route path="/register" element={<UserRegistration />} />
           <Route path="/theme" element={<Theme />} />
           <Route path="/importantdates" element={<ImportantDates />} />
