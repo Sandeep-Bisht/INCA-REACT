@@ -210,6 +210,22 @@ const Dashboard = (props) => {
                           Registration
                         </button>
                       </li>
+                      <>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() =>
+                              navigate("/dashboard/registration-details")
+                            }
+                          >
+                            <span className="me-2">
+                              <i className="fa-solid fa-users"></i>
+                            </span>
+                            Registration Details
+                          </button>
+                        </li>
+                      </>
+                    
                       
                          <li>
                          <button
@@ -462,9 +478,11 @@ const Dashboard = (props) => {
                               </div>
                             </div>
                           </div>
-                        </li>
+                        </li>                        
                       </>
                     )}
+
+
                    
                   </ul>
                 </aside>

@@ -1,6 +1,6 @@
 import React from "react";
 import "../../css/accommodation.css";
-import AccommodationFile from "../../SampleFiles/Details of Hotel Accommodation for 43 INCA.docx";
+import AccommodationFile from "../../SampleFiles/Details of Hotel Accommodation for 43 INCA.pdf";
 function Accommodation() {
   return (
     <>
