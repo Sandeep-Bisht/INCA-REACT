@@ -149,12 +149,13 @@ const HomePage = () => {
 
   const handleAccomodation = () => {
     window.open('https://43inca.org/accommodation-details', '_blank');
+    // window.open('http://localhost:3001/accommodation-details', '_blank');
   }
 
-  const handleFullPaperLink =() => {
-    console.log("i am clicked to see full opaper")
-    navigate("/fullpaper-submission-guide")
-  }
+  // const handleFullPaperLink =() => {
+  //   console.log("i am clicked to see full opaper")
+  //   navigate("/fullpaper-submission-guide")
+  // }
 
   return (
     <>
@@ -163,7 +164,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-             src={homepageBackgroundVideo}
+            //  src={homepageBackgroundVideo}
             autoPlay
             muted
             loop

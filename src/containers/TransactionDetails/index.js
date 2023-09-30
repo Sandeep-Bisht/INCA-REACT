@@ -61,7 +61,6 @@ function TransactionDetails() {
       state.loggedInUserSuccess &&
       state.loggedInUserSuccess.length > 0
     ) {
-      console.log("transactional detialsss", state.loggedInUserSuccess)
       let transactionDetailsCopy = { ...transactionDetails };
       transactionDetailsCopy.email = state.loggedInUserSuccess[0].email;
       transactionDetailsCopy.registrationNumber =
