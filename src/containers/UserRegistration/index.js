@@ -38,11 +38,9 @@ const UserRegistration = () => {
       if(state?.userRegisterSuccess?.message == "Please fill all the fields"){
         setIsHidden(true);
         setLoginLoder(false);
-        console.log("inside error",state.userRegisterSuccess.message)
         setMessage(state.userRegisterSuccess.message)
       } else{
         setIsHidden(true);
-        console.log("inside else",state.userRegisterSuccess.message)
         setMessage(state.userRegisterSuccess.message);
         setLoginLoder(false);
         dispatch(ACTIONS.resetToInitialState());

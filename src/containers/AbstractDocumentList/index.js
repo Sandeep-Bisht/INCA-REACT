@@ -110,7 +110,6 @@ const AbstractDocumentList = () => {
   };
 
   let redirectToPaperPreviewPage = (item) => {
-    console.log("inisde redirect page", item.abstractPaperFileUrl)
     if(item.abstractPaperFileUrl){
       item.mode = "preview"
       navigate("/dashboard/previewPaper", { state: item });      
@@ -150,7 +149,7 @@ const AbstractDocumentList = () => {
   };
 
   const viewAbstractDocument = (node) => {
-    console.log("Nodeeeeeeee", node)
+    // console.log("Nodeeeeeeee", node)
   }
 
   const abstractBodyTemplate = (node) => {
