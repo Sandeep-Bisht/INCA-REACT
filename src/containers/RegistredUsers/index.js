@@ -142,7 +142,6 @@ let RegisteredUser = () => {
   };
 
   const deActivateUser = async (userId) => {
-    console.log("inisde delete", userId)
     try {
       let url = `${baseUrl}delete_user_by_id/${userId}`;
       let response = await axios.delete(url);
