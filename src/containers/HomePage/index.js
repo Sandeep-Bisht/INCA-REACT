@@ -378,7 +378,7 @@ const HomePage = () => {
                   <div className="mix-guest-card">
                          <div className="upper">
                             <h2 className="common-heading  text-center">
-                              Distinguished Speakers for Panel Discussion
+                              Distinguished Speakers for Memorial Lectures
                             </h2>
                          </div>
                          <div className="lower">
@@ -402,7 +402,7 @@ const HomePage = () => {
                   <div className="mix-guest-card">
                          <div className="upper">
                             <h2 className="common-heading  text-center">
-                              Distinguished Speakers for Panel Discussion
+                              Distinguished Speakers for Memorial Lectures
                             </h2>
                          </div>
                          <div className="lower">
