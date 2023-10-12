@@ -24,7 +24,6 @@ const RegistrationDetails = () => {
       state.loggedInUserSuccess &&
       state.loggedInUserSuccess.length > 0
     ) {
-      console.log(state.loggedInUserSuccess, "user data");
       setRegisterdedUserInfo(state.loggedInUserSuccess[0]);
       //   setIsDisabled(true);
     }
