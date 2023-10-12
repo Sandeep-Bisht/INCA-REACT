@@ -32,7 +32,13 @@ import updatedInformationBrochure from "../../SampleFiles/INCA_43rd_General_Info
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4';
 import IncaLogo from "../../images/43inca_LOGO.png";
+import programmeGlance from "../../images/programme-glance.jpg"
+import mixguest1 from "../../images/mix-guest-1.jpg"
+import mixguest2 from "../../images/mix-guest-2.jpg"
+import mixguest3 from "../../images/mix-guest-3.jpg"
+import mixguest4 from "../../images/mix-guest-4.jpg"
 import FullpaperGuide from "../../SampleFiles/Template_43inca_manuscript.docx"
+
 
 
 
@@ -94,38 +100,38 @@ const HomePage = () => {
     email: "",
     phoneNumber: "",
     subject: "",
-    message:""
+    message: ""
   });
 
-  const onSubmit = async (data) =>{
+  const onSubmit = async (data) => {
     // doSubmit(data)
     let url = `${baseUrl}contact-us`
 
-    try {    
+    try {
       const response = await axios.post(url, data, GetHeaders());
-      if(response && response?.data?.emailSendStatus){
+      if (response && response?.data?.emailSendStatus) {
         reset()
         setSetContactMsg(response?.data?.message)
         removeContactMsg()
-        
-      }else{
+
+      } else {
         reset();
         setSetContactMsg(response?.data?.message)
         removeContactMsg()
-        
+
       }
     } catch (error) {
-       console.log(error)
+      console.log(error)
     }
   }
 
   const removeContactMsg = () => {
-    setTimeout(()=> {
+    setTimeout(() => {
       setSetContactMsg("")
     }, 3000)
   }
 
-  
+
 
   const responsive = {
     desktop: {
@@ -164,7 +170,7 @@ const HomePage = () => {
         <div className="homepage-video-section">
           <video
             className="w-100"
-            //  src={homepageBackgroundVideo}
+            src={homepageBackgroundVideo}
             autoPlay
             muted
             loop
@@ -184,18 +190,18 @@ const HomePage = () => {
                   />
 
                   <p className="head-text">
-                    Emerging Trends in Digital 
+                    Emerging Trends in Digital
                   </p>
                   <p className="head-text">
-                  Cartography For Sustainable  
+                    Cartography For Sustainable
                   </p>
                   <p className="head-text">
-                  Ecosystems and  Geospatial
+                    Ecosystems and  Geospatial
                   </p>
                   <p className="head-text">
-                   Economy
+                    Economy
                   </p>
-                  
+
                   {/* <span className="banner-last">Event-2023</span> */}
                 </p>
                 <div className="banner-bottom"></div>
@@ -221,14 +227,14 @@ const HomePage = () => {
                     //  href="/accommodation-details" 
                     onClick={() => handleAccomodation()}
                   >
-                    
+
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     Accommodation
                   </button>
-                  
+
                   {/* <button
                     className="common-btn-transparent ms-3 home-schedule-desk"
                     onClick={() => navigation("/abstractpage")}
@@ -239,17 +245,17 @@ const HomePage = () => {
                 <div className="banner-btn-box pt-2">
                   <button
                     className=" common-btn register-home-btn"
-                    // onClick={() => navigation("/register")}
+                  // onClick={() => navigation("/register")}
                   >
-                   <span></span>
-                   <span></span>
-                   <span></span>
-                   <span></span>
-                   <a target="_blank" href={updatedInformationBrochure}>
-                   Information Brochure
-                   </a>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <a target="_blank" href={updatedInformationBrochure}>
+                      Information Brochure
+                    </a>
                   </button>
-                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -292,24 +298,139 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-           <section className="abstract-date">
-  <div className="container-fluid">
-  <div className="row">
-            <div className="col-md-12">
-              <div className="abstract-submission-date">
-            <marquee>
-              <p className="text-white">Date for payment of registration fee (without late fee) extended upto 
-              October 20, 2023! &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a target="_blank" href={`https://docs.google.com/viewer?url=https://43inca.org/Template_43inca_manuscript.docx`}>
-                  
-                   </a></p></marquee> 
-                   {/* <b>"MS Word Template for Full Paper Submission"</b> */}
+          <section className="abstract-date">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="abstract-submission-date">
+                    <marquee>
+                      <p className="text-white">Date for payment of registration fee (without late fee) extended upto
+                        October 20, 2023! &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a target="_blank" href={`https://docs.google.com/viewer?url=https://43inca.org/Template_43inca_manuscript.docx`}>
+
+                        </a></p></marquee>
+                    {/* <b>"MS Word Template for Full Paper Submission"</b> */}
+                  </div>
+                </div>
+              </div>
             </div>
-            </div>
-          </div>
-  </div>
-</section> 
+          </section>
         </div>
       </div>
+      <section className="programme-glance section-padding">
+        <div className="container-fluid">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-lg-10 mx-auto">
+                <div className="programme-glance-heading-wrapper">
+                  <div className="left">
+                    <h2 class="common-heading">Programme at a Glance</h2>
+                  </div>
+                  <div className="right">
+                    <p className="programme-glance-title">
+                      Tentative
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-9 mx-auto">
+                <div className="programme-glance-wrapper">
+                  <img
+                    src={programmeGlance}
+                    className="img-fluid"
+
+
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="mix-guest">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 mx-auto">
+              {/* ----------------carousel copy------------ */}
+              <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label="Slide 2" />
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={2} aria-label="Slide 3" />
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={3} aria-label="Slide 4" />
+                </div>
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+
+                    
+                    <div className="mix-guest-card">
+                         <div className="upper">
+                            <h2 className="common-heading  text-center">
+                               Chief Guest and Guests of Honours
+                            </h2>
+                         </div>
+                         <div className="lower">
+                            <img src={mixguest3} className="d-block w-100" alt="..." />  
+                         </div>
+                    </div>
+                  
+                  </div>
+                  <div className="carousel-item">
+                  <div className="mix-guest-card">
+                         <div className="upper">
+                            <h2 className="common-heading  text-center">
+                              Distinguished Speakers for Panel Discussion
+                            </h2>
+                         </div>
+                         <div className="lower">
+                            <img src={mixguest4} className="d-block w-100" alt="..." />  
+                         </div>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                  <div className="mix-guest-card">
+                         <div className="upper">
+                            <h2 className="common-heading  text-center">
+                              Distinguished Speaker for Plenary Sessions/Special Session/Popular Talk
+                            </h2>
+                         </div>
+                         <div className="lower">
+                            <img src={mixguest1} className="d-block w-100" alt="..." />  
+                         </div>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                  <div className="mix-guest-card">
+                         <div className="upper">
+                            <h2 className="common-heading  text-center">
+                              Distinguished Speakers for Panel Discussion
+                            </h2>
+                         </div>
+                         <div className="lower">
+                            <img src={mixguest2} className="d-block w-100" alt="..." />  
+                         </div>
+                    </div>
+                  </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span className="carousel-control-prev-icon" aria-hidden="true" >
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path></svg>
+                  </span>
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span className="carousel-control-next-icon" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path></svg>
+                  </span>
+                  <span className="visually-hidden">Next</span>
+                </button>
+              </div>
+
+              {/* ---------------carousel end------------
+                     */}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="Welcome-page">
         <div className="container">
@@ -321,7 +442,7 @@ const HomePage = () => {
               <div className="welcome-text pt-4">
                 <p className="common-para text-justify">
                   National Remote Sensing Centre
-                   (NRSC), a key functionary of
+                  (NRSC), a key functionary of
                   Indian Space Research Organisation (ISRO), is striving to
                   realize the Indian Space Vision through Earth Observation. It
                   is responsible for the ground segment of Remote Sensing
@@ -356,7 +477,7 @@ const HomePage = () => {
       <section className="section-padding home-about pb-lg-0 without-carousel event-bg ">
         <div className="container">
           <div className="row py-4 mt-3">
-             <div className="col-lg-4">
+            <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="first common-yellow-bg">
@@ -369,17 +490,17 @@ const HomePage = () => {
                     <b>
                       {" "}
                       <h5 className="right-text">Regional Remote Sensing Centre (RRSC)-West</h5> National Remote
-                      Sensing Centre (NRSC)<br/>
-                      Indian Space Research organisation (ISRO)<br/>
-                      Bypass Road, Sector 9<br/>
+                      Sensing Centre (NRSC)<br />
+                      Indian Space Research organisation (ISRO)<br />
+                      Bypass Road, Sector 9<br />
                       Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
                     <br />
                     <b>Jodhpur – 342005</b>
                   </p>
                 </div>
-              </div></div> 
-            
+              </div></div>
+
 
             <div className="col-lg-4">
               <div className="home-about-event-card">
@@ -408,14 +529,14 @@ const HomePage = () => {
                   <h2 className="h2">Schedule of the Event</h2>
                   <Link className="common-para pb-3" to="/importantdates">
                     <b>Click here to know details.</b>
-                   
-                  </Link><br/>
+
+                  </Link><br />
                   <p className="common-para mb-0">
                     <b>Final Abstract Submission Deadline</b></p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="">Register Now</b></p> 
-                    {/* <p className="common-para pb-3"> */}
-                    {/* <b>25/August/2023</b></p>  */}
+                    <b className="">Register Now</b></p>
+                  {/* <p className="common-para pb-3"> */}
+                  {/* <b>25/August/2023</b></p>  */}
                   {/* <p className="common-para">
                     Last date for submitting the abstracts
                   </p>
@@ -448,9 +569,9 @@ const HomePage = () => {
                     <b>
                       {" "}
                       <h5 className="right-text">Regional Remote Sensing Centre (RRSC)-West</h5> National Remote
-                      Sensing Centre (NRSC)<br/>
-                      Indian Space Research organisation (ISRO)<br/>
-                      Bypass Road, Sector 9<br/>
+                      Sensing Centre (NRSC)<br />
+                      Indian Space Research organisation (ISRO)<br />
+                      Bypass Road, Sector 9<br />
                       Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
                     <br />
@@ -490,8 +611,8 @@ const HomePage = () => {
                   <p className="common-para mb-0">
                     <b>Final Abstract Submission Deadline</b></p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="">Register Now</b></p> 
-                    {/* <p className="common-para pb-3">
+                    <b className="">Register Now</b></p>
+                  {/* <p className="common-para pb-3">
                     <b>25/August/2023</b></p>  */}
                 </div>
               </div>
@@ -816,8 +937,8 @@ const HomePage = () => {
               infinite={true}
               autoPlay={true}
               autoPlaySpeed={3000}
-              // keyBoardControl={true}
-              // transitionDuration={500}
+            // keyBoardControl={true}
+            // transitionDuration={500}
             >
               <div className="member-profile">
                 <div className="speaker-card">
@@ -2565,7 +2686,7 @@ const HomePage = () => {
             <div className="col-lg-3">
               <div className="blog-card">
                 <a target="_blank" href={updatedInformationBrochure}>
-                  <div className="blog-card-pic" style={{borderRadius:'0px !important!'}}>
+                  <div className="blog-card-pic" style={{ borderRadius: '0px !important!' }}>
                     <img src={Second} alt="Second-Circular"></img>
                   </div>
                 </a>
@@ -2733,61 +2854,61 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              
+
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
-                <div className="col-md-6">
-                <div className="contact-text">
-                  <input
-                    // className="form-movement"
-                    type="text"
-                    name="firstName"
-                    placeholder="Your Name.."
-                    {...register("firstName", { required: true })}
-                  />
-                  {errors.firstName  && (
-                    <p className="text-danger">First name is required</p>
-                  )}
-                </div>
-                </div>
-                <div className="col-md-6">
-                <div className="contact-email">
-                  <input
-                    // className="form-movement"
-                    type="email"
-                    name="email"
-                    placeholder="Your Email.."
-                    {...register("email", {
-                      required: "Email Address is required",
-                    })}
-                  />
-                  {errors.email && <p className="text-danger">Email is required</p>}
-                </div>
-              </div>
-                <div className="col-md-6">
-                <div className="contact-text">
-                  <input
-                    // className="form-movement"
-                    type="number"
-                    placeholder="Your Number.."
-                    {...register("phoneNumber", { required: true })}
-                  />
-                  {errors.phoneNumber  && (
-                    <p className="text-danger">Phone Number is required</p>
-                  )}
-                </div>
-                </div>
-                <div className="col-md-6">
-                <div className="contact-text">
-                  <input
-                    // className="form-movement"
-                    type="subject"
-                    placeholder="Subject.."
-                    {...register("subject", { required: true })}
-                  />
-                  {errors.subject && <p className="text-danger">Subject is required</p>}
-                </div>
-                </div>
+                  <div className="col-md-6">
+                    <div className="contact-text">
+                      <input
+                        // className="form-movement"
+                        type="text"
+                        name="firstName"
+                        placeholder="Your Name.."
+                        {...register("firstName", { required: true })}
+                      />
+                      {errors.firstName && (
+                        <p className="text-danger">First name is required</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="contact-email">
+                      <input
+                        // className="form-movement"
+                        type="email"
+                        name="email"
+                        placeholder="Your Email.."
+                        {...register("email", {
+                          required: "Email Address is required",
+                        })}
+                      />
+                      {errors.email && <p className="text-danger">Email is required</p>}
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="contact-text">
+                      <input
+                        // className="form-movement"
+                        type="number"
+                        placeholder="Your Number.."
+                        {...register("phoneNumber", { required: true })}
+                      />
+                      {errors.phoneNumber && (
+                        <p className="text-danger">Phone Number is required</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="contact-text">
+                      <input
+                        // className="form-movement"
+                        type="subject"
+                        placeholder="Subject.."
+                        {...register("subject", { required: true })}
+                      />
+                      {errors.subject && <p className="text-danger">Subject is required</p>}
+                    </div>
+                  </div>
                 </div>
 
                 <div className="contact-textarea">
@@ -2798,18 +2919,18 @@ const HomePage = () => {
                     placeholder="Enter Message.."
                   ></textarea>
                 </div>
-                <div className="contact-text"> 
-                <Captcha captchaLength={6} setVerified ={setVerified}/>
+                <div className="contact-text">
+                  <Captcha captchaLength={6} setVerified={setVerified} />
                 </div>
-               
-                      
+
+
                 <div className="contact-btn">
                   <button disabled={!verified} className="common-btn mb-3">Send Message</button>
                 </div>
 
                 <div className="mt-2 mb-2">
-                        <p className="text-dark">{setContactMsg}</p>
-                      </div>
+                  <p className="text-dark">{setContactMsg}</p>
+                </div>
               </form>
             </div>
             <div className="col-md-6">
@@ -2817,7 +2938,7 @@ const HomePage = () => {
                 {/* <p className="common-pre-heading">GET IN TOUCH</p> */}
                 <h2 className="common-heading">
                   You Can Reach Us With Following Details
-                </h2>                
+                </h2>
                 <div className="icon-text-movement">
                   <div className="contact-icon">
                     <i className="fa-solid fa-building"></i>
