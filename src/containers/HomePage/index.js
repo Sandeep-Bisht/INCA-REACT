@@ -32,7 +32,7 @@ import updatedInformationBrochure from "../../SampleFiles/INCA_43rd_General_Info
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4';
 import IncaLogo from "../../images/43inca_LOGO.png";
-import programmeGlance from "../../images/programme-glance.jpg"
+import programmeGlance from "../../images/programme-glance.png"
 import mixguest1 from "../../images/mix-guest-1.jpg"
 import mixguest2 from "../../images/mix-guest-2.jpg"
 import mixguest3 from "../../images/mix-guest-3.jpg"
