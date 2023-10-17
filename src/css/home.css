@@ -277,6 +277,13 @@
 {
     padding: 30px;
 }
+.mix-guest-card .lower img
+{
+    max-height: 500px;
+    min-height: 500px;
+    object-fit:contain;
+   
+}
 .carousel-control-next,
 .carousel-control-prev {
     opacity: 1;
@@ -1417,7 +1424,20 @@ a{
         height:85px;
         padding:8px 4px;
     }
+    .programme-glance .common-heading, .mix-guest-card .upper .common-heading {
+
+        font-size: 18px;
+    }
+    .programme-glance-title
+    {
+        font-size: 14px;
+    }
+
+
 }
+
+
+
 @media only screen and (max-width : 575px) {
     
     .home-about .right .right-text {
@@ -1739,8 +1759,32 @@ a{
         padding: 52px 0;
     }
 
+    .programme-glance .common-heading, .mix-guest-card .upper .common-heading {
 
-
+        font-size: 14px;
+    }
+    .programme-glance-title
+    {
+        font-size: 12px;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon
+    {
+        height: 28px;
+        width: 28px;
+    }
+    .carousel-control-prev-icon svg, .carousel-control-next-icon svg
+    {
+        height: 14px;
+    }
+    .mix-guest-card .lower
+    {
+        padding: 15px;
+    }
+    .mix-guest-card .lower img
+    {
+        min-height: 300px;
+        max-height: 300px;
+    }
 
 }
 
@@ -1766,6 +1810,25 @@ a{
     .home-banner .right .theme-color {
         font-size: 17px;
     }
+    .carousel-control-prev-icon, .carousel-control-next-icon
+    {
+        height: 25px;
+        width: 25px;
+    }
+    .carousel-control-prev-icon svg, .carousel-control-next-icon svg
+    {
+        height: 14px;
+    }
+    .mix-guest-card .lower
+    {
+        padding: 15px;
+    }
+    .mix-guest-card .lower img
+    {
+        min-height: 300px;
+        max-height: 300px;
+    }
+
 
 }
 @media only screen and (max-width : 464px) {
@@ -2012,8 +2075,15 @@ a{
         margin-bottom:0;
         
     }
+    .mix-guest-card .lower img
+    {
+        min-height: 280px;
+        max-height: 280px;
+    }
 
 }
+
+
 
 .event-bg{
     background-image: url('../images/jodhpur-bg.jpg');
