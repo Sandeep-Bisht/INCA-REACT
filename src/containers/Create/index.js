@@ -416,7 +416,6 @@ const CreateForm = (props) => {
         userInformation.registrationFee = value;
         userInformation.phoneNumber = phoneNumber;
         delete userInformation.isError;
-        console.log("Inside submit",userInformation)
         dispatch(ACTIONS.saveRegisterdUserData(userInformation));
       } else {
         let userInformationCopy = { ...userInformation };
