@@ -182,10 +182,7 @@ const HomePage = () => {
             <div className="col-md-7 d-flex flex-column justify-content-center">
               <div className="right text-center">
                 <p className="banner-title f1 text-white">
-                  {/* <span className="banner-small text-white">
-                    43<sup>rd</sup> INCA International Congress <br />
-                    on
-                  </span> */}
+
                   <img src={IncaLogo} className="inca-new-logo img-fluid"
                   />
 
