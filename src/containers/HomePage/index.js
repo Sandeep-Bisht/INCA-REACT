@@ -390,7 +390,7 @@ const HomePage = () => {
                   <div className="mix-guest-card">
                          <div className="upper">
                             <h2 className="common-heading  text-center">
-                              Distinguished Speaker for Plenary Sessions/Special Session/Popular Talk
+                              Distinguished Speaker for Plenary Sessions
                             </h2>
                          </div>
                          <div className="lower">
@@ -402,7 +402,7 @@ const HomePage = () => {
                   <div className="mix-guest-card">
                          <div className="upper">
                             <h2 className="common-heading  text-center">
-                              Distinguished Speakers for Memorial Lectures
+                              Distinguished Speakers for Panel Discussion
                             </h2>
                          </div>
                          <div className="lower">
