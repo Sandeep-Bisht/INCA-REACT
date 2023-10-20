@@ -208,7 +208,7 @@ const CreateForm = (props) => {
       userInformationCopy.nationality === "indian" &&
       accompanningPersonLength >= 0
     ) {
-      let totalFee = accompanningPersonLength * 2360 + 2950;
+      let totalFee = accompanningPersonLength * 2950 + 3540;
       return `₹ ${totalFee} including 18% GST`;
     }
 
@@ -217,7 +217,7 @@ const CreateForm = (props) => {
       userInformationCopy.nationality === "foreigner" &&
       accompanningPersonLength >= 0
     ) {
-      let totalFee = accompanningPersonLength * 100 + 125;
+      let totalFee = accompanningPersonLength * 100 + 175;
       return `US$ ${totalFee} `;
     }
 
@@ -226,7 +226,7 @@ const CreateForm = (props) => {
       userInformationCopy.nationality === "indian" &&
       accompanningPersonLength >= 0
     ) {
-      let totalFee = accompanningPersonLength * 2360 + 1770;
+      let totalFee = accompanningPersonLength * 2950 + 2360;
       return `₹ ${totalFee} including 18% GST`;
     }
 
@@ -245,7 +245,7 @@ const CreateForm = (props) => {
       userInformationCopy.nationality === "indian" &&
       accompanningPersonLength >= 0
     ) {
-      let totalFee = accompanningPersonLength * 2360 + 3540;
+      let totalFee = accompanningPersonLength * 2950 + 4130;
       return `₹ ${totalFee} including 18% GST`;
     }
 
@@ -255,7 +255,7 @@ const CreateForm = (props) => {
       userInformationCopy.nationality === "foreigner" &&
       accompanningPersonLength >= 0
     ) {
-      let totalFee = accompanningPersonLength * 100 + 125;
+      let totalFee = accompanningPersonLength * 100 + 175;
       return `US$ ${totalFee}`;
     }
   };
