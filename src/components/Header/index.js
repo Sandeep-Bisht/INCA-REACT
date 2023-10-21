@@ -18,26 +18,26 @@ export const Header = () => {
     }
   }, [])
 
-  useEffect(() => {   
+  // useEffect(() => {   
     
-    let nav = document.querySelector(".header-wrapper");
-    let link = document.querySelector(".nav-link");
-    window.onscroll = function () {
+  //   let nav = document.querySelector(".header-wrapper");
+  //   let link = document.querySelector(".nav-link");
+  //   window.onscroll = function () {
       
-      if (document.documentElement.scrollTop > 20) {
-        nav.classList.add("header-scrolled");
-        link.classList.add("scrolled-link");
-      } else {
-        nav.classList.remove("header-scrolled");
-        link.classList.remove("scrolled-link");
-      }
-    };
-  }, []);
+  //     if (document.documentElement.scrollTop > 20) {
+  //       nav.classList.add("header-scrolled");
+  //       link.classList.add("scrolled-link");
+  //     } else {
+  //       nav.classList.remove("header-scrolled");
+  //       link.classList.remove("scrolled-link");
+  //     }
+  //   };
+  // }, []);
 
 
   return (
     <>
-      <header className="header-wrapper">
+      <header className="header-wrapper header-scrolled ">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
