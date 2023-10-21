@@ -31,13 +31,14 @@ import inca9 from "../../images/inca-image-9.jpg";
 import updatedInformationBrochure from "../../SampleFiles/INCA_43rd_General_Information_07_09_2023.pdf"
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4';
-import IncaLogo from "../../images/43inca_LOGO.png";
+import IncaLogo from "../../images/43inca_LOGO1.png";
 import programmeGlance from "../../images/programme-glance.png"
 import mixguest1 from "../../images/mix-guest-1.jpg"
 import mixguest2 from "../../images/mix-guest-2.jpg"
 import mixguest3 from "../../images/mix-guest-3.jpg"
 import mixguest4 from "../../images/mix-guest-4.jpg"
 import FullpaperGuide from "../../SampleFiles/Template_43inca_manuscript.docx"
+import SessionCard from "../SessionCard";
 
 
 
@@ -167,7 +168,7 @@ const HomePage = () => {
     <>
       <Header></Header>
       <div className="home-banner">
-        <div className="homepage-video-section">
+        <div className="homepage-video-section d-none">
           <video
             className="w-100"
             src={homepageBackgroundVideo}
@@ -176,12 +177,94 @@ const HomePage = () => {
             loop
           />
         </div>
-        <div className="container-home">
+        <div className="container-fluid px-0 overflow-hidden">
           <div className="row pb-md-5 h-100 m-0">
-            <div className="col-md-5"></div>
-            <div className="col-md-7 d-flex flex-column justify-content-center">
+            <div className="col-md-7 px-0o0klo0e">
+              <section className="mix-guest home-banner-mix-guest">
+                
+                      {/* ----------------carousel copy------------ */}
+                      <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+                        <div className="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label="Slide 2" />
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={2} aria-label="Slide 3" />
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={3} aria-label="Slide 4" />
+                        </div>
+                        <div className="carousel-inner">
+                          <div className="carousel-item active">
+
+
+                            <div className="mix-guest-card">
+                              <div className="upper">
+                                <h2 className="common-heading  text-center">
+                                  Chief Guest and Guests of Honours
+                                </h2>
+                              </div>
+                              <div className="lower">
+                                <img src={mixguest3} className="d-block w-100" alt="..." />
+                              </div>
+                            </div>
+
+                          </div>
+                          <div className="carousel-item">
+                            <div className="mix-guest-card">
+                              <div className="upper">
+                                <h2 className="common-heading  text-center">
+                                  Distinguished Speakers for Memorial Lectures
+                                </h2>
+                              </div>
+                              <div className="lower">
+                                <img src={mixguest4} className="d-block w-100" alt="..." />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="carousel-item">
+                            <div className="mix-guest-card">
+                              <div className="upper">
+                                <h2 className="common-heading  text-center">
+                                  Distinguished Speaker for Plenary Sessions
+                                </h2>
+                              </div>
+                              <div className="lower">
+                                <img src={mixguest1} className="d-block w-100" alt="..." />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="carousel-item">
+                            <div className="mix-guest-card">
+                              <div className="upper">
+                                <h2 className="common-heading  text-center">
+                                  Distinguished Speakers for Panel Discussion
+                                </h2>
+                              </div>
+                              <div className="lower">
+                                <img src={mixguest2} className="d-block w-100" alt="..." />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span className="carousel-control-prev-icon" aria-hidden="true" >
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path></svg>
+                          </span>
+                          <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span className="carousel-control-next-icon" aria-hidden="true">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path></svg>
+                          </span>
+                          <span className="visually-hidden">Next</span>
+                        </button>
+                      </div>
+
+                      {/* ---------------carousel end------------
+                     */}
+                 
+              </section>
+            </div>
+            <div className="col-md-5 d-flex flex-column justify-content-center">
               <div className="right text-center">
-                <p className="banner-title f1 text-white">
+                <p className="banner-title f1 text-dark">
                   {/* <span className="banner-small text-white">
                     43<sup>rd</sup> INCA International Congress <br />
                     on
@@ -211,7 +294,7 @@ const HomePage = () => {
                 </p> */}
                 <div className="banner-btn-box pt-2">
                   <button
-                    className="me-2 common-btn register-home-btn"
+                    className="me-2 common-btn register-home-btn text-dark"
                     onClick={() => navigation("/register")}
                   >
                     <span></span>
@@ -222,7 +305,7 @@ const HomePage = () => {
                   </button>
 
                   <button
-                    className=" common-btn register-home-btn"
+                    className=" common-btn register-home-btn text-dark"
                     target="_blank"
                     //  href="/accommodation-details" 
                     onClick={() => handleAccomodation()}
@@ -244,14 +327,14 @@ const HomePage = () => {
                 </div>
                 <div className="banner-btn-box pt-2">
                   <button
-                    className=" common-btn register-home-btn"
+                    className=" common-btn register-home-btn text-dark"
                   // onClick={() => navigation("/register")}
                   >
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
-                    <a target="_blank" href={updatedInformationBrochure}>
+                    <a target="_blank" href={updatedInformationBrochure} className="text-dark">
                       Information Brochure
                     </a>
                   </button>
@@ -347,7 +430,7 @@ const HomePage = () => {
         </div>
       </section>
       <section className="mix-guest">
-        <div className="container">
+        <div className="container d-none">
           <div className="row">
             <div className="col-lg-12 mx-auto">
               {/* ----------------carousel copy------------ */}
@@ -361,65 +444,65 @@ const HomePage = () => {
                 <div className="carousel-inner">
                   <div className="carousel-item active">
 
-                    
+
                     <div className="mix-guest-card">
-                         <div className="upper">
-                            <h2 className="common-heading  text-center">
-                               Chief Guest and Guests of Honours
-                            </h2>
-                         </div>
-                         <div className="lower">
-                            <img src={mixguest3} className="d-block w-100" alt="..." />  
-                         </div>
+                      <div className="upper">
+                        <h2 className="common-heading  text-center">
+                          Chief Guest and Guests of Honours
+                        </h2>
+                      </div>
+                      <div className="lower">
+                        <img src={mixguest3} className="d-block w-100" alt="..." />
+                      </div>
                     </div>
-                  
+
                   </div>
                   <div className="carousel-item">
-                  <div className="mix-guest-card">
-                         <div className="upper">
-                            <h2 className="common-heading  text-center">
-                              Distinguished Speakers for Memorial Lectures
-                            </h2>
-                         </div>
-                         <div className="lower">
-                            <img src={mixguest4} className="d-block w-100" alt="..." />  
-                         </div>
-                    </div>
-                  </div>
-                  <div className="carousel-item">
-                  <div className="mix-guest-card">
-                         <div className="upper">
-                            <h2 className="common-heading  text-center">
-                              Distinguished Speaker for Plenary Sessions
-                            </h2>
-                         </div>
-                         <div className="lower">
-                            <img src={mixguest1} className="d-block w-100" alt="..." />  
-                         </div>
+                    <div className="mix-guest-card">
+                      <div className="upper">
+                        <h2 className="common-heading  text-center">
+                          Distinguished Speakers for Memorial Lectures
+                        </h2>
+                      </div>
+                      <div className="lower">
+                        <img src={mixguest4} className="d-block w-100" alt="..." />
+                      </div>
                     </div>
                   </div>
                   <div className="carousel-item">
-                  <div className="mix-guest-card">
-                         <div className="upper">
-                            <h2 className="common-heading  text-center">
-                              Distinguished Speakers for Panel Discussion
-                            </h2>
-                         </div>
-                         <div className="lower">
-                            <img src={mixguest2} className="d-block w-100" alt="..." />  
-                         </div>
+                    <div className="mix-guest-card">
+                      <div className="upper">
+                        <h2 className="common-heading  text-center">
+                          Distinguished Speaker for Plenary Sessions
+                        </h2>
+                      </div>
+                      <div className="lower">
+                        <img src={mixguest1} className="d-block w-100" alt="..." />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <div className="mix-guest-card">
+                      <div className="upper">
+                        <h2 className="common-heading  text-center">
+                          Distinguished Speakers for Panel Discussion
+                        </h2>
+                      </div>
+                      <div className="lower">
+                        <img src={mixguest2} className="d-block w-100" alt="..." />
+                      </div>
                     </div>
                   </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                   <span className="carousel-control-prev-icon" aria-hidden="true" >
-                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path></svg>
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path></svg>
                   </span>
                   <span className="visually-hidden">Previous</span>
                 </button>
                 <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                   <span className="carousel-control-next-icon" aria-hidden="true">
-                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path></svg>
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path></svg>
                   </span>
                   <span className="visually-hidden">Next</span>
                 </button>
@@ -430,6 +513,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+        <SessionCard/>
       </section>
 
       <div className="Welcome-page">

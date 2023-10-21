@@ -6,11 +6,12 @@
 .home-banner
 {
     position: relative;
-    background: linear-gradient(to left, #000000eb, #0000008f, #00000000);   
+    /* background: linear-gradient(to left, #000000eb, #0000008f, #00000000);    */
     
      
      /* border-bottom-left-radius: 250px;
      border-bottom-right-radius: 120px; */
+     border-bottom: 2px solid aliceblue;
     
     
 }
@@ -24,7 +25,7 @@
     height: 26px;
     letter-spacing: 1px;
     position: absolute;
-    bottom: 134px;
+    bottom: 45px;
     left: 0;
     width: 100%;
 }
@@ -177,6 +178,7 @@
     background-color: #fff;
     border-radius: 20px;
     padding: 5px;
+    border: 2px solid aliceblue;
 
 }
 .home-banner .count .common-timer-box
@@ -311,6 +313,17 @@
 .mix-guest-card .carousel-control-prev-icon:hover,
 .mix-guest-card .carousel-control-next-icon:hover {
     background:#75b00f;
+}
+
+.mix-guest.home-banner-mix-guest
+{
+    padding: 0;
+    margin: 0;
+}
+.mix-guest.home-banner-mix-guest .mix-guest-card .lower img
+{
+    max-height: 450px;
+    min-height: 450px;
 }
 
 /* -------home about------------- */
