@@ -30,6 +30,8 @@ import Day3_TechSess5_D from "../../SampleFiles/Day3_TechSess5_D.pdf";
 
 import Poster_Presentation from "../../SampleFiles/Posters_43INCA.pdf";
 
+import SessionCardImage from "../../SampleFiles/WhatsApp Image 2023-10-22 at 4.24.37 PM.jpeg"
+
 
 const SessionCard = () => {
   return (
@@ -55,7 +57,15 @@ const SessionCard = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-12">
+            <div className="col-md-12">
+            <div className="">
+                <div className="row">
+                  </div>
+                  <img  src={SessionCardImage} alt="SessionCardImage" className="img-fluid"/>
+                  </div>
+
+            </div>
+            {/* <div className="col-lg-12">
               <div className="chart-box-wrapper" id="session-detail">
                 <div className="row">
                   <div className="col-lg-3">
@@ -438,7 +448,7 @@ const SessionCard = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
