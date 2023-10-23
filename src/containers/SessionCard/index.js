@@ -57,14 +57,14 @@ const SessionCard = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-12">
+            {/* <div className="col-md-12">
             <div className="">
                 <div className="row">
                   </div>
                   <img  src={SessionCardImage} alt="SessionCardImage" className="img-fluid"/>
                   </div>
 
-            </div>
+            </div> */}
             {/* <div className="col-lg-12">
               <div className="chart-box-wrapper" id="session-detail">
                 <div className="row">
