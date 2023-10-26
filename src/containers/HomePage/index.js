@@ -26,8 +26,6 @@ import inca6 from "../../images/DS.jpeg";
 import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
-// import FirstCircular from "../../SampleFiles/INCA_43rd_Revised_First_Circular_10.08.2023.pdf"
-// import SecondCircular from "../../SampleFiles/INCA_43rd_Second_Circular_26.08.2023.pdf"
 import updatedInformationBrochure from "../../SampleFiles/INCA_43rd_General_Information_07_09_2023.pdf"
 import Captcha from "../Captcha";
 import homepageBackgroundVideo from '../../video/INCA-video.mp4';
@@ -37,7 +35,6 @@ import mixguest1 from "../../images/mix-guest-1.jpg"
 import mixguest2 from "../../images/mix-guest-2.jpg"
 import mixguest3 from "../../images/mix-guest-3.jpg"
 import mixguest4 from "../../images/mix-guest-4.jpg"
-import FullpaperGuide from "../../SampleFiles/Template_43inca_manuscript.docx"
 import SessionCard from "../SessionCard";
 
 
@@ -152,23 +149,17 @@ const HomePage = () => {
     },
   };
 
-  // const deviceType = "desktop";
 
   const handleAccomodation = () => {
     window.open('https://43inca.org/accommodation-details', '_blank');
-    // window.open('http://localhost:3001/accommodation-details', '_blank');
   }
 
-  // const handleFullPaperLink =() => {
-  //   console.log("i am clicked to see full opaper")
-  //   navigate("/fullpaper-submission-guide")
-  // }
 
   return (
     <>
       <Header></Header>
       <div className="home-banner">
-        <div className="homepage-video-section d-none">
+        {/* <div className="homepage-video-section d-none">
           <video
             className="w-100"
             src={homepageBackgroundVideo}
@@ -176,7 +167,7 @@ const HomePage = () => {
             muted
             loop
           />
-        </div>
+        </div> */}
         <div className="container-fluid px-0 overflow-hidden">
           <div className="row pb-md-5 h-100 m-0">
             <div className="col-md-7 px-0o0klo0e">
@@ -285,13 +276,8 @@ const HomePage = () => {
                     Economy
                   </p>
 
-                  {/* <span className="banner-last">Event-2023</span> */}
                 </p>
-                <div className="banner-bottom"></div>
-                {/* <p className="common-para text-white mt-3">
-                  Animi ab libero! Blanditiis, luctus morbi eget esse,
-                  ridiculus. Quos laborum sunt facere primis magni cumque.
-                </p> */}
+                <div className="banner-bottom"></div>                
                 <div className="banner-btn-box pt-2">
                   <button
                     className="me-2 common-btn register-home-btn text-dark"
@@ -307,7 +293,6 @@ const HomePage = () => {
                   <button
                     className=" common-btn register-home-btn text-dark"
                     target="_blank"
-                    //  href="/accommodation-details" 
                     onClick={() => handleAccomodation()}
                   >
 

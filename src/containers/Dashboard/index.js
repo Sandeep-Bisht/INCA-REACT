@@ -46,26 +46,6 @@ const Dashboard = (props) => {
     }
   }, [abstract_state.getUserAbstractListSuccess]);
 
-  // useEffect(() => {
-  //   if (user_state &&
-  //     user_state.loggedInUserSuccess &&
-  //     user_state.loggedInUserSuccess.length > 0
-  //   ) {
-  //     setAllowTransaction(true)
-  //   }
-  // }, [user_state.loggedInUserSuccess]);
-
-  // let getUserPaymentStatus = async (id) => {
-  //   let url = `${baseUrl}getPaymentStatus/${id}`
-  //   try {
-  //     let response = await axios.get(url);
-  //     if(response && response.data[0]?.mannualPaymentStatus === "paid"){
-  //       setPaymentStatus(true)
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 
   useEffect(() => {
     dispatch(ACTIONS.getUsersCounters());

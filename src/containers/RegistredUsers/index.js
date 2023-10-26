@@ -30,21 +30,6 @@ let RegisteredUser = () => {
     dispatch(ACTIONS.getUsers());
   }, []);
 
-  // const accept = (id) => {
-  //   console.log(id, "inside accept")
-  //   // deleteUser(id);
-  // };
-
-  // const reject = () => {
-  //   toast.current.show({
-  //     severity: "warn",
-  //     summary: "Rejected",
-  //     detail: "Delete Cancelled",
-  //     life: 5000,
-  //   });
-  // };
-
-
 
   useEffect(() => {
     if (state && state.allUserSuccess) {
