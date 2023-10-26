@@ -306,7 +306,7 @@ const HomePage = () => {
             </div>
 
             <div className="col-md-12 mb-4">
-                  <div className="abstract-submission-date">
+                  <div className="abstract-submission-date mb-3">
                     <marquee>
                       <p className="text-white">
                         Registration still open with late fee &nbsp;
@@ -315,6 +315,15 @@ const HomePage = () => {
                           target="_blank"
                           href={`https://docs.google.com/viewer?url=https://43inca.org/Template_43inca_manuscript.docx`}
                         ></a>
+                      </p>
+                    </marquee>
+                    {/* <b>"MS Word Template for Full Paper Submission"</b> */}
+                  </div>
+                  <div className="abstract-submission-date">
+                    <marquee>
+                      <p className="text-white">
+                      Important note: Delegates are not permitted to bring their laptop/pen drive to the venue.
+                        
                       </p>
                     </marquee>
                     {/* <b>"MS Word Template for Full Paper Submission"</b> */}
