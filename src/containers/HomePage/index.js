@@ -36,6 +36,7 @@ import mixguest2 from "../../images/mix-guest-2.jpg";
 import mixguest3 from "../../images/mix-guest-3.jpg";
 import mixguest4 from "../../images/mix-guest-4.jpg";
 import SessionCard from "../SessionCard";
+import DetailedProgram from "../../SampleFiles/Website_Program_Booklet.pdf"
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -145,6 +146,12 @@ const HomePage = () => {
     window.open("https://43inca.org/accommodation-details", "_blank");
   };
 
+  const handleDetailProgramme = () => {
+    window.open("https://43inca.org/accommodation-details", "_blank");
+  };
+
+  
+
   return (
     <>
       <Header></Header>
@@ -223,6 +230,24 @@ const HomePage = () => {
                       Information Brochure
                     </a>
                   </button>
+
+                  <button
+                    className=" common-btn register-home-btn text-dark ms-3"                   
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                     <a
+                      target="_blank"
+                      href={DetailedProgram}
+                      className="text-dark"
+                    >
+                       DETAILED PROGRAMME
+                    </a>
+                    
+                   
+                  </button>
                 </div>
               </div>
               <div className="row">
@@ -279,6 +304,22 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+
+            <div className="col-md-12 mb-4">
+                  <div className="abstract-submission-date">
+                    <marquee>
+                      <p className="text-white">
+                        Registration still open with late fee &nbsp;
+                        &nbsp;&nbsp;&nbsp;
+                        <a
+                          target="_blank"
+                          href={`https://docs.google.com/viewer?url=https://43inca.org/Template_43inca_manuscript.docx`}
+                        ></a>
+                      </p>
+                    </marquee>
+                    {/* <b>"MS Word Template for Full Paper Submission"</b> */}
+                  </div>
+                </div>
 
             <div className="col-md-12 px-0o0klo0e">
               <section className="mix-guest home-banner-mix-guest">
@@ -438,27 +479,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <section className="abstract-date">
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="abstract-submission-date">
-                    <marquee>
-                      <p className="text-white">
-                        Registration still open with late fee &nbsp;
-                        &nbsp;&nbsp;&nbsp;
-                        <a
-                          target="_blank"
-                          href={`https://docs.google.com/viewer?url=https://43inca.org/Template_43inca_manuscript.docx`}
-                        ></a>
-                      </p>
-                    </marquee>
-                    {/* <b>"MS Word Template for Full Paper Submission"</b> */}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          
         </div>
       </div>
       {/* <section className="programme-glance section-padding">
@@ -662,7 +683,7 @@ const HomePage = () => {
             <div className="col-md-12 text-center">
               <div className="welcome-text pt-4">
                 <p className="common-para text-justify">
-                  Distinguished Speakers for Plenary Sessions The event is being
+                  The event is being
                   hosted by National Remote Sensing Centre. National Remote
                   Sensing Centre a key functionary of Indian Space Research
                   Organisation (ISRO), is striving to realize the Indian Space
@@ -698,7 +719,7 @@ const HomePage = () => {
       <section className="section-padding home-about pb-lg-0 without-carousel event-bg ">
         <div className="container">
           <div className="row py-4 mt-3">
-            <div className="col-lg-4">
+            <div className="col-lg-8 mx-auto">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="first common-yellow-bg">
@@ -706,28 +727,56 @@ const HomePage = () => {
                   </span>
                 </div>
                 <div className="right mt-3">
-                  <h2 className="h2">Where is the Event</h2>
+                  <h2 className="h2">WHERE IS THE EVENT</h2>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6 pb-4">
                   <p className="common-para">
-                    <b>
+                    
                       {" "}
-                      <h5 className="right-text">
-                        Regional Remote Sensing Centre (RRSC)-West
-                      </h5>{" "}
-                      National Remote Sensing Centre (NRSC)
+                      <b className="right-text">
+                        43rd INCA Intl. Congress Inaugural Venue : <br />
+                        (0830-1300 hrs., 06 November 2023) <br />
+                      </b>{" "}
+                      ....................................<br />
+                    
+                      <a className="common-para" href="https://maps.app.goo.gl/BsMitMTWZEHdxcT39" target="_blank">
+                      ICAR-CAZRI Auditorium</a><br />
+                      
+                      ICAR - Central Arid Zone Research Institute
+                      
                       <br />
-                      Indian Space Research organisation (ISRO)
-                      <br />
-                      Bypass Road, Sector 9<br />
-                      Kudi Bhagtasani Housing Board (KBHB)
-                    </b>{" "}
-                    <br />
-                    <b>Jodhpur – 342005</b>
+                      CAZRI Road, near ITI<br />
+                      Jodhpur - 342003 < br/>
+                      Rajsthan, India
+                      
                   </p>
+                  </div>
+                  <div className="col-md-6">
+                  <p className="common-para">
+                    
+                    {" "}
+                    <b className="right-text">
+                      43rd INCA Intl. Congress Event Venue : <br />
+                      (1300 hrs. onwards 06-08 November 2023) <br />
+                    </b>{" "}
+                    ....................................<br />
+                    
+                    <a href="https://maps.app.goo.gl/GnzKGtvkG6DJrk5n9" target="_blank" className="common-para">
+                    Regional Remote Sensing Centre-West</a><br />
+                    National Remote Sensing Centre (NRSC)<br />
+                    ISRO Campus
+                    <br />
+                    Sector 9, Kudi Bhagtasani Housing Board<br />
+                    Jodhpur - 342005 < br/>
+                      Rajsthan, India
+                </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="second common-blue-bg">
@@ -761,21 +810,10 @@ const HomePage = () => {
                   </p>
                   <p className="common-para pb-1 mb-0">
                     <b className="">Register Now</b>
-                  </p>
-                  {/* <p className="common-para pb-3"> */}
-                  {/* <b>25/August/2023</b></p>  */}
-                  {/* <p className="common-para">
-                    Last date for submitting the abstracts
-                  </p>
-                  <p className="common-para">
-                    Acceptance of paper will be notified by
-                  </p>
-                  <p className="common-para">
-                    Last date for submission of full paper
-                  </p> */}
+                  </p>                 
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -783,35 +821,63 @@ const HomePage = () => {
       <section className="section-padding home-about pb-lg-0 with-carousel event-bg">
         <div className="container">
           <div className="row">
-            <div className="col-lg-4">
+          <div className="col-lg-4 mx-auto h-100">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="first common-yellow-bg">
                     <i className="fa-solid fa-location-dot"></i>
                   </span>
                 </div>
-                <div className="right">
-                  <h2 className="h2">Where is the Event:</h2>
+                <div className="right mt-3">
+                  <h2 className="h2">WHERE IS THE EVENT</h2>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6 pb-4">
                   <p className="common-para">
-                    <b>
+                    
                       {" "}
-                      <h5 className="right-text">
-                        Regional Remote Sensing Centre (RRSC)-West
-                      </h5>{" "}
-                      National Remote Sensing Centre (NRSC)
+                      <b className="right-text">
+                        43rd INCA Intl. Congress Inaugural Venue : <br />
+                        (0830-1300 hrs., 06 November 2023) <br />
+                      </b>{" "}
+                      ....................................<br />
+                    
+                      <a className="common-para" href="https://maps.app.goo.gl/BsMitMTWZEHdxcT39" target="_blank">
+                      ICAR-CAZRI Auditorium</a><br />
+                      
+                      ICAR - Central Arid Zone Research Institute
+                      
                       <br />
-                      Indian Space Research organisation (ISRO)
-                      <br />
-                      Bypass Road, Sector 9<br />
-                      Kudi Bhagtasani Housing Board (KBHB)
-                    </b>{" "}
-                    <br />
-                    <b>Jodhpur – 342005</b>
+                      CAZRI Road, near ITI<br />
+                      Jodhpur - 342003 < br/>
+                      Rajsthan, India
+                      
                   </p>
+                  </div>
+                  <div className="col-md-6">
+                  <p className="common-para">
+                    
+                    {" "}
+                    <b className="right-text">
+                      43rd INCA Intl. Congress Event Venue : <br />
+                      (1300 hrs. onwards 06-08 November 2023) <br />
+                    </b>{" "}
+                    ....................................<br />
+                    
+                    <a href="https://maps.app.goo.gl/GnzKGtvkG6DJrk5n9" target="_blank" className="common-para">
+                    Regional Remote Sensing Centre-West</a><br />
+                    National Remote Sensing Centre (NRSC)<br />
+                    ISRO Campus
+                    <br />
+                    Sector 9, Kudi Bhagtasani Housing Board<br />
+                    Jodhpur - 342005 < br/>
+                      Rajsthan, India
+                </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="second common-blue-bg">
@@ -826,8 +892,8 @@ const HomePage = () => {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-4">
+            </div> */}
+            {/* <div className="col-lg-4">
               <div className="home-about-event-card">
                 <div className="left">
                   <span className="second common-blue-bg">
@@ -845,11 +911,10 @@ const HomePage = () => {
                   <p className="common-para pb-1 mb-0">
                     <b className="">Register Now</b>
                   </p>
-                  {/* <p className="common-para pb-3">
-                    <b>25/August/2023</b></p>  */}
+                  
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
