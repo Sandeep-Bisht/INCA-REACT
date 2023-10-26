@@ -89,7 +89,6 @@ function TransactionDetails() {
 
   const handlePaynow = async () => {
     if(isChecked){
-      console.log("Ready to pay")
       // navigate("https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=5687220")
       const newTab = window.open("https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=5687220", '_blank');
       newTab.focus();
