@@ -26,19 +26,16 @@ import inca6 from "../../images/DS.jpeg";
 import inca7 from "../../images/2612.jpeg";
 import inca8 from "../../images/DSC_0006.jpeg";
 import inca9 from "../../images/inca-image-9.jpg";
-import updatedInformationBrochure from "../../SampleFiles/INCA_43rd_General_Information_07_09_2023.pdf"
+import updatedInformationBrochure from "../../SampleFiles/INCA_43rd_General_Information_07_09_2023.pdf";
 import Captcha from "../Captcha";
-import homepageBackgroundVideo from '../../video/INCA-video.mp4';
+import homepageBackgroundVideo from "../../video/INCA-video.mp4";
 import IncaLogo from "../../images/43inca_LOGO1.png";
-import programmeGlance from "../../images/programme-glance.png"
-import mixguest1 from "../../images/mix-guest-1.jpg"
-import mixguest2 from "../../images/mix-guest-2.jpg"
-import mixguest3 from "../../images/mix-guest-3.jpg"
-import mixguest4 from "../../images/mix-guest-4.jpg"
+import programmeGlance from "../../images/programme-glance.png";
+import mixguest1 from "../../images/mix-guest-1.jpg";
+import mixguest2 from "../../images/mix-guest-2.jpg";
+import mixguest3 from "../../images/mix-guest-3.jpg";
+import mixguest4 from "../../images/mix-guest-4.jpg";
 import SessionCard from "../SessionCard";
-
-
-
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -49,8 +46,7 @@ const HomePage = () => {
   const [countdownSec, setCountdownSec] = useState("00");
   const [verified, setVerified] = useState(false);
   const [setContactMsg, setSetContactMsg] = useState();
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const navigation = useNavigate();
   let interval = useRef();
@@ -98,38 +94,34 @@ const HomePage = () => {
     email: "",
     phoneNumber: "",
     subject: "",
-    message: ""
+    message: "",
   });
 
   const onSubmit = async (data) => {
     // doSubmit(data)
-    let url = `${baseUrl}contact-us`
+    let url = `${baseUrl}contact-us`;
 
     try {
       const response = await axios.post(url, data, GetHeaders());
       if (response && response?.data?.emailSendStatus) {
-        reset()
-        setSetContactMsg(response?.data?.message)
-        removeContactMsg()
-
+        reset();
+        setSetContactMsg(response?.data?.message);
+        removeContactMsg();
       } else {
         reset();
-        setSetContactMsg(response?.data?.message)
-        removeContactMsg()
-
+        setSetContactMsg(response?.data?.message);
+        removeContactMsg();
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const removeContactMsg = () => {
     setTimeout(() => {
-      setSetContactMsg("")
-    }, 3000)
-  }
-
-
+      setSetContactMsg("");
+    }, 3000);
+  };
 
   const responsive = {
     desktop: {
@@ -149,11 +141,9 @@ const HomePage = () => {
     },
   };
 
-
   const handleAccomodation = () => {
-    window.open('https://43inca.org/accommodation-details', '_blank');
-  }
-
+    window.open("https://43inca.org/accommodation-details", "_blank");
+  };
 
   return (
     <>
@@ -170,31 +160,21 @@ const HomePage = () => {
         </div> */}
         <div className="container-fluid px-0 overflow-hidden">
           <div className="row pb-md-5 h-100 m-0">
-          <div className="col-md-12 d-flex flex-column justify-content-center">
+            <div className="col-md-12 d-flex flex-column justify-content-center">
               <div className="right text-center banner-header">
                 <p className="banner-title f1 text-dark">
                   {/* <span className="banner-small text-white">
                     43<sup>rd</sup> INCA International Congress <br />
                     on
                   </span> */}
-                  <img src={IncaLogo} className="inca-new-logo img-fluid"
-                  />
+                  <img src={IncaLogo} className="inca-new-logo img-fluid" />
 
-                  <p className="head-text mt-2">
-                    Emerging Trends in Digital
-                  </p>
-                  <p className="head-text">
-                    Cartography For Sustainable
-                  </p>
-                  <p className="head-text">
-                    Ecosystems and  Geospatial
-                  </p>
-                  <p className="head-text">
-                    Economy
-                  </p>
-
+                  <p className="head-text mt-2">Emerging Trends in Digital</p>
+                  <p className="head-text">Cartography For Sustainable</p>
+                  <p className="head-text">Ecosystems and Geospatial</p>
+                  <p className="head-text">Economy</p>
                 </p>
-                <div className="banner-bottom"></div>                
+                <div className="banner-bottom"></div>
                 <div className="banner-btn-box pt-2">
                   <button
                     className="me-2 common-btn register-home-btn text-dark"
@@ -212,7 +192,6 @@ const HomePage = () => {
                     target="_blank"
                     onClick={() => handleAccomodation()}
                   >
-
                     <span></span>
                     <span></span>
                     <span></span>
@@ -230,13 +209,17 @@ const HomePage = () => {
                 <div className="banner-btn-box pt-2">
                   <button
                     className=" common-btn register-home-btn text-dark"
-                  // onClick={() => navigation("/register")}
+                    // onClick={() => navigation("/register")}
                   >
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
-                    <a target="_blank" href={updatedInformationBrochure} className="text-dark">
+                    <a
+                      target="_blank"
+                      href={updatedInformationBrochure}
+                      className="text-dark"
+                    >
                       Information Brochure
                     </a>
                   </button>
@@ -245,144 +228,231 @@ const HomePage = () => {
               <div className="row">
                 <div className="col-md-8">
                   <div className="banner-text">
-                  <h5>Organised by : Indian National Cartographic Association</h5>
-<h5>Hosted by: Regional Remote Sensing Centre - West, /NRSC/ISRO, Jodhpur, Rajsthan</h5>
+                    <h5>
+                      Organised by : Indian National Cartographic Association
+                    </h5>
+                    <h5>
+                      Hosted by: Regional Remote Sensing Centre - West,
+                      /NRSC/ISRO, Jodhpur, Rajsthan
+                    </h5>
                   </div>
                 </div>
-            <div className="col-md-4">
-              <div className="count mb-4">
-                <div className="counter-wrapper">
-                  <p id="day" className="common-timer-box common-yellow-color">
-                    {countdownDays}
-                  </p>
-                  <p className="timer-detail">Days</p>
-                </div>
-                <div className="counter-wrapper">
-                  <p
-                    id="hours"
-                    className="common-timer-box common-yellow-color"
-                  >
-                    {countdownHours}
-                  </p>
-                  <p className="timer-detail">Hours</p>
-                </div>
-                <div className="counter-wrapper">
-                  <p
-                    id="minutes"
-                    className="common-timer-box common-yellow-color"
-                  >
-                    {countdownMinutes}
-                  </p>
-                  <p className="timer-detail">Minutes</p>
-                </div>
-                <div className="counter-wrapper">
-                  <p
-                    id="seconds"
-                    className="common-timer-box common-yellow-color"
-                  >
-                    {countdownSec}
-                  </p>
-                  <p className="timer-detail">Seconds</p>
+                <div className="col-md-4">
+                  <div className="count mb-4">
+                    <div className="counter-wrapper">
+                      <p
+                        id="day"
+                        className="common-timer-box common-yellow-color"
+                      >
+                        {countdownDays}
+                      </p>
+                      <p className="timer-detail">Days</p>
+                    </div>
+                    <div className="counter-wrapper">
+                      <p
+                        id="hours"
+                        className="common-timer-box common-yellow-color"
+                      >
+                        {countdownHours}
+                      </p>
+                      <p className="timer-detail">Hours</p>
+                    </div>
+                    <div className="counter-wrapper">
+                      <p
+                        id="minutes"
+                        className="common-timer-box common-yellow-color"
+                      >
+                        {countdownMinutes}
+                      </p>
+                      <p className="timer-detail">Minutes</p>
+                    </div>
+                    <div className="counter-wrapper">
+                      <p
+                        id="seconds"
+                        className="common-timer-box common-yellow-color"
+                      >
+                        {countdownSec}
+                      </p>
+                      <p className="timer-detail">Seconds</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-            </div>
-            
+
             <div className="col-md-12 px-0o0klo0e">
               <section className="mix-guest home-banner-mix-guest">
-                
-                      {/* ----------------carousel copy------------ */}
-                      <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-                        <div className="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label="Slide 2" />
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={2} aria-label="Slide 3" />
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={3} aria-label="Slide 4" />
+                {/* ----------------carousel copy------------ */}
+                <div
+                  id="carouselExampleIndicators"
+                  className="carousel slide"
+                  data-bs-ride="carousel"
+                >
+                  <div className="carousel-indicators">
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to={0}
+                      className="active"
+                      aria-current="true"
+                      aria-label="Slide 1"
+                    />
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to={1}
+                      aria-label="Slide 2"
+                    />
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to={2}
+                      aria-label="Slide 3"
+                    />
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to={3}
+                      aria-label="Slide 4"
+                    />
+                  </div>
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
+                      <div className="mix-guest-card">
+                        <div className="upper">
+                          <h2 className="common-heading  text-center">
+                            Chief Guest and Guests of Honours
+                          </h2>
                         </div>
-                        <div className="carousel-inner">
-                          <div className="carousel-item active">
-
-
-                            <div className="mix-guest-card">
-                              <div className="upper">
-                                <h2 className="common-heading  text-center">
-                                  Chief Guest and Guests of Honours
-                                </h2>
-                              </div>
-                              <div className="lower">
-                                <img src={mixguest3} className="d-block w-100" alt="..." />
-                              </div>
-                            </div>
-
-                          </div>
-                          <div className="carousel-item">
-                            <div className="mix-guest-card">
-                              <div className="upper">
-                                <h2 className="common-heading  text-center">
-                                  Distinguished Speakers for Memorial Lectures
-                                </h2>
-                              </div>
-                              <div className="lower">
-                                <img src={mixguest4} className="d-block w-100" alt="..." />
-                              </div>
-                            </div>
-                          </div>
-                          <div className="carousel-item">
-                            <div className="mix-guest-card">
-                              <div className="upper">
-                                <h2 className="common-heading  text-center">
-                                  Distinguished Speakers for Plenary Sessions
-                                </h2>
-                              </div>
-                              <div className="lower">
-                                <img src={mixguest1} className="d-block w-100" alt="..." />
-                              </div>
-                            </div>
-                          </div>
-                          <div className="carousel-item">
-                            <div className="mix-guest-card">
-                              <div className="upper">
-                                <h2 className="common-heading  text-center">
-                                  Distinguished Speakers for Panel Discussion
-                                </h2>
-                              </div>
-                              <div className="lower">
-                                <img src={mixguest2} className="d-block w-100" alt="..." />
-                              </div>
-                            </div>
-                          </div>
+                        <div className="lower">
+                          <img
+                            src={mixguest3}
+                            className="d-block w-100"
+                            alt="..."
+                          />
                         </div>
-                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                          <span className="carousel-control-prev-icon" aria-hidden="true" >
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path></svg>
-                          </span>
-                          <span className="visually-hidden">Previous</span>
-                        </button>
-                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span className="carousel-control-next-icon" aria-hidden="true">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path></svg>
-                          </span>
-                          <span className="visually-hidden">Next</span>
-                        </button>
                       </div>
+                    </div>
+                    <div className="carousel-item">
+                      <div className="mix-guest-card">
+                        <div className="upper">
+                          <h2 className="common-heading  text-center">
+                            Distinguished Speakers for Memorial Lectures
+                          </h2>
+                        </div>
+                        <div className="lower">
+                          <img
+                            src={mixguest4}
+                            className="d-block w-100"
+                            alt="..."
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="carousel-item">
+                      <div className="mix-guest-card">
+                        <div className="upper">
+                          <h2 className="common-heading  text-center">
+                            Distinguished Speakers for Plenary Sessions
+                          </h2>
+                        </div>
+                        <div className="lower">
+                          <img
+                            src={mixguest1}
+                            className="d-block w-100"
+                            alt="..."
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="carousel-item">
+                      <div className="mix-guest-card">
+                        <div className="upper">
+                          <h2 className="common-heading  text-center">
+                            Distinguished Speakers for Panel Discussion
+                          </h2>
+                        </div>
+                        <div className="lower">
+                          <img
+                            src={mixguest2}
+                            className="d-block w-100"
+                            alt="..."
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    className="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      className="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path>
+                      </svg>
+                    </span>
+                    <span className="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    className="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      className="carousel-control-next-icon"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>
+                      </svg>
+                    </span>
+                    <span className="visually-hidden">Next</span>
+                  </button>
+                </div>
 
-                      {/* ---------------carousel end------------
-                     */}
-                 
+                {/* ---------------carousel end------------
+                 */}
               </section>
-            </div>           
+            </div>
           </div>
-          
+
           <section className="abstract-date">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12">
                   <div className="abstract-submission-date">
                     <marquee>
-                      <p className="text-white">Registration still open with late fee &nbsp; &nbsp;&nbsp;&nbsp;<a target="_blank" href={`https://docs.google.com/viewer?url=https://43inca.org/Template_43inca_manuscript.docx`}>
-
-                        </a></p></marquee>
+                      <p className="text-white">
+                        Registration still open with late fee &nbsp;
+                        &nbsp;&nbsp;&nbsp;
+                        <a
+                          target="_blank"
+                          href={`https://docs.google.com/viewer?url=https://43inca.org/Template_43inca_manuscript.docx`}
+                        ></a>
+                      </p>
+                    </marquee>
                     {/* <b>"MS Word Template for Full Paper Submission"</b> */}
                   </div>
                 </div>
@@ -426,17 +496,41 @@ const HomePage = () => {
           <div className="row">
             <div className="col-lg-12 mx-auto">
               {/* ----------------carousel copy------------ */}
-              <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+              <div
+                id="carouselExampleIndicators"
+                className="carousel slide"
+                data-bs-ride="carousel"
+              >
                 <div className="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label="Slide 2" />
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={2} aria-label="Slide 3" />
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={3} aria-label="Slide 4" />
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to={0}
+                    className="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to={1}
+                    aria-label="Slide 2"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to={2}
+                    aria-label="Slide 3"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to={3}
+                    aria-label="Slide 4"
+                  />
                 </div>
                 <div className="carousel-inner">
                   <div className="carousel-item active">
-
-
                     <div className="mix-guest-card">
                       <div className="upper">
                         <h2 className="common-heading  text-center">
@@ -444,10 +538,13 @@ const HomePage = () => {
                         </h2>
                       </div>
                       <div className="lower">
-                        <img src={mixguest3} className="d-block w-100" alt="..." />
+                        <img
+                          src={mixguest3}
+                          className="d-block w-100"
+                          alt="..."
+                        />
                       </div>
                     </div>
-
                   </div>
                   <div className="carousel-item">
                     <div className="mix-guest-card">
@@ -457,7 +554,11 @@ const HomePage = () => {
                         </h2>
                       </div>
                       <div className="lower">
-                        <img src={mixguest4} className="d-block w-100" alt="..." />
+                        <img
+                          src={mixguest4}
+                          className="d-block w-100"
+                          alt="..."
+                        />
                       </div>
                     </div>
                   </div>
@@ -469,7 +570,11 @@ const HomePage = () => {
                         </h2>
                       </div>
                       <div className="lower">
-                        <img src={mixguest1} className="d-block w-100" alt="..." />
+                        <img
+                          src={mixguest1}
+                          className="d-block w-100"
+                          alt="..."
+                        />
                       </div>
                     </div>
                   </div>
@@ -481,31 +586,71 @@ const HomePage = () => {
                         </h2>
                       </div>
                       <div className="lower">
-                        <img src={mixguest2} className="d-block w-100" alt="..." />
+                        <img
+                          src={mixguest2}
+                          className="d-block w-100"
+                          alt="..."
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span className="carousel-control-prev-icon" aria-hidden="true" >
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path></svg>
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 512 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path>
+                    </svg>
                   </span>
                   <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span className="carousel-control-next-icon" aria-hidden="true">
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path></svg>
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next"
+                >
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 512 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>
+                    </svg>
                   </span>
                   <span className="visually-hidden">Next</span>
                 </button>
               </div>
 
               {/* ---------------carousel end------------
-                     */}
+               */}
             </div>
           </div>
         </div>
-        <SessionCard/>
+        <SessionCard />
       </section>
 
       <div className="Welcome-page">
@@ -516,24 +661,23 @@ const HomePage = () => {
             </div>
             <div className="col-md-12 text-center">
               <div className="welcome-text pt-4">
-                <p className="common-para text-justify">Distinguished Speakers for Plenary Sessions
-                  The event is being hosted by 
-                  National Remote Sensing Centre.
-                  National Remote Sensing Centre a key functionary of
-                  Indian Space Research Organisation (ISRO), is striving to
-                  realize the Indian Space Vision through Earth Observation. It
-                  is responsible for the ground segment of Remote Sensing
-                  Programme through satellite data acquisition, archival,
-                  processing, dissemination, remote sensing applications,
-                  training and capacity building. It also provides aerial
-                  services in the civilian sector for the country. NRSC has five
-                  Regional Centres located at Bangalore, Nagpur, Kolkata, New
-                  Delhi and Jodhpur to address region/area specific remote
-                  sensing application needs. NRSC is continuously exploring the
-                  practical use of remote sensing for societal applications and
-                  disaster management through multilevel initiatives,
-                  development of value-added data services and remote sensing
-                  applications.
+                <p className="common-para text-justify">
+                  Distinguished Speakers for Plenary Sessions The event is being
+                  hosted by National Remote Sensing Centre. National Remote
+                  Sensing Centre a key functionary of Indian Space Research
+                  Organisation (ISRO), is striving to realize the Indian Space
+                  Vision through Earth Observation. It is responsible for the
+                  ground segment of Remote Sensing Programme through satellite
+                  data acquisition, archival, processing, dissemination, remote
+                  sensing applications, training and capacity building. It also
+                  provides aerial services in the civilian sector for the
+                  country. NRSC has five Regional Centres located at Bangalore,
+                  Nagpur, Kolkata, New Delhi and Jodhpur to address region/area
+                  specific remote sensing application needs. NRSC is
+                  continuously exploring the practical use of remote sensing for
+                  societal applications and disaster management through
+                  multilevel initiatives, development of value-added data
+                  services and remote sensing applications.
                 </p>
                 <p className="common-para text-justify">
                   Regional Remote Sensing Centre-West (RRSC-West), Jodhpur is
@@ -566,9 +710,13 @@ const HomePage = () => {
                   <p className="common-para">
                     <b>
                       {" "}
-                      <h5 className="right-text">Regional Remote Sensing Centre (RRSC)-West</h5> National Remote
-                      Sensing Centre (NRSC)<br />
-                      Indian Space Research organisation (ISRO)<br />
+                      <h5 className="right-text">
+                        Regional Remote Sensing Centre (RRSC)-West
+                      </h5>{" "}
+                      National Remote Sensing Centre (NRSC)
+                      <br />
+                      Indian Space Research organisation (ISRO)
+                      <br />
                       Bypass Road, Sector 9<br />
                       Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
@@ -576,8 +724,8 @@ const HomePage = () => {
                     <b>Jodhpur – 342005</b>
                   </p>
                 </div>
-              </div></div>
-
+              </div>
+            </div>
 
             <div className="col-lg-4">
               <div className="home-about-event-card">
@@ -606,12 +754,14 @@ const HomePage = () => {
                   <h2 className="h2">Schedule of the Event</h2>
                   <Link className="common-para pb-3" to="/importantdates">
                     <b>Click here to know details.</b>
-
-                  </Link><br />
+                  </Link>
+                  <br />
                   <p className="common-para mb-0">
-                    <b>Final Abstract Submission Deadline</b></p>
+                    <b>Final Abstract Submission Deadline</b>
+                  </p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="">Register Now</b></p>
+                    <b className="">Register Now</b>
+                  </p>
                   {/* <p className="common-para pb-3"> */}
                   {/* <b>25/August/2023</b></p>  */}
                   {/* <p className="common-para">
@@ -645,9 +795,13 @@ const HomePage = () => {
                   <p className="common-para">
                     <b>
                       {" "}
-                      <h5 className="right-text">Regional Remote Sensing Centre (RRSC)-West</h5> National Remote
-                      Sensing Centre (NRSC)<br />
-                      Indian Space Research organisation (ISRO)<br />
+                      <h5 className="right-text">
+                        Regional Remote Sensing Centre (RRSC)-West
+                      </h5>{" "}
+                      National Remote Sensing Centre (NRSC)
+                      <br />
+                      Indian Space Research organisation (ISRO)
+                      <br />
                       Bypass Road, Sector 9<br />
                       Kudi Bhagtasani Housing Board (KBHB)
                     </b>{" "}
@@ -686,9 +840,11 @@ const HomePage = () => {
                     Click here to know details.
                   </Link>
                   <p className="common-para mb-0">
-                    <b>Final Abstract Submission Deadline</b></p>
+                    <b>Final Abstract Submission Deadline</b>
+                  </p>
                   <p className="common-para pb-1 mb-0">
-                    <b className="">Register Now</b></p>
+                    <b className="">Register Now</b>
+                  </p>
                   {/* <p className="common-para pb-3">
                     <b>25/August/2023</b></p>  */}
                 </div>
@@ -1014,8 +1170,8 @@ const HomePage = () => {
               infinite={true}
               autoPlay={true}
               autoPlaySpeed={3000}
-            // keyBoardControl={true}
-            // transitionDuration={500}
+              // keyBoardControl={true}
+              // transitionDuration={500}
             >
               <div className="member-profile">
                 <div className="speaker-card">
@@ -2763,7 +2919,10 @@ const HomePage = () => {
             <div className="col-lg-3">
               <div className="blog-card">
                 <a target="_blank" href={updatedInformationBrochure}>
-                  <div className="blog-card-pic" style={{ borderRadius: '0px !important!' }}>
+                  <div
+                    className="blog-card-pic"
+                    style={{ borderRadius: "0px !important!" }}
+                  >
                     <img src={Second} alt="Second-Circular"></img>
                   </div>
                 </a>
@@ -2931,7 +3090,6 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
                   <div className="col-md-6">
@@ -2959,7 +3117,9 @@ const HomePage = () => {
                           required: "Email Address is required",
                         })}
                       />
-                      {errors.email && <p className="text-danger">Email is required</p>}
+                      {errors.email && (
+                        <p className="text-danger">Email is required</p>
+                      )}
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -2983,7 +3143,9 @@ const HomePage = () => {
                         placeholder="Subject.."
                         {...register("subject", { required: true })}
                       />
-                      {errors.subject && <p className="text-danger">Subject is required</p>}
+                      {errors.subject && (
+                        <p className="text-danger">Subject is required</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -3000,9 +3162,10 @@ const HomePage = () => {
                   <Captcha captchaLength={6} setVerified={setVerified} />
                 </div>
 
-
                 <div className="contact-btn">
-                  <button disabled={!verified} className="common-btn mb-3">Send Message</button>
+                  <button disabled={!verified} className="common-btn mb-3">
+                    Send Message
+                  </button>
                 </div>
 
                 <div className="mt-2 mb-2">
