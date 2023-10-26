@@ -28,7 +28,6 @@ const UserAbstractList = () => {
   const [submitFullPaper, setSubmitFullPaper] = useState(false);
 
   const accept = () => {
-    console.log("this is id", currentId)
     deleteAbstractDetails(currentId);
   };
 

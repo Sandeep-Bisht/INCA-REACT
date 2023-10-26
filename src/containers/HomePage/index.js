@@ -398,7 +398,7 @@ const HomePage = () => {
           </section>
         </div>
       </div>
-      <section className="programme-glance section-padding">
+      {/* <section className="programme-glance section-padding">
         <div className="container-fluid">
           <div className="container-fluid">
             <div className="row">
@@ -427,7 +427,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="mix-guest">
         <div className="container d-none">
           <div className="row">
