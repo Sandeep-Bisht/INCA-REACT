@@ -132,16 +132,10 @@ const FullPaperList = () => {
     );
   };
 
-  // let redirectToFullPaperPreviewPage = (item) => {
-  //   console.log(item, "item to see pdf")
-  //   //navigate("/dashboard/fullPaperpreview", { state: item });
-  // };
 
   let openPdf = (item) => {
     if (item) {
       let filePath = `http://43inca.org/${item.fullPaperFileUrl}`;
-      // let filePath = `http://localhost:4801/${item.fullPaperFileUrl}`;
-      // let filePath = location.state.fullPaperFileUrl
       filePath = filePath.replace("\\", "/");
 
       setViewPdf(filePath);
@@ -155,9 +149,6 @@ const FullPaperList = () => {
   const actionBodyTemplate = (node, column) => {
     return (
       <>
-        {/* <a target="_blank" href={viewPdf} onClick={() => openPdf(node)}>
-         Download
-        </a> */}
         <button className="action-btn" onClick={()=>handleDownload(node.fullPaperFileUrl)}>Download File</button>
         
       </>
@@ -187,18 +178,6 @@ const FullPaperList = () => {
       </>
     )
   }
-
-  //   const statusBodyTemplate = (node) => {
-  //     return (
-  //       <>
-  //         {node.paperApproveStatus
-  //           ? "Approved"
-  //           : node.paperApproveStatus == null
-  //           ? "Pending"
-  //           : "Reject"}
-  //       </>
-  //     );
-  //   };
 
   const header1 = renderHeader1();
 

@@ -149,7 +149,6 @@ const AbstractDocumentList = () => {
   };
 
   const viewAbstractDocument = (node) => {
-    // console.log("Nodeeeeeeee", node)
   }
 
   const abstractBodyTemplate = (node) => {

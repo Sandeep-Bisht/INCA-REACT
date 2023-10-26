@@ -31,12 +31,6 @@ function ExhibitorForm() {
   const [message, setMessage] = useState("")
   const [verified, setVerified] = useState(false);
 
-  // let exibitionOnChangeHandler = (e) => {
-  //     let exhibitorPayloadCopy = {...exhibitorPayload}
-  //     exhibitorPayloadCopy[e.target.name] = e.target.value
-  //     setExhibitorPayload(exhibitorPayloadCopy)
-  // }
-
   let phoneNumberInputHandler = (mobile) => {
     setMobile(mobile);
   };
@@ -47,9 +41,7 @@ function ExhibitorForm() {
     checkValidation();
     if (validateForm()) {
     exhibitorPayload.mobile = mobile;
-    // console.log("before api ", exhibitorPayload)
     delete exhibitorPayload.isError;
-    // console.log("exhibitorPayload exhibitorPayload", exhibitorPayload)
     let url = `${baseUrl}exhibitor`
         try {
           let response = await axios.post(url, exhibitorPayload);
