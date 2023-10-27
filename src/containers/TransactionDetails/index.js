@@ -68,8 +68,6 @@ function TransactionDetails() {
       transactionDetailsCopy.userId = state.loggedInUserSuccess[0]._id;
       setTransactionDetails(transactionDetailsCopy);
       setRegistrationFeeData(state.loggedInUserSuccess[0]);
-      //   setIsDisabled(true);
-      //   setUserInformation(state.loggedInUserSuccess[0]);
     }
   }, [state.loggedInUserSuccess]);
 

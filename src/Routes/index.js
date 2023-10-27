@@ -8,6 +8,7 @@ import ExhibitorList from "../containers/ExhibitorList";
 import FullPaperPreview from "../FullPaperPreview";
 import ResetPassword from "../containers/ResetPassword";
 import FullPaperInstruction from "../components/FullPaperInstruction/FullPaperInstruction";
+import Presentation from "../containers/Presentation";
 // import RegistrationDetails from "../components/RegistrationDetails/RegistrationDetails";
 
 const PreviewPaper = lazy(() => import("../containers/PreviewPaper"))
@@ -109,7 +110,8 @@ export const ApplicationRoutes = ({ path }) => {
               <Route path="/dashboard/fullPaperpreview" element={<FullPaperPreview />} />
               <Route path="/dashboard/fullPaper" element={<FullPaper />} /> 
               <Route path="/dashboard/fullPaperList" element={<FullPaperList />} />
-              <Route path ="/dashboard/exhibitorlist" element={<ExhibitorList />}/>     
+              <Route path ="/dashboard/exhibitorlist" element={<ExhibitorList />}/>  
+              <Route path ="/dashboard/presentation" element={<Presentation />} />   
               {/* <Route path="/dashboard/registration-details" element={< RegistrationDetails />} /> */}
                    
             

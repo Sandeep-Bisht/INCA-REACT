@@ -220,6 +220,20 @@ const Dashboard = (props) => {
                            Registration Fee
                          </button>
                        </li>
+
+                       <li>
+                         <button
+                           className="common-blue btn"
+                           onClick={() =>
+                             navigate("/dashboard/presentation")
+                           }
+                         >
+                           <span className="me-2">
+                             <i className="fa-solid fa-user-plus"></i>
+                           </span>
+                           Presentation
+                         </button>
+                       </li>
                      
                      
                     </ul>
