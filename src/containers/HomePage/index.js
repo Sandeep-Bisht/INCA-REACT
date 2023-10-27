@@ -321,10 +321,15 @@ const HomePage = () => {
                   </div>
                   <div className="abstract-submission-date">
                     <marquee>
-                      <p className="text-white">
-                      Important note: Delegates are not permitted to bring their laptop/pen drive to the venue.
-                        
+                       <a
+                          href="/login"
+                        >
+                          <p className="text-white">
+                      Important note: Delegates are not permitted to bring their laptop/pen drive to the venue. (Please login to submit your presentation)
+                       
                       </p>
+                        </a>
+                      
                     </marquee>
                     {/* <b>"MS Word Template for Full Paper Submission"</b> */}
                   </div>
