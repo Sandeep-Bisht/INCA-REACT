@@ -184,7 +184,7 @@ const HomePage = () => {
                 </p>
                 <div className="banner-bottom"></div>
                 <div className="banner-btn-box pt-2">
-                  <button
+                  {/* <button
                     className="me-2 common-btn register-home-btn text-dark"
                     onClick={() => navigation("/register")}
                   >
@@ -193,7 +193,7 @@ const HomePage = () => {
                     <span></span>
                     <span></span>
                     REGISTER
-                  </button>
+                  </button> */}
 
                   <button
                     className=" common-btn register-home-btn text-dark"
@@ -307,22 +307,17 @@ const HomePage = () => {
             </div>
 
             <div className="col-md-12 mb-4">
-                  <div className="abstract-submission-date mb-3">
+                  <div className="abstract-submission-date abstract-submission-date-marquee-1 mb-3">
                     <marquee>
                       <p className="text-white">
                         Because of the overwhelming response, the registration for the Conference has between
                         stopped. Spot registration facility will also not be provided. &nbsp;
-                        &nbsp;&nbsp;&nbsp;
-                        <a
-                          target="_blank"
-                          href={`https://docs.google.com/viewer?url=https://43inca.org/Template_43inca_manuscript.docx`}
-                        ></a>
+                        &nbsp;&nbsp;&nbsp;                       
                       </p>
                     </marquee>
-                    {/* <b>"MS Word Template for Full Paper Submission"</b> */}
                   </div>
-                  <div className="abstract-submission-date">
-                    <marquee>
+                  <div className="abstract-submission-date abstract-submission-date-marquee-2">
+                    <marquee classNamemt="mt-3">
                        <a
                           href="/login"
                         >
@@ -333,7 +328,6 @@ const HomePage = () => {
                         </a>
                       
                     </marquee>
-                    {/* <b>"MS Word Template for Full Paper Submission"</b> */}
                   </div>
                 </div>
 
@@ -2689,9 +2683,9 @@ const HomePage = () => {
                           {/* <p> Get your Conference Pass </p> */}
                           <button
                             className=" common-btn"
-                            onClick={() => navigation("/register")}
+                            onClick={() => navigation("/login")}
                           >
-                            Registration
+                            Login
                           </button>
                         </div>
                       </div>

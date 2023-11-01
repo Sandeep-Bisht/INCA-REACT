@@ -152,7 +152,7 @@ const Login = () => {
                   {message && <p className="text-danger">{message}</p>}
 
 
-                  <div className="end-wrap mt-3">
+                  {/* <div className="end-wrap mt-3">
                     <p className="common-para">
                       Not registered yet?
                       <Link
@@ -162,7 +162,7 @@ const Login = () => {
                         Register now
                       </Link>
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
