@@ -628,6 +628,8 @@ const CreateForm = (props) => {
   return (
     <div className="main">
       <div className="form-section">
+        {userInformation && userInformation.registrationNumber ? (
+          <>
         <form
           onSubmit={(e) => {
             location && location.state && location.state.mode === "edit"
@@ -1236,6 +1238,9 @@ const CreateForm = (props) => {
           {/* {qrInfo !== undefined ? <QRCodeSVG value={qrInfo} /> : ""} */}
           </div>
         </form>
+        </>
+        ) : <h2>Registration has been closed</h2>
+            }
       </div>
     </div>
   );

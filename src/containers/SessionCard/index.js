@@ -31,7 +31,7 @@ import Day3_TechSess5_D from "../../SampleFiles/Day3_TechSess5_D.pdf";
 import Poster_Presentation from "../../SampleFiles/Posters_43INCA.pdf";
 
 import SessionCardImage from "../../SampleFiles/WhatsApp Image 2023-10-22 at 4.24.37 PM.jpeg";
-import ProgramAtGlance from "../../SampleFiles/a3_Program_Sch_(Orginal).png"
+import ProgramAtGlance from "../../SampleFiles/Agenda_Short.png"
 
 
 const SessionCard = () => {

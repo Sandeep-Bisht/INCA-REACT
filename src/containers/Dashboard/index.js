@@ -191,7 +191,7 @@ const Dashboard = (props) => {
                         </button>
                       </li>
                       <>
-                        <li>
+                        {/* <li>
                           <button
                             className="common-blue btn"
                             onClick={() =>
@@ -203,7 +203,7 @@ const Dashboard = (props) => {
                             </span>
                             Registration Details
                           </button>
-                        </li>
+                        </li> */}
                       </>
                     
                       

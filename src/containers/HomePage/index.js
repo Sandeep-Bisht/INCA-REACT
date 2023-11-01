@@ -32,11 +32,12 @@ import homepageBackgroundVideo from "../../video/INCA-video.mp4";
 import IncaLogo from "../../images/43inca_LOGO1.png";
 import programmeGlance from "../../images/programme-glance.png";
 import mixguest1 from "../../images/mix-guest-1.jpg";
-import mixguest2 from "../../images/mix-guest-2.jpg";
+import mixguest2 from "../../images/4_Panel_discussion.jpg";
 import mixguest3 from "../../images/mix-guest-3.jpg";
 import mixguest4 from "../../images/mix-guest-4.jpg";
 import SessionCard from "../SessionCard";
-import DetailedProgram from "../../SampleFiles/Website_Program_Booklet.pdf"
+import DetailedProgram from "../../SampleFiles/Website_Program_Booklet.pdf";
+import sponsors from "../../images/Sponsors_Logos_.png"
 
 const HomePage = () => {
   const [showEvents, setShowEvents] = useState("1nov");
@@ -309,7 +310,8 @@ const HomePage = () => {
                   <div className="abstract-submission-date mb-3">
                     <marquee>
                       <p className="text-white">
-                        Registration still open with late fee &nbsp;
+                        Because of the overwhelming response, the registration for the Conference has between
+                        stopped. Spot registration facility will also not be provided. &nbsp;
                         &nbsp;&nbsp;&nbsp;
                         <a
                           target="_blank"
@@ -436,6 +438,22 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
+                    <div className="carousel-item">
+                    <div className="mix-guest-card">
+                      <div className="upper">
+                        <h2 className="common-heading  text-center">
+                        Sponsors and Exhibitors
+                        </h2>
+                      </div>
+                      <div className="lower">
+                        <img
+                          src={sponsors}
+                          className="d-block w-100"
+                          alt="..."
+                        />
+                      </div>
+                    </div>
+                  </div>
                   </div>
                   <button
                     className="carousel-control-prev"
@@ -629,6 +647,7 @@ const HomePage = () => {
                       </div>
                     </div>
                   </div>
+                  
                 </div>
                 <button
                   className="carousel-control-prev"
