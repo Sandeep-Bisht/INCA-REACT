@@ -176,7 +176,7 @@ geospatial economy
             </div>
           </div>
 
-          <div className="row">
+          {/* <div className="row">
             <div className="col-md-12">
               <div className="register-btn d-flex justify-content-center pt-3">
                 <button
@@ -187,7 +187,7 @@ geospatial economy
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />

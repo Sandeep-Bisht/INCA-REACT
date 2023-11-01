@@ -112,7 +112,7 @@ function AbstractPage() {
             <div className="col-md-12 d-flex justify-content-center pb-5">
               <button
                 className="common-btn"
-                onClick={() => navigation("/register")}
+                onClick={() => navigation("/login")}
               >
                 Submit Full Paper
               </button>

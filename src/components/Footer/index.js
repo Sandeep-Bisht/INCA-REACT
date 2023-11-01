@@ -58,7 +58,7 @@ export const Footer = () => {
                 <h5>Other Pages</h5>
                 <ul>
                   <li>
-                    <Link className="nav-link text-white ps-0" to="/register">
+                    <Link className="nav-link text-white ps-0" to="/">
                       Delegate Registration
                     </Link>
                   </li>

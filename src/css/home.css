@@ -1245,9 +1245,17 @@ a{
         height: 26px;
         letter-spacing: 1px;
         position: absolute;
-        bottom: 100px;
+        /* bottom: 100px; */
         left: 0;
         width: 100%;
+    }
+    .abstract-submission-date-marquee-1{
+        bottom: -39px!important;      
+       
+    }
+    .abstract-submission-date-marquee-2{
+        bottom: -77px!important;      
+       
     }
 
     .home-banner .container-home .inca-new-logo {
@@ -1344,9 +1352,17 @@ a{
         height: 26px;
         letter-spacing: 1px;
         position: absolute;
-        bottom: 90px;
+        /* bottom: 90px; */
         left: 0;
         width: 100%;
+    }
+    .abstract-submission-date-marquee-1{
+        bottom: -39px!important;      
+       
+    }
+    .abstract-submission-date-marquee-2{
+        bottom: -77px!important;      
+       
     }
     
 }
@@ -1367,9 +1383,17 @@ a{
         height: 26px;
         letter-spacing: 1px;
         position: absolute;
-        bottom: 62px;
+        /* bottom: 62px; */
         left: 0;
         width: 100%;
+    }
+    .abstract-submission-date-marquee-1{
+        bottom: -39px!important;      
+       
+    }
+    .abstract-submission-date-marquee-2{
+        bottom: -77px!important;      
+       
     }
 }
 @media only screen and (max-width : 767px) {
@@ -1393,6 +1417,14 @@ a{
         margin-bottom: -4px!important;
         left: 0;
         width: 100%;
+    }
+    .abstract-submission-date-marquee-1{
+        bottom: -39px!important;      
+       
+    }
+    .abstract-submission-date-marquee-2{
+        bottom: -77px!important;      
+       
     }
 
     .home-banner .right .banner-title .banner-small {
@@ -2129,13 +2161,21 @@ a{
         /* margin-bottom: 23px; */
     }
     .abstract-submission-date {
+        margin-top: 40px!important;
         background: #0a0a0a8f;
         height: 28px;
         letter-spacing: 1px;
         position: absolute;
-        bottom: 74px;
         left: 0;
         width: 100%;
+    }
+    .abstract-submission-date-marquee-1{
+        bottom: -39px!important;      
+       
+    }
+    .abstract-submission-date-marquee-2{
+        bottom: -77px!important;      
+       
     }
     .common-btn {
         margin-bottom: 29px!important;
