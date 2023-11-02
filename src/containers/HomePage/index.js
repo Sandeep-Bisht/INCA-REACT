@@ -310,7 +310,7 @@ const HomePage = () => {
                   <div className="abstract-submission-date abstract-submission-date-marquee-1 mb-3">
                     <marquee>
                       <p className="text-white">
-                        Because of the overwhelming response, the registration for the Conference has bitween
+                        Because of the overwhelming response, the registration for the Conference has been
                         stopped. Spot registration facility will also not be provided. &nbsp;
                         &nbsp;&nbsp;&nbsp;                       
                       </p>
