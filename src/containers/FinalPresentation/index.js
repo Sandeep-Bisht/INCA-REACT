@@ -163,7 +163,7 @@ const FinalPresentation = () => {
   };
 
   const actionBodyTemplate = (node, column) => {
-    
+
     return (
       <>
         <button className="action-btn" onClick={()=>handleDownload(node.path)}>Download File</button>
@@ -185,12 +185,12 @@ const FinalPresentation = () => {
   };
 
   const viewBodyTemplate = (node) => {
-    console.log(node ,'node is this')
+    node['fullPaperFileUrl'] = node.path;
     return(
       <>
       <button
           className="action-btn d-contents"
-          onClick={() => redirectToFullPaperPreviewPage({...node,fullPaperFileUrl:node.path})}
+          onClick={() => redirectToFullPaperPreviewPage(node)}
         >
           <i className="fa-solid fa-file-pdf  fs-4"></i>
         </button>
