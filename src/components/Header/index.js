@@ -102,6 +102,9 @@ export const Header = () => {
                         Login
                       </Link>
                     </li>
+                    <li>
+                      <a className="nav-link " href="https://youtube.com/live/jtGeydck-ds?feature=share" target="_blank" style="color:#00b0f0!important">Live Feed</a>
+                    </li>
                     {/* <li className="nav-item">
                       <Link className="nav-link" to="/register">
                         Register
