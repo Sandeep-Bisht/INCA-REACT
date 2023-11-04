@@ -391,6 +391,23 @@ const Dashboard = (props) => {
                         </li>
                       </>
                     )}
+                    {loggedInUser.role == "admin" && (
+                      <>
+                        <li>
+                          <button
+                            className="common-blue btn"
+                            onClick={() =>
+                              navigate("/dashboard/final-presentation")
+                            }
+                          >
+                            <span className="me-2">
+                              <i className="fa-solid fa-users"></i>
+                            </span>
+                            Final Presentation
+                          </button>
+                        </li>
+                      </>
+                    )}
 
                     {loggedInUser.role !== "admin"  && (
                       <>
