@@ -254,11 +254,11 @@ const FinalPresentation = () => {
                 header="Document"
                 body={actionBodyTemplate}
               ></Column>
-              <Column
+              {/* <Column
                 field="View"
                 header="View"
                 body={viewBodyTemplate}
-              ></Column>
+              ></Column> */}
             </DataTable>
           </div>
         </>
