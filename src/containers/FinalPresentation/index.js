@@ -163,6 +163,7 @@ const FinalPresentation = () => {
   };
 
   const actionBodyTemplate = (node, column) => {
+    
     return (
       <>
         <button className="action-btn" onClick={()=>handleDownload(node.path)}>Download File</button>
@@ -179,15 +180,17 @@ const FinalPresentation = () => {
     // link.target = '_blank'; // Optional: Open the link in a new tab
     // link.download =  `http://localhost:4801/${fileUrl}`;  // Customize the downloaded file name (optional)
     link.download = `https://43inca.org/app//${fileUrl}`
+    console.log(link,'link is this.')
     link.click();
   };
 
   const viewBodyTemplate = (node) => {
+    console.log(node ,'node is this')
     return(
       <>
       <button
           className="action-btn d-contents"
-          onClick={() => redirectToFullPaperPreviewPage(node)}
+          onClick={() => redirectToFullPaperPreviewPage({...node,fullPaperFileUrl:node.path})}
         >
           <i className="fa-solid fa-file-pdf  fs-4"></i>
         </button>
